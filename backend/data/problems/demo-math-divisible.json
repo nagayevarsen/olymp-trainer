@@ -46,8 +46,10 @@
     "answer_max_decimals": 2,
     "verification": {
       "reproduces_original": true,
-      "cross_checked": false,
-      "checked_by": []
+      "cross_checked": true,
+      "checked_by": [
+        "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free"
+      ]
     }
   },
   "hints": {
