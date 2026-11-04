@@ -1,0 +1,19 @@
+{
+  "id": "vsesib-qualifying-2021-math8-8-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Треугольник с медианой",
+  "statement": "Дан треугольник ABC с углом BAC, равным 30°. В этом треугольнике провели медиану BD, и оказалось, что угол BDC равен 45°. Найдите угол ABC.",
+  "answer": {
+    "value": 45.0,
+    "unit": "°"
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2021,
+    "stage": "qualifying",
+    "grade": 8,
+    "number": 4,
+    "url": "https://sesc.nsu.ru/upload/iblock/90b/Решения и критерии проверки. 8 класс.pdf"
+  }
+}

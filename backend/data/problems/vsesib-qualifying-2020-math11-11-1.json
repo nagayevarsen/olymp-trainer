@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-qualifying-2020-math11-11-1",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "НОК одиннадцати чисел",
+  "statement": "Сумма 11 натуральных чисел равна 441. Найти минимальное значение, которое может принимать наименьшее общее кратное всех этих чисел",
+  "answer": {
+    "value": 42.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2020,
+    "stage": "qualifying",
+    "grade": 11,
+    "number": 1,
+    "url": "https://sesc.nsu.ru/upload/iblock/048/2019_1_math_s.pdf"
+  }
+}

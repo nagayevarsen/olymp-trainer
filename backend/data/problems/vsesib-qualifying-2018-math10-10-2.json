@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-qualifying-2018-math10-10-2",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Пятизначные числа",
+  "statement": "Найти количество всех пятизначных чисел $\\overline{abcde}$, все цифры которых различны и $a<b<c>d>e$.",
+  "answer": {
+    "value": 1134.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2018,
+    "stage": "qualifying",
+    "grade": 10,
+    "number": 2,
+    "url": "https://sesc.nsu.ru/upload/iblock/fc8/2017_2_math_s.pdf"
+  }
+}

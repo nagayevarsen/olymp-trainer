@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-qualifying-2022-math10-10-5",
+  "subject": "math",
+  "topic": "Неравенства",
+  "title": "Максимум циклической суммы",
+  "statement": "Найти максимальное значение суммы $x_1(1 - x_2) + x_2(1 - x_3) + \\dots + x_6(1 - x_7) + x_7(1 - x_1)$ для произвольных чисел $x_1, x_2, \\dots, x_7$ из интервала $[0,1]$.",
+  "answer": {
+    "value": 3.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2022,
+    "stage": "qualifying",
+    "grade": 10,
+    "number": 5,
+    "url": "https://sesc.nsu.ru/upload/iblock/1ad/10 класс_решения_дистант_решения.pdf"
+  }
+}

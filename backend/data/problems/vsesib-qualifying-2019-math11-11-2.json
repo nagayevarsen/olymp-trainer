@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-qualifying-2019-math11-11-2",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Пятизначные числа",
+  "statement": "Найти количество пятизначных чисел, содержащих в записи две цифры, одна из которых делится нацело на другую.",
+  "answer": {
+    "value": 89760.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2019,
+    "stage": "qualifying",
+    "grade": 11,
+    "number": 2,
+    "url": "https://sesc.nsu.ru/upload/iblock/508/2018_1_math_s.pdf"
+  }
+}

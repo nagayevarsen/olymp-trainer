@@ -1,0 +1,19 @@
+{
+  "id": "vsesib-qualifying-2024-math9-9-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Угол треугольника ABC",
+  "statement": "В треугольнике $ABC$ точка $M$ — середина стороны $AB$, а $E$ — точка на стороне $BC$ такая, что $BE:EC=2:1$. Известно, что углы $AMC$ и $BAE$ равны. Найдите угол $BAC$.",
+  "answer": {
+    "value": 90.0,
+    "unit": "°"
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2024,
+    "stage": "qualifying",
+    "grade": 9,
+    "number": 3,
+    "url": "https://sesc.nsu.ru/upload/iblock/e3e/3lt37dvg877s0gcy9omw3atw629286oj/РЕШЕНИЯ 9 кл.pdf"
+  }
+}

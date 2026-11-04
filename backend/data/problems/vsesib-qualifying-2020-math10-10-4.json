@@ -1,0 +1,19 @@
+{
+  "id": "vsesib-qualifying-2020-math10-10-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Угол В по биссектрисам",
+  "statement": "В треугольнике АВС отрезки АМ и СР являются биссектрисами углов А и С соответственно, причём АР+СМ=АС. Найдите величину угла В.",
+  "answer": {
+    "value": 60.0,
+    "unit": "°"
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2020,
+    "stage": "qualifying",
+    "grade": 10,
+    "number": 4,
+    "url": "https://sesc.nsu.ru/upload/iblock/048/2019_1_math_s.pdf"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-qualifying-2018-math11-11-5",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Минимальное n в произведении",
+  "statement": "При каком минимальном натуральном $n$ найдутся $n$ различных натуральных чисел $s_1,s_2,\\dots,s_n$ таких, что $\\left(1-\\frac{1}{s_1}\\right)\\left(1-\\frac{1}{s_2}\\right)\\dots\\left(1-\\frac{1}{s_n}\\right)=\\frac{7}{66}$?",
+  "answer": {
+    "value": 9.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2018,
+    "stage": "qualifying",
+    "grade": 11,
+    "number": 5,
+    "url": "https://sesc.nsu.ru/upload/iblock/fc8/2017_2_math_s.pdf"
+  }
+}
