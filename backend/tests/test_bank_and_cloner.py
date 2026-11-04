@@ -75,3 +75,14 @@ def test_all_problem_urls_are_trusted():
 
     for p in BANK.values():
         assert p.source.url is None or is_trusted_url(p.source.url), p.id
+
+
+def test_sources_file_is_clean():
+    import json
+    from pathlib import Path
+
+    data = json.loads((Path(__file__).parent.parent / "data" / "sources.json").read_text(encoding="utf-8"))
+    urls = [s["url"] for s in data["sources"]]
+    assert len(urls) == len(set(urls))
+    assert all("utm_" not in u and u.startswith("https://") for u in urls)
+    assert all(s["kind"] in {"official", "aggregator", "research"} for s in data["sources"])

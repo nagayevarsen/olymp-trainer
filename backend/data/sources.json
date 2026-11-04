@@ -1,11 +1,592 @@
 {
-  "_comment": "Проверенные источники задач. У задачи source.url может вести только на эти сайты (или их поддомены).",
+  "_comment": "Проверенные источники задач. У задачи source.url может вести только на эти сайты (или их поддомены). kind: official — сайт организатора, aggregator — сборник/архив, research — исследовательские задачи без единственного ответа (для автопроверки не подходят).",
   "sources": [
     {
+      "domain": "matol.kz",
+      "name": "MATOL",
+      "url": "https://matol.kz/",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Казахстан",
+      "kind": "aggregator",
+      "note": "Смагуловская, Эйлера, республиканские и международные олимпиады",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "olympiads.bc-pf.org",
+      "name": "Beyond Olympiads",
+      "url": "https://olympiads.bc-pf.org/",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Казахстан",
+      "kind": "aggregator",
+      "note": "Архив разных соревнований",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "daryn.kz",
+      "name": "Дарын",
+      "url": "https://daryn.kz/",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Казахстан",
+      "kind": "official",
+      "note": "Республиканские олимпиады разных классов",
+      "added": "2026-11-04"
+    },
+    {
       "domain": "izho.kz",
-      "name": "Международная Жаутыковская олимпиада (IZhO)",
+      "name": "IZhO — архив заданий",
       "url": "https://izho.kz/contest/problems/",
-      "subjects": ["math", "physics"],
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Казахстан",
+      "kind": "official",
+      "note": "Задания и решения с 2010 года",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "info.zerdeli.app",
+      "name": "Zerdeli — олимпиады",
+      "url": "https://info.zerdeli.app/zerdelitalant/olympiads",
+      "subjects": [
+        "math"
+      ],
+      "region": "Казахстан",
+      "kind": "official",
+      "note": "«Алтын сақа», младшая математика; наличие файлов проверять по году",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "fizmat.kz",
+      "name": "РФМШ",
+      "url": "https://fizmat.kz/",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Казахстан",
+      "kind": "official",
+      "note": "Архивы искать в разделах соревнований",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "olimpiada.ru",
+      "name": "Olimpiada.ru",
+      "url": "https://olimpiada.ru/",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Россия",
+      "kind": "aggregator",
+      "note": "Портал олимпиад и архивных материалов",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "vos.olimpiada.ru",
+      "name": "ВсОШ — задания",
+      "url": "https://vos.olimpiada.ru/tasks",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Классы, годы, этапы",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "olimpiadakurchatov.ru",
+      "name": "Олимпиада «Курчатов» — архив",
+      "url": "https://olimpiadakurchatov.ru/tasks",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Математика 6–11, физика 7–11, условия и решения 2012–2026",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "mos.olimpiada.ru",
+      "name": "Московская олимпиада школьников",
+      "url": "https://mos.olimpiada.ru/",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Архивы по предметам",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "olymp-online.mipt.ru",
+      "name": "Олимпиада «Физтех» — задания",
+      "url": "https://olymp-online.mipt.ru/page/primery-zadanij",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "olymp.mephi.ru",
+      "name": "Олимпиада «Росатом»",
+      "url": "https://olymp.mephi.ru/rosatom/about",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "sesc.nsu.ru",
+      "name": "Всесибирская олимпиада",
+      "url": "https://sesc.nsu.ru/olymp-vsesib/sections/maths/",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Физика в отдельном разделе",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "olymp.msu.ru",
+      "name": "МГУ — олимпиады",
+      "url": "https://olymp.msu.ru/",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Архивы отдельных соревнований",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "pdmi.ras.ru",
+      "name": "Санкт-Петербургская математическая олимпиада",
+      "url": "https://www.pdmi.ras.ru/~olymp/",
+      "subjects": [
+        "math"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Исторический архив",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "pdmi.ras.ru",
+      "name": "Олимпиада имени Эйлера",
+      "url": "https://www.pdmi.ras.ru/~olymp/euler/",
+      "subjects": [
+        "math"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Задания и решения, 8 класс",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "mmo.mccme.ru",
+      "name": "Московская математическая олимпиада",
+      "url": "https://mmo.mccme.ru/",
+      "subjects": [
+        "math"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Архив задач",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "turgor.ru",
+      "name": "Турнир городов",
+      "url": "https://turgor.ru/",
+      "subjects": [
+        "math"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Базовый и сложный варианты",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "olymp.hse.ru",
+      "name": "«Высшая проба» — математика",
+      "url": "https://olymp.hse.ru/mmo/tasks-math",
+      "subjects": [
+        "math"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "7–11 классы, задания и решения 2022–2026",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "olymp.hse.ru",
+      "name": "«Высшая проба» — исторический архив",
+      "url": "https://olymp.hse.ru/mmo/archive",
+      "subjects": [
+        "math"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Сезоны с 2008/09",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "yumsh.ru",
+      "name": "ЮМШ — архив",
+      "url": "https://yumsh.ru/cms/yumsh-olymp/archive",
+      "subjects": [
+        "math"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "dovuz.sfu.ru",
+      "name": "«Бельчонок» — архив",
+      "url": "https://dovuz.sfu.ru/abiturientu-sfu/olimpiady/belchonok/arkhiv/2025-2026-uchebnyy-god/zadaniya-i-otvety-otborochnogo-etapa/",
+      "subjects": [
+        "math"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Задания и ответы",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "dovuz.innopolis.university",
+      "name": "Innopolis Open — математика",
+      "url": "https://dovuz.innopolis.university/innopolis-open/math",
+      "subjects": [
+        "math"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Проверять архив конкретного сезона",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "olymp.hse.ru",
+      "name": "Международная олимпиада молодёжи ВШЭ — математика",
+      "url": "https://olymp.hse.ru/inter/math",
+      "subjects": [
+        "math"
+      ],
+      "region": "Россия",
+      "kind": "official",
+      "note": "Задания прошлых лет и демоверсии",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "imo-official.org",
+      "name": "IMO",
+      "url": "https://www.imo-official.org/problems/",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "note": "Задачи и PDF по годам",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "apmo-official.org",
+      "name": "APMO",
+      "url": "https://www.apmo-official.org/problems",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "note": "Задания и решения с 1989 года",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "egmo.org",
+      "name": "EGMO",
+      "url": "https://www.egmo.org/egmos/",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "note": "С 2012 года",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "rmms.lbi.ro",
+      "name": "Romanian Master of Mathematics",
+      "url": "https://rmms.lbi.ro/",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "igo-official.com",
+      "name": "Iranian Geometry Olympiad",
+      "url": "https://igo-official.com/",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "note": "Геометрия разных уровней",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "itym.org",
+      "name": "ITYM",
+      "url": "https://www.itym.org/",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "research",
+      "note": "Исследовательские задачи без единственного ответа",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "cemc.uwaterloo.ca",
+      "name": "CEMC Waterloo — Past Contests",
+      "url": "https://cemc.uwaterloo.ca/resources/past-contests",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "note": "Варианты и решения за 10 лет",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "ukmt.org.uk",
+      "name": "UKMT — Past Papers",
+      "url": "https://ukmt.org.uk/past-papers",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "note": "Часть старых заданий платная — не брать",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "ukmt.org.uk",
+      "name": "UKMT — Intermediate Mathematical Challenge",
+      "url": "https://ukmt.org.uk/intermediate-challenges/intermediate-mathematical-challenge",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "ukmt.org.uk",
+      "name": "UKMT — Team Maths Challenge",
+      "url": "https://ukmt.org.uk/team-challenges/team-mathematical-challenge",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "ukmt.org.uk",
+      "name": "UKMT — Senior Team Maths Challenge",
+      "url": "https://ukmt.org.uk/team-challenges/senior-team-mathematical-challenge",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "amt.edu.au",
+      "name": "Australian Maths Trust — Past Papers",
+      "url": "https://amt.edu.au/department/past-papers",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "ipho-new.org",
+      "name": "IPhO",
+      "url": "https://www.ipho-new.org/documentations/",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "note": "Задания и решения с 1967 года",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "tpmso.k12ea.gov.tw",
+      "name": "APhO",
+      "url": "https://tpmso.k12ea.gov.tw/apho/index.php/question/",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "note": "Теория, эксперимент, решения",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "eupho.ee",
+      "name": "EuPhO",
+      "url": "https://eupho.ee/",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "nbpho.ee",
+      "name": "NBPhO",
+      "url": "https://nbpho.ee/",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "physicscup.ee",
+      "name": "Physics Cup — Archive",
+      "url": "https://physicscup.ee/archive/",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "note": "Задания 2012–2025 и лучшие решения",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "aapt.org",
+      "name": "USAPhO / F=ma — Past Exams",
+      "url": "https://aapt.org/physicsteam/PT-exams.cfm",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "note": "PDF и решения 2008–2026",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "bpho.org.uk",
+      "name": "British Physics Olympiad",
+      "url": "https://www.bpho.org.uk/",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "belpho.org",
+      "name": "BelPhO",
+      "url": "https://belpho.org/",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Международные",
+      "kind": "official",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "iypt.org",
+      "name": "IYPT",
+      "url": "https://www.iypt.org/",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Международные",
+      "kind": "research",
+      "note": "Исследовательские задачи без единственного ответа",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "iynt.org",
+      "name": "IYNT",
+      "url": "https://iynt.org/",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Международные",
+      "kind": "research",
+      "note": "Исследовательские задачи без единственного ответа",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "phoxiv.org",
+      "name": "phoXiv",
+      "url": "https://phoxiv.org/",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Международные",
+      "kind": "aggregator",
+      "note": "Агрегатор международной олимпиадной физики",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "artofproblemsolving.com",
+      "name": "AoPS Wiki — Olympiad Problems",
+      "url": "https://artofproblemsolving.com/wiki/index.php/Category:Olympiad_Problems",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "aggregator",
+      "added": "2026-11-04"
+    },
+    {
+      "domain": "mathympic.vercel.app",
+      "name": "Mathympic",
+      "url": "https://mathympic.vercel.app/archive",
+      "subjects": [
+        "math"
+      ],
+      "region": "Международные",
+      "kind": "aggregator",
+      "note": "AMC, AIME, IMO и другие",
       "added": "2026-11-04"
     }
   ]
