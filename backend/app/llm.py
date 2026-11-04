@@ -43,8 +43,10 @@ LONG_PROMPT = 100_000
 
 
 def _record_usage(model: str, usage) -> None:
-    inp = (usage.input_tokens or 0) + (getattr(usage, "cache_read_input_tokens", 0) or 0) + (
-        getattr(usage, "cache_creation_input_tokens", 0) or 0
+    inp = (
+        (usage.input_tokens or 0)
+        + (getattr(usage, "cache_read_input_tokens", 0) or 0)
+        + (getattr(usage, "cache_creation_input_tokens", 0) or 0)
     )
     out = usage.output_tokens or 0
     u = USAGE.setdefault(model, {"input": 0, "output": 0, "calls": 0, "cost_micro": 0})
