@@ -1,0 +1,18 @@
+{
+  "id": "hse-final-2023-math9-9-5",
+  "subject": "math",
+  "topic": "Алгебра, неравенства",
+  "title": "Наименьшее значение суммы квадратов",
+  "statement": "Действительные числа $a$, $b$, $c$, $d$ таковы, что $a + b = \\frac{9}{c - d}$ и $c + d = \\frac{25}{a - b}$. Какое наименьшее значение может принимать величина $a^2 + b^2 + c^2 + d^2$?",
+  "answer": {
+    "value": 34.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Высшая проба»",
+    "year": 2023,
+    "stage": "final",
+    "grade": 9,
+    "number": 5,
+    "url": "https://olymp.hse.ru/mirror/pubs/share/821374453.pdf"
+  }
+}

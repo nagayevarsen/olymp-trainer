@@ -1,0 +1,18 @@
+{
+  "id": "hse-final-2023-math8-8-2",
+  "subject": "math",
+  "topic": "Неравенства",
+  "title": "Наименьшая сумма четырёх чисел",
+  "statement": "Действительные числа $x_1$, $x_2$, $x_3$, $x_4$ таковы, что $x_1 + x_2 \\geqslant 12$, $x_1 + x_3 \\geqslant 13$, $x_1 + x_4 \\geqslant 14$, $x_3 + x_4 \\geqslant 22$, $x_2 + x_3 \\geqslant 23$, $x_2 + x_4 \\geqslant 24$. Какое наименьшее значение может принимать сумма $x_1 + x_2 + x_3 + x_4$?",
+  "answer": {
+    "value": 37.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Высшая проба»",
+    "year": 2023,
+    "stage": "final",
+    "grade": 8,
+    "number": 2,
+    "url": "https://olymp.hse.ru/mirror/pubs/share/821374446.pdf"
+  }
+}

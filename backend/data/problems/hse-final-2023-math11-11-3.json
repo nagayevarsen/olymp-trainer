@@ -1,0 +1,18 @@
+{
+  "id": "hse-final-2023-math11-11-3",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Наибольшая сумма НОД",
+  "statement": "Натуральные числа $a$, $b$, $c$ таковы, что $1 \\leqslant a < b < c \\leqslant 3000$. Найдите наибольшее возможное значение величины $\\text{НОД}(a, b) + \\text{НОД}(b, c) + \\text{НОД}(c, a)$.",
+  "answer": {
+    "value": 3000.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Высшая проба»",
+    "year": 2023,
+    "stage": "final",
+    "grade": 11,
+    "number": 3,
+    "url": "https://olymp.hse.ru/mirror/pubs/share/821374482.pdf"
+  }
+}

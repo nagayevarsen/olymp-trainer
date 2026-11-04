@@ -1,0 +1,18 @@
+{
+  "id": "hse-final-2024-math10-10-2",
+  "subject": "math",
+  "topic": "Квадратные трёхчлены",
+  "title": "Приведённые трёхчлены f(f(1000))",
+  "statement": "Сколько существует таких приведённых квадратных трёхчленов $f(x) = x^2 + px + q$ с целыми коэффициентами, что $f(f(1000)) = 0$?",
+  "answer": {
+    "value": 32.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Высшая проба»",
+    "year": 2024,
+    "stage": "final",
+    "grade": 10,
+    "number": 2,
+    "url": "https://olymp.hse.ru/mirror/pubs/share/906701707.pdf"
+  }
+}
