@@ -5,7 +5,7 @@
   "title": "Угол MAN",
   "statement": "На сторонах $AB$ и $AC$ треугольника $ABC$ выбраны точки $X$ и $Y$ соответственно так, что $\\angle AYB = \\angle AXC = 134^\\circ$. На луче $YB$ за точку $B$ отметили точку $M$, а на луче $XC$ за точку $C$ отметили точку $N$. Оказалось, что $MB = AC$, $AB = CN$. Найдите $\\angle MAN$ (в градусах).",
   "answer": {
-    "value": 46,
+    "value": 46.0,
     "unit": "°",
     "rel_tol": 0.001
   },
@@ -16,5 +16,32 @@
     "grade": 7,
     "number": 4,
     "url": "https://old.olimpiadakurchatov.ru/2019/final/kurchatov-2019-final-math-7-sol.pdf"
+  },
+  "template": {
+    "text": "На сторонах $AB$ и $AC$ треугольника $ABC$ выбраны точки $X$ и $Y$ соответственно так, что $\\angle AYB = \\angle AXC = {angle}^\\circ$. На луче $YB$ за точку $B$ отметили точку $M$, а на луче $XC$ за точку $C$ отметили точку $N$. Оказалось, что $MB = AC$, $AB = CN$. Найдите $\\angle MAN$ (в градусах).",
+    "params": {
+      "angle": {
+        "min": 91.0,
+        "max": 179.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "angle": 134.0
+    },
+    "solver": "def solve(angle):\n    return 180 - angle",
+    "constraints": [
+      "answer > 0",
+      "answer < 90"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
   }
 }
