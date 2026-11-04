@@ -33,6 +33,34 @@ class LLMError(RuntimeError):
     pass
 
 
+# Расход токенов Claude за время работы процесса: {модель: {"input": ..., "output": ..., "calls": ...}}
+USAGE: dict[str, dict[str, int]] = {}
+
+# Цены Claude, $ за 1M токенов (вход, выход) для промптов до 100K токенов; длиннее — (вход, выход) из LONG.
+PRICES = {"claude-haiku-5-5": (0.10, 0.50)}
+PRICES_LONG = {"claude-haiku-5-5": (0.50, 2.50)}
+LONG_PROMPT = 100_000
+
+
+def _record_usage(model: str, usage) -> None:
+    inp = (usage.input_tokens or 0) + (getattr(usage, "cache_read_input_tokens", 0) or 0) + (
+        getattr(usage, "cache_creation_input_tokens", 0) or 0
+    )
+    out = usage.output_tokens or 0
+    u = USAGE.setdefault(model, {"input": 0, "output": 0, "calls": 0, "cost_micro": 0})
+    u["input"] += inp
+    u["output"] += out
+    u["calls"] += 1
+    price = (PRICES_LONG if inp > LONG_PROMPT else PRICES).get(model)
+    if price:
+        u["cost_micro"] += round(inp * price[0] + out * price[1])
+
+
+def usage_cost() -> float:
+    """Сколько долларов потрачено на Claude в этом процессе (только для моделей с известной ценой)."""
+    return sum(u["cost_micro"] for u in USAGE.values()) / 1e6
+
+
 @dataclass
 class Image:
     data: bytes
@@ -133,6 +161,7 @@ async def _anthropic_complete(model: str, system: str, prompt: str, image: Image
             messages=[{"role": "user", "content": content}],
         ) as stream:
             message = await stream.get_final_message()
+        _record_usage(model, message.usage)
     except anthropic.RateLimitError as exc:
         raise LLMError("Claude: превышен лимит запросов") from exc
     except anthropic.AuthenticationError as exc:

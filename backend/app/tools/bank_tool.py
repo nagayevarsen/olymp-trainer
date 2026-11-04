@@ -172,6 +172,15 @@ async def cmd_import_manifest(args) -> int:
     await asyncio.gather(*(one(b, url) for b in batches for url in b["urls"]))
     load_bank.cache_clear()
     print(f"\nВсего добавлено: {total_added}")
+    from ..llm import USAGE, usage_cost
+
+    for model, u in USAGE.items():
+        print(
+            f"{model}: запросов {u['calls']}, токенов вход {u['input']}, выход {u['output']}, "
+            f"${u['cost_micro'] / 1e6:.4f}"
+        )
+    if USAGE:
+        print(f"Расход Claude: ${usage_cost():.4f}")
     return 0
 
 
