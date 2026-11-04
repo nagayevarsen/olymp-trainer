@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-final-2014-math7-7-2",
+  "subject": "math",
+  "topic": "Арифметика",
+  "title": "Год рождения Вани",
+  "statement": "В 2014 году Ване исполнилось столько лет, какова сумма цифр года его рождения плюс три. В каком году родился Ваня?",
+  "answer": {
+    "value": 1991.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2014,
+    "stage": "final",
+    "grade": 7,
+    "number": 2,
+    "url": "https://sesc.nsu.ru/upload/iblock/4c6/2013_3_math_s1.pdf"
+  }
+}

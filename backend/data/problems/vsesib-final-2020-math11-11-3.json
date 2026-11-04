@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-final-2020-math11-11-3",
+  "subject": "math",
+  "topic": "Функции",
+  "title": "Горизонтальный отрезок на графике",
+  "statement": "Найти максимальную длину горизонтального отрезка с концами на графике функции $y = x^3 - x$.",
+  "answer": {
+    "value": 2.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2020,
+    "stage": "final",
+    "grade": 11,
+    "number": 3,
+    "url": "https://sesc.nsu.ru/upload/iblock/fad/2019_3_math_s.pdf"
+  }
+}

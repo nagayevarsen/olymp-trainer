@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-final-2020-math7-7-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Длина отрезка CX",
+  "statement": "На плоскости расположены точки $A$, $B$, $C$, $D$, $X$. Известны некоторые длины отрезков: $AC = 2$, $AX = 5$, $AD = 11$, $CD = 9$, $CB = 10$, $DB = 1$, $XB = 7$. Найдите длину отрезка $CX$.",
+  "answer": {
+    "value": 3.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2020,
+    "stage": "final",
+    "grade": 7,
+    "number": 3,
+    "url": "https://sesc.nsu.ru/upload/iblock/fad/2019_3_math_s.pdf"
+  }
+}

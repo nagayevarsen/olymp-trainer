@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-final-2024-math9-9-4",
+  "subject": "math",
+  "topic": "Арифметика",
+  "title": "Сумма цифр произведения",
+  "statement": "Пусть $A = \\underbrace{88\\ldots88}_{100}$ – натуральное число, записанное 100 восьмёрками, и $B = \\underbrace{55\\ldots55}_{100}$ – натуральное число, записанное 100 пятёрками. Найти сумму цифр числа $N = 9 \\cdot A \\cdot B$.",
+  "answer": {
+    "value": 900.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2024,
+    "stage": "final",
+    "grade": 9,
+    "number": 4,
+    "url": "https://sesc.nsu.ru/upload/iblock/0b1/52sixmgk8rl5l2a2qkrkl1ppn4d2v2k9/Всесиб 2023-24 Заключительный Математика Решения-9 кл.pdf"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-qualifying-2014-math10-10-4",
+  "subject": "math",
+  "topic": "Неравенства",
+  "title": "Минимум суммы переменных",
+  "statement": "Пусть $x, y, z$ — произвольные неотрицательные числа такие, что $xy + yz + xz = 3$. Найти минимальное значение суммы $x+y+z$.",
+  "answer": {
+    "value": 3.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2014,
+    "stage": "qualifying",
+    "grade": 10,
+    "number": 4,
+    "url": "https://sesc.nsu.ru/upload/iblock/cc4/2013_2_math_s.pdf"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-final-2016-math10-10-1",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Натуральные n с простыми p и q",
+  "statement": "Найти все натуральные числа $n$, такие, что $\\frac{1}{n}=\\frac{1}{p}+\\frac{1}{q}+\\frac{1}{pq}$ для некоторых простых $p$ и $q$.",
+  "answer": {
+    "value": 1.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2016,
+    "stage": "final",
+    "grade": 10,
+    "number": 1,
+    "url": "https://sesc.nsu.ru/upload/iblock/0db/2015_3_math_s.pdf"
+  }
+}

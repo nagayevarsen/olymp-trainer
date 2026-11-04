@@ -1,0 +1,19 @@
+{
+  "id": "vsesib-qualifying-2016-math11-11-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Длина стороны АС",
+  "statement": "Медиана $AM$ треугольника $ABC$ делит отрезок $PR$, параллельный стороне $AC$, с концами на сторонах $AB$ и $BC$, на отрезки длины $5$ см и $3$ см, считая от стороны $AB$. Чему равна длина стороны $AC$?",
+  "answer": {
+    "value": 13.0,
+    "unit": "см"
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2016,
+    "stage": "qualifying",
+    "grade": 11,
+    "number": 2,
+    "url": "https://sesc.nsu.ru/upload/iblock/1ad/2015_1_math_s.pdf"
+  }
+}

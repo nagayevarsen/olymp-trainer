@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-qualifying-2014-math9-9-5",
+  "subject": "math",
+  "topic": "Оптимизация",
+  "title": "Максимум суммы произведений",
+  "statement": "Пусть $x, y, z$ — произвольные натуральные числа такие, что $x+y+z=100$. Найти максимальное значение суммы $xy+yz+xz$.",
+  "answer": {
+    "value": 3333.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2014,
+    "stage": "qualifying",
+    "grade": 9,
+    "number": 5,
+    "url": "https://sesc.nsu.ru/upload/iblock/cc4/2013_2_math_s.pdf"
+  }
+}

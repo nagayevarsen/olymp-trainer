@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-final-2019-math11-11-1",
+  "subject": "math",
+  "topic": "Последовательности",
+  "title": "Периодическая последовательность",
+  "statement": "Последовательность чисел $a_n, n=1,2,\\dots,12$ такова, что $a_1 = 1, a_{12} = 2, a_{n+2} = \\frac{a_{n+1} + 1}{a_n}$ для всех натуральных $n = 1,2,\\dots,10$. Найти $a_4$.",
+  "answer": {
+    "value": 2.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2019,
+    "stage": "final",
+    "grade": 11,
+    "number": 1,
+    "url": "https://sesc.nsu.ru/upload/iblock/23a/2018_3_math_s.pdf"
+  }
+}

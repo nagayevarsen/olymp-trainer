@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-final-2016-math9-9-3",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Вычисление выражения с дробями",
+  "statement": "Найти величину выражения $\\frac{x}{y+z}+\\frac{y}{x+z}+\\frac{z}{x+y}$, если известно, что $\\frac{1}{y+z}+\\frac{1}{x+z}+\\frac{1}{x+y}=5$ и $x+y+z=2$.",
+  "answer": {
+    "value": 7.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2016,
+    "stage": "final",
+    "grade": 9,
+    "number": 3,
+    "url": "https://sesc.nsu.ru/upload/iblock/0db/2015_3_math_s.pdf"
+  }
+}

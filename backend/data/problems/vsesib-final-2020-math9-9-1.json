@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-final-2020-math9-9-1",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Равенства с корнями",
+  "statement": "Для неотрицательных чисел $a,b,c,d$ выполнены равенства: $\\sqrt{a+b}+\\sqrt{c+d}=\\sqrt{a+c}+\\sqrt{b+d}=\\sqrt{a+d}+\\sqrt{b+c}$. Какое максимальное количество различных может быть среди чисел $a,b,c,d$?",
+  "answer": {
+    "value": 2.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2020,
+    "stage": "final",
+    "grade": 9,
+    "number": 1,
+    "url": "https://sesc.nsu.ru/upload/iblock/fad/2019_3_math_s.pdf"
+  }
+}

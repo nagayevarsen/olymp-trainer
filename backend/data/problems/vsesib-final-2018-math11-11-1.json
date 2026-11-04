@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-final-2018-math11-11-1",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Значения выражения ab+cd",
+  "statement": "Пусть $a^2+b^2=c^2+d^2=1$ и $ac+bd=0$ для некоторых действительных чисел $a$, $b$, $c$, $d$. Найти все возможные значения выражения $ab+cd$.",
+  "answer": {
+    "value": 0.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2018,
+    "stage": "final",
+    "grade": 11,
+    "number": 1,
+    "url": "https://sesc.nsu.ru/upload/iblock/536/2017_3_math_s.pdf"
+  }
+}

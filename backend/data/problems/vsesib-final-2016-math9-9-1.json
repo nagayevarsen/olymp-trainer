@@ -1,0 +1,18 @@
+{
+  "id": "vsesib-final-2016-math9-9-1",
+  "subject": "math",
+  "topic": "Числа",
+  "title": "Сумма цифр суммы",
+  "statement": "Известно, что сумма цифр числа $A$ равна 59, а сумма цифр числа $B$ равна 77. Какую минимальную сумму цифр может иметь число $A+B$?",
+  "answer": {
+    "value": 1.0
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2016,
+    "stage": "final",
+    "grade": 9,
+    "number": 1,
+    "url": "https://sesc.nsu.ru/upload/iblock/0db/2015_3_math_s.pdf"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "vsesib-qualifying-2014-math10-10-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Длина диагонали BD",
+  "statement": "В четырёхугольнике ABCD длины сторон AB и BC равны 1 см, а величины углов ABC и ADC равны 106° и 127° соответственно. Найти длину диагонали BD.",
+  "answer": {
+    "value": 1.0,
+    "unit": "см"
+  },
+  "source": {
+    "olympiad": "Всесибирская открытая олимпиада школьников",
+    "year": 2014,
+    "stage": "qualifying",
+    "grade": 10,
+    "number": 3,
+    "url": "https://sesc.nsu.ru/upload/iblock/cc4/2013_2_math_s.pdf"
+  }
+}
