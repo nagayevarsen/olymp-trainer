@@ -1,0 +1,215 @@
+[
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2021,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 9,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2020-21/final/math/sol-math-9-day1-final-20-21.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2020-21/final/math/sol-math-9-day2-final-20-21.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2021,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 10,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2020-21/final/math/sol-math-10-day1-final-20-21.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2020-21/final/math/sol-math-10-day2-final-20-21.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2021,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 11,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2020-21/final/math/sol-math-11-day1-final-20-21.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2020-21/final/math/sol-math-11-day2-final-20-21.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2022,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 9,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2021-22/final/math/sol-math-9-tur1-final-21-22.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2021-22/final/math/sol-math-9-tur2-final-21-22.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2022,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 10,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2021-22/final/math/sol-math-10-tur1-final-21-22.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2021-22/final/math/sol-math-10-tur2-final-21-22.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2022,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 11,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2021-22/final/math/sol-math-11-tur1-final-21-22.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2021-22/final/math/sol-math-11-tur2-final-21-22.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2023,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 9,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2022-23/final/math/sol-math-9-day1-final-22-23.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2022-23/final/math/sol-math-9-day2-final-22-23.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2023,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 10,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2022-23/final/math/sol-math-10-day1-final-22-23.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2022-23/final/math/sol-math-10-day2-final-22-23.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2023,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 11,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2022-23/final/math/sol-math-11-day1-final-22-23.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2022-23/final/math/sol-math-11-day2-final-22-23.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2024,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 9,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2023-24/final/math/sol-math-9-day1-final-23-24.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2023-24/final/math/sol-math-9-day2-final-23-24.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2024,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 10,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2023-24/final/math/sol-math-10-day1-final-23-24.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2023-24/final/math/sol-math-10-day2-final-23-24.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2024,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 11,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2023-24/final/math/sol-math-11-day1-final-23-24.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2023-24/final/math/sol-math-11-day2-final-23-24.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2025,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 9,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2024-25/final/math/sol-math-9-final-24-25.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2025,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 10,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2024-25/final/math/sol-math-10-final-24-25.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2025,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 11,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2024-25/final/math/sol-math-11-final-24-25.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2026,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 9,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/final/math/sol-math-9-day1-final-25-26.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/final/math/sol-math-9-day2-final-25-26.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2026,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 10,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/final/math/sol-math-10-day1-final-25-26.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/final/math/sol-math-10-day2-final-25-26.pdf"
+  ]
+ },
+ {
+  "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+  "stage": "final",
+  "year": 2026,
+  "subject": "math",
+  "slug": "vsosh-final",
+  "grade": 11,
+  "urls": [
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/final/math/sol-math-11-day1-final-25-26.pdf",
+   "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/final/math/sol-math-11-day2-final-25-26.pdf"
+  ]
+ }
+]

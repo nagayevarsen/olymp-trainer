@@ -1,0 +1,105 @@
+[
+ {
+  "olympiad": "Турнир городов, осенний тур",
+  "stage": "other",
+  "year": 2018,
+  "subject": "math",
+  "slug": "turgor-os",
+  "urls": [
+   "https://turgor.ru/problems/40/os-40-sol-fin.pdf"
+  ]
+ },
+ {
+  "olympiad": "Турнир городов, весенний тур",
+  "stage": "other",
+  "year": 2019,
+  "subject": "math",
+  "slug": "turgor-vs",
+  "urls": [
+   "https://turgor.ru/problems/40/vs-40-sol-fin.pdf"
+  ]
+ },
+ {
+  "olympiad": "Турнир городов, весенний тур",
+  "stage": "other",
+  "year": 2020,
+  "subject": "math",
+  "slug": "turgor-vs",
+  "urls": [
+   "https://turgor.ru/problems/41/vs-41-sol-all.pdf"
+  ]
+ },
+ {
+  "olympiad": "Турнир городов, весенний тур",
+  "stage": "other",
+  "year": 2021,
+  "subject": "math",
+  "slug": "turgor-vs",
+  "urls": [
+   "https://turgor.ru/problems/42/vs-42-sol-fin.pdf",
+   "https://turgor.ru/oralround/42/vs-42-ust-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Турнир городов, весенний тур",
+  "stage": "other",
+  "year": 2022,
+  "subject": "math",
+  "slug": "turgor-vs",
+  "urls": [
+   "https://turgor.ru/problems/43/vs-43-sol-fin.pdf"
+  ]
+ },
+ {
+  "olympiad": "Турнир городов, весенний тур",
+  "stage": "other",
+  "year": 2023,
+  "subject": "math",
+  "slug": "turgor-vs",
+  "urls": [
+   "https://turgor.ru/problems/44/vs-44-baz-sol.pdf",
+   "https://turgor.ru/problems/44/vs-44-sl-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Турнир городов, весенний тур",
+  "stage": "other",
+  "year": 2024,
+  "subject": "math",
+  "slug": "turgor-vs",
+  "urls": [
+   "https://turgor.ru/problems/45/vs-45-sol-fin.pdf",
+   "https://turgor.ru/problems/45/vs-45-sl-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Турнир городов, весенний тур",
+  "stage": "other",
+  "year": 2025,
+  "subject": "math",
+  "slug": "turgor-vs",
+  "urls": [
+   "https://turgor.ru/problems/46/vs-46-sol-all.pdf"
+  ]
+ },
+ {
+  "olympiad": "Турнир городов, весенний тур",
+  "stage": "other",
+  "year": 2026,
+  "subject": "math",
+  "slug": "turgor-vs",
+  "urls": [
+   "https://turgor.ru/problems/47/vs-47-sol-fin.pdf"
+  ]
+ },
+ {
+  "olympiad": "Турнир городов, весенний тур",
+  "stage": "other",
+  "year": 2027,
+  "subject": "math",
+  "slug": "turgor-vs",
+  "urls": [
+   "https://turgor.ru/problems/48/vs-48-sol-fin.pdf"
+  ]
+ }
+]

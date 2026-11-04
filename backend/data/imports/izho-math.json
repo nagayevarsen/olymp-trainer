@@ -1,0 +1,107 @@
+[
+ {
+  "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+  "stage": "international",
+  "year": 2010,
+  "subject": "math",
+  "slug": "izho",
+  "urls": [
+   "https://izho.kz/wp-content/uploads/2018/12/izho10_sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+  "stage": "international",
+  "year": 2011,
+  "subject": "math",
+  "slug": "izho",
+  "urls": [
+   "https://izho.kz/wp-content/uploads/2018/12/izho11_1day_rus_sol.pdf",
+   "https://izho.kz/wp-content/uploads/2018/12/izho11_2day_rus_sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+  "stage": "international",
+  "year": 2012,
+  "subject": "math",
+  "slug": "izho",
+  "urls": [
+   "https://izho.kz/wp-content/uploads/2018/12/izho12_rus_sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+  "stage": "international",
+  "year": 2013,
+  "subject": "math",
+  "slug": "izho",
+  "urls": [
+   "https://izho.kz/wp-content/uploads/2018/12/Reshenie-1den-final.pdf",
+   "https://izho.kz/wp-content/uploads/2018/12/Reshenie-2-den-final.pdf"
+  ]
+ },
+ {
+  "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+  "stage": "international",
+  "year": 2014,
+  "subject": "math",
+  "slug": "izho",
+  "urls": [
+   "https://izho.kz/wp-content/uploads/2018/12/solrus.pdf"
+  ]
+ },
+ {
+  "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+  "stage": "international",
+  "year": 2015,
+  "subject": "math",
+  "slug": "izho",
+  "urls": [
+   "https://izho.kz/wp-content/uploads/2018/01/1day_rus_sol.pdf",
+   "https://izho.kz/wp-content/uploads/2018/01/2day_rus_sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+  "stage": "international",
+  "year": 2016,
+  "subject": "math",
+  "slug": "izho",
+  "urls": [
+   "https://izho.kz/wp-content/uploads/2018/01/day1sol.pdf",
+   "https://izho.kz/wp-content/uploads/2018/01/day2sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+  "stage": "international",
+  "year": 2018,
+  "subject": "math",
+  "slug": "izho",
+  "urls": [
+   "https://izho.kz/wp-content/uploads/2018/01/Resheniya-Rus-1-den.pdf",
+   "https://izho.kz/wp-content/uploads/2018/01/Resheniya-Rus-2-den.pdf"
+  ]
+ },
+ {
+  "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+  "stage": "international",
+  "year": 2021,
+  "subject": "math",
+  "slug": "izho",
+  "urls": [
+   "https://izho.kz/wp-content/uploads/2021/01/Resheniya-zadach-MZHO-2021.pdf"
+  ]
+ },
+ {
+  "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+  "stage": "international",
+  "year": 2014,
+  "subject": "physics",
+  "slug": "izho",
+  "urls": [
+   "https://izho.kz/wp-content/uploads/2018/12/izho14rus1sol.pdf"
+  ]
+ }
+]
