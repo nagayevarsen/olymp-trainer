@@ -36,9 +36,10 @@
     "answer_max_decimals": 2,
     "verification": {
       "reproduces_original": true,
-      "cross_checked": false,
+      "cross_checked": true,
       "checked_by": [
-        "gemini:gemini-3.5-flash"
+        "gemini:gemini-3.5-flash",
+        "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free"
       ]
     }
   }
