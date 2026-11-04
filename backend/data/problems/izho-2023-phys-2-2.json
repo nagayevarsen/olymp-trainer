@@ -1,0 +1,18 @@
+{
+  "id": "izho-2023-phys-2-2",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Попутные автомобили",
+  "statement": "Ұқсас пайымдаулар басып озулар саны мен басып озулар арасындағы уақыт өзгеріссіз қалады деген қорытындыға əкеледі, яғни $N_2 = nl = n \\Delta v t \\approx 0.83$, $\\tau_2 = \\frac{1}{n \\Delta v} = 0.02 \\text{ час} = 72 \\text{ с}$.",
+  "answer": {
+    "value": 72.0,
+    "unit": "с"
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2023,
+    "stage": "international",
+    "number": 2,
+    "url": "https://izho.kz/wp-content/uploads/2023/02/IZhO-2023-PhysTheory_sol_2023.pdf"
+  }
+}

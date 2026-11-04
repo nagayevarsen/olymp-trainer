@@ -14,6 +14,7 @@ import asyncio
 import base64
 import json
 import logging
+import os
 import re
 from dataclasses import dataclass
 
@@ -113,7 +114,13 @@ async def _anthropic_complete(model: str, system: str, prompt: str, image: Image
         kind = "document" if image.mime == "application/pdf" else "image"
         content.append({"type": kind, "source": {"type": "base64", "media_type": image.mime, "data": b64}})
     content.append({"type": "text", "text": prompt})
-    client = anthropic.AsyncAnthropic(timeout=settings.llm_timeout_s * 4, max_retries=2)
+    # Адрес задаём явно: в облачной среде Claude Code уже есть служебный ANTHROPIC_BASE_URL,
+    # который SDK иначе подхватил бы. Для своего прокси можно задать OLYMP_ANTHROPIC_BASE_URL.
+    client = anthropic.AsyncAnthropic(
+        base_url=os.environ.get("OLYMP_ANTHROPIC_BASE_URL", "https://api.anthropic.com"),
+        timeout=settings.llm_timeout_s * 4,
+        max_retries=2,
+    )
     try:
         async with client.messages.stream(
             model=model,

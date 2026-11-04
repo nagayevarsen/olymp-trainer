@@ -1,0 +1,18 @@
+{
+  "id": "izho-2023-phys-3-7",
+  "subject": "physics",
+  "topic": "Электродинамика",
+  "title": "Цилиндрический магнетрон",
+  "statement": "Цилиндрический катод пен анодтың ұзындық бірліктерінің заряды $\\lambda$-ға τең болсын, ал электродтардың жалпы ұзындығы $l$. Сонда Гаусс теоремасы бойынша катод пен анод арасындағы кеңістіктегі электр өрісінің кернеулігі теңдеу арқылы анықталады $E 2\\pi r l = \\frac{\\lambda l}{\\varepsilon_0}$, одан аламыз $E = \\frac{\\lambda}{2\\pi \\varepsilon_0 r}$.",
+  "answer": {
+    "value": 57.6,
+    "unit": "В"
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2023,
+    "stage": "international",
+    "number": 7,
+    "url": "https://izho.kz/wp-content/uploads/2023/02/IZhO-2023-PhysTheory_sol_2023.pdf"
+  }
+}
