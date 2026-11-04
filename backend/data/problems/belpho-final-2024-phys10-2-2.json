@@ -1,0 +1,19 @@
+{
+  "id": "belpho-final-2024-phys10-2-2",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Максимальная масса груза",
+  "statement": "Разрыв проволоки происходит при $\\varepsilon = \\varepsilon_2 = 5,10\\% = 5,1 \\cdot 10^{-2}$, при этом сила упругости равна $F = F_2 = 0,43 \\text{ кН} = 430 \\text{ Н}$. Тогда из уравнения (6) находим максимальную массу подвешенного груза.",
+  "answer": {
+    "value": 27.0,
+    "unit": "кг"
+  },
+  "source": {
+    "olympiad": "Республиканская физическая олимпиада (Беларусь)",
+    "year": 2024,
+    "stage": "final",
+    "grade": 10,
+    "number": 2,
+    "url": "https://belpho.org/problems/final/2024_theoretical_solutions.pdf"
+  }
+}

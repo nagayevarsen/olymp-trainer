@@ -1,0 +1,19 @@
+{
+  "id": "belpho-region-2014-phys9-2-2",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Сила давления и Архимеда",
+  "statement": "На поверхности воды плавает шарик радиуса $R = 0,5$ см, наполовину погруженный в воду. Определите суммарную силу давления $F$ на шарик при наличии атмосферного давления.",
+  "answer": {
+    "value": 788.0,
+    "unit": "Па"
+  },
+  "source": {
+    "olympiad": "Республиканская физическая олимпиада (Беларусь)",
+    "year": 2014,
+    "stage": "region",
+    "grade": 9,
+    "number": 2,
+    "url": "https://belpho.org/problems/third/3_etap_2014_theoretical_solutions.pdf"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "belpho-final-2025-phys9-2-3",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Уточненная максимальная температура",
+  "statement": "Рассчитайте максимальную температуру нити накаливания с учетом полученного показателя степени излучения $n = 4$.",
+  "answer": {
+    "value": 1300.0,
+    "unit": "°C"
+  },
+  "source": {
+    "olympiad": "Республиканская физическая олимпиада (Беларусь)",
+    "year": 2025,
+    "stage": "final",
+    "grade": 9,
+    "number": 3,
+    "url": "https://belpho.org/problems/final/2025_theoretical_solutions.pdf"
+  }
+}

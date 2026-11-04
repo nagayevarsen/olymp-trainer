@@ -1,0 +1,19 @@
+{
+  "id": "belpho-final-2024-phys11-1-1-2",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Скорость падения камушка",
+  "statement": "Скорость падения можно найти различными способами, например, из закона сохранения энергии.",
+  "answer": {
+    "value": 45.0,
+    "unit": "м/с"
+  },
+  "source": {
+    "olympiad": "Республиканская физическая олимпиада (Беларусь)",
+    "year": 2024,
+    "stage": "final",
+    "grade": 11,
+    "number": 2,
+    "url": "https://belpho.org/problems/final/2024_theoretical_solutions.pdf"
+  }
+}

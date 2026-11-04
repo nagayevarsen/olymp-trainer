@@ -1,0 +1,19 @@
+{
+  "id": "belpho-final-2025-phys9-1-5",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Критическая скорость шарика",
+  "statement": "Вычислите значение критической скорости для водяного шарика радиуса $r_0 = 1.0$ мм.",
+  "answer": {
+    "value": 6.75,
+    "unit": "м/с"
+  },
+  "source": {
+    "olympiad": "Республиканская физическая олимпиада (Беларусь)",
+    "year": 2025,
+    "stage": "final",
+    "grade": 9,
+    "number": 5,
+    "url": "https://belpho.org/problems/final/2025_theoretical_solutions.pdf"
+  }
+}

@@ -31,7 +31,7 @@ python -m app.tools.bank_tool check                               # провер
 
 1. Проверить, что `ANTHROPIC_API_KEY` виден, и прогнать один PDF через Claude с `--dry-run`,
    посчитать расход.
-2. Импорт BelPhO: `data/imports/belpho.json` (готов, не запускался).
+2. BelPhO импортирован (`data/imports/belpho.json`).
 3. Составить манифесты: Всесибирская (sesc.nsu.ru), «Высшая проба» (olymp.hse.ru),
    APMO, CEMC, USAPhO, Турнир городов, ВсОШ, Московская олимпиада, ММО и др.
    Этап и год брать из заголовков страницы рядом со ссылкой.

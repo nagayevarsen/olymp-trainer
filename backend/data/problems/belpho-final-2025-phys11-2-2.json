@@ -1,0 +1,19 @@
+{
+  "id": "belpho-final-2025-phys11-2-2",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Оставшийся объем вина в бутылке",
+  "statement": "Рассчитайте объем вина, который останется в бутылке после вспенивания и открывания.",
+  "answer": {
+    "value": 0.16,
+    "unit": "л"
+  },
+  "source": {
+    "olympiad": "Республиканская физическая олимпиада (Беларусь)",
+    "year": 2025,
+    "stage": "final",
+    "grade": 11,
+    "number": 2,
+    "url": "https://belpho.org/problems/final/2025_theoretical_solutions.pdf"
+  }
+}

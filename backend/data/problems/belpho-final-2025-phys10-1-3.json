@@ -1,0 +1,19 @@
+{
+  "id": "belpho-final-2025-phys10-1-3",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Скорость движения воды",
+  "statement": "Найдите модуль скорости движения воды снаружи при заданном периоде волны $T$.",
+  "answer": {
+    "value": 2.0,
+    "unit": "м/с"
+  },
+  "source": {
+    "olympiad": "Республиканская физическая олимпиада (Беларусь)",
+    "year": 2025,
+    "stage": "final",
+    "grade": 10,
+    "number": 3,
+    "url": "https://belpho.org/problems/final/2025_theoretical_solutions.pdf"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "belpho-final-2025-phys9-2-2",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Радиус остановившейся капли",
+  "statement": "Рассчитайте радиус капли в момент ее полной остановки при подъеме в облаке.",
+  "answer": {
+    "value": 20.0,
+    "unit": "мм"
+  },
+  "source": {
+    "olympiad": "Республиканская физическая олимпиада (Беларусь)",
+    "year": 2025,
+    "stage": "final",
+    "grade": 9,
+    "number": 2,
+    "url": "https://belpho.org/problems/final/2025_theoretical_solutions.pdf"
+  }
+}

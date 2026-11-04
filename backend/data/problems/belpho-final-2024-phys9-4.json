@@ -1,0 +1,18 @@
+{
+  "id": "belpho-final-2024-phys9-4",
+  "subject": "physics",
+  "topic": "Электродинамика",
+  "title": "Расчет кабеля",
+  "statement": "Сопротивление медной жилы длиной $\\Delta l$ рассчитывается по формуле $R_1 = \\rho_1 \\frac{4\\Delta l}{\\pi d_0^2}$. Подставив численные значения, получим (все величины в системе СИ)",
+  "answer": {
+    "value": 0.082
+  },
+  "source": {
+    "olympiad": "Республиканская физическая олимпиада (Беларусь)",
+    "year": 2024,
+    "stage": "final",
+    "grade": 9,
+    "number": 4,
+    "url": "https://belpho.org/problems/final/2024_theoretical_solutions.pdf"
+  }
+}

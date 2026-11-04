@@ -1,0 +1,19 @@
+{
+  "id": "belpho-final-2025-phys10-2-2",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Масса вытесненного воздуха",
+  "statement": "Рассчитайте массу воздуха, вытесненного из цилиндра за цикл работы ВЭС.",
+  "answer": {
+    "value": 4.0,
+    "unit": "кг"
+  },
+  "source": {
+    "olympiad": "Республиканская физическая олимпиада (Беларусь)",
+    "year": 2025,
+    "stage": "final",
+    "grade": 10,
+    "number": 2,
+    "url": "https://belpho.org/problems/final/2025_theoretical_solutions.pdf"
+  }
+}

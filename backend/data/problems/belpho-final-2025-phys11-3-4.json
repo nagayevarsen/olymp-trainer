@@ -1,0 +1,19 @@
+{
+  "id": "belpho-final-2025-phys11-3-4",
+  "subject": "physics",
+  "topic": "Электродинамика",
+  "title": "Расстояние между магнитами при равновесии",
+  "statement": "Найдите расстояние между двумя одинаковыми магнитами в положении устойчивого магнитного равновесия.",
+  "answer": {
+    "value": 3.3,
+    "unit": "см"
+  },
+  "source": {
+    "olympiad": "Республиканская физическая олимпиада (Беларусь)",
+    "year": 2025,
+    "stage": "final",
+    "grade": 11,
+    "number": 4,
+    "url": "https://belpho.org/problems/final/2025_theoretical_solutions.pdf"
+  }
+}
