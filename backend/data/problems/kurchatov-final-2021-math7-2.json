@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-final-2021-math7-2",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Двузначное число увеличилось в 4 раза",
+  "statement": "В двузначном числе каждую цифру увеличили на 2 или на 4 (разные цифры могли быть увеличены на разные числа), в результате чего оно увеличилось в четыре раза. Каким могло быть исходное число?",
+  "answer": {
+    "value": 14
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2021,
+    "stage": "final",
+    "grade": 7,
+    "number": 2,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2021_solutions_7.pdf"
+  }
+}

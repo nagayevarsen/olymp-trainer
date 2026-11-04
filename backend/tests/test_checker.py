@@ -128,6 +128,12 @@ class TestCheck:
         assert not check_answer(key, "468").correct
         assert check_answer(AnswerKey(2 * 3**0.5), "2√3").correct
 
+    def test_percent(self):
+        key = AnswerKey(75, "%")
+        assert check_answer(key, "75%").correct
+        assert check_answer(key, "75 %").correct
+        assert check_answer(key, "75").correct
+
     def test_unparsable(self):
         assert check_answer(self.time_key, "четыре").status == "unparsable"
 

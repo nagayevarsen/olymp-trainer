@@ -1,0 +1,20 @@
+{
+  "id": "kurchatov-final-2024-math7-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Угол BAM",
+  "statement": "В треугольнике $ABC$ взяли точку $M$ так, что $CM = AB$. Оказалось, что углы $ACM$ и $CAM$ соответственно равны $10^\\circ$ и $50^\\circ$, а угол $BCM$ равен $40^\\circ$. Найдите угол $BAM$ (в градусах).",
+  "answer": {
+    "value": 20,
+    "unit": "°",
+    "rel_tol": 0.001
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2024,
+    "stage": "final",
+    "grade": 7,
+    "number": 4,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/kurchatov_2024_math_sol_07.pdf"
+  }
+}

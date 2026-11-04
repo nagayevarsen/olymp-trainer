@@ -1,0 +1,20 @@
+{
+  "id": "kurchatov-final-2019-math7-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Угол MAN",
+  "statement": "На сторонах $AB$ и $AC$ треугольника $ABC$ выбраны точки $X$ и $Y$ соответственно так, что $\\angle AYB = \\angle AXC = 134^\\circ$. На луче $YB$ за точку $B$ отметили точку $M$, а на луче $XC$ за точку $C$ отметили точку $N$. Оказалось, что $MB = AC$, $AB = CN$. Найдите $\\angle MAN$ (в градусах).",
+  "answer": {
+    "value": 46,
+    "unit": "°",
+    "rel_tol": 0.001
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2019,
+    "stage": "final",
+    "grade": 7,
+    "number": 4,
+    "url": "https://old.olimpiadakurchatov.ru/2019/final/kurchatov-2019-final-math-7-sol.pdf"
+  }
+}

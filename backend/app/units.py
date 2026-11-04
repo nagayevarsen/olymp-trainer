@@ -111,6 +111,7 @@ _PLAIN: dict[str, Quantity] = {
     "сут": Quantity(86400, T),
     "т": Quantity(1000, M),
     "атм": Quantity(101325, d(L=-1, M=1, T=-2)),
+    "%": Quantity(0.01, DIMLESS),
     "рад": ONE,
     "°": Quantity(math.pi / 180, DIMLESS),
     "град": Quantity(math.pi / 180, DIMLESS),
@@ -174,7 +175,7 @@ def lookup_unit(name: str) -> Quantity:
 
 _TOKEN_RE = re.compile(
     r"\s*(?:"
-    r"(?P<name>°[CС]?|[A-Za-zА-Яа-яЁёΩµμ]+)"
+    r"(?P<name>°[CС]?|%|[A-Za-zА-Яа-яЁёΩµμ]+)"
     r"|(?P<pow>\^\s*\(?\s*-?\d+\s*\)?|\*\*\s*-?\d+|[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+)"
     r"|(?P<op>[*/·⋅×()])"
     r")"

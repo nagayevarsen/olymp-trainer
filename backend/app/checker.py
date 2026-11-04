@@ -40,7 +40,7 @@ def split_answer(raw: str) -> tuple[str, str]:
     except ParseError:
         pass
     # ищем самую левую позицию, где справа — корректные единицы, а слева — число
-    for m in re.finditer(r"[A-Za-zА-Яа-яЁёΩµμ°]", raw):
+    for m in re.finditer(r"[A-Za-zА-Яа-яЁёΩµμ°%]", raw):
         left, right = raw[: m.start()].strip(), raw[m.start() :].strip()
         if not left:
             continue
