@@ -69,6 +69,10 @@ def solve_rate(p: Problem, stats: dict[str, tuple[int, int]]) -> int | None:
     return round(100 * solved / tried) if tried else None
 
 
+def track_info(p: Problem) -> dict:
+    return {"id": p.source.track_id, "title": p.source.track_title()}
+
+
 def source_info(p: Problem) -> dict:
     return {
         "label": p.source.label(),
@@ -105,10 +109,16 @@ def create_user(body: NewUser, db: DB = Depends(get_db)) -> dict:
 
 
 @app.get("/api/me")
-def me(user: dict = Depends(current_user), db: DB = Depends(get_db)) -> dict:
+def me(
+    track: str | None = Query(default=None, description="Трек, из которого рекомендовать задачи"),
+    user: dict = Depends(current_user),
+    db: DB = Depends(get_db),
+) -> dict:
     bank = load_bank()
     stats = db.problem_stats()
     prog = db.all_progress(user["id"])
+    if track is None or not any(p.source.track_id == track for p in bank.values()):
+        track = _main_track(bank, prog)
 
     topics: dict[str, dict] = defaultdict(
         lambda: {"total": 0, "solved": 0, "tried": 0, "points": 0, "hints": 0}
@@ -135,7 +145,10 @@ def me(user: dict = Depends(current_user), db: DB = Depends(get_db)) -> dict:
         problem_points(bank[pid], stats) for pid, pr in prog.items() if pr["solved"] and pid in bank
     ]
     target = (sum(solved_points) / len(solved_points) + 100) if solved_points else 200
-    unsolved = [p for p in bank.values() if not prog.get(p.id, {}).get("solved")]
+    # рекомендуем только из одного трека: олимпиады и этапы не смешиваем
+    unsolved = [
+        p for p in bank.values() if p.source.track_id == track and not prog.get(p.id, {}).get("solved")
+    ]
     # сначала задачи из слабых тем, затем ближайшие по баллам к уровню ученика
     unsolved.sort(key=lambda p: (p.topic not in weak, abs(problem_points(p, stats) - target)))
     recommended = [
@@ -161,8 +174,52 @@ def me(user: dict = Depends(current_user), db: DB = Depends(get_db)) -> dict:
         "users_total": len(board),
         "topics": sorted(topics.values(), key=lambda t: (t["subject"], t["topic"])),
         "weak_topics": weak,
+        "track": track,
         "recommended": recommended,
     }
+
+
+def _main_track(bank: dict[str, Problem], prog: dict[str, dict]) -> str | None:
+    """Трек, в котором ученик больше всего занимался (или первый по списку)."""
+    activity: dict[str, int] = defaultdict(int)
+    for pid in prog:
+        if pid in bank:
+            activity[bank[pid].source.track_id] += 1
+    if activity:
+        return max(activity, key=lambda t: activity[t])
+    tracks = _tracks(bank)
+    return tracks[0]["id"] if tracks else None
+
+
+def _tracks(bank: dict[str, Problem]) -> list[dict]:
+    groups: dict[str, dict] = {}
+    for p in bank.values():
+        g = groups.setdefault(
+            p.source.track_id,
+            {
+                "id": p.source.track_id,
+                "title": p.source.track_title(),
+                "olympiad": p.source.olympiad,
+                "stage": STAGE_NAMES[p.source.stage],
+                "subjects": set(),
+                "years": set(),
+                "grades": set(),
+                "count": 0,
+            },
+        )
+        g["subjects"].add(p.subject)
+        if p.source.year:
+            g["years"].add(p.source.year)
+        if p.source.grade:
+            g["grades"].add(p.source.grade)
+        g["count"] += 1
+    out = []
+    for g in groups.values():
+        for k in ("subjects", "years", "grades"):
+            g[k] = sorted(g[k])
+        out.append(g)
+    out.sort(key=lambda g: (g["olympiad"], g["stage"]))
+    return out
 
 
 @app.get("/api/leaderboard")
@@ -174,16 +231,25 @@ def leaderboard(db: DB = Depends(get_db)) -> list[dict]:
 
 
 # ---------- задачи ----------
+@app.get("/api/tracks")
+def list_tracks() -> list[dict]:
+    """Треки: олимпиада + этап (за все годы). Задачи разных треков не смешиваются."""
+    return _tracks(load_bank())
+
+
 @app.get("/api/topics")
-def topics() -> list[dict]:
+def topics(track: str | None = Query(default=None)) -> list[dict]:
     seen: dict[tuple[str, str], int] = defaultdict(int)
     for p in load_bank().values():
+        if track and p.source.track_id != track:
+            continue
         seen[(p.subject, p.topic)] += 1
     return [{"subject": s, "topic": t, "count": n} for (s, t), n in sorted(seen.items())]
 
 
 @app.get("/api/problems")
 def list_problems(
+    track: str | None = Query(default=None, description="Показать задачи только одного трека"),
     subject: str | None = Query(default=None),
     topic: str | None = Query(default=None),
     x_user_id: str = Header(default=""),
@@ -193,6 +259,8 @@ def list_problems(
     prog = db.all_progress(x_user_id) if x_user_id else {}
     out = []
     for p in load_bank().values():
+        if track and p.source.track_id != track:
+            continue
         if subject and p.subject != subject:
             continue
         if topic and p.topic != topic:
@@ -205,8 +273,10 @@ def list_problems(
                 "title": p.title,
                 "subject": p.subject,
                 "topic": p.topic,
+                "track": p.source.track_id,
+                "year": p.source.year,
                 "points": problem_points(p, stats),
-                "source": source_info(p)["label"],
+                "source": p.source.short_label(),
                 "can_clone": p.can_clone,
                 "solved": solved,
                 "earned": pr.get("points", 0),
@@ -254,6 +324,7 @@ def problem_detail(
         "seed": seed,
         "points": problem_points(p, stats),
         "source": source_info(p),
+        "track": track_info(p),
         "needs_unit": bool(p.answer.unit),
         "can_clone": p.can_clone,
         "verification": p.template.verification.model_dump() if p.template else None,

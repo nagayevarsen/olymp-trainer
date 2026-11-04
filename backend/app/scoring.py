@@ -14,9 +14,11 @@ from .bank import Problem
 
 STAGE_BASE = {
     "school": 100,
+    "distance": 150,
     "city": 200,
     "region": 300,
     "republic": 450,
+    "final": 550,
     "international": 600,
     "other": 200,
 }

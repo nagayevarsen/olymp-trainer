@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { pluralPoints, splitMath } from './text'
+import { pluralPoints, pluralTasks, splitMath } from './text'
 
 describe('splitMath', () => {
   it('разделяет текст, формулы и жирный', () => {
@@ -25,5 +25,14 @@ describe('pluralPoints', () => {
     expect(pluralPoints(11)).toBe('баллов')
     expect(pluralPoints(21)).toBe('балл')
     expect(pluralPoints(112)).toBe('баллов')
+  })
+})
+
+describe('pluralTasks', () => {
+  it('склоняет «задача»', () => {
+    expect(pluralTasks(1)).toBe('задача')
+    expect(pluralTasks(2)).toBe('задачи')
+    expect(pluralTasks(9)).toBe('задач')
+    expect(pluralTasks(14)).toBe('задач')
   })
 })

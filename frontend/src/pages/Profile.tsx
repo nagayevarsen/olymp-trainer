@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api, type Me } from '../api'
 import { SUBJECT_NAMES, pluralPoints } from '../lib/text'
+import { getTrack } from '../user'
 
 export function ProfilePage({ onLogout }: { onLogout: () => void }) {
   const [me, setMe] = useState<Me | null>(null)
@@ -9,7 +10,7 @@ export function ProfilePage({ onLogout }: { onLogout: () => void }) {
 
   useEffect(() => {
     api
-      .me()
+      .me(getTrack())
       .then(setMe)
       .catch((e) => setError(e.message))
   }, [])
@@ -55,7 +56,7 @@ export function ProfilePage({ onLogout }: { onLogout: () => void }) {
 
       {me.recommended.length > 0 && (
         <section>
-          <h2 className="mb-3 text-lg font-bold">Рекомендуем дальше</h2>
+          <h2 className="mb-3 text-lg font-bold">Рекомендуем дальше в этой олимпиаде</h2>
           <div className="grid gap-3 sm:grid-cols-3">
             {me.recommended.map((r) => (
               <Link

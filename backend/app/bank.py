@@ -7,6 +7,7 @@ docs/PROBLEM_FORMAT.md. Задачи проверяются при загруз�
 
 from __future__ import annotations
 
+import hashlib
 import json
 from functools import lru_cache
 from pathlib import Path
@@ -17,14 +18,16 @@ from pydantic import BaseModel, Field, ValidationError, field_validator, model_v
 from .config import settings
 from .units import UnitError, parse_unit
 
-Stage = Literal["school", "city", "region", "republic", "international", "other"]
+Stage = Literal["school", "distance", "city", "region", "republic", "final", "international", "other"]
 Subject = Literal["math", "physics"]
 
 STAGE_NAMES = {
     "school": "Школьный этап",
+    "distance": "Дистанционный этап",
     "city": "Городской этап",
-    "region": "Областной этап",
-    "republic": "Республиканская олимпиада",
+    "region": "Региональный (областной) этап",
+    "republic": "Республиканский этап",
+    "final": "Заключительный этап",
     "international": "Международная олимпиада",
     "other": "Другое",
 }
@@ -38,15 +41,32 @@ class Source(BaseModel):
     number: int | None = Field(default=None, ge=1, description="Номер задачи в варианте")
     url: str | None = None
 
+    @property
+    def track_id(self) -> str:
+        """Трек = одна олимпиада + один этап. Задачи разных треков не смешиваются."""
+        return hashlib.sha1(f"{self.olympiad}|{self.stage}".encode()).hexdigest()[:10]
+
+    def track_title(self) -> str:
+        if self.stage == "other":
+            return self.olympiad
+        return f"{self.olympiad} — {STAGE_NAMES[self.stage].lower()}"
+
     def label(self) -> str:
-        parts = [self.olympiad]
+        return ", ".join([self.track_title(), *self._details()])
+
+    def short_label(self) -> str:
+        """Без названия олимпиады — для списка внутри одного трека."""
+        return ", ".join(self._details())
+
+    def _details(self) -> list[str]:
+        parts: list[str] = []
         if self.year:
             parts.append(str(self.year))
         if self.grade:
             parts.append(f"{self.grade} класс")
         if self.number:
             parts.append(f"задача {self.number}")
-        return ", ".join(parts)
+        return parts
 
 
 class Answer(BaseModel):

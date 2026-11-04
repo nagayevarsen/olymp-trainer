@@ -1,11 +1,14 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { api, type ProblemListItem, type Subject } from '../api'
-import { SUBJECT_NAMES } from '../lib/text'
+import { api, type ProblemListItem, type Subject, type Track } from '../api'
+import { SUBJECT_NAMES, pluralTasks } from '../lib/text'
+import { getTrack, saveTrack } from '../user'
 
 type Filter = 'all' | Subject
 
 export function ProblemsPage() {
+  const [tracks, setTracks] = useState<Track[] | null>(null)
+  const [trackId, setTrackId] = useState<string | null>(getTrack())
   const [items, setItems] = useState<ProblemListItem[] | null>(null)
   const [error, setError] = useState('')
   const [subject, setSubject] = useState<Filter>('all')
@@ -14,10 +17,31 @@ export function ProblemsPage() {
 
   useEffect(() => {
     api
-      .problems()
-      .then(setItems)
+      .tracks()
+      .then((ts) => {
+        setTracks(ts)
+        setTrackId((cur) => (cur && ts.some((t) => t.id === cur) ? cur : (ts[0]?.id ?? null)))
+      })
       .catch((e) => setError(e.message))
   }, [])
+
+  useEffect(() => {
+    if (!trackId) return
+    setItems(null)
+    api
+      .problems(trackId)
+      .then(setItems)
+      .catch((e) => setError(e.message))
+  }, [trackId])
+
+  const track = tracks?.find((t) => t.id === trackId) ?? null
+
+  function chooseTrack(id: string) {
+    saveTrack(id)
+    setTrackId(id)
+    setSubject('all')
+    setTopic(null)
+  }
 
   const topics = useMemo(() => {
     const set = new Set<string>()
@@ -51,22 +75,28 @@ export function ProblemsPage() {
         </label>
       </div>
 
-      <div className="mb-3 flex flex-wrap gap-2" role="tablist">
-        {(['all', 'math', 'physics'] as Filter[]).map((s) => (
-          <button
-            key={s}
-            role="tab"
-            aria-selected={subject === s}
-            onClick={() => {
-              setSubject(s)
-              setTopic(null)
-            }}
-            className={`btn ${subject === s ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900' : 'btn-ghost'}`}
-          >
-            {s === 'all' ? 'Все' : SUBJECT_NAMES[s]}
-          </button>
-        ))}
-      </div>
+      {tracks && tracks.length > 0 && (
+        <TrackPicker tracks={tracks} current={trackId} onChoose={chooseTrack} />
+      )}
+
+      {track && track.subjects.length > 1 && (
+        <div className="mb-3 flex flex-wrap gap-2" role="tablist">
+          {(['all', ...track.subjects] as Filter[]).map((s) => (
+            <button
+              key={s}
+              role="tab"
+              aria-selected={subject === s}
+              onClick={() => {
+                setSubject(s)
+                setTopic(null)
+              }}
+              className={`btn ${subject === s ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900' : 'btn-ghost'}`}
+            >
+              {s === 'all' ? 'Все' : SUBJECT_NAMES[s]}
+            </button>
+          ))}
+        </div>
+      )}
       <div className="mb-6 flex flex-wrap gap-2">
         {topics.map((t) => (
           <button
@@ -97,6 +127,51 @@ export function ProblemsPage() {
         <p className="py-10 text-center text-slate-500">Здесь пусто. Попробуй другой фильтр.</p>
       )}
     </div>
+  )
+}
+
+function yearsLabel(years: number[]): string {
+  if (years.length === 0) return ''
+  if (years.length === 1) return `${years[0]}`
+  return `${years[0]}–${years[years.length - 1]}`
+}
+
+function TrackPicker({
+  tracks,
+  current,
+  onChoose,
+}: {
+  tracks: Track[]
+  current: string | null
+  onChoose: (id: string) => void
+}) {
+  return (
+    <section className="mb-6">
+      <div className="mb-2 text-sm font-semibold text-slate-500">Олимпиада и этап</div>
+      <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-1">
+        {tracks.map((t) => {
+          const active = t.id === current
+          return (
+            <button
+              key={t.id}
+              onClick={() => onChoose(t.id)}
+              aria-pressed={active}
+              className={`min-w-56 shrink-0 rounded-2xl border p-4 text-left transition ${
+                active
+                  ? 'border-brand-500 bg-brand-50 ring-2 ring-brand-500/20 dark:bg-brand-900/30'
+                  : 'border-slate-200 bg-white hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900'
+              }`}
+            >
+              <div className="font-bold leading-snug">{t.olympiad}</div>
+              {t.stage !== 'Другое' && <div className="mt-0.5 text-sm text-slate-500">{t.stage}</div>}
+              <div className="mt-2 text-xs font-semibold text-slate-500">
+                {[yearsLabel(t.years), `${t.count} ${pluralTasks(t.count)}`].filter(Boolean).join(' · ')}
+              </div>
+            </button>
+          )
+        })}
+      </div>
+    </section>
   )
 }
 

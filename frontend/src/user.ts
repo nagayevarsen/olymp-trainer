@@ -31,3 +31,22 @@ export function clearUser(): void {
     /* ignore */
   }
 }
+
+// Выбранный трек (олимпиада + этап) запоминается между визитами.
+const TRACK_KEY = 'olymp-track'
+
+export function getTrack(): string | null {
+  try {
+    return localStorage.getItem(TRACK_KEY)
+  } catch {
+    return null
+  }
+}
+
+export function saveTrack(id: string): void {
+  try {
+    localStorage.setItem(TRACK_KEY, id)
+  } catch {
+    /* ignore */
+  }
+}

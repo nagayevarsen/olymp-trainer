@@ -6,8 +6,21 @@ const BASE = import.meta.env.VITE_API_URL ?? ''
 
 export type Subject = 'math' | 'physics'
 
+export interface Track {
+  id: string
+  title: string
+  olympiad: string
+  stage: string
+  subjects: Subject[]
+  years: number[]
+  grades: number[]
+  count: number
+}
+
 export interface ProblemListItem {
   id: string
+  track: string
+  year: number | null
   title: string
   subject: Subject
   topic: string
@@ -36,6 +49,7 @@ export interface ProblemDetail {
   seed: number | null
   points: number
   source: { label: string; stage: string; url: string | null }
+  track: { id: string; title: string }
   needs_unit: boolean
   can_clone: boolean
   verification: Verification | null
@@ -83,6 +97,7 @@ export interface Me {
   users_total: number
   topics: TopicStat[]
   weak_topics: string[]
+  track: string | null
   recommended: { id: string; title: string; topic: string; subject: Subject; points: number }[]
 }
 
@@ -130,8 +145,10 @@ const post = <T>(path: string, body: unknown = {}) =>
 export const api = {
   createUser: (name: string, grade: number | null) =>
     post<{ id: string; name: string; grade: number | null }>('/api/users', { name, grade }),
-  me: () => request<Me>('/api/me'),
-  problems: () => request<ProblemListItem[]>('/api/problems'),
+  me: (track?: string | null) => request<Me>(`/api/me${track ? `?track=${track}` : ''}`),
+  tracks: () => request<Track[]>('/api/tracks'),
+  problems: (track?: string | null) =>
+    request<ProblemListItem[]>(`/api/problems${track ? `?track=${track}` : ''}`),
   problem: (id: string, seed?: number | null) =>
     request<ProblemDetail>(`/api/problems/${id}${seed != null ? `?seed=${seed}` : ''}`),
   variant: (id: string) =>
