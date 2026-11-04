@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-900: #312e81;
+  --color-gold-400: #fbbf24;
+  --color-gold-500: #f59e0b;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+}
+
+@utility card {
+  @apply rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
+    disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500;
+}
+@utility btn-primary {
+  @apply btn bg-brand-600 text-white hover:bg-brand-700 active:scale-[.98];
+}
+@utility btn-ghost {
+  @apply btn border border-slate-200 bg-white text-slate-700 hover:bg-slate-100
+    dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800;
+}
+
+@utility chip {
+  @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold;
+}
+
+.statement .katex {
+  font-size: 1.08em;
+}
+
+@keyframes pop {
+  0% { transform: scale(.9); opacity: 0; }
+  60% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-pop { animation: pop .35s ease-out; }
+
+@keyframes fade-up {
+  from { transform: translateY(6px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.animate-fade-up { animation: fade-up .3s ease-out both; }

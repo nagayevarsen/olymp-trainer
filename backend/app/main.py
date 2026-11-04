@@ -350,9 +350,9 @@ async def open_hint(
     pr = db.progress(user["id"], p.id)
     if level > pr["hints_used"] + 1:
         raise HTTPException(400, "Сначала открой предыдущую подсказку")
-    if not pr["solved"]:
-        pr["hints_used"] = max(pr["hints_used"], level)
-        db.save_progress(pr)
+    # после решения подсказки бесплатны, но отмечаем их, чтобы они оставались открытыми
+    pr["hints_used"] = max(pr["hints_used"], level)
+    db.save_progress(pr)
     stats = db.problem_stats()
     return {
         "level": level,
@@ -380,9 +380,8 @@ async def open_solution(
             db.cache_hints(p.id, hints.model_dump_json(), model)
         solution = hints.solution
     pr = db.progress(user["id"], p.id)
-    if not pr["solved"]:
-        pr["solution_viewed"] = 1
-        db.save_progress(pr)
+    pr["solution_viewed"] = 1
+    db.save_progress(pr)
     return {"solution": solution, "can_clone": p.can_clone}
 
 
