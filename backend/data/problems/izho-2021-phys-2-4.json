@@ -1,0 +1,18 @@
+{
+  "id": "izho-2021-phys-2-4",
+  "subject": "physics",
+  "topic": "Термодинамика",
+  "title": "Разность потенциалов в ячейке",
+  "statement": "Запишем теорему Гаусса $\\oint_S \\mathbf{E}\\cdot d\\mathbf{S} = \\frac{Q}{\\varepsilon_0}$ для сферы радиуса $r$ с центром в месте расположения ядра. Найдите искомую разность потенциалов $\\varphi(a/4) - \\varphi(a/2)$.",
+  "answer": {
+    "value": 211.0,
+    "unit": "В"
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2021,
+    "stage": "international",
+    "number": 4,
+    "url": "https://izho.kz/wp-content/uploads/2021/01/IZhO-2021-Theory_rus_sol.pdf"
+  }
+}

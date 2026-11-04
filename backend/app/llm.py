@@ -103,6 +103,41 @@ def _openrouter_text(data: dict) -> str:
     return text
 
 
+async def _anthropic_complete(model: str, system: str, prompt: str, image: Image | None) -> str:
+    """Claude через официальный SDK. PDF и картинки передаются блоками document/image."""
+    import anthropic
+
+    content: list[dict] = []
+    if image:
+        b64 = base64.b64encode(image.data).decode()
+        kind = "document" if image.mime == "application/pdf" else "image"
+        content.append({"type": kind, "source": {"type": "base64", "media_type": image.mime, "data": b64}})
+    content.append({"type": "text", "text": prompt})
+    client = anthropic.AsyncAnthropic(timeout=settings.llm_timeout_s * 4, max_retries=2)
+    try:
+        async with client.messages.stream(
+            model=model,
+            max_tokens=32000,
+            system=system,
+            messages=[{"role": "user", "content": content}],
+        ) as stream:
+            message = await stream.get_final_message()
+    except anthropic.RateLimitError as exc:
+        raise LLMError("Claude: превышен лимит запросов") from exc
+    except anthropic.AuthenticationError as exc:
+        raise LLMError("Claude: нет или неверный ANTHROPIC_API_KEY") from exc
+    except anthropic.APIStatusError as exc:
+        raise LLMError(f"Claude: HTTP {exc.status_code}") from exc
+    except anthropic.APIConnectionError as exc:
+        raise LLMError("Claude: нет соединения") from exc
+    if message.stop_reason == "refusal":
+        raise LLMError("Claude отказался отвечать на запрос")
+    text = "".join(b.text for b in message.content if b.type == "text")
+    if not text.strip():
+        raise LLMError("Claude вернул пустой текст")
+    return text
+
+
 _PROVIDERS = {
     "gemini": (_gemini_request, _gemini_text),
     "openrouter": (_openrouter_request, _openrouter_text),
@@ -126,6 +161,13 @@ async def complete(
     try:
         for entry in chain:
             provider, _, model = entry.strip().partition(":")
+            if provider == "anthropic":
+                try:
+                    return LLMResult(await _anthropic_complete(model, system, prompt, image), entry)
+                except LLMError as exc:
+                    errors.append(f"{entry}: {exc}")
+                    log.warning("LLM %s недоступна (%s), пробую следующую", entry, exc)
+                    continue
             if provider not in _PROVIDERS:
                 errors.append(f"{entry}: неизвестный провайдер")
                 continue

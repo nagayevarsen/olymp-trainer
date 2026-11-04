@@ -77,3 +77,16 @@ def test_extract_json():
 
 async def _nosleep(_):
     return None
+
+
+def test_anthropic_failure_falls_back(monkeypatch):
+    """Если Claude недоступен (нет ключа, лимит), запрос уходит следующей модели."""
+    monkeypatch.setattr("asyncio.sleep", _nosleep)
+
+    async def broken(*a, **k):
+        raise LLMError("Claude: нет или неверный ANTHROPIC_API_KEY")
+
+    monkeypatch.setattr("app.llm._anthropic_complete", broken)
+    handler = lambda req: httpx.Response(200, json=gemini_ok("ok"))  # noqa: E731
+    res = run(complete("q", chain=["anthropic:claude-haiku-5-5", "gemini:m"], client=client_with(handler)))
+    assert res.model == "gemini:m"

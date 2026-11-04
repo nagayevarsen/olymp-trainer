@@ -1,0 +1,17 @@
+{
+  "id": "izho-2017-phys-2-4",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Работа по растаскиванию",
+  "statement": "Найдите работу $A$, необходимую для того, чтобы растащить все пылевое облако на бесконечные расстояния.",
+  "answer": {
+    "value": 1.33
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2017,
+    "stage": "international",
+    "number": 4,
+    "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
+  }
+}

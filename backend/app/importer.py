@@ -42,10 +42,14 @@ _rr = 0
 
 
 def _import_chain() -> list[str]:
+    """Если задан IMPORT_MODEL (например anthropic:claude-haiku-5-5), он идёт первым,
+    бесплатные Gemini остаются запасными."""
     global _rr
     _rr += 1
     k = _rr % len(IMPORT_MODELS)
-    return IMPORT_MODELS[k:] + IMPORT_MODELS[:k]
+    chain = IMPORT_MODELS[k:] + IMPORT_MODELS[:k]
+    preferred = os.environ.get("IMPORT_MODEL")
+    return [preferred, *chain] if preferred else chain
 
 
 MAX_PDF_BYTES = 18 * 1024 * 1024

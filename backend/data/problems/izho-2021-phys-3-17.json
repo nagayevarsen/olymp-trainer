@@ -1,0 +1,17 @@
+{
+  "id": "izho-2021-phys-3-17",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Расхождение импульсов в модах",
+  "statement": "Обратимся к формуле (33) и подставим в нее заданное отношение $a / \\lambda = 1.2$. Определите число распространяющихся мод и найдите расстояние $X$, на которое разойдутся импульсы.",
+  "answer": {
+    "value": 1.4
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2021,
+    "stage": "international",
+    "number": 17,
+    "url": "https://izho.kz/wp-content/uploads/2021/01/IZhO-2021-Theory_rus_sol.pdf"
+  }
+}
