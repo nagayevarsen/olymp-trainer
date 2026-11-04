@@ -5,7 +5,7 @@
   "title": "Карлсон и пирожные",
   "statement": "Пока Малыш был в школе, Карлсон нашёл $N$ пирожных и начал их есть. За первый час он съел 35 штук. Затем он понял, что если будет продолжать есть пирожные с той же скоростью, то сможет их все доесть только через час после возвращения Малыша. Тогда он начал есть на 15 пирожных в час больше и успел всё съесть за полчаса до прихода Малыша. Найдите $N$.",
   "answer": {
-    "value": 210
+    "value": 210.0
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +14,44 @@
     "grade": 7,
     "number": 1,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_Math_2023.pdf"
+  },
+  "template": {
+    "text": "Пока Малыш был в школе, Карлсон нашёл {N} пирожных и начал их есть. За первый час он съел {first_rate} штук. Затем он понял, что если будет продолжать есть пирожные с той же скоростью, то сможет их все доесть только через час после возвращения Малыша. Тогда он начал есть на {extra_rate} пирожных в час больше и успел всё съесть за полчаса до прихода Малыша. Найдите N.",
+    "params": {
+      "N": {
+        "min": 100.0,
+        "max": 500.0,
+        "step": 10.0
+      },
+      "first_rate": {
+        "min": 20.0,
+        "max": 60.0,
+        "step": 5.0
+      },
+      "extra_rate": {
+        "min": 5.0,
+        "max": 30.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "N": 210.0,
+      "first_rate": 35.0,
+      "extra_rate": 15.0
+    },
+    "solver": "def solve(N, first_rate, extra_rate):\n    # Пусть T — время прихода Малыша.\n    # Без изменения скорости: оставшиеся (N - first_rate) съедаются за время (T + 1 - 1) = T со скоростью first_rate.\n    # Т.е. N - first_rate = first_rate * T  =>  N = first_rate * (T + 1).\n    # С изменением скорости: оставшиеся съедаются за время (T - 0.5 - 1) = T - 1.5 со скоростью first_rate + extra_rate.\n    # Т.е. N - first_rate = (first_rate + extra_rate) * (T - 1.5).\n    # Приравняем два выражения для N - first_rate:\n    # first_rate * T = (first_rate + extra_rate) * (T - 1.5)\n    # first_rate * T = (first_rate + extra_rate) * T - 1.5 * (first_rate + extra_rate)\n    # extra_rate * T = 1.5 * (first_rate + extra_rate)\n    # T = 1.5 * (first_rate + extra_rate) / extra_rate\n    T = 1.5 * (first_rate + extra_rate) / extra_rate\n    return first_rate * (T + 1)",
+    "constraints": [
+      "N > first_rate",
+      "1.5 * (first_rate + extra_rate) / extra_rate > 1.5"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
   }
 }

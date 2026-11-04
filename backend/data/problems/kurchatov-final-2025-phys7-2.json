@@ -15,5 +15,54 @@
     "grade": 7,
     "number": 2,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/2025/final_tasks/Kurchatov_Phys_7_2025.pdf"
+  },
+  "template": {
+    "text": "Эскалатор метро движется со скоростью $v = {v}$ м/с. Пассажир заходит на эскалатор по ходу движения и начинает двигаться следующим образом: он делает {n1} шага вперёд и {n2} шага назад. При этом он достигает другого конца эскалатора за время $t_1 = {t1}$ с. За какое время он бы добрался до конца эскалатора, если бы двигался обычным шагом? Скорость пассажира относительно эскалатора одинакова при движении вперёд и назад и равна $u = {u}$ м/с. Считайте, что размеры ступенек много меньше длины эскалатора.",
+    "params": {
+      "v": {
+        "min": 0.5,
+        "max": 2.0,
+        "step": 0.1
+      },
+      "n1": {
+        "value": 2.0,
+        "step": 1.0
+      },
+      "n2": {
+        "value": 3.0,
+        "step": 1.0
+      },
+      "t1": {
+        "min": 20.0,
+        "max": 100.0,
+        "step": 1.0
+      },
+      "u": {
+        "min": 0.1,
+        "max": 1.0,
+        "step": 0.1
+      }
+    },
+    "original": {
+      "v": 1.0,
+      "n1": 2.0,
+      "n2": 3.0,
+      "t1": 40.0,
+      "u": 0.4
+    },
+    "solver": "def solve(v, n1, n2, t1, u):\n    cycle_time = n1 + n2\n    v_net = v + u * (n1 - n2) / cycle_time\n    L = v_net * t1\n    t_normal = L / (v + u)\n    return t_normal",
+    "constraints": [
+      "answer > 0",
+      "v + u * (n1 - n2) / (n1 + n2) > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
   }
 }
