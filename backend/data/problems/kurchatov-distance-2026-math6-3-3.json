@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2026-math6-3-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Прямоугольник и его стороны",
+  "statement": "Петя нарисовал прямоугольник со сторонами $n$ и $m$, где $n$ и $m$ - целые числа. Затем решил увеличить его стороны в 3 и 7 раз соответственно. Оказалось, что значение площади исходного прямоугольника больше значения периметра нового прямоугольника на 5. Найдите наименьшее возможное значение $n$.",
+  "answer": {
+    "value": 15.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2026,
+    "stage": "distance",
+    "grade": 6,
+    "number": 3,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Olimpiada_Kurchatov_2026_Math_6_7_Online_Solutions.pdf"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2025-math8-8-4",
+  "subject": "math",
+  "topic": "Арифметика",
+  "title": "Пятизначное число",
+  "statement": "На доске записано пятизначное число. Петя стёр его первую и последнюю цифры, и число уменьшилось ровно в 46 раз. Какое число было записано изначально?",
+  "answer": {
+    "value": 12788.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2025,
+    "stage": "distance",
+    "grade": 8,
+    "number": 4,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2025/math_8-9_2025_1.pdf"
+  }
+}

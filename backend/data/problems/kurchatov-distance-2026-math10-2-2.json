@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2026-math10-2-2",
+  "subject": "math",
+  "topic": "Арифметика",
+  "title": "Сумма нечётных чисел",
+  "statement": "Сумма восемнадцати последовательных натуральных нечётных чисел, меньшее из которых больше единицы, равна $N^2$. Укажите минимальное возможное значение числа $N$.",
+  "answer": {
+    "value": 24.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2026,
+    "stage": "distance",
+    "grade": 10,
+    "number": 2,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Olimpiada_Kurchatov_2026_Math_11_10_Online_Solutions.pdf"
+  }
+}

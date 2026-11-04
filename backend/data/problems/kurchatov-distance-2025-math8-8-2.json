@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2025-math8-8-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Площади треугольников",
+  "statement": "На сторонах $AB$ и $BC$ треугольника $ABC$ взяли такие точки $M$ и $K$, что $BM = BK$. Отрезки $AK$ и $CM$ пересекаются в точке $O$, причём площади четырёхугольника $MBKO$ и треугольника $AOC$ равны. Найдите $BM$, если стороны $AB$ и $BC$ равны 11 и 14.",
+  "answer": {
+    "value": 6.16
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2025,
+    "stage": "distance",
+    "grade": 8,
+    "number": 2,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2025/math_8-9_2025_1.pdf"
+  }
+}

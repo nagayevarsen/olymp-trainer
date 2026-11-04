@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2026-math10-4-3",
+  "subject": "math",
+  "topic": "Тригонометрия",
+  "title": "Корни уравнения",
+  "statement": "Найдите корни уравнения $\\sqrt{-\\sin^2 x + \\sin x + 8} - \\sqrt{\\cos^2 x - \\cos x + 8} = 2\\sin x + 2\\cos x - 2$, по модулю не превосходящие $7\\pi$. В качестве ответа укажите их сумму, делённую на $\\pi$.",
+  "answer": {
+    "value": 3.5
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2026,
+    "stage": "distance",
+    "grade": 10,
+    "number": 3,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Olimpiada_Kurchatov_2026_Math_11_10_Online_Solutions.pdf"
+  }
+}
