@@ -30,7 +30,7 @@
     {
       "domain": "cdn.bc-pf.org",
       "name": "Beyond Olympiads — файлы",
-      "url": "https://olympiads.bc-pf.org/",
+      "url": "https://cdn.bc-pf.org/",
       "subjects": [
         "math",
         "physics"
