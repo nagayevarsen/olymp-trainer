@@ -28,6 +28,19 @@
       "added": "2026-11-04"
     },
     {
+      "domain": "cdn.bc-pf.org",
+      "name": "Beyond Olympiads — файлы",
+      "url": "https://olympiads.bc-pf.org/",
+      "subjects": [
+        "math",
+        "physics"
+      ],
+      "region": "Казахстан",
+      "kind": "aggregator",
+      "note": "Хранилище PDF, на которое ссылается olympiads.bc-pf.org",
+      "added": "2026-11-05"
+    },
+    {
       "domain": "daryn.kz",
       "name": "Дарын",
       "url": "https://daryn.kz/",

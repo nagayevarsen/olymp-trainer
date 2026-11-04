@@ -16,6 +16,7 @@ STAGE_BASE = {
     "school": 100,
     "qualifying": 150,
     "distance": 150,
+    "district": 175,
     "city": 200,
     "region": 300,
     "republic": 450,

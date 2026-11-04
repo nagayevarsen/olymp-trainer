@@ -20,7 +20,16 @@ from .config import settings
 from .units import UnitError, parse_unit
 
 Stage = Literal[
-    "school", "qualifying", "distance", "city", "region", "republic", "final", "international", "other"
+    "school",
+    "qualifying",
+    "distance",
+    "district",
+    "city",
+    "region",
+    "republic",
+    "final",
+    "international",
+    "other",
 ]
 Subject = Literal["math", "physics"]
 
@@ -28,6 +37,7 @@ STAGE_NAMES = {
     "school": "Школьный этап",
     "qualifying": "Отборочный этап",
     "distance": "Дистанционный этап",
+    "district": "Районный этап",
     "city": "Городской этап",
     "region": "Региональный (областной) этап",
     "republic": "Республиканский этап",
