@@ -8,6 +8,8 @@
     python -m app.tools.bank_tool crosscheck         # другая модель решает варианты, сверяем ответы
     python -m app.tools.bank_tool hints              # ИИ пишет подсказки для задач без подсказок
     python -m app.tools.bank_tool preview X          # показать 3 варианта задачи X
+    python -m app.tools.bank_tool discover URL       # найти PDF на странице проверенного сайта
+    python -m app.tools.bank_tool import-manifest data/imports/kurchatov.json   # импорт по списку
 """
 
 from __future__ import annotations
@@ -126,6 +128,48 @@ def cmd_preview(args) -> int:
     return 0
 
 
+def cmd_discover(args) -> int:
+    from ..importer import discover
+
+    for url in discover(args.url, args.pattern):
+        print(url)
+    return 0
+
+
+async def cmd_import_manifest(args) -> int:
+    """Манифест — JSON-список партий: {olympiad, stage, year, subject, slug, grade?, urls: [...]}."""
+    import json
+    from pathlib import Path
+
+    from ..importer import import_pdf
+
+    batches = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
+    total_added = 0
+    for b in batches:
+        for url in b["urls"]:
+            rep = await import_pdf(
+                url,
+                olympiad=b["olympiad"],
+                stage=b["stage"],
+                year=b["year"],
+                subject=b["subject"],
+                slug=b["slug"],
+                grade=b.get("grade"),
+                dry_run=args.dry_run,
+            )
+            total_added += len(rep.added)
+            skipped = ", ".join(f"{k}: {v}" for k, v in rep.skipped.items())
+            status = rep.error or f"найдено {rep.found}, добавлено {len(rep.added)}"
+            print(
+                f"{b['slug']} {b['year']} {url.rsplit('/', 1)[-1]}: {status}"
+                + (f" | пропущено — {skipped}" if skipped else ""),
+                flush=True,
+            )
+    load_bank.cache_clear()
+    print(f"\nВсего добавлено: {total_added}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="bank_tool", description="Работа с банком задач")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -138,12 +182,22 @@ def main(argv: list[str] | None = None) -> int:
         s.add_argument("--force", action="store_true")
     pv = sub.add_parser("preview")
     pv.add_argument("problem")
+    dc = sub.add_parser("discover", help="найти PDF на странице")
+    dc.add_argument("url")
+    dc.add_argument("--pattern")
+    im = sub.add_parser("import-manifest", help="импорт задач из PDF по манифесту")
+    im.add_argument("manifest")
+    im.add_argument("--dry-run", action="store_true")
     args = ap.parse_args(argv)
 
     if args.cmd == "check":
         return cmd_check(args)
     if args.cmd == "preview":
         return cmd_preview(args)
+    if args.cmd == "discover":
+        return cmd_discover(args)
+    if args.cmd == "import-manifest":
+        return asyncio.run(cmd_import_manifest(args))
     fn = {"templates": cmd_templates, "hints": cmd_hints, "crosscheck": cmd_crosscheck}[args.cmd]
     return asyncio.run(fn(args))
 

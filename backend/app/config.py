@@ -29,6 +29,7 @@ DEFAULT_CHAIN = ",".join(
         "gemini:gemini-3.5-flash",
         "gemini:gemini-3.8-flash",
         "gemini:gemini-flash-latest",
+        "gemini:gemini-3.5-flash-lite",
         "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
         "openrouter:google/gemma-4-31b-it:free",
     ]

@@ -148,7 +148,7 @@ async def complete(
                     await asyncio.sleep(1.0)
                     continue
                 break
-            log.warning("LLM %s недоступна, пробую следующую", entry)
+            log.warning("LLM %s недоступна (%s), пробую следующую", entry, errors[-1] if errors else "?")
     finally:
         if own_client:
             await client.aclose()
