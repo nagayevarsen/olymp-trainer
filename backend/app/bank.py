@@ -12,6 +12,7 @@ import json
 from functools import lru_cache
 from pathlib import Path
 from typing import Literal
+from urllib.parse import urlparse
 
 from pydantic import BaseModel, Field, ValidationError, field_validator, model_validator
 
@@ -188,10 +189,30 @@ def load_problem_file(path: Path) -> Problem:
 
 
 @lru_cache(maxsize=1)
+def trusted_domains() -> tuple[str, ...]:
+    """Домены из data/sources.json — только с них можно брать задачи."""
+    path = Path(settings.data_dir) / "sources.json"
+    if not path.exists():
+        return ()
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return tuple(s["domain"].lower().removeprefix("www.") for s in data["sources"])
+
+
+def is_trusted_url(url: str) -> bool:
+    host = (urlparse(url).hostname or "").lower().removeprefix("www.")
+    return any(host == d or host.endswith("." + d) for d in trusted_domains())
+
+
+@lru_cache(maxsize=1)
 def load_bank() -> dict[str, Problem]:
     bank: dict[str, Problem] = {}
     for path in sorted(problems_dir().glob("*.json")):
         p = load_problem_file(path)
+        if p.source.url and not is_trusted_url(p.source.url):
+            raise BankError(
+                f"В файле {path.name} источник {p.source.url} не из списка проверенных сайтов "
+                "(data/sources.json)"
+            )
         bank[p.id] = p
     return bank
 

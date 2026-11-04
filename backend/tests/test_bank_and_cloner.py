@@ -59,3 +59,19 @@ def test_integer_answers_for_integer_templates():
         v = make_variant(p, seed)
         assert v.answer.value == int(v.answer.value)
         assert v.params["b"] % v.params["a"] != 0
+
+
+def test_trusted_sources():
+    from app.bank import is_trusted_url
+
+    assert is_trusted_url("https://izho.kz/contest/problems/")
+    assert is_trusted_url("https://www.izho.kz/x")
+    assert not is_trusted_url("https://izho.kz.evil.com/x")
+    assert not is_trusted_url("https://random-site.ru/problems")
+
+
+def test_all_problem_urls_are_trusted():
+    from app.bank import is_trusted_url
+
+    for p in BANK.values():
+        assert p.source.url is None or is_trusted_url(p.source.url), p.id

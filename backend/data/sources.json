@@ -1,0 +1,12 @@
+{
+  "_comment": "Проверенные источники задач. У задачи source.url может вести только на эти сайты (или их поддомены).",
+  "sources": [
+    {
+      "domain": "izho.kz",
+      "name": "Международная Жаутыковская олимпиада (IZhO)",
+      "url": "https://izho.kz/contest/problems/",
+      "subjects": ["math", "physics"],
+      "added": "2026-11-04"
+    }
+  ]
+}
