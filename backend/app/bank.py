@@ -19,7 +19,9 @@ from pydantic import BaseModel, Field, ValidationError, field_validator, model_v
 from .config import settings
 from .units import UnitError, parse_unit
 
-Stage = Literal["school", "qualifying", "distance", "city", "region", "republic", "final", "international", "other"]
+Stage = Literal[
+    "school", "qualifying", "distance", "city", "region", "republic", "final", "international", "other"
+]
 Subject = Literal["math", "physics"]
 
 STAGE_NAMES = {
