@@ -24,12 +24,13 @@ python -m app.tools.bank_tool check                               # провер
 буквально встречаться в официальном PDF.
 
 Модель для импорта: переменная `IMPORT_MODEL` (например `anthropic:claude-haiku-5-5`,
-ключ — `ANTHROPIC_API_KEY`). Без неё используются бесплатные модели Gemini по кругу
+ключ — `OLYMP_ANTHROPIC_API_KEY` или `ANTHROPIC_API_KEY`;
+в облачной среде Claude Code `ANTHROPIC_*` вырезаются, там нужен `OLYMP_ANTHROPIC_API_KEY`). Без неё используются бесплатные модели Gemini по кругу
 (у них маленькие дневные квоты).
 
 ## Следующие шаги
 
-1. Проверить, что `ANTHROPIC_API_KEY` виден, и прогнать один PDF через Claude с `--dry-run`,
+1. Проверить, что `OLYMP_ANTHROPIC_API_KEY` виден, и прогнать один PDF через Claude с `--dry-run`,
    посчитать расход.
 2. BelPhO импортирован (`data/imports/belpho.json`).
 3. Составить манифесты: Всесибирская (sesc.nsu.ru), «Высшая проба» (olymp.hse.ru),

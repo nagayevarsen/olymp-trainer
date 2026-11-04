@@ -116,7 +116,11 @@ async def _anthropic_complete(model: str, system: str, prompt: str, image: Image
     content.append({"type": "text", "text": prompt})
     # Адрес задаём явно: в облачной среде Claude Code уже есть служебный ANTHROPIC_BASE_URL,
     # который SDK иначе подхватил бы. Для своего прокси можно задать OLYMP_ANTHROPIC_BASE_URL.
+    # ANTHROPIC_API_KEY облачная среда Claude Code вырезает как служебный,
+    # поэтому там ключ кладём в OLYMP_ANTHROPIC_API_KEY.
+    api_key = os.environ.get("OLYMP_ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
     client = anthropic.AsyncAnthropic(
+        api_key=api_key,
         base_url=os.environ.get("OLYMP_ANTHROPIC_BASE_URL", "https://api.anthropic.com"),
         timeout=settings.llm_timeout_s * 4,
         max_retries=2,
@@ -132,7 +136,7 @@ async def _anthropic_complete(model: str, system: str, prompt: str, image: Image
     except anthropic.RateLimitError as exc:
         raise LLMError("Claude: превышен лимит запросов") from exc
     except anthropic.AuthenticationError as exc:
-        raise LLMError("Claude: нет или неверный ANTHROPIC_API_KEY") from exc
+        raise LLMError("Claude: нет или неверный OLYMP_ANTHROPIC_API_KEY / ANTHROPIC_API_KEY") from exc
     except anthropic.APIStatusError as exc:
         raise LLMError(f"Claude: HTTP {exc.status_code}") from exc
     except anthropic.APIConnectionError as exc:
