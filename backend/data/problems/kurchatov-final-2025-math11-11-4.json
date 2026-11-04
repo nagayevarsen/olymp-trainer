@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-final-2025-math11-11-4",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Последовательность простых чисел",
+  "statement": "Пусть $a_n = [\\sqrt{1}] + [\\sqrt{2}] + \\dots + [\\sqrt{n}]$. Докажите, что среди элементов последовательности $a_1, a_2, \\dots$ есть лишь конечное количество простых чисел, и найдите наибольшее из них.",
+  "answer": {
+    "value": 197.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2025,
+    "stage": "final",
+    "grade": 11,
+    "number": 4,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2025/final_tasks/Kurchatov_Math_2025.pdf"
+  }
+}

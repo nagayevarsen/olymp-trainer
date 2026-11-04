@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-final-2022-math11-4",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Минимум выражения с логарифмами",
+  "statement": "Положительные числа $a, b, c, d$ больше 1. Найдите наименьшее возможное значение выражения $\\log_a(ab^2) + \\log_b(b^2c^3) + \\log_c(c^5d^6) + \\log_d(d^{35}a^{36})$.",
+  "answer": {
+    "value": 67.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2022,
+    "stage": "final",
+    "grade": 11,
+    "number": 4,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Final_Kurchatov_2022_Math_11_6.pdf"
+  }
+}

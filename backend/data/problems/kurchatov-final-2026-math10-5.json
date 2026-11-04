@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-final-2026-math10-5",
+  "subject": "math",
+  "topic": "Множества",
+  "title": "Свободные множества натуральных чисел",
+  "statement": "Множество натуральных чисел $S$ называется свободным, если для любых $a, b \\in S$ число $ab$ не принадлежит $S$, и для любого $c \\in S$ число $c^2$ также не принадлежит $S$. На какое наименьшее количество свободных множеств можно разбить множество $\\{2, 3, 4, \\dots, 2^{14} - 1\\}$?",
+  "answer": {
+    "value": 3.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2026,
+    "stage": "final",
+    "grade": 10,
+    "number": 5,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Kurchatov_2026_Math_10_Solutions.pdf"
+  }
+}

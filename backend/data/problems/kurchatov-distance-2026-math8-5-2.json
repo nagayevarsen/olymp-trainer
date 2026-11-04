@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2026-math8-5-2",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Делители числа",
+  "statement": "Про число $X$ известно, что оно делится на 80 и имеет ровно 2026 делителей. Найдите остаток при делении на 9 максимального из всех $X$, удовлетворяющих условиям.",
+  "answer": {
+    "value": 8.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2026,
+    "stage": "distance",
+    "grade": 8,
+    "number": 2,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Olimpiada_Kurchatov_2026_Math_9_8_Online_Solutions.pdf"
+  }
+}

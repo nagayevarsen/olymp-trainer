@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2026-math8-4-3",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Цветы на 8 марта",
+  "statement": "В компании 13 человек. На 8 марта мальчики дарили девочкам цветы: не более одного цветка от одного мальчика одной девочке. Известно, что никакие три девочки не получили одинаковое число цветов. Какое наименьшее количество мальчиков может быть в компании?",
+  "answer": {
+    "value": 4.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2026,
+    "stage": "distance",
+    "grade": 8,
+    "number": 3,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Olimpiada_Kurchatov_2026_Math_9_8_Online_Solutions.pdf"
+  }
+}

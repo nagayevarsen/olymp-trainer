@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-final-2025-math10-10-5",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Перестановки чисел",
+  "statement": "Найдите количество перестановок $(a_1, a_2, \\dots, a_{10})$ набора чисел $(1, 2, \\dots, 10)$, таких, что $a_1 \\leqslant 2a_2 \\leqslant \\dots \\leqslant 10a_{10}$.",
+  "answer": {
+    "value": 89.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2025,
+    "stage": "final",
+    "grade": 10,
+    "number": 5,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2025/final_tasks/Kurchatov_Math_2025.pdf"
+  }
+}

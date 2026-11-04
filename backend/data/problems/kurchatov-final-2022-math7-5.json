@@ -1,0 +1,19 @@
+{
+  "id": "kurchatov-final-2022-math7-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Угол в треугольнике",
+  "statement": "В треугольнике $ABC$ угол при вершине $B$ равен $120^\\circ$, точка $M$ — середина стороны $AC$. На сторонах $AB$ и $BC$ выбраны точки $E$ и $F$ соответственно так, что $AE = EF = FC$. Найдите $\\angle EMF$.",
+  "answer": {
+    "value": 90.0,
+    "unit": "°"
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2022,
+    "stage": "final",
+    "grade": 7,
+    "number": 5,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Final_Kurchatov_2022_Math_11_6.pdf"
+  }
+}

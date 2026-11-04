@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-final-2026-math6-5",
+  "subject": "math",
+  "topic": "Делящиеся числа",
+  "title": "Задача 5",
+  "statement": "Найдите наименьшее натуральное число, сумма цифр которого делится на 11 с остатком 3 и сумма цифр следующего за ним числа делится на 11 с остатком 7.",
+  "answer": {
+    "value": 69999999.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2026,
+    "stage": "final",
+    "grade": 6,
+    "number": 5,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Kurchatov_2026_Math_6_Solutions.pdf"
+  }
+}

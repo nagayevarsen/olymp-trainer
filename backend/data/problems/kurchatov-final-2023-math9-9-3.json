@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-final-2023-math9-9-3",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Делители числа n",
+  "statement": "Пусть $a, b, c$ и $d$ — наименьшие различные натуральные делители натурального числа $n$. Оказалось, что $a^2 + b^2 + c^2 + d^2 + 100 = n$. Какие значения может принимать $n$?",
+  "answer": {
+    "value": 230.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2023,
+    "stage": "final",
+    "grade": 9,
+    "number": 3,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_Math_2023.pdf"
+  }
+}

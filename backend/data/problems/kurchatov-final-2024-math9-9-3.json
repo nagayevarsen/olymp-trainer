@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-final-2024-math9-9-3",
+  "subject": "math",
+  "topic": "Последовательности",
+  "title": "Номер отрицательного члена",
+  "statement": "Последовательность чисел $a_n$ определяется условиями $a_1 = 20$, $a_2 = 50$, $a_{n+1} = a_{n-1} - \\frac{3}{a_n}$. Найдите номер первого отрицательного члена этой последовательности.",
+  "answer": {
+    "value": 336.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2024,
+    "stage": "final",
+    "grade": 9,
+    "number": 3,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/kurchatov_2024_math_sol_09.pdf"
+  }
+}

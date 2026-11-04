@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2026-math8-3-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Трапеция",
+  "statement": "В трапеции $ABCD$ с основаниями $CD = 38$ и $AB = 6$ и острыми углами при большем основании отметили середину $M$ стороны $AB$ и такую точку $N$ на стороне $CD$, что $\\angle ADN = \\frac{1}{2} \\angle MNC$ и $\\angle BCN = \\frac{1}{2} \\angle MND$. Найдите длину отрезка $MN$.",
+  "answer": {
+    "value": 16.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2026,
+    "stage": "distance",
+    "grade": 8,
+    "number": 2,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Olimpiada_Kurchatov_2026_Math_9_8_Online_Solutions.pdf"
+  }
+}

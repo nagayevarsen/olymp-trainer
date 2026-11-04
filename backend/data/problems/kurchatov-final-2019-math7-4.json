@@ -40,7 +40,8 @@
       "reproduces_original": true,
       "cross_checked": false,
       "checked_by": [
-        "gemini:gemini-3.5-flash-lite"
+        "gemini:gemini-3.5-flash-lite",
+        "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free"
       ]
     }
   }

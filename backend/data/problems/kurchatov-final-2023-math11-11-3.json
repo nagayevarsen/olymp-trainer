@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-final-2023-math11-11-3",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Многочлены P(x) и Q(x)",
+  "statement": "Многочлены $P(x)$ и $Q(x)$ с действительными коэффициентами имеют степень 10. Известно, что для любого действительного $x$ верно $P(x) \\cdot Q(x) \\ge |P(x)|$. Какое наибольшее количество различных корней может быть у многочлена $P(x) \\cdot Q(x)$?",
+  "answer": {
+    "value": 5.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2023,
+    "stage": "final",
+    "grade": 11,
+    "number": 3,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_Math_2023.pdf"
+  }
+}
