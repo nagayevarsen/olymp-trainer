@@ -1,0 +1,19 @@
+{
+  "id": "mmo-2019-math8-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Угол AKB в треугольнике",
+  "statement": "Внутри равнобедренного треугольника ABC отмечена точка K так, что AB=BC=CK и ∠KAC=30°. Найдите угол AKB.",
+  "answer": {
+    "value": 150.0,
+    "unit": "°"
+  },
+  "source": {
+    "olympiad": "Московская математическая олимпиада (ММО)",
+    "year": 2019,
+    "stage": "other",
+    "grade": 8,
+    "number": 5,
+    "url": "https://mmo.mccme.ru/2019/82mmo.pdf"
+  }
+}
