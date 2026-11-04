@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2021-math8-3-2",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Сумма отброшенных цифр",
+  "statement": "Дано натуральное число $n$. Через $S(n)$ обозначим сумму всех чисел, получаемых из числа $n$ отбрасыванием нескольких последних цифр (например, $S(2021) = 202 + 20 + 2 = 224$). Найдите число $n$, если известно, что его сумма цифр равна 26, а $S(n) = 6323$.",
+  "answer": {
+    "value": 56933.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2021,
+    "stage": "distance",
+    "grade": 8,
+    "number": 2,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2021_Online_Math.pdf"
+  }
+}

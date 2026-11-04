@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2025-math6-6-2",
+  "subject": "math",
+  "topic": "Арифметика",
+  "title": "Зачеркнутая цифра",
+  "statement": "Натуральное число заканчивается на 8. Если эту цифру зачеркнуть, а в начале числа приписать 10, то данное число станет в три раза больше. Найдите наименьшее такое число.",
+  "answer": {
+    "value": 3448.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2025,
+    "stage": "distance",
+    "grade": 6,
+    "number": 2,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/2025/math_6-7_2025_1.pdf"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2021-math7-3-1",
+  "subject": "math",
+  "topic": "Делимость",
+  "title": "Наименьшее число со свойствами",
+  "statement": "Найдите наименьшее натуральное число, которое обладает следующими тремя свойствами:\n• делится на 632;\n• заканчивается на 632;\n• больше 632.",
+  "answer": {
+    "value": 79632.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2021,
+    "stage": "distance",
+    "grade": 7,
+    "number": 1,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2021_Online_Math.pdf"
+  }
+}

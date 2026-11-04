@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2022-math10-6-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Окружность и треугольник",
+  "statement": "В остроугольном треугольнике $ABC$ точка $H$ — основание высоты из точки $B$. Оказалось, что центр вписанной окружности треугольника $BCH$ совпадает с точкой пересечения медиан треугольника $ABC$. Найдите $AC^2$, если $AB = 8$.",
+  "answer": {
+    "value": 160.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2022,
+    "stage": "distance",
+    "grade": 10,
+    "number": 2,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2022_1_Math_11.pdf"
+  }
+}

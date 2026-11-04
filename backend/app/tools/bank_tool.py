@@ -145,8 +145,11 @@ async def cmd_import_manifest(args) -> int:
 
     batches = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
     total_added = 0
-    for b in batches:
-        for url in b["urls"]:
+    sem = asyncio.Semaphore(args.parallel)
+
+    async def one(b: dict, url: str) -> None:
+        nonlocal total_added
+        async with sem:
             rep = await import_pdf(
                 url,
                 olympiad=b["olympiad"],
@@ -157,14 +160,16 @@ async def cmd_import_manifest(args) -> int:
                 grade=b.get("grade"),
                 dry_run=args.dry_run,
             )
-            total_added += len(rep.added)
-            skipped = ", ".join(f"{k}: {v}" for k, v in rep.skipped.items())
-            status = rep.error or f"найдено {rep.found}, добавлено {len(rep.added)}"
-            print(
-                f"{b['slug']} {b['year']} {url.rsplit('/', 1)[-1]}: {status}"
-                + (f" | пропущено — {skipped}" if skipped else ""),
-                flush=True,
-            )
+        total_added += len(rep.added)
+        skipped = ", ".join(f"{k}: {v}" for k, v in rep.skipped.items())
+        status = rep.error or f"найдено {rep.found}, добавлено {len(rep.added)} ({rep.model})"
+        print(
+            f"{b['slug']} {b['year']} {url.rsplit('/', 1)[-1]}: {status}"
+            + (f" | пропущено — {skipped}" if skipped else ""),
+            flush=True,
+        )
+
+    await asyncio.gather(*(one(b, url) for b in batches for url in b["urls"]))
     load_bank.cache_clear()
     print(f"\nВсего добавлено: {total_added}")
     return 0
@@ -188,6 +193,7 @@ def main(argv: list[str] | None = None) -> int:
     im = sub.add_parser("import-manifest", help="импорт задач из PDF по манифесту")
     im.add_argument("manifest")
     im.add_argument("--dry-run", action="store_true")
+    im.add_argument("--parallel", type=int, default=4, help="сколько файлов обрабатывать одновременно")
     args = ap.parse_args(argv)
 
     if args.cmd == "check":

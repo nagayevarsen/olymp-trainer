@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2021-math7-3-2",
+  "subject": "math",
+  "topic": "Делимость",
+  "title": "Наименьшее число со свойствами",
+  "statement": "Найдите наименьшее натуральное число, которое обладает следующими тремя свойствами:\n• делится на 568;\n• заканчивается на 568;\n• больше 568.",
+  "answer": {
+    "value": 71568.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2021,
+    "stage": "distance",
+    "grade": 7,
+    "number": 2,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2021_Online_Math.pdf"
+  }
+}

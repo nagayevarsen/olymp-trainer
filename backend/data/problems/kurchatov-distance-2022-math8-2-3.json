@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2022-math8-2-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Биссектрисы в треугольнике",
+  "statement": "Дан треугольник $ABC$. Точки $K$ и $L$ — середины сторон $AB$ и $BC$ соответственно. Оказалось, что биссектрисы углов $AKL$ и $CLK$ пересекаются на отрезке $AC$. Найдите длину отрезка $AC$, если известно, что $AB = 17$ и $BC = 26$.",
+  "answer": {
+    "value": 21.5
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2022,
+    "stage": "distance",
+    "grade": 8,
+    "number": 3,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2022_1_Math_11.pdf"
+  }
+}

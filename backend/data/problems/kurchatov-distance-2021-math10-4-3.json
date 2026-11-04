@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2021-math10-4-3",
+  "subject": "math",
+  "topic": "Тригонометрия",
+  "title": "Количество пар чисел",
+  "statement": "Найдите количество пар неотрицательных чисел $(x, y)$, каждое из которых не превосходит $6\\pi$, удовлетворяющих равенству $(\\operatorname{tg} x + \\operatorname{ctg} y)^2 = (\\operatorname{tg} x + 1)(\\operatorname{ctg} y - 1)$.",
+  "answer": {
+    "value": 36.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2021,
+    "stage": "distance",
+    "grade": 10,
+    "number": 3,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2021_Online_Math.pdf"
+  }
+}

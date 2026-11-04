@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2022-math6-2-1",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Наибольшее четырехзначное число",
+  "statement": "Найдите наибольшее четырёхзначное число, состоящее из различных цифр, произведение двух крайних цифр которого в два раза больше произведения двух средних цифр.",
+  "answer": {
+    "value": 9634.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2022,
+    "stage": "distance",
+    "grade": 6,
+    "number": 1,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2022_1_Math_11.pdf"
+  }
+}

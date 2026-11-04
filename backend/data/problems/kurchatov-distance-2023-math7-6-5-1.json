@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2023-math7-6-5-1",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Выбор пяти чисел из тетрадки",
+  "statement": "Вася записал в своей тетрадке числа $1, 2, 3, \\dots, 53$. Сколько существует способов выбрать $5$ чисел из них так, чтобы при их записи использовались все цифры от $1$ до $9$ ровно по одному разу, а цифра $0$ вообще не использовалась?",
+  "answer": {
+    "value": 192.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2023,
+    "stage": "distance",
+    "grade": 7,
+    "number": 1,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/kurchatov-2023-math-Round1-prob-var-ans-sol_(2).pdf"
+  }
+}

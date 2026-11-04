@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2022-math10-4-1",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Наименьшее значение выражения",
+  "statement": "Даны действительные числа $a, b, c$, причём $b > a$. Функция $f(x) = ax^2 + bx + c$ принимает неотрицательные значения при всех действительных $x$. Найдите наименьшее возможное значение выражения $\\frac{11a + b + c}{b - a}$.",
+  "answer": {
+    "value": 5.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2022,
+    "stage": "distance",
+    "grade": 10,
+    "number": 1,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2022_1_Math_11.pdf"
+  }
+}

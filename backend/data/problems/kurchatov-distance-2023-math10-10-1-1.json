@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2023-math10-10-1-1",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Шестизначные числа с разностью цифр",
+  "statement": "Сколько существует шестизначных чисел, у которых любые две соседние цифры отличаются на $2$ или на $8$?",
+  "answer": {
+    "value": 288.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2023,
+    "stage": "distance",
+    "grade": 10,
+    "number": 1,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/kurchatov-2023-math-Round1-prob-var-ans-sol_(2).pdf"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2022-math10-1-3",
+  "subject": "math",
+  "topic": "Тригонометрия",
+  "title": "Сумма косинусов",
+  "statement": "Пусть $S_n = \\cos 1^\\circ + \\cos 2^\\circ + \\cos 3^\\circ + \\dots + \\cos n^\\circ$. Найдите наименьшее натуральное число $n > 39$, для которого $S_n < S_{39}$.",
+  "answer": {
+    "value": 141.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2022,
+    "stage": "distance",
+    "grade": 10,
+    "number": 3,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2022_1_Math_11.pdf"
+  }
+}

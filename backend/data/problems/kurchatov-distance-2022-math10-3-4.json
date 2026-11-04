@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2022-math10-3-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Углы многоугольника",
+  "statement": "У некоторого $k$-угольника (не обязательно выпуклого) ровно 14 углов больше $90^\\circ$. Найдите наибольшее возможное значение $k$.",
+  "answer": {
+    "value": 45.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2022,
+    "stage": "distance",
+    "grade": 10,
+    "number": 4,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2022_1_Math_11.pdf"
+  }
+}

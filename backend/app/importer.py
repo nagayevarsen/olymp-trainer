@@ -29,11 +29,24 @@ from .config import settings
 from .llm import Image, LLMError, complete_json
 from .units import UnitError, parse_unit
 
-IMPORT_CHAIN = [
+# У каждой модели своя бесплатная квота, поэтому параллельные запросы распределяются
+# по моделям по кругу: если одна упёрлась в лимит, запрос уходит следующей.
+IMPORT_MODELS = [
+    "gemini:gemini-3-flash-preview",
+    "gemini:gemini-3.5-flash-lite",
+    "gemini:gemini-flash-lite-latest",
     "gemini:gemini-3.5-flash",
-    "gemini:gemini-flash-latest",
-    "gemini:gemini-3.8-flash",
+    "gemini:gemini-3.1-flash-lite",
 ]
+_rr = 0
+
+
+def _import_chain() -> list[str]:
+    global _rr
+    _rr += 1
+    k = _rr % len(IMPORT_MODELS)
+    return IMPORT_MODELS[k:] + IMPORT_MODELS[:k]
+
 
 MAX_PDF_BYTES = 18 * 1024 * 1024
 USER_AGENT = "OlympTrainer/0.1 (school olympiad training project; non-commercial)"
@@ -146,6 +159,7 @@ class ImportReport:
     added: list[str] = field(default_factory=list)
     skipped: dict[str, int] = field(default_factory=dict)
     error: str | None = None
+    model: str | None = None
 
     def skip(self, reason: str) -> None:
         self.skipped[reason] = self.skipped.get(reason, 0) + 1
@@ -212,12 +226,13 @@ async def import_pdf(
             prompt,
             EXTRACT_SYSTEM,
             image=Image(path.read_bytes(), "application/pdf"),
-            chain=IMPORT_CHAIN,
+            chain=_import_chain(),
         )
     except LLMError as exc:
         report.error = f"ИИ не смог разобрать файл: {exc}"
         return report
 
+    report.model = model
     items = data.get("problems") or []
     report.found = len(items)
     existing = {p.stem for p in problems_dir().glob("*.json")}

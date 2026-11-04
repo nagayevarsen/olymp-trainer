@@ -1,0 +1,18 @@
+{
+  "id": "kurchatov-distance-2022-math10-1-1",
+  "subject": "math",
+  "topic": "Тригонометрия",
+  "title": "Сумма косинусов",
+  "statement": "Пусть $S_n = \\cos 1^\\circ + \\cos 2^\\circ + \\cos 3^\\circ + \\dots + \\cos n^\\circ$. Найдите наименьшее натуральное число $n > 37$, для которого $S_n < S_{37}$.",
+  "answer": {
+    "value": 143.0
+  },
+  "source": {
+    "olympiad": "Олимпиада «Курчатов»",
+    "year": 2022,
+    "stage": "distance",
+    "grade": 10,
+    "number": 1,
+    "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2022_1_Math_11.pdf"
+  }
+}
