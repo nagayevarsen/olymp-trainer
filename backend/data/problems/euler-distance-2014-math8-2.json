@@ -16,5 +16,32 @@
     "grade": 8,
     "number": 2,
     "url": "https://www.matol.ru/files/Disttur2_13_sol.pdf"
+  },
+  "template": {
+    "text": "Среднее арифметическое нескольких подряд идущих натуральных чисел больше, чем самое маленькое из них, в {m} раз. Во сколько раз среднее арифметическое меньше, чем наибольшее из этих чисел?",
+    "params": {
+      "m": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "m": 5.0
+    },
+    "solver": "def solve(m):\n    return (2*m - 1) / m",
+    "constraints": [
+      "m >= 2",
+      "answer > 1"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

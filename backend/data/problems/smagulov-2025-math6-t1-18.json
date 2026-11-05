@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2025-math6-t1-18",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Минимум дорог между городами",
+  "statement": "В стране имеется три города: $A$, $B$, $C$. Из города $A$ в город $C$ по дорогам можно попасть только через город $B$. Какое наименьшее число дорог может быть в стране, если из $A$ в $C$ можно попасть 286 способами?",
+  "answer": {
+    "value": 35.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 35",
+      "решение: anthropic:claude-sonnet-5-5 → 35",
+      "программа (graph_theory): anthropic:claude-haiku-5-5 → 35",
+      "программа (graph_theory): anthropic:claude-sonnet-5-5 → 35"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2025,
+    "stage": "city",
+    "grade": 6,
+    "number": 18,
+    "url": "https://matol.kz/olympiads/1150"
+  }
+}

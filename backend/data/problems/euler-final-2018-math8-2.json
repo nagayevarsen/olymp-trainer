@@ -16,5 +16,32 @@
     "grade": 8,
     "number": 2,
     "url": "https://www.matol.ru/files/3etap2018sol.pdf"
+  },
+  "template": {
+    "text": "Найдите наименьшее натуральное $k$ такое, что для некоторого натурального числа $a$, большего ${N}$, и некоторого натурального числа $b$ выполнено равенство $\\frac{1}{a}+\\frac{1}{a+k}=\\frac{1}{b}$.",
+    "params": {
+      "N": {
+        "min": 10000.0,
+        "max": 2000000.0,
+        "step": 10000.0
+      }
+    },
+    "original": {
+      "N": 500000.0
+    },
+    "solver": "def solve(N):\n    # Уравнение эквивалентно (a-b)(a+k-b)=b^2. Положим x=a-b, тогда x=d*p^2, x+k=d*q^2, b=d*p*q,\n    # откуда k=d*(q-p)*(q+p), a=d*p*(p+q). Обозначим s=p+q, t=q-p, тогда k=d*s*t, a=d*p*s.\n    # Минимальный d при фиксированных s,t: наименьшее d с d*p*s > N.\n    best = None\n    S = int(sqrt(2 * N)) + 5\n    for s in range(2, S + 1):\n        for t in range(1, s):\n            if (s - t) % 2:\n                continue\n            p = (s - t) // 2\n            if p < 1:\n                continue\n            d = N // (p * s) + 1\n            k = d * s * t\n            if best is None or k < best:\n                best = k\n    return best",
+    "constraints": [
+      "N > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

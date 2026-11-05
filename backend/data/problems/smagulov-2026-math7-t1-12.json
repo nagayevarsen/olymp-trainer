@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math7-t1-12",
+  "subject": "math",
+  "topic": "теория чисел",
+  "title": "Составное значение квадратного трёхчлена",
+  "statement": "Найдите наименьшее натуральное значение $n$, при котором число $n^2+n+11$ является составным.",
+  "answer": {
+    "value": 10.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 10",
+      "решение: anthropic:claude-sonnet-5-5 → 10",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 10",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 10"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 7,
+    "number": 12,
+    "url": "https://matol.kz/olympiads/1227"
+  }
+}

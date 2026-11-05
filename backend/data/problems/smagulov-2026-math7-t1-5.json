@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math7-t1-5",
+  "subject": "math",
+  "topic": "алгебра, уравнения",
+  "title": "Три последовательных натуральных числа",
+  "statement": "Даны три последовательных натуральных числа. Найдите сумму этих трёх чисел, если куб среднего из них на 247 больше произведения всех трёх чисел.",
+  "answer": {
+    "value": 741.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 741",
+      "решение: anthropic:claude-sonnet-5-5 → 741",
+      "программа (other): anthropic:claude-haiku-5-5 → 741",
+      "программа (other): anthropic:claude-sonnet-5-5 → 741"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 7,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/1227"
+  }
+}

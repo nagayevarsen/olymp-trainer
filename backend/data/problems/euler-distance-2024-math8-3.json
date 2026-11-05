@@ -16,5 +16,39 @@
     "grade": 8,
     "number": 3,
     "url": "https://www.matol.ru/files/Disttur3_23sol.pdf"
+  },
+  "template": {
+    "text": "Вася хочет несколько раз выписать в строчку число ${a}$ так, чтобы получившееся многозначное число делилось на ${d}$. Какое наименьшее число раз ему нужно это сделать?",
+    "params": {
+      "a": {
+        "min": 10000.0,
+        "max": 99999.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 2.0,
+        "max": 100.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 12345.0,
+      "d": 41.0
+    },
+    "solver": "def solve(a, d):\n    L = 5\n    r = 0\n    for k in range(1, 10001):\n        r = (r * 10**L + a) % d\n        if r == 0:\n            return k\n    return 0",
+    "constraints": [
+      "d >= 2",
+      "a % d != 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

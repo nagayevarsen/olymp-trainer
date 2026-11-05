@@ -16,5 +16,34 @@
     "grade": 8,
     "number": 7,
     "url": "https://www.matol.ru/files/8klass2020_2etap_sol.pdf"
+  },
+  "template": {
+    "text": "Зелёный хамелеон всегда говорит правду, а коричневый хамелеон врёт, после чего зеленеет. В компании из {n} хамелеонов каждый по очереди ответил на вопрос, сколько среди них сейчас зелёных. Ответами были числа $1, 2, 3, \\ldots, {n}$ (в некотором порядке, не обязательно в указанном выше). Какое наибольшее число зелёных хамелеонов могло быть изначально?",
+    "params": {
+      "n": {
+        "min": 3.0,
+        "max": 2001.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "n": 2019.0
+    },
+    "solver": "def solve(n):\n    return (n + 1) // 2",
+    "constraints": [
+      "n % 2 == 1",
+      "n >= 3",
+      "answer > 0",
+      "answer * 2 == n + 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

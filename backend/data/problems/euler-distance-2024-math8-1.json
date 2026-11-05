@@ -17,5 +17,45 @@
     "grade": 8,
     "number": 1,
     "url": "https://www.matol.ru/files/Disttur3_23sol.pdf"
+  },
+  "template": {
+    "text": "Мотоциклист был в пути {T} ч (какое-то время он мог и стоять). Его средняя скорость в первые {w} ч равнялась {v} км/ч и в последние {w} ч — тоже {v} км/ч. Какое наибольшее расстояние он мог преодолеть?",
+    "params": {
+      "v": {
+        "min": 20.0,
+        "max": 100.0,
+        "step": 5.0
+      },
+      "w": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "T": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "v": 50.0,
+      "w": 2.0,
+      "T": 3.0
+    },
+    "solver": "def solve(v, w, T):\n    return 2 * v * w",
+    "constraints": [
+      "w <= T",
+      "T <= 2 * w",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

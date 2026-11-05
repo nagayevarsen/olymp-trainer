@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math6-t1-19",
+  "subject": "math",
+  "topic": "арифметика",
+  "title": "Знаки в выражении",
+  "statement": "В выражении $5\\ \\square \\ 4 \\ \\square \\ 3 \\ \\square \\  2 \\ \\square \\  1$ вместо четырех квадратов нужно поставить знаки $+$, $-$, $\\times$, $:$ (каждый ровно один раз). Какое наибольшее целое число можно получить в результате?",
+  "answer": {
+    "value": 21.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 21",
+      "решение: anthropic:claude-sonnet-5-5 → 21",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 21",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 21"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 19,
+    "url": "https://matol.kz/olympiads/1226"
+  }
+}

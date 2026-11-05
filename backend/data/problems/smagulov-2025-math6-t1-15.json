@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2025-math6-t1-15",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Круговой шахматный турнир",
+  "statement": "В круговом шахматном турнире участвуют $n$ шахматистов, и каждый участник играет с каждым из остальных один раз. На турнире всего было сыграно больше 100, но меньше 120 игр. Найдите $n$.",
+  "answer": {
+    "value": 15.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 15",
+      "решение: anthropic:claude-sonnet-5-5 → 15",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 15",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 15"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2025,
+    "stage": "city",
+    "grade": 6,
+    "number": 15,
+    "url": "https://matol.kz/olympiads/1150"
+  }
+}

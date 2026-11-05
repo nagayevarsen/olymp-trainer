@@ -16,5 +16,32 @@
     "grade": 8,
     "number": 8,
     "url": "https://www.matol.ru/files/8 klass2023_2 etap_day2_sol.pdf"
+  },
+  "template": {
+    "text": "Назовем два числа почти равными друг другу, если они равны друг другу или отличаются друг от друга не более, чем на {t}. Клетчатый прямоугольник со сторонами, равными натуральным числам $a$ и $b$, таков, что из него нельзя по линиям сетки вырезать прямоугольник, площадь которого почти равна половине площади исходного прямоугольника. Какое наименьшее значение может принимать число $|a-b|$? (Е. Молчанов, С. Берлов)",
+    "params": {
+      "t": {
+        "min": 1.0,
+        "max": 3.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "t": 1.0
+    },
+    "solver": "def solve(t):\n    for d in range(0, 81):\n        for a in range(1, 151):\n            b = a + d\n            if b < 1:\n                continue\n            P = a * b\n            found = False\n            for x in range(1, a + 1):\n                lo = -((-(P - 2 * t)) // (2 * x))\n                hi = (P + 2 * t) // (2 * x)\n                if lo < 1:\n                    lo = 1\n                if hi > b:\n                    hi = b\n                if lo <= hi:\n                    found = True\n                    break\n            if not found:\n                return d\n    return -1",
+    "constraints": [
+      "answer >= 0",
+      "t >= 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math7-t1-14",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Разбиение чисел на группы",
+  "statement": "Даны $n$ различных натуральных чисел. Известно, что нельзя разбить эти числа в 4 группы так, чтобы сумма чисел в этих группах были равны, но, убрав одно число, можно разделить на три группы с равными суммами. Найдите наименьшее возможное значение $n$.",
+  "answer": {
+    "value": 6.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 6",
+      "решение: anthropic:claude-sonnet-5-5 → 6",
+      "программа (other): anthropic:claude-haiku-5-5 → 6",
+      "программа (other): anthropic:claude-sonnet-5-5 → 6"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 7,
+    "number": 14,
+    "url": "https://matol.kz/olympiads/1227"
+  }
+}

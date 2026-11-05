@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math7-t1-8",
+  "subject": "math",
+  "topic": "геометрия треугольника",
+  "title": "Медиана и угол треугольника",
+  "statement": "В треугольнике $KLM$ медиана, проведённая из вершины $K$ к стороне $LM$, в четыре раза меньше стороны $KL$ и образует с ней угол $60^\\circ$. Скольким градусам равен угол $LKM$?",
+  "answer": {
+    "value": 150.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 150",
+      "решение: anthropic:claude-sonnet-5-5 → 150",
+      "программа (other): anthropic:claude-haiku-5-5 → 150",
+      "программа (other): anthropic:claude-sonnet-5-5 → 150"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 7,
+    "number": 8,
+    "url": "https://matol.kz/olympiads/1227"
+  }
+}

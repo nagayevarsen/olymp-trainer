@@ -1,0 +1,66 @@
+{
+  "id": "smagulov-2025-math6-t1-1",
+  "subject": "math",
+  "topic": "линейные уравнения",
+  "title": "Книги на трёх полках",
+  "statement": "На трёх полках лежат 342 книг. На первой полке книг в 2 раза больше, чем во второй, а на третьей в 3 раза больше, чем во второй. Сколько книг на третьей полке?",
+  "answer": {
+    "value": 171.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 171",
+      "решение: anthropic:claude-sonnet-5-5 → 171",
+      "программа (other): anthropic:claude-haiku-5-5 → 171",
+      "программа (other): anthropic:claude-sonnet-5-5 → 171"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2025,
+    "stage": "city",
+    "grade": 6,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1150"
+  },
+  "template": {
+    "text": "На трёх полках лежат {total} книг. На первой полке книг в {m1} раза больше, чем во второй, а на третьей в {m2} раза больше, чем во второй. Сколько книг на третьей полке?",
+    "params": {
+      "total": {
+        "min": 30.0,
+        "max": 1000.0,
+        "step": 1.0
+      },
+      "m1": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "m2": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "total": 342.0,
+      "m1": 2.0,
+      "m2": 3.0
+    },
+    "solver": "def solve(total, m1, m2):\n    second = total / (1 + m1 + m2)\n    return second * m2",
+    "constraints": [
+      "total % (1 + m1 + m2) == 0",
+      "answer > 0",
+      "m1 != m2",
+      "m1 != 1 or m2 != 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  }
+}

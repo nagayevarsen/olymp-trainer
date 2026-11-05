@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2025-math6-t1-6",
+  "subject": "math",
+  "topic": "средние значения",
+  "title": "Средний возраст учеников",
+  "statement": "Учителю 32 года, а в его классе 20 учеников. Если средний возраст всех 21 присутствующих в классе, на момент преподавания, равен 12 лет, то чему равен (в годах) средний возраст 20 учеников?",
+  "answer": {
+    "value": 11.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 11",
+      "решение: anthropic:claude-sonnet-5-5 → 11",
+      "программа (other): anthropic:claude-haiku-5-5 → 11",
+      "программа (other): anthropic:claude-sonnet-5-5 → 11"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2025,
+    "stage": "city",
+    "grade": 6,
+    "number": 6,
+    "url": "https://matol.kz/olympiads/1150"
+  }
+}

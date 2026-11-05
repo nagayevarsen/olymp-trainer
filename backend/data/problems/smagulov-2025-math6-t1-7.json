@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2025-math6-t1-7",
+  "subject": "math",
+  "topic": "уравнения",
+  "title": "Нахождение x в уравнении",
+  "statement": "Найдите $x$ из уравнения: $1 + 9 : (1 - 8 : (1 + 4 : (1 - 6 : (1 + 5 : (1 - 4 : x))))) = 34.$",
+  "answer": {
+    "value": 9.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 9",
+      "решение: anthropic:claude-sonnet-5-5 → 9",
+      "программа (other): anthropic:claude-haiku-5-5 → 9",
+      "программа (other): anthropic:claude-sonnet-5-5 → 9"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2025,
+    "stage": "city",
+    "grade": 6,
+    "number": 7,
+    "url": "https://matol.kz/olympiads/1150"
+  }
+}

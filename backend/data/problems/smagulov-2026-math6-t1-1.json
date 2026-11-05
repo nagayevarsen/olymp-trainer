@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math6-t1-1",
+  "subject": "math",
+  "topic": "деление с остатком",
+  "title": "Энциклопедия зверей",
+  "statement": "Малыш изучает энциклопедию зверей. На каждой странице энциклопедии дается описание шести зверей. На какой странице находится описание 100-го зверя?",
+  "answer": {
+    "value": 17.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 17",
+      "решение: anthropic:claude-sonnet-5-5 → 17",
+      "программа (other): anthropic:claude-haiku-5-5 → 17",
+      "программа (other): anthropic:claude-sonnet-5-5 → 17"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1226"
+  }
+}

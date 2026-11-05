@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math7-t1-10",
+  "subject": "math",
+  "topic": "делители числа",
+  "title": "Произведение всех делителей",
+  "statement": "Натуральное число $A$ имеет ровно 24 различных делителя (включая $1$ и само число $A$). Произведение всех этих делителей равно числу $A^{n}$. Найдите $n$.",
+  "answer": {
+    "value": 12.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 12",
+      "решение: anthropic:claude-sonnet-5-5 → 12",
+      "программа (other): anthropic:claude-haiku-5-5 → 12",
+      "программа (other): anthropic:claude-sonnet-5-5 → 12"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 7,
+    "number": 10,
+    "url": "https://matol.kz/olympiads/1227"
+  }
+}

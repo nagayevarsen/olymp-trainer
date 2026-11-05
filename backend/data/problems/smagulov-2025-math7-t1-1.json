@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2025-math7-t1-1",
+  "subject": "math",
+  "topic": "проценты",
+  "title": "Обрезка деревьев в лесу",
+  "statement": "В лесу в $\\frac{1}{4}$ части обрезку прошли $40\\%$ деревьев, а в оставшейся части — $20\\%$. Какой процент всех деревьев в лесу прошли обрезку?",
+  "answer": {
+    "value": 25.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 25",
+      "решение: anthropic:claude-sonnet-5-5 → 25",
+      "программа (other): anthropic:claude-haiku-5-5 → 25",
+      "программа (other): anthropic:claude-sonnet-5-5 → 25"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2025,
+    "stage": "city",
+    "grade": 7,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1151"
+  }
+}

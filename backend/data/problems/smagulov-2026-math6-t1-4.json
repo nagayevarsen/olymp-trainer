@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math6-t1-4",
+  "subject": "math",
+  "topic": "делимость",
+  "title": "Подарки на ёлке",
+  "statement": "На новогодней ёлке все дети получили одинаковые подарки. Во всех подарках вместе было 129 конфет и 86 леденцов. Сколько детей было на ёлке, если их не меньше двух?",
+  "answer": {
+    "value": 43.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 43",
+      "решение: anthropic:claude-sonnet-5-5 → 43",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 43",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 43"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 4,
+    "url": "https://matol.kz/olympiads/1226"
+  }
+}

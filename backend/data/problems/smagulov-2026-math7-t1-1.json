@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math7-t1-1",
+  "subject": "math",
+  "topic": "делимость",
+  "title": "Остатки при делении",
+  "statement": "Если натуральное число разделить на 2024, то остаток будет равен 1024. Какой остаток получится, если это число разделить на 23?",
+  "answer": {
+    "value": 12.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 12",
+      "решение: anthropic:claude-sonnet-5-5 → 12",
+      "программа (other): anthropic:claude-haiku-5-5 → 12",
+      "программа (other): anthropic:claude-sonnet-5-5 → 12"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 7,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1227"
+  }
+}

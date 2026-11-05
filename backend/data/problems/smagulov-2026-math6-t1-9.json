@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math6-t1-9",
+  "subject": "math",
+  "topic": "неравенства",
+  "title": "Операция ⊖ и неравенство",
+  "statement": "Дана операция $a \\ominus b=a:(b+1)$. Найдите наименьшее целое решение неравенства $(x-10) \\ominus 10 < (x-11) \\ominus 9$.",
+  "answer": {
+    "value": 22.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 22",
+      "решение: anthropic:claude-sonnet-5-5 → 22",
+      "программа (other): anthropic:claude-haiku-5-5 → 22",
+      "программа (other): anthropic:claude-sonnet-5-5 → 22"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 9,
+    "url": "https://matol.kz/olympiads/1226"
+  }
+}

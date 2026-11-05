@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2025-math6-t1-2",
+  "subject": "math",
+  "topic": "движение",
+  "title": "Встреча автомобилей",
+  "statement": "Если из двух городов одновременно навстречу друг другу выехали бы первый и второй автомобили со скоростями 40 км/ч и 65 км/ч соответственно, то они встретились бы через 240 минут. Через сколько минут они встретились бы, если выехал бы только первый автомобиль, а второй стоял бы на месте?",
+  "answer": {
+    "value": 630.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 630",
+      "решение: anthropic:claude-sonnet-5-5 → 630",
+      "программа (other): anthropic:claude-haiku-5-5 → 630",
+      "программа (other): anthropic:claude-sonnet-5-5 → 630"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2025,
+    "stage": "city",
+    "grade": 6,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/1150"
+  }
+}

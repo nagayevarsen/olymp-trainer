@@ -16,5 +16,33 @@
     "stage": "international",
     "number": 2,
     "url": "https://izho.kz/wp-content/uploads/2018/12/IZhO-2012-Theory_rus_sol_final.pdf"
+  },
+  "template": {
+    "text": "Поршень массы M находится в вертикальном цилиндре с газом под поршнем; площадь поршня S, атмосферное давление p_0, начальная высота газа H, начальная температура T_0 = {T0} К, α = Mg/(p_0 S). Стенки сосуда и поршень плохо проводят тепло. Далее описываются последовательные стадии процесса с изменением условий.\n\n**Пункт 2.5.** Найти температуру газа T_2 через достаточно большой промежуток времени.",
+    "params": {
+      "T0": {
+        "min": 250.0,
+        "max": 320.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "T0": 273.0
+    },
+    "solver": "def solve(T0):\n    return T0",
+    "constraints": [
+      "T0 > 0",
+      "answer == T0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

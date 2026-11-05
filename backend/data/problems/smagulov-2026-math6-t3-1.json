@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math6-t3-1",
+  "subject": "math",
+  "topic": "Площадь прямоугольника",
+  "title": "Изменение площади прямоугольника",
+  "statement": "Если длину прямоугольника увеличить на 1, а ширину уменьшить на 1, то его площадь увеличится на 1. Как и насколько изменится площадь прямоугольника, если длину увеличить на 2, а ширину уменьшить на 2?",
+  "answer": {
+    "value": 0.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 0",
+      "решение: anthropic:claude-sonnet-5-5 → 0",
+      "программа (other): anthropic:claude-haiku-5-5 → 0",
+      "программа (other): anthropic:claude-sonnet-5-5 → 0"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1243"
+  }
+}

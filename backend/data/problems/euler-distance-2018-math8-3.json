@@ -16,5 +16,33 @@
     "grade": 8,
     "number": 3,
     "url": "https://www.matol.ru/files/Disttur1_17_sol.pdf"
+  },
+  "template": {
+    "text": "Для каждой пары различных натуральных чисел $a$ и $b$, не больших {n}, Петя нарисовал на доске прямую $y = ax+b$ (то есть он нарисовал прямые $y = x+2, \\ldots, y = x+{n}, y = 2x+1, y = 2x+3, \\ldots, y = 2x+{n}, \\ldots, y = 3x+1, y = 3x+2, y = 3x+4, \\ldots, y = 3x+{n}, \\ldots, y = {n}x+1, \\ldots, y = {n}x+({n}-1)$). Вася нарисовал на той же доске окружность радиуса 1 с центром в начале координат. Сколько Петиных прямых пересекает Васину окружность? (И. Рубанов)",
+    "params": {
+      "n": {
+        "min": 3.0,
+        "max": 50.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 20.0
+    },
+    "solver": "def solve(n):\n    count = 0\n    for a in range(1, n + 1):\n        for b in range(1, n + 1):\n            if a != b and b * b < 1 + a * a:\n                count += 1\n    return count",
+    "constraints": [
+      "n >= 3",
+      "answer > 0",
+      "answer == n * (n - 1) // 2"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

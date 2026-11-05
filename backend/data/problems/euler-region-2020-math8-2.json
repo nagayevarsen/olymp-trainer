@@ -16,5 +16,39 @@
     "grade": 8,
     "number": 2,
     "url": "https://www.matol.ru/files/8klass2020_2etap_sol.pdf"
+  },
+  "template": {
+    "text": "На доске написано $n$ целых чисел, любые два из которых отличаются хотя бы на {d}. Сумма квадратов двух наибольших из них меньше {S}. Сумма квадратов двух наименьших из них также меньше {S}. При каком наибольшем $n$ это возможно?",
+    "params": {
+      "d": {
+        "min": 1.0,
+        "max": 6.0,
+        "step": 1.0
+      },
+      "S": {
+        "min": 100.0,
+        "max": 1000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "d": 3.0,
+      "S": 500.0
+    },
+    "solver": "def solve(S, d):\n    R = int(sqrt(S)) + 2\n    m = None\n    for x in range(-R, R + 1):\n        for a1 in range(-R, x - d + 1):\n            if a1 * a1 + x * x < S:\n                m = x\n                break\n        if m is not None:\n            break\n    if m is None:\n        return 0\n    return (-2 * m) // d + 3",
+    "constraints": [
+      "d >= 1",
+      "S >= 10",
+      "answer >= 4"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

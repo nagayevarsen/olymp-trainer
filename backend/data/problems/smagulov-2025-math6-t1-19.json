@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2025-math6-t1-19",
+  "subject": "math",
+  "topic": "арифметика чисел",
+  "title": "Перенос цифры в числе",
+  "statement": "Шестизначное число начинается с цифры 2. Если эту цифру перенести в конец числа, то число увеличится в три раза. Найдите сумму цифр этого шестизначного числа.",
+  "answer": {
+    "value": 27.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 27",
+      "решение: anthropic:claude-sonnet-5-5 → 27",
+      "программа (other): anthropic:claude-haiku-5-5 → 27",
+      "программа (other): anthropic:claude-sonnet-5-5 → 27"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2025,
+    "stage": "city",
+    "grade": 6,
+    "number": 19,
+    "url": "https://matol.kz/olympiads/1150"
+  }
+}

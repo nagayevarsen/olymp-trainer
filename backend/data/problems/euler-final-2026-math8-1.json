@@ -16,5 +16,40 @@
     "grade": 8,
     "number": 1,
     "url": "https://www.matol.ru/files/3etap2026day1sol.pdf"
+  },
+  "template": {
+    "text": "Назовем натуральное число $k$-хорошим, если оно представимо в виде суммы $k$ последовательных натуральных чисел. Учитель попросил Васю придумать число $n$, и обещал поставить по пятерке за каждое $k$, большее ${L}$ и меньшее ${U}$, при котором $n$ окажется $k$-хорошим. Какое наибольшее число пятерок мог получить Вася?",
+    "params": {
+      "L": {
+        "min": 1.0,
+        "max": 3.0,
+        "step": 1.0
+      },
+      "U": {
+        "min": 3.0,
+        "max": 9.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "L": 1.0,
+      "U": 7.0
+    },
+    "solver": "def solve(L, U):\n    K = list(range(L + 1, U))\n    M = 1\n    for i in range(1, U):\n        M = lcm(M, i)\n    N = 2 * M + 2 * U * U\n    best = 0\n    for n in range(1, N):\n        c = 0\n        for k in K:\n            t = n - k * (k - 1) // 2\n            if t >= k and t % k == 0:\n                c += 1\n        if c > best:\n            best = c\n    return best",
+    "constraints": [
+      "L >= 1",
+      "U - L >= 2",
+      "answer > 0",
+      "answer <= U - L - 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

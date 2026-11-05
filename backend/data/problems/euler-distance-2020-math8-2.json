@@ -16,5 +16,33 @@
     "grade": 8,
     "number": 2,
     "url": "https://www.matol.ru/files/Disttur3_19_sol.pdf"
+  },
+  "template": {
+    "text": "На презентации фирмы «Рога и Копыта» было {N} депутатов и бизнесменов. Известно, что депутаты всегда говорят правду, а бизнесмены могут говорить все, что угодно. Их всех усадили за один круглый стол. Во время неофициальной части каждый из них сделал заявление: «Среди двух моих соседей есть хотя бы один бизнесмен». Какое наибольшее число депутатов могло быть на презентации?",
+    "params": {
+      "N": {
+        "min": 3.0,
+        "max": 60.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "N": 30.0
+    },
+    "solver": "def solve(N):\n    return (2 * N) // 3",
+    "constraints": [
+      "N >= 3",
+      "answer > 0",
+      "answer < N"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

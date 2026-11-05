@@ -16,5 +16,39 @@
     "grade": 8,
     "number": 4,
     "url": "https://www.matol.ru/files/Disttur3_23sol.pdf"
+  },
+  "template": {
+    "text": "В классе каждый ученик дружит ровно с {k} другими, и у любых двух учеников есть ровно {mu} общих друга. Сколько учеников в этом классе?",
+    "params": {
+      "k": {
+        "min": 3.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "mu": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "k": 6.0,
+      "mu": 2.0
+    },
+    "solver": "def solve(k, mu):\n    return 1 + k + k * (k - mu - 1) // mu",
+    "constraints": [
+      "k - mu - 1 > 0",
+      "(k * (k - mu - 1)) % mu == 0",
+      "answer > k"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

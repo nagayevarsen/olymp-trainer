@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math6-t3-2",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Тройки цифр и неравенство",
+  "statement": "Сколькими способами можно выбрать тройку цифр $(a,b,c)$ (не обязательно различных) так, чтобы для суммы трёх трёхзначных чисел выполнялись неравенства $$400 < \\overline{a23}+\\overline{1b3}+\\overline{12c} < 900 \\, ?$$",
+  "answer": {
+    "value": 499.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 499",
+      "решение: anthropic:claude-sonnet-5-5 → 499",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 499",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 499"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/1243"
+  }
+}

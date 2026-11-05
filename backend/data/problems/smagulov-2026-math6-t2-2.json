@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math6-t2-2",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Карточки Армана и Амира",
+  "statement": "Арман и Амир поделили между собой 100 карточек, пронумерованные натуральными числами от 1 до 100. Оказалось, что наибольший номер карточки Армана равно количеству его карточек, и сумма номеров его карточек равна 210. Карточку с каким наименьшим номером взял Амир?",
+  "answer": {
+    "value": 21.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 21",
+      "решение: anthropic:claude-sonnet-5-5 → 21",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 21",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 21"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/1234"
+  }
+}

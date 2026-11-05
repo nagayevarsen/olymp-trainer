@@ -5,7 +5,9 @@
   "title": "Хорошие пары натуральных чисел",
   "statement": "Даны сто различных натуральных чисел. Назовем пару чисел хорошей, если числа в ней отличаются в 2 или в 3 раза. Какое наибольшее число хороших пар могут образовывать эти сто чисел? (Одно и то же число может входить в несколько пар.)",
   "answer": {
-    "value": 180.0
+    "value": 180.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -13,5 +15,32 @@
     "stage": "international",
     "number": 3,
     "url": "https://izho.kz/wp-content/uploads/2018/12/solrus.pdf"
+  },
+  "template": {
+    "text": "Даны {n} различных натуральных чисел. Назовем пару чисел хорошей, если числа в ней отличаются в 2 или в 3 раза. Какое наибольшее число хороших пар могут образовывать эти {n} чисел? (Одно и то же число может входить в несколько пар.)",
+    "params": {
+      "n": {
+        "min": 1.0,
+        "max": 200.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 100.0
+    },
+    "solver": "def solve(n):\n    return 2*n - ceil(2*sqrt(n))",
+    "constraints": [
+      "n >= 1",
+      "answer >= 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

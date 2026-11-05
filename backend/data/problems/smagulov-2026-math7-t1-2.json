@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math7-t1-2",
+  "subject": "math",
+  "topic": "алгебра, уравнения",
+  "title": "Возраст трёх поколений",
+  "statement": "Арману и его папе вместе 58 лет, а его папе и его дедушке – 115 лет. Сколько лет было дедушке, когда родился Арман?",
+  "answer": {
+    "value": 57.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 57",
+      "решение: anthropic:claude-sonnet-5-5 → 57",
+      "программа (other): anthropic:claude-haiku-5-5 → 57",
+      "программа (other): anthropic:claude-sonnet-5-5 → 57"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 7,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/1227"
+  }
+}

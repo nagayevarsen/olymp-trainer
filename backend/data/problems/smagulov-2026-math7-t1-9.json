@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math7-t1-9",
+  "subject": "math",
+  "topic": "геометрия треугольника",
+  "title": "Угол при высотах и биссектрисе",
+  "statement": "Высоты $AK$ и $BL$ остроугольного треугольника $ABC$ пересекаются в точке $H$. Биссектриса угла $ACB$ пересекает прямую $BL$ в точке $E$. Скольким градусам равен угол $CEB$, если $\\angle AHB=130^\\circ$?",
+  "answer": {
+    "value": 115.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 115",
+      "решение: anthropic:claude-sonnet-5-5 → 115",
+      "программа (other): anthropic:claude-haiku-5-5 → 115",
+      "программа (other): anthropic:claude-sonnet-5-5 → 115"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 7,
+    "number": 9,
+    "url": "https://matol.kz/olympiads/1227"
+  }
+}

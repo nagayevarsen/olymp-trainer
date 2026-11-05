@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math6-t1-20",
+  "subject": "math",
+  "topic": "числа по кругу",
+  "title": "Наибольшее количество чисел",
+  "statement": "По кругу записаны несколько целых чисел, каждое из которых равно модулю разности двух следующих за ним по часовой стрелке чисел. Сумма всех чисел равна 144. Какое наибольшее количество чисел могло быть записано по кругу?",
+  "answer": {
+    "value": 216.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 216",
+      "решение: anthropic:claude-sonnet-5-5 → 216",
+      "программа (other): anthropic:claude-haiku-5-5 → 216",
+      "программа (other): anthropic:claude-sonnet-5-5 → 216"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 20,
+    "url": "https://matol.kz/olympiads/1226"
+  }
+}

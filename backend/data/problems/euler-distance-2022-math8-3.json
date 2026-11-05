@@ -16,5 +16,40 @@
     "grade": 8,
     "number": 3,
     "url": "https://www.matol.ru/files/Disttur2_21_sol.pdf"
+  },
+  "template": {
+    "text": "$ABCD$ — выпуклый четырёхугольник, где $AB = {ab}$, $BC = {bc}$, $AD = DC$, $\\angle ABD = \\angle DBC$. Точка $E$ на отрезке $AB$ такова, что $\\angle DEB = 90^\\circ$. Найдите длину отрезка $AE$.",
+    "params": {
+      "ab": {
+        "min": 5.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "bc": {
+        "min": 2.0,
+        "max": 9.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "ab": 7.0,
+      "bc": 4.0
+    },
+    "solver": "def solve(ab, bc):\n    # BD = (AB+BC)/(2cos(B/2)), проекция D на AB: BE = (AB+BC)/2, AE = AB - BE\n    return (ab - bc) / 2",
+    "constraints": [
+      "ab > bc",
+      "bc > 0",
+      "answer > 0",
+      "answer < ab"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

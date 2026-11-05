@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math6-t1-18",
+  "subject": "math",
+  "topic": "делимость чисел",
+  "title": "Наименьшее пятизначное число с делимостью",
+  "statement": "Пусть $n$ — наименьшее 5 значное число, которое делится на все свои пять цифр, причём все цифры числа различны. Найдите сумму цифр числа $n$.",
+  "answer": {
+    "value": 18.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 18",
+      "решение: anthropic:claude-sonnet-5-5 → 18",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 18",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 18"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 18,
+    "url": "https://matol.kz/olympiads/1226"
+  }
+}

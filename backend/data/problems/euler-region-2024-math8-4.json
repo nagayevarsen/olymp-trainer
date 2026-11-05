@@ -16,5 +16,33 @@
     "grade": 8,
     "number": 4,
     "url": "https://www.matol.ru/files/8 klass2024_2 etap_sol.pdf"
+  },
+  "template": {
+    "text": "По кругу стоят {n} белых точек. Аня и Боря красят по очереди по одной еще не покрашенной точке в красный или синий цвет, начинает Аня. Аня хочет, чтобы в итоге оказалось как можно больше пар разноцветных соседних точек, а Боря — чтобы оказалось как можно меньше таких пар. Какое наибольшее число пар разноцветных соседних точек Аня может гарантировать себе независимо от игры Бори?",
+    "params": {
+      "n": {
+        "min": 4.0,
+        "max": 200.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "n": 100.0
+    },
+    "solver": "def solve(n):\n    return n // 2",
+    "constraints": [
+      "n % 2 == 0",
+      "n >= 4",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }
