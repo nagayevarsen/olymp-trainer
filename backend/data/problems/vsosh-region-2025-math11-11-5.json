@@ -1,0 +1,21 @@
+{
+  "id": "vsosh-region-2025-math11-11-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Сумма углов BPC и BQC",
+  "statement": "В треугольнике $ABC$ с углом $100^\\circ$ при вершине $A$ медианы $BK$ и $CN$ пересекаются в точке $M$. Прямая, проходящая через точку $M$ и параллельная $BC$, пересекает описанную окружность треугольника $AKN$ в точках $P$ и $Q$. Найдите сумму углов $BPC$ и $BQC$.",
+  "answer": {
+    "value": 280.0,
+    "unit": "°",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+    "year": 2025,
+    "stage": "region",
+    "grade": 11,
+    "number": 5,
+    "url": "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2024-25/reg/math/sol-math-11-day1-reg-24-25.pdf"
+  }
+}

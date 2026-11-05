@@ -1,0 +1,20 @@
+{
+  "id": "vsosh-region-2021-math10-10-6",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Нечетные цифры на доске",
+  "statement": "На доску выписали три натуральных числа: два десятизначных числа $a$ и $b$, а также их сумму $a+b$. Какое наибольшее количество нечетных цифр могло быть выписано на доске?",
+  "answer": {
+    "value": 30.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+    "year": 2021,
+    "stage": "region",
+    "grade": 10,
+    "number": 6,
+    "url": "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2020-21/reg/math/sol-math-10-day2-reg-20-21.pdf"
+  }
+}

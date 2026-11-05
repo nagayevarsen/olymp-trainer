@@ -1,0 +1,20 @@
+{
+  "id": "vsosh-region-2022-math9-9-4",
+  "subject": "math",
+  "topic": "Графы",
+  "title": "Компания друзей",
+  "statement": "В компании некоторые пары людей дружат (если $A$ дружит с $B$, то и $B$ дружит с $A$). Оказалось, что среди каждых 100 человек в компании количество пар дружащих людей нечётно. Найдите наибольшее возможное количество человек в такой компании.",
+  "answer": {
+    "value": 101.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+    "year": 2022,
+    "stage": "region",
+    "grade": 9,
+    "number": 4,
+    "url": "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2021-22/reg/math/sol-math-9-day1-reg-21-22.pdf"
+  }
+}
