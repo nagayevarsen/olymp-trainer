@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { ChatPage } from './pages/Chat'
+import { ContestPage, ContestsPage } from './pages/Contests'
 import { LeaderboardPage } from './pages/Leaderboard'
 import { Onboarding } from './pages/Onboarding'
 import { ProblemPage } from './pages/Problem'
@@ -36,6 +37,8 @@ export default function App() {
             />
             <Route path="leaderboard" element={<LeaderboardPage />} />
             <Route path="chat" element={<ChatPage />} />
+            <Route path="contests" element={<ContestsPage />} />
+            <Route path="contests/:id" element={<ContestPage />} />
             <Route path="terms" element={<TermsPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>

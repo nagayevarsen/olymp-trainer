@@ -79,9 +79,10 @@ def test_delete_account(client):
 def test_chat_passes_level_and_problem_without_answer(client, monkeypatch):
     seen = {}
 
-    async def fake_reply(messages, level, problem):
+    async def fake_reply(messages, level, problem, tools):
         seen.update(messages=messages, level=level, problem=problem)
-        return "Подумай, что сохраняется при движении.", 1
+        found = tools.search(query="жаутыковская", limit=2)
+        return "Подумай, что сохраняется при движении.", 1, [{"kind": "problem", **f} for f in found]
 
     monkeypatch.setattr(chat, "reply", fake_reply)
     uid = register(client).json()["id"]
@@ -91,13 +92,15 @@ def test_chat_passes_level_and_problem_without_answer(client, monkeypatch):
         headers={"X-User-Id": uid},
     )
     assert r.status_code == 200 and r.json()["code_runs"] == 1
+    cards = r.json()["cards"]
+    assert len(cards) == 2 and all(c["id"].startswith("izho") for c in cards)
     assert seen["level"].grade == 8 and seen["level"].solved == 0
     assert "statement" in seen["problem"] and "answer" not in seen["problem"]
 
 
 def test_chat_requires_login_and_daily_limit(client, monkeypatch):
-    async def fake_reply(messages, level, problem):
-        return "ok", 0
+    async def fake_reply(messages, level, problem, tools):
+        return "ok", 0, []
 
     monkeypatch.setattr(chat, "reply", fake_reply)
     monkeypatch.setattr(chat, "DAILY_LIMIT", 2)
@@ -130,3 +133,36 @@ def test_system_prompt_has_rules_level_and_problem():
 def test_run_code_tool():
     assert chat.run_code_tool("def solve():\n    return sum(range(101))\n") == "5050"
     assert chat.run_code_tool("import os\ndef solve():\n    return 1\n").startswith("Ошибка")
+
+
+def test_level_points_range_grows():
+    assert chat.Level(8, 2, 3).points_range() == (50, 250)
+    lo, hi = chat.Level(8, 20, 25, best_points=400).points_range()
+    assert lo == 320 and hi > 400
+
+
+def test_contests_endpoints(client):
+    rows = client.get("/api/contests", params={"query": "всесиб"}).json()
+    assert rows and all("Всесибирская" in r["title"] for r in rows)
+    assert all(r["count"] >= 3 for r in rows)
+    detail = client.get(f"/api/contests/{rows[0]['id']}").json()
+    assert detail["count"] == len(detail["problems"]) and detail["total_points"] == sum(
+        p["points"] for p in detail["problems"]
+    )
+    assert client.get("/api/contests/nope").status_code == 404
+
+
+def test_search_matches_aliases_and_excludes_solved():
+    from app.bank import load_bank
+    from app.contests import search_problems
+
+    bank = load_bank()
+    found = search_problems(
+        bank, lambda p: 300, set(), query="жаутыковская физика", subject="physics", limit=8
+    )
+    assert found and all("IZhO" in f["source"] for f in found)
+    again = search_problems(
+        bank, lambda p: 300, {found[0]["id"]}, query="жаутыковская физика", subject="physics"
+    )
+    assert found[0]["id"] not in {f["id"] for f in again}
+    assert search_problems(bank, lambda p: 300, set(), query="жаутыковская", max_points=100) == []

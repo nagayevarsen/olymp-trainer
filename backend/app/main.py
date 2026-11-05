@@ -13,7 +13,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from . import ai, chat, scoring
+from . import ai, chat, contests, scoring
 from .auth import AuthError, check_nick, check_password, hash_password, verify_password
 from .bank import STAGE_NAMES, Hints, Problem, get_problem, load_bank
 from .checker import AnswerKey, check_answer
@@ -203,16 +203,102 @@ async def chat_reply(body: ChatRequest, user: dict = Depends(current_user), db: 
         )
     prog = db.all_progress(user["id"])
     level = chat.Level(
-        grade=user["grade"], solved=sum(p["solved"] for p in prog.values()), attempted=len(prog)
+        grade=user["grade"],
+        solved=sum(p["solved"] for p in prog.values()),
+        attempted=len(prog),
+        best_points=max((p["points"] for p in prog.values() if p["solved"]), default=0),
+    )
+    tools = chat.ChatTools(
+        search=lambda **kw: _search_bank(user, db, **kw),
+        contests=lambda **kw: [
+            r
+            for r in _list_contests(user["id"], db, **kw)
+            if not user["grade"] or not r["grade"] or abs(r["grade"] - user["grade"]) <= 1
+        ][:6],
     )
     problem = None
     if body.problem_id and (p := get_problem(body.problem_id)):
         problem = {"source": p.source.label(), "topic": p.topic, "statement": p.statement}
     try:
-        text, code_runs = await chat.reply(history, level, problem)
+        text, code_runs, cards = await chat.reply(history, level, problem, tools)
     except LLMError as exc:
         raise HTTPException(503, str(exc)) from exc
-    return {"reply": text, "code_runs": code_runs, "left": max(0, chat.DAILY_LIMIT - used)}
+    return {"reply": text, "code_runs": code_runs, "cards": cards, "left": max(0, chat.DAILY_LIMIT - used)}
+
+
+def _search_bank(user: dict, db: DB, **kw) -> list[dict]:
+    stats = db.problem_stats()
+    solved = {pid for pid, pr in db.all_progress(user["id"]).items() if pr["solved"]}
+
+    def points(p):
+        return problem_points(p, stats)
+
+    found = contests.search_problems(load_bank(), points, solved, grade=user["grade"], **kw)
+    if not found and kw.get("query") and (kw.get("min_points") or kw.get("max_points")):
+        # Названная олимпиада важнее уровня: берём её самые лёгкие задачи.
+        kw = {k: v for k, v in kw.items() if k not in ("min_points", "max_points")}
+        found = contests.search_problems(load_bank(), points, solved, grade=user["grade"], **kw)
+    return found
+
+
+# ---------- полные олимпиады: все задачи банка одной олимпиады, года и класса ----------
+def _contest_row(c: contests.Contest, stats: dict, prog: dict) -> dict:
+    pts = [problem_points(p, stats) for p in c.problems]
+    return {
+        "id": c.id,
+        "title": c.title,
+        "subject": c.subject,
+        "year": c.year,
+        "grade": c.grade,
+        "count": len(c.problems),
+        "total_points": sum(pts),
+        "solved": sum(1 for p in c.problems if prog.get(p.id, {}).get("solved")),
+        "earned": sum(prog.get(p.id, {}).get("points", 0) for p in c.problems),
+    }
+
+
+def _list_contests(uid: str, db: DB, query: str = "", subject: str | None = None) -> list[dict]:
+    stats = db.problem_stats()
+    prog = db.all_progress(uid) if uid else {}
+    rows = [
+        _contest_row(c, stats, prog)
+        for c in contests.build_contests(load_bank()).values()
+        if (not subject or c.subject == subject) and (not query or contests.matches(c.problems[0], query))
+    ]
+    rows.sort(key=lambda r: (r["title"].split(",")[0], -(r["year"] or 0), r["grade"] or 0))
+    return rows
+
+
+@app.get("/api/contests")
+def list_contests(
+    query: str = "", subject: str | None = None, x_user_id: str = Header(default=""), db: DB = Depends(get_db)
+) -> list[dict]:
+    return _list_contests(x_user_id, db, query, subject)
+
+
+@app.get("/api/contests/{contest_id}")
+def contest_detail(contest_id: str, x_user_id: str = Header(default=""), db: DB = Depends(get_db)) -> dict:
+    c = contests.build_contests(load_bank()).get(contest_id)
+    if not c:
+        raise HTTPException(404, "Олимпиада не найдена")
+    stats = db.problem_stats()
+    prog = db.all_progress(x_user_id) if x_user_id else {}
+    problems = []
+    for i, p in enumerate(c.problems, 1):
+        pr = prog.get(p.id, {})
+        problems.append(
+            {
+                "n": i,
+                "id": p.id,
+                "title": p.title,
+                "topic": p.topic,
+                "points": problem_points(p, stats),
+                "solved": bool(pr.get("solved")),
+                "earned": pr.get("points", 0),
+                "started": bool(pr.get("attempts") or pr.get("hints_used")),
+            }
+        )
+    return {**_contest_row(c, stats, prog), "problems": problems}
 
 
 @app.get("/api/me")

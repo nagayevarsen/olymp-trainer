@@ -105,12 +105,50 @@ export interface Me {
 export interface ChatTurn {
   role: 'user' | 'assistant'
   content: string
+  cards?: ChatCard[]
+}
+
+export interface ChatCard {
+  kind: 'problem' | 'contest'
+  id: string
+  title: string
+  source?: string
+  topic?: string
+  points?: number
+  total_points?: number
+  count?: number
 }
 
 export interface ChatReply {
   reply: string
   code_runs: number
+  cards: ChatCard[]
   left: number
+}
+
+export interface ContestRow {
+  id: string
+  title: string
+  subject: Subject
+  year: number | null
+  grade: number | null
+  count: number
+  total_points: number
+  solved: number
+  earned: number
+}
+
+export interface ContestDetail extends ContestRow {
+  problems: {
+    n: number
+    id: string
+    title: string
+    topic: string
+    points: number
+    solved: boolean
+    earned: number
+    started: boolean
+  }[]
 }
 
 type Account = { id: string; name: string; grade: number | null }
@@ -181,6 +219,9 @@ export const api = {
   attachAccount: (nick: string, password: string) =>
     post<{ id: string; name: string }>('/api/me/account', { nick, password }),
   deleteMe: () => request<{ deleted: boolean }>('/api/me', { method: 'DELETE' }),
+  contests: (query = '', subject?: Subject | null) =>
+    request<ContestRow[]>(`/api/contests?query=${encodeURIComponent(query)}${subject ? `&subject=${subject}` : ''}`),
+  contest: (id: string) => request<ContestDetail>(`/api/contests/${id}`),
   chat: (messages: ChatTurn[], problemId?: string | null) =>
     post<ChatReply>('/api/chat', { messages, problem_id: problemId ?? null }),
 }

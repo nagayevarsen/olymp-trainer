@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { api, type ChatTurn } from '../api'
+import { api, type ChatCard, type ChatTurn } from '../api'
 import { MathText } from '../components/MathText'
+import { pluralTasks } from '../lib/text'
 
 // Переписка хранится только на этом устройстве (на сервере её нет).
 const KEY = 'olymp-chat'
@@ -26,11 +27,33 @@ function saveHistory(scope: string, turns: ChatTurn[]) {
 }
 
 const SUGGESTIONS = [
+  'Дай задачи как на Жаутыковской',
+  'Хочу решить олимпиаду целиком',
   'Подбери мне задачу на перебор',
   'Объясни принцип Дирихле на примере',
   'Как решать задачи на движение навстречу?',
   'Проверь мой ответ: сумма чисел от 1 до 50 равна 1275',
 ]
+
+function Cards({ cards }: { cards: ChatCard[] }) {
+  return (
+    <div className="mt-3 grid gap-2">
+      {cards.map((c) => (
+        <Link
+          key={c.kind + c.id}
+          to={c.kind === 'problem' ? `/problem/${c.id}` : `/contests/${c.id}`}
+          className="block rounded-xl border border-slate-200 bg-white p-3 text-sm transition hover:border-brand-400 dark:border-slate-700 dark:bg-slate-900"
+        >
+          <div className="text-xs text-slate-500">
+            {c.kind === 'problem' ? `${c.topic ?? ''} · ★ ${c.points}` : `олимпиада целиком · ${c.count} ${pluralTasks(c.count ?? 0)} · ★ ${c.total_points}`}
+          </div>
+          <div className="font-semibold">{c.title}</div>
+          {c.source && <div className="mt-0.5 text-xs text-slate-500">{c.source}</div>}
+        </Link>
+      ))}
+    </div>
+  )
+}
 
 export function ChatPage() {
   const [params] = useSearchParams()
@@ -60,8 +83,12 @@ export function ChatPage() {
     setError('')
     setBusy(true)
     try {
-      const r = await api.chat(next, problemId)
-      const withReply: ChatTurn[] = [...next, { role: 'assistant', content: r.reply }]
+      // В модель уходит только текст переписки, без карточек.
+      const r = await api.chat(
+        next.map(({ role, content }) => ({ role, content })),
+        problemId,
+      )
+      const withReply: ChatTurn[] = [...next, { role: 'assistant', content: r.reply, cards: r.cards }]
       setTurns(withReply)
       saveHistory(scope, withReply)
       setLeft(r.left)
@@ -124,6 +151,7 @@ export function ChatPage() {
               }`}
             >
               {t.role === 'user' ? <p className="whitespace-pre-wrap">{t.content}</p> : <MathText text={t.content} />}
+              {t.cards && t.cards.length > 0 && <Cards cards={t.cards} />}
             </div>
           </div>
         ))}

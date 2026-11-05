@@ -4,8 +4,9 @@ import { usePoints } from '../points'
 
 const links = [
   { to: '/', label: 'Задачи', short: 'Задачи', end: true },
+  { to: '/contests', label: 'Олимпиады', short: 'Олимп.' },
   { to: '/chat', label: 'Помощник', short: 'ИИ' },
-  { to: '/profile', label: 'Мой прогресс', short: 'Прогресс' },
+  { to: '/profile', label: 'Мой прогресс', short: 'Я' },
   { to: '/leaderboard', label: 'Рейтинг', short: 'Топ' },
 ]
 
