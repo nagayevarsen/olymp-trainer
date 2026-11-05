@@ -15,6 +15,18 @@
       "added": "2026-11-04"
     },
     {
+      "domain": "matol.ru",
+      "name": "MATOL.ru — архив олимпиад",
+      "url": "https://www.matol.ru/archives.php",
+      "subjects": [
+        "math"
+      ],
+      "region": "Россия",
+      "kind": "aggregator",
+      "note": "Архив олимпиады Эйлера (добавлен по указанию команды)",
+      "added": "2026-11-05"
+    },
+    {
       "domain": "olympiads.bc-pf.org",
       "name": "Beyond Olympiads",
       "url": "https://olympiads.bc-pf.org/",

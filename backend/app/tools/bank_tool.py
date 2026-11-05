@@ -68,17 +68,39 @@ def cmd_check(args) -> int:
 
 
 async def cmd_templates(args) -> int:
-    for p in _select(args.id):
-        if p.template and not args.force:
-            continue
-        print(f"→ {p.id}: строю шаблон…")
-        template, log = await ai.build_template(p)
-        for line in log:
-            print(f"     {line}")
+    """Шаблоны для задач без шаблона. --prefix задаёт порядок (сначала задачи с первым префиксом id),
+    --parallel — сколько задач одновременно, --budget — остановиться, когда расход Claude превысит сумму."""
+    from ..llm import usage_cost
+
+    problems = [p for p in _select(args.id) if args.force or not p.template]
+    if args.prefix:
+        order = {pref: i for i, pref in enumerate(args.prefix)}
+
+        def rank(p: Problem) -> int:
+            return next((i for pref, i in order.items() if p.id.startswith(pref)), len(order))
+
+        problems = sorted((p for p in problems if rank(p) < len(order)), key=lambda p: (rank(p), p.id))
+    print(f"Задач без шаблона: {len(problems)}", flush=True)
+    sem = asyncio.Semaphore(getattr(args, "parallel", 1) or 1)
+    done = {"ok": 0, "fail": 0, "skipped": 0}
+
+    async def one(p: Problem) -> None:
+        async with sem:
+            if args.budget and usage_cost() >= args.budget:
+                done["skipped"] += 1
+                return
+            template, log = await ai.build_template(p)
         if template:
             p.template = template
             save_problem(p)
-            print("     сохранено ✓")
+            done["ok"] += 1
+        else:
+            done["fail"] += 1
+        print(f"{'✓' if template else '✗'} {p.id}: {log[-1] if log else ''}"[:220], flush=True)
+
+    await asyncio.gather(*(one(p) for p in problems))
+    print(f"\nШаблонов: {done['ok']}, не вышло: {done['fail']}, пропущено по бюджету: {done['skipped']}")
+    print(f"Расход Claude: ${usage_cost():.4f}")
     return 0
 
 
@@ -247,6 +269,10 @@ def main(argv: list[str] | None = None) -> int:
         s = sub.add_parser(name)
         s.add_argument("--id", nargs="*")
         s.add_argument("--force", action="store_true")
+        if name == "templates":
+            s.add_argument("--prefix", nargs="*", help="порядок: сначала задачи с этими префиксами id")
+            s.add_argument("--parallel", type=int, default=1)
+            s.add_argument("--budget", type=float, help="остановиться при таком расходе Claude, $")
     pv = sub.add_parser("preview")
     pv.add_argument("problem")
     dc = sub.add_parser("discover", help="найти PDF на странице")
