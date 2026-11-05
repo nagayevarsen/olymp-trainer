@@ -128,6 +128,9 @@ export interface ChatReply {
 }
 
 export interface ContestRow {
+  duration_min: number | null
+  duration_source: { name: string; url: string } | null
+  official_points: boolean
   id: string
   title: string
   subject: Subject
@@ -137,6 +140,18 @@ export interface ContestRow {
   total_points: number
   solved: number
   earned: number
+}
+
+export interface StreakInfo {
+  count: number
+  status: 'new' | 'done_today' | 'active' | 'restorable' | 'broken'
+  restores_left: number
+  restores_per_month: number
+}
+
+export interface DailyInfo {
+  problem: { id: string; title: string; topic: string; points: number; source: string } | null
+  streak: StreakInfo
 }
 
 export interface GradeRow {
@@ -233,6 +248,9 @@ export const api = {
   contests: (query = '', subject?: Subject | null) =>
     request<ContestRow[]>(`/api/contests?query=${encodeURIComponent(query)}${subject ? `&subject=${subject}` : ''}`),
   contest: (id: string) => request<ContestDetail>(`/api/contests/${id}`),
+  daily: () => request<DailyInfo>('/api/daily'),
+  restoreStreak: () => post<StreakInfo>('/api/daily/restore'),
+  olympiadsWithTime: () => request<string[]>('/api/olympiad/available'),
   gradeOlympiad: (
     items: { problem_id: string; seed: number | null; answer: string; solution: string; max_points: number }[],
   ) => post<GradeRow[]>('/api/olympiad/grade', { items }),

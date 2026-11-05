@@ -6,7 +6,9 @@
   "statement": "Если в ведро, частично заполненное водой, погрузить шесть деревянных кубиков или 15 камней той же массы, вода достигает его края. Найти плотность камня. Плотность воды 1000 кг/м³.",
   "answer": {
     "value": 2500.0,
-    "unit": "кг/м³"
+    "unit": "кг/м³",
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -15,5 +17,44 @@
     "grade": 9,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/a5c/2018_2_phys_s.pdf"
+  },
+  "template": {
+    "text": "Если в ведро, частично заполненное водой, погрузить {n1} деревянных кубиков или {n2} камней той же массы, вода достигает его края. Найти плотность камня. Плотность воды {rho_w} кг/м³.",
+    "params": {
+      "n1": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "n2": {
+        "min": 3.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "rho_w": {
+        "value": 1000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n1": 6.0,
+      "n2": 15.0,
+      "rho_w": 1000.0
+    },
+    "solver": "def solve(n1, n2, rho_w):\n    return rho_w * n2 / n1",
+    "constraints": [
+      "n2 > n1",
+      "answer > rho_w",
+      "n1 >= 1"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

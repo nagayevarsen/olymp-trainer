@@ -38,6 +38,19 @@ CREATE TABLE IF NOT EXISTS submissions (
     status TEXT NOT NULL,
     created_at REAL NOT NULL
 );
+CREATE TABLE IF NOT EXISTS daily (
+    user_id TEXT NOT NULL,
+    day TEXT NOT NULL,
+    problem_id TEXT NOT NULL,
+    PRIMARY KEY (user_id, day)
+);
+CREATE TABLE IF NOT EXISTS streaks (
+    user_id TEXT PRIMARY KEY,
+    count INTEGER NOT NULL DEFAULT 0,
+    last_day TEXT,
+    restores_left INTEGER NOT NULL DEFAULT 3,
+    restores_month TEXT NOT NULL DEFAULT ''
+);
 CREATE TABLE IF NOT EXISTS chat_usage (
     user_id TEXT NOT NULL,
     day TEXT NOT NULL,
@@ -137,9 +150,51 @@ class DB:
     def delete_user(self, uid: str) -> None:
         """Удалить аккаунт и всё, что с ним связано."""
         with self.tx() as c:
-            for table in ("progress", "submissions", "chat_usage"):
+            for table in ("progress", "submissions", "chat_usage", "streaks", "daily"):
                 c.execute(f"DELETE FROM {table} WHERE user_id = ?", (uid,))
             c.execute("DELETE FROM users WHERE id = ?", (uid,))
+
+    def get_daily(self, uid: str, day: str) -> str | None:
+        row = self.conn.execute(
+            "SELECT problem_id FROM daily WHERE user_id = ? AND day = ?", (uid, day)
+        ).fetchone()
+        return row["problem_id"] if row else None
+
+    def set_daily(self, uid: str, day: str, pid: str) -> None:
+        with self.tx() as c:
+            c.execute(
+                "INSERT OR IGNORE INTO daily (user_id, day, problem_id) VALUES (?, ?, ?)", (uid, day, pid)
+            )
+
+    def get_streak(self, uid: str):
+        from datetime import date
+
+        from .streak import StreakState
+
+        row = self.conn.execute("SELECT * FROM streaks WHERE user_id = ?", (uid,)).fetchone()
+        if not row:
+            return StreakState()
+        return StreakState(
+            count=row["count"],
+            last_day=date.fromisoformat(row["last_day"]) if row["last_day"] else None,
+            restores_left=row["restores_left"],
+            restores_month=row["restores_month"],
+        )
+
+    def save_streak(self, uid: str, st) -> None:
+        with self.tx() as c:
+            c.execute(
+                "INSERT INTO streaks (user_id, count, last_day, restores_left, restores_month) VALUES (?, ?, ?, ?, ?) "
+                "ON CONFLICT(user_id) DO UPDATE SET count = excluded.count, last_day = excluded.last_day, "
+                "restores_left = excluded.restores_left, restores_month = excluded.restores_month",
+                (
+                    uid,
+                    st.count,
+                    st.last_day.isoformat() if st.last_day else None,
+                    st.restores_left,
+                    st.restores_month,
+                ),
+            )
 
     def count_chat_message(self, uid: str, day: str) -> int:
         """Учесть сообщение в чат и вернуть, сколько их за день."""

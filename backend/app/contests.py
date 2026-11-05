@@ -13,7 +13,7 @@ from dataclasses import dataclass
 
 from .bank import Problem
 
-MIN_CONTEST_PROBLEMS = 3
+MIN_CONTEST_PROBLEMS = 2
 
 
 def _norm(s: str) -> str:
@@ -72,10 +72,25 @@ class Contest:
     grade: int | None
     subject: str
     problems: list[Problem]
+    tour: int | None = None
+
+
+TOUR_RE = re.compile(r"(?i)(?:day|den|день|tur|тур)[ _.-]*(\d)|(\d)[ _.-]*(?:day|den|день)")
+
+
+def tour_of(p: Problem) -> int | None:
+    """Номер тура/дня из имени файла (day_1, 2day, tur2, 3etap2026day1…). Олимпиада даёт время на один тур."""
+    if p.source.stage == "distance":
+        return None  # дистанционные туры идут несколько дней — не тур «на время»
+    m = TOUR_RE.search((p.source.url or "").rsplit("/", 1)[-1].split("#")[0])
+    return int(m.group(1) or m.group(2)) if m else None
 
 
 def contest_id(p: Problem) -> str:
-    return f"{p.source.track_id}-{p.source.year or 0}-{p.subject[:4]}-{p.source.grade or 0}"
+    tour = tour_of(p)
+    return f"{p.source.track_id}-{p.source.year or 0}-{p.subject[:4]}-{p.source.grade or 0}" + (
+        f"-t{tour}" if tour else ""
+    )
 
 
 _cache: dict[int, dict[str, Contest]] = {}
@@ -101,7 +116,13 @@ def _build(bank: dict[str, Problem]) -> dict[str, Contest]:
             continue
         ps.sort(key=lambda p: (p.source.number or 0, p.id))
         s = ps[0].source
-        parts = [s.track_title(), str(s.year) if s.year else None, f"{s.grade} класс" if s.grade else None]
+        tour = tour_of(ps[0])
+        parts = [
+            s.track_title(),
+            str(s.year) if s.year else None,
+            f"{s.grade} класс" if s.grade else None,
+            f"тур {tour}" if tour else None,
+        ]
         subject = "математика" if ps[0].subject == "math" else "физика"
         out[cid] = Contest(
             id=cid,
@@ -112,6 +133,7 @@ def _build(bank: dict[str, Problem]) -> dict[str, Contest]:
             grade=s.grade,
             subject=ps[0].subject,
             problems=ps,
+            tour=tour,
         )
     return out
 

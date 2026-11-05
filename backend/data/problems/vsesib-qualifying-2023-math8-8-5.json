@@ -5,7 +5,9 @@
   "title": "Набор натуральных чисел",
   "statement": "Вася выписал на доску набор различных натуральных чисел, каждое из которых не превосходит $2023$. Оказалось, что для любых двух написанных $a$ и $b$ число $a + b$ не делится нацело на число $a-b$. Какое наибольшее количество чисел мог выписать Вася?",
   "answer": {
-    "value": 675.0
+    "value": 675.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,32 @@
     "grade": 8,
     "number": 5,
     "url": "https://sesc.nsu.ru/upload/iblock/8ec/s8wrzmhy0fxl18q8im35mcxop9149dhd/vsesib-8-sol (1).pdf"
+  },
+  "template": {
+    "text": "Вася выписал на доску набор различных натуральных чисел, каждое из которых не превосходит {N}. Оказалось, что для любых двух написанных $a$ и $b$ число $a + b$ не делится нацело на число $a-b$. Какое наибольшее количество чисел мог выписать Вася?",
+    "params": {
+      "N": {
+        "min": 5.0,
+        "max": 3000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "N": 2023.0
+    },
+    "solver": "def solve(N):\n    return (N + 2) // 3",
+    "constraints": [
+      "N >= 5",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

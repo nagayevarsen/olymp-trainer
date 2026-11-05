@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate, useSearchParams } from 'react-router-dom'
-import { api } from '../api'
 import { deleteChat, listChats, onChatsChange, type StoredChat } from '../chats'
 import { usePoints } from '../points'
 import { getUser } from '../user'
+import { AvatarButton } from './Avatar'
+import { StreakCard } from './StreakCard'
 import { ThemeSwitch } from './ThemeSwitch'
 
 const NAV = [
@@ -17,19 +18,12 @@ const NAV = [
 export function Sidebar({ onSettings, onCollapse }: { onSettings: () => void; onCollapse: () => void }) {
   const { points } = usePoints()
   const [chats, setChats] = useState<StoredChat[]>(listChats)
-  const [streak, setStreak] = useState<number | null>(null)
   const [params] = useSearchParams()
   const navigate = useNavigate()
   const activeChat = params.get('c')
   const nick = getUser()?.name ?? ''
 
   useEffect(() => onChatsChange(() => setChats(listChats())), [])
-  useEffect(() => {
-    api
-      .me()
-      .then((m) => setStreak(m.streak))
-      .catch(() => setStreak(null))
-  }, [points])
 
   return (
     <div className="flex h-full flex-col gap-4 p-3">
@@ -119,39 +113,15 @@ export function Sidebar({ onSettings, onCollapse }: { onSettings: () => void; on
         </ul>
       </div>
 
-      <div className="space-y-2">
-        {streak != null && (
-          <div className="rounded-xl bg-amber-50 px-3 py-2 text-sm dark:bg-amber-500/10">
-            <span className="font-bold">🔥 {streak}</span>{' '}
-            <span className="text-slate-600 dark:text-slate-300">
-              {streak === 0
-                ? '— реши задачу сегодня и начни серию'
-                : `${streakWord(streak)} подряд с решёнными задачами`}
-            </span>
-          </div>
-        )}
-      </div>
+      <StreakCard />
 
-      <Link
-        to="/profile"
-        className="flex items-center gap-3 rounded-xl px-2 py-2 transition hover:bg-slate-100 dark:hover:bg-slate-800"
-      >
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-lg font-extrabold text-white">
-          {nick.slice(0, 1).toUpperCase()}
-        </span>
-        <span className="min-w-0">
-          <span className="block truncate text-base font-bold">{nick}</span>
+      <div className="flex items-center gap-3 rounded-xl px-2 py-2">
+        <AvatarButton size={44} />
+        <Link to="/profile" className="min-w-0 flex-1 rounded-lg hover:underline">
+          <span className="block truncate text-lg font-bold">{nick}</span>
           <span className="text-xs text-amber-600 dark:text-gold-400">{points} б.</span>
-        </span>
-      </Link>
+        </Link>
+      </div>
     </div>
   )
-}
-
-function streakWord(n: number): string {
-  const m10 = n % 10
-  const m100 = n % 100
-  if (m10 === 1 && m100 !== 11) return 'день'
-  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return 'дня'
-  return 'дней'
 }

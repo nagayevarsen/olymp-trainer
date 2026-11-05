@@ -6,7 +6,9 @@
   "statement": "В треугольнике АВС точка М – середина стороны ВС, Н – основание высоты, опущенной из вершины В. Известно, что угол МСА вдвое больше угла МАС, а длина ВС равна $10$ см. Найти длину отрезка АН.",
   "answer": {
     "value": 5.0,
-    "unit": "см"
+    "unit": "см",
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -15,5 +17,32 @@
     "grade": 9,
     "number": 4,
     "url": "https://sesc.nsu.ru/upload/iblock/9e7/Решения ВООШ 2020-21 по математике 1 этап.pdf"
+  },
+  "template": {
+    "text": "В треугольнике АВС точка М – середина стороны ВС, Н – основание высоты, опущенной из вершины В. Известно, что угол МСА вдвое больше угла МАС, а длина ВС равна ${L}$ см. Найти длину отрезка АН.",
+    "params": {
+      "L": {
+        "min": 2.0,
+        "max": 100.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "L": 10.0
+    },
+    "solver": "def solve(L):\n    return L / 2",
+    "constraints": [
+      "L > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

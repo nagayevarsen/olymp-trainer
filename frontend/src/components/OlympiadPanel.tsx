@@ -1,19 +1,8 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { api, type ContestDetail, type ContestRow, type ProblemDetail } from '../api'
 import { pluralTasks } from '../lib/text'
-import {
-  defaultDuration,
-  formatLeft,
-  getRun,
-  msLeft,
-  onRunChange,
-  parseRequest,
-  setRun,
-  type OlympiadRun,
-} from '../olympiadRun'
+import { formatLeft, getRun, msLeft, onRunChange, parseRequest, setRun, type OlympiadRun } from '../olympiadRun'
 import { MathText } from './MathText'
-
-const DURATIONS = [60, 90, 120, 180, 240, 300]
 
 function hours(min: number): string {
   return min % 60 === 0 ? `${min / 60} ч` : `${Math.floor(min / 60)} ч ${min % 60} мин`
@@ -32,14 +21,11 @@ function Picker() {
   const [text, setText] = useState('')
   const [candidates, setCandidates] = useState<ContestRow[]>([])
   const [chosen, setChosen] = useState<ContestDetail | null>(null)
-  const [duration, setDuration] = useState(120)
   const [note, setNote] = useState('')
   const [busy, setBusy] = useState(false)
 
   async function open(row: ContestRow) {
-    const c = await api.contest(row.id)
-    setChosen(c)
-    setDuration(defaultDuration(c.stage))
+    setChosen(await api.contest(row.id))
   }
 
   async function find(e: FormEvent) {
@@ -49,11 +35,18 @@ function Picker() {
     setBusy(true)
     setNote('')
     try {
-      const rows = await api.contests(query)
+      const all = await api.contests(query)
+      // Пробная олимпиада — только там, где известно официальное время тура (не угадываем).
+      const rows = all.filter((r) => r.duration_min)
       const byGrade = grade ? rows.filter((r) => r.grade === grade) : rows
       const list = byGrade.length ? byGrade : rows
       if (!list.length) {
-        setNote('Такой олимпиады в банке пока нет. Попробуй: Жаутыковская, Эйлера, Смагулова, Всесибирская, ВсОШ.')
+        const available = await api.olympiadsWithTime().catch(() => [] as string[])
+        setNote(
+          (all.length
+            ? 'Для этой олимпиады мы пока не нашли официального времени тура, поэтому пробная олимпиада на время недоступна.'
+            : 'Такой олимпиады в банке пока нет.') + (available.length ? ` Доступны: ${available.join(', ')}.` : ''),
+        )
         setChosen(null)
         return
       }
@@ -89,7 +82,7 @@ function Picker() {
       points,
       answers: {},
       start: Date.now(),
-      durationMin: duration,
+      durationMin: chosen.duration_min ?? 0,
       finished: false,
     })
   }
@@ -127,18 +120,17 @@ function Picker() {
               </button>
             )}
           </div>
-          <div>
-            <div className="mb-2 text-sm font-semibold">Время</div>
-            <div className="flex flex-wrap gap-2">
-              {DURATIONS.map((d) => (
-                <button key={d} onClick={() => setDuration(d)} className={duration === d ? 'btn-primary' : 'btn-ghost'}>
-                  {hours(d)}
-                </button>
-              ))}
-            </div>
-            <p className="mt-2 text-xs text-slate-500">
-              Подставлено типичное время для этого этапа — поменяй, если на твоей олимпиаде дают другое.
-            </p>
+          <div className="rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700">
+            <div className="font-semibold">Время: {hours(chosen.duration_min ?? 0)} — как на настоящей олимпиаде</div>
+            {chosen.duration_source && (
+              <div className="mt-1 text-xs text-slate-500">
+                Источник:{' '}
+                <a href={chosen.duration_source.url} target="_blank" rel="noreferrer" className="underline">
+                  {chosen.duration_source.name}
+                </a>
+                {chosen.official_points && ' · баллы за задачи — официальные'}
+              </div>
+            )}
           </div>
           <ul className="list-disc space-y-1 rounded-xl bg-amber-50 p-3 pl-7 text-sm dark:bg-amber-500/10">
             <li>Как на настоящей олимпиаде: к каждой задаче — полное решение с обоснованием и ответ.</li>

@@ -5,7 +5,9 @@
   "title": "Наименьшее число, кратное семи",
   "statement": "Найти самое маленькое натуральное число, делящееся на 7, в десятичной записи которого используются все цифры от 0 до 9 ровно по одному разу.",
   "answer": {
-    "value": 1023456798.0
+    "value": 1023456798.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,32 @@
     "grade": 9,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/048/2019_1_math_s.pdf"
+  },
+  "template": {
+    "text": "Найти самое маленькое натуральное число, делящееся на {m}, в десятичной записи которого используются все цифры от 0 до 9 ровно по одному разу.",
+    "params": {
+      "m": {
+        "min": 2.0,
+        "max": 50.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "m": 7.0
+    },
+    "solver": "def solve(m):\n    used = [False] * 10\n    def dfs(num, depth):\n        if depth == 10:\n            if num % m == 0:\n                return num\n            return None\n        for d in range(10):\n            if used[d]:\n                continue\n            if depth == 0 and d == 0:\n                continue\n            used[d] = True\n            r = dfs(num * 10 + d, depth + 1)\n            used[d] = False\n            if r is not None:\n                return r\n        return None\n    return dfs(0, 0)",
+    "constraints": [
+      "m >= 2",
+      "m <= 50"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

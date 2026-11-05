@@ -5,7 +5,9 @@
   "title": "Минимальная дробь 100x/y",
   "statement": "Найти минимальное натуральное число, которое можно получить в виде дроби $\\frac{100x}{y}$, где $x, y$ – некоторые двузначные числа.",
   "answer": {
-    "value": 15.0
+    "value": 15.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,32 @@
     "grade": 10,
     "number": 2,
     "url": "https://sesc.nsu.ru/upload/iblock/9e7/Решения ВООШ 2020-21 по математике 1 этап.pdf"
+  },
+  "template": {
+    "text": "Найти минимальное натуральное число, которое можно получить в виде дроби $\\frac{{k}x}{y}$, где $x, y$ – некоторые двузначные числа.",
+    "params": {
+      "k": {
+        "min": 10.0,
+        "max": 1000.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "k": 100.0
+    },
+    "solver": "def solve(k):\n    best = None\n    for x in range(10, 100):\n        for y in range(10, 100):\n            if (k * x) % y == 0:\n                v = k * x // y\n                if v >= 1 and (best is None or v < best):\n                    best = v\n    return best",
+    "constraints": [
+      "k >= 10",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

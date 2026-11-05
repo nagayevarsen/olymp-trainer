@@ -105,7 +105,7 @@ export function ChatPage() {
   }
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-4">
+    <div className="mx-auto flex min-h-[calc(100dvh-7rem)] max-w-3xl flex-col gap-4">
       <div className="grid items-center gap-3 lg:grid-cols-[1fr_auto_1fr]">
         <div className="flex min-w-0 flex-col gap-1">
           <span className="chip w-fit bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
@@ -172,33 +172,37 @@ export function ChatPage() {
         </div>
       )}
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
-      <form onSubmit={submit} className="flex gap-2">
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-              e.preventDefault()
-              void send(text)
+      <div className="flex-1" />
+      {/* строка ввода всегда внизу экрана, как в ChatGPT */}
+      <div className="sticky bottom-0 z-10 -mx-1 bg-slate-50/95 px-1 pb-3 pt-2 backdrop-blur dark:bg-slate-950/95">
+        {error && <p className="mb-2 text-sm text-red-600">{error}</p>}
+        <form onSubmit={submit} className="flex gap-2">
+          <textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault()
+                void send(text)
+              }
+            }}
+            rows={2}
+            maxLength={2000}
+            placeholder={
+              mode === 'olympiad'
+                ? 'Вопрос по условию задачи…'
+                : problemId
+                  ? 'Спроси про эту задачу или покажи своё решение…'
+                  : 'Напиши, что хочешь потренировать или спроси что угодно по математике и физике…'
             }
-          }}
-          rows={2}
-          maxLength={2000}
-          placeholder={
-            mode === 'olympiad'
-              ? 'Вопрос по условию задачи…'
-              : problemId
-                ? 'Спроси про эту задачу или покажи своё решение…'
-                : 'Напиши, что хочешь потренировать или спроси что угодно по математике и физике…'
-          }
-          className="flex-1 resize-none rounded-xl border border-slate-300 bg-white px-3 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-950"
-        />
-        <button className="btn-primary self-end" disabled={busy || !text.trim()}>
-          Отправить
-        </button>
-      </form>
-      <div className="text-xs text-slate-500">{left != null ? `Осталось сообщений на сегодня: ${left}` : ''}</div>
+            className="flex-1 resize-none rounded-xl border border-slate-300 bg-white px-3 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-950"
+          />
+          <button className="btn-primary self-end" disabled={busy || !text.trim()}>
+            Отправить
+          </button>
+        </form>
+        {left != null && <div className="mt-1 text-xs text-slate-500">Осталось сообщений на сегодня: {left}</div>}
+      </div>
     </div>
   )
 }

@@ -6,7 +6,9 @@
   "statement": "Дан треугольник ABC с углом BAC, равным 30°. В этом треугольнике провели медиану BD, и оказалось, что угол BDC равен 45°. Найдите угол ABC.",
   "answer": {
     "value": 45.0,
-    "unit": "°"
+    "unit": "°",
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -15,5 +17,41 @@
     "grade": 8,
     "number": 4,
     "url": "https://sesc.nsu.ru/upload/iblock/90b/Решения и критерии проверки. 8 класс.pdf"
+  },
+  "template": {
+    "text": "Дан треугольник ABC с углом BAC, равным {a}°. В этом треугольнике провели медиану BD, и оказалось, что угол BDC равен {b}°. Найдите угол ABC.",
+    "params": {
+      "a": {
+        "min": 10.0,
+        "max": 80.0,
+        "step": 5.0
+      },
+      "b": {
+        "min": 20.0,
+        "max": 170.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "a": 30.0,
+      "b": 45.0
+    },
+    "solver": "def solve(a, b):\n    ar = a * pi / 180\n    br = b * pi / 180\n    t = sin(br) / sin(br - ar)\n    bx = t * cos(ar)\n    by = t * sin(ar)\n    ux = -bx\n    uy = -by\n    wx = 2 - bx\n    wy = -by\n    c = (ux * wx + uy * wy) / (sqrt(ux * ux + uy * uy) * sqrt(wx * wx + wy * wy))\n    lo = 0.0\n    hi = pi\n    for i in range(100):\n        mid = (lo + hi) / 2\n        if cos(mid) > c:\n            lo = mid\n        else:\n            hi = mid\n    return (lo + hi) / 2 * 180 / pi",
+    "constraints": [
+      "a < b",
+      "b < 180",
+      "a > 0",
+      "answer > 0",
+      "answer < 180"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

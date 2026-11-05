@@ -5,7 +5,9 @@
   "title": "Пятизначные числа",
   "statement": "Найти количество всех пятизначных чисел $\\overline{abcde}$, все цифры которых различны и $a<b<c>d>e$.",
   "answer": {
-    "value": 1134.0
+    "value": 1134.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,32 @@
     "grade": 10,
     "number": 2,
     "url": "https://sesc.nsu.ru/upload/iblock/fc8/2017_2_math_s.pdf"
+  },
+  "template": {
+    "text": "Найти количество всех пятизначных чисел $\\overline{abcde}$ в системе счисления с основанием {g}, все цифры которых различны и $a<b<c>d>e$.",
+    "params": {
+      "g": {
+        "min": 5.0,
+        "max": 16.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "g": 10.0
+    },
+    "solver": "def solve(g):\n    total = 0\n    for c in range(g):\n        if c >= 4:\n            total += comb(c - 1, 2) * comb(c - 2, 2)\n    return total",
+    "constraints": [
+      "g >= 5",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

@@ -14,7 +14,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from . import ai, chat, contests, scoring
+from . import ai, chat, contests, olympiad_rules, scoring, streak
 from .auth import AuthError, check_nick, check_password, hash_password, verify_password
 from .bank import STAGE_NAMES, Hints, Problem, get_problem, load_bank
 from .checker import AnswerKey, check_answer
@@ -111,19 +111,81 @@ def create_user(body: NewUser, db: DB = Depends(get_db)) -> dict:
     return {"id": uid, "name": body.name.strip(), "grade": body.grade}
 
 
-def _streak(prog: dict) -> int:
-    """Сколько дней подряд (включая сегодня или вчера) ученик решал хотя бы одну задачу."""
-    days = {
-        time.strftime("%Y-%m-%d", time.localtime(p["solved_at"])) for p in prog.values() if p.get("solved_at")
+def _today():
+    from datetime import date
+
+    return date.today()
+
+
+def _daily_problem_id(user: dict, db: DB) -> str | None:
+    """Задача дня: нерешённая, средней сложности (5–7 из 10), по возможности для класса ученика."""
+    stats = db.problem_stats()
+    solved = {pid for pid, pr in db.all_progress(user["id"]).items() if pr["solved"]}
+    lo, hi = streak.DAILY_POINTS
+    pool = [
+        p
+        for p in load_bank().values()
+        if p.id not in solved
+        and not p.source.olympiad.startswith("Демо")
+        and lo <= problem_points(p, stats) <= hi
+    ]
+    if user["grade"]:
+        near = [p for p in pool if p.source.grade and abs(p.source.grade - user["grade"]) <= 1]
+        pool = near or pool
+    return streak.pick_daily(user["id"], _today(), [p.id for p in pool])
+
+
+def _todays_daily(user: dict, db: DB) -> str | None:
+    """Задача дня запоминается при первом показе — весь день она одна и та же."""
+    day = _today().isoformat()
+    pid = db.get_daily(user["id"], day)
+    if pid is None:
+        pid = _daily_problem_id(user, db)
+        if pid:
+            db.set_daily(user["id"], day, pid)
+    return pid
+
+
+def _streak_info(user: dict, db: DB) -> dict:
+    today = _today()
+    st = db.get_streak(user["id"])
+    st.refill(today)
+    return {
+        "count": st.visible_count(today),
+        "status": st.status(today),
+        "restores_left": st.restores_left,
+        "restores_per_month": streak.RESTORES_PER_MONTH,
     }
-    day = time.time()
-    if time.strftime("%Y-%m-%d", time.localtime(day)) not in days:
-        day -= 86400  # сегодня ещё не решал — серия не сгорает до конца дня
-    n = 0
-    while time.strftime("%Y-%m-%d", time.localtime(day)) in days:
-        n += 1
-        day -= 86400
-    return n
+
+
+@app.get("/api/daily")
+def daily(user: dict = Depends(current_user), db: DB = Depends(get_db)) -> dict:
+    pid = _todays_daily(user, db)
+    p = get_problem(pid) if pid else None
+    stats = db.problem_stats()
+    return {
+        "problem": (
+            {
+                "id": p.id,
+                "title": p.title,
+                "topic": p.topic,
+                "points": problem_points(p, stats),
+                "source": p.source.label(),
+            }
+            if p
+            else None
+        ),
+        "streak": _streak_info(user, db),
+    }
+
+
+@app.post("/api/daily/restore")
+def daily_restore(user: dict = Depends(current_user), db: DB = Depends(get_db)) -> dict:
+    st = db.get_streak(user["id"])
+    if not st.restore(_today()):
+        raise HTTPException(400, "Серию сейчас нельзя восстановить")
+    db.save_streak(user["id"], st)
+    return _streak_info(user, db)
 
 
 # ---------- аккаунт: ник + пароль, без почты и телефона ----------
@@ -300,9 +362,16 @@ async def grade_olympiad(body: GradeRequest, user: dict = Depends(current_user))
 
 
 # ---------- полные олимпиады: все задачи банка одной олимпиады, года и класса ----------
+def contest_rule(c: contests.Contest) -> olympiad_rules.Rule | None:
+    return olympiad_rules.rule_for(c.olympiad, c.stage, c.subject)
+
+
 def contest_points(c: contests.Contest) -> list[int]:
     """Баллы задач варианта: самая сложная — 10, самая простая — 3 (официальных баллов в данных нет).
     Сложность — по этапу/классу и номеру задачи в варианте (дальние задачи труднее)."""
+    rule = contest_rule(c)
+    if rule and rule.points_per_problem:
+        return [rule.points_per_problem] * len(c.problems)  # официальные баллы
     difficulty = [scoring.base_points(p) + 0.3 * (p.source.number or i) for i, p in enumerate(c.problems, 1)]
     return scoring.scale_for_contest(difficulty)
 
@@ -319,6 +388,18 @@ def _contest_row(c: contests.Contest, stats: dict, prog: dict) -> dict:
         "total_points": sum(pts),
         "solved": sum(1 for p in c.problems if prog.get(p.id, {}).get("solved")),
         "earned": sum(prog.get(p.id, {}).get("points", 0) for p in c.problems),
+        **_rule_info(contest_rule(c)),
+    }
+
+
+def _rule_info(rule: olympiad_rules.Rule | None) -> dict:
+    """Официальная длительность тура (если известна) и источник. Без неё олимпиада на время недоступна."""
+    if not rule:
+        return {"duration_min": None, "duration_source": None, "official_points": False}
+    return {
+        "duration_min": rule.minutes,
+        "duration_source": {"name": rule.source_name, "url": rule.source_url},
+        "official_points": bool(rule.points_per_problem),
     }
 
 
@@ -332,6 +413,11 @@ def _list_contests(uid: str, db: DB, query: str = "", subject: str | None = None
     ]
     rows.sort(key=lambda r: (r["title"].split(",")[0], -(r["year"] or 0), r["grade"] or 0))
     return rows
+
+
+@app.get("/api/olympiad/available")
+def olympiads_with_official_time() -> list[str]:
+    return olympiad_rules.available_list()
 
 
 @app.get("/api/contests")
@@ -430,7 +516,7 @@ def me(
         "name": user["name"],
         "grade": user["grade"],
         "has_account": bool(user.get("pass_hash")),
-        "streak": _streak(prog),
+        "streak": _streak_info(user, db)["count"],
         "points": sum(pr["points"] for pr in prog.values()),
         "solved": sum(pr["solved"] for pr in prog.values()),
         "rank": rank,
@@ -653,6 +739,13 @@ def check(
         pr.update(solved=1, points=earned, solved_at=time.time())
         first_solve = True
     db.save_progress(pr)
+    daily_done = False
+    if result.correct and first_solve and p.id == db.get_daily(user["id"], _today().isoformat()):
+        st = db.get_streak(user["id"])
+        st.refill(_today())
+        st.complete(_today())
+        db.save_streak(user["id"], st)
+        daily_done = True
 
     stats = db.problem_stats()
     return {
@@ -662,6 +755,7 @@ def check(
         "earned": earned,
         "first_solve": first_solve,
         "already_solved": result.correct and not first_solve,
+        "daily_done": daily_done,
         "solve_rate": solve_rate(p, stats) if pr["solved"] else None,
         "total_points": sum(x["points"] for x in db.all_progress(user["id"]).values()),
     }

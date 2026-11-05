@@ -6,7 +6,9 @@
   "statement": "Автомобиль начал тормозить с постоянным ускорением и остановился через время $T = 15$ с. За первые $t = 5$ с торможения он проехал расстояние $L = 50$ м, Найдите величину ускорения в м/с$^2$.",
   "answer": {
     "value": 0.8,
-    "unit": "м/с²"
+    "unit": "м/с²",
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -15,5 +17,45 @@
     "grade": 9,
     "number": 4,
     "url": "https://sesc.nsu.ru/upload/iblock/81c/2016_2_phys_s.pdf"
+  },
+  "template": {
+    "text": "Автомобиль начал тормозить с постоянным ускорением и остановился через время $T = {T}$ с. За первые $t = {t}$ с торможения он проехал расстояние $L = {L}$ м, Найдите величину ускорения в м/с$^2$.",
+    "params": {
+      "T": {
+        "min": 10.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "t": {
+        "min": 2.0,
+        "max": 8.0,
+        "step": 1.0
+      },
+      "L": {
+        "min": 10.0,
+        "max": 200.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "T": 15.0,
+      "t": 5.0,
+      "L": 50.0
+    },
+    "solver": "def solve(T, t, L):\n    return L / (T * t - t * t / 2)",
+    "constraints": [
+      "t < T",
+      "T * t - t * t / 2 > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

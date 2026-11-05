@@ -5,7 +5,9 @@
   "title": "Сумма тридцати чисел",
   "statement": "Найти все натуральные $n$ такие, что из любых $n$ натуральных чисел, сумма которых равна 100, всегда можно выбрать 30 чисел, сумма которых равна 60.",
   "answer": {
-    "value": 70.0
+    "value": 70.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,48 @@
     "grade": 10,
     "number": 5,
     "url": "https://sesc.nsu.ru/upload/iblock/048/2019_1_math_s.pdf"
+  },
+  "template": {
+    "text": "Найти все натуральные $n$ такие, что из любых $n$ натуральных чисел, сумма которых равна {S}, всегда можно выбрать {k} чисел, сумма которых равна {T}.",
+    "params": {
+      "S": {
+        "min": 50.0,
+        "max": 200.0,
+        "step": 10.0
+      },
+      "k": {
+        "min": 5.0,
+        "max": 50.0,
+        "step": 5.0
+      },
+      "T": {
+        "min": 10.0,
+        "max": 100.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "S": 100.0,
+      "k": 30.0,
+      "T": 60.0
+    },
+    "solver": "def solve(S, k, T):\n    return k + S - T",
+    "constraints": [
+      "S > T",
+      "T >= k",
+      "T <= 2*k",
+      "k < S",
+      "answer > k",
+      "answer == k + S - T"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

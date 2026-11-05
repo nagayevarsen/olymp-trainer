@@ -5,7 +5,9 @@
   "title": "Арифметические прогрессии в множестве",
   "statement": "Пусть $A$ — множество из десяти различных положительных чисел (не обязательно натуральных). Определить максимально возможное количество арифметических прогрессий, состоящих из трёх различных чисел множества $A$.",
   "answer": {
-    "value": 20.0
+    "value": 20.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,33 @@
     "grade": 10,
     "number": 2,
     "url": "https://sesc.nsu.ru/upload/iblock/bc6/gwgikwn8hr29l41iocktl1lxlgageiba/Решения 10 класс.pdf"
+  },
+  "template": {
+    "text": "Пусть $A$ — множество из {n} различных положительных чисел (не обязательно натуральных). Определить максимально возможное количество арифметических прогрессий, состоящих из трёх различных чисел множества $A$.",
+    "params": {
+      "n": {
+        "min": 3.0,
+        "max": 20.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 10.0
+    },
+    "solver": "def solve(n):\n    return ((n - 1) ** 2) // 4",
+    "constraints": [
+      "n >= 3",
+      "n == int(n)",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

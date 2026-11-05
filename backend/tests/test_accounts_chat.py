@@ -144,7 +144,7 @@ def test_level_points_range_grows():
 def test_contests_endpoints(client):
     rows = client.get("/api/contests", params={"query": "всесиб"}).json()
     assert rows and all("Всесибирская" in r["title"] for r in rows)
-    assert all(r["count"] >= 3 for r in rows)
+    assert all(r["count"] >= 2 for r in rows)
     detail = client.get(f"/api/contests/{rows[0]['id']}").json()
     assert detail["count"] == len(detail["problems"]) and detail["total_points"] == sum(
         p["points"] for p in detail["problems"]
@@ -174,16 +174,51 @@ def test_olympiad_mode_prompt_forbids_hints():
     assert "ИДЁТ ОЛИМПИАДА" not in chat.build_system(chat.Level(9, 0, 0))
 
 
-def test_streak_counts_consecutive_days():
-    import time as _t
+def test_streak_rules():
+    from datetime import date, timedelta
 
-    from app.main import _streak
+    from app.streak import StreakState
 
-    now = _t.time()
-    prog = {str(i): {"solved_at": now - i * 86400} for i in (0, 1, 2, 4)}
-    assert _streak(prog) == 3
-    assert _streak({"a": {"solved_at": now - 86400}}) == 1  # вчера решал — серия ещё жива
-    assert _streak({}) == 0
+    d = date(2026, 11, 10)
+    st = StreakState()
+    st.refill(d)
+    st.complete(d)
+    assert st.count == 1 and st.status(d) == "done_today"
+    st.complete(d + timedelta(days=1))
+    assert st.count == 2
+    # пропущен один день — можно восстановить
+    later = d + timedelta(days=3)
+    assert st.status(later) == "restorable" and st.visible_count(later) == 2
+    assert st.restore(later) and st.restores_left == 2 and st.status(later) == "active"
+    st.complete(later)
+    assert st.count == 3
+    # пропущено два дня — серия гаснет
+    gone = later + timedelta(days=3)
+    assert st.status(gone) == "broken" and st.visible_count(gone) == 0 and not st.restore(gone)
+    st.complete(gone)
+    assert st.count == 1
+    # 1-го числа восстановления пополняются
+    st.restores_left = 0
+    st.refill(date(2026, 12, 1))
+    assert st.restores_left == 3
+
+
+def test_daily_problem_and_streak_flow(client):
+    h = {"X-User-Id": register(client).json()["id"]}
+    d = client.get("/api/daily", headers=h).json()
+    assert d["problem"] and 5 <= d["problem"]["points"] <= 7
+    assert client.get("/api/daily", headers=h).json()["problem"]["id"] == d["problem"]["id"]  # весь день одна
+    assert d["streak"] == {"count": 0, "status": "new", "restores_left": 3, "restores_per_month": 3}
+    from app.bank import get_problem
+    from app.checker import format_number
+
+    p = get_problem(d["problem"]["id"])
+    ans = format_number(p.answer.value) + (f" {p.answer.unit}" if p.answer.unit else "")
+    r = client.post(f"/api/problems/{p.id}/check", json={"answer": ans}, headers=h).json()
+    assert r["correct"] and r["daily_done"]
+    st = client.get("/api/daily", headers=h).json()["streak"]
+    assert st["count"] == 1 and st["status"] == "done_today"
+    assert client.post("/api/daily/restore", headers=h).status_code == 400
 
 
 def test_grading_caps():

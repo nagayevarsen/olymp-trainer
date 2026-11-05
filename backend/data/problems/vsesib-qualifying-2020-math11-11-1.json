@@ -5,7 +5,9 @@
   "title": "НОК одиннадцати чисел",
   "statement": "Сумма 11 натуральных чисел равна 441. Найти минимальное значение, которое может принимать наименьшее общее кратное всех этих чисел",
   "answer": {
-    "value": 42.0
+    "value": 42.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,39 @@
     "grade": 11,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/048/2019_1_math_s.pdf"
+  },
+  "template": {
+    "text": "Сумма {n} натуральных чисел равна {s}. Найти минимальное значение, которое может принимать наименьшее общее кратное всех этих чисел",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 15.0,
+        "step": 1.0
+      },
+      "s": {
+        "min": 20.0,
+        "max": 500.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 11.0,
+      "s": 441.0
+    },
+    "solver": "def solve(n, s):\n    for L in range(1, s + 1):\n        divs = [d for d in range(1, L + 1) if L % d == 0]\n        prev = [False] * (s + 1)\n        prev[0] = True\n        for k in range(n):\n            cur = [False] * (s + 1)\n            for t in range(s + 1):\n                if prev[t]:\n                    for d in divs:\n                        if t + d <= s:\n                            cur[t + d] = True\n            prev = cur\n        if prev[s]:\n            return L\n    return s",
+    "constraints": [
+      "n >= 1",
+      "s >= n",
+      "answer >= 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }
