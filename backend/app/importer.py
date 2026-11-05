@@ -97,10 +97,50 @@ def discover(page_url: str, pattern: str | None = None) -> list[str]:
     return links
 
 
-def fetch_pdf(url: str) -> Path:
-    path = raw_dir() / (hashlib.sha1(url.encode()).hexdigest()[:16] + ".pdf")
+MAX_ZIP_BYTES = 80 * 1024 * 1024
+ZIP_MEMBER = "#member="
+
+
+def _fetch_zip(url: str) -> Path:
+    path = raw_dir() / (hashlib.sha1(url.encode()).hexdigest()[:16] + ".zip")
     if not path.exists():
         data = _get(url).content
+        if not data.startswith(b"PK"):
+            raise ImportError_(f"{url}: это не ZIP-архив")
+        if len(data) > MAX_ZIP_BYTES:
+            raise ImportError_(f"{url}: архив слишком большой ({len(data) // 1024 // 1024} МБ)")
+        path.write_bytes(data)
+    return path
+
+
+def zip_members(url: str) -> list[str]:
+    """PDF-файлы внутри ZIP-архива с проверенного сайта."""
+    import zipfile
+
+    with zipfile.ZipFile(_fetch_zip(url)) as z:
+        return [i.filename for i in z.infolist() if not i.is_dir() and i.filename.lower().endswith(".pdf")]
+
+
+def fetch_pdf(url: str) -> Path:
+    """Скачать PDF. Адрес вида https://site/archive.zip#member=dir/file.pdf — PDF внутри архива:
+    архив скачивается с проверенного сайта, файл читается из него в память (на диск ничего не
+    распаковывается), размер проверяется до чтения."""
+    path = raw_dir() / (hashlib.sha1(url.encode()).hexdigest()[:16] + ".pdf")
+    if not path.exists():
+        if ZIP_MEMBER in url:
+            import zipfile
+
+            base, member = url.split(ZIP_MEMBER, 1)
+            with zipfile.ZipFile(_fetch_zip(base)) as z:
+                try:
+                    info = z.getinfo(member)
+                except KeyError as exc:
+                    raise ImportError_(f"{url}: в архиве нет файла {member}") from exc
+                if info.file_size > MAX_PDF_BYTES:
+                    raise ImportError_(f"{url}: файл слишком большой ({info.file_size // 1024 // 1024} МБ)")
+                data = z.read(info)
+        else:
+            data = _get(url).content
         if not data.startswith(b"%PDF"):
             raise ImportError_(f"{url}: это не PDF")
         if len(data) > MAX_PDF_BYTES:

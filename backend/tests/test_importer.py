@@ -58,3 +58,29 @@ def test_multi_part_problem_is_split_into_parts():
     assert a1["statement"].startswith("Маятник длиной 1 м.") and "Пункт A.1" in a1["statement"]
     assert out[2]["kind"] == "proof"
     assert out[3]["has_figure"] is True
+
+
+def test_pdf_inside_zip(tmp_path, monkeypatch):
+    import io
+    import zipfile
+
+    from app import importer
+
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as z:
+        z.writestr("2006/Theo_solution 1.pdf", b"%PDF-1.4 test")
+        z.writestr("2006/readme.txt", b"x")
+
+    class Resp:
+        content = buf.getvalue()
+
+    monkeypatch.setattr(importer, "raw_dir", lambda: tmp_path)
+    monkeypatch.setattr(importer, "_get", lambda url: Resp())
+    url = "https://www.ipho-new.org/download/552/"
+    assert importer.zip_members(url) == ["2006/Theo_solution 1.pdf"]
+    path = importer.fetch_pdf(url + "#member=2006/Theo_solution 1.pdf")
+    assert path.read_bytes().startswith(b"%PDF")
+    import pytest
+
+    with pytest.raises(importer.ImportError_):
+        importer.fetch_pdf(url + "#member=../../etc/passwd")
