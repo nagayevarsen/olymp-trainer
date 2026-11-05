@@ -1,0 +1,20 @@
+{
+  "id": "euler-distance-2023-math8-2",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Произведение чисел",
+  "statement": "Даны три положительных числа: $a$, $b$, $c$. Петя записал на доске числа $\\frac{1}{a} + bc$, $\\frac{1}{b} + ac$, $\\frac{1}{c} + ab$, а Вася — числа $2a^2$, $2b^2$, $2c^2$. Оказалось, что оба записали одни и те же три числа (возможно, в разном порядке). Чему равно произведение $abc$? (Н. Агаханов)",
+  "answer": {
+    "value": 1.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2023,
+    "stage": "distance",
+    "grade": 8,
+    "number": 2,
+    "url": "https://www.matol.ru/files/Disttur2_22_sol.pdf"
+  }
+}

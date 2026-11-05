@@ -1,0 +1,20 @@
+{
+  "id": "euler-region-2022-math8-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Выпуклый n-угольник с двумя диагоналями",
+  "statement": "При каком наибольшем $n$ существует выпуклый $n$-угольник, у которого длины диагоналей принимают не больше двух различных значений? (И. Рубанов)",
+  "answer": {
+    "value": 7.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2022,
+    "stage": "region",
+    "grade": 8,
+    "number": 5,
+    "url": "https://www.matol.ru/files/8 klass2022_2 etap_day1_sol.pdf"
+  }
+}

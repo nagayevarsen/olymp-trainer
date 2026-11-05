@@ -1,0 +1,20 @@
+{
+  "id": "euler-distance-2019-math8-4",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Число с тремя делителями",
+  "statement": "Найдите все натуральные числа $n$, для которых число $n^7+n^6+n^5+1$ имеет ровно три натуральных делителя. (О. Нечаева, И. Рубанов)",
+  "answer": {
+    "value": 1.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2019,
+    "stage": "distance",
+    "grade": 8,
+    "number": 4,
+    "url": "https://www.matol.ru/files/Disttur2_18_sol.pdf"
+  }
+}

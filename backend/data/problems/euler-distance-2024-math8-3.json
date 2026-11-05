@@ -1,0 +1,20 @@
+{
+  "id": "euler-distance-2024-math8-3",
+  "subject": "math",
+  "topic": "Делимость",
+  "title": "Число 12345 и делимость на 41",
+  "statement": "Вася хочет несколько раз выписать в строчку число $12345$ так, чтобы получившееся многозначное число делилось на $41$. Какое наименьшее число раз ему нужно это сделать?",
+  "answer": {
+    "value": 41.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2024,
+    "stage": "distance",
+    "grade": 8,
+    "number": 3,
+    "url": "https://www.matol.ru/files/Disttur3_23sol.pdf"
+  }
+}

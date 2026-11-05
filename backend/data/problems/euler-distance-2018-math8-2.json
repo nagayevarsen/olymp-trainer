@@ -1,0 +1,21 @@
+{
+  "id": "euler-distance-2018-math8-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Угол в треугольнике с биссектрисами",
+  "statement": "В треугольнике $ABC$ провели биссектрису $BD$, а в треугольниках $ABD$ и $CBD$ — биссектрисы $DE$ и $DF$ соответственно. Оказалось, что $EF \\parallel AC$. Найдите угол $DEF$. (И. Рубанов)",
+  "answer": {
+    "value": 45.0,
+    "unit": "°",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2018,
+    "stage": "distance",
+    "grade": 8,
+    "number": 2,
+    "url": "https://www.matol.ru/files/Disttur1_17_sol.pdf"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "euler-region-2021-math8-1",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Цифра разряда сотен",
+  "statement": "Натуральное число, большее 1000000, даёт одинаковые остатки при делении на 40 и на 125. Какая цифра может стоять у этого числа в разряде сотен?",
+  "answer": {
+    "value": 0.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2021,
+    "stage": "region",
+    "grade": 8,
+    "number": 1,
+    "url": "https://www.matol.ru/files/8 klass2021_2 etap_day1_sol.pdf"
+  }
+}

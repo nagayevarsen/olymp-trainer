@@ -1,0 +1,20 @@
+{
+  "id": "euler-distance-2015-math8-2",
+  "subject": "math",
+  "topic": "Делимость",
+  "title": "Простые числа с одинаковым остатком",
+  "statement": "Из натуральных чисел от 1 до 25 Даша выбрала шесть таких, что разность любых двух выбранных чисел кратна 4. Какое наибольшее количество простых чисел могла выбрать Даша?",
+  "answer": {
+    "value": 5.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2015,
+    "stage": "distance",
+    "grade": 8,
+    "number": 2,
+    "url": "https://www.matol.ru/files/Disttur1_14_sol.pdf"
+  }
+}

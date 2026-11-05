@@ -1,0 +1,26 @@
+{
+  "id": "smagulov-2026-math6-t1-3",
+  "subject": "math",
+  "topic": "Счёт цифр",
+  "title": "Цифры нечётных чисел",
+  "statement": "Чтобы записать все нечётные целые числа от 1 до 20, Асану потребовалось 15 цифр. Сколько цифр ему понадобится, чтобы записать все нечётные целые числа от 1 до 500?",
+  "answer": {
+    "value": 695.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 695",
+      "решение: gemini:gemini-3.5-flash → 695",
+      "решение: anthropic:claude-sonnet-5-5 → 695",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 695",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 695"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 3,
+    "url": "https://matol.kz/olympiads/1226"
+  }
+}

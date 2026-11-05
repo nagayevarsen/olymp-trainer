@@ -1,0 +1,20 @@
+{
+  "id": "euler-distance-2024-math8-4",
+  "subject": "math",
+  "topic": "Теория графов",
+  "title": "Число учеников в классе",
+  "statement": "В классе каждый ученик дружит ровно с шестью другими, и у любых двух учеников есть ровно два общих друга. Сколько учеников в этом классе?",
+  "answer": {
+    "value": 16.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2024,
+    "stage": "distance",
+    "grade": 8,
+    "number": 4,
+    "url": "https://www.matol.ru/files/Disttur3_23sol.pdf"
+  }
+}

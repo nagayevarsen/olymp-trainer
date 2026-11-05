@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math6-t1-5",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Четыре числа от 1 до 9",
+  "statement": "Четыре различных натуральных числа удовлетворяют следующим условиям: каждое число не меньше 1 и не больше 9; ровно два из них являются простыми; ровно два — полными квадратами; ровно два — чётными; ровно два кратны 3. Найдите сумму этих четырёх чисел.",
+  "answer": {
+    "value": 18.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 18",
+      "решение: anthropic:claude-sonnet-5-5 → 18",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 18",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 18"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/1226"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "euler-distance-2022-math8-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Равнобедренный треугольник и отрезок",
+  "statement": "$ABCD$ — выпуклый четырёхугольник, где $AB = 7$, $BC = 4$, $AD = DC$, $\\angle ABD = \\angle DBC$. Точка $E$ на отрезке $AB$ такова, что $\\angle DEB = 90^\\circ$. Найдите длину отрезка $AE$.",
+  "answer": {
+    "value": 1.5,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2022,
+    "stage": "distance",
+    "grade": 8,
+    "number": 3,
+    "url": "https://www.matol.ru/files/Disttur2_21_sol.pdf"
+  }
+}

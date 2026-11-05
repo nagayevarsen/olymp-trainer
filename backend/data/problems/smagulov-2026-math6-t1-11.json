@@ -1,0 +1,26 @@
+{
+  "id": "smagulov-2026-math6-t1-11",
+  "subject": "math",
+  "topic": "арифметика",
+  "title": "Вычисление дробного выражения",
+  "statement": "Вычислите: $(11{,}5 \\cdot 10-3{,}35 \\cdot 5{,}2-3{,}35 \\cdot 6{,}3):(1{,}45 \\cdot 5{,}45+5{,}45 \\cdot 5{,}2-6{,}65 \\cdot 4{,}3).$",
+  "answer": {
+    "value": 10.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 10",
+      "решение: gemini:gemini-3.5-flash → 10",
+      "решение: anthropic:claude-sonnet-5-5 → 10",
+      "программа (other): anthropic:claude-haiku-5-5 → 10",
+      "программа (other): anthropic:claude-sonnet-5-5 → 10"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 11,
+    "url": "https://matol.kz/olympiads/1226"
+  }
+}

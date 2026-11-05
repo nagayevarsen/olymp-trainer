@@ -1,0 +1,20 @@
+{
+  "id": "euler-final-2021-math8-1",
+  "subject": "math",
+  "topic": "Аналитическая геометрия",
+  "title": "Квадрат из прямых",
+  "statement": "Прямые $y = ax+b$, $y = bx+c$, $y = cx+d$, $y = dx+a$ ограничивают квадрат. Чему может равняться площадь этого квадрата (укажите все возможности)?",
+  "answer": {
+    "value": 2.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2021,
+    "stage": "final",
+    "grade": 8,
+    "number": 1,
+    "url": "https://www.matol.ru/files/3etap2021sol.pdf"
+  }
+}

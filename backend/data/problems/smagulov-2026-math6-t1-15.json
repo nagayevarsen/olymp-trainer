@@ -1,0 +1,25 @@
+{
+  "id": "smagulov-2026-math6-t1-15",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Шары в мешке",
+  "statement": "В мешке лежат 8 красных, 7 жёлтых и 5 зелёных шаров. Какое наибольшее число шаров можно вынуть из мешка, не глядя внутрь, чтобы гарантированно в мешке осталось не менее 4 шаров одного цвета и не менее 3 шаров другого цвета?",
+  "answer": {
+    "value": 7.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 7",
+      "решение: anthropic:claude-sonnet-5-5 → 7",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 7",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 7"
+    ]
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2026,
+    "stage": "city",
+    "grade": 6,
+    "number": 15,
+    "url": "https://matol.kz/olympiads/1226"
+  }
+}

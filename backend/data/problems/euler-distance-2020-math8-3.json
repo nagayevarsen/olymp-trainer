@@ -1,0 +1,20 @@
+{
+  "id": "euler-distance-2020-math8-3",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Разбиение прямоугольника на полоски",
+  "statement": "Клетчатый прямоугольник 100×101 (100 строк, 101 столбец) разбит на полоски 1×5 так, что в каждом столбце содержится ровно k вертикальных полосок. Чему может быть равно k?",
+  "answer": {
+    "value": 20.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2020,
+    "stage": "distance",
+    "grade": 8,
+    "number": 3,
+    "url": "https://www.matol.ru/files/Disttur1_19_sol.pdf"
+  }
+}
