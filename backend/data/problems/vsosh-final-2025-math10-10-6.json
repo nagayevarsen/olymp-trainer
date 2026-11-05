@@ -1,0 +1,20 @@
+{
+  "id": "vsosh-final-2025-math10-10-6",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Многочлены с общими точками графиков",
+  "statement": "При каком наименьшем $k$ для любого многочлена $f(x)$ степени $100$ с вещественными коэффициентами найдётся такой многочлен $g(x)$ степени не выше $k$ с вещественными коэффициентами, что графики $y = f(x)$ и $y = g(x)$ имеют ровно 100 общих точек?",
+  "answer": {
+    "value": 98.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Всероссийская олимпиада школьников (ВсОШ)",
+    "year": 2025,
+    "stage": "final",
+    "grade": 10,
+    "number": 6,
+    "url": "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2024-25/final/math/sol-math-10-final-24-25.pdf"
+  }
+}
