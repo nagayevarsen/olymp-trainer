@@ -18,6 +18,7 @@ class Rule:
     source_name: str
     source_url: str
     points_per_problem: int | None = None  # официальные баллы за задачу, если они одинаковые
+    grades: tuple[int, int] | None = None  # для каких классов (включительно); None — для всех
 
 
 RULES: list[Rule] = [
@@ -59,8 +60,25 @@ RULES: list[Rule] = [
         "region",
         "math",
         235,
-        "Решения регионального этапа ВсОШ по математике: «составляет 3 часа 55 минут»",
-        "https://vos.olimpiada.ru/upload/files/Arhive_tasks/2022-23/reg/math/sol-math-9-tur2-reg-22-23.pdf",
+        "Порядок проведения регионального этапа ВсОШ по математике: каждый тур — 235 минут",
+        "https://vos.olimpiada.ru/upload/files/files-2025-26/region/procedure/proc-math-reg-2026.pdf",
+    ),
+    Rule(
+        "Всероссийская",
+        "region",
+        "physics",
+        300,
+        "Порядок проведения регионального этапа ВсОШ по физике: теоретический тур — 300 минут (9–11 классы)",
+        "https://vos.olimpiada.ru/upload/files/files-2025-26/region/procedure/proc-phys-reg-2026.pdf",
+        grades=(9, 11),
+    ),
+    Rule(
+        "Эйлера",
+        "final",
+        "math",
+        270,
+        "Заключительный этап: «Продолжительность каждого тура – 4,5 часа»",
+        "https://matol.kz/news/170",
     ),
     Rule(
         "Всесибирская",
@@ -81,9 +99,11 @@ RULES: list[Rule] = [
 ]
 
 
-def rule_for(olympiad: str, stage: str, subject: str) -> Rule | None:
+def rule_for(olympiad: str, stage: str, subject: str, grade: int | None = None) -> Rule | None:
     for r in RULES:
         if r.olympiad in olympiad and (r.stage in (None, stage)) and (r.subject in (None, subject)):
+            if r.grades and not (grade and r.grades[0] <= grade <= r.grades[1]):
+                continue
             return r
     return None
 
@@ -93,8 +113,8 @@ def available_list() -> list[str]:
     names = {
         "Жаутыковская": "Жаутыковская (IZhO)",
         "APMO": "APMO",
-        "Эйлера": "Эйлера (региональный этап)",
-        "Всероссийская": "ВсОШ по математике (региональный этап)",
+        "Эйлера": "Эйлера (региональный и заключительный этапы)",
+        "Всероссийская": "ВсОШ (региональный этап)",
         "Всесибирская": "Всесибирская по математике",
     }
     return list(dict.fromkeys(names[r.olympiad] for r in RULES))

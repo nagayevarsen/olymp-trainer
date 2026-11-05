@@ -66,7 +66,10 @@ def page_problems(url: str) -> list[tuple[int, str, bool]]:
 
 def season_year(season: str) -> int | None:
     m = re.search(r"(20\d\d)\s*-\s*(20\d\d)", season)
-    return int(m.group(2)) if m else None
+    if m:
+        return int(m.group(2))
+    m = re.search(r"\((20\d\d)\s*год", season)  # «26-я олимпиада (2026 год)»
+    return int(m.group(1)) if m else None
 
 
 async def import_problem(meta: dict, num: int, statement: str, log: list[str]) -> Problem | None:

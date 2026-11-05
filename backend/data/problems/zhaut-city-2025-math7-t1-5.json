@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2025-math7-t1-5",
+  "subject": "math",
+  "topic": "раскраска графов",
+  "title": "Раскраска чисел по делителям",
+  "statement": "Даны целые числа от 2 до 26 (всего 25 чисел). Все эти числа нужно покрасить в цвета по следующему правилу: если какое-нибудь число является простым делителем какого-либо другого числа, то цвета этих чисел должны различаться. Какое наименьшее число цветов для этого необходимо использовать?\n(\nКамалеев А.\n)",
+  "answer": {
+    "value": 2.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 2",
+      "решение: anthropic:claude-sonnet-5-5 → 2",
+      "программа (graph_theory): anthropic:claude-haiku-5-5 → 2",
+      "программа (graph_theory): anthropic:claude-sonnet-5-5 → 2"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2025,
+    "stage": "city",
+    "grade": 7,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/1159"
+  }
+}

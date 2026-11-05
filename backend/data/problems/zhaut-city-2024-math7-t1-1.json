@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2024-math7-t1-1",
+  "subject": "math",
+  "topic": "теория чисел",
+  "title": "Квадрат произведения степеней двойки",
+  "statement": "В наборе 2024 чисел: $2^1, 2^2, 2^3, \\ldots, 2^{2024}$. Сколькими способами из этого набора можно убрать одно число, чтобы произведение оставшихся чисел было квадратом некоторого натурального числа?",
+  "answer": {
+    "value": 1012.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1012",
+      "решение: anthropic:claude-sonnet-5-5 → 1012",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 1012",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 1012"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2024,
+    "stage": "city",
+    "grade": 7,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1122"
+  }
+}

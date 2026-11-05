@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2023-math7-t1-2",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Чётные суммы в таблице",
+  "statement": "Сколькими способами в каждой клетке таблицы $4\\times 4$ можно расположить цифры 0 и 1 так, чтобы сумма чисел в каждом столбце и сумма чисел в каждой строчке была четной?",
+  "answer": {
+    "value": 512.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 512",
+      "решение: anthropic:claude-sonnet-5-5 → 512",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 512",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 512"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/1087"
+  }
+}

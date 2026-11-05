@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2025-math8-t1-1",
+  "subject": "math",
+  "topic": "квадратичные формы",
+  "title": "Наименьшее значение квадратичной формы",
+  "statement": "Какое наименьшее натуральное значение может принимать выражение $$95a^2+80ab+20b^2$$ для целых чисел $a$ и $b$?",
+  "answer": {
+    "value": 15.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 15",
+      "решение: anthropic:claude-sonnet-5-5 → 15",
+      "программа (other): anthropic:claude-haiku-5-5 → 15",
+      "программа (other): anthropic:claude-sonnet-5-5 → 15"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2025,
+    "stage": "city",
+    "grade": 8,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1160"
+  }
+}

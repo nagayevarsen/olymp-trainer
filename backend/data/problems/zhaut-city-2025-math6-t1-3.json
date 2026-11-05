@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2025-math6-t1-3",
+  "subject": "math",
+  "topic": "делимость и уравнения",
+  "title": "Набор задач Эрика",
+  "statement": "На праздники Эрику дали набор задач. В первый день он решил $10 \\%$ всех задач и ещё $6$ задач. Во второй день он решил $10 \\%$ остатка, и после ещё $10$ задач. Оставшиеся задачи он решил в третий день. Какое наименьшее число задач могло быть в наборе?",
+  "answer": {
+    "value": 40.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 40",
+      "решение: anthropic:claude-sonnet-5-5 → 40",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 40",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 40"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2025,
+    "stage": "city",
+    "grade": 6,
+    "number": 3,
+    "url": "https://matol.kz/olympiads/1158"
+  }
+}

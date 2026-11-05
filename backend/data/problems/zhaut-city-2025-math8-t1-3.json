@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2025-math8-t1-3",
+  "subject": "math",
+  "topic": "геометрия",
+  "title": "Прямоугольный треугольник с углами",
+  "statement": "Дан треугольник $ABC$ с прямым углом $B$. На сторонах $AC$ и $AB$ нашлись точки $P$ и $Q$ соответственно такие, что $AP=PC$ и $\\angle BQC=\\angle AQP$. Найдите $AQ/QB$.",
+  "answer": {
+    "value": 2.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 2",
+      "решение: anthropic:claude-sonnet-5-5 → 2",
+      "программа (other): anthropic:claude-haiku-5-5 → 2",
+      "программа (other): anthropic:claude-sonnet-5-5 → 2"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2025,
+    "stage": "city",
+    "grade": 8,
+    "number": 3,
+    "url": "https://matol.kz/olympiads/1160"
+  }
+}

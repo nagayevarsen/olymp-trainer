@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2026-math8-t1-4",
+  "subject": "math",
+  "topic": "теория графов",
+  "title": "Депутаты и взаимное уважение",
+  "statement": "В компании из $n$ депутатов любой уважает семерых других. При этом нет двух депутатов, которые уважали бы друг друга. Найдите наименьшее возможное значение $n$.",
+  "answer": {
+    "value": 15.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 15",
+      "решение: anthropic:claude-sonnet-5-5 → 15",
+      "программа (graph_theory): anthropic:claude-haiku-5-5 → 15",
+      "программа (graph_theory): anthropic:claude-sonnet-5-5 → 15"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2026,
+    "stage": "city",
+    "grade": 8,
+    "number": 4,
+    "url": "https://matol.kz/olympiads/1222"
+  }
+}

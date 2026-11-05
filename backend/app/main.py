@@ -363,7 +363,7 @@ async def grade_olympiad(body: GradeRequest, user: dict = Depends(current_user))
 
 # ---------- полные олимпиады: все задачи банка одной олимпиады, года и класса ----------
 def contest_rule(c: contests.Contest) -> olympiad_rules.Rule | None:
-    return olympiad_rules.rule_for(c.olympiad, c.stage, c.subject)
+    return olympiad_rules.rule_for(c.olympiad, c.stage, c.subject, c.grade)
 
 
 def contest_points(c: contests.Contest) -> list[int]:

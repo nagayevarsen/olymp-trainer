@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2026-math8-t1-1",
+  "subject": "math",
+  "topic": "алгебра",
+  "title": "Минимум квадратичного выражения",
+  "statement": "Какое наименьшее натуральное значение может принимать выражение $$13a^2+b^2+c^2-4ab-6ac+b$$ для натуральных чисел $a,b,c$?",
+  "answer": {
+    "value": 2.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 2",
+      "решение: anthropic:claude-sonnet-5-5 → 2",
+      "программа (other): anthropic:claude-haiku-5-5 → 2",
+      "программа (other): anthropic:claude-sonnet-5-5 → 2"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2026,
+    "stage": "city",
+    "grade": 8,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1222"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2024-math8-t1-4",
+  "subject": "math",
+  "topic": "геометрия треугольника",
+  "title": "Центр окружности AHC и биссектрисы",
+  "statement": "В остроугольном треугольнике $ABC$, в котором $AB>BC$, $I$ --- точка пересечения биссектрис, а $H$ — его точка пересечения высот. Пусть $P$ — центр описанной окружности треугольника $AHC$.  Оказалось, что точка $I$ лежит на отрезке $BP$. Найдите $\\angle ABC$.",
+  "answer": {
+    "value": 60.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 60",
+      "решение: anthropic:claude-sonnet-5-5 → 60",
+      "программа (other): anthropic:claude-haiku-5-5 → 60",
+      "программа (other): anthropic:claude-sonnet-5-5 → 60"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2024,
+    "stage": "city",
+    "grade": 8,
+    "number": 4,
+    "url": "https://matol.kz/olympiads/1123"
+  }
+}

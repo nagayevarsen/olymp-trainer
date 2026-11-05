@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2024-math6-t1-6",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Трёхзначные числа с произведением 24",
+  "statement": "Сколько существуют трехзначных чисел, произведение цифр которых равно 24?",
+  "answer": {
+    "value": 21.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 21",
+      "решение: anthropic:claude-sonnet-5-5 → 21",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 21",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 21"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2024,
+    "stage": "city",
+    "grade": 6,
+    "number": 6,
+    "url": "https://matol.kz/olympiads/1121"
+  }
+}

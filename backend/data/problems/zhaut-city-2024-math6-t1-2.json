@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2024-math6-t1-2",
+  "subject": "math",
+  "topic": "дроби и делимость",
+  "title": "Несократимые правильные дроби",
+  "statement": "Сколько существует правильных несократимых дробей вида $\\frac{a}{b}$ таких, что $a$ и $b$ — натуральные числа и $a+b=33$? Правильная дробь — это дробь, у которой числитель меньше знаменателя.",
+  "answer": {
+    "value": 10.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 10",
+      "решение: anthropic:claude-sonnet-5-5 → 10",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 10",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 10"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2024,
+    "stage": "city",
+    "grade": 6,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/1121"
+  }
+}

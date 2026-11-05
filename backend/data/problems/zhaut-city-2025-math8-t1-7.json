@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2025-math8-t1-7",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Фишки на доске 3×3",
+  "statement": "На доску $3 \\times 3$ поставили $N$ фишек, в каждую клетку — одну или несколько фишек. Известно, что во всех строках и столбцах количества фишек различны. Какое наименьшее значение может принимать $N$?",
+  "answer": {
+    "value": 17.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 17",
+      "решение: anthropic:claude-sonnet-5-5 → 17",
+      "программа (other): anthropic:claude-haiku-5-5 → 17",
+      "программа (other): anthropic:claude-sonnet-5-5 → 17"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2025,
+    "stage": "city",
+    "grade": 8,
+    "number": 7,
+    "url": "https://matol.kz/olympiads/1160"
+  }
+}

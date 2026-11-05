@@ -263,3 +263,20 @@ def test_contest_points_scale(client):
     pts = [p["points"] for p in d["problems"]]
     assert max(pts) == 10 and min(pts) == 3 and all(3 <= x <= 10 for x in pts)
     assert all(p["source"] for p in d["problems"])
+
+
+def test_official_rules():
+    from app.olympiad_rules import rule_for
+
+    assert rule_for("Международная Жаутыковская олимпиада (IZhO)", "international", "math").minutes == 270
+    assert (
+        rule_for(
+            "Азиатско-Тихоокеанская математическая олимпиада (APMO)", "international", "math"
+        ).points_per_problem
+        == 7
+    )
+    assert rule_for("Всероссийская олимпиада школьников (ВсОШ)", "region", "physics", 10).minutes == 300
+    assert (
+        rule_for("Всероссийская олимпиада школьников (ВсОШ)", "region", "physics", 8) is None
+    )  # 7–8 — другая олимпиада
+    assert rule_for("Олимпиада им. Шалтая Смагулова", "city", "math") is None  # время не нашли — не угадываем
