@@ -1,0 +1,20 @@
+{
+  "id": "usapho-2016-phys-a4-pa",
+  "subject": "physics",
+  "topic": "Теплопроводность",
+  "title": "Рост льда на озере, пункт a",
+  "statement": "The flow of heat through a material can be described via the thermal conductivity $\\kappa$. If the two faces of a slab of material with thermal conductivity $\\kappa$, area $A$, and thickness $d$ are held at temperatures differing by $\\Delta T$, the thermal power $P$ transferred through the slab is $P = \\frac{\\kappa A \\Delta T}{d}$.\n\nA large, flat lake in the upper Midwest has a uniform depth of 5.0 meters of water that is covered by a uniform layer of 1.0 cm of ice. Cold air has moved into the region so that the upper surface of the ice is now maintained at a constant temperature of $-10\\,^\\circ$C by the cold air (an infinitely large constant temperature heat sink). The bottom of the lake remains at a fixed $4.0\\,^\\circ$C because of contact with the earth (an infinitely large constant temperature heat source). It is reasonable to assume that heat flow is only in the vertical direction and that there is no convective motion in the water.\n\n**Пункт a.** Determine the initial rate of change in ice thickness.",
+  "answer": {
+    "value": 2.6,
+    "unit": "см/ч",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "USAPhO (олимпиада США по физике)",
+    "year": 2016,
+    "stage": "other",
+    "number": 4,
+    "url": "https://aapt.org/physicsteam/upload/USAPhO-2016-Solutions-2.pdf"
+  }
+}

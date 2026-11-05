@@ -1,0 +1,20 @@
+{
+  "id": "usapho-2015-phys-a1-pb-iii",
+  "subject": "physics",
+  "topic": "Механика и квантовые эффекты",
+  "title": "Частица, отскакивающая от поверхности, пункт b.iii",
+  "statement": "Consider a particle of mass $m$ that elastically bounces off of an infinitely hard horizontal surface under the influence of gravity. The total mechanical energy of the particle is $E$ and the acceleration of free fall is $g$. Treat the particle as a point mass and assume the motion is non-relativistic.\n\n**Пункт b.iii.** Determine the bounce height of one of these minimum energy neutrons.",
+  "answer": {
+    "value": 14.0,
+    "unit": "µm",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "USAPhO (олимпиада США по физике)",
+    "year": 2015,
+    "stage": "other",
+    "number": 1,
+    "url": "https://aapt.org/physicsteam/upload/USAPhO-2015-Solutions-2.pdf"
+  }
+}

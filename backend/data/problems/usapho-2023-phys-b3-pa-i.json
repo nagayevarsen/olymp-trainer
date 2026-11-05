@@ -1,0 +1,20 @@
+{
+  "id": "usapho-2023-phys-b3-pa-i",
+  "subject": "physics",
+  "topic": "Физика элементарных частиц",
+  "title": "Звёздные вестники, пункт a.i",
+  "statement": "In 1987, light from supernova SN1987A was detected by telescopes on Earth. The supernova occurred in the Large Magellanic Cloud, a distance $d = 1.5\\times10^{21}$ m away, making it the closest in centuries. Observations of this event tell us a remarkable amount about elementary particles. Both light and neutrinos were produced in the core of the supernova. Neutrinos are elementary particles which interact extremely weakly with ordinary matter. Detectors on Earth saw a few dozen of these neutrinos, in a burst which occurred about $T = 3$ hours before the light arrived. The neutrinos did not all arrive at once. The first arrived with an energy of about $E_1 = 40$ MeV, and the last arrived about $t = 10$ s later with an energy of about $E_2 = 20$ MeV.\n\n**Пункт a.i.** One explanation of the observations is that the neutrinos' speed $v$ was faster than the speed of light $c$, violating special relativity. If this is the case, find $v - c$ in m/s, given $d = 1.5\\times10^{21}$ m and $T = 3$ hours.",
+  "answer": {
+    "value": 0.65,
+    "unit": "м/с",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "USAPhO (олимпиада США по физике)",
+    "year": 2023,
+    "stage": "other",
+    "number": 3,
+    "url": "https://aapt.org/physicsteam/upload/USAPhO-2023-Solutions.pdf"
+  }
+}

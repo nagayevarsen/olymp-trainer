@@ -1,0 +1,20 @@
+{
+  "id": "usapho-2026-phys-b2-pb",
+  "subject": "physics",
+  "topic": "Электростатика и механика",
+  "title": "Say Cheese... It's a Conic, пункт b",
+  "statement": "You are studying the motion of charged particles constrained to the $xy$-plane. Particle $\\alpha$, with charge $+1$ C, is fixed at the origin. For motion under an inverse-square central force, trajectories are conic sections with the fixed particle at a focus. In polar coordinates: for an attractive interaction (ellipse), $r = \\frac{r_0}{1 + e\\cos\\phi}$, $e < 1$; for a repulsive interaction (hyperbola), $r = \\frac{r_0}{e\\cos\\phi - 1}$, $e > 1$. You have a camera that takes three snapshots of a moving particle at equal time intervals.\n\n**Пункт b.** Now particle $\\beta$ is replaced by particle $\\gamma$, which has charge $+2$ C and is free to move in the plane. In three consecutive snapshots, its positions are $(3\\ \\text{m}, -4\\ \\text{m})$, $(2\\ \\text{m}, 0)$, $(3\\ \\text{m}, 4\\ \\text{m})$. Assuming the motion is governed only by the Coulomb interaction with $\\alpha$, determine the angle $\\theta$ (measured from the positive $x$-axis) of the velocity of particle $\\gamma$ at large times.",
+  "answer": {
+    "value": 70.5,
+    "unit": "°",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "USAPhO (олимпиада США по физике)",
+    "year": 2026,
+    "stage": "other",
+    "number": 2,
+    "url": "https://aapt.org/physicsteam/upload/2026-USAPhO-AAPT_Sol.pdf"
+  }
+}

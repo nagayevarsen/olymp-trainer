@@ -1,0 +1,19 @@
+{
+  "id": "usapho-2024-phys-a2-pb",
+  "subject": "physics",
+  "topic": "Астрофизика",
+  "title": "Устойчивость звезды, пункт b",
+  "statement": "A star in hydrostatic equilibrium has inward gravitational forces balanced by pressure gradients. Though the material in a star is not simply an ideal gas, in many cases its pressure $P$ and density $\\rho$ are simply related by $P = K\\rho^\\gamma$ for constants $K$ and $\\gamma$. Throughout this problem, assume the star is spherically symmetric, its mass is conserved, and relativistic effects can be neglected.\n\n**Пункт b.** In a giant star, the pressure is $P = P_{\\text{gas}} + P_{\\text{rad}}$, where $P_{\\text{gas}}$ is due to the gas, which obeys the ideal gas law, and $P_{\\text{rad}} \\propto T^4$ is due to blackbody radiation. In the star's 'radiation zone', $P_{\\text{rad}}$ is much larger than $P_{\\text{gas}}$, but the two have a constant ratio. In this case, what is the value of $\\gamma$?",
+  "answer": {
+    "value": 4.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "USAPhO (олимпиада США по физике)",
+    "year": 2024,
+    "stage": "other",
+    "number": 2,
+    "url": "https://aapt.org/physicsteam/upload/USAPhO-2024-Solutions.pdf"
+  }
+}

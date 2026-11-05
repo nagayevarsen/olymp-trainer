@@ -1,0 +1,20 @@
+{
+  "id": "usapho-2018-phys-b2-pc",
+  "subject": "physics",
+  "topic": "Квантовая механика, оптика",
+  "title": "Разрешение телескопа, пункт c",
+  "statement": "In this problem, use a particle-like model of photons: they propagate in straight lines and obey the law of reflection, but are subject to the quantum uncertainty principle. You may use small-angle approximations throughout the problem.\n\nA photon with wavelength $\\lambda$ has traveled from a distant star to a telescope mirror, which has a circular cross-section with radius $R$ and a focal length $f \\gg R$. The path of the photon is nearly aligned to the axis of the mirror, but has some slight uncertainty $\\Delta\\theta$. The photon reflects off the mirror and travels to a detector, where it is absorbed by a particular pixel on a charge-coupled device (CCD).\n\nSuppose the telescope mirror is manufactured so that photons coming in parallel to each other are focused to the same pixel on the CCD, regardless of where they hit the mirror. Then all small cross-sectional areas of the mirror are equally likely to include the point of reflection for a photon.\n\n**Пункт c.** Suppose we want to build a telescope that can tell with high probability whether a photon it detected from Alpha Centauri A came from the left half or right half of the star. Approximately how large would a telescope have to be to achieve this? Alpha Centauri A is approximately $4 \\times 10^{16}$ m from Earth and has a radius approximately $7 \\times 10^8$ m. Assume visible light with $\\lambda = 500$ nm.",
+  "answer": {
+    "value": 8.4,
+    "unit": "m",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "USAPhO (олимпиада США по физике)",
+    "year": 2018,
+    "stage": "other",
+    "number": 2,
+    "url": "https://aapt.org/physicsteam/upload/USAPhO-2018-Solutions-2.pdf"
+  }
+}
