@@ -21,5 +21,53 @@
     "grade": 6,
     "number": 5,
     "url": "https://matol.kz/olympiads/1150"
+  },
+  "template": {
+    "text": "Вычислите: ${a}\\cdot {b}+{c}\\cdot {d}+{a}\\cdot {c}+{d}\\cdot {b}$.",
+    "params": {
+      "a": {
+        "min": 1000.0,
+        "max": 9999.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 1000.0,
+        "max": 9999.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 1000.0,
+        "max": 9999.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 1000.0,
+        "max": 9999.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 6563.0,
+      "b": 5573.0,
+      "c": 4427.0,
+      "d": 5437.0
+    },
+    "solver": "def solve(a, b, c, d):\n    return a*b + c*d + a*c + d*b",
+    "constraints": [
+      "a > 0",
+      "b > 0",
+      "c > 0",
+      "d > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

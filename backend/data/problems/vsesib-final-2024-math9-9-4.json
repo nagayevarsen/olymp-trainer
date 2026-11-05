@@ -5,7 +5,9 @@
   "title": "Сумма цифр произведения",
   "statement": "Пусть $A = \\underbrace{88\\ldots88}_{100}$ – натуральное число, записанное 100 восьмёрками, и $B = \\underbrace{55\\ldots55}_{100}$ – натуральное число, записанное 100 пятёрками. Найти сумму цифр числа $N = 9 \\cdot A \\cdot B$.",
   "answer": {
-    "value": 900.0
+    "value": 900.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,33 @@
     "grade": 9,
     "number": 4,
     "url": "https://sesc.nsu.ru/upload/iblock/0b1/52sixmgk8rl5l2a2qkrkl1ppn4d2v2k9/Всесиб 2023-24 Заключительный Математика Решения-9 кл.pdf"
+  },
+  "template": {
+    "text": "Пусть $A = \\underbrace{88\\ldots88}_{{n}}$ – натуральное число, записанное {n} восьмёрками, и $B = \\underbrace{55\\ldots55}_{{n}}$ – натуральное число, записанное {n} пятёрками. Найти сумму цифр числа $N = 9 \\cdot A \\cdot B$.",
+    "params": {
+      "n": {
+        "min": 1.0,
+        "max": 200.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 100.0
+    },
+    "solver": "def solve(n):\n    A = 8 * (10**n - 1) // 9\n    B = 5 * (10**n - 1) // 9\n    N = 9 * A * B\n    return sum(int(c) for c in str(N))",
+    "constraints": [
+      "n >= 1",
+      "answer == 9 * n",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

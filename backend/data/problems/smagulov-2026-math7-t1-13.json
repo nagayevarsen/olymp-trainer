@@ -21,5 +21,35 @@
     "grade": 7,
     "number": 13,
     "url": "https://matol.kz/olympiads/1227"
+  },
+  "template": {
+    "text": "Дана последовательность $a_1, a_2, \\ldots$, для которой при любом натуральном $n$ выполняется равенство $a_{n+1}=a_n+{d}$. Найдите сумму $a_1+a_3+a_5+\\ldots+a_{15}$, если $a_1={a1}$.",
+    "params": {
+      "a1": {
+        "min": -50.0,
+        "max": 50.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": -20.0,
+        "max": 20.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a1": 2.0,
+      "d": 13.0
+    },
+    "solver": "def solve(a1, d):\n    # a_{2k-1} = a1 + (2k-2)*d, k = 1..8\n    # sum = 8*a1 + d*(0+2+4+...+14) = 8*a1 + 56*d\n    return 8*a1 + 56*d",
+    "constraints": [],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

@@ -6,7 +6,9 @@
   "statement": "С башни бросили камень, он поднимался вверх время $T_1 = 1$ с, а опускался от верхней точки траектории до подножия башни время $T_2 = 6$ с. Какова высота башни? Ускорение свободного падения $g \\cong 10$ м/с².",
   "answer": {
     "value": 175.0,
-    "unit": "м"
+    "unit": "м",
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -15,5 +17,38 @@
     "grade": 9,
     "number": 6,
     "url": "https://sesc.nsu.ru/upload/iblock/ef0/2013_2_phys_s.pdf"
+  },
+  "template": {
+    "text": "С башни бросили камень, он поднимался вверх время $T_1 = {T1}$ с, а опускался от верхней точки траектории до подножия башни время $T_2 = {T2}$ с. Какова высота башни? Ускорение свободного падения $g \\cong 10$ м/с².",
+    "params": {
+      "T1": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "T2": {
+        "min": 2.0,
+        "max": 12.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "T1": 1.0,
+      "T2": 6.0
+    },
+    "solver": "def solve(T1, T2):\n    g = 10\n    return g * (T2 ** 2 - T1 ** 2) / 2",
+    "constraints": [
+      "T2 > T1",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

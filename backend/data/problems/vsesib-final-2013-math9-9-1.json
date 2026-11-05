@@ -5,7 +5,9 @@
   "title": "Две цифры для делимости",
   "statement": "Какие две цифры нужно дописать справа к числу 2013, чтобы полученное шестизначное число делилось на 101? Найти все возможные варианты ответа.",
   "answer": {
-    "value": 94.0
+    "value": 94.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,41 @@
     "grade": 9,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/369/2012_3_math_s.pdf"
+  },
+  "template": {
+    "text": "Какие две цифры нужно дописать справа к числу {n}, чтобы полученное шестизначное число делилось на {d}? Найти все возможные варианты ответа.",
+    "params": {
+      "n": {
+        "min": 1000.0,
+        "max": 9999.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 100.0,
+        "max": 999.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 2013.0,
+      "d": 101.0
+    },
+    "solver": "def solve(n, d):\n    return (-n * 100) % d",
+    "constraints": [
+      "d >= 100",
+      "answer >= 0",
+      "answer <= 99",
+      "n >= 1000",
+      "n <= 9999"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

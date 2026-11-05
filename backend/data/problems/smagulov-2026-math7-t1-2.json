@@ -21,5 +21,39 @@
     "grade": 7,
     "number": 2,
     "url": "https://matol.kz/olympiads/1227"
+  },
+  "template": {
+    "text": "Арману и его папе вместе {s1} лет, а его папе и его дедушке – {s2} лет. Сколько лет было дедушке, когда родился Арман?",
+    "params": {
+      "s1": {
+        "min": 20.0,
+        "max": 150.0,
+        "step": 1.0
+      },
+      "s2": {
+        "min": 40.0,
+        "max": 250.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "s1": 58.0,
+      "s2": 115.0
+    },
+    "solver": "def solve(s1, s2):\n    # A + F = s1, F + G = s2; возраст дедушки при рождении Армана = G - A = s2 - s1\n    return s2 - s1",
+    "constraints": [
+      "s1 > 0",
+      "s2 > s1",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

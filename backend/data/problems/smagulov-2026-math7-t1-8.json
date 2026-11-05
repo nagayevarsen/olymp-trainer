@@ -21,5 +21,40 @@
     "grade": 7,
     "number": 8,
     "url": "https://matol.kz/olympiads/1227"
+  },
+  "template": {
+    "text": "В треугольнике $KLM$ медиана, проведённая из вершины $K$ к стороне $LM$, в {k} раза меньше стороны $KL$ и образует с ней угол ${phi}^\\circ$. Скольким градусам равен угол $LKM$?",
+    "params": {
+      "k": {
+        "min": 1.5,
+        "max": 6.0,
+        "step": 0.5
+      },
+      "phi": {
+        "min": 30.0,
+        "max": 150.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "k": 4.0,
+      "phi": 60.0
+    },
+    "solver": "def solve(k, phi):\n    p = phi * pi / 180\n    ln2 = k*k + 1 - 2*k*cos(p)\n    km2 = 2 - k*k + 2*ln2\n    c = (1 - ln2) / (k * sqrt(km2))\n    lo = 0\n    hi = pi\n    for i in range(100):\n        mid = (lo + hi) / 2\n        if cos(mid) > c:\n            lo = mid\n        else:\n            hi = mid\n    return (lo + hi) / 2 * 180 / pi",
+    "constraints": [
+      "k > 0",
+      "0 < phi < 180",
+      "2 - k*k + 2*(k*k + 1 - 2*k*cos(phi*pi/180)) > 0",
+      "abs(1 - (k*k + 1 - 2*k*cos(phi*pi/180))) < k*sqrt(2 - k*k + 2*(k*k + 1 - 2*k*cos(phi*pi/180)))"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

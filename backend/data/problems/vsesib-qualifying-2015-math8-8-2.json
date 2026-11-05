@@ -5,7 +5,9 @@
   "title": "Трамваи на кольце",
   "statement": "По кольцевой линии в одном направлении курсируют с одинаковой скоростью и равными интервалами 12 трамваев. Сколько трамваев нужно добавить, чтобы при той же скорости интервалы между трамваями уменьшились на одну пятую?",
   "answer": {
-    "value": 3.0
+    "value": 3.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,47 @@
     "grade": 8,
     "number": 2,
     "url": "https://sesc.nsu.ru/upload/iblock/0db/2014_1_math_s.pdf"
+  },
+  "template": {
+    "text": "По кольцевой линии в одном направлении курсируют с одинаковой скоростью и равными интервалами {n} трамваев. Сколько трамваев нужно добавить, чтобы при той же скорости интервалы между трамваями уменьшились на {a}/{b}?",
+    "params": {
+      "n": {
+        "min": 4.0,
+        "max": 60.0,
+        "step": 1.0
+      },
+      "a": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 12.0,
+      "a": 1.0,
+      "b": 5.0
+    },
+    "solver": "def solve(n, a, b):\n    return n * b / (b - a) - n",
+    "constraints": [
+      "1 <= a",
+      "a < b",
+      "n >= 2",
+      "(n * b) % (b - a) == 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

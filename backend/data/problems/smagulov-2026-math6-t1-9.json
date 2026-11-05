@@ -21,5 +21,52 @@
     "grade": 6,
     "number": 9,
     "url": "https://matol.kz/olympiads/1226"
+  },
+  "template": {
+    "text": "Дана операция $a \\ominus b=a:(b+1)$. Найдите наименьшее целое решение неравенства $(x-{p}) \\ominus {q} < (x-{r}) \\ominus {s}$.",
+    "params": {
+      "p": {
+        "min": 0.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "q": {
+        "min": 1.0,
+        "max": 15.0,
+        "step": 1.0
+      },
+      "r": {
+        "min": 0.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "s": {
+        "min": 0.0,
+        "max": 14.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "p": 10.0,
+      "q": 10.0,
+      "r": 11.0,
+      "s": 9.0
+    },
+    "solver": "def solve(p, q, r, s):\n    # (x-p)/(q+1) < (x-r)/(s+1)\n    # после умножения: x*(s-q) < p*(s+1) - r*(q+1)\n    d = q - s\n    K = p*(s+1) - r*(q+1)\n    c = -K / d\n    return floor(c) + 1",
+    "constraints": [
+      "q > s",
+      "s >= 0",
+      "q >= 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

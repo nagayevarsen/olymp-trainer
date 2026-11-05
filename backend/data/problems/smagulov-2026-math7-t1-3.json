@@ -21,5 +21,46 @@
     "grade": 7,
     "number": 3,
     "url": "https://matol.kz/olympiads/1227"
+  },
+  "template": {
+    "text": "В компьютерной игре игрок может разрушить башню противника за {N} ударов. Если игрок увеличит урон на ${p1}\\%$, а противник поставит на башню шит, уменьшающий входящий урон на ${p2}\\%$, то за сколько ударов теперь игрок сможет разрушить башню?",
+    "params": {
+      "N": {
+        "min": 20.0,
+        "max": 200.0,
+        "step": 10.0
+      },
+      "p1": {
+        "min": 10.0,
+        "max": 100.0,
+        "step": 10.0
+      },
+      "p2": {
+        "min": 10.0,
+        "max": 90.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "N": 60.0,
+      "p1": 50.0,
+      "p2": 50.0
+    },
+    "solver": "def solve(N, p1, p2):\n    return N / ((1 + p1/100) * (1 - p2/100))",
+    "constraints": [
+      "p1 > 0",
+      "p2 > 0",
+      "p2 < 100",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

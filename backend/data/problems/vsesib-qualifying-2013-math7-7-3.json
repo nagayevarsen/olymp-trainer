@@ -6,7 +6,9 @@
   "statement": "От шоссе к четырем поселкам A,B,C,D последовательно отходят четыре дороги. Известно, что путь по дороге/шоссе/дороге от A до B равен 9 км, от A до C — 13 км, от B до C — 8 км, от B до D — 14 км. Найдите длину пути по дороге/шоссе/дороге от A до D. Ответ объясните.",
   "answer": {
     "value": 19.0,
-    "unit": "км"
+    "unit": "км",
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -15,5 +17,50 @@
     "grade": 7,
     "number": 3,
     "url": "https://sesc.nsu.ru/upload/iblock/ecd/2012_1_math_s.pdf"
+  },
+  "template": {
+    "text": "От шоссе к четырем поселкам A,B,C,D последовательно отходят четыре дороги. Известно, что путь по дороге/шоссе/дороге от A до B равен {ab} км, от A до C — {ac} км, от B до C — {bc} км, от B до D — {bd} км. Найдите длину пути по дороге/шоссе/дороге от A до D. Ответ объясните.",
+    "params": {
+      "ab": {
+        "min": 2.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "ac": {
+        "min": 2.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "bc": {
+        "min": 2.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "bd": {
+        "min": 2.0,
+        "max": 30.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "ab": 9.0,
+      "ac": 13.0,
+      "bc": 8.0,
+      "bd": 14.0
+    },
+    "solver": "def solve(ab, ac, bc, bd):\n    # Пусть a, b, c, d — длины отрезков дорог от шоссе до A, B, C, D.\n    # Из системы: b = (ab - ac + bc) / 2, и путь A–D = bd + ac - bc.\n    return bd + ac - bc",
+    "constraints": [
+      "ab - ac + bc > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

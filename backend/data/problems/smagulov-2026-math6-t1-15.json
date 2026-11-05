@@ -21,5 +21,59 @@
     "grade": 6,
     "number": 15,
     "url": "https://matol.kz/olympiads/1226"
+  },
+  "template": {
+    "text": "В мешке лежат {r} красных, {y} жёлтых и {g} зелёных шаров. Какое наибольшее число шаров можно вынуть из мешка, не глядя внутрь, чтобы гарантированно в мешке осталось не менее {t1} шаров одного цвета и не менее {t2} шаров другого цвета?",
+    "params": {
+      "r": {
+        "min": 3.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "y": {
+        "min": 3.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "g": {
+        "min": 3.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "t1": {
+        "min": 1.0,
+        "max": 6.0,
+        "step": 1.0
+      },
+      "t2": {
+        "min": 1.0,
+        "max": 6.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "r": 8.0,
+      "y": 7.0,
+      "g": 5.0,
+      "t1": 4.0,
+      "t2": 3.0
+    },
+    "solver": "def solve(r, y, g, t1, t2):\n    total = r + y + g\n    for k in range(total, -1, -1):\n        N = total - k\n        good = True\n        for a in range(0, r + 1):\n            for b in range(0, y + 1):\n                c = N - a - b\n                if c < 0 or c > g:\n                    continue\n                cnt = [a, b, c]\n                ok = False\n                for i in range(3):\n                    for j in range(3):\n                        if i != j and cnt[i] >= t1 and cnt[j] >= t2:\n                            ok = True\n                if not ok:\n                    good = False\n        if good:\n            return k\n    return -1\n",
+    "constraints": [
+      "answer >= 0",
+      "answer < r + y + g",
+      "t1 >= 1",
+      "t2 >= 1",
+      "r + y + g >= t1 + t2"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

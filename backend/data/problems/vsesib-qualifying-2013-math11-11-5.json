@@ -5,7 +5,9 @@
   "title": "Расстановки с суммами делящимися на 3",
   "statement": "Найти количество различных расстановок в ряд всех натуральных чисел от 1 до 10 таких, что сумма любых трёх подряд идущих чисел делится на 3.",
   "answer": {
-    "value": 1728.0
+    "value": 1728.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,32 @@
     "grade": 11,
     "number": 5,
     "url": "https://sesc.nsu.ru/upload/iblock/ecd/2012_1_math_s.pdf"
+  },
+  "template": {
+    "text": "Найти количество различных расстановок в ряд всех натуральных чисел от 1 до {n} таких, что сумма любых трёх подряд идущих чисел делится на 3.",
+    "params": {
+      "n": {
+        "min": 3.0,
+        "max": 30.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 10.0
+    },
+    "solver": "def solve(n):\n    pos_size = [0, 0, 0]\n    for i in range(1, n + 1):\n        pos_size[i % 3] += 1\n    val_cnt = [0, 0, 0]\n    for v in range(1, n + 1):\n        val_cnt[v % 3] += 1\n    patterns = [(0,1,2),(0,2,1),(1,0,2),(1,2,0),(2,0,1),(2,1,0),(0,0,0),(1,1,1),(2,2,2)]\n    ways = 0\n    for p in patterns:\n        ok = True\n        for r in range(3):\n            s = 0\n            for j in range(3):\n                if p[j] == r:\n                    s += pos_size[j]\n            if s != val_cnt[r]:\n                ok = False\n        if ok:\n            ways += 1\n    res = ways\n    for r in range(3):\n        res *= factorial(val_cnt[r])\n    return res",
+    "constraints": [
+      "n >= 3",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

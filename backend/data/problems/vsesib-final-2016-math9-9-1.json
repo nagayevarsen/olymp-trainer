@@ -5,7 +5,9 @@
   "title": "Сумма цифр суммы",
   "statement": "Известно, что сумма цифр числа $A$ равна 59, а сумма цифр числа $B$ равна 77. Какую минимальную сумму цифр может иметь число $A+B$?",
   "answer": {
-    "value": 1.0
+    "value": 1.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,40 @@
     "grade": 9,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/0db/2015_3_math_s.pdf"
+  },
+  "template": {
+    "text": "Известно, что сумма цифр числа $A$ равна {v1}, а сумма цифр числа $B$ равна {v2}. Какую минимальную сумму цифр может иметь число $A+B$?",
+    "params": {
+      "v1": {
+        "min": 1.0,
+        "max": 200.0,
+        "step": 1.0
+      },
+      "v2": {
+        "min": 1.0,
+        "max": 200.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "v1": 59.0,
+      "v2": 77.0
+    },
+    "solver": "def solve(v1, v2):\n    return (v1 + v2 - 1) % 9 + 1",
+    "constraints": [
+      "v1 >= 1",
+      "v2 >= 1",
+      "answer >= 1",
+      "answer <= 9"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

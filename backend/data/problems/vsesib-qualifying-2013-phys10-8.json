@@ -5,7 +5,9 @@
   "title": "Разлёт тел от пружины",
   "statement": "Сжатая лёгкая пружина связана нитью и вставлена между покоящимися телами с массами $M$ и $m$. Нить мгновенно перерезали. При каком отношении масс $M/m$ тело массы $m$ получит 80% энергии пружины?",
   "answer": {
-    "value": 4.0
+    "value": 4.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,32 @@
     "grade": 10,
     "number": 8,
     "url": "https://sesc.nsu.ru/upload/iblock/714/2012_2_phys_s.pdf"
+  },
+  "template": {
+    "text": "Сжатая лёгкая пружина связана нитью и вставлена между покоящимися телами с массами $M$ и $m$. Нить мгновенно перерезали. При каком отношении масс $M/m$ тело массы $m$ получит {p}% энергии пружины?",
+    "params": {
+      "p": {
+        "min": 10.0,
+        "max": 90.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "p": 80.0
+    },
+    "solver": "def solve(p):\n    return p / (100 - p)",
+    "constraints": [
+      "0 < p < 100",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

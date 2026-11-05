@@ -21,5 +21,34 @@
     "grade": 7,
     "number": 9,
     "url": "https://matol.kz/olympiads/1227"
+  },
+  "template": {
+    "text": "Высоты $AK$ и $BL$ остроугольного треугольника $ABC$ пересекаются в точке $H$. Биссектриса угла $ACB$ пересекает прямую $BL$ в точке $E$. Скольким градусам равен угол $CEB$, если $\\angle AHB={v}^\\circ$?",
+    "params": {
+      "v": {
+        "min": 100.0,
+        "max": 170.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "v": 130.0
+    },
+    "solver": "def solve(v):\n    return 180 - v / 2",
+    "constraints": [
+      "v > 90",
+      "v < 180",
+      "answer > 90",
+      "answer < 180"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

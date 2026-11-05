@@ -5,7 +5,9 @@
   "title": "Минимум суммы переменных",
   "statement": "Пусть $x, y, z$ — произвольные неотрицательные числа такие, что $xy + yz + xz = 3$. Найти минимальное значение суммы $x+y+z$.",
   "answer": {
-    "value": 3.0
+    "value": 3.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,33 @@
     "grade": 10,
     "number": 4,
     "url": "https://sesc.nsu.ru/upload/iblock/cc4/2013_2_math_s.pdf"
+  },
+  "template": {
+    "text": "Пусть $x, y, z$ — произвольные неотрицательные числа такие, что $xy + yz + xz = {c}$. Найти минимальное значение суммы $x+y+z$.",
+    "params": {
+      "c": {
+        "min": 3.0,
+        "max": 300.0,
+        "step": 3.0
+      }
+    },
+    "original": {
+      "c": 3.0
+    },
+    "solver": "def solve(c):\n    return sqrt(3 * c)",
+    "constraints": [
+      "c > 0",
+      "floor(sqrt(3 * c)) ** 2 == 3 * c",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

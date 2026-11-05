@@ -69,14 +69,14 @@ export function ContestsPage() {
             {list.map((r) => (
               <Link key={r.id} to={`/contests/${r.id}`} className="card block p-4 transition hover:border-brand-400">
                 <div className="text-xs text-slate-500">
-                  {SUBJECT_NAMES[r.subject]} · {r.count} {pluralTasks(r.count)} · ★ {r.total_points}
+                  {SUBJECT_NAMES[r.subject]} · {r.count} {pluralTasks(r.count)} · {r.total_points} б.
                 </div>
                 <div className="mt-1 font-semibold">
                   {[r.year, r.grade ? `${r.grade} класс` : null].filter(Boolean).join(', ') || 'Вариант'}
                 </div>
                 {r.solved > 0 && (
                   <div className="mt-2 text-xs font-semibold text-emerald-600">
-                    решено {r.solved} из {r.count} · ★ {r.earned}
+                    решено {r.solved} из {r.count} · {r.earned} б.
                   </div>
                 )}
               </Link>
@@ -143,9 +143,9 @@ export function ContestPage() {
               </span>
               <span className="text-right text-sm">
                 {p.solved ? (
-                  <span className="font-semibold text-emerald-600">✓ ★ {p.earned}</span>
+                  <span className="font-semibold text-emerald-600">✓ {p.earned} б.</span>
                 ) : (
-                  <span className="font-semibold text-slate-600 dark:text-slate-300">★ {p.points}</span>
+                  <span className="font-semibold text-slate-600 dark:text-slate-300">{p.points} б.</span>
                 )}
               </span>
             </Link>

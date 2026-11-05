@@ -6,7 +6,9 @@
   "statement": "Добытая руда содержит 21% меди, обогащённая - 45% меди. Известно, что в процессе обогащения 60% добытой руды идёт в отходы. Определить процентное содержание руды в отходах.",
   "answer": {
     "value": 5.0,
-    "unit": "%"
+    "unit": "%",
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -15,5 +17,46 @@
     "grade": 11,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/ecd/2012_1_math_s.pdf"
+  },
+  "template": {
+    "text": "Добытая руда содержит {v}% меди, обогащённая - {m}% меди. Известно, что в процессе обогащения {p}% добытой руды идёт в отходы. Определить процентное содержание руды в отходах.",
+    "params": {
+      "v": {
+        "min": 10.0,
+        "max": 40.0,
+        "step": 1.0
+      },
+      "m": {
+        "min": 30.0,
+        "max": 80.0,
+        "step": 1.0
+      },
+      "p": {
+        "min": 10.0,
+        "max": 90.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "v": 21.0,
+      "m": 45.0,
+      "p": 60.0
+    },
+    "solver": "def solve(v, m, p):\n    w = p / 100\n    return (v - m * (1 - w)) / w",
+    "constraints": [
+      "m > v",
+      "0 < p < 100",
+      "answer > 0",
+      "answer < v"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

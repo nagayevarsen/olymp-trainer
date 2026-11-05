@@ -139,10 +139,20 @@ export interface ContestRow {
   earned: number
 }
 
+export interface GradeRow {
+  problem_id: string
+  points: number
+  max_points: number
+  answer_correct: boolean
+  comment: string
+}
+
 export interface ContestDetail extends ContestRow {
   stage: string
   problems: {
     can_clone: boolean
+    source: string
+    url: string | null
     n: number
     id: string
     title: string
@@ -194,16 +204,14 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   return res.json() as Promise<T>
 }
 
-const post = <T>(path: string, body: unknown = {}) =>
-  request<T>(path, { method: 'POST', body: JSON.stringify(body) })
+const post = <T>(path: string, body: unknown = {}) => request<T>(path, { method: 'POST', body: JSON.stringify(body) })
 
 export const api = {
   createUser: (name: string, grade: number | null) =>
     post<{ id: string; name: string; grade: number | null }>('/api/users', { name, grade }),
   me: (track?: string | null) => request<Me>(`/api/me${track ? `?track=${track}` : ''}`),
   tracks: () => request<Track[]>('/api/tracks'),
-  problems: (track?: string | null) =>
-    request<ProblemListItem[]>(`/api/problems${track ? `?track=${track}` : ''}`),
+  problems: (track?: string | null) => request<ProblemListItem[]>(`/api/problems${track ? `?track=${track}` : ''}`),
   problem: (id: string, seed?: number | null) =>
     request<ProblemDetail>(`/api/problems/${id}${seed != null ? `?seed=${seed}` : ''}`),
   variant: (id: string) =>
@@ -225,6 +233,9 @@ export const api = {
   contests: (query = '', subject?: Subject | null) =>
     request<ContestRow[]>(`/api/contests?query=${encodeURIComponent(query)}${subject ? `&subject=${subject}` : ''}`),
   contest: (id: string) => request<ContestDetail>(`/api/contests/${id}`),
+  gradeOlympiad: (
+    items: { problem_id: string; seed: number | null; answer: string; solution: string; max_points: number }[],
+  ) => post<GradeRow[]>('/api/olympiad/grade', { items }),
   chat: (messages: ChatTurn[], problemId?: string | null, mode: 'training' | 'olympiad' = 'training') =>
     post<ChatReply>('/api/chat', { messages, problem_id: problemId ?? null, mode }),
 }

@@ -21,5 +21,60 @@
     "grade": 6,
     "number": 19,
     "url": "https://matol.kz/olympiads/1226"
+  },
+  "template": {
+    "text": "В выражении ${a} \\ \\square \\ {b} \\ \\square \\ {c} \\ \\square \\ {d} \\ \\square \\ {e}$ вместо четырех квадратов нужно поставить знаки $+$, $-$, $\\times$, $:$ (каждый ровно один раз). Какое наибольшее целое число можно получить в результате?",
+    "params": {
+      "a": {
+        "min": 1.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 1.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 1.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 1.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "e": {
+        "min": 1.0,
+        "max": 9.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 5.0,
+      "b": 4.0,
+      "c": 3.0,
+      "d": 2.0,
+      "e": 1.0
+    },
+    "solver": "def solve(a, b, c, d, e):\n    nums = [a, b, c, d, e]\n    ops_all = ['+', '-', '*', '/']\n    best = None\n    for o1 in ops_all:\n        for o2 in ops_all:\n            for o3 in ops_all:\n                for o4 in ops_all:\n                    ops = [o1, o2, o3, o4]\n                    if len(set(ops)) != 4:\n                        continue\n                    total = 0\n                    sign = 1\n                    cur = nums[0]\n                    valid = True\n                    for i in range(4):\n                        op = ops[i]\n                        n = nums[i + 1]\n                        if op == '*':\n                            cur = cur * n\n                        elif op == '/':\n                            if n == 0:\n                                valid = False\n                                break\n                            cur = cur / n\n                        else:\n                            total = total + sign * cur\n                            sign = 1 if op == '+' else -1\n                            cur = n\n                    if not valid:\n                        continue\n                    total = total + sign * cur\n                    if abs(total - round(total)) < 1e-9:\n                        val = int(round(total))\n                        if best is None or val > best:\n                            best = val\n    if best is None:\n        return 0\n    return best",
+    "constraints": [
+      "a > 0",
+      "b > 0",
+      "c > 0",
+      "d > 0",
+      "e > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

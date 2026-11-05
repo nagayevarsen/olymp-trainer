@@ -21,5 +21,38 @@
     "grade": 6,
     "number": 2,
     "url": "https://matol.kz/olympiads/1243"
+  },
+  "template": {
+    "text": "Сколькими способами можно выбрать тройку цифр $(a,b,c)$ (не обязательно различных) так, чтобы для суммы трёх трёхзначных чисел выполнялись неравенства $$\\{L} < \\overline{a23}+\\overline{1b3}+\\overline{12c} < \\{U} \\, ?$$",
+    "params": {
+      "L": {
+        "min": 100.0,
+        "max": 800.0,
+        "step": 50.0
+      },
+      "U": {
+        "min": 500.0,
+        "max": 1500.0,
+        "step": 50.0
+      }
+    },
+    "original": {
+      "L": 400.0,
+      "U": 900.0
+    },
+    "solver": "def solve(L, U):\n    cnt = 0\n    for a in range(10):\n        for b in range(10):\n            for c in range(10):\n                s = (100*a + 23) + (100 + 10*b + 3) + (120 + c)\n                if L < s < U:\n                    cnt += 1\n    return cnt",
+    "constraints": [
+      "U > L",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

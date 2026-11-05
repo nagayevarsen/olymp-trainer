@@ -21,5 +21,39 @@
     "grade": 6,
     "number": 1,
     "url": "https://matol.kz/olympiads/1226"
+  },
+  "template": {
+    "text": "Малыш изучает энциклопедию зверей. На каждой странице энциклопедии дается описание {k} зверей. На какой странице находится описание {n}-го зверя?",
+    "params": {
+      "k": {
+        "min": 2.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "n": {
+        "min": 1.0,
+        "max": 1000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "k": 6.0,
+      "n": 100.0
+    },
+    "solver": "def solve(k, n):\n    return ceil(n / k)",
+    "constraints": [
+      "k >= 1",
+      "n >= 1",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

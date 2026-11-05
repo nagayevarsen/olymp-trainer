@@ -5,7 +5,9 @@
   "title": "Ракета в облаке пыли",
   "statement": "Ракета равномерно движется сквозь разреженное однородное облако пыли. Во сколько раз нужно увеличить силу тяги, чтобы установившаяся скорость ракеты стала вдвое больше?",
   "answer": {
-    "value": 4.0
+    "value": 4.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,31 @@
     "grade": 11,
     "number": 3,
     "url": "https://sesc.nsu.ru/upload/iblock/714/2012_2_phys_s.pdf"
+  },
+  "template": {
+    "text": "Ракета равномерно движется сквозь разреженное однородное облако пыли. Во сколько раз нужно увеличить силу тяги, чтобы установившаяся скорость ракеты стала в {r} раз больше?",
+    "params": {
+      "r": {
+        "min": 1.5,
+        "max": 5.0,
+        "step": 0.5
+      }
+    },
+    "original": {
+      "r": 2.0
+    },
+    "solver": "def solve(r):\n    return r ** 2",
+    "constraints": [
+      "r > 1"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

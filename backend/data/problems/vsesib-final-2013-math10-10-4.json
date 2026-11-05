@@ -5,7 +5,9 @@
   "title": "Фишки с единственной в линии",
   "statement": "В клетках доски $8 \\times 8$ расставлены фишки так, что для каждой фишки горизонталь либо вертикаль доски, в которых она лежит, содержит всего одну фишку. Каково максимально возможное количество фишек на доске?",
   "answer": {
-    "value": 14.0
+    "value": 14.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,32 @@
     "grade": 10,
     "number": 4,
     "url": "https://sesc.nsu.ru/upload/iblock/369/2012_3_math_s.pdf"
+  },
+  "template": {
+    "text": "В клетках доски {n} × {n} расставлены фишки так, что для каждой фишки горизонталь либо вертикаль доски, в которых она лежит, содержит всего одну фишку. Каково максимально возможное количество фишек на доске?",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 20.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 8.0
+    },
+    "solver": "def solve(n):\n    return 2 * (n - 1)",
+    "constraints": [
+      "n >= 2",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

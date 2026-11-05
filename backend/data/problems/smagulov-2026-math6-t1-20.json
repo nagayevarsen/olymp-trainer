@@ -21,5 +21,33 @@
     "grade": 6,
     "number": 20,
     "url": "https://matol.kz/olympiads/1226"
+  },
+  "template": {
+    "text": "По кругу записаны несколько целых чисел, каждое из которых равно модулю разности двух следующих за ним по часовой стрелке чисел. Сумма всех чисел равна {S}. Какое наибольшее количество чисел могло быть записано по кругу?",
+    "params": {
+      "S": {
+        "min": 4.0,
+        "max": 500.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "S": 144.0
+    },
+    "solver": "def solve(S):\n    return 3 * S // 2",
+    "constraints": [
+      "S % 2 == 0",
+      "S >= 4",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

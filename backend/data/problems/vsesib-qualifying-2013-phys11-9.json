@@ -6,7 +6,9 @@
   "statement": "Восемь отдалённых друг от друга одинаковых сферических капель ртути заряжены до потенциала $\\varphi_о = 15$ В каждая. Их сблизили и они слились в одну сферическую каплю. Найдите её потенциал (в вольтах).",
   "answer": {
     "value": 60.0,
-    "unit": "В"
+    "unit": "В",
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -15,5 +17,39 @@
     "grade": 11,
     "number": 9,
     "url": "https://sesc.nsu.ru/upload/iblock/714/2012_2_phys_s.pdf"
+  },
+  "template": {
+    "text": "{n} отдалённых друг от друга одинаковых сферических капель ртути заряжены до потенциала φ_о = {v} В каждая. Их сблизили и они слились в одну сферическую каплю. Найдите её потенциал (в вольтах).",
+    "params": {
+      "n": {
+        "min": 8.0,
+        "max": 125.0,
+        "step": 1.0
+      },
+      "v": {
+        "min": 1.0,
+        "max": 50.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 8.0,
+      "v": 15.0
+    },
+    "solver": "def solve(n, v):\n    return pow(n, 2/3) * v",
+    "constraints": [
+      "round(n**(1/3))**3 == n",
+      "v > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

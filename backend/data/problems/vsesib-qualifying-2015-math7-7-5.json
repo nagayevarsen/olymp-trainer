@@ -5,7 +5,9 @@
   "title": "Автобусные маршруты",
   "statement": "В городе 9 остановок и несколько автобусов. Любые два автобуса имеют не более одной общей остановки. У каждого автобуса ровно три остановки. Какое максимальное число автобусов может быть в городе?",
   "answer": {
-    "value": 12.0
+    "value": 12.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,33 @@
     "grade": 7,
     "number": 5,
     "url": "https://sesc.nsu.ru/upload/iblock/6d5/2014_2_math_s.pdf"
+  },
+  "template": {
+    "text": "В городе {v} остановок и несколько автобусов. Любые два автобуса имеют не более одной общей остановки. У каждого автобуса ровно три остановки. Какое максимальное число автобусов может быть в городе?",
+    "params": {
+      "v": {
+        "min": 6.0,
+        "max": 13.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "v": 9.0
+    },
+    "solver": "def solve(v):\n    return (v * ((v - 1) // 2)) // 3",
+    "constraints": [
+      "v >= 6",
+      "v % 6 != 5",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

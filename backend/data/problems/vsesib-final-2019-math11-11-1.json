@@ -5,7 +5,9 @@
   "title": "Периодическая последовательность",
   "statement": "Последовательность чисел $a_n, n=1,2,\\dots,12$ такова, что $a_1 = 1, a_{12} = 2, a_{n+2} = \\frac{a_{n+1} + 1}{a_n}$ для всех натуральных $n = 1,2,\\dots,10$. Найти $a_4$.",
   "answer": {
-    "value": 2.0
+    "value": 2.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,39 @@
     "grade": 11,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/23a/2018_3_math_s.pdf"
+  },
+  "template": {
+    "text": "Последовательность чисел $a_n, n=1,2,\\dots,12$ такова, что $a_1 = {v}, a_{12} = {w}, a_{n+2} = \\frac{a_{n+1} + 1}{a_n}$ для всех натуральных $n = 1,2,\\dots,10$. Найти $a_4$.",
+    "params": {
+      "v": {
+        "min": 1.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "w": {
+        "min": 1.0,
+        "max": 9.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "v": 1.0,
+      "w": 2.0
+    },
+    "solver": "def solve(v, w):\n    # Рекуррence x_{n+2}=(x_{n+1}+1)/x_n имеет период 5, поэтому a_12 = a_2 = w.\n    # a_3 = (w+1)/v, a_4 = (a_3+1)/w = (v+w+1)/(v*w)\n    return (v + w + 1) / (v * w)",
+    "constraints": [
+      "v != 0",
+      "w != 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

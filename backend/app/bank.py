@@ -181,7 +181,7 @@ class Problem(BaseModel):
     statement: str
     answer: Answer
     source: Source
-    points: int | None = Field(default=None, ge=10, le=3000, description="Ручное значение баллов")
+    points: int | None = Field(default=None, ge=1, le=10, description="Ручное значение баллов (1–10)")
     template: Template | None = None
     hints: Hints | None = None
     solution: str | None = Field(default=None, description="Официальное или своё решение")

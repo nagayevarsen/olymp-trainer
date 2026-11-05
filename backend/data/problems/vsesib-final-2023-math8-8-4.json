@@ -5,7 +5,9 @@
   "title": "Замечательные числа",
   "statement": "Назовём число замечательным, если его можно разложить в сумму 2023 слагаемых (не обязательно различных), каждое из которых является натуральным составным числом. Найдите наибольшее целое число, не являющееся замечательным.",
   "answer": {
-    "value": 8095.0
+    "value": 8095.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,31 @@
     "grade": 8,
     "number": 4,
     "url": "https://sesc.nsu.ru/upload/iblock/eee/hmj66twr2fst5duqcj7h3yf3qeebi68x/Решения ВООШ_математика_заключительный этап 2022-2023_improoved.pdf"
+  },
+  "template": {
+    "text": "Назовём число замечательным, если его можно разложить в сумму {n} слагаемых (не обязательно различных), каждое из которых является натуральным составным числом. Найдите наибольшее целое число, не являющееся замечательным.",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 5000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 2023.0
+    },
+    "solver": "def solve(n):\n    return 4 * n + 3",
+    "constraints": [
+      "n >= 2"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

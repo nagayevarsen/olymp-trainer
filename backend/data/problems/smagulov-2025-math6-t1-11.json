@@ -21,5 +21,38 @@
     "grade": 6,
     "number": 11,
     "url": "https://matol.kz/olympiads/1150"
+  },
+  "template": {
+    "text": "Сумму $0,\\!({a})+0,\\!({b})$ представили в виде неправильной несократимой дроби $\\frac{m}{n}$, то есть $0,\\!({a})+0,\\!({b}) = \\frac{m}{n}$ (здесь $m$ и $n$ такие натуральные числа, что НОД$(m,n)=1$). Найдите $m+n$. (Здесь первые дроби — периодические. Примером такой дроби является число $\\frac{2}{3}=0,\\!(6)$.)",
+    "params": {
+      "a": {
+        "min": 10.0,
+        "max": 98.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 10.0,
+        "max": 98.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 87.0,
+      "b": 78.0
+    },
+    "solver": "def solve(a, b):\n    s = a + b\n    g = gcd(s, 99)\n    m = s // g\n    n = 99 // g\n    return m + n",
+    "constraints": [
+      "a + b > 99",
+      "(a + b) % 99 != 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

@@ -47,10 +47,10 @@ def test_full_flow(client):
     assert client.post(f"/api/problems/{pid}/hints/2", headers=h).status_code == 400
     points = client.get(f"/api/problems/{pid}", headers=h).json()["points"]  # цена чуть выросла после ошибки
     hint = client.post(f"/api/problems/{pid}/hints/1", headers=h).json()
-    assert hint["text"] and hint["potential"] == round(points * 0.8 / 5) * 5
+    assert hint["text"] and hint["potential"] == max(1, round(points * 0.8))
 
     r = client.post(f"/api/problems/{pid}/check", json={"answer": "4 с"}, headers=h).json()
-    assert r["correct"] and r["first_solve"] and r["earned"] == round(points * 0.8 / 5) * 5
+    assert r["correct"] and r["first_solve"] and r["earned"] == max(1, round(points * 0.8))
     assert r["solve_rate"] == 100
 
     # повторное решение баллов не даёт
@@ -73,7 +73,7 @@ def test_solution_then_variant_gives_half(client):
     variant = make_variant(get_problem(pid), v["seed"])
     ans = f"{format_number(variant.answer.value)} км/ч"
     r = client.post(f"/api/problems/{pid}/check", json={"answer": ans, "seed": v["seed"]}, headers=h).json()
-    assert r["correct"] and r["earned"] == round(points * 0.5 / 5) * 5
+    assert r["correct"] and r["earned"] == max(1, round(points * 0.5))
 
 
 def test_variant_detail_shows_new_statement(client):

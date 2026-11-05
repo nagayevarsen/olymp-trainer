@@ -260,9 +260,55 @@ def _search_bank(user: dict, db: DB, **kw) -> list[dict]:
     return found
 
 
+# ---------- проверка полных решений олимпиады «как жюри» ----------
+class SolutionItem(BaseModel):
+    problem_id: str
+    seed: int | None = None
+    answer: str = Field(default="", max_length=200)
+    solution: str = Field(default="", max_length=6000)
+    max_points: int = Field(ge=1, le=scoring.MAX_POINTS)
+
+
+class GradeRequest(BaseModel):
+    items: list[SolutionItem] = Field(max_length=15)
+
+
+@app.post("/api/olympiad/grade")
+async def grade_olympiad(body: GradeRequest, user: dict = Depends(current_user)) -> list[dict]:
+    from . import grading
+
+    out = []
+    for it in body.items:
+        p = require_problem(it.problem_id)
+        statement, value, unit = p.statement, p.answer.value, p.answer.unit
+        if it.seed is not None and p.can_clone:
+            try:
+                v = make_variant(p, it.seed)
+                statement, value, unit = v.statement, v.answer.value, v.answer.unit
+            except CloneError:
+                pass
+        key = AnswerKey(value, unit, rel_tol=p.answer.tolerance)
+        correct = bool(it.answer.strip()) and check_answer(key, it.answer).correct
+        try:
+            g = await grading.grade(
+                statement, value, unit, p.solution, it.solution, it.answer, correct, it.max_points
+            )
+        except LLMError as exc:
+            raise HTTPException(503, f"Проверка недоступна: {exc}") from exc
+        out.append({"problem_id": p.id, "answer_correct": correct, **g})
+    return out
+
+
 # ---------- полные олимпиады: все задачи банка одной олимпиады, года и класса ----------
+def contest_points(c: contests.Contest) -> list[int]:
+    """Баллы задач варианта: самая сложная — 10, самая простая — 3 (официальных баллов в данных нет).
+    Сложность — по этапу/классу и номеру задачи в варианте (дальние задачи труднее)."""
+    difficulty = [scoring.base_points(p) + 0.3 * (p.source.number or i) for i, p in enumerate(c.problems, 1)]
+    return scoring.scale_for_contest(difficulty)
+
+
 def _contest_row(c: contests.Contest, stats: dict, prog: dict) -> dict:
-    pts = [problem_points(p, stats) for p in c.problems]
+    pts = contest_points(c)
     return {
         "id": c.id,
         "title": c.title,
@@ -303,7 +349,7 @@ def contest_detail(contest_id: str, x_user_id: str = Header(default=""), db: DB 
     stats = db.problem_stats()
     prog = db.all_progress(x_user_id) if x_user_id else {}
     problems = []
-    for i, p in enumerate(c.problems, 1):
+    for i, (p, pts) in enumerate(zip(c.problems, contest_points(c)), 1):
         pr = prog.get(p.id, {})
         problems.append(
             {
@@ -311,7 +357,9 @@ def contest_detail(contest_id: str, x_user_id: str = Header(default=""), db: DB 
                 "id": p.id,
                 "title": p.title,
                 "topic": p.topic,
-                "points": problem_points(p, stats),
+                "points": pts,
+                "source": p.source.label(),
+                "url": p.source.url,
                 "solved": bool(pr.get("solved")),
                 "earned": pr.get("points", 0),
                 "started": bool(pr.get("attempts") or pr.get("hints_used")),

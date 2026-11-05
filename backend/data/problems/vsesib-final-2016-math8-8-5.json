@@ -5,7 +5,9 @@
   "title": "Трапеция с заданными площадями",
   "statement": "Дан выпуклый четырёхугольник $ABCD$ со стороной $AD$ равной 3. Диагонали $AC$ и $BD$ пересекаются в точке $E$, причём известно, что площади треугольников $ABE$ и $DCE$ равны 1. Найдите сторону $BC$, если известно, что площадь $ABCD$ не превосходит 4.",
   "answer": {
-    "value": 3.0
+    "value": 3.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,45 @@
     "grade": 8,
     "number": 5,
     "url": "https://sesc.nsu.ru/upload/iblock/0db/2015_3_math_s.pdf"
+  },
+  "template": {
+    "text": "Дан выпуклый четырёхугольник $ABCD$ со стороной $AD$ равной {a}. Диагонали $AC$ и $BD$ пересекаются в точке $E$, причём известно, что площади треугольников $ABE$ и $DCE$ равны {s}. Найдите сторону $BC$, если известно, что площадь $ABCD$ не превосходит {S}.",
+    "params": {
+      "a": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "s": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "S": {
+        "min": 4.0,
+        "max": 20.0,
+        "step": 4.0
+      }
+    },
+    "original": {
+      "a": 3.0,
+      "s": 1.0,
+      "S": 4.0
+    },
+    "solver": "def solve(a, s, S):\n    return a",
+    "constraints": [
+      "a > 0",
+      "s > 0",
+      "S == 4 * s"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

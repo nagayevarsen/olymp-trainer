@@ -66,7 +66,7 @@ export function ProfilePage({ onLogout }: { onLogout: () => void }) {
                 className="card p-4 transition hover:border-brand-300 hover:shadow-md"
               >
                 <div className="text-xs font-semibold text-slate-500">
-                  {r.topic} · ★ {r.points}
+                  {r.topic} · {r.points} б.
                 </div>
                 <div className="mt-1 font-bold">{r.title}</div>
               </Link>
@@ -88,7 +88,7 @@ export function ProfilePage({ onLogout }: { onLogout: () => void }) {
                     <div className="mb-1 flex justify-between text-sm">
                       <span className="font-semibold">{t.topic}</span>
                       <span className="text-slate-500">
-                        {t.solved}/{t.total} · ★ {t.points}
+                        {t.solved}/{t.total} · {t.points} б.
                       </span>
                     </div>
                     <div className="h-2.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">

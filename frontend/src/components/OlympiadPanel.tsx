@@ -1,12 +1,25 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { api, type ContestDetail, type ContestRow } from '../api'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { api, type ContestDetail, type ContestRow, type ProblemDetail } from '../api'
 import { pluralTasks } from '../lib/text'
-import { defaultDuration, formatLeft, getRun, msLeft, onRunChange, setRun, type OlympiadRun } from '../olympiadRun'
+import {
+  defaultDuration,
+  formatLeft,
+  getRun,
+  msLeft,
+  onRunChange,
+  parseRequest,
+  setRun,
+  type OlympiadRun,
+} from '../olympiadRun'
+import { MathText } from './MathText'
 
 const DURATIONS = [60, 90, 120, 180, 240, 300]
 
-/** Вкладка «Олимпиада»: выбрать вариант → время → «Старт» → задачи с таймером → итоги. */
+function hours(min: number): string {
+  return min % 60 === 0 ? `${min / 60} ч` : `${Math.floor(min / 60)} ч ${min % 60} мин`
+}
+
+/** Вкладка «Олимпиада»: строка «олимпиада и класс» → вариант → «Старт» → решения с таймером → проверка. */
 export function OlympiadPanel({ onFinishDiscuss }: { onFinishDiscuss: (summary: string) => void }) {
   const [run, setRunState] = useState<OlympiadRun | null>(getRun)
   useEffect(() => onRunChange(() => setRunState(getRun())), [])
@@ -16,109 +29,128 @@ export function OlympiadPanel({ onFinishDiscuss }: { onFinishDiscuss: (summary: 
 }
 
 function Picker() {
-  const [query, setQuery] = useState('')
-  const [rows, setRows] = useState<ContestRow[] | null>(null)
+  const [text, setText] = useState('')
+  const [candidates, setCandidates] = useState<ContestRow[]>([])
   const [chosen, setChosen] = useState<ContestDetail | null>(null)
   const [duration, setDuration] = useState(120)
-  const [error, setError] = useState('')
+  const [note, setNote] = useState('')
+  const [busy, setBusy] = useState(false)
 
-  useEffect(() => {
-    const t = setTimeout(() => {
-      api
-        .contests(query)
-        .then(setRows)
-        .catch((e) => setError(e.message))
-    }, 250)
-    return () => clearTimeout(t)
-  }, [query])
+  async function open(row: ContestRow) {
+    const c = await api.contest(row.id)
+    setChosen(c)
+    setDuration(defaultDuration(c.stage))
+  }
 
-  async function choose(id: string) {
+  async function find(e: FormEvent) {
+    e.preventDefault()
+    const { query, grade } = parseRequest(text)
+    if (!query) return
+    setBusy(true)
+    setNote('')
     try {
-      const c = await api.contest(id)
-      setChosen(c)
-      setDuration(defaultDuration(c.stage))
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Ошибка')
+      const rows = await api.contests(query)
+      const byGrade = grade ? rows.filter((r) => r.grade === grade) : rows
+      const list = byGrade.length ? byGrade : rows
+      if (!list.length) {
+        setNote('Такой олимпиады в банке пока нет. Попробуй: Жаутыковская, Эйлера, Смагулова, Всесибирская, ВсОШ.')
+        setChosen(null)
+        return
+      }
+      if (grade && !byGrade.length) setNote(`За ${grade} класс вариантов нет — показываю другой класс.`)
+      setCandidates(list)
+      await open(list[Math.floor(Math.random() * list.length)])
+    } catch (err) {
+      setNote(err instanceof Error ? err.message : 'Ошибка')
+    } finally {
+      setBusy(false)
     }
+  }
+
+  async function anotherYear() {
+    if (candidates.length < 2 || !chosen) return
+    const others = candidates.filter((c) => c.id !== chosen.id)
+    await open(others[Math.floor(Math.random() * others.length)])
   }
 
   function start() {
     if (!chosen) return
     const seeds: Record<string, number> = {}
-    for (const p of chosen.problems) if (p.can_clone) seeds[p.id] = 1 + Math.floor(Math.random() * 1_000_000)
+    const points: Record<string, number> = {}
+    for (const p of chosen.problems) {
+      if (p.can_clone) seeds[p.id] = 1 + Math.floor(Math.random() * 1_000_000)
+      points[p.id] = p.points
+    }
     setRun({
       contestId: chosen.id,
       title: chosen.title,
       problemIds: chosen.problems.map((p) => p.id),
       seeds,
+      points,
+      answers: {},
       start: Date.now(),
       durationMin: duration,
       finished: false,
     })
   }
 
-  if (chosen) {
-    const variants = chosen.problems.filter((p) => p.can_clone).length
-    return (
-      <div className="card space-y-4 p-5">
-        <button onClick={() => setChosen(null)} className="text-sm font-semibold text-brand-600 hover:underline">
-          ← другая олимпиада
-        </button>
-        <div>
-          <h2 className="text-lg font-bold">{chosen.title}</h2>
-          <p className="text-sm text-slate-500">
-            {chosen.count} {pluralTasks(chosen.count)} по возрастанию сложности · ★ {chosen.total_points}
-            {variants > 0 && ` · ${variants} — с новыми числами (ответы посчитаны кодом)`}
-          </p>
-        </div>
-        <div>
-          <div className="mb-2 text-sm font-semibold">Время на олимпиаду</div>
-          <div className="flex flex-wrap gap-2">
-            {DURATIONS.map((d) => (
-              <button key={d} onClick={() => setDuration(d)} className={duration === d ? 'btn-primary' : 'btn-ghost'}>
-                {d >= 60 ? `${d / 60} ч`.replace('.5', ',5') : `${d} мин`}
-              </button>
-            ))}
-          </div>
-          <p className="mt-2 text-xs text-slate-500">
-            Подставлено типичное время для этого этапа — поменяй, если на твоей олимпиаде дают другое.
-          </p>
-        </div>
-        <p className="rounded-xl bg-amber-50 p-3 text-sm dark:bg-amber-500/10">
-          Как на настоящей олимпиаде: пока идёт время, подсказки и разборы закрыты, а помощник только уточняет условия.
-        </p>
-        <button onClick={start} className="btn-primary w-full text-base">
-          ▶ Старт
-        </button>
-      </div>
-    )
-  }
-
   return (
-    <div className="card space-y-3 p-5">
-      <h2 className="text-lg font-bold">Пробная олимпиада на время</h2>
-      <input
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Напиши олимпиаду: Жаутыковская, Эйлера, Всесиб…"
-        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 dark:border-slate-700 dark:bg-slate-950"
-      />
-      {error && <p className="text-sm text-red-600">{error}</p>}
-      <div className="max-h-80 space-y-1 overflow-y-auto">
-        {rows?.slice(0, 40).map((r) => (
-          <button
-            key={r.id}
-            onClick={() => choose(r.id)}
-            className="flex w-full items-center justify-between gap-3 rounded-xl px-3 py-2 text-left text-sm transition hover:bg-slate-100 dark:hover:bg-slate-800"
-          >
-            <span>{r.title}</span>
-            <span className="shrink-0 text-xs text-slate-500">
-              {r.count} {pluralTasks(r.count)} · ★ {r.total_points}
-            </span>
+    <div className="card space-y-4 p-5">
+      <form onSubmit={find} className="flex gap-2">
+        <input
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Какую олимпиаду и за какой класс? Например: Жаутыковская 10 класс"
+          className="flex-1 rounded-xl border border-slate-300 bg-white px-3 py-2.5 dark:border-slate-700 dark:bg-slate-950"
+        />
+        <button className="btn-primary" disabled={busy || !text.trim()}>
+          {busy ? 'Ищу…' : 'Найти'}
+        </button>
+      </form>
+      {note && <p className="text-sm text-slate-500">{note}</p>}
+
+      {chosen && (
+        <div className="space-y-4 border-t border-slate-200 pt-4 dark:border-slate-800">
+          <div>
+            <h2 className="text-lg font-bold">{chosen.title}</h2>
+            <p className="text-sm text-slate-500">
+              {chosen.count} {pluralTasks(chosen.count)} · баллы за задачи:{' '}
+              {chosen.problems
+                .map((p) => p.points)
+                .sort((a, b) => a - b)
+                .join(', ')}{' '}
+              (всего {chosen.total_points})
+            </p>
+            {candidates.length > 1 && (
+              <button onClick={anotherYear} className="mt-1 text-sm font-semibold text-brand-600 hover:underline">
+                Другой год
+              </button>
+            )}
+          </div>
+          <div>
+            <div className="mb-2 text-sm font-semibold">Время</div>
+            <div className="flex flex-wrap gap-2">
+              {DURATIONS.map((d) => (
+                <button key={d} onClick={() => setDuration(d)} className={duration === d ? 'btn-primary' : 'btn-ghost'}>
+                  {hours(d)}
+                </button>
+              ))}
+            </div>
+            <p className="mt-2 text-xs text-slate-500">
+              Подставлено типичное время для этого этапа — поменяй, если на твоей олимпиаде дают другое.
+            </p>
+          </div>
+          <ul className="list-disc space-y-1 rounded-xl bg-amber-50 p-3 pl-7 text-sm dark:bg-amber-500/10">
+            <li>Как на настоящей олимпиаде: к каждой задаче — полное решение с обоснованием и ответ.</li>
+            <li>Без обоснования, с пробелами или неаккуратным оформлением баллы снимаются.</li>
+            <li>Подсказок и разборов нет до конца времени. Результаты — после окончания.</li>
+            <li>Задачи взяты из архивов олимпиад (источник указан), числа в части задач изменены и проверены кодом.</li>
+          </ul>
+          <button onClick={start} className="btn-primary w-full text-base">
+            ▶ Старт
           </button>
-        ))}
-        {rows && rows.length === 0 && <p className="text-sm text-slate-500">Такой олимпиады в банке пока нет.</p>}
-      </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -126,89 +158,176 @@ function Picker() {
 function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: (summary: string) => void }) {
   const [now, setNow] = useState(() => Date.now())
   const [detail, setDetail] = useState<ContestDetail | null>(null)
+  const [statements, setStatements] = useState<Record<string, ProblemDetail>>({})
+  const [grading, setGrading] = useState(false)
+  const [error, setError] = useState('')
   const left = msLeft(run, now)
   const over = run.finished || left === 0
+  const runRef = useRef(run)
+  runRef.current = run
 
   useEffect(() => {
     if (over) return
+    setNow(Date.now())
     const t = setInterval(() => setNow(Date.now()), 1000)
     return () => clearInterval(t)
   }, [over])
 
   useEffect(() => {
-    api.contest(run.contestId).then(setDetail).catch(() => {})
-  }, [run.contestId, over])
+    api
+      .contest(run.contestId)
+      .then(setDetail)
+      .catch(() => {})
+    for (const id of run.problemIds) {
+      api
+        .problem(id, run.seeds[id] ?? null)
+        .then((p) => setStatements((s) => ({ ...s, [id]: p })))
+        .catch(() => {})
+    }
+  }, [run.contestId, run.problemIds, run.seeds])
 
   useEffect(() => {
     if (left === 0 && !run.finished) setRun({ ...run, finished: true })
   }, [left, run])
 
-  const problems = [...(detail?.problems ?? [])].sort((a, b) => a.points - b.points)
+  function updateAnswer(id: string, field: 'answer' | 'solution', value: string) {
+    const cur = runRef.current
+    const prev = cur.answers[id] ?? { answer: '', solution: '' }
+    setRun({ ...cur, answers: { ...cur.answers, [id]: { ...prev, [field]: value } } })
+  }
+
+  async function grade() {
+    setGrading(true)
+    setError('')
+    try {
+      const rows = await api.gradeOlympiad(
+        run.problemIds.map((id) => ({
+          problem_id: id,
+          seed: run.seeds[id] ?? null,
+          answer: run.answers[id]?.answer ?? '',
+          solution: run.answers[id]?.solution ?? '',
+          max_points: run.points[id] ?? 7,
+        })),
+      )
+      setRun({ ...runRef.current, finished: true, grades: rows })
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Ошибка проверки')
+    } finally {
+      setGrading(false)
+    }
+  }
+
+  const order = [...run.problemIds].sort((a, b) => (run.points[a] ?? 0) - (run.points[b] ?? 0))
+  const meta = Object.fromEntries((detail?.problems ?? []).map((p) => [p.id, p]))
+  const grades = Object.fromEntries((run.grades ?? []).map((g) => [g.problem_id, g]))
+  const total = order.reduce((s, id) => s + (run.points[id] ?? 0), 0)
+  const scored = (run.grades ?? []).reduce((s, g) => s + g.points, 0)
 
   return (
-    <div className="card space-y-4 p-5">
-      <div className="flex flex-wrap items-center gap-3">
+    <div className="space-y-4">
+      <div className="card flex flex-wrap items-center gap-3 p-4">
         <div className="min-w-0 flex-1">
           <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-            {over ? 'Олимпиада окончена' : 'Идёт олимпиада'}
+            {run.grades ? 'Итоги' : over ? 'Время вышло' : 'Идёт олимпиада'}
           </div>
           <h2 className="truncate text-lg font-bold">{run.title}</h2>
         </div>
-        <div className={`rounded-xl px-4 py-2 font-mono text-2xl font-bold ${over ? 'bg-slate-100 dark:bg-slate-800' : 'bg-brand-600 text-white'}`}>
-          {over ? '0:00:00' : formatLeft(left)}
-        </div>
+        {run.grades ? (
+          <div className="rounded-xl bg-amber-50 px-4 py-2 text-2xl font-extrabold dark:bg-amber-500/10">
+            {scored} <span className="text-base font-semibold text-slate-500">из {total}</span>
+          </div>
+        ) : (
+          <div
+            className={`rounded-xl px-4 py-2 font-mono text-2xl font-bold ${over ? 'bg-slate-100 dark:bg-slate-800' : 'bg-brand-600 text-white'}`}
+          >
+            {over ? '0:00:00' : formatLeft(left)}
+          </div>
+        )}
       </div>
 
-      {over && detail && (
-        <div className="rounded-xl bg-amber-50 p-4 dark:bg-amber-500/10">
-          <div className="text-2xl font-extrabold">
-            ★ {detail.earned} <span className="text-base font-semibold text-slate-500">из {detail.total_points}</span>
-          </div>
-          <div className="text-sm text-slate-600 dark:text-slate-300">
-            Решено {detail.solved} из {detail.count}. Теперь можно открыть подсказки и разборы.
-          </div>
-        </div>
-      )}
-
-      <ol className="space-y-2">
-        {problems.map((p, i) => {
-          const seed = run.seeds[p.id]
-          return (
-            <li key={p.id}>
-              <Link
-                to={`/problem/${p.id}${seed ? `?seed=${seed}` : ''}`}
-                className="flex items-center gap-3 rounded-xl border border-slate-200 p-3 transition hover:border-brand-400 dark:border-slate-700"
+      {order.map((id, i) => {
+        const p = statements[id]
+        const m = meta[id]
+        const a = run.answers[id] ?? { answer: '', solution: '' }
+        const g = grades[id]
+        return (
+          <section key={id} className="card space-y-3 p-5">
+            <div className="flex items-center justify-between gap-3">
+              <h3 className="font-bold">Задача {i + 1}</h3>
+              <span className="chip bg-slate-100 dark:bg-slate-800">
+                {g ? `${g.points} из ${g.max_points} б.` : `${run.points[id]} б.`}
+              </span>
+            </div>
+            {p ? (
+              <MathText text={p.statement} />
+            ) : (
+              <div className="h-16 animate-pulse rounded-xl bg-slate-100 dark:bg-slate-800" />
+            )}
+            {m && (
+              <p className="text-xs text-slate-500">
+                Источник: {m.source}
+                {run.seeds[id] ? ' · числа изменены, ответ проверен кодом' : ''}
+                {m.url && (
+                  <>
+                    {' · '}
+                    <a href={m.url} target="_blank" rel="noreferrer" className="underline">
+                      оригинал
+                    </a>
+                  </>
+                )}
+              </p>
+            )}
+            <textarea
+              value={a.solution}
+              onChange={(e) => updateAnswer(id, 'solution', e.target.value)}
+              readOnly={over}
+              rows={6}
+              maxLength={6000}
+              placeholder="Полное решение: что обозначил, какие факты используешь, почему каждый шаг верен, вывод."
+              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-950"
+            />
+            <input
+              value={a.answer}
+              onChange={(e) => updateAnswer(id, 'answer', e.target.value)}
+              readOnly={over}
+              maxLength={200}
+              placeholder={p?.needs_unit ? 'Ответ с единицами, например 12 м/с' : 'Ответ'}
+              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
+            />
+            {g && (
+              <p
+                className={`rounded-xl p-3 text-sm ${g.answer_correct ? 'bg-emerald-50 dark:bg-emerald-500/10' : a.answer.trim() || a.solution.trim() ? 'bg-red-50 dark:bg-red-500/10' : 'bg-slate-100 dark:bg-slate-800'}`}
               >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-50 font-bold text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
-                  {i + 1}
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block truncate font-semibold">{p.title}</span>
-                  <span className="text-xs text-slate-500">
-                    {p.topic}
-                    {seed ? ' · новые числа' : ''}
-                  </span>
-                </span>
-                <span className="text-sm font-semibold">{p.solved ? `✓ ★ ${p.earned}` : `★ ${p.points}`}</span>
-              </Link>
-            </li>
-          )
-        })}
-      </ol>
+                {a.answer.trim() || a.solution.trim() ? (
+                  <>
+                    <b>{g.answer_correct ? 'Ответ верный.' : 'Ответ неверный.'}</b> {g.comment}
+                  </>
+                ) : (
+                  <b>Не сдано.</b>
+                )}
+              </p>
+            )}
+          </section>
+        )
+      })}
 
+      {error && <p className="text-sm text-red-600">{error}</p>}
       <div className="flex flex-wrap gap-2">
         {!over && (
           <button onClick={() => setRun({ ...run, finished: true })} className="btn-ghost">
-            Завершить досрочно
+            Сдать досрочно
           </button>
         )}
-        {over && (
+        {over && !run.grades && (
+          <button onClick={grade} disabled={grading} className="btn-primary">
+            {grading ? 'Жюри проверяет…' : 'Отправить на проверку'}
+          </button>
+        )}
+        {run.grades && (
           <>
             <button
               onClick={() => {
-                const summary = detail
-                  ? `Я закончил олимпиаду «${run.title}»: решил ${detail.solved} из ${detail.count}, ★ ${detail.earned} из ${detail.total_points}. Давай разберём задачи, которые не получились.`
-                  : `Я закончил олимпиаду «${run.title}». Давай разберём задачи.`
+                const summary = `Я закончил олимпиаду «${run.title}»: ${scored} из ${total} баллов. Давай разберём задачи, где сняли баллы.`
                 setRun(null)
                 onFinishDiscuss(summary)
               }}

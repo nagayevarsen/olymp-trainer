@@ -34,7 +34,7 @@ export function LeaderboardPage() {
               {r.grade && <span className="ml-2 text-sm font-normal text-slate-500">{r.grade} кл.</span>}
             </span>
             <span className="text-sm text-slate-500">{r.solved} реш.</span>
-            <span className="w-20 text-right font-extrabold text-amber-600 dark:text-gold-400">★ {r.points}</span>
+            <span className="w-20 text-right font-extrabold text-amber-600 dark:text-gold-400">{r.points} б.</span>
           </li>
         ))}
         {rows?.length === 0 && <li className="p-6 text-center text-slate-500">Пока никого. Будь первым!</li>}

@@ -5,7 +5,9 @@
   "title": "Горизонтальный отрезок на графике",
   "statement": "Найти максимальную длину горизонтального отрезка с концами на графике функции $y = x^3 - x$.",
   "answer": {
-    "value": 2.0
+    "value": 2.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,39 @@
     "grade": 11,
     "number": 3,
     "url": "https://sesc.nsu.ru/upload/iblock/fad/2019_3_math_s.pdf"
+  },
+  "template": {
+    "text": "Найти максимальную длину горизонтального отрезка с концами на графике функции $y = {a}x^3 - {b}x$.",
+    "params": {
+      "a": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 1.0,
+      "b": 1.0
+    },
+    "solver": "def solve(a, b):\n    return 2 * sqrt(b / a)",
+    "constraints": [
+      "a > 0",
+      "b > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

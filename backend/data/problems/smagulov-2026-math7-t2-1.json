@@ -21,5 +21,55 @@
     "grade": 7,
     "number": 1,
     "url": "https://matol.kz/olympiads/1235"
+  },
+  "template": {
+    "text": "Для натуральных чисел $a$ и $b$ выполнено равенство: $$\\frac{1}{a}+\\frac{1}{{m1}a}+\\frac{1}{{m2}a}=\\frac{1}{{n1}b}+\\frac{1}{{n2}b}+\\frac{1}{{n3}b}.$$ Какое наименьшее значение может принимать сумма $a+b$?",
+    "params": {
+      "m1": {
+        "min": 2.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "m2": {
+        "min": 2.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "n1": {
+        "min": 2.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "n2": {
+        "min": 2.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "n3": {
+        "min": 2.0,
+        "max": 9.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "m1": 2.0,
+      "m2": 3.0,
+      "n1": 4.0,
+      "n2": 5.0,
+      "n3": 6.0
+    },
+    "solver": "def solve(m1, m2, n1, n2, n3):\n    NL = m1*m2 + m1 + m2\n    NR = n2*n3 + n1*n3 + n1*n2\n    num = NR*m1*m2\n    den = n1*n2*n3*NL\n    g = gcd(num, den)\n    p = num // g\n    q = den // g\n    return p + q",
+    "constraints": [
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

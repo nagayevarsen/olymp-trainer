@@ -136,9 +136,9 @@ def test_run_code_tool():
 
 
 def test_level_points_range_grows():
-    assert chat.Level(8, 2, 3).points_range() == (50, 250)
-    lo, hi = chat.Level(8, 20, 25, best_points=400).points_range()
-    assert lo == 320 and hi > 400
+    assert chat.Level(8, 2, 3).points_range() == (3, 5)
+    assert chat.Level(8, 20, 25, best_points=6).points_range() == (5, 8)
+    assert chat.Level(8, 50, 60, best_points=10).points_range() == (9, 10)
 
 
 def test_contests_endpoints(client):
@@ -184,3 +184,47 @@ def test_streak_counts_consecutive_days():
     assert _streak(prog) == 3
     assert _streak({"a": {"solved_at": now - 86400}}) == 1  # вчера решал — серия ещё жива
     assert _streak({}) == 0
+
+
+def test_grading_caps():
+    from app.grading import apply_caps
+
+    assert apply_caps(10, 10, True, True) == 10
+    assert apply_caps(10, 10, False, True) == 4  # неверный ответ — не больше 40%
+    assert apply_caps(10, 10, True, False) == 2  # только ответ — не больше 20%
+    assert apply_caps(-3, 7, True, True) == 0 and apply_caps(99, 7, True, True) == 7
+
+
+def test_grade_endpoint(client, monkeypatch):
+    from app import grading
+
+    async def fake_grade(statement, value, unit, official, solution, answer, correct, max_points):
+        return {"points": max_points if correct else 1, "max_points": max_points, "comment": "ok"}
+
+    monkeypatch.setattr(grading, "grade", fake_grade)
+    h = {"X-User-Id": register(client).json()["id"]}
+    from app.bank import get_problem
+
+    p = get_problem("demo-math-last-digit")
+    good = str(int(p.answer.value))
+    r = client.post(
+        "/api/olympiad/grade",
+        json={
+            "items": [
+                {"problem_id": p.id, "answer": good, "solution": "x" * 50, "max_points": 7},
+                {"problem_id": p.id, "answer": "-1", "solution": "", "max_points": 7},
+            ]
+        },
+        headers=h,
+    )
+    rows = r.json()
+    assert rows[0]["answer_correct"] and rows[0]["points"] == 7
+    assert not rows[1]["answer_correct"]
+
+
+def test_contest_points_scale(client):
+    rows = client.get("/api/contests", params={"query": "всесиб"}).json()
+    d = client.get(f"/api/contests/{rows[0]['id']}").json()
+    pts = [p["points"] for p in d["problems"]]
+    assert max(pts) == 10 and min(pts) == 3 and all(3 <= x <= 10 for x in pts)
+    assert all(p["source"] for p in d["problems"])

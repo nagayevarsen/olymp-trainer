@@ -180,14 +180,16 @@ class Level:
         else:
             tier = "сильный (решил много олимпиадных задач)"
         grade = f"{self.grade} класс, " if self.grade else ""
-        best = f", самая «дорогая» решённая задача — {self.best_points} баллов" if self.best_points else ""
+        best = (
+            f", самая сложная решённая задача — {self.best_points} баллов из 10" if self.best_points else ""
+        )
         return f"{grade}{tier}; решено задач: {self.solved} из {self.attempted} начатых{best}"
 
     def points_range(self) -> tuple[int, int]:
         """Диапазон баллов задач «чуть выше текущего уровня»."""
         if self.solved < 5 or not self.best_points:
-            return 50, 250
-        return max(50, int(self.best_points * 0.8)), int(self.best_points * 1.4) + 50
+            return 3, 5
+        return max(3, self.best_points - 1), min(10, self.best_points + 2)
 
 
 @lru_cache(maxsize=1)

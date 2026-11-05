@@ -5,7 +5,9 @@
   "title": "Конфеты гномиков",
   "statement": "Несколько гномиков несли конфеты своему вождю Шмебулоку. По дороге каждый гномик украл и съел по одной конфете у каждого другого. В результате Шмебулоку принесли только 53 конфеты. Сколько конфет было у каждого гномика изначально, если известно, что у всех было поровну?",
   "answer": {
-    "value": 53.0
+    "value": 53.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,33 @@
     "grade": 7,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/23a/2018_3_math_s.pdf"
+  },
+  "template": {
+    "text": "Несколько гномиков несли конфеты своему вождю Шмебулоку. По дороге каждый гномик украл и съел по одной конфете у каждого другого. В результате Шмебулоку принесли только {T} конфет. Сколько конфет было у каждого гномика изначально, если известно, что у всех было поровну?",
+    "params": {
+      "T": {
+        "min": 3.0,
+        "max": 199.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "T": 53.0
+    },
+    "solver": "def solve(T):\n    for n in range(2, T + 1):\n        if T % n == 0:\n            return T // n + n - 1\n    return 0",
+    "constraints": [
+      "T > 2",
+      "all(T % d != 0 for d in range(2, T))",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

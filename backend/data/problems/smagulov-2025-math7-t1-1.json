@@ -21,5 +21,52 @@
     "grade": 7,
     "number": 1,
     "url": "https://matol.kz/olympiads/1151"
+  },
+  "template": {
+    "text": "В лесу в $\\frac{ {n} }{ {d} }$ части обрезку прошли ${p1}\\%$ деревьев, а в оставшейся части — ${p2}\\%$. Какой процент всех деревьев в лесу прошли обрезку?",
+    "params": {
+      "n": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 2.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "p1": {
+        "min": 10.0,
+        "max": 90.0,
+        "step": 5.0
+      },
+      "p2": {
+        "min": 5.0,
+        "max": 60.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "n": 1.0,
+      "d": 4.0,
+      "p1": 40.0,
+      "p2": 20.0
+    },
+    "solver": "def solve(n, d, p1, p2):\n    f = n / d\n    return f * p1 + (1 - f) * p2",
+    "constraints": [
+      "1 <= n < d",
+      "0 < p1 <= 100",
+      "0 <= p2 <= 100",
+      "0 < answer < 100"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

@@ -21,5 +21,47 @@
     "grade": 6,
     "number": 8,
     "url": "https://matol.kz/olympiads/1226"
+  },
+  "template": {
+    "text": "За {m1} месяцев компания выполнила {a}% годового плана. Сколько процентов годового плана она выполнит за следующие {m2} месяцев, если будет работать с той же производительностью?",
+    "params": {
+      "a": {
+        "min": 1.0,
+        "max": 100.0,
+        "step": 1.0
+      },
+      "m1": {
+        "min": 1.0,
+        "max": 11.0,
+        "step": 1.0
+      },
+      "m2": {
+        "min": 1.0,
+        "max": 24.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 96.0,
+      "m1": 8.0,
+      "m2": 12.0
+    },
+    "solver": "def solve(a, m1, m2):\n    rate = a / m1\n    return rate * m2",
+    "constraints": [
+      "a > 0",
+      "m1 > 0",
+      "m1 < 12",
+      "m2 > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

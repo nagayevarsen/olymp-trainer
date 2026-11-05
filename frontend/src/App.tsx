@@ -1,28 +1,22 @@
-import { useState } from "react";
-import {
-  BrowserRouter,
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-} from "react-router-dom";
-import { Layout } from "./components/Layout";
-import { ChatPage } from "./pages/Chat";
-import { ContestPage, ContestsPage } from "./pages/Contests";
-import { LeaderboardPage } from "./pages/Leaderboard";
-import { Onboarding } from "./pages/Onboarding";
-import { ProblemPage } from "./pages/Problem";
-import { ProblemsPage } from "./pages/Problems";
-import { ProfilePage } from "./pages/Profile";
-import { TermsPage } from "./pages/Terms";
-import { PointsProvider } from "./points";
-import { PrefsProvider } from "./prefs";
-import { clearUser, getUser, type StoredUser } from "./user";
+import { useState } from 'react'
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { Layout } from './components/Layout'
+import { ChatPage } from './pages/Chat'
+import { ContestPage, ContestsPage } from './pages/Contests'
+import { LeaderboardPage } from './pages/Leaderboard'
+import { Onboarding } from './pages/Onboarding'
+import { ProblemPage } from './pages/Problem'
+import { ProblemsPage } from './pages/Problems'
+import { ProfilePage } from './pages/Profile'
+import { TermsPage } from './pages/Terms'
+import { PointsProvider } from './points'
+import { PrefsProvider } from './prefs'
+import { clearUser, getUser, type StoredUser } from './user'
 
 export default function App() {
-  const [user, setUser] = useState<StoredUser | null>(getUser());
+  const [user, setUser] = useState<StoredUser | null>(getUser())
 
-  if (!user) return <Onboarding onDone={setUser} />;
+  if (!user) return <Onboarding onDone={setUser} />
 
   return (
     <PrefsProvider>
@@ -33,8 +27,8 @@ export default function App() {
               element={
                 <Layout
                   onLogout={() => {
-                    clearUser();
-                    setUser(null);
+                    clearUser()
+                    setUser(null)
                   }}
                 />
               }
@@ -47,8 +41,8 @@ export default function App() {
                 element={
                   <ProfilePage
                     onLogout={() => {
-                      clearUser();
-                      setUser(null);
+                      clearUser()
+                      setUser(null)
                     }}
                   />
                 }
@@ -64,11 +58,11 @@ export default function App() {
         </BrowserRouter>
       </PointsProvider>
     </PrefsProvider>
-  );
+  )
 }
 
 /** Старые ссылки /chat?problem=… ведут на главную с чатом. */
 function ChatRedirect() {
-  const { search } = useLocation();
-  return <Navigate to={`/${search}`} replace />;
+  const { search } = useLocation()
+  return <Navigate to={`/${search}`} replace />
 }

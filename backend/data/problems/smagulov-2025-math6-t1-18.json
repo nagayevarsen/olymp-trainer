@@ -21,5 +21,31 @@
     "grade": 6,
     "number": 18,
     "url": "https://matol.kz/olympiads/1150"
+  },
+  "template": {
+    "text": "В стране имеется три города: $A$, $B$, $C$. Из города $A$ в город $C$ по дорогам можно попасть только через город $B$. Какое наименьшее число дорог может быть в стране, если из $A$ в $C$ можно попасть {n} способами?",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 1000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 286.0
+    },
+    "solver": "def solve(n):\n    best = None\n    for a in range(1, n + 1):\n        if n % a == 0:\n            s = a + n // a\n            if best is None or s < best:\n                best = s\n    return best",
+    "constraints": [
+      "n > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

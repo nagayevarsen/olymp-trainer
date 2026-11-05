@@ -6,7 +6,9 @@
   "statement": "Мяч, катящийся по полу к стене со скоростью $\\upsilon = 5$ м/с, после удара о стену покатился назад со скоростью $u = 4$ м/с и вернулся в исходную точку через время $T = 1{,}8$ с. Каково расстояние от исходной точки до стены?",
   "answer": {
     "value": 4.0,
-    "unit": "м"
+    "unit": "м",
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -15,5 +17,46 @@
     "grade": 9,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/ab1/2009_1_phys_s.pdf"
+  },
+  "template": {
+    "text": "Мяч, катящийся по полу к стене со скоростью $\\upsilon = {v}$ м/с, после удара о стену покатился назад со скоростью $u = {u}$ м/с и вернулся в исходную точку через время $T = {T}$ с. Каково расстояние от исходной точки до стены?",
+    "params": {
+      "v": {
+        "min": 1.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "u": {
+        "min": 1.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "T": {
+        "min": 0.5,
+        "max": 10.0,
+        "step": 0.1
+      }
+    },
+    "original": {
+      "v": 5.0,
+      "u": 4.0,
+      "T": 1.8
+    },
+    "solver": "def solve(v, u, T):\n    # L/v + L/u = T  =>  L = T*v*u/(v+u)\n    return T * v * u / (v + u)",
+    "constraints": [
+      "v > 0",
+      "u > 0",
+      "T > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

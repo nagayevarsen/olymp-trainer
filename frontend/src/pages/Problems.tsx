@@ -192,7 +192,7 @@ function ProblemCard({ p }: { p: ProblemListItem }) {
               : 'bg-gold-400/15 text-amber-700 dark:text-gold-400'
           }`}
         >
-          {p.solved ? `✓ +${p.earned}` : `★ ${p.points}`}
+          {p.solved ? `✓ +${p.earned}` : `${p.points} б.`}
         </span>
       </div>
       <h3 className="mt-3 text-lg font-bold leading-snug group-hover:text-brand-700 dark:group-hover:text-brand-300">

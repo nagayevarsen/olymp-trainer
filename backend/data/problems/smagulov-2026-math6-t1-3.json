@@ -22,5 +22,31 @@
     "grade": 6,
     "number": 3,
     "url": "https://matol.kz/olympiads/1226"
+  },
+  "template": {
+    "text": "Задача:\nЧтобы записать все нечётные целые числа от 1 до 20, Асану потребовалось 15 цифр. Сколько цифр ему понадобится, чтобы записать все нечётные целые числа от 1 до {m}?",
+    "params": {
+      "m": {
+        "min": 2.0,
+        "max": 1000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "m": 500.0
+    },
+    "solver": "def solve(m):\n    return sum(len(str(k)) for k in range(1, m + 1, 2))",
+    "constraints": [
+      "m >= 2"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

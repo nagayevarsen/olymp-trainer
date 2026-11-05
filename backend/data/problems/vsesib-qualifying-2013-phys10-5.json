@@ -5,7 +5,9 @@
   "title": "Торможение на льду",
   "statement": "На обледеневшем участке шоссе коэффициент трения с шинами автомобиля меньше в 4 раза, чем на необледеневшем. Во сколько раз нужно уменьшить скорость, чтобы тормозной путь остался прежним?",
   "answer": {
-    "value": 2.0
+    "value": 2.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,32 @@
     "grade": 10,
     "number": 5,
     "url": "https://sesc.nsu.ru/upload/iblock/714/2012_2_phys_s.pdf"
+  },
+  "template": {
+    "text": "На обледеневшем участке шоссе коэффициент трения с шинами автомобиля меньше в {k} раз, чем на необледеневшем. Во сколько раз нужно уменьшить скорость, чтобы тормозной путь остался прежним?",
+    "params": {
+      "k": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "k": 4.0
+    },
+    "solver": "def solve(k):\n    return sqrt(k)",
+    "constraints": [
+      "k > 1",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

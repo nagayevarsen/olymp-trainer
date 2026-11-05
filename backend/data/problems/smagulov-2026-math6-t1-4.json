@@ -21,5 +21,40 @@
     "grade": 6,
     "number": 4,
     "url": "https://matol.kz/olympiads/1226"
+  },
+  "template": {
+    "text": "На новогодней ёлке все дети получили одинаковые подарки. Во всех подарках вместе было {c} конфет и {l} леденцов. Сколько детей было на ёлке, если их не меньше двух?",
+    "params": {
+      "c": {
+        "min": 2.0,
+        "max": 300.0,
+        "step": 1.0
+      },
+      "l": {
+        "min": 2.0,
+        "max": 300.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "c": 129.0,
+      "l": 86.0
+    },
+    "solver": "def solve(c, l):\n    return gcd(c, l)",
+    "constraints": [
+      "gcd(c, l) > 1",
+      "sum(1 for d in range(2, gcd(c, l)) if gcd(c, l) % d == 0) == 0",
+      "answer == gcd(c, l)",
+      "answer >= 2"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

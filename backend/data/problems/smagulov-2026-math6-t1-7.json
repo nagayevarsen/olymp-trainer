@@ -21,5 +21,60 @@
     "grade": 6,
     "number": 7,
     "url": "https://matol.kz/olympiads/1226"
+  },
+  "template": {
+    "text": "Кенгуру стоит на числовой прямой в точке с координатой {s}. Каждую минуту он совершает прыжок по следующему правилу: если координата точки, в которой он находится, делится на {d}, он прыгает на {a} единиц вправо; в противном случае — на {b} единиц влево. В точке с какой координатой окажется кенгуру сразу после {n}-го прыжка?",
+    "params": {
+      "s": {
+        "min": 1.0,
+        "max": 300.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 2.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "a": {
+        "min": 1.0,
+        "max": 15.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 1.0,
+        "max": 15.0,
+        "step": 1.0
+      },
+      "n": {
+        "min": 3.0,
+        "max": 20.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "s": 100.0,
+      "d": 3.0,
+      "a": 7.0,
+      "b": 5.0,
+      "n": 10.0
+    },
+    "solver": "def solve(s, d, a, b, n):\n    p = s\n    for _ in range(n):\n        if p % d == 0:\n            p = p + a\n        else:\n            p = p - b\n    return p",
+    "constraints": [
+      "d >= 2",
+      "a >= 1",
+      "b >= 1",
+      "n >= 1",
+      "a != b",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

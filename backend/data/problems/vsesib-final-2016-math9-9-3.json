@@ -5,7 +5,9 @@
   "title": "Вычисление выражения с дробями",
   "statement": "Найти величину выражения $\\frac{x}{y+z}+\\frac{y}{x+z}+\\frac{z}{x+y}$, если известно, что $\\frac{1}{y+z}+\\frac{1}{x+z}+\\frac{1}{x+y}=5$ и $x+y+z=2$.",
   "answer": {
-    "value": 7.0
+    "value": 7.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,40 @@
     "grade": 9,
     "number": 3,
     "url": "https://sesc.nsu.ru/upload/iblock/0db/2015_3_math_s.pdf"
+  },
+  "template": {
+    "text": "Найти величину выражения $\\frac{x}{y+z}+\\frac{y}{x+z}+\\frac{z}{x+y}$, если известно, что $\\frac{1}{y+z}+\\frac{1}{x+z}+\\frac{1}{x+y}={t}$ и $x+y+z={s}$.",
+    "params": {
+      "s": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "t": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "s": 2.0,
+      "t": 5.0
+    },
+    "solver": "def solve(s, t):\n    return s * t - 3",
+    "constraints": [
+      "s > 0",
+      "t > 0",
+      "2 * s * t >= 9",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

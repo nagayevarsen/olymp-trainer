@@ -5,7 +5,9 @@
   "title": "Год рождения Вани",
   "statement": "В 2014 году Ване исполнилось столько лет, какова сумма цифр года его рождения плюс три. В каком году родился Ваня?",
   "answer": {
-    "value": 1991.0
+    "value": 1991.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,39 @@
     "grade": 7,
     "number": 2,
     "url": "https://sesc.nsu.ru/upload/iblock/4c6/2013_3_math_s1.pdf"
+  },
+  "template": {
+    "text": "В {Y} году Ване исполнилось столько лет, какова сумма цифр года его рождения плюс {k}. В каком году родился Ваня?",
+    "params": {
+      "Y": {
+        "min": 2000.0,
+        "max": 2030.0,
+        "step": 1.0
+      },
+      "k": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "Y": 2014.0,
+      "k": 3.0
+    },
+    "solver": "def solve(Y, k):\n    for b in range(1000, Y):\n        if Y - b == sum((b // 10**i) % 10 for i in range(4)) + k:\n            return b\n    return -1",
+    "constraints": [
+      "sum(1 for b in range(1000, Y) if Y - b == sum((b // 10**i) % 10 for i in range(4)) + k) == 1",
+      "answer >= 1000",
+      "answer < Y"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

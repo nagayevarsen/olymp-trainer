@@ -21,5 +21,78 @@
     "grade": 6,
     "number": 7,
     "url": "https://matol.kz/olympiads/1150"
+  },
+  "template": {
+    "text": "Найдите $x$ из уравнения: $1 + {a} : (1 - {b} : (1 + {c} : (1 - {d} : (1 + {e} : (1 - {f} : x))))) = {T}.$",
+    "params": {
+      "a": {
+        "min": 1.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 1.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 1.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 1.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "e": {
+        "min": 1.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "f": {
+        "min": 1.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "T": {
+        "min": 2.0,
+        "max": 60.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 9.0,
+      "b": 8.0,
+      "c": 4.0,
+      "d": 6.0,
+      "e": 5.0,
+      "f": 4.0,
+      "T": 34.0
+    },
+    "solver": "def solve(a, b, c, d, e, f, T):\n    Y5 = a / (T - 1)\n    Y4 = b / (1 - Y5)\n    Y3 = c / (Y4 - 1)\n    Y2 = d / (1 - Y3)\n    Y1 = e / (Y2 - 1)\n    return f / (1 - Y1)",
+    "constraints": [
+      "T != 1",
+      "a != 0",
+      "b != 0",
+      "c != 0",
+      "d != 0",
+      "e != 0",
+      "f != 0",
+      "1 - a/(T-1) != 0",
+      "b/(1 - a/(T-1)) != 1",
+      "c/(b/(1 - a/(T-1)) - 1) != 1",
+      "d/(1 - c/(b/(1 - a/(T-1)) - 1)) != 1",
+      "e/(d/(1 - c/(b/(1 - a/(T-1)) - 1)) - 1) != 1"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

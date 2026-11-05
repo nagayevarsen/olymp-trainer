@@ -23,6 +23,21 @@
   color-scheme: light dark;
 }
 
+/* Тёмная тема — чёрная, без синевы: серые оттенки slate в тёмном режиме заменены нейтральными. */
+.dark {
+  --color-slate-50: #fafafa;
+  --color-slate-100: #f4f4f5;
+  --color-slate-200: #e4e4e7;
+  --color-slate-300: #d4d4d8;
+  --color-slate-400: #a1a1aa;
+  --color-slate-500: #71717a;
+  --color-slate-600: #52525b;
+  --color-slate-700: #333336;
+  --color-slate-800: #222224;
+  --color-slate-900: #121213;
+  --color-slate-950: #000000;
+}
+
 body {
   @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
 }

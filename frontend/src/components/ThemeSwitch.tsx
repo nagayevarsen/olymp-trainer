@@ -1,21 +1,16 @@
-import { useEffect, useState } from "react";
-import {
-  getThemeChoice,
-  setThemeChoice,
-  watchSystemTheme,
-  type ThemeChoice,
-} from "../theme";
+import { useEffect, useState } from 'react'
+import { getThemeChoice, setThemeChoice, watchSystemTheme, type ThemeChoice } from '../theme'
 
 const svg = {
   width: 16,
   height: 16,
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
   strokeWidth: 2,
-  strokeLinecap: "round" as const,
-  strokeLinejoin: "round" as const,
-};
+  strokeLinecap: 'round' as const,
+  strokeLinejoin: 'round' as const,
+}
 
 const ICONS: Record<ThemeChoice, React.ReactNode> = {
   light: (
@@ -35,19 +30,19 @@ const ICONS: Record<ThemeChoice, React.ReactNode> = {
       <path d="M8 20h8M12 16v4" />
     </svg>
   ),
-};
+}
 
 const OPTIONS: { value: ThemeChoice; label: string }[] = [
-  { value: "light", label: "Светлая тема" },
-  { value: "dark", label: "Тёмная тема" },
-  { value: "system", label: "Как в системе" },
-];
+  { value: 'light', label: 'Светлая тема' },
+  { value: 'dark', label: 'Тёмная тема' },
+  { value: 'system', label: 'Как в системе' },
+]
 
 /** Плашка из трёх кнопок: светлая / тёмная / как в системе. */
-export function ThemeSwitch({ className = "" }: { className?: string }) {
-  const [choice, setChoice] = useState<ThemeChoice>(getThemeChoice);
+export function ThemeSwitch({ className = '' }: { className?: string }) {
+  const [choice, setChoice] = useState<ThemeChoice>(getThemeChoice)
 
-  useEffect(() => watchSystemTheme(), []);
+  useEffect(() => watchSystemTheme(), [])
 
   return (
     <div
@@ -64,18 +59,18 @@ export function ThemeSwitch({ className = "" }: { className?: string }) {
           aria-label={o.label}
           title={o.label}
           onClick={() => {
-            setThemeChoice(o.value);
-            setChoice(o.value);
+            setThemeChoice(o.value)
+            setChoice(o.value)
           }}
           className={`flex h-8 w-8 items-center justify-center rounded-lg text-sm transition ${
             choice === o.value
-              ? "bg-brand-600 text-white"
-              : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+              ? 'bg-brand-600 text-white'
+              : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
           }`}
         >
           {ICONS[o.value]}
         </button>
       ))}
     </div>
-  );
+  )
 }
