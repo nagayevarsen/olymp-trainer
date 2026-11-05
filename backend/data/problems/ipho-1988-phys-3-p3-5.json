@@ -1,0 +1,19 @@
+{
+  "id": "ipho-1988-phys-3-p3-5",
+  "subject": "physics",
+  "topic": "Атомная физика",
+  "title": "Рекомбинация ионов, пункт 3.5",
+  "statement": "A gas consists of positive ions of some element (at high temperature) and electrons. The positive ion belongs to an atom of unknown mass number Z. It is known that this ion has only one electron in the shell (orbit). Let this ion be represented by the symbol $A^{(Z-1)+}$. Constants: electric field constant $\\varepsilon_0 = 8{,}85\\cdot10^{-12}$ A·s/(V·m); elementary charge $e = 1{,}602\\cdot10^{-19}$ A·s; $q^2 = \\frac{e^2}{4\\pi\\varepsilon_0} = 2{,}037\\cdot10^{-28}$ J·m; Planck's constant $\\hbar = 1{,}054\\cdot10^{-34}$ J·s; rest mass of an electron $m_e = 9{,}108\\cdot10^{-31}$ kg; Bohr's atomic radius $r_B = \\frac{\\hbar}{m_e q^2} = 5{,}92\\cdot10^{-11}$ m; Rydberg's energy $E_R = \\frac{q^2}{2r_B} = 2{,}180\\cdot10^{-18}$ J; rest energy of a proton $m_p c^2 = 1{,}503\\cdot10^{-10}$ J.\n\n**Пункт 3.5.** Consider in particular the ion $A^{(Z-2)+}$ is at rest in the ground state when capturing an additional electron and the captured electron is also at rest prior to the capturing. Determine the numerical value of Z, if the frequency of the emitted photon accompanying electron capturing is $2{,}057\\cdot10^{17}$ rad/s. Identify the element which gives rise to the ion.",
+  "answer": {
+    "value": 4.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 1988,
+    "stage": "international",
+    "number": 3,
+    "url": "https://www.ipho-new.org/download/498/#member=1988/19th_IPhO_1988 Problems and Solutions.pdf"
+  }
+}

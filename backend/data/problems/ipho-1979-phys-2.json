@@ -1,0 +1,20 @@
+{
+  "id": "ipho-1979-phys-2",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Взвешивание во влажном воздухе",
+  "statement": "Brass weights are used to weigh an aluminum-made sample on an analytical balance. The weighing is ones in dry air and another time in humid air with the water vapor pressure $P_h =2\\cdot10^3$ Pa. The total atmospheric pressure ($P = 10^5$ Pa) and the temperature ($t =20^\\circ$ C) are the same in both cases. What should the mass of the sample be to be able to tell the difference in the balance readings provided their sensitivity is $m_0 = 0.1$ mg? Aluminum density $\\rho_1= 2700$ kg/m$^3$, brass density $\\rho_2=.8500$ kg/m$^3$.",
+  "answer": {
+    "value": 43.0,
+    "unit": "г",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 1979,
+    "stage": "international",
+    "number": 2,
+    "url": "https://www.ipho-new.org/download/472/#member=1979/11th_IPhO_1979.pdf"
+  }
+}

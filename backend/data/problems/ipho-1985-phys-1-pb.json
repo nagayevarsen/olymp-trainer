@@ -1,0 +1,20 @@
+{
+  "id": "ipho-1985-phys-1-pb",
+  "subject": "physics",
+  "topic": "Электродинамика",
+  "title": "Антенная решётка радиолюбителя, пункт b",
+  "statement": "A young radio amateur maintains a radio link with two girls living in two towns. He positions an aerial array such that when the girl living in town A receives a maximum signal, the girl living in town B receives no signal and vice versa. The array is built from two vertical rod aerials transmitting with equal intensities uniformly in all directions in the horizontal plane.\n\n**Пункт b.** Find the numerical solution if the boy has a radio station transmitting at 27 MHz and builds up the aerial array at Portorož. Using the map he has found that the angles between the north and the direction of A (Koper) and of B (small town of Buje in Istria) are 72° and 157°, respectively.",
+  "answer": {
+    "value": 4.1,
+    "unit": "м",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 1985,
+    "stage": "international",
+    "number": 1,
+    "url": "https://www.ipho-new.org/download/488/#member=1985/16th_IPhO_1985.pdf"
+  }
+}

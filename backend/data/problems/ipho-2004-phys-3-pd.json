@@ -1,0 +1,20 @@
+{
+  "id": "ipho-2004-phys-3-pd",
+  "subject": "physics",
+  "topic": "Колебания и резонанс",
+  "title": "Сканирующий зондовый микроскоп, пункт d",
+  "statement": "**Пункт d.** На сколько изменится масса кантилевера $\\Delta m$, если известен сдвиг резонансной частоты и фазы, связанные соотношением $\\Delta\\phi$ при $\\omega_0$ (использовать $b$ и $\\omega_0$ из условия)?",
+  "answer": {
+    "value": 1.7e-18,
+    "unit": "кг",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 2004,
+    "stage": "international",
+    "number": 3,
+    "url": "https://www.ipho-new.org/download/546/#member=2004/IPhO_2004_Theo_solution 3.pdf"
+  }
+}

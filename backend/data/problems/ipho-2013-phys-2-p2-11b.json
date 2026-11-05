@@ -1,0 +1,19 @@
+{
+  "id": "ipho-2013-phys-2-p2-11b",
+  "subject": "physics",
+  "topic": "Электродинамика",
+  "title": "Plasmonic Steam Generator, пункт 2.11b",
+  "statement": "**Пункт 2.11b.** Найдите КПД процесса генерации пара η, если на сосуд падает мощность света P_tot = 10.0 кВт.",
+  "answer": {
+    "value": 0.498,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 2013,
+    "stage": "international",
+    "number": 2,
+    "url": "https://www.ipho-new.org/download/573/#member=2013/IPhO2013_T2_solution.pdf"
+  }
+}

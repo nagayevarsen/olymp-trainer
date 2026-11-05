@@ -1,0 +1,19 @@
+{
+  "id": "ipho-1989-phys-3-pb",
+  "subject": "physics",
+  "topic": "Электродинамика",
+  "title": "Электронный и протонный микроскоп, пункт B",
+  "statement": "The problem concerns investigation of transforming the electron microscope with magnetic guiding of the electron beam (which is accelerated with the potential difference $U$ = 511 kV) into a proton microscope (in which the proton beam is accelerated with the potential difference $-U$). For this purpose, solve the following two problems:\n\nA. An electron after leaving a device, which accelerated it with the potential difference $U$, falls into a region with an inhomogeneous field $\\mathbf{B}$ generated with a system of stationary coils $L_1, L_2, \\dots, L_n$. The known currents in the coils are $i_1, i_2, \\dots, i_n$, respectively. What should the currents $i_1', i_2', \\dots, i_n'$ in the coils $L_1, L_2, \\dots, L_n$ be, in order to guide the proton (initially accelerated with the potential difference $-U$) along the same trajectory (and in the same direction) as that of the electron?\n\nHINT: The problem can be solved by finding a condition under which the equation describing the trajectory is the same in both cases. It may be helpful to use the relation: $\\mathbf{p}\\frac{d}{dt}\\mathbf{p} = \\frac{1}{2}\\frac{d}{dt}\\mathbf{p}^2 = \\frac{1}{2}\\frac{d}{dt}p^2$.\n\nB. How many times would the resolving power of the above microscope increase or decrease if the electron beam were replaced with the proton beam? Assume that the resolving power of the microscope (i.e. the smallest distance between two point objects whose circular images can be just separated) depends only on the wave properties of the particles.\n\nAssume that the velocities of the electrons and protons before their acceleration are zero, and that there is no interaction between own magnetic moment of either electrons or protons and the magnetic field. Assume also that the electromagnetic radiation emitted by the moving particles can be neglected.\n\nNOTE: 1 electron-volt (1 eV) is the energy gained by the electron that passed the potential difference equal to 1 V.\n\nPerform the calculations assuming the following data: Rest energy of electron: $E_e = m_ec^2$ = 511 keV; Rest energy of proton: $E_p = m_pc^2$ = 938 MeV.\n\n**Пункт B.** By how many times would the resolving power of the microscope increase or decrease if the electron beam were replaced by the proton beam (the resolving power depends only on the wave properties of the particles; $E_e = 511$ keV, $E_p = 938$ MeV, kinetic energy of both particles $E_k = eU = 511$ keV)?",
+  "answer": {
+    "value": 35.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 1989,
+    "stage": "international",
+    "number": 3,
+    "url": "https://www.ipho-new.org/download/502/#member=1989/20th_IPhO_1989.pdf"
+  }
+}

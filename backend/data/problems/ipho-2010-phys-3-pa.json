@@ -1,0 +1,20 @@
+{
+  "id": "ipho-2010-phys-3-pa",
+  "subject": "physics",
+  "topic": "Энергетика",
+  "title": "Эффективность и мощность, пункт a",
+  "statement": "**Пункт a.** Вопрос в документе не приведён (в решении определяется КПД).",
+  "answer": {
+    "value": 0.64,
+    "unit": "%",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 2010,
+    "stage": "international",
+    "number": 3,
+    "url": "https://www.ipho-new.org/download/564/#member=2010/IPhO_2010_Theo_2_Solution.pdf"
+  }
+}

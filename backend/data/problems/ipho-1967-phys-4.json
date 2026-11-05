@@ -1,0 +1,20 @@
+{
+  "id": "ipho-1967-phys-4",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Давление в закрытом сосуде",
+  "statement": "A closed vessel with volume $V_0 = 10$ l contains dry air in the normal conditions ($t_0 = 0$°C, $p_0 = 1$ atm). In some moment 3 g of water were added to the vessel and the system was warmed up to $t = 100$°C. Find the pressure in the vessel. Discuss assumption you made to solve the problem.",
+  "answer": {
+    "value": 1.88,
+    "unit": "atm",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 1967,
+    "stage": "international",
+    "number": 4,
+    "url": "https://www.ipho-new.org/download/441/#member=1967/1st_IPhO_1967.pdf"
+  }
+}

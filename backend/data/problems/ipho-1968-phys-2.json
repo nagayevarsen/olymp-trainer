@@ -1,0 +1,20 @@
+{
+  "id": "ipho-1968-phys-2",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Смешивание толуола",
+  "statement": "There are $300$ cm$^3$ toluene of $0^\\circ$C temperature in a glass and $110$ cm$^3$ toluene of $100^\\circ$C temperature in another glass. (The sum of the volumes is $410$ cm$^3$.) Find the final volume after the two liquids are mixed. The coefficient of volume expansion of toluene $\\beta = 0.001\\ (^\\circ\\text{C})^{-1}$. Neglect the loss of heat.",
+  "answer": {
+    "value": 410.0,
+    "unit": "см³",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 1968,
+    "stage": "international",
+    "number": 2,
+    "url": "https://www.ipho-new.org/download/444/#member=1968/2nd_IPhO_1968.pdf"
+  }
+}

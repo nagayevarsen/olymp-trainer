@@ -1,0 +1,19 @@
+{
+  "id": "ipho-1979-phys-3-p2",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Лазерная локация Луны, пункт 2",
+  "statement": "During the Soviet-French experiment on the optical location of the Moon the light pulse of a ruby laser ($\\lambda = 0{,}69$ μm) was directed to the Moon's surface by the telescope with a diameter of the mirror $D = 2{,}6$ m. The reflector on the Moon's surface reflected the light backward as an ideal mirror with the diameter $d = 20$ cm. The reflected light was then collected by the same telescope and focused at the photodetector. The distance from the Earth to the Moon is $L = 380000$ km. The diameter of pupil of the eye is $d_p = 5$ mm. Plank constant is $h = 6.6\\cdot10^{-34}$ J·s.\n\n**Пункт 2.** What part of emitted laser energy can be detected after reflection on the Moon, if we neglect the light loses in the Earth's atmosphere? Given: $\\lambda = 0{,}69$ μm, $D = 2{,}6$ m, $d = 20$ cm, $L = 380000$ km.",
+  "answer": {
+    "value": 1e-12,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 1979,
+    "stage": "international",
+    "number": 3,
+    "url": "https://www.ipho-new.org/download/472/#member=1979/11th_IPhO_1979.pdf"
+  }
+}

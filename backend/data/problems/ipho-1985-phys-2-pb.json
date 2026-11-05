@@ -1,0 +1,20 @@
+{
+  "id": "ipho-1985-phys-2-pb",
+  "subject": "physics",
+  "topic": "Электромагнетизм",
+  "title": "Эффект Холла в InSb, пункт b",
+  "statement": "In a long bar having the shape of a rectangular parallelepiped with sides a, b, and c (a ≫ b ≫ c), made from the semiconductor InSb flows a current I parallel to the edge a. The bar is in an external magnetic field B which is parallel to the edge c. The magnetic field produced by the current I can be neglected. The current carriers are electrons. The average velocity of electrons in a semiconductor in the presence of an electric field only is v = µE, where µ is called mobility. If the magnetic field is also present, the electric field is no longer parallel to the current. This phenomenon is known as the Hall effect.\n\nData: The electron mobility in InSb is 7.8 m²T/Vs, the electron concentration in InSb is 2.5·10²² m⁻³, I = 1.0 A, B = 0.10 T, b = 1.0 cm, c = 1.0 mm, e₀ = −1.6·10⁻¹⁹ As.\n\n**Пункт b.** Calculate the difference of the electric potential between the opposite points on the surfaces of the bar in the direction of the edge b. (Data: I = 1.0 A, B = 0.10 T, b = 1.0 cm, c = 1.0 mm, n = 2.5·10²² m⁻³, e₀ = −1.6·10⁻¹⁹ As.)",
+  "answer": {
+    "value": 25.0,
+    "unit": "мВ",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 1985,
+    "stage": "international",
+    "number": 2,
+    "url": "https://www.ipho-new.org/download/488/#member=1985/16th_IPhO_1985.pdf"
+  }
+}

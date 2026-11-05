@@ -1,0 +1,20 @@
+{
+  "id": "ipho-2010-phys-1-pb",
+  "subject": "physics",
+  "topic": "Гидродинамика",
+  "title": "Минимальная высота дымохода, пункт b",
+  "statement": "**Пункт b.** How high should the chimney in warm regions be?",
+  "answer": {
+    "value": 145.0,
+    "unit": "м",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 2010,
+    "stage": "international",
+    "number": 1,
+    "url": "https://www.ipho-new.org/download/564/#member=2010/IPhO_2010_Theo_2_Solution.pdf"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ipho-1985-phys-3-pc",
+  "subject": "physics",
+  "topic": "Небесная механика",
+  "title": "Запуск зонда из Солнечной системы, пункт c",
+  "statement": "In a space research project two schemes of launching a space probe out of the Solar system are discussed. The first scheme (i) is to launch the probe with a velocity large enough to escape from the Solar system directly. According to the second one (ii), the probe is to approach one of the outer planets, and with its help change its direction of motion and reach the velocity necessary to escape from the Solar system. Assume that the probe moves under the gravitational field of only the Sun or the planet, depending on whichever field is stronger at that point.\n\nHint: From the result a) you know the optimal magnitude and the direction of the velocity of the probe that is necessary to escape from the Solar system after leaving the gravitational field of Mars. (You do not have to worry about the precise position of Mars during the encounter.) Find the relation between this velocity and the velocity components before the probe enters the gravitational field of Mars; i.e. the components you determined in b). What about the conservation of energy of the probe?\n\nNotes: Assume that all the planets revolve round the Sun in circles, in the same direction and in the same plane. Neglect the air resistance, the rotation of the Earth around its axis as well as the energy used in escaping from the Earth's gravitational field.\n\nData: Velocity of the Earth round the Sun is 30 km/s, and the ratio of the distances of the Earth and Mars from the Sun is 2/3.\n\n**Пункт c.** Let the probe enter the gravitational field of Mars. Find the minimum launching velocity from the Earth necessary for the probe to escape from the Solar system. (Data: v_E = 30 km/s, k = R_E/R_M = 2/3.)",
+  "answer": {
+    "value": 5.5,
+    "unit": "км/с",
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная физическая олимпиада (IPhO)",
+    "year": 1985,
+    "stage": "international",
+    "number": 3,
+    "url": "https://www.ipho-new.org/download/488/#member=1985/16th_IPhO_1985.pdf"
+  }
+}
