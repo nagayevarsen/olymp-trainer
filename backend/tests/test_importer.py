@@ -19,3 +19,42 @@ def test_invented_answer_rejected():
 def test_untrusted_site_is_never_downloaded():
     with pytest.raises(ImportError_):
         _get("https://random-site.example/problems.pdf")
+
+
+def test_multi_part_problem_is_split_into_parts():
+    from app.importer import expand_parts
+
+    items = [
+        {"number": "2", "kind": "numeric", "statement": "Одна задача", "answer_value": 5},
+        {
+            "number": "3",
+            "kind": "multi",
+            "has_figure": False,
+            "title": "Маятник",
+            "statement": "Маятник длиной 1 м.",
+            "parts": [
+                {
+                    "label": "A.1",
+                    "question": "Найдите период.",
+                    "kind": "numeric",
+                    "answer_value": 2.0,
+                    "answer_unit": "с",
+                },
+                {"label": "A.2", "question": "Докажите формулу.", "kind": "proof", "answer_value": None},
+                {
+                    "label": "B",
+                    "question": "По графику…",
+                    "kind": "numeric",
+                    "has_figure": True,
+                    "answer_value": 3,
+                },
+            ],
+        },
+    ]
+    out = expand_parts(items)
+    assert len(out) == 4
+    a1 = out[1]
+    assert a1["part"] == "A.1" and a1["answer_value"] == 2.0 and a1["answer_unit"] == "с"
+    assert a1["statement"].startswith("Маятник длиной 1 м.") and "Пункт A.1" in a1["statement"]
+    assert out[2]["kind"] == "proof"
+    assert out[3]["has_figure"] is True

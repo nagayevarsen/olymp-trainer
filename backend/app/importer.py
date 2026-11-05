@@ -139,7 +139,13 @@ EXTRACT_PROMPT = """Это официальный файл олимпиады: {
 - "answer_unit": единицы ответа как в документе ("м/с", "г/см³", "%", "°", "кДж"), для чисел без единиц null;
 - "answer_text": ответ дословно, как он написан в документе, иначе null.
 
-Если в задаче несколько вопросов с разными ответами — kind = "other".
+Если в задаче несколько вопросов (пунктов) с разными ответами — kind = "multi" и добавь поле
+"parts": список пунктов, у каждого:
+  - "label": номер пункта как в документе ("1", "A.2", "б");
+  - "question": вопрос этого пункта так, чтобы его можно было решать отдельно: если нужны данные
+    или результаты предыдущих пунктов, впиши их в вопрос как известные;
+  - "has_figure", "kind", "answer_value", "answer_unit", "answer_text" — как для задачи, но для этого пункта.
+  Для "multi" поле "statement" — общее условие задачи без вопросов пунктов.
 Если ответа в документе нет — answer_value = null.
 
 Верни JSON: {{"problems": [ ... ]}}"""
@@ -197,6 +203,39 @@ def answer_in_text(value: float, text: str) -> bool:
     return False
 
 
+def expand_parts(items: list[dict]) -> list[dict]:
+    """Задача из нескольких пунктов → отдельная задача на каждый пункт.
+
+    Условие пункта = общее условие + вопрос пункта. Номер задачи сохраняется,
+    пункт попадает в поле part (и в id задачи)."""
+    out: list[dict] = []
+    for it in items:
+        parts = it.get("parts") if it.get("kind") == "multi" else None
+        if not parts:
+            out.append(it)
+            continue
+        base = (it.get("statement") or "").strip()
+        for part in parts:
+            if not isinstance(part, dict):
+                continue
+            label = str(part.get("label", "")).strip()
+            question = (part.get("question") or "").strip()
+            out.append(
+                {
+                    **it,
+                    **{k: part.get(k) for k in ("answer_value", "answer_unit", "answer_text", "kind")},
+                    "has_figure": bool(it.get("has_figure")) or bool(part.get("has_figure")),
+                    "statement": f"{base}\n\n**Пункт {label}.** {question}"
+                    if label
+                    else f"{base}\n\n{question}",
+                    "title": f"{(it.get('title') or 'Задача').strip()}, пункт {label}"[:60],
+                    "part": label or str(len(out) + 1),
+                    "parts": None,
+                }
+            )
+    return out
+
+
 def _slug(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 
@@ -239,7 +278,7 @@ async def import_pdf(
         return report
 
     report.model = model
-    items = data.get("problems") or []
+    items = expand_parts(data.get("problems") or [])
     report.found = len(items)
     existing = {p.stem for p in problems_dir().glob("*.json")}
     for it in items:
@@ -268,6 +307,8 @@ async def import_pdf(
         number = str(it.get("number", "")).strip()
         num_int = re.findall(r"\d+", number)
         pid = f"{slug}-{year}-{subject[:4]}{g or ''}-{_slug(number) or len(report.added) + 1}"
+        if it.get("part"):
+            pid += f"-p{_slug(it['part']) or 'x'}"
         if pid in existing:
             report.skip("уже в банке")
             continue
