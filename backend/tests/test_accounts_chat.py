@@ -123,6 +123,8 @@ def test_system_prompt_has_rules_level_and_problem():
     assert chat.OFF_TOPIC_REPLY in s and "9 класс" in s and "сильный" in s
     assert "Тело брошено" in s and "Не называй итоговый числовой ответ" in s
     assert "run_code" in s
+    assert "izho.kz" in s and "vos.olimpiada.ru" in s  # ссылки — только на проверенные сайты
+    assert "Казахстан" in s
 
 
 def test_run_code_tool():

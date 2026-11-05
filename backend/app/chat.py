@@ -10,8 +10,11 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import os
 from dataclasses import dataclass
+from functools import lru_cache
+from pathlib import Path
 
 from .config import settings
 from .llm import LLMError, _record_usage
@@ -46,6 +49,15 @@ SYSTEM = """Ты — ИИ-помощник тренажёра «Olymp Trainer» 
 сразу поговорить со взрослым, которому он доверяет (родители, учитель, школьный психолог),
 или позвонить на детский телефон доверия (в Казахстане — 150, в России — 8-800-2000-122).
 
+ОРГАНИЗАЦИОННЫЕ ВОПРОСЫ (даты, города, регистрация, проходные баллы, льготы при поступлении)
+Актуального расписания у тебя нет. Не называй конкретные даты, города, баллы и правила как факт —
+скажи, что это меняется каждый год, и подскажи, где проверить: официальный сайт олимпиады или учитель.
+Ссылки на сайты давай ТОЛЬКО из списка проверенных ниже; других адресов не придумывай.
+Ученики в основном из Казахстана. Если ответ зависит от страны — спроси, о какой стране речь,
+или опиши Казахстан и Россию отдельно.
+Проверенные сайты:
+{sites}
+
 КАК ПОМОГАТЬ
 Цель — чтобы ученик научился решать сам. Не выдавай сразу ответ: сначала наводящий вопрос или намёк,
 потом идея, потом план. Полное решение — если ученик попросил после своей попытки.
@@ -60,7 +72,8 @@ SYSTEM = """Ты — ИИ-помощник тренажёра «Olymp Trainer» 
 
 ФОРМАТ
 По-русски, коротко и понятно. Формулы в LaTeX внутри $...$. Можно выделять **жирным** и делать
-нумерованные шаги «1.», «2.»; курсив (*...*), заголовки (#) и таблицы не используй."""
+нумерованные шаги «1.», «2.»; курсив (*...*), заголовки (#) и таблицы не используй.
+Ссылку пиши просто адресом (https://...), без разметки [текст](адрес)."""
 
 PROBLEM_CONTEXT = """
 СЕЙЧАС УЧЕНИК РЕШАЕТ ЗАДАЧУ из банка ({source}, тема «{topic}»):
@@ -104,9 +117,27 @@ class Level:
         return f"{grade}{tier}; решено задач: {self.solved} из {self.attempted} начатых"
 
 
+@lru_cache(maxsize=1)
+def trusted_sites() -> str:
+    """Список проверенных сайтов олимпиад из data/sources.json — только на них помощник может ссылаться."""
+    path = Path(settings.data_dir) / "sources.json"
+    try:
+        sources = json.loads(path.read_text(encoding="utf-8"))["sources"]
+    except (OSError, ValueError, KeyError):
+        return "(список недоступен — не давай ссылок)"
+    lines = [
+        f"- {s['name']} ({s.get('region', '')}): {s['url']}"
+        for s in sources
+        if s.get("kind") != "research" and not s["domain"].startswith("cdn.")
+    ]
+    return "\n".join(lines)
+
+
 def build_system(level: Level, problem: dict | None = None) -> str:
     ctx = PROBLEM_CONTEXT.format(**problem) if problem else ""
-    return SYSTEM.format(off_topic=OFF_TOPIC_REPLY, level=level.describe(), problem=ctx)
+    return SYSTEM.format(
+        off_topic=OFF_TOPIC_REPLY, level=level.describe(), problem=ctx, sites=trusted_sites()
+    )
 
 
 def clean_history(messages: list[dict]) -> list[dict]:
