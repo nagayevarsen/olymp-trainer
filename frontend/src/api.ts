@@ -91,6 +91,7 @@ export interface Me {
   id: string
   name: string
   grade: number | null
+  has_account: boolean
   points: number
   solved: number
   rank: number | null
@@ -100,6 +101,19 @@ export interface Me {
   track: string | null
   recommended: { id: string; title: string; topic: string; subject: Subject; points: number }[]
 }
+
+export interface ChatTurn {
+  role: 'user' | 'assistant'
+  content: string
+}
+
+export interface ChatReply {
+  reply: string
+  code_runs: number
+  left: number
+}
+
+type Account = { id: string; name: string; grade: number | null }
 
 export interface LeaderRow {
   name: string
@@ -159,4 +173,14 @@ export const api = {
     post<{ level: number; text: string; total: number; potential: number }>(`/api/problems/${id}/hints/${level}`),
   solution: (id: string) => post<{ solution: string; can_clone: boolean }>(`/api/problems/${id}/solution`),
   leaderboard: () => request<LeaderRow[]>('/api/leaderboard'),
+  nickAvailable: (nick: string) =>
+    request<{ available: boolean; reason: string | null }>(`/api/nick-available?nick=${encodeURIComponent(nick)}`),
+  register: (nick: string, password: string, grade: number | null) =>
+    post<Account>('/api/register', { nick, password, grade, accept_terms: true }),
+  login: (nick: string, password: string) => post<Account>('/api/login', { nick, password }),
+  attachAccount: (nick: string, password: string) =>
+    post<{ id: string; name: string }>('/api/me/account', { nick, password }),
+  deleteMe: () => request<{ deleted: boolean }>('/api/me', { method: 'DELETE' }),
+  chat: (messages: ChatTurn[], problemId?: string | null) =>
+    post<ChatReply>('/api/chat', { messages, problem_id: problemId ?? null }),
 }

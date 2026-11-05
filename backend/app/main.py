@@ -13,7 +13,8 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from . import ai, scoring
+from . import ai, chat, scoring
+from .auth import AuthError, check_nick, check_password, hash_password, verify_password
 from .bank import STAGE_NAMES, Hints, Problem, get_problem, load_bank
 from .checker import AnswerKey, check_answer
 from .cloner import CloneError, find_seed, make_variant
@@ -104,8 +105,114 @@ def health() -> dict:
 
 @app.post("/api/users")
 def create_user(body: NewUser, db: DB = Depends(get_db)) -> dict:
+    """Профиль-гость без пароля (оставлен для совместимости; прогресс живёт только в этом браузере)."""
     uid = db.create_user(body.name.strip(), body.grade)
     return {"id": uid, "name": body.name.strip(), "grade": body.grade}
+
+
+# ---------- аккаунт: ник + пароль, без почты и телефона ----------
+class Register(BaseModel):
+    nick: str = Field(max_length=40)
+    password: str = Field(max_length=200)
+    grade: int | None = Field(default=None, ge=1, le=12)
+    accept_terms: bool = False
+
+
+class Login(BaseModel):
+    nick: str = Field(max_length=40)
+    password: str = Field(max_length=200)
+
+
+def _account_fields(nick: str, password: str) -> tuple[str, str]:
+    try:
+        nick = check_nick(nick)
+        check_password(password)
+    except AuthError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    return nick, hash_password(password)
+
+
+@app.get("/api/nick-available")
+def nick_available(nick: str, db: DB = Depends(get_db)) -> dict:
+    try:
+        nick = check_nick(nick)
+    except AuthError as exc:
+        return {"available": False, "reason": str(exc)}
+    taken = db.nick_taken(nick)
+    return {"available": not taken, "reason": "Такой ник уже занят" if taken else None}
+
+
+@app.post("/api/register")
+def register(body: Register, db: DB = Depends(get_db)) -> dict:
+    if not body.accept_terms:
+        raise HTTPException(400, "Нужно согласиться с условиями использования")
+    nick, pass_hash = _account_fields(body.nick, body.password)
+    uid = db.create_account(nick, pass_hash, body.grade)
+    if uid is None:
+        raise HTTPException(409, "Такой ник уже занят")
+    return {"id": uid, "name": nick, "grade": body.grade}
+
+
+@app.post("/api/login")
+def login(body: Login, db: DB = Depends(get_db)) -> dict:
+    user = db.user_by_nick(body.nick.strip())
+    if not user or not verify_password(body.password, user["pass_hash"]):
+        time.sleep(0.5)  # замедляем подбор пароля
+        raise HTTPException(401, "Неверный ник или пароль")
+    return {"id": user["id"], "name": user["name"], "grade": user["grade"]}
+
+
+@app.post("/api/me/account")
+def attach_account(body: Login, user: dict = Depends(current_user), db: DB = Depends(get_db)) -> dict:
+    """Гость задаёт ник и пароль — прогресс сохраняется и становится доступен с других устройств."""
+    if user.get("pass_hash"):
+        raise HTTPException(400, "У профиля уже есть ник и пароль")
+    nick, pass_hash = _account_fields(body.nick, body.password)
+    if not db.attach_account(user["id"], nick, pass_hash):
+        raise HTTPException(409, "Такой ник уже занят")
+    return {"id": user["id"], "name": nick}
+
+
+@app.delete("/api/me")
+def delete_me(user: dict = Depends(current_user), db: DB = Depends(get_db)) -> dict:
+    db.delete_user(user["id"])
+    return {"deleted": True}
+
+
+# ---------- чат с ИИ-помощником ----------
+class ChatMessage(BaseModel):
+    role: str
+    content: str = Field(max_length=chat.MAX_MESSAGE * 2)
+
+
+class ChatRequest(BaseModel):
+    messages: list[ChatMessage] = Field(max_length=100)
+    problem_id: str | None = None
+
+
+@app.post("/api/chat")
+async def chat_reply(body: ChatRequest, user: dict = Depends(current_user), db: DB = Depends(get_db)) -> dict:
+    try:
+        history = chat.clean_history([m.model_dump() for m in body.messages])
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    used = db.count_chat_message(user["id"], time.strftime("%Y-%m-%d"))
+    if used > chat.DAILY_LIMIT:
+        raise HTTPException(
+            429, f"На сегодня лимит {chat.DAILY_LIMIT} сообщений помощнику. Возвращайся завтра!"
+        )
+    prog = db.all_progress(user["id"])
+    level = chat.Level(
+        grade=user["grade"], solved=sum(p["solved"] for p in prog.values()), attempted=len(prog)
+    )
+    problem = None
+    if body.problem_id and (p := get_problem(body.problem_id)):
+        problem = {"source": p.source.label(), "topic": p.topic, "statement": p.statement}
+    try:
+        text, code_runs = await chat.reply(history, level, problem)
+    except LLMError as exc:
+        raise HTTPException(503, str(exc)) from exc
+    return {"reply": text, "code_runs": code_runs, "left": max(0, chat.DAILY_LIMIT - used)}
 
 
 @app.get("/api/me")
@@ -168,6 +275,7 @@ def me(
         "id": user["id"],
         "name": user["name"],
         "grade": user["grade"],
+        "has_account": bool(user.get("pass_hash")),
         "points": sum(pr["points"] for pr in prog.values()),
         "solved": sum(pr["solved"] for pr in prog.values()),
         "rank": rank,

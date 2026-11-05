@@ -4,8 +4,9 @@ import { usePoints } from '../points'
 
 const links = [
   { to: '/', label: 'Задачи', short: 'Задачи', end: true },
+  { to: '/chat', label: 'Помощник', short: 'ИИ' },
   { to: '/profile', label: 'Мой прогресс', short: 'Прогресс' },
-  { to: '/leaderboard', label: 'Рейтинг', short: 'Рейтинг' },
+  { to: '/leaderboard', label: 'Рейтинг', short: 'Топ' },
 ]
 
 export function Layout() {
@@ -49,6 +50,12 @@ export function Layout() {
       <main className="mx-auto max-w-5xl px-4 py-6 sm:py-8">
         <Outlet />
       </main>
+      <footer className="mx-auto max-w-5xl px-4 pb-8 text-xs text-slate-500">
+        <NavLink to="/terms" className="hover:underline">
+          Условия и данные
+        </NavLink>{' '}
+        · Часть задач и подсказок составлена ИИ, ответы вариантов проверены программой.
+      </footer>
     </div>
   )
 }

@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { api, type Me } from '../api'
 import { SUBJECT_NAMES, pluralPoints } from '../lib/text'
-import { getTrack } from '../user'
+import { clearUser, getTrack, getUser, saveUser } from '../user'
 
 export function ProfilePage({ onLogout }: { onLogout: () => void }) {
   const [me, setMe] = useState<Me | null>(null)
@@ -104,9 +104,7 @@ export function ProfilePage({ onLogout }: { onLogout: () => void }) {
         ))}
       </section>
 
-      <button onClick={onLogout} className="text-sm font-semibold text-slate-500 hover:underline">
-        Выйти и начать заново
-      </button>
+      <AccountBox hasAccount={me.has_account} onLogout={onLogout} onAttached={(name) => setMe({ ...me, name, has_account: true })} />
     </div>
   )
 }
@@ -117,5 +115,99 @@ function Stat({ label, value, accent }: { label: string; value: number | string;
       <div className={`text-3xl font-extrabold ${accent ? 'text-amber-600 dark:text-gold-400' : ''}`}>{value}</div>
       <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</div>
     </div>
+  )
+}
+
+function AccountBox({
+  hasAccount,
+  onLogout,
+  onAttached,
+}: {
+  hasAccount: boolean
+  onLogout: () => void
+  onAttached: (name: string) => void
+}) {
+  const [nick, setNick] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmDelete, setConfirmDelete] = useState(false)
+  const [error, setError] = useState('')
+  const [busy, setBusy] = useState(false)
+
+  async function attach(e: FormEvent) {
+    e.preventDefault()
+    setBusy(true)
+    setError('')
+    try {
+      const r = await api.attachAccount(nick.trim(), password)
+      const u = getUser()
+      if (u) saveUser({ ...u, name: r.name })
+      onAttached(r.name)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Ошибка')
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  async function remove() {
+    setBusy(true)
+    try {
+      await api.deleteMe()
+      clearUser()
+      onLogout()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Ошибка')
+      setBusy(false)
+    }
+  }
+
+  const input =
+    'w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950'
+  return (
+    <section className="card space-y-4 p-5">
+      <h2 className="font-bold">Аккаунт</h2>
+      {!hasAccount && (
+        <form onSubmit={attach} className="space-y-2">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            Сейчас прогресс хранится только в этом браузере. Задай ник и пароль — и он сохранится на любом устройстве.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <input value={nick} onChange={(e) => setNick(e.target.value)} placeholder="ник" maxLength={20} className={input + ' sm:w-40'} />
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="пароль (от 6 символов)"
+              maxLength={64}
+              className={input + ' sm:w-56'}
+            />
+            <button className="btn-primary" disabled={busy || nick.trim().length < 3 || password.length < 6}>
+              Сохранить
+            </button>
+          </div>
+        </form>
+      )}
+      {error && <p className="text-sm text-red-600">{error}</p>}
+      <div className="flex flex-wrap gap-4 text-sm">
+        <button onClick={onLogout} className="font-semibold text-slate-500 hover:underline">
+          Выйти
+        </button>
+        {confirmDelete ? (
+          <span className="flex flex-wrap items-center gap-2">
+            Удалить ник, пароль и весь прогресс навсегда?
+            <button onClick={remove} disabled={busy} className="font-semibold text-red-600 hover:underline">
+              Да, удалить
+            </button>
+            <button onClick={() => setConfirmDelete(false)} className="text-slate-500 hover:underline">
+              Отмена
+            </button>
+          </span>
+        ) : (
+          <button onClick={() => setConfirmDelete(true)} className="font-semibold text-red-600 hover:underline">
+            Удалить аккаунт
+          </button>
+        )}
+      </div>
+    </section>
   )
 }

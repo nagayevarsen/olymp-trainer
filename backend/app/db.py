@@ -38,6 +38,12 @@ CREATE TABLE IF NOT EXISTS submissions (
     status TEXT NOT NULL,
     created_at REAL NOT NULL
 );
+CREATE TABLE IF NOT EXISTS chat_usage (
+    user_id TEXT NOT NULL,
+    day TEXT NOT NULL,
+    messages INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (user_id, day)
+);
 CREATE TABLE IF NOT EXISTS hint_cache (
     problem_id TEXT PRIMARY KEY,
     json TEXT NOT NULL,
@@ -58,6 +64,19 @@ class DB:
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA journal_mode=WAL" if self.path != ":memory:" else "PRAGMA foreign_keys=ON")
         self.conn.executescript(SCHEMA)
+        self._migrate()
+
+    def _migrate(self) -> None:
+        """Аккаунты появились позже: добавить ник и хэш пароля в старую таблицу users."""
+        cols = {r["name"] for r in self.conn.execute("PRAGMA table_info(users)")}
+        with self.tx() as c:
+            if "nick" not in cols:
+                c.execute("ALTER TABLE users ADD COLUMN nick TEXT")
+            if "pass_hash" not in cols:
+                c.execute("ALTER TABLE users ADD COLUMN pass_hash TEXT")
+            c.execute(
+                "CREATE UNIQUE INDEX IF NOT EXISTS users_nick ON users(nick COLLATE NOCASE) WHERE nick IS NOT NULL"
+            )
 
     @contextmanager
     def tx(self):
@@ -81,6 +100,59 @@ class DB:
 
     def get_user(self, uid: str) -> sqlite3.Row | None:
         return self.conn.execute("SELECT * FROM users WHERE id = ?", (uid,)).fetchone()
+
+    # --- аккаунты (ник + пароль) ---
+    def nick_taken(self, nick: str) -> bool:
+        row = self.conn.execute("SELECT 1 FROM users WHERE nick = ? COLLATE NOCASE", (nick,)).fetchone()
+        return row is not None
+
+    def create_account(self, nick: str, pass_hash: str, grade: int | None) -> str | None:
+        """Новый аккаунт. None — ник уже занят."""
+        uid = uuid.uuid4().hex
+        try:
+            with self.tx() as c:
+                c.execute(
+                    "INSERT INTO users (id, name, grade, created_at, nick, pass_hash) VALUES (?, ?, ?, ?, ?, ?)",
+                    (uid, nick, grade, time.time(), nick, pass_hash),
+                )
+        except sqlite3.IntegrityError:
+            return None
+        return uid
+
+    def attach_account(self, uid: str, nick: str, pass_hash: str) -> bool:
+        """Привязать ник и пароль к профилю-гостю (прогресс сохраняется). False — ник занят."""
+        try:
+            with self.tx() as c:
+                c.execute(
+                    "UPDATE users SET nick = ?, name = ?, pass_hash = ? WHERE id = ?",
+                    (nick, nick, pass_hash, uid),
+                )
+        except sqlite3.IntegrityError:
+            return False
+        return True
+
+    def user_by_nick(self, nick: str) -> sqlite3.Row | None:
+        return self.conn.execute("SELECT * FROM users WHERE nick = ? COLLATE NOCASE", (nick,)).fetchone()
+
+    def delete_user(self, uid: str) -> None:
+        """Удалить аккаунт и всё, что с ним связано."""
+        with self.tx() as c:
+            for table in ("progress", "submissions", "chat_usage"):
+                c.execute(f"DELETE FROM {table} WHERE user_id = ?", (uid,))
+            c.execute("DELETE FROM users WHERE id = ?", (uid,))
+
+    def count_chat_message(self, uid: str, day: str) -> int:
+        """Учесть сообщение в чат и вернуть, сколько их за день."""
+        with self.tx() as c:
+            c.execute(
+                "INSERT INTO chat_usage (user_id, day, messages) VALUES (?, ?, 1) "
+                "ON CONFLICT(user_id, day) DO UPDATE SET messages = messages + 1",
+                (uid, day),
+            )
+        row = self.conn.execute(
+            "SELECT messages FROM chat_usage WHERE user_id = ? AND day = ?", (uid, day)
+        ).fetchone()
+        return int(row["messages"])
 
     # --- прогресс ---
     def progress(self, uid: str, pid: str) -> dict:

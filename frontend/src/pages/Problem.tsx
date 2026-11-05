@@ -206,7 +206,9 @@ export function ProblemPage() {
 
         <div className="card p-5">
           <h2 className="font-bold">Подсказки</h2>
-          <p className="mt-1 text-sm text-slate-500">Открывай по одной. Каждая немного снижает награду.</p>
+          <p className="mt-1 text-sm text-slate-500">
+            Открывай по одной. Каждая немного снижает награду. Подсказки составляет ИИ.
+          </p>
           <ol className="mt-4 space-y-3">
             {p.hints_opened.map((h, i) => (
               <li key={i} className="animate-fade-up rounded-xl bg-slate-50 p-3 text-sm dark:bg-slate-800/60">
@@ -217,6 +219,9 @@ export function ProblemPage() {
               </li>
             ))}
           </ol>
+          <Link to={`/chat?problem=${p.id}`} className="btn-ghost mt-3 w-full">
+            Спросить ИИ-помощника об этой задаче
+          </Link>
           {p.hints_opened.length < p.hints_total && !p.solution && (
             <button onClick={openHint} disabled={busy === 'hint'} className="btn-ghost mt-3 w-full">
               {busy === 'hint'
