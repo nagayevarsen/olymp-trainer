@@ -10,6 +10,7 @@
     python -m app.tools.bank_tool preview X          # показать 3 варианта задачи X
     python -m app.tools.bank_tool discover URL       # найти PDF на странице проверенного сайта
     python -m app.tools.bank_tool import-manifest data/imports/kurchatov.json   # импорт по списку
+    python -m app.tools.bank_tool verify-eval --sample 30 --risky   # калибровка проверки ответов
 """
 
 from __future__ import annotations
@@ -184,6 +185,58 @@ async def cmd_import_manifest(args) -> int:
     return 0
 
 
+async def cmd_verify_eval(args) -> int:
+    """Калибровка verify.py: прячем официальный ответ, проверяем вслепую, сравниваем с ключом."""
+    import random
+
+    from .. import verify
+    from ..llm import USAGE, usage_cost
+
+    pool = [p for p in load_bank().values() if p.answer.origin == "official" and p.source.url]
+    if args.subject:
+        pool = [p for p in pool if p.subject == args.subject]
+    random.Random(args.seed).shuffle(pool)
+    sem = asyncio.Semaphore(args.parallel)
+    picked: list[tuple[Problem, str]] = []
+    for p in pool:
+        if len(picked) >= args.sample:
+            break
+        kind = await verify.classify(p.statement)
+        if args.risky and kind not in verify.RISKY_KINDS:
+            continue
+        picked.append((p, kind))
+    print(f"Задач для проверки: {len(picked)}")
+    stats: dict[str, dict[str, int]] = {}
+
+    async def one(p: Problem, kind: str) -> None:
+        async with sem:
+            v = await verify.verify_answer(
+                p.statement, p.answer.unit, kind=kind, escalate=not args.no_escalate
+            )
+        tol = p.answer.tolerance
+        if v.accepted:
+            outcome = "верно" if verify.same(v.answer, p.answer.value, max(tol, 1e-6)) else "ОШИБКА"
+        else:
+            outcome = "отклонено"
+        s = stats.setdefault(kind, {"верно": 0, "ОШИБКА": 0, "отклонено": 0, "эскалаций": 0})
+        s[outcome] += 1
+        s["эскалаций"] += v.escalated
+        print(f"\n{p.id}: ключ {verify.fmt(p.answer.value)} → {outcome}")
+        for line in v.log():
+            print(f"     {line}")
+
+    await asyncio.gather(*(one(p, k) for p, k in picked))
+    print("\nИтог по типам:")
+    for kind, s in stats.items():
+        print(f"  {kind}: {s}")
+    for model, u in USAGE.items():
+        print(
+            f"{model}: запросов {u['calls']}, вход {u['input']}, выход {u['output']}, ${u['cost_micro'] / 1e6:.4f}"
+        )
+    print(f"Расход Claude: ${usage_cost():.4f}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="bank_tool", description="Работа с банком задач")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -203,6 +256,13 @@ def main(argv: list[str] | None = None) -> int:
     im.add_argument("manifest")
     im.add_argument("--dry-run", action="store_true")
     im.add_argument("--parallel", type=int, default=4, help="сколько файлов обрабатывать одновременно")
+    ve = sub.add_parser("verify-eval", help="калибровка проверки ответов на задачах с ключом")
+    ve.add_argument("--sample", type=int, default=20)
+    ve.add_argument("--seed", type=int, default=1)
+    ve.add_argument("--subject", choices=["math", "physics"])
+    ve.add_argument("--risky", action="store_true", help="только перебор, графики, графы")
+    ve.add_argument("--no-escalate", action="store_true", help="не звать модель сильнее")
+    ve.add_argument("--parallel", type=int, default=3)
     args = ap.parse_args(argv)
 
     if args.cmd == "check":
@@ -213,6 +273,8 @@ def main(argv: list[str] | None = None) -> int:
         return cmd_discover(args)
     if args.cmd == "import-manifest":
         return asyncio.run(cmd_import_manifest(args))
+    if args.cmd == "verify-eval":
+        return asyncio.run(cmd_verify_eval(args))
     fn = {"templates": cmd_templates, "hints": cmd_hints, "crosscheck": cmd_crosscheck}[args.cmd]
     return asyncio.run(fn(args))
 

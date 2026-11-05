@@ -54,6 +54,18 @@ SAFE_FUNCS = {
     "sorted",
     "divmod",
     "bool",
+    # для программ-переборов (проверка ответов без официального ключа)
+    "list",
+    "tuple",
+    "set",
+    "str",
+    "enumerate",
+    "zip",
+    "reversed",
+    "permutations",
+    "combinations",
+    "combinations_with_replacement",
+    "product",
 }
 SAFE_CONSTS = {"pi", "e", "True", "False", "None"}
 
@@ -87,6 +99,9 @@ _ALLOWED_NODES = (
     ast.List,
     ast.Subscript,
     ast.ListComp,
+    ast.SetComp,
+    ast.Set,
+    ast.Slice,
     ast.GeneratorExp,
     ast.comprehension,
     ast.Add,
@@ -113,6 +128,7 @@ _ALLOWED_NODES = (
 
 MAX_CODE_LEN = 4000
 TIMEOUT_S = 5.0
+BRUTE_FORCE_TIMEOUT_S = 30.0
 
 
 class SandboxError(ValueError):
@@ -170,8 +186,12 @@ import json, math, sys
 safe = {n: getattr(math, n) for n in (
     "sqrt sin cos tan asin acos atan atan2 log log2 log10 exp floor ceil factorial comb perm "
     "gcd lcm isqrt radians degrees hypot pi e").split()}
-for n in ("abs min max round int float sum len range pow all any sorted divmod bool").split():
+for n in ("abs min max round int float sum len range pow all any sorted divmod bool "
+          "list tuple set str enumerate zip reversed").split():
     safe[n] = __builtins__[n] if isinstance(__builtins__, dict) else getattr(__builtins__, n)
+import itertools
+for n in ("permutations combinations combinations_with_replacement product").split():
+    safe[n] = getattr(itertools, n)
 req = json.load(sys.stdin)
 g = {"__builtins__": {}}
 g.update(safe)
@@ -201,7 +221,10 @@ def _limit_memory() -> None:
 
 
 def run_solver(
-    code: str, calls: list[dict[str, Any]], constraints: list[str] | None = None
+    code: str,
+    calls: list[dict[str, Any]],
+    constraints: list[str] | None = None,
+    timeout: float = TIMEOUT_S,
 ) -> list[dict[str, Any]]:
     """Запустить solve(**params) для каждого набора params. Возвращает список
     {"ok": bool, "answer": float, "error": str}."""
@@ -216,7 +239,7 @@ def run_solver(
             input=payload,
             capture_output=True,
             text=True,
-            timeout=TIMEOUT_S,
+            timeout=timeout,
             preexec_fn=_limit_memory if sys.platform.startswith("linux") else None,
         )
     except subprocess.TimeoutExpired as exc:

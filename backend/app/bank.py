@@ -83,9 +83,18 @@ class Source(BaseModel):
         return parts
 
 
+AnswerOrigin = Literal["official", "verified"]
+
+
 class Answer(BaseModel):
     value: float
     unit: str | None = None
+    origin: AnswerOrigin = Field(
+        default="official",
+        description="official — ответ из официального файла; verified — официального ответа нет, "
+        "ответ получен независимо несколькими моделями и подтверждён программой (см. verified_by)",
+    )
+    verified_by: list[str] = Field(default=[], description="Как подтверждён ответ с origin=verified")
     rel_tol: float | None = Field(
         default=None,
         gt=0,

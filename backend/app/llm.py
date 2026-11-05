@@ -37,7 +37,7 @@ class LLMError(RuntimeError):
 USAGE: dict[str, dict[str, int]] = {}
 
 # Цены Claude, $ за 1M токенов (вход, выход) для промптов до 100K токенов; длиннее — (вход, выход) из LONG.
-PRICES = {"claude-haiku-5-5": (0.10, 0.50)}
+PRICES = {"claude-haiku-5-5": (0.10, 0.50), "claude-sonnet-5-5": (2.00, 10.00)}
 PRICES_LONG = {"claude-haiku-5-5": (0.50, 2.50)}
 LONG_PROMPT = 100_000
 
@@ -53,7 +53,8 @@ def _record_usage(model: str, usage) -> None:
     u["input"] += inp
     u["output"] += out
     u["calls"] += 1
-    price = (PRICES_LONG if inp > LONG_PROMPT else PRICES).get(model)
+    price = PRICES_LONG.get(model) if inp > LONG_PROMPT else None
+    price = price or PRICES.get(model)
     if price:
         u["cost_micro"] += round(inp * price[0] + out * price[1])
 
