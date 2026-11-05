@@ -1,0 +1,19 @@
+{
+  "id": "apmo-1999-math-1",
+  "subject": "math",
+  "topic": "Арифметическая прогрессия",
+  "title": "Наименьшее n для прогрессии",
+  "statement": "Find the smallest positive integer $n$ with the following property: There does not exist an arithmetic progression of 1999 terms of real numbers containing exactly $n$ integers.",
+  "answer": {
+    "value": 70.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
+    "year": 1999,
+    "stage": "international",
+    "number": 1,
+    "url": "https://www.apmo-official.org/static/solutions/apmo1999_sol.pdf"
+  }
+}

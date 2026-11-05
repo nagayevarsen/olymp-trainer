@@ -1,0 +1,19 @@
+{
+  "id": "apmo-2006-math-5",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Максимум клоунов с наборами цветов",
+  "statement": "In a circus, there are $n$ clowns who dress and paint themselves up using a selection of 12 distinct colours. Each clown is required to use at least five different colours. One day, the ringmaster of the circus orders that no two clowns have exactly the same set of colours and no more than 20 clowns may use any one particular colour. Find the largest number $n$ of clowns so as to make the ringmaster's order possible.",
+  "answer": {
+    "value": 48.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
+    "year": 2006,
+    "stage": "international",
+    "number": 5,
+    "url": "https://www.apmo-official.org/static/solutions/apmo2006_sol.pdf"
+  }
+}

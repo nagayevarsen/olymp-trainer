@@ -1,0 +1,19 @@
+{
+  "id": "apmo-2001-math-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Наибольшее число точек конгруэнтности",
+  "statement": "Let $ABCD$ be a quadrilateral with $AB \\neq CD$. Find the greatest possible number $n$ of points $X$ in the plane such that triangles $ABX$ and $CDX$ are congruent.",
+  "answer": {
+    "value": 4.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
+    "year": 2001,
+    "stage": "international",
+    "number": 5,
+    "url": "https://www.apmo-official.org/static/solutions/apmo2001_sol.pdf"
+  }
+}

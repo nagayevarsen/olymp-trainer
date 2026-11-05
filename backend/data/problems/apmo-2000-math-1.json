@@ -1,0 +1,19 @@
+{
+  "id": "apmo-2000-math-1",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Сумма дробей с кубами",
+  "statement": "Compute the sum $S = \\sum_{i=0}^{101} \\frac{x_i^3}{1-3x_i+3x_i^2}$ for $x_i = \\frac{i}{101}$.",
+  "answer": {
+    "value": 51.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
+    "year": 2000,
+    "stage": "international",
+    "number": 1,
+    "url": "https://www.apmo-official.org/static/solutions/apmo2000_sol.pdf"
+  }
+}

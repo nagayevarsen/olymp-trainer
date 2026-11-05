@@ -1,0 +1,19 @@
+{
+  "id": "apmo-1993-math-4",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Целые решения уравнения",
+  "statement": "Determine all positive integers $n$ for which the equation $$x^n + (2 + x)^n + (2 - x)^n = 0$$ has an integer as a solution.",
+  "answer": {
+    "value": 1.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
+    "year": 1993,
+    "stage": "international",
+    "number": 4,
+    "url": "https://www.apmo-official.org/static/solutions/apmo1993_sol.pdf"
+  }
+}

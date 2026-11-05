@@ -1,0 +1,19 @@
+{
+  "id": "apmo-2001-math-2",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Уравнение с целыми частями",
+  "statement": "Find the largest positive integer $N$ such that $\\left\\lfloor \\frac{N}{3} \\right\\rfloor + \\left\\lfloor \\frac{N}{35} \\right\\rfloor = \\left\\lfloor \\frac{N}{5} \\right\\rfloor + \\left\\lfloor \\frac{N}{7} \\right\\rfloor$.",
+  "answer": {
+    "value": 65.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
+    "year": 2001,
+    "stage": "international",
+    "number": 2,
+    "url": "https://www.apmo-official.org/static/solutions/apmo2001_sol.pdf"
+  }
+}
