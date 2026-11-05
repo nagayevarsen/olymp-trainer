@@ -84,3 +84,14 @@ def test_pdf_inside_zip(tmp_path, monkeypatch):
 
     with pytest.raises(importer.ImportError_):
         importer.fetch_pdf(url + "#member=../../etc/passwd")
+
+
+def test_part_without_context_or_question_is_detected():
+    from app.importer import MIN_PART_CONTEXT, NO_QUESTION_RE, expand_parts
+
+    out = expand_parts(
+        [{"kind": "multi", "statement": "", "parts": [{"label": "a", "kind": "numeric", "question": "Q"}]}]
+    )
+    assert out[0]["base_len"] < MIN_PART_CONTEXT
+    assert NO_QUESTION_RE.search("Пункт b. Вопрос в документе не приведён (в решении определяется мощность).")
+    assert not NO_QUESTION_RE.search("Найдите период колебаний маятника.")

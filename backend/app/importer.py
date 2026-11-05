@@ -243,6 +243,13 @@ def answer_in_text(value: float, text: str) -> bool:
     return False
 
 
+MIN_PART_CONTEXT = 80
+NO_QUESTION_RE = re.compile(
+    r"не приведён|не приведен|не указан[оа]? в документе|в документе не|question (is )?not (given|stated)",
+    re.I,
+)
+
+
 def expand_parts(items: list[dict]) -> list[dict]:
     """Задача из нескольких пунктов → отдельная задача на каждый пункт.
 
@@ -270,6 +277,7 @@ def expand_parts(items: list[dict]) -> list[dict]:
                     else f"{base}\n\n{question}",
                     "title": f"{(it.get('title') or 'Задача').strip()}, пункт {label}"[:60],
                     "part": label or str(len(out) + 1),
+                    "base_len": len(base),
                     "parts": None,
                 }
             )
@@ -370,6 +378,13 @@ async def import_pdf(
         }
         if len(raw["statement"]) < 40:
             report.skip("пустое условие")
+            continue
+        if it.get("part") and it.get("base_len", 0) < MIN_PART_CONTEXT:
+            # Пункт без общего условия решать нельзя (например, в файле только решения).
+            report.skip("у пункта нет общего условия")
+            continue
+        if NO_QUESTION_RE.search(raw["statement"]):
+            report.skip("в файле нет текста вопроса")
             continue
         try:
             problem = Problem.model_validate(raw)
