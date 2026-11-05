@@ -1,0 +1,19 @@
+{
+  "id": "turgor-os-2018-math-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Максимум углов больше 30°",
+  "statement": "Три медианы треугольника разделили его углы на шесть углов, среди которых ровно $k$ больше $30^\\circ$. Каково наибольшее возможное значение $k$?",
+  "answer": {
+    "value": 3.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Турнир городов, осенний тур",
+    "year": 2018,
+    "stage": "other",
+    "number": 5,
+    "url": "https://turgor.ru/problems/40/os-40-sol-fin.pdf"
+  }
+}

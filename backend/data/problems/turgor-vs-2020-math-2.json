@@ -1,0 +1,19 @@
+{
+  "id": "turgor-vs-2020-math-2",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Ряд целых чисел",
+  "statement": "Какое наибольшее количество различных целых чисел можно выписать в ряд так, чтобы сумма каждых $11$ подряд идущих чисел равнялась $100$ или $101$?",
+  "answer": {
+    "value": 22.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Турнир городов, весенний тур",
+    "year": 2020,
+    "stage": "other",
+    "number": 2,
+    "url": "https://turgor.ru/problems/41/vs-41-sol-all.pdf"
+  }
+}

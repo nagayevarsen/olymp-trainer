@@ -1,0 +1,19 @@
+{
+  "id": "turgor-vs-2022-math-1",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Наибольшее число n",
+  "statement": "Найдите наибольшее натуральное число $n$ со свойством: для каждого простого числа $p$, большего 2 и меньшего $n$, разность $n – p$ также является простым числом.",
+  "answer": {
+    "value": 10.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Турнир городов, весенний тур",
+    "year": 2022,
+    "stage": "other",
+    "number": 1,
+    "url": "https://turgor.ru/problems/43/vs-43-sol-fin.pdf"
+  }
+}

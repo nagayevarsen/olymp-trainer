@@ -1,0 +1,19 @@
+{
+  "id": "turgor-vs-2023-math-4",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Разность сумм целых частей",
+  "statement": "Для произвольного числа $x$ рассмотрим сумму $Q(x) = \\lfloor x \\rfloor + \\left\\lfloor \\frac{x}{2} \\right\\rfloor + \\left\\lfloor \\frac{x}{3} \\right\\rfloor + \\left\\lfloor \\frac{x}{4} \\right\\rfloor + \\dots + \\left\\lfloor \\frac{x}{10000} \\right\\rfloor$. Найдите разность $Q(2023) - Q(2022)$. (Здесь $\\lfloor x \\rfloor$ обозначает целую часть числа $x$, то есть наибольшее целое число, не превосходящее $x$.)",
+  "answer": {
+    "value": 6.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Турнир городов, весенний тур",
+    "year": 2023,
+    "stage": "other",
+    "number": 4,
+    "url": "https://turgor.ru/problems/44/vs-44-baz-sol.pdf"
+  }
+}

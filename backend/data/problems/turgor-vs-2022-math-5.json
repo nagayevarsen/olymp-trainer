@@ -1,0 +1,19 @@
+{
+  "id": "turgor-vs-2022-math-5",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Корни многочлена на интервале",
+  "statement": "Дан приведённый многочлен степени 2022 с целыми коэффициентами. Какое наибольшее число корней он может иметь на интервале $(0, 1)$?",
+  "answer": {
+    "value": 2021.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Турнир городов, весенний тур",
+    "year": 2022,
+    "stage": "other",
+    "number": 5,
+    "url": "https://turgor.ru/problems/43/vs-43-sol-fin.pdf"
+  }
+}
