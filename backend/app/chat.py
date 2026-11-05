@@ -206,7 +206,14 @@ def trusted_sites() -> str:
     return "\n".join(lines)
 
 
-def build_system(level: Level, problem: dict | None = None) -> str:
+OLYMPIAD_MODE = """
+СЕЙЧАС ИДЁТ ОЛИМПИАДА НА ВРЕМЯ. Как на настоящей олимпиаде: не давай подсказок, идей, планов, решений
+и ответов, не проверяй ответы. Можно только уточнить, что значит формулировка условия, и подбодрить.
+Если ученик просит подсказку — вежливо напомни, что идёт олимпиада, и предложи разобрать задачи
+после окончания времени."""
+
+
+def build_system(level: Level, problem: dict | None = None, olympiad: bool = False) -> str:
     ctx = PROBLEM_CONTEXT.format(**problem) if problem else ""
     lo, hi = level.points_range()
     points_hint = (
@@ -218,7 +225,7 @@ def build_system(level: Level, problem: dict | None = None) -> str:
         points_hint=points_hint,
         problem=ctx,
         sites=trusted_sites(),
-    )
+    ) + (OLYMPIAD_MODE if olympiad else "")
 
 
 def clean_history(messages: list[dict]) -> list[dict]:
@@ -282,17 +289,22 @@ async def _run_tool(call, tools: ChatTools | None, cards: list[dict]) -> str:
 
 
 async def reply(
-    messages: list[dict], level: Level, problem: dict | None = None, tools: ChatTools | None = None
+    messages: list[dict],
+    level: Level,
+    problem: dict | None = None,
+    tools: ChatTools | None = None,
+    olympiad: bool = False,
 ) -> tuple[str, int, list[dict]]:
     """Ответ помощника: (текст, сколько раз запускался код, карточки задач/олимпиад из банка)."""
     import anthropic
 
     client = _client()
-    system = build_system(level, problem)
+    system = build_system(level, problem, olympiad)
     convo: list = list(messages)
     code_runs = 0
     cards: list[dict] = []
-    tool_defs = [RUN_CODE_TOOL, *([SEARCH_TOOL, CONTESTS_TOOL] if tools else [])]
+    # Во время олимпиады помощник ничего не считает и не подбирает — только уточняет условия.
+    tool_defs = [] if olympiad else [RUN_CODE_TOOL, *([SEARCH_TOOL, CONTESTS_TOOL] if tools else [])]
     try:
         for _ in range(MAX_TOOL_ROUNDS + 1):
             msg = await client.messages.create(
@@ -300,7 +312,7 @@ async def reply(
                 max_tokens=4000,
                 system=system,
                 messages=convo,
-                tools=tool_defs,
+                **({"tools": tool_defs} if tool_defs else {}),
             )
             _record_usage(CHAT_MODEL, msg.usage)
             if msg.stop_reason == "refusal":

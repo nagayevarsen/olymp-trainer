@@ -1,67 +1,129 @@
-import { NavLink, Outlet } from 'react-router-dom'
-import { APP_NAME } from '../config'
-import { usePoints } from '../points'
-import { ThemeSwitch } from './ThemeSwitch'
+import { useEffect, useState } from 'react'
+import { Link, Outlet, useLocation } from 'react-router-dom'
+import { holidayOn } from '../lib/calendar'
+import { formatLeft, getRun, msLeft, onRunChange, type OlympiadRun } from '../olympiadRun'
+import { usePrefs } from '../prefs'
+import { SettingsDialog } from './SettingsDialog'
+import { Sidebar } from './Sidebar'
 
-const links = [
-  { to: '/', label: 'Задачи', short: 'Задачи', end: true },
-  { to: '/contests', label: 'Олимпиады', short: 'Олимп.' },
-  { to: '/chat', label: 'Помощник', short: 'ИИ' },
-  { to: '/profile', label: 'Мой прогресс', short: 'Я' },
-  { to: '/leaderboard', label: 'Рейтинг', short: 'Топ' },
-]
+const DECOR = ['π', '∑', '∫', '√', '∞', 'Δ', 'θ', '≈', 'λ', 'Ω', '∂', 'φ']
 
-export function Layout() {
-  const { points } = usePoints()
+/** Оболочка: сворачиваемая левая панель + основная область (чат или раздел). */
+export function Layout({ onLogout }: { onLogout: () => void }) {
+  const { prefs, setPref } = usePrefs()
+  const [settings, setSettings] = useState(false)
+  const [drawer, setDrawer] = useState(false)
+  const location = useLocation()
+  const holiday = prefs.holidays ? holidayOn() : null
+
+  useEffect(() => setDrawer(false), [location.pathname, location.search])
+
+  const sidebar = (
+    <Sidebar
+      onSettings={() => setSettings(true)}
+      onCollapse={() => (drawer ? setDrawer(false) : setPref('sidebarOpen', false))}
+    />
+  )
+
   return (
-    <div className="min-h-dvh">
-      <header className="sticky top-0 z-20 border-b border-slate-200/70 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
-        <div className="mx-auto flex max-w-5xl items-center gap-2 px-4 py-3">
-          <NavLink to="/" className="mr-2 flex items-center gap-2 font-extrabold tracking-tight">
-            <img src="/favicon.svg" alt="" className="h-7 w-7" />
-            <span className="hidden sm:inline">{APP_NAME}</span>
-          </NavLink>
-          <nav className="flex flex-1 gap-1 overflow-x-auto">
-            {links.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                end={l.end}
-                className={({ isActive }) =>
-                  `whitespace-nowrap rounded-lg px-2.5 py-1.5 sm:px-3 text-sm font-semibold transition ${
-                    isActive
-                      ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-200'
-                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
-                  }`
-                }
-              >
-                <span className="hidden sm:inline">{l.label}</span>
-                <span className="sm:hidden">{l.short}</span>
-              </NavLink>
-            ))}
-          </nav>
-          {/* на телефоне переключатель темы — в чате и в профиле, чтобы не теснить меню */}
-          <div className="hidden shrink-0 sm:block">
-            <ThemeSwitch />
-          </div>
-          <div
-            className="chip bg-gold-400/15 text-amber-700 dark:text-gold-400"
-            title="Твои баллы"
-            aria-label={`Баллы: ${points}`}
+    <div className="flex h-dvh overflow-hidden">
+      {/* компьютер: панель слева, сворачивается стрелкой */}
+      {prefs.sidebarOpen ? (
+        <aside className="hidden w-72 shrink-0 border-r border-slate-200 bg-white/70 lg:block dark:border-slate-800 dark:bg-slate-900/40">
+          {sidebar}
+        </aside>
+      ) : (
+        <button
+          onClick={() => setPref('sidebarOpen', true)}
+          className="hidden w-9 shrink-0 items-start justify-center border-r border-slate-200 pt-4 text-slate-500 hover:text-slate-900 lg:flex dark:border-slate-800 dark:hover:text-white"
+          title="Открыть панель"
+          aria-label="Открыть панель"
+        >
+          »
+        </button>
+      )}
+
+      {/* телефон и планшет: панель выезжает по кнопке ☰ */}
+      {drawer && (
+        <div className="fixed inset-0 z-40 lg:hidden" onClick={() => setDrawer(false)}>
+          <div className="absolute inset-0 bg-black/40" />
+          <aside
+            className="absolute inset-y-0 left-0 w-80 max-w-[85vw] bg-white shadow-xl dark:bg-slate-900"
+            onClick={(e) => e.stopPropagation()}
           >
-            ★ {points}
-          </div>
+            {sidebar}
+          </aside>
         </div>
-      </header>
-      <main className="mx-auto max-w-5xl px-4 py-6 sm:py-8">
-        <Outlet />
-      </main>
-      <footer className="mx-auto max-w-5xl px-4 pb-8 text-xs text-slate-500">
-        <NavLink to="/terms" className="hover:underline">
-          Условия и данные
-        </NavLink>{' '}
-        · Часть задач и подсказок составлена ИИ, ответы вариантов проверены программой.
-      </footer>
+      )}
+
+      <div className="relative flex min-w-0 flex-1 flex-col overflow-y-auto">
+        {prefs.decor && (
+          <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-0 overflow-hidden select-none">
+            {DECOR.map((ch, i) => (
+              <span
+                key={i}
+                className="absolute font-serif text-5xl text-slate-900/[0.035] dark:text-white/[0.04]"
+                style={{ left: `${(i * 37) % 95}%`, top: `${(i * 53 + 11) % 92}%`, transform: `rotate(${(i % 5) * 9 - 18}deg)` }}
+              >
+                {ch}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <div className="sticky top-0 z-20 flex items-center gap-2 border-b border-slate-200/70 bg-slate-50/85 px-3 py-2 backdrop-blur lg:hidden dark:border-slate-800 dark:bg-slate-950/85">
+          <button onClick={() => setDrawer(true)} className="icon-btn" aria-label="Открыть меню">
+            ☰
+          </button>
+          <Link to="/" className="font-extrabold tracking-tight">
+            Название
+          </Link>
+        </div>
+
+        {holiday && (
+          <div className={`relative z-10 bg-gradient-to-r ${holiday.strip} px-4 py-1.5 text-center text-sm font-semibold`}>
+            {holiday.emoji} {holiday.greeting}
+          </div>
+        )}
+        <RunBanner />
+
+        <main className="relative z-10 mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:py-8">
+          <Outlet />
+        </main>
+        <footer className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-6 text-xs text-slate-500">
+          <Link to="/terms" className="hover:underline">
+            Условия и данные
+          </Link>{' '}
+          · Часть задач и подсказок составлена ИИ, ответы вариантов проверены программой.
+        </footer>
+      </div>
+
+      <SettingsDialog open={settings} onClose={() => setSettings(false)} onLogout={onLogout} />
     </div>
+  )
+}
+
+/** Полоска с таймером, пока идёт пробная олимпиада (видна на любой странице). */
+function RunBanner() {
+  const [run, setRunState] = useState<OlympiadRun | null>(getRun)
+  const [now, setNow] = useState(() => Date.now())
+  useEffect(() => onRunChange(() => setRunState(getRun())), [])
+  useEffect(() => {
+    if (!run || run.finished) return
+    setNow(Date.now())
+    const t = setInterval(() => setNow(Date.now()), 1000)
+    return () => clearInterval(t)
+  }, [run])
+  if (!run || run.finished) return null
+  const left = msLeft(run, now)
+  return (
+    <Link
+      to="/?mode=olympiad"
+      className={`relative z-10 block px-4 py-1.5 text-center text-sm font-semibold ${
+        left > 0 ? 'bg-brand-600 text-white' : 'bg-red-600 text-white'
+      }`}
+    >
+      {left > 0 ? `⏱ Идёт олимпиада «${run.title}» · осталось ${formatLeft(left)}` : '⏱ Время вышло — посмотреть итоги'}
+    </Link>
   )
 }

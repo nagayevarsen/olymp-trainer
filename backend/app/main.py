@@ -6,6 +6,7 @@ import random
 import time
 from collections import defaultdict
 from pathlib import Path
+from typing import Literal
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
@@ -110,6 +111,21 @@ def create_user(body: NewUser, db: DB = Depends(get_db)) -> dict:
     return {"id": uid, "name": body.name.strip(), "grade": body.grade}
 
 
+def _streak(prog: dict) -> int:
+    """Сколько дней подряд (включая сегодня или вчера) ученик решал хотя бы одну задачу."""
+    days = {
+        time.strftime("%Y-%m-%d", time.localtime(p["solved_at"])) for p in prog.values() if p.get("solved_at")
+    }
+    day = time.time()
+    if time.strftime("%Y-%m-%d", time.localtime(day)) not in days:
+        day -= 86400  # сегодня ещё не решал — серия не сгорает до конца дня
+    n = 0
+    while time.strftime("%Y-%m-%d", time.localtime(day)) in days:
+        n += 1
+        day -= 86400
+    return n
+
+
 # ---------- аккаунт: ник + пароль, без почты и телефона ----------
 class Register(BaseModel):
     nick: str = Field(max_length=40)
@@ -188,6 +204,7 @@ class ChatMessage(BaseModel):
 class ChatRequest(BaseModel):
     messages: list[ChatMessage] = Field(max_length=100)
     problem_id: str | None = None
+    mode: Literal["training", "olympiad"] = "training"
 
 
 @app.post("/api/chat")
@@ -220,7 +237,9 @@ async def chat_reply(body: ChatRequest, user: dict = Depends(current_user), db: 
     if body.problem_id and (p := get_problem(body.problem_id)):
         problem = {"source": p.source.label(), "topic": p.topic, "statement": p.statement}
     try:
-        text, code_runs, cards = await chat.reply(history, level, problem, tools)
+        text, code_runs, cards = await chat.reply(
+            history, level, problem, tools, olympiad=body.mode == "olympiad"
+        )
     except LLMError as exc:
         raise HTTPException(503, str(exc)) from exc
     return {"reply": text, "code_runs": code_runs, "cards": cards, "left": max(0, chat.DAILY_LIMIT - used)}
@@ -296,9 +315,10 @@ def contest_detail(contest_id: str, x_user_id: str = Header(default=""), db: DB 
                 "solved": bool(pr.get("solved")),
                 "earned": pr.get("points", 0),
                 "started": bool(pr.get("attempts") or pr.get("hints_used")),
+                "can_clone": p.can_clone,
             }
         )
-    return {**_contest_row(c, stats, prog), "problems": problems}
+    return {**_contest_row(c, stats, prog), "stage": c.stage, "problems": problems}
 
 
 @app.get("/api/me")
@@ -362,6 +382,7 @@ def me(
         "name": user["name"],
         "grade": user["grade"],
         "has_account": bool(user.get("pass_hash")),
+        "streak": _streak(prog),
         "points": sum(pr["points"] for pr in prog.values()),
         "solved": sum(pr["solved"] for pr in prog.values()),
         "rank": rank,

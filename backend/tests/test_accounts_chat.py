@@ -79,7 +79,7 @@ def test_delete_account(client):
 def test_chat_passes_level_and_problem_without_answer(client, monkeypatch):
     seen = {}
 
-    async def fake_reply(messages, level, problem, tools):
+    async def fake_reply(messages, level, problem, tools, olympiad=False):
         seen.update(messages=messages, level=level, problem=problem)
         found = tools.search(query="жаутыковская", limit=2)
         return "Подумай, что сохраняется при движении.", 1, [{"kind": "problem", **f} for f in found]
@@ -99,7 +99,7 @@ def test_chat_passes_level_and_problem_without_answer(client, monkeypatch):
 
 
 def test_chat_requires_login_and_daily_limit(client, monkeypatch):
-    async def fake_reply(messages, level, problem, tools):
+    async def fake_reply(messages, level, problem, tools, olympiad=False):
         return "ok", 0, []
 
     monkeypatch.setattr(chat, "reply", fake_reply)
@@ -166,3 +166,21 @@ def test_search_matches_aliases_and_excludes_solved():
     )
     assert found[0]["id"] not in {f["id"] for f in again}
     assert search_problems(bank, lambda p: 300, set(), query="жаутыковская", max_points=100) == []
+
+
+def test_olympiad_mode_prompt_forbids_hints():
+    s = chat.build_system(chat.Level(9, 0, 0), olympiad=True)
+    assert "ИДЁТ ОЛИМПИАДА" in s and "не давай подсказок" in s
+    assert "ИДЁТ ОЛИМПИАДА" not in chat.build_system(chat.Level(9, 0, 0))
+
+
+def test_streak_counts_consecutive_days():
+    import time as _t
+
+    from app.main import _streak
+
+    now = _t.time()
+    prog = {str(i): {"solved_at": now - i * 86400} for i in (0, 1, 2, 4)}
+    assert _streak(prog) == 3
+    assert _streak({"a": {"solved_at": now - 86400}}) == 1  # вчера решал — серия ещё жива
+    assert _streak({}) == 0

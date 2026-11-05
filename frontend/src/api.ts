@@ -92,6 +92,7 @@ export interface Me {
   name: string
   grade: number | null
   has_account: boolean
+  streak: number
   points: number
   solved: number
   rank: number | null
@@ -139,7 +140,9 @@ export interface ContestRow {
 }
 
 export interface ContestDetail extends ContestRow {
+  stage: string
   problems: {
+    can_clone: boolean
     n: number
     id: string
     title: string
@@ -222,6 +225,6 @@ export const api = {
   contests: (query = '', subject?: Subject | null) =>
     request<ContestRow[]>(`/api/contests?query=${encodeURIComponent(query)}${subject ? `&subject=${subject}` : ''}`),
   contest: (id: string) => request<ContestDetail>(`/api/contests/${id}`),
-  chat: (messages: ChatTurn[], problemId?: string | null) =>
-    post<ChatReply>('/api/chat', { messages, problem_id: problemId ?? null }),
+  chat: (messages: ChatTurn[], problemId?: string | null, mode: 'training' | 'olympiad' = 'training') =>
+    post<ChatReply>('/api/chat', { messages, problem_id: problemId ?? null, mode }),
 }
