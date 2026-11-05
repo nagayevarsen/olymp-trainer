@@ -70,3 +70,53 @@ def test_brute_force_sandbox_features():
 def test_run_program(code, expect_none):
     value, _ = run_program(code)
     assert (value is None) == expect_none
+
+
+def test_sandbox_allows_set_union_underscore_and_is_not():
+    code = (
+        "def solve():\n"
+        "    s = set()\n"
+        "    best = None\n"
+        "    for _ in range(3):\n"
+        "        for a in range(5):\n"
+        "            s = s | {a % 3}\n"
+        "            if best is None or a > best:\n"
+        "                best = a\n"
+        "    return len(s) * 10 + best\n"
+    )
+    assert run_solver(code, [{}])[0]["answer"] == 34
+
+
+def test_sandbox_still_blocks_dunder_names():
+    from app.sandbox import SandboxError, validate_code
+
+    with pytest.raises(SandboxError):
+        validate_code("def solve():\n    return __builtins__\n")
+
+
+def test_extract_json_takes_first_object():
+    from app.llm import extract_json
+
+    assert extract_json('{"answer": 5}\n{"answer": 6}') == {"answer": 5}
+
+
+def test_program_can_call_method_bank():
+    # перебор на маленьких n сверяется с формулой Гаусса из банка, затем ответ для большого n
+    code = (
+        "def solve():\n"
+        "    def brute(n):\n"
+        "        return sum(range(1, n + 1))\n"
+        "    for n in range(1, 30):\n"
+        "        if gauss_sum(1, 1, n) != brute(n):\n"
+        "            return -123456789\n"
+        "    return gauss_sum(1, 1, 10**9)\n"
+    )
+    value, note = run_program(code)
+    assert value == 10**9 * (10**9 + 1) // 2, note
+
+
+def test_prompt_contains_method_catalog():
+    from app.verify import LARGE, METHOD
+
+    text = METHOD["enumeration"].replace("{large}", LARGE.format(catalog="CATALOG"))
+    assert "brute(n)" in text and "CATALOG" in text

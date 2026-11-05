@@ -26,9 +26,11 @@ from __future__ import annotations
 
 import asyncio
 import math
+import re
 from dataclasses import dataclass, field
 
 from .llm import LLMError, complete_json
+from .methods import METHODS, catalog_text, helper_code
 from .sandbox import BRUTE_FORCE_TIMEOUT_S, SandboxError, run_solver
 
 RISKY_KINDS = {"enumeration", "graph_plot", "graph_theory"}
@@ -39,14 +41,23 @@ SOLVER_MODELS = [
     "gemini:gemini-3.5-flash",
     "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free",
 ]
-PROGRAM_MODELS = ["anthropic:claude-haiku-5-5", "gemini:gemini-3.5-flash"]
+# Программы пишут модели двух разных производителей (Gemini — запасной вариант).
+PROGRAM_MODELS = ["anthropic:claude-haiku-5-5", "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free"]
 # Модель «на ступень выше». Зовётся только если дешёвые модели не договорились:
 # её решение и её программа — дополнительные голоса, а не решающий.
 ESCALATION_MODEL = "anthropic:claude-sonnet-5-5"
-# Запасные модели, если основная недоступна (лимиты бесплатных квот).
+# Запасные модели, если основная недоступна (у бесплатных моделей маленькие квоты).
 FALLBACK = {
-    "gemini:gemini-3.5-flash": ["gemini:gemini-3.8-flash", "gemini:gemini-flash-latest"],
-    "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free": ["openrouter:google/gemma-4-31b-it:free"],
+    "gemini:gemini-3.5-flash": [
+        "gemini:gemini-3.8-flash",
+        "gemini:gemini-flash-latest",
+        "openrouter:google/gemma-4-31b-it:free",
+    ],
+    "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free": [
+        "openrouter:google/gemma-4-31b-it:free",
+        "gemini:gemini-3.8-flash",
+        "gemini:gemini-3.5-flash",
+    ],
     "anthropic:claude-haiku-5-5": [],
     "anthropic:claude-sonnet-5-5": [],
 }
@@ -97,11 +108,34 @@ PROGRAM_PROMPT = """Задача:
 Если честно посчитать вычислением нельзя (слишком большой перебор, нужен рисунок) —
 {{"feasible": false, "reason": "..."}}."""
 
+LARGE = """
+ЕСЛИ ЧИСЛА СЛИШКОМ БОЛЬШИЕ ДЛЯ ПЕРЕБОРА (больше ~10^7 вариантов), действуй так:
+1) обобщи задачу: замени большое число параметром n (2026 → n);
+2) напиши функцию brute(n), которая решает задачу ПЕРЕБОРОМ для маленьких n;
+3) возьми подходящий метод из банка ниже (или свою формулу) и напиши formula(n);
+4) в solve() проверь formula(n) == brute(n) для всех маленьких n, где перебор быстрый
+   (не меньше 5 значений). Если хоть одно не совпало — верни -123456789;
+5) иначе верни formula(большое число).
+Функции из банка можно вызывать по имени — их код подставится автоматически.
+
+Банк проверенных методов:
+{catalog}"""
+
+FIX_PROMPT = """Твоя прошлая программа:
+{code}
+
+не запустилась: {error}
+Исправь её, соблюдая ограничения:
+{rules}
+Верни JSON в том же формате."""
+
 METHOD = {
     "enumeration": """Напиши программу ПОЛНОГО ПЕРЕБОРА, которая находит ответ прямо по определению из условия:
 перебери все объекты (числа, расстановки, раскраски, ходы) и проверь условие задачи для каждого.
 НЕ используй выведенные формулы и «хитрые» соображения — только перебор и проверку условия.
-Если в условии большие числа (например 2026), но перебор всё равно укладывается во время — перебирай.""",
+Если в условии большие числа (например 2026), но перебор всё равно укладывается во время — перебирай.
+"""
+    + "{large}",
     "graph_plot": """Напиши программу, которая находит ответ ЧИСЛЕННО, без аналитических выкладок:
 задай функцию/зависимость из условия, пройди по мелкой сетке значений и найди нужное —
 корни и пересечения по смене знака (с уточнением делением пополам через for),
@@ -110,7 +144,9 @@ METHOD = {
     "graph_theory": """Напиши программу ПОЛНОГО ПЕРЕБОРА для графа из условия: перебери все подмножества рёбер,
 все раскраски, все пути или все турниры (что требует условие) и проверь условие для каждого.
 Не используй теоремы — только перебор. Если граф в общем случае большой, но в условии конкретный
-и маленький — перебирай его.""",
+и маленький — перебирай его.
+"""
+    + "{large}",
     "other": """Напиши программу, которая вычисляет ответ по шагам решения, а затем ПРОВЕРЯЕТ его:
 подставь найденные значения обратно во все условия задачи. Если проверка не сходится,
 верни -123456789. Для физики ответ — в тех единицах, которые просит условие.""",
@@ -202,7 +238,18 @@ async def solve_by_reasoning(statement: str, model: str, unit: str | None) -> At
     return Attempt(used, _num(data.get("answer")))
 
 
+def with_helpers(code: str) -> str:
+    """Подставить код методов из банка, которые программа вызывает, но не определяет сама."""
+    extra = [
+        helper_code(m)
+        for m in METHODS
+        if re.search(rf"\b{m['id']}\s*\(", code) and not re.search(rf"def\s+{m['id']}\s*\(", code)
+    ]
+    return "\n".join([*extra, code])
+
+
 def run_program(code: str) -> tuple[float | None, str]:
+    code = with_helpers(code)
     try:
         res = run_solver(code, [{}], timeout=BRUTE_FORCE_TIMEOUT_S)[0]
     except SandboxError as exc:
@@ -216,7 +263,8 @@ def run_program(code: str) -> tuple[float | None, str]:
 
 
 async def solve_by_program(statement: str, model: str, kind: str) -> Attempt:
-    prompt = PROGRAM_PROMPT.format(statement=statement, method=METHOD[kind], rules=PROGRAM_RULES)
+    method = METHOD[kind].replace("{large}", LARGE.format(catalog=catalog_text()))
+    prompt = PROGRAM_PROMPT.format(statement=statement, method=method, rules=PROGRAM_RULES)
     try:
         data, used = await _ask(model, prompt, PROGRAM_SYSTEM)
     except LLMError as exc:
@@ -224,6 +272,16 @@ async def solve_by_program(statement: str, model: str, kind: str) -> Attempt:
     if not data.get("feasible") or not isinstance(data.get("code"), str):
         return Attempt(used, None, f"(не стала считать: {str(data.get('reason', ''))[:80]})")
     value, note = await asyncio.to_thread(run_program, data["code"])
+    if value is None and note.startswith(("(код отклонён", "(ошибка")):
+        # Одна попытка исправить: показываем модели её код и ошибку.
+        fix = FIX_PROMPT.format(code=data["code"], error=note.strip("()"), rules=PROGRAM_RULES)
+        try:
+            data2, used = await _ask(used, prompt + "\n\n" + fix, PROGRAM_SYSTEM)
+        except LLMError:
+            return Attempt(used, None, note)
+        if data2.get("feasible") and isinstance(data2.get("code"), str):
+            value, note2 = await asyncio.to_thread(run_program, data2["code"])
+            note = note2 or "(исправлена после ошибки)"
     return Attempt(used, value, note)
 
 

@@ -250,7 +250,14 @@ def extract_json(text: str) -> dict:
     try:
         return json.loads(candidate[start : end + 1])
     except json.JSONDecodeError as exc:
-        raise LLMError(f"Модель вернула некорректный JSON: {exc}") from exc
+        # Бывает, что модель пишет два JSON-объекта подряд или текст после JSON — берём первый.
+        try:
+            obj, _ = json.JSONDecoder().raw_decode(candidate[start:])
+        except json.JSONDecodeError:
+            raise LLMError(f"Модель вернула некорректный JSON: {exc}") from exc
+        if not isinstance(obj, dict):
+            raise LLMError("Модель вернула не JSON-объект") from exc
+        return obj
 
 
 async def complete_json(prompt: str, system: str, **kwargs) -> tuple[dict, str]:

@@ -111,6 +111,11 @@ _ALLOWED_NODES = (
     ast.FloorDiv,
     ast.Mod,
     ast.Pow,
+    ast.BitOr,
+    ast.BitAnd,
+    ast.BitXor,
+    ast.Is,
+    ast.IsNot,
     ast.USub,
     ast.UAdd,
     ast.Not,
@@ -126,7 +131,7 @@ _ALLOWED_NODES = (
     ast.NotIn,
 )
 
-MAX_CODE_LEN = 4000
+MAX_CODE_LEN = 12000
 TIMEOUT_S = 5.0
 BRUTE_FORCE_TIMEOUT_S = 30.0
 
@@ -160,8 +165,8 @@ def validate_code(code: str, entry: str = "solve") -> None:
 
     for node in ast.walk(tree):
         if isinstance(node, ast.Name):
-            if node.id.startswith("_"):
-                raise SandboxError("Имена с подчёркиванием запрещены")
+            if node.id.startswith("__"):
+                raise SandboxError("Имена с двойным подчёркиванием запрещены")
             if isinstance(node.ctx, ast.Load) and node.id not in defined | SAFE_FUNCS | SAFE_CONSTS:
                 raise SandboxError(f"Неизвестное имя: {node.id}")
         if isinstance(node, ast.Call) and not isinstance(node.func, ast.Name):
