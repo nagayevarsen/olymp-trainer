@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "katex/dist/katex.min.css";
 
+/* Тёмная тема включается классом .dark на <html> (светлая / тёмная / как в системе — см. theme.ts). */
+@custom-variant dark (&:where(.dark, .dark *));
+
 
 @theme {
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;

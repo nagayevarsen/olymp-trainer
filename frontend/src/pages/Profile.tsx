@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { api, type Me } from '../api'
 import { SUBJECT_NAMES, pluralPoints } from '../lib/text'
 import { clearUser, getTrack, getUser, saveUser } from '../user'
+import { ThemeSwitch } from '../components/ThemeSwitch'
 
 export function ProfilePage({ onLogout }: { onLogout: () => void }) {
   const [me, setMe] = useState<Me | null>(null)
@@ -165,7 +166,12 @@ function AccountBox({
     'w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950'
   return (
     <section className="card space-y-4 p-5">
-      <h2 className="font-bold">Аккаунт</h2>
+      <div className="flex items-center justify-between gap-3">
+        <h2 className="font-bold">Аккаунт</h2>
+        <span className="flex items-center gap-2 text-sm text-slate-500">
+          Тема <ThemeSwitch />
+        </span>
+      </div>
       {!hasAccount && (
         <form onSubmit={attach} className="space-y-2">
           <p className="text-sm text-slate-600 dark:text-slate-400">

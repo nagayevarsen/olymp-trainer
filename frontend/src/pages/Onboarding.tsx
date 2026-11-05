@@ -3,6 +3,7 @@ import { api } from '../api'
 import { APP_NAME, APP_TAGLINE } from '../config'
 import { saveUser, type StoredUser } from '../user'
 import { TermsText } from './Terms'
+import { ThemeSwitch } from '../components/ThemeSwitch'
 
 const features = [
   { icon: '✓', title: 'Проверенные варианты', text: 'Каждый новый вариант задачи проверен кодом — без ошибок в условии.' },
@@ -66,10 +67,11 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
         <div className="mb-4 flex items-center gap-3">
           <img src="/favicon.svg" alt="" className="h-11 w-11" />
           <span className="text-xl font-extrabold tracking-tight">{APP_NAME}</span>
+          <ThemeSwitch className="ml-auto" />
         </div>
         <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-          Готовься к олимпиадам <span className="text-brand-600 dark:text-brand-400">с наставником,</span> а не со
-          шпаргалкой
+          Готовься к олимпиадам, видя <span className="text-brand-600 dark:text-brand-400">свой прогресс,</span> а
+          не готовые ответы
         </h1>
         <p className="mt-4 max-w-xl text-lg text-slate-600 dark:text-slate-400">{APP_TAGLINE}</p>
         <ul className="mt-8 grid gap-4 sm:grid-cols-3">

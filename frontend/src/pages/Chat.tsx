@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { api, type ChatCard, type ChatTurn } from '../api'
 import { MathText } from '../components/MathText'
+import { ThemeSwitch } from '../components/ThemeSwitch'
 import { pluralTasks } from '../lib/text'
 
 // Переписка хранится только на этом устройстве (на сервере её нет).
@@ -111,11 +112,16 @@ export function ChatPage() {
       <header className="flex flex-wrap items-center gap-2">
         <h1 className="text-2xl font-extrabold tracking-tight">Помощник</h1>
         <span className="chip bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">ИИ-помощник</span>
-        {problemId && (
-          <Link to={`/problem/${problemId}`} className="ml-auto text-sm font-semibold text-brand-600 hover:underline">
-            ← к задаче
-          </Link>
-        )}
+        <span className="ml-auto flex items-center gap-3">
+          {problemId && (
+            <Link to={`/problem/${problemId}`} className="text-sm font-semibold text-brand-600 hover:underline">
+              ← к задаче
+            </Link>
+          )}
+          <span className="sm:hidden">
+            <ThemeSwitch />
+          </span>
+        </span>
       </header>
       <p className="-mt-2 text-sm text-slate-500">
         Отвечает ИИ — только про математику, физику и олимпиады. Расчёты и новые задачи он проверяет программой, но

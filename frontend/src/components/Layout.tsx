@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom'
 import { APP_NAME } from '../config'
 import { usePoints } from '../points'
+import { ThemeSwitch } from './ThemeSwitch'
 
 const links = [
   { to: '/', label: 'Задачи', short: 'Задачи', end: true },
@@ -39,6 +40,10 @@ export function Layout() {
               </NavLink>
             ))}
           </nav>
+          {/* на телефоне переключатель темы — в чате и в профиле, чтобы не теснить меню */}
+          <div className="hidden shrink-0 sm:block">
+            <ThemeSwitch />
+          </div>
           <div
             className="chip bg-gold-400/15 text-amber-700 dark:text-gold-400"
             title="Твои баллы"
