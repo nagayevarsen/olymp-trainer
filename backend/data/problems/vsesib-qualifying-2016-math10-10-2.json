@@ -5,7 +5,9 @@
   "title": "Ладьи на белых полях",
   "statement": "Найти число различных расстановок $8$ ладей на различных белых полях шахматной доски $8 \\times 8$ таких, что ни одна ладья не бьёт другую. Шахматная ладья бьёт все клетки горизонтали и вертикали, на пересечении которых стоит.",
   "answer": {
-    "value": 576.0
+    "value": 576.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,32 @@
     "grade": 10,
     "number": 2,
     "url": "https://sesc.nsu.ru/upload/iblock/ec6/2015_2_math_s.pdf"
+  },
+  "template": {
+    "text": "Найти число различных расстановок {n} ладей на различных белых полях шахматной доски {n} × {n} таких, что ни одна ладья не бьёт другую. Шахматная ладья бьёт все клетки горизонтали и вертикали, на пересечении которых стоит.",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 12.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "n": 8.0
+    },
+    "solver": "def solve(n):\n    return factorial(n // 2) ** 2",
+    "constraints": [
+      "n % 2 == 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

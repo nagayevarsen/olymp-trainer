@@ -6,7 +6,9 @@
   "statement": "Медиана $AM$ треугольника $ABC$ делит отрезок $PR$, параллельный стороне $AC$, с концами на сторонах $AB$ и $BC$, на отрезки длины $5$ см и $3$ см, считая от стороны $AB$. Чему равна длина стороны $AC$?",
   "answer": {
     "value": 13.0,
-    "unit": "см"
+    "unit": "см",
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -15,5 +17,39 @@
     "grade": 11,
     "number": 2,
     "url": "https://sesc.nsu.ru/upload/iblock/1ad/2015_1_math_s.pdf"
+  },
+  "template": {
+    "text": "Медиана $AM$ треугольника $ABC$ делит отрезок $PR$, параллельный стороне $AC$, с концами на сторонах $AB$ и $BC$, на отрезки длины {m1} см и {m2} см, считая от стороны $AB$. Чему равна длина стороны $AC$?",
+    "params": {
+      "m1": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "m2": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "m1": 5.0,
+      "m2": 3.0
+    },
+    "solver": "def solve(m1, m2):\n    return 2*m1 + m2",
+    "constraints": [
+      "m1 > 0",
+      "m2 > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }

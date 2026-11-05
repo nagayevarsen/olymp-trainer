@@ -5,7 +5,9 @@
   "title": "Автобусы и пешеход",
   "statement": "Мимо пешехода, идущего от одной конечной остановки автобусного маршрута до другой конечной, проехало навстречу 14 автобусов данного маршрута, а 10 его обогнало. Во сколько раз пешеход движется медленнее, чем автобусы?",
   "answer": {
-    "value": 6.0
+    "value": 6.0,
+    "origin": "official",
+    "verified_by": []
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +16,39 @@
     "grade": 9,
     "number": 2,
     "url": "https://sesc.nsu.ru/upload/iblock/364/2010_1_phys_s.pdf"
+  },
+  "template": {
+    "text": "Мимо пешехода, идущего от одной конечной остановки автобусного маршрута до другой конечной, проехало навстречу {n} автобусов данного маршрута, а {m} его обогнало. Во сколько раз пешеход движется медленнее, чем автобусы?",
+    "params": {
+      "n": {
+        "min": 3.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "m": {
+        "min": 1.0,
+        "max": 29.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 14.0,
+      "m": 10.0
+    },
+    "solver": "def solve(n, m):\n    return (n + m) / (n - m)",
+    "constraints": [
+      "n > m",
+      "m >= 1",
+      "answer > 1"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
   }
 }
