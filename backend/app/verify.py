@@ -294,7 +294,8 @@ def decide(
     - перебор/графики/графы: X дали не меньше двух программ, против X — не больше одной программы
       (и только когда программ три), решений за X не меньше двух и больше, чем против;
     - остальное: решений за X не меньше трёх, против — не больше одного (и только когда решений
-      больше трёх), хотя бы одна программа дала X и ни одна не дала другое число.
+      больше трёх), хотя бы одна программа дала X и ни одна не дала другое число;
+      либо (если часть моделей недоступна) ровно два решения и не меньше двух программ, и все дали X.
     """
     votes = [a.answer for a in reasoning if a.answer is not None]
     progs = [a.answer for a in programs if a.answer is not None]
@@ -316,6 +317,11 @@ def decide(
             return False, None, f"программы дали {fmt(ans)}, решения: " + ", ".join(fmt(v) for v in votes)
         return True, ans, ""
 
+    # Если часть моделей недоступна: два решения + две программы, все совпали и ни одного несогласного.
+    if len(votes) == 2 and same(votes[0], votes[1], rel_tol) and len(progs) >= 2:
+        if all(same(votes[0], p, rel_tol) for p in progs):
+            return True, votes[0], ""
+        return False, None, "программа дала другой ответ: " + ", ".join(fmt(p) for p in progs)
     if len(votes) < 3:
         return False, None, "нужны три независимых решения, получено меньше"
     ans = max(votes, key=lambda x: count(x, votes))

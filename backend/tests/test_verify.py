@@ -42,6 +42,13 @@ def test_other_needs_unanimous_reasoning_and_program():
     assert decide("other", A(2.5, 2.5, 3, 2.5), A(2.5, 2.5, 2.5), TOL)[0]
 
 
+def test_other_two_votes_need_two_agreeing_programs():
+    assert decide("other", A(17, 17, None), A(17, 17), TOL) == (True, 17, "")
+    assert not decide("other", A(17, 17, None), A(17, None), TOL)[0]  # одна программа — мало
+    assert not decide("other", A(17, 17, None), A(17, 16), TOL)[0]  # программа против
+    assert not decide("other", A(17, 16, None), A(17, 17), TOL)[0]  # решения разошлись
+
+
 def test_physics_tolerance():
     assert decide("other", A(9.81, 9.8, 9.79), A(9.8), 0.01)[0]
 
