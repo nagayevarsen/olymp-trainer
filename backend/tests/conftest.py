@@ -9,3 +9,11 @@ def _reset_rate_limits():
     ratelimit.reset()
     yield
     ratelimit.reset()
+
+
+@pytest.fixture(autouse=True)
+def _no_network_password_check(monkeypatch):
+    """Тесты не ходят в Have I Been Pwned."""
+    from app import auth
+
+    monkeypatch.setattr(auth, "PWNED_CHECK", False)

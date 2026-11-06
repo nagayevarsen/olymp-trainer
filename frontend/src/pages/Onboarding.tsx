@@ -59,7 +59,9 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
   const input =
     'mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-950'
   const canSubmit =
-    nick.trim().length >= 3 && password.length >= 6 && (mode === 'login' || (agree && nickNote?.ok !== false))
+    nick.trim().length >= 3 &&
+    // При входе старые пароли могут быть короче — ограничение 8 символов только для новых.
+    (mode === 'login' ? password.length > 0 : password.length >= 8 && agree && nickNote?.ok !== false)
 
   return (
     <div className="mx-auto flex min-h-dvh max-w-5xl flex-col justify-center gap-10 px-4 py-10 lg:flex-row lg:items-center">
@@ -149,7 +151,7 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className={input}
-          placeholder="не меньше 6 символов"
+          placeholder="не меньше 8 символов, не простой"
         />
         {mode === 'register' && (
           <>

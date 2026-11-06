@@ -183,11 +183,11 @@ function AccountBox({
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
-              placeholder="пароль (от 6 символов)"
+              placeholder="пароль (от 8 символов)"
               maxLength={64}
               className={input + ' sm:w-56'}
             />
-            <button className="btn-primary" disabled={busy || nick.trim().length < 3 || password.length < 6}>
+            <button className="btn-primary" disabled={busy || nick.trim().length < 3 || password.length < 8}>
               Сохранить
             </button>
           </div>
