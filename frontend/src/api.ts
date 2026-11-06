@@ -274,6 +274,10 @@ export const api = {
   gradeOlympiad: (
     items: { problem_id: string; seed: number | null; answer: string; solution: string; max_points: number }[],
   ) => post<GradeRow[]>('/api/olympiad/grade', { items }),
-  chat: (messages: ChatTurn[], problemId?: string | null, mode: 'training' | 'olympiad' = 'training') =>
-    post<ChatReply>('/api/chat', { messages, problem_id: problemId ?? null, mode }),
+  chat: (
+    messages: ChatTurn[],
+    problemId?: string | null,
+    mode: 'training' | 'olympiad' = 'training',
+    attachments: { data: string }[] = [],
+  ) => post<ChatReply>('/api/chat', { messages, problem_id: problemId ?? null, mode, attachments }),
 }

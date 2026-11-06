@@ -385,8 +385,13 @@ class ChatMessage(BaseModel):
     content: str = Field(max_length=chat.MAX_MESSAGE * 2)
 
 
+class ChatAttachment(BaseModel):
+    data: str = Field(max_length=5_600_000, description="Файл в base64 (фото или PDF, до 4 МБ)")
+
+
 class ChatRequest(BaseModel):
     messages: list[ChatMessage] = Field(max_length=100)
+    attachments: list[ChatAttachment] = Field(default=[], max_length=chat.MAX_UPLOADS)
     problem_id: str | None = Field(default=None, max_length=200)
     mode: Literal["training", "olympiad"] = "training"
 
@@ -399,6 +404,12 @@ async def chat_reply(
         history = chat.clean_history([m.model_dump() for m in body.messages])
     except ValueError as exc:
         raise HTTPException(400, str(exc)) from exc
+    try:
+        uploads = chat.upload_blocks([a.model_dump() for a in body.attachments])
+    except chat.UploadError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    if uploads and body.mode == "olympiad":
+        raise HTTPException(400, "Во время олимпиады файлы прикреплять нельзя")
     used = _spend_ai(user, request, db)
     prog = db.all_progress(user["id"])
     level = chat.Level(
@@ -442,6 +453,7 @@ async def chat_reply(
             olympiad=body.mode == "olympiad",
             strong=take_strong,
             figures=figures,
+            uploads=uploads,
         )
     except LLMError as exc:
         raise HTTPException(503, str(exc)) from exc

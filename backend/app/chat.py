@@ -364,6 +364,62 @@ def with_figures(messages: list[dict], figures: list[Path]) -> list[dict]:
     return [*messages[:-1], last]
 
 
+# Файлы ученика в чате: фото задачи (картинка) или PDF. Только в последнем сообщении, в истории не хранятся.
+UPLOAD_TYPES = {"image/jpeg", "image/png", "image/webp", "image/gif", "application/pdf"}
+MAX_UPLOADS = 3
+MAX_UPLOAD_BYTES = 4_000_000
+
+
+class UploadError(ValueError):
+    pass
+
+
+def upload_blocks(items: list[dict]) -> list[dict]:
+    """Проверить файлы ученика и превратить их в блоки для модели. Тип файла проверяется по содержимому."""
+    if len(items) > MAX_UPLOADS:
+        raise UploadError(f"Можно прикрепить не больше {MAX_UPLOADS} файлов")
+    blocks: list[dict] = []
+    for it in items:
+        try:
+            raw = base64.b64decode(it["data"], validate=True)
+        except (KeyError, ValueError) as exc:
+            raise UploadError("Файл повреждён — попробуй прикрепить ещё раз") from exc
+        if len(raw) > MAX_UPLOAD_BYTES:
+            raise UploadError("Файл слишком большой: до 4 МБ")
+        mime = _sniff(raw)
+        if mime not in UPLOAD_TYPES:
+            raise UploadError("Можно прикрепить фото (JPG, PNG, WebP) или PDF")
+        kind = "document" if mime == "application/pdf" else "image"
+        blocks.append({"type": kind, "source": {"type": "base64", "media_type": mime, "data": it["data"]}})
+    return blocks
+
+
+def _sniff(raw: bytes) -> str:
+    if raw.startswith(b"\xff\xd8\xff"):
+        return "image/jpeg"
+    if raw.startswith(b"\x89PNG\r\n\x1a\n"):
+        return "image/png"
+    if raw[:4] == b"RIFF" and raw[8:12] == b"WEBP":
+        return "image/webp"
+    if raw[:6] in (b"GIF87a", b"GIF89a"):
+        return "image/gif"
+    if raw.startswith(b"%PDF-"):
+        return "application/pdf"
+    return ""
+
+
+def with_uploads(messages: list[dict], blocks: list[dict]) -> list[dict]:
+    """Файлы ученика — в последнее сообщение, перед текстом."""
+    if not blocks or not messages:
+        return messages
+    last = dict(messages[-1])
+    content = last["content"]
+    text_blocks = content if isinstance(content, list) else [{"type": "text", "text": content}]
+    note = {"type": "text", "text": "(Ученик прикрепил файл с задачей или своим решением — он выше.)"}
+    last["content"] = [*blocks, note, *text_blocks]
+    return [*messages[:-1], last]
+
+
 @dataclass
 class _Turn:
     text: str | None  # None — модель не дала ответа (попросила помощи или кончились шаги)
@@ -417,6 +473,7 @@ async def reply(
     olympiad: bool = False,
     strong: Callable[[], bool] | None = None,
     figures: list[Path] | None = None,
+    uploads: list[dict] | None = None,
 ) -> tuple[str, int, list[dict]]:
     """Ответ помощника: (текст, сколько раз запускался код, карточки задач/олимпиад из банка).
 
@@ -426,7 +483,7 @@ async def reply(
 
     client = _client()
     system = build_system(level, problem, olympiad)
-    messages = with_figures(messages, figures or [])
+    messages = with_uploads(with_figures(messages, figures or []), uploads or [])
     cards: list[dict] = []
     # Во время олимпиады помощник ничего не считает и не подбирает — только уточняет условия.
     tool_defs = [] if olympiad else [RUN_CODE_TOOL, *([SEARCH_TOOL, CONTESTS_TOOL] if tools else [])]

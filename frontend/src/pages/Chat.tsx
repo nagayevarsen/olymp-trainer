@@ -6,6 +6,8 @@ import { OlympiadPanel } from '../components/OlympiadPanel'
 import { getChat, newChatId, saveChat, type ChatMode } from '../chats'
 import { getRun, msLeft } from '../olympiadRun'
 import { pluralTasks } from '../lib/text'
+import { toAttachment, type Attached } from '../lib/attach'
+import { useDictation } from '../lib/dictation'
 
 function Cards({ cards }: { cards: ChatCard[] }) {
   return (
@@ -49,7 +51,21 @@ export function ChatPage() {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   const [left, setLeft] = useState<number | null>(null)
+  const [files, setFiles] = useState<Attached[]>([])
+  const fileInput = useRef<HTMLInputElement>(null)
   const bottom = useRef<HTMLDivElement>(null)
+  const mic = useDictation((said) => setText((t) => (t.trim() ? `${t.trim()} ${said}` : said)))
+
+  async function addFiles(list: FileList | null) {
+    if (!list) return
+    setError('')
+    try {
+      const added = await Promise.all(Array.from(list).slice(0, 3).map(toAttachment))
+      setFiles((f) => [...f, ...added].slice(0, 3))
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Не удалось прикрепить файл')
+    }
+  }
 
   // Смена чата в истории или «Новый чат» — подгружаем переписку.
   useEffect(() => {
@@ -66,12 +82,14 @@ export function ChatPage() {
   }
 
   async function send(message: string, forceMode?: ChatMode) {
-    const q = message.trim()
+    const sending = forceMode ? [] : files
+    const q = message.trim() || (sending.length ? 'Помоги разобраться с задачей из файла' : '')
     if (!q || busy) return
+    const shown = sending.length ? `${q}\n📎 ${sending.map((f) => f.name).join(', ')}` : q
     const chatMode = forceMode ?? mode
     const id = forceMode && forceMode !== mode ? newChatId() : (chatId ?? newChatId())
     const base = forceMode && forceMode !== mode ? [] : turns
-    const next: ChatTurn[] = [...base, { role: 'user', content: q }]
+    const next: ChatTurn[] = [...base, { role: 'user', content: shown }]
     setTurns(next)
     setText('')
     setError('')
@@ -85,7 +103,9 @@ export function ChatPage() {
         next.map(({ role, content }) => ({ role, content })),
         problemId,
         apiMode,
+        sending.map((f) => ({ data: f.data })),
       )
+      if (sending.length) setFiles([])
       const withReply: ChatTurn[] = [...next, { role: 'assistant', content: r.reply, cards: r.cards }]
       setTurns(withReply)
       saveChat({
@@ -201,10 +221,64 @@ export function ChatPage() {
       {/* строка ввода всегда внизу экрана, как в ChatGPT */}
       <div className="sticky bottom-0 z-10 -mx-1 bg-slate-50/95 px-1 pb-3 pt-2 backdrop-blur dark:bg-slate-950/95">
         {error && <p className="mb-2 text-sm text-red-600">{error}</p>}
+        {files.length > 0 && (
+          <div className="mb-2 flex flex-wrap gap-2">
+            {files.map((f, i) => (
+              <div
+                key={i}
+                className="relative flex h-16 items-center gap-2 overflow-hidden rounded-xl border border-slate-200 bg-white pr-7 text-xs dark:border-slate-800 dark:bg-slate-900"
+              >
+                {f.preview ? (
+                  <img src={f.preview} alt="" className="h-16 w-16 object-cover" />
+                ) : (
+                  <span className="pl-3 text-2xl" aria-hidden="true">
+                    📄
+                  </span>
+                )}
+                <span className="max-w-28 truncate">{f.name}</span>
+                <button
+                  type="button"
+                  onClick={() => setFiles((all) => all.filter((_, j) => j !== i))}
+                  className="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-slate-900/70 text-white"
+                  aria-label="Убрать файл"
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
         <form
           onSubmit={submit}
-          className="flex items-end gap-2 rounded-[1.75rem] border border-slate-300 bg-white p-1.5 pl-5 shadow-sm focus-within:border-brand-500 dark:border-slate-800 dark:bg-slate-900"
+          className="flex items-end gap-1 rounded-[1.75rem] border border-slate-300 bg-white p-1.5 shadow-sm focus-within:border-brand-500 dark:border-slate-800 dark:bg-slate-900"
         >
+          {mode === 'training' && (
+            <>
+              <input
+                ref={fileInput}
+                type="file"
+                accept="image/*,application/pdf"
+                multiple
+                hidden
+                onChange={(e) => {
+                  void addFiles(e.target.files)
+                  e.target.value = ''
+                }}
+              />
+              <button
+                type="button"
+                onClick={() => fileInput.current?.click()}
+                disabled={files.length >= 3}
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 dark:hover:bg-slate-800 dark:hover:text-white"
+                aria-label="Прикрепить фото или PDF"
+                title="Прикрепить фото задачи или PDF"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </button>
+            </>
+          )}
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -224,11 +298,29 @@ export function ChatPage() {
             maxLength={2000}
             aria-label="Сообщение помощнику"
             placeholder={mode === 'olympiad' ? 'Вопрос по условию' : 'Спросить помощника'}
-            className="max-h-60 min-h-10 flex-1 resize-none bg-transparent py-2 outline-none placeholder:text-slate-400"
+            className={`max-h-60 min-h-10 flex-1 resize-none bg-transparent py-2 outline-none placeholder:text-slate-400 ${mode === 'training' ? '' : 'pl-3.5'}`}
           />
+          {mic.supported && (
+            <button
+              type="button"
+              onClick={mic.toggle}
+              className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition ${
+                mic.listening
+                  ? 'animate-pulse bg-red-500 text-white'
+                  : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-white'
+              }`}
+              aria-label={mic.listening ? 'Остановить диктовку' : 'Надиктовать'}
+              title={mic.listening ? 'Остановить диктовку' : 'Надиктовать'}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="9" y="3" width="6" height="11" rx="3" />
+                <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
+              </svg>
+            </button>
+          )}
           <button
             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-600 text-white transition hover:bg-brand-700 active:scale-95 disabled:opacity-40"
-            disabled={busy || !text.trim()}
+            disabled={busy || (!text.trim() && files.length === 0)}
             aria-label="Отправить"
             title="Отправить"
           >
