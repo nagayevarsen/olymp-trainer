@@ -51,6 +51,9 @@ export interface ProblemDetail {
   source: { label: string; stage: string; url: string | null }
   track: { id: string; title: string }
   needs_unit: boolean
+  answer_kind: 'number' | 'formula'
+  variables: Record<string, string>
+  figures: string[]
   can_clone: boolean
   verification: Verification | null
   hints_total: number

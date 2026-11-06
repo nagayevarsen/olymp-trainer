@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import asyncio
+import base64
 import json
 import os
 from collections.abc import Callable
@@ -29,6 +30,7 @@ MAX_MESSAGE = 2000
 MAX_HISTORY = 20
 MAX_TOOL_ROUNDS = 4
 MAX_TOKENS = 16000
+MAX_FIGURES = 3
 
 OFF_TOPIC_REPLY = (
     "Я помогаю только с математикой, физикой и олимпиадами. Давай вернёмся к задачам — "
@@ -347,6 +349,21 @@ async def _run_tool(call, tools: ChatTools | None, cards: list[dict]) -> str:
     return f"Неизвестный инструмент {call.name}"
 
 
+def with_figures(messages: list[dict], figures: list[Path]) -> list[dict]:
+    """Рисунки к задаче — картинками в последнее сообщение ученика, чтобы модель их видела."""
+    if not figures or not messages:
+        return messages
+    blocks: list[dict] = []
+    for f in figures[:MAX_FIGURES]:
+        mime = "image/png" if f.suffix == ".png" else "image/jpeg"
+        data = base64.b64encode(f.read_bytes()).decode()
+        blocks.append({"type": "image", "source": {"type": "base64", "media_type": mime, "data": data}})
+    last = dict(messages[-1])
+    note = "(Выше — рисунки к условию задачи.)\n\n"
+    last["content"] = [*blocks, {"type": "text", "text": note + last["content"]}]
+    return [*messages[:-1], last]
+
+
 @dataclass
 class _Turn:
     text: str | None  # None — модель не дала ответа (попросила помощи или кончились шаги)
@@ -399,6 +416,7 @@ async def reply(
     tools: ChatTools | None = None,
     olympiad: bool = False,
     strong: Callable[[], bool] | None = None,
+    figures: list[Path] | None = None,
 ) -> tuple[str, int, list[dict]]:
     """Ответ помощника: (текст, сколько раз запускался код, карточки задач/олимпиад из банка).
 
@@ -408,6 +426,7 @@ async def reply(
 
     client = _client()
     system = build_system(level, problem, olympiad)
+    messages = with_figures(messages, figures or [])
     cards: list[dict] = []
     # Во время олимпиады помощник ничего не считает и не подбирает — только уточняет условия.
     tool_defs = [] if olympiad else [RUN_CODE_TOOL, *([SEARCH_TOOL, CONTESTS_TOOL] if tools else [])]

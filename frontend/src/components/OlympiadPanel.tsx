@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { api, type ContestDetail, type ContestRow, type ProblemDetail } from '../api'
 import { pluralTasks } from '../lib/text'
 import { formatLeft, getRun, msLeft, onRunChange, parseRequest, setRun, type OlympiadRun } from '../olympiadRun'
+import { Figures } from './Figures'
+import { answerHint } from '../lib/answer'
 import { MathText } from './MathText'
 
 function hours(min: number): string {
@@ -251,7 +253,10 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
               </span>
             </div>
             {p ? (
-              <MathText text={p.statement} />
+              <>
+                <MathText text={p.statement} />
+                <Figures urls={p.figures} />
+              </>
             ) : (
               <div className="h-16 animate-pulse rounded-xl bg-slate-100 dark:bg-slate-800" />
             )}
@@ -283,7 +288,7 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
               onChange={(e) => updateAnswer(id, 'answer', e.target.value)}
               readOnly={over}
               maxLength={200}
-              placeholder={p?.needs_unit ? 'Ответ с единицами, например 12 м/с' : 'Ответ'}
+              placeholder={p ? answerHint(p).placeholder : 'Ответ'}
               className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
             />
             {g && (

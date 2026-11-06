@@ -5,11 +5,11 @@ from __future__ import annotations
 
 from pydantic import ValidationError
 
-from .bank import Hints, Problem, Template, Verification
+from .bank import Hints, Problem, Template, Verification, figures_dir
 from .checker import AnswerKey, check_answer
 from .cloner import make_variant, verify_template
 from .config import settings
-from .llm import LLMError, complete_json
+from .llm import Image, LLMError, complete_json
 
 SUBJECT_RU = {"math": "математика", "physics": "физика"}
 
@@ -39,11 +39,20 @@ HINTS_PROMPT = """Задача ({topic}):
 Верни JSON: {{"steps": ["...", "...", "..."], "solution": "..."}}"""
 
 
+def _first_figure(problem: Problem) -> Image | None:
+    """Рисунок к условию (если есть) — чтобы подсказки учитывали его."""
+    if not problem.figures:
+        return None
+    path = figures_dir() / problem.figures[0]
+    return Image(path.read_bytes(), "image/png" if path.suffix == ".png" else "image/jpeg")
+
+
 async def generate_hints(problem: Problem) -> tuple[Hints, str]:
-    answer = f"{problem.answer.value:g} {problem.answer.unit or ''}".strip()
+    answer = problem.answer.display()
     data, model = await complete_json(
         HINTS_PROMPT.format(topic=problem.topic, statement=problem.statement, answer=answer),
         HINTS_SYSTEM.format(subject=SUBJECT_RU[problem.subject]),
+        image=_first_figure(problem),
     )
     try:
         return Hints.model_validate(data), model
@@ -81,7 +90,7 @@ async def build_template(problem: Problem) -> tuple[Template | None, list[str]]:
     """Попросить модель сделать шаблон и проверить его. Возвращает (шаблон или None, журнал)."""
     log: list[str] = []
     unit_note = f"в единицах «{problem.answer.unit}»" if problem.answer.unit else "(безразмерное число)"
-    answer = f"{problem.answer.value:g} {problem.answer.unit or ''}".strip()
+    answer = problem.answer.display()
     for chain_start in range(min(3, len(settings.llm_chain))):
         chain = settings.llm_chain[chain_start:]
         try:

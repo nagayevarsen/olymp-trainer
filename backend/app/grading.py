@@ -61,7 +61,7 @@ def apply_caps(points: float, max_points: int, answer_correct: bool, has_solutio
 
 async def grade(
     statement: str,
-    answer_value: float,
+    answer_value: float | str,
     unit: str | None,
     official_solution: str | None,
     solution: str,
@@ -72,7 +72,9 @@ async def grade(
     has_solution = len(solution.strip()) >= MIN_SOLUTION_CHARS
     if not has_solution and not student_answer.strip():
         return {"points": 0, "max_points": max_points, "comment": "Решение не сдано."}
-    answer = f"{answer_value:g} {unit or ''}".strip()
+    # Ответ-число (с единицами) или ответ-формула строкой.
+    shown = f"{answer_value:g}" if isinstance(answer_value, (int, float)) else str(answer_value)
+    answer = f"{shown} {unit or ''}".strip()
     data, _ = await complete_json(
         PROMPT.format(
             statement=statement,

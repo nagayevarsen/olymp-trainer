@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from functools import lru_cache
 from pathlib import Path
 from typing import Literal
@@ -107,7 +108,13 @@ AnswerOrigin = Literal["official", "verified"]
 
 
 class Answer(BaseModel):
-    value: float
+    value: float | None = Field(default=None, description="Числовой ответ (или formula — для ответа-формулы)")
+    formula: str | None = Field(
+        default=None, description="Ответ-формула в записи Python: «17*g/29», «2*pi*sqrt(l/g)»"
+    )
+    variables: dict[str, str] = Field(
+        default={}, description="Обозначения в формуле и их смысл: {'g': 'ускорение свободного падения'}"
+    )
     unit: str | None = None
     origin: AnswerOrigin = Field(
         default="official",
@@ -137,6 +144,31 @@ class Answer(BaseModel):
             except UnitError as exc:
                 raise ValueError(str(exc)) from exc
         return v
+
+    @model_validator(mode="after")
+    def number_or_formula(self) -> Answer:
+        from .formula import NAME_RE, FormulaError, parse
+
+        if (self.value is None) == (self.formula is None):
+            raise ValueError("У ответа должно быть ровно одно: value (число) или formula (формула)")
+        if self.formula is not None:
+            bad = [v for v in self.variables if not NAME_RE.match(v)]
+            if bad:
+                raise ValueError(f"Обозначения в формуле — латиница и цифры: {bad}")
+            try:
+                parse(self.formula, list(self.variables))
+            except FormulaError as exc:
+                raise ValueError(f"Формула ответа не разбирается: {exc}") from exc
+        return self
+
+    def display(self) -> str:
+        """Ответ для подсказок и проверки жюри: «17*g/29» или «4.5 м/с»."""
+        if self.formula is not None:
+            return self.formula
+        return f"{self.value:g} {self.unit or ''}".strip()
+
+
+FIGURE_RE = r"^[a-z0-9][a-z0-9_.-]*\.(png|jpg)$"
 
 
 class ParamRange(BaseModel):
@@ -205,10 +237,25 @@ class Problem(BaseModel):
     template: Template | None = None
     hints: Hints | None = None
     solution: str | None = Field(default=None, description="Официальное или своё решение")
+    figures: list[str] = Field(default=[], description="Рисунки к условию: имена файлов в data/figures")
+
+    @field_validator("figures")
+    @classmethod
+    def figures_exist(cls, v: list[str]) -> list[str]:
+        for name in v:
+            if not re.match(FIGURE_RE, name):
+                raise ValueError(f"Недопустимое имя рисунка: {name}")
+            if not (figures_dir() / name).is_file():
+                raise ValueError(f"Нет файла рисунка data/figures/{name}")
+        return v
 
     @property
     def can_clone(self) -> bool:
-        return self.template is not None and self.template.verification.reproduces_original
+        return (
+            self.template is not None
+            and self.template.verification.reproduces_original
+            and self.answer.value is not None
+        )
 
 
 class BankError(RuntimeError):
@@ -217,6 +264,10 @@ class BankError(RuntimeError):
 
 def problems_dir() -> Path:
     return Path(settings.data_dir) / "problems"
+
+
+def figures_dir() -> Path:
+    return Path(settings.data_dir) / "figures"
 
 
 def load_problem_file(path: Path) -> Problem:

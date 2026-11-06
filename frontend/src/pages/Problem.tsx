@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { api, type CheckResult, type ProblemDetail } from '../api'
+import { Figures } from '../components/Figures'
+import { answerHint } from '../lib/answer'
 import { MathText } from '../components/MathText'
 import { SUBJECT_NAMES, pluralPoints } from '../lib/text'
 import { usePoints } from '../points'
@@ -138,6 +140,7 @@ export function ProblemPage() {
           )}
 
           <MathText text={p.statement} className="statement mt-5 text-lg" />
+          <Figures urls={p.figures} />
 
           {showOriginal && p.original_statement && (
             <div className="mt-4 rounded-xl border border-dashed border-slate-300 p-4 text-slate-500 dark:border-slate-700">
@@ -164,9 +167,7 @@ export function ProblemPage() {
             Твой ответ
           </label>
           <p className="mt-1 text-sm text-slate-500">
-            {p.needs_unit
-              ? 'Пиши с единицами измерения: 12 м/с, 4,5 кДж, 300 мА. Тренажёр сам переведёт и проверит размерность.'
-              : 'Число или выражение: 42, 3/4, 2√3, 1,5.'}
+            {answerHint(p).text}
           </p>
           <div className="mt-3 flex gap-2">
             <input
@@ -175,7 +176,7 @@ export function ProblemPage() {
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               autoComplete="off"
-              placeholder={p.needs_unit ? 'например, 4 с' : 'например, 42'}
+              placeholder={answerHint(p).placeholder}
               className="min-w-0 flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-lg outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-950"
             />
             <button className="btn-primary px-6" disabled={busy === 'check' || !answer.trim()}>
