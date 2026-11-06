@@ -183,7 +183,7 @@ function AccountBox({
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
-              placeholder="пароль (от 8 символов)"
+              placeholder="пароль"
               maxLength={64}
               className={input + ' sm:w-56'}
             />

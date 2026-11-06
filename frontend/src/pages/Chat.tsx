@@ -188,13 +188,7 @@ export function ChatPage() {
             }}
             rows={2}
             maxLength={2000}
-            placeholder={
-              mode === 'olympiad'
-                ? 'Вопрос по условию задачи…'
-                : problemId
-                  ? 'Спроси про эту задачу или покажи своё решение…'
-                  : 'Напиши, что хочешь потренировать или спроси что угодно по математике и физике…'
-            }
+            aria-label="Сообщение помощнику"
             className="flex-1 resize-none rounded-xl border border-slate-300 bg-white px-3 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-950"
           />
           <button className="btn-primary self-end" disabled={busy || !text.trim()}>

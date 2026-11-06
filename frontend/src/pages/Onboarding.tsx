@@ -133,7 +133,6 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
           value={nick}
           onChange={(e) => setNick(e.target.value)}
           className={input}
-          placeholder="например, mathfox"
         />
         {mode === 'register' && (
           <p className={`mt-1 text-xs ${nickNote ? (nickNote.ok ? 'text-emerald-600' : 'text-red-600') : 'text-slate-500'}`}>
@@ -151,7 +150,7 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className={input}
-          placeholder="не меньше 8 символов, не простой"
+          placeholder="от 8 символов"
         />
         {mode === 'register' && (
           <>

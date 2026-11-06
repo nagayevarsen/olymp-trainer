@@ -3,7 +3,6 @@ import { api, type ContestDetail, type ContestRow, type ProblemDetail } from '..
 import { pluralTasks } from '../lib/text'
 import { formatLeft, getRun, msLeft, onRunChange, parseRequest, setRun, type OlympiadRun } from '../olympiadRun'
 import { Figures } from './Figures'
-import { answerHint } from '../lib/answer'
 import { MathText } from './MathText'
 
 function hours(min: number): string {
@@ -95,7 +94,7 @@ function Picker() {
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Какую олимпиаду и за какой класс? Например: Жаутыковская 10 класс"
+          placeholder="Олимпиада и класс"
           className="flex-1 rounded-xl border border-slate-300 bg-white px-3 py-2.5 dark:border-slate-700 dark:bg-slate-950"
         />
         <button className="btn-primary" disabled={busy || !text.trim()}>
@@ -280,7 +279,7 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
               readOnly={over}
               rows={6}
               maxLength={6000}
-              placeholder="Полное решение: что обозначил, какие факты используешь, почему каждый шаг верен, вывод."
+              placeholder="Решение"
               className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-950"
             />
             <input
@@ -288,7 +287,7 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
               onChange={(e) => updateAnswer(id, 'answer', e.target.value)}
               readOnly={over}
               maxLength={200}
-              placeholder={p ? answerHint(p).placeholder : 'Ответ'}
+              placeholder="Ответ"
               className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
             />
             {g && (

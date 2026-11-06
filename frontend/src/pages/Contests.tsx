@@ -48,7 +48,7 @@ export function ContestsPage() {
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Поиск: всесиб, 2024, IZhO…"
+          placeholder="Поиск"
           className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm sm:w-72 dark:border-slate-700 dark:bg-slate-950"
         />
         {(['', 'math', 'physics'] as const).map((s) => (

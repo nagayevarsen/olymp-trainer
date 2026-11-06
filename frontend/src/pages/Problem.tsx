@@ -176,7 +176,7 @@ export function ProblemPage() {
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               autoComplete="off"
-              placeholder={answerHint(p).placeholder}
+              aria-label="Ответ"
               className="min-w-0 flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-lg outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-950"
             />
             <button className="btn-primary px-6" disabled={busy === 'check' || !answer.trim()}>
