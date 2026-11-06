@@ -204,6 +204,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   try {
     res = await fetch(BASE + path, { ...init, headers: { ...headers, ...(init.headers ?? {}) } })
   } catch {
+    window.dispatchEvent(new Event('olymp:network-error')) // покажет экран «Нет интернета», если сети нет
     throw new ApiError(0, 'Нет связи с сервером. Проверь интернет.')
   }
   if (res.status === 401 && user) {

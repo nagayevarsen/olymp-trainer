@@ -88,15 +88,16 @@ def contest_id(p: Problem) -> str:
     )
 
 
-_cache: dict[int, dict[str, Contest]] = {}
+_cache: dict = {}  # {"bank": банк, "contests": наборы}
 
 
 def build_contests(bank: dict[str, Problem]) -> dict[str, Contest]:
     """Наборы считаются один раз на загруженный банк (банк закэширован в load_bank)."""
-    if id(bank) not in _cache:
+    # Храним сам банк, а не только id: после перезагрузки банка id нового словаря может совпасть.
+    if _cache.get("bank") is not bank:
         _cache.clear()
-        _cache[id(bank)] = _build(bank)
-    return _cache[id(bank)]
+        _cache.update(bank=bank, contests=_build(bank))
+    return _cache["contests"]
 
 
 def _build(bank: dict[str, Problem]) -> dict[str, Contest]:

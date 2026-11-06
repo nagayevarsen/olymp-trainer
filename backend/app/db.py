@@ -94,6 +94,10 @@ class DB:
         self.conn = sqlite3.connect(self.path, check_same_thread=False)
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA journal_mode=WAL" if self.path != ":memory:" else "PRAGMA foreign_keys=ON")
+        # С WAL этого достаточно для надёжности, а записи (каждая попытка ответа) заметно быстрее.
+        self.conn.execute("PRAGMA synchronous=NORMAL")
+        self._stats: dict[str, tuple[int, int]] | None = None
+        self._stats_version = 0
         self.conn.executescript(SCHEMA)
         self._migrate()
 
@@ -179,6 +183,7 @@ class DB:
             ):
                 c.execute(f"DELETE FROM {table} WHERE user_id = ?", (uid,))
             c.execute("DELETE FROM users WHERE id = ?", (uid,))
+            self._invalidate_stats()
 
     # --- сессии: случайный токен входа (в базе только его хэш), id пользователя секретом не является ---
     def create_session(self, uid: str) -> str:
@@ -325,6 +330,7 @@ class DB:
                        points = excluded.points, solved_at = excluded.solved_at""",
                 p,
             )
+            self._invalidate_stats()
 
     def log_submission(self, uid: str, pid: str, seed: int | None, answer: str, status: str) -> None:
         with self.tx() as c:
@@ -334,13 +340,26 @@ class DB:
                 (uid, pid, seed, answer[:200], status, time.time()),
             )
 
+    def _invalidate_stats(self) -> None:
+        self._stats_version += 1
+        self._stats = None
+
     def problem_stats(self) -> dict[str, tuple[int, int]]:
-        """problem_id -> (сколько учеников пробовали, сколько решили)."""
+        """problem_id -> (сколько учеников пробовали, сколько решили).
+
+        Нужна почти в каждом запросе, а меняется только при сохранении прогресса — поэтому кэшируется
+        и сбрасывается в save_progress / delete_user."""
+        cached, version = self._stats, self._stats_version
+        if cached is not None:
+            return cached
         rows = self.conn.execute(
             "SELECT problem_id, COUNT(*) AS tried, SUM(solved) AS solved FROM progress"
             " WHERE attempts > 0 OR solved = 1 GROUP BY problem_id"
         ).fetchall()
-        return {r["problem_id"]: (r["tried"], r["solved"] or 0) for r in rows}
+        stats = {r["problem_id"]: (r["tried"], r["solved"] or 0) for r in rows}
+        if version == self._stats_version:  # пока считали, прогресс не менялся
+            self._stats = stats
+        return stats
 
     def leaderboard(self, limit: int = 20) -> list[dict]:
         rows = self.conn.execute(

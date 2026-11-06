@@ -12,6 +12,7 @@ from typing import Literal
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
@@ -50,9 +51,21 @@ async def security_headers(request: Request, call_next):
     resp.headers.setdefault("X-Frame-Options", "DENY")
     resp.headers.setdefault("Referrer-Policy", "no-referrer")
     resp.headers.setdefault("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
-    if request.url.path.startswith("/api/"):
+    path = request.url.path
+    if path.startswith("/api/"):
         resp.headers.setdefault("Cache-Control", "no-store")
+    elif path.startswith("/assets/"):
+        # В именах собранных файлов есть хэш содержимого — браузер может хранить их хоть год.
+        resp.headers.setdefault("Cache-Control", "public, max-age=31536000, immutable")
+    else:
+        # index.html и sw.js должны обновляться сразу после выкладки новой версии.
+        resp.headers.setdefault("Cache-Control", "no-cache")
     return resp
+
+
+# Сжатие ответов: список задач ~300 КБ JSON сжимается в несколько раз. Добавляется после
+# middleware заголовков, поэтому оборачивает его снаружи и сжимает уже готовый ответ.
+app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 
 _db: DB | None = None
@@ -673,7 +686,17 @@ def _main_track(bank: dict[str, Problem], prog: dict[str, dict]) -> str | None:
     return tracks[0]["id"] if tracks else None
 
 
+_tracks_cache: list = [None, None]  # [банк, треки]: храним сам банк, а не id — id может переиспользоваться
+
+
 def _tracks(bank: dict[str, Problem]) -> list[dict]:
+    """Треки считаются один раз на загруженный банк (load_bank закэширован)."""
+    if _tracks_cache[0] is not bank:
+        _tracks_cache[:] = [bank, _build_tracks(bank)]
+    return _tracks_cache[1]
+
+
+def _build_tracks(bank: dict[str, Problem]) -> list[dict]:
     groups: dict[str, dict] = {}
     for p in bank.values():
         g = groups.setdefault(

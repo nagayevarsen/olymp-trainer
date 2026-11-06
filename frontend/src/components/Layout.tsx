@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { holidayOn } from '../lib/calendar'
 import { formatLeft, getRun, msLeft, onRunChange, type OlympiadRun } from '../olympiadRun'
@@ -7,6 +7,16 @@ import { SettingsDialog } from './SettingsDialog'
 import { Sidebar } from './Sidebar'
 
 const DECOR = ['π', '∑', '∫', '√', '∞', 'Δ', 'θ', '≈', 'λ', 'Ω', '∂', 'φ']
+
+/** Пока загружается код страницы — спокойная заглушка вместо пустого экрана. */
+function PageLoading() {
+  return (
+    <div className="space-y-3" aria-busy="true" aria-label="Загрузка">
+      <div className="h-8 w-1/3 animate-pulse rounded-xl bg-slate-200 dark:bg-slate-800" />
+      <div className="h-32 animate-pulse rounded-xl bg-slate-100 dark:bg-slate-900" />
+    </div>
+  )
+}
 
 /** Оболочка: сворачиваемая левая панель + основная область (чат или раздел). */
 export function Layout({ onLogout }: { onLogout: () => void }) {
@@ -88,7 +98,9 @@ export function Layout({ onLogout }: { onLogout: () => void }) {
         <RunBanner />
 
         <main className="relative z-10 mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:py-8">
-          <Outlet />
+          <Suspense fallback={<PageLoading />}>
+            <Outlet />
+          </Suspense>
         </main>
         <footer className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-6 text-xs text-slate-500">
           <Link to="/terms" className="hover:underline">

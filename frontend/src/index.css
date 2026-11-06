@@ -83,3 +83,18 @@ body {
   to { transform: none; opacity: 1; }
 }
 .animate-fade-up { animation: fade-up .3s ease-out both; }
+
+/* Экран «Нет интернета»: дуги сигнала по очереди гаснут и загораются, значок слегка покачивается. */
+@keyframes offline-wave {
+  0%, 100% { opacity: .15; }
+  40% { opacity: 1; }
+}
+.offline-wave { animation: offline-wave 1.8s ease-in-out infinite; }
+@keyframes offline-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.offline-float { animation: offline-float 3s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .offline-wave, .offline-float { animation: none; }
+}

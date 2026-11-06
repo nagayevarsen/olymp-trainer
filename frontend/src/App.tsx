@@ -1,18 +1,22 @@
-import { useState } from 'react'
+import { lazy, useState } from 'react'
 import { api } from './api'
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { Layout } from './components/Layout'
-import { ChatPage } from './pages/Chat'
-import { ContestPage, ContestsPage } from './pages/Contests'
-import { LeaderboardPage } from './pages/Leaderboard'
 import { Onboarding } from './pages/Onboarding'
-import { ProblemPage } from './pages/Problem'
-import { ProblemsPage } from './pages/Problems'
-import { ProfilePage } from './pages/Profile'
-import { TermsPage } from './pages/Terms'
 import { PointsProvider } from './points'
 import { PrefsProvider } from './prefs'
 import { clearUser, getUser, type StoredUser } from './user'
+
+// Страницы грузятся по мере перехода: экран входа и первая страница открываются быстрее,
+// а KaTeX (формулы) не нужен, пока ученик не вошёл.
+const ChatPage = lazy(() => import('./pages/Chat').then((m) => ({ default: m.ChatPage })))
+const ContestsPage = lazy(() => import('./pages/Contests').then((m) => ({ default: m.ContestsPage })))
+const ContestPage = lazy(() => import('./pages/Contests').then((m) => ({ default: m.ContestPage })))
+const LeaderboardPage = lazy(() => import('./pages/Leaderboard').then((m) => ({ default: m.LeaderboardPage })))
+const ProblemPage = lazy(() => import('./pages/Problem').then((m) => ({ default: m.ProblemPage })))
+const ProblemsPage = lazy(() => import('./pages/Problems').then((m) => ({ default: m.ProblemsPage })))
+const ProfilePage = lazy(() => import('./pages/Profile').then((m) => ({ default: m.ProfilePage })))
+const TermsPage = lazy(() => import('./pages/Terms').then((m) => ({ default: m.TermsPage })))
 
 export default function App() {
   const [user, setUser] = useState<StoredUser | null>(getUser())
