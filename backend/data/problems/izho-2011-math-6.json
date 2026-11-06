@@ -1,0 +1,22 @@
+{
+  "id": "izho-2011-math-6",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Четырёхугольник и четыре точки на окружности",
+  "statement": "Диагонали вписанного четырехугольника $ABCD$ пересекаются в точке $K$, точки $M$ и $N$ — середины диагоналей $AC$ и $BD$ соответственно. Описанные окружности треугольников $ADM$ и $BCM$ пересекаются в точках $M$ и $L$. Докажите, that точки $K$, $L$, $M$ и $N$ лежат на одной окружности (все эти точки предполагаются различными).",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2011,
+    "stage": "international",
+    "number": 6,
+    "url": "https://izho.kz/wp-content/uploads/2018/12/izho11_2day_rus_sol.pdf"
+  },
+  "solution": "Из условия задачи вытекает, что прямые $BC$ и $AD$ не параллельны. Пусть $O$ — точка их пересечения (см. Рис. 2). Обозначим окружности, описанные около треугольников $BMC$, $AMD$, $ABC$, соответственно через $\\omega_1$, $\\omega_2$ и $\\omega$. Заметим, что прямые $BC$, $ML$ и $AD$ являются радикальными осями пар окружностей $\\omega_1$ и $\\omega$, $\\omega_1$ и $\\omega_2$, $\\omega_2$ и $\\omega$ соответственно. Следовательно, эти три прямые пересекаются в одной точке, а именно в точке $O$.\nПусть окружность, описанная около треугольника $KML$, пересекает прямую $BD$ в точках $K$ и $N_1$. Заметим, что $\\angle BLM = \\angle BCM$, $\\angle MLN_1 = \\angle MKB$. Следовательно,\n$\\angle BLN_1 = \\angle BLM + \\angle MLN_1 = \\angle BCM + \\angle MKB = \\angle OBD = 180^\\circ - \\angle CBD = 180^\\circ - \\angle CAD = \\angle OAC$\nи\n$\\angle N_1LD = \\angle MLD - \\angle MLN_1 = \\angle OAC - \\angle AKD = \\angle ODB$.\nВычислим соотношение $\\frac{BN_1}{N_1D}$. Имеем\n$\\frac{BN_1}{N_1D} = \\frac{S_{BLN_1}}{S_{LDN_1}} = \\frac{BL\\cdot\\sin\\angle BLN_1}{LD\\cdot\\sin\\angle DLN_1} = \\frac{BL\\cdot\\sin\\angle OAC}{LD\\cdot\\sin\\angle ODB} = \\frac{BL\\cdot\\sin\\angle OAC}{LD\\cdot\\sin\\angle OCA} = \\frac{BL}{LD}\\cdot\\frac{OC}{OA}$. (1)\nЗаметим, что $\\triangle OCM \\sim \\triangle OLB$ и $\\triangle OMA \\sim \\triangle ODL$. Следовательно,\n$\\frac{OC}{OL} = \\frac{CM}{BL}$ и $\\frac{OA}{OL} = \\frac{MA}{LD}$. (2)\nИз (1) и (2) следует, что $\\frac{BN_1}{N_1D} = \\frac{CM\\cdot OL}{OL\\cdot MA} = 1$. Следовательно, точки $N_1$ и $N$ совпадают. Это значит, что окружность, описанная около треугольника $MKL$, проходит через точку $N$.\n\nЗамечание. Если точки $M$ и $N$ лежат соответственно на диагоналях $AC$ и $BD$, и $\\frac{BN}{ND} = \\frac{CM}{MA}$, тогда точки $K$, $L$, $M$, $N$ лежат на одной окружности, где точка $L$ определена как в условии задачи.\n\nРисунок 2 (описание): вписанный четырехугольник $ABCD$, точка $O$ — пересечение продолжений $BC$ и $AD$ слева. Окружности $\\omega_1$ (через $B$, $M$, $C$), $\\omega_2$ (через $A$, $M$, $D$) и $\\omega$ (через $A$, $B$, $C$, $D$) изображены; точка $L$ — второе пересечение $\\omega_1$ и $\\omega_2$; точка $K$ — пересечение диагоналей, $N$ — середина $BD$, $N_1$ — точка пересечения окружности $KML$ с $BD$.",
+  "figures": []
+}

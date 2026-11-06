@@ -1,0 +1,22 @@
+{
+  "id": "izho-2018-math-1",
+  "subject": "math",
+  "topic": "Неравенства",
+  "title": "Неравенство с косинусами",
+  "statement": "Пусть $\\alpha$, $\\beta$ и $\\gamma$ — углы треугольника, противолежащие сторонам $a$, $b$ и $c$ соответственно. Докажите неравенство $2\\left(\\cos^2\\alpha+\\cos^2\\beta+\\cos^2\\gamma\\right)\\ge \\frac{a^2}{b^2+c^2}+\\frac{b^2}{a^2+c^2}+\\frac{c^2}{a^2+b^2}$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2018,
+    "stage": "international",
+    "number": 1,
+    "url": "https://izho.kz/wp-content/uploads/2018/01/Resheniya-Rus-1-den.pdf"
+  },
+  "solution": "По теореме синусов правая часть равна $\\frac{\\sin^2\\alpha}{\\sin^2\\beta+\\sin^2\\gamma}+\\frac{\\sin^2\\beta}{\\sin^2\\alpha+\\sin^2\\gamma}+\\frac{\\sin^2\\gamma}{\\sin^2\\alpha+\\sin^2\\beta}$. По неравенству Коши–Буняковского $\\sin^2\\alpha=\\sin^2(\\beta+\\gamma)=(\\sin\\beta\\cos\\gamma+\\sin\\gamma\\cos\\beta)^2\\le(\\sin^2\\beta+\\sin^2\\gamma)(\\cos^2\\gamma+\\cos^2\\beta)$, следовательно, $\\cos^2\\beta+\\cos^2\\gamma\\ge\\frac{\\sin^2\\alpha}{\\sin^2\\beta+\\sin^2\\gamma}$. Прибавляя два аналогичных неравенства для $\\cos^2\\gamma+\\cos^2\\alpha$ и $\\cos^2\\alpha+\\cos^2\\beta$, получаем требуемое.",
+  "figures": []
+}

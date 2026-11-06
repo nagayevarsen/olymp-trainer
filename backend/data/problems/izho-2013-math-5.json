@@ -1,0 +1,22 @@
+{
+  "id": "izho-2013-math-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Шестиугольник и сумма диагоналей",
+  "statement": "Дан выпуклый шестиугольник $ABCDEF$, в котором $AB \\parallel DE$, $BC \\parallel EF$, $CD \\parallel FA$. Расстояние между прямыми $AB$ и $DE$ равно расстоянию между прямыми $BC$ и $EF$ и расстоянию между прямыми $CD$ и $FA$. Докажите, что сумма $AD + BE + CF$ не превосходит периметра шестиугольника $ABCDEF$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2013,
+    "stage": "international",
+    "number": 5,
+    "url": "https://izho.kz/wp-content/uploads/2018/12/Reshenie-2-den-final.pdf"
+  },
+  "solution": "Докажем сначала следующее утверждение.\n\nЛемма. При выполнении условий задачи справедливо равенство $$AD^2 = (AB + DE)(FA + CD).$$\n\nДействительно, точка $D$ равноудалена от прямых $AB$ и $FA$. Следовательно, $\\angle BAD = \\angle FAD$. Поскольку $AB \\parallel DE$, $CD \\parallel FA$, то $\\angle BAD = \\angle FAD = \\angle ADE = \\angle ADC$. Аналогично, $\\angle ABE = \\angle CBE = \\angle FEB = \\angle DEB$ и $\\angle BCF = \\angle DCF = \\angle CFA = \\angle CFE$.\n\nПоложим $\\angle BAD = \\alpha$, $\\angle ABE = \\beta$ и $\\angle BCF = \\gamma$. Поскольку сумма внутренних углов шестиугольника равна $720^\\circ$, то справедливо равенство $\\alpha + \\beta + \\gamma = 180^\\circ$.\n\nРассмотрим параллелограмм $ADEK$. Ясно, что $BK = BA + AK = BA + DE$, $KE = AD$, $\\angle AKE = \\angle BAD = \\alpha$, $\\angle KBE = \\angle ABE = \\beta$, $\\angle BEK = \\gamma$. Отсюда треугольники со сторонами $AD, AB+DE, BE$ и $FA+CD, AD, CF$ подобны. Значит, $AD^2 = (AB + DE)(FA + CD)$.\n\nСледовательно, согласно Лемме и неравенству Коши имеем: $$AD = \\sqrt{(AB + DE)(FA + CD)} \\le \\frac{AB + DE + FA + CD}{2}.$$\n\nАналогично, $$BE \\le \\frac{AB + BC + EF + ED}{2}, \\qquad CF \\le \\frac{BC + CD + EF + FA}{2}.$$\n\nИз последних трех неравенств следует, что $$AD + BE + CF \\le AB + BC + CD + DE + EF + FA.$$",
+  "figures": []
+}

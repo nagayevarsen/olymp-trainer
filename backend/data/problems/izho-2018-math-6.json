@@ -1,0 +1,22 @@
+{
+  "id": "izho-2018-math-6",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Сумма радиусов вписанных окружностей",
+  "statement": "В окружность с радиусом $R$ вписан выпуклый шестиугольник $ABCDEF$. Диагонали $AD$ и $BE$, $BE$ и $CF$, $AD$ и $CF$ шестиугольника $ABCDEF$ пересекаются в точках $M$, $N$ и $K$ соответственно. Пусть $r_1, r_2, r_3, r_4, r_5, r_6$ — радиусы окружностей, вписанных в треугольники $ABM$, $BCN$, $CDK$, $DEM$, $EFN$, $AFK$ соответственно. Докажите, что $r_1+r_2+r_3+r_4+r_5+r_6\\le R\\sqrt{3}$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2018,
+    "stage": "international",
+    "number": 6,
+    "url": "https://izho.kz/wp-content/uploads/2018/01/Resheniya-Rus-2-den.pdf"
+  },
+  "solution": "Докажем следующую лемму. Лемма. Пусть $R$ — радиус описанной окружности четырёхугольника $XYZT$, диагонали которого пересекаются в точке $U$, и $\\varphi=\\frac12\\angle XUY$. Если $r_1, r_2$ — радиусы окружностей, вписанных в треугольники $XYU$, $ZTU$ соответственно, то $\\frac{r_1+r_2}{R}\\le2\\tg\\varphi(1-\\sin\\varphi)$ (1). Действительно, пусть $\\angle UXY=2\\psi$, $\\angle UYX=2\\vartheta$, тогда имеем $\\angle UTZ=\\angle UXY=2\\psi$, $\\angle UZT=\\angle UYX=2\\vartheta$ (очевидно, $\\psi+\\vartheta+\\varphi=\\frac{\\pi}{2}$). Тогда $XY+ZT=(r_1+r_2)(\\ctg\\psi+\\ctg\\vartheta)=2R\\sin\\angle XTY+2R\\sin(2\\varphi-\\angle XTY)=2R\\cdot2\\sin\\varphi\\cos(\\varphi-\\angle XTY)\\le4R\\sin\\varphi$. Следовательно, $\\frac{r_1+r_2}{R}\\le\\frac{4\\sin\\varphi}{\\ctg\\psi+\\ctg\\vartheta}=\\frac{4\\sin\\varphi\\sin\\psi\\sin\\vartheta}{\\sin(\\psi+\\vartheta)}=\\frac{4\\sin\\varphi\\sin\\psi\\sin\\vartheta}{\\cos\\varphi}=4\\tg\\varphi\\sin\\psi\\sin\\vartheta=4\\tg\\varphi\\cdot\\frac12(\\cos(\\psi-\\vartheta)-\\cos(\\psi+\\vartheta))\\le2\\tg\\varphi(1-\\sin\\varphi)$, что и требовалось доказать. Пусть $\\angle AMB=2\\alpha$, $\\angle BNC=2\\beta$, $\\angle CKD=2\\gamma$, тогда $\\alpha+\\beta+\\gamma=\\frac{\\pi}{2}$. Применяя к четырёхугольникам $ABDE$, $BCEF$ и $CDFA$ неравенство (1), получаем $\\frac{r_1+r_2+r_3+r_4+r_5+r_6}{R}=\\frac{r_1+r_4}{R}+\\frac{r_2+r_5}{R}+\\frac{r_3+r_6}{R}\\le2\\tg\\alpha(1-\\sin\\alpha)+2\\tg\\beta(1-\\sin\\beta)+2\\tg\\gamma(1-\\sin\\gamma)$. Докажем, что, если $\\alpha+\\beta+\\gamma=\\frac{\\pi}{2}$, то $2\\tg\\alpha(1-\\sin\\alpha)+2\\tg\\beta(1-\\sin\\beta)+2\\tg\\gamma(1-\\sin\\gamma)\\le\\sqrt{3}$ (2). Действительно, рассмотрим функцию $f(x)=2\\tg x(1-\\sin x)$ в области $(0;\\frac{\\pi}{2})$. Поскольку $f''(x)=-2\\frac{(1-\\sin x)^2+\\cos^4x}{\\cos^3x}<0$ при $x\\in(0;\\frac{\\pi}{2})$, согласно неравенству Иенсена имеем $f(\\alpha)+f(\\beta)+f(\\gamma)\\le3f\\left(\\frac{\\alpha+\\beta+\\gamma}{3}\\right)=3f\\left(\\frac{\\pi}{6}\\right)=\\sqrt{3}$. Таким образом, неравенство (2) доказано, и $r_1+r_2+r_3+r_4+r_5+r_6\\le\\sqrt{3}R$.",
+  "figures": []
+}

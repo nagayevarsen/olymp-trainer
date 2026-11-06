@@ -1,0 +1,22 @@
+{
+  "id": "izho-2013-math-1",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Окружности и точка N",
+  "statement": "Дана трапеция $ABCD$ ($AD \\parallel BC$), в которой $\\angle ABC > 90^\\circ$. На боковой стороне $AB$ отмечена точка $M$. Обозначим через $O_1$ и $O_2$ центры описанных около треугольников $MAD$ и $MBC$ окружностей соответственно. Известно, что описанные около треугольников $MO_1D$ и $MO_2C$ окружности вторично пересекаются в точке $N$. Докажите, что прямая $O_1O_2$ проходит через точку $N$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2013,
+    "stage": "international",
+    "number": 1,
+    "url": "https://izho.kz/wp-content/uploads/2018/12/Reshenie-1den-final.pdf"
+  },
+  "solution": "Поскольку $\\angle MO_2C = 360^\\circ - 2\\angle MBC = 2\\angle MAD = \\angle MO_1D$, то $\\triangle MO_1D \\sim \\triangle MO_2C$. Отсюда $$\\frac{MC}{MD} = \\frac{MO_2}{MO_1} \\qquad (1)$$ и $\\angle CMO_2 = \\angle O_1MD$. Следовательно, $$\\angle O_1MO_2 = \\angle DMC. \\qquad (2)$$ В силу равенств (1) и (2) имеем $$\\triangle O_1MO_2 \\sim \\triangle DMC. \\qquad (3)$$ Из (3) следует, что $\\angle MO_1K = \\angle MDK$, где $K$ — точка пересечения прямых $O_1O_2$ и $CD$. Следовательно, точки $M, O_1, D, K$ лежат на некоторой окружности. Таким образом, $\\angle CMO_2 = \\angle O_1MD = \\angle O_1KD$. Значит, $\\angle CMO_2 = \\angle O_2KC$, т.е. точки $M, O_2, C, K$ также лежат на некоторой окружности. Тем самым доказано, что точки $K$ и $N$ совпадают, т.е. прямая $O_1O_2$ проходит через точку $N$.\n\n(Решение опирается на рисунок: трапеция $ABCD$, точка $M$ на стороне $AB$, центры $O_1$ и $O_2$, точка $K$ на пересечении $O_1O_2$ и $CD$ и вторая окружность, проходящая через $M, O_1, D, K$ и $M, O_2, C, K$.)",
+  "figures": []
+}

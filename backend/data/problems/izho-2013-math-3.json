@@ -1,0 +1,22 @@
+{
+  "id": "izho-2013-math-3",
+  "subject": "math",
+  "topic": "Неравенства",
+  "title": "Неравенство для четырёх дробей",
+  "statement": "Пусть $a, b, c, d > 0$ и $abcd = 1$. Докажите неравенство $$\\frac{(a-1)(c+1)}{1+bc+c} + \\frac{(b-1)(d+1)}{1+cd+d} + \\frac{(c-1)(a+1)}{1+da+a} + \\frac{(d-1)(b+1)}{1+ab+b} \\ge 0.$$",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2013,
+    "stage": "international",
+    "number": 3,
+    "url": "https://izho.kz/wp-content/uploads/2018/12/Reshenie-1den-final.pdf"
+  },
+  "solution": "Решение 1. Несложно показать, что исходное неравенство эквивалентно неравенству $$\\frac{ac+a+bc}{1+bc+c} + \\frac{bd+b+cd}{1+cd+d} + \\frac{ac+c+ad}{1+ad+a} + \\frac{db+d+ab}{1+ab+b} \\ge 4.$$\n\nПоскольку справедливо неравенство $$ac+a+bc = \\frac{(c+1)^2}{\\frac{c+1}{a}} + \\frac{(bc)^2}{bc} \\ge \\frac{(c+1+bc)^2}{\\frac{c+1}{a} + bc} = \\frac{ad(c+1+bc)^2}{cd+d+1},$$ или $$\\frac{ac+a+bc}{1+bc+c} \\ge \\frac{ad(c+1+bc)}{cd+d+1},$$ то согласно неравенству Коши имеем $$\\frac{ac+a+bc}{1+bc+c} + \\frac{bd+b+cd}{1+cd+d} + \\frac{ac+c+ad}{1+ad+a} + \\frac{db+d+ab}{1+ab+b} \\ge$$ $$\\ge \\frac{ad(c+1+bc)}{cd+d+1} + \\frac{ba(d+1+cd)}{da+a+1} + \\frac{cb(a+1+da)}{ab+b+1} + \\frac{dc(b+1+ab)}{bc+c+1} \\ge$$ $$\\ge 4\\sqrt[4]{\\frac{ad(c+1+bc)}{cd+d+1}\\cdot\\frac{ba(d+1+cd)}{da+a+1}\\cdot\\frac{cb(a+1+da)}{ab+b+1}\\cdot\\frac{dc(b+1+ab)}{bc+c+1}} = 4.$$ Что и требовалось доказать.\n\nРешение 2. Поскольку $abcd = 1$, то существуют положительные числа $x, y, z, t$ такие, что $a = \\frac{x}{y}, b = \\frac{y}{z}, c = \\frac{z}{t}, d = \\frac{t}{x}$. Тогда наше неравенство может быть записано в следующем виде $$\\frac{(x-y)(z+t)}{y(y+z+t)} + \\frac{(y-z)(x+t)}{z(z+x+t)} + \\frac{(z-t)(x+y)}{t(z+x+y)} + \\frac{(t-x)(y+z)}{x(x+y+z)} \\ge 0$$ или, оно эквивалентно $$\\frac{x(z+t)+y^2}{y(z+t)+y^2} + \\frac{y(x+t)+z^2}{z(x+t)+z^2} + \\frac{z(x+y)+t^2}{t(x+y)+t^2} + \\frac{t(y+z)+x^2}{x(y+z)+x^2} \\ge 4.$$ Заметим, что согласно неравенству Коши–Буняковского имеем $$(x(z+t)+y^2)\\left(\\frac{z+t}{x}+1\\right) \\ge (z+t+y)^2$$ или $$\\frac{x(z+t)+y^2}{y(z+t)+y^2} \\ge \\frac{x(z+t+y)}{y(z+t+x)}$$ (равенство возможно только если $x = y$).\n\nТеперь, применяя неравенства, подобные вышеуказанному, для других переменных, получим $$\\frac{x(z+t)+y^2}{y(z+t)+y^2} + \\frac{y(x+t)+z^2}{z(x+t)+z^2} + \\frac{z(x+y)+t^2}{t(x+y)+t^2} + \\frac{t(y+z)+x^2}{x(y+z)+x^2} \\ge$$ $$\\ge \\frac{x(z+t+y)}{y(z+t+x)} + \\frac{y(x+t+z)}{z(x+t+y)} + \\frac{z(x+y+t)}{t(x+y+z)} + \\frac{t(y+z+x)}{x(y+z+t)} \\ge$$ $$\\ge 4\\sqrt[4]{\\frac{x(z+t+y)}{y(z+t+x)}\\cdot\\frac{y(x+t+z)}{z(x+t+y)}\\cdot\\frac{z(x+y+t)}{t(x+y+z)}\\cdot\\frac{t(y+z+x)}{x(y+z+t)}} = 4.$$\n\nОтметим, что равенство возможно только в случае, когда $x = y = z = t$, т.е. $a = b = c = d = 1$.",
+  "figures": []
+}

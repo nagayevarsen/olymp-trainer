@@ -1,0 +1,22 @@
+{
+  "id": "izho-2024-math-6",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Углы в треугольнике",
+  "statement": "Медианы треугольника $ABC$ пересекаются в точке $G$. Среди шести углов $GAB$, $GAC$, $GBA$, $GBC$, $GCA$, $GCB$ есть не менее трёх, каждый из которых не меньше $\\alpha$. При каком наибольшем $\\alpha$ это могло произойти?",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2024,
+    "stage": "international",
+    "number": 6,
+    "url": "https://izho.kz/wp-content/uploads/2024/12/Day_2_sol_2024.pdf"
+  },
+  "solution": "Ответ. $\\alpha = \\arcsin \\frac{1}{\\sqrt{3}} = \\operatorname{arctg} \\frac{1}{\\sqrt{2}} = \\arccos \\sqrt{\\frac{2}{3}}$.\n\nРешение. Обозначим $\\alpha_0 = \\arcsin \\frac{1}{\\sqrt{3}}$.\n\nДля начала предъявим треугольник, в котором три из рассмотренных углов не меньше $\\alpha_0$. Это будет прямоугольный треугольник $ABC$, в котором $\\angle C = 90^\\circ$, $AC = 2$ и $BC = \\sqrt{2}$. Тогда $\\angle BAC = \\alpha_0$. Пусть $M$ и $N$ — середины сторон $AB$ и $AC$ соответственно. Прямоугольные треугольники $NCB$ и $BCA$ подобны, так что $\\angle NBC = \\alpha_0$. Треугольник $MAC$ — равнобедренный, поэтому $\\angle MCA = \\angle MAC = \\alpha_0$. Наконец, $\\angle MCB = 90^\\circ - \\angle MCA = 90^\\circ - \\alpha_0 > \\alpha_0$. Итак, каждый из углов $GBC$, $GCA$ и $GCB$ не меньше $\\alpha_0$.\n\nОсталось доказать, что в произвольном треугольнике $ABC$ максимум два из рассматриваемых шести углов могут оказаться строго больше $\\alpha_0$. Мы докажем, что максимум один из углов $GAB$, $GBC$ и $GCA$ может превышать $\\alpha_0$; для остальных трёх углов рассуждение аналогично.\n\nПредполагая противное, можно считать, что углы $\\angle GAB$ и $\\angle GBC$ строго больше $\\alpha_0$. Тогда каждый из них меньше, чем $180^\\circ - \\alpha_0$, ибо их сумма меньше $180^\\circ$. Поэтому синус каждого из этих двух углов больше, чем $\\sin\\alpha_0 = \\frac{1}{\\sqrt{3}}$.\n\nПусть $K$ — середина $BC$, тогда $KA = 3KG$. С другой стороны, по теореме синусов имеем\n\n$$\\frac{KA}{KB} = \\frac{\\sin\\angle KBA}{\\sin\\angle KAB} < \\frac{1}{\\sin\\alpha_0}, \\quad \\text{аналогично} \\quad \\frac{KB}{KG} = \\frac{\\sin\\angle KGB}{\\sin\\angle KBG} < \\frac{1}{\\sin\\alpha_0}.$$\n\nОтсюда\n\n$$3 = \\frac{KA}{KG} = \\frac{KA}{KB} \\cdot \\frac{KB}{KG} < \\frac{1}{\\sin^2\\alpha_0} = 3.$$\n\nЭто противоречие завершает решение.",
+  "figures": []
+}

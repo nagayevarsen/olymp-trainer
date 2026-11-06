@@ -1,0 +1,22 @@
+{
+  "id": "izho-2012-math-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Сумма углов BAD и CDA",
+  "statement": "На диагоналях выпуклого четырёхугольника $ABCD$ построены правильные треугольники $ACB'$ и $BDC'$, причём точки $B$ и $B'$ лежат по одну сторону от $AC$, а точки $C$ и $C'$ лежат по одну сторону от $BD$. Найдите $\\angle BAD+\\angle CDA$, если известно, что $B'C'=AB+CD$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2012,
+    "stage": "international",
+    "number": 5,
+    "url": "https://izho.kz/wp-content/uploads/2018/12/izho12_rus_sol.pdf"
+  },
+  "solution": "Построим равносторонний треугольник $BCF$, как показано на чертеже (точка $F$ лежит внутри угла $CBB'$ относительно отрезка $BC$, с той же стороны, что и $B'$, $C'$). Тогда $\\angle FBC=60^\\circ=\\angle C'BD$ и, следовательно, $\\angle FBC'=\\angle CBD$. Так как $BF=BC$ и $BC'=BD$, имеем $\\triangle BFC'\\cong\\triangle BCD$. Откуда $FC'=CD$ и $\\angle BFC'=\\angle BCD$. Аналогично, $B'F=AB$ и $\\angle B'FC=\\angle ABC$. Из равенства $B'C'=AB+CD$ следует равенство $B'C'=B'F+FC'$, значит, точка $F$ лежит на отрезке $B'C'$. Но тогда $\\angle B'FC+\\angle BFC'=180^\\circ+\\angle BFC=240^\\circ$.\n\nПолучаем, что $\\angle BCD+\\angle ABC=\\angle BFC'+\\angle B'FC=240^\\circ$ и, следовательно, $\\angle BAD+\\angle CDA=120^\\circ$.\n\nОтвет: $120^\\circ$.\n\n(Описание рисунка: выпуклый четырёхугольник $ABCD$, правильные треугольники $ACB'$ и $BDC'$ на диагоналях, вспомогательный правильный треугольник $BCF$; точка $F$ лежит на отрезке $B'C'$.)",
+  "figures": []
+}

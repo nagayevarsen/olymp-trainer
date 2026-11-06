@@ -1,0 +1,22 @@
+{
+  "id": "izho-2020-math-3",
+  "subject": "math",
+  "topic": "Неравенства",
+  "title": "Шестиугольник и Птолемей",
+  "statement": "Выпуклый шестиугольник $ABCDEF$ вписан в окружность. Докажите неравенство $$AC\\cdot BD\\cdot CE\\cdot DF\\cdot AE\\cdot BF\\geqslant 27\\,AB\\cdot BC\\cdot CD\\cdot DE\\cdot EF\\cdot FA.$$",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2020,
+    "stage": "international",
+    "number": 3,
+    "url": "https://izho.kz/wp-content/uploads/2020/01/day_1_solutions.pdf"
+  },
+  "solution": "Положим $$d_1=AB\\cdot BC\\cdot CD\\cdot DE\\cdot EF\\cdot FA,\\quad d_2=AC\\cdot BD\\cdot CE\\cdot DF\\cdot AE\\cdot BF,\\quad d_3=AD\\cdot BE\\cdot CF.$$\n\nПрименяя теорему Птолемея к четырёхугольникам $ABCD$, $BCDE$, $CDEF$, $DEFA$, $EFAB$, $FABC$, получим шесть равенств $AC\\cdot BD-AB\\cdot CD=BC\\cdot AD$, $\\dots$, $FB\\cdot AC-FA\\cdot BC=AB\\cdot FC$. Подставляя эти равенства в известное неравенство $$\\sqrt[6]{(a_1-b_1)(a_2-b_2)\\cdot\\ldots\\cdot(a_6-b_6)}\\leqslant\\sqrt[6]{a_1a_2\\ldots a_6}-\\sqrt[6]{b_1b_2\\ldots b_6}\\quad(a_i\\geqslant b_i>0,\\ i=1,\\dots,6),$$ получим $$\\sqrt[3]{d_3}\\sqrt[6]{d_1}\\leqslant\\sqrt[3]{d_2}-\\sqrt[3]{d_1}.\\qquad(1)$$\n\nПрименяя теорему Птолемея к четырёхугольникам $ACDF$, $ABDE$ и $BCEF$, получим три равенства $AD\\cdot CF=AC\\cdot DF+AF\\cdot CD$, $AD\\cdot BE=BD\\cdot AE+AB\\cdot DE$, $BE\\cdot CF=BF\\cdot CE+BC\\cdot EF$. Подставляя эти равенства в известное неравенство $$\\sqrt[3]{(a_1+b_1)(a_2+b_2)(a_3+b_3)}\\geqslant\\sqrt[3]{a_1a_2a_3}+\\sqrt[3]{b_1b_2b_3}\\quad(a_i>0,\\ b_i>0,\\ i=1,2,3),$$ получим $$\\sqrt[3]{d_3^2}\\geqslant\\sqrt[3]{d_2}+\\sqrt[3]{d_1}.\\qquad(2)$$\n\nИз неравенств (1) и (2) следует, что $(\\sqrt[3]{d_2}-\\sqrt[3]{d_1})^2\\geqslant\\sqrt[3]{d_1}(\\sqrt[3]{d_2}+\\sqrt[3]{d_1})$, то есть $\\sqrt[3]{d_2}\\geqslant 3\\sqrt[3]{d_1}$ и $d_2\\geqslant 27d_1$, ч. и т.д.",
+  "figures": []
+}

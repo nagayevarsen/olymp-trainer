@@ -1,0 +1,22 @@
+{
+  "id": "izho-2014-math-1",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Два красивых треугольника",
+  "statement": "На сторонах $BC$, $CA$ и $AB$ треугольника $ABC$ лежат точки $M$, $N$, $K$ соответственно, не совпадающие с вершинами. Треугольник $MNK$ назовём красивым, если $\\angle BAC=\\angle KMN$ и $\\angle ABC=\\angle KNM$. Докажите, что если в треугольнике $ABC$ существуют два красивых треугольника с общей вершиной, то треугольник $ABC$ — прямоугольный.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2014,
+    "stage": "international",
+    "number": 1,
+    "url": "https://izho.kz/wp-content/uploads/2018/12/solrus.pdf"
+  },
+  "solution": "Пусть $KMN$ и $KM'N'$ два красивых треугольника с общей вершиной. Тогда $\\angle KMN=\\angle A=\\angle KM'N'$. Без потери общности, пусть $M'$ лежит между $B$ и $M$. Пусть $R$ — общая точка отрезков $MN$ и $M'N'$. Поскольку $\\angle KMR=\\angle KM'R$, то $K, M, M', R$ лежат на одной окружности и $\\angle KM'M=180^\\circ-\\angle KRM=\\angle KRN$. Аналогично, точки $K, N, N', R$ лежат на одной окружности, отсюда, $\\angle KN'N=\\angle KRN$. Следовательно,\n\n$\\angle KM'C=\\angle KM'M=\\angle KN'N=180^\\circ-\\angle KN'C$\n\nЗначит, четырехугольник $KM'CN'$ вписанный и $180^\\circ=\\angle C+\\angle M'KN'=2\\angle C$, поэтому угол $C$ прямой.",
+  "figures": []
+}

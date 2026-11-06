@@ -1,0 +1,22 @@
+{
+  "id": "izho-2015-math-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Равенство углов в треугольнике",
+  "statement": "Точка $M$ лежит внутри треугольника $ABC$. Прямая $BM$ пересекает сторону $AC$ в точке $N$. Точка $K$ симметрична $M$ относительно $AC$. Прямая $BK$ пересекает $AC$ в точке $P$. Докажите, что если $\\angle AMP = \\angle CMN$, то $\\angle ABP = \\angle CBN$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2015,
+    "stage": "international",
+    "number": 2,
+    "url": "https://izho.kz/wp-content/uploads/2018/01/1day_rus_sol.pdf"
+  },
+  "solution": "Пусть $D$, $E$ и $F$ — основания перпендикуляров, опущенных из $A$ на $BP$, $MP$ и $BM$ соответственно, а $G$, $Q$ и $H$ — основания перпендикуляров, опущенных из $C$ на $BP$, $MP$ и $BM$ соответственно. Заметим, что $\\triangle AFM \\sim \\triangle CQM$ и $\\triangle AME \\sim \\triangle CMH$, следовательно, $\\frac{AF}{CQ} = \\frac{AM}{CM} = \\frac{AE}{CH}$. В силу симметрии $CQ = CG$, $AE = AD$ и $\\angle FAD = \\angle FBD = \\angle GCH$, поэтому $\\frac{AF}{CG} = \\frac{AD}{CH}$. Отсюда следует, что $\\triangle FAD \\sim \\triangle GCH$, таким образом, $\\angle AFD = \\angle CGH$. Далее, точки $A$, $B$, $F$, $D$ лежат на одной окружности, поэтому $\\angle ABP = \\angle AFD$, и аналогично $\\angle CBN = \\angle CGH$. Сопоставляя это равенство с результатом предыдущего абзаца, получаем $\\angle ABP = \\angle CBN$.",
+  "figures": []
+}
