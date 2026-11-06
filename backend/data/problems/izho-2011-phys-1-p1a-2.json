@@ -1,0 +1,26 @@
+{
+  "id": "izho-2011-phys-1-p1a-2",
+  "subject": "physics",
+  "topic": "Механика, электроцепи, оптика",
+  "title": "Куб со шайбой и линза, пункт 1A.2",
+  "statement": "Эта задача состоит из трех частей, не связанных друг с другом.\n\n**Пункт 1A.2.** При каком отношении масс куба и шайбы M/m достигается минимальное значение скорости шайбы из пункта 1A.1?",
+  "answer": {
+    "value": 2.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2011,
+    "stage": "international",
+    "number": 1,
+    "url": "https://izho.kz/wp-content/uploads/2018/12/IZhO-2011-Theory_rus_sol_f.pdf"
+  },
+  "solution": "Дифференцирование выражения $v=\\sqrt{gR}\\sqrt{5+M/m+4m/M}$ по $M/m$ дает $M/m=2$.",
+  "figures": [
+    "izho-2011-phys-1-fig1.png",
+    "izho-2011-phys-1-fig2.png",
+    "izho-2011-phys-1-fig3.png"
+  ]
+}

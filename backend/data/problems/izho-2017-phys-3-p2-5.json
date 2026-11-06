@@ -1,0 +1,30 @@
+{
+  "id": "izho-2017-phys-3-p2-5",
+  "subject": "physics",
+  "topic": "Рекуррентные последовательности, электри",
+  "title": "Сопротивление призмы, пункт 2.5",
+  "statement": "Задача состоит из математического введения (рекуррентные соотношения, степени числа $\\lambda=2+\\sqrt{3}$) и исследования проволочного каркаса в форме призмы, в котором сопротивление каждого ребра равно $R_0$.\n\n**Пункт 2.5.** Найдите явные выражения для потенциалов $x_k$ и $y_k$ для всех $k=0,1,2,\\dots,N-1$ призмы с $N$ боковыми гранями, если $x_0=\\varphi_0$, $y_0=-\\varphi_0$.",
+  "answer": {
+    "formula": "phi0*(qNk + qk)/qN",
+    "variables": {
+      "phi0": "потенциал φ_0, заданный источником",
+      "qNk": "коэффициент q_{N-k}",
+      "qk": "коэффициент q_k",
+      "qN": "коэффициент q_N"
+    },
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2017,
+    "stage": "international",
+    "number": 3,
+    "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
+  },
+  "solution": "По формуле п.1.6 при $A=B=\\varphi_0$: $x_k=\\varphi_0\\frac{q_{N-k}+q_k}{q_N}$, и $y_k=-x_k$.",
+  "figures": [
+    "izho-2017-phys-3-fig1.png",
+    "izho-2017-phys-3-fig2.png"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "izho-2017-phys-3-p2-10",
+  "subject": "physics",
+  "topic": "Рекуррентные последовательности, электри",
+  "title": "Сопротивление призмы, пункт 2.10",
+  "statement": "Задача состоит из математического введения (рекуррентные соотношения, степени числа $\\lambda=2+\\sqrt{3}$) и исследования проволочного каркаса в форме призмы, в котором сопротивление каждого ребра равно $R_0$.\n\n**Пункт 2.10.** Найдите значение сопротивления $R_\\infty$ каркаса при $N\\to\\infty$.",
+  "answer": {
+    "formula": "R0/sqrt(3)",
+    "variables": {
+      "R0": "сопротивление каждого ребра"
+    },
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2017,
+    "stage": "international",
+    "number": 3,
+    "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
+  },
+  "solution": "Выражая $p_N=\\frac12(\\lambda^N-\\lambda^{-N})$, $q_N=\\frac{1}{2\\sqrt3}(\\lambda^N+\\lambda^{-N})$, при $N\\to\\infty$ получаем $R_\\infty=\\frac{R_0}{\\sqrt3}\\approx0.577R_0$.",
+  "figures": [
+    "izho-2017-phys-3-fig1.png",
+    "izho-2017-phys-3-fig2.png"
+  ]
+}

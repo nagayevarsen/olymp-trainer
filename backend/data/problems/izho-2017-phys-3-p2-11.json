@@ -1,0 +1,25 @@
+{
+  "id": "izho-2017-phys-3-p2-11",
+  "subject": "physics",
+  "topic": "Рекуррентные последовательности, электри",
+  "title": "Сопротивление призмы, пункт 2.11",
+  "statement": "Задача состоит из математического введения (рекуррентные соотношения, степени числа $\\lambda=2+\\sqrt{3}$) и исследования проволочного каркаса в форме призмы, в котором сопротивление каждого ребра равно $R_0$.\n\n**Пункт 2.11.** Найдите минимальное значение $N$, при котором сопротивление призмы отличается от $R_\\infty$ не более чем на 2%.",
+  "answer": {
+    "value": 4.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2017,
+    "stage": "international",
+    "number": 3,
+    "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
+  },
+  "solution": "Относительная погрешность $\\varepsilon=\\frac{R_\\infty-R_N}{R_N}$: для $N=3$ $\\varepsilon\\approx-3.8\\%$, для $N=4$ $\\varepsilon\\approx-1\\%$. Следовательно, $N=4$.",
+  "figures": [
+    "izho-2017-phys-3-fig1.png",
+    "izho-2017-phys-3-fig2.png"
+  ]
+}

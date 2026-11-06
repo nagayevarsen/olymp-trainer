@@ -45,3 +45,4 @@ izho-phys-trial-2012 0.3232
 izho-phys-trial-2012-ok 0.2209
 izho-math-proofs 0.1204
 chat-upload-test 0.002
+izho-phys-all 1.0400

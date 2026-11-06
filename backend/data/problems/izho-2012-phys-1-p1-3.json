@@ -1,0 +1,30 @@
+{
+  "id": "izho-2012-phys-1-p1-3",
+  "subject": "physics",
+  "topic": "механика, электрические цепи, оптика",
+  "title": "Стержень, диоды, линза, пункт 1.С.3",
+  "statement": "Эта задача состоит из трех частей, не связанных друг с другом.\n\n**Пункт 1.С.3.** Чему равно фокусное расстояние линзы, которую образует пластинка из задачи 1.С (закон $n(r)=n_0(1-\\beta r^2)$, толщина $h$)?",
+  "answer": {
+    "formula": "1/(2*n0*beta*h)",
+    "variables": {
+      "n0": "постоянная в законе показателя преломления",
+      "beta": "постоянная β в законе n(r)",
+      "h": "толщина пластинки"
+    },
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2012,
+    "stage": "international",
+    "number": 1,
+    "url": "https://izho.kz/wp-content/uploads/2018/12/IZhO-2012-Theory_rus_sol_final.pdf"
+  },
+  "solution": "Сравнивая $\\frac{1}{a}+\\frac{1}{b}=2n_0\\beta h$ с формулой тонкой линзы $\\frac{1}{a}+\\frac{1}{b}=\\frac{1}{F}$, получаем $F=\\frac{1}{2n_0\\beta h}$.",
+  "figures": [
+    "izho-2012-phys-1-fig1.png",
+    "izho-2012-phys-1-fig2.png",
+    "izho-2012-phys-1-fig3.png"
+  ]
+}

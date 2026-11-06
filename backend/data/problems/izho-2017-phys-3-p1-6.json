@@ -1,0 +1,31 @@
+{
+  "id": "izho-2017-phys-3-p1-6",
+  "subject": "physics",
+  "topic": "Рекуррентные последовательности, электри",
+  "title": "Сопротивление призмы, пункт 1.6",
+  "statement": "Задача состоит из математического введения (рекуррентные соотношения, степени числа $\\lambda=2+\\sqrt{3}$) и исследования проволочного каркаса в форме призмы, в котором сопротивление каждого ребра равно $R_0$.\n\n**Пункт 1.6.** Выразите произвольный член последовательности $x_k$ из п.1.5 через коэффициенты $p_k,q_k$, найденные в пп.1.2–1.3.",
+  "answer": {
+    "formula": "(A*qNk + B*qk)/qN",
+    "variables": {
+      "A": "значение x_0",
+      "B": "значение x_N",
+      "qk": "коэффициент q_k",
+      "qNk": "коэффициент q_{N-k}",
+      "qN": "коэффициент q_N"
+    },
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
+    "year": 2017,
+    "stage": "international",
+    "number": 3,
+    "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
+  },
+  "solution": "$\\lambda_1^k-\\lambda_2^k=2q_k\\sqrt3$, поэтому $x_k=\\frac{Aq_{N-k}+Bq_k}{q_N}$.",
+  "figures": [
+    "izho-2017-phys-3-fig1.png",
+    "izho-2017-phys-3-fig2.png"
+  ]
+}
