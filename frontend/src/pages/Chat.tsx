@@ -30,11 +30,11 @@ function Cards({ cards }: { cards: ChatCard[] }) {
 }
 
 // Быстрый старт в пустом чате: нажал — и вопрос ушёл помощнику.
-const SUGGESTIONS = [
-  'Подбери мне задачу по геометрии',
-  'Хочу потренировать кинематику',
-  'Объясни принцип Дирихле на примере',
-  'С чего начать подготовку к Жаутыковской олимпиаде?',
+const SUGGESTIONS: [string, string][] = [
+  ['📐', 'Подбери мне задачу по геометрии'],
+  ['🚀', 'Хочу потренировать кинематику'],
+  ['🕊️', 'Объясни принцип Дирихле на примере'],
+  ['🏆', 'С чего начать подготовку к Жаутыковской?'],
 ]
 
 export function ChatPage() {
@@ -113,9 +113,9 @@ export function ChatPage() {
   }
 
   return (
-    <div className="mx-auto flex min-h-[calc(100dvh-7rem)] max-w-3xl flex-col gap-4">
+    <div className="mx-auto flex min-h-[calc(100dvh-4.5rem)] max-w-3xl flex-col gap-4 lg:min-h-[calc(100dvh-7rem)]">
       <div className="grid items-center gap-x-6 gap-y-3 sm:grid-cols-[minmax(0,1fr)_auto]">
-        <div className="flex min-w-0 flex-col gap-1">
+        <div className="hidden min-w-0 flex-col gap-1 lg:flex">
           <span className="chip w-fit bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
             ИИ-помощник
           </span>
@@ -125,7 +125,7 @@ export function ChatPage() {
         </div>
         <div
           role="tablist"
-          className="grid w-full grid-cols-2 rounded-2xl bg-slate-200/70 p-1 sm:inline-grid sm:w-auto sm:justify-self-center dark:bg-slate-800"
+          className="fixed left-1/2 top-2.5 z-30 inline-grid -translate-x-1/2 grid-cols-[auto_auto] lg:grid-cols-2 rounded-full bg-white/90 p-1 shadow-sm ring-1 ring-slate-200 backdrop-blur lg:static lg:translate-x-0 lg:justify-self-center lg:rounded-2xl lg:bg-slate-200/70 lg:shadow-none lg:ring-0 dark:bg-slate-900/90 dark:ring-slate-800 lg:dark:bg-slate-800"
         >
           {(
             [
@@ -138,9 +138,9 @@ export function ChatPage() {
               role="tab"
               aria-selected={mode === m}
               onClick={() => switchMode(m)}
-              className={`rounded-xl px-5 py-2 text-sm font-semibold transition sm:py-1.5 ${
+              className={`whitespace-nowrap rounded-full px-5 py-2 text-sm font-semibold transition lg:rounded-xl lg:px-5 lg:py-1.5 ${
                 mode === m
-                  ? 'bg-white shadow-sm dark:bg-slate-950'
+                  ? 'bg-slate-200 shadow-sm lg:bg-white dark:bg-slate-700 lg:dark:bg-slate-950'
                   : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -158,24 +158,6 @@ export function ChatPage() {
       </div>
 
       {mode === 'olympiad' && <OlympiadPanel onFinishDiscuss={(summary) => void send(summary, 'training')} />}
-
-      {mode === 'training' && !problemId && turns.length === 0 && !busy && (
-        <div className="animate-fade-up my-auto py-6 text-center">
-          <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Чем займёмся?</h2>
-          <p className="mt-1 text-sm text-slate-500">Напиши свой вопрос или начни с одного из этих:</p>
-          <div className="mt-5 grid gap-2 sm:grid-cols-2">
-            {SUGGESTIONS.map((q) => (
-              <button
-                key={q}
-                onClick={() => void send(q)}
-                className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-left text-sm font-medium transition hover:border-brand-400 hover:bg-white dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-brand-500"
-              >
-                {q}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
 
       {(turns.length > 0 || busy) && (
         <div className="card space-y-4 p-4">
@@ -199,12 +181,29 @@ export function ChatPage() {
       )}
 
       <div className="flex-1" />
+      {mode === 'training' && !problemId && turns.length === 0 && !busy && (
+        <ul className="animate-fade-up space-y-1 px-1">
+          {SUGGESTIONS.map(([icon, q]) => (
+            <li key={q}>
+              <button
+                onClick={() => void send(q)}
+                className="flex w-full items-center gap-3 rounded-xl px-2 py-2.5 text-left text-[15px] transition hover:bg-slate-200/60 dark:hover:bg-slate-800/60"
+              >
+                <span className="w-6 shrink-0 text-center text-lg" aria-hidden="true">
+                  {icon}
+                </span>
+                <span className="truncate">{q}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
       {/* строка ввода всегда внизу экрана, как в ChatGPT */}
       <div className="sticky bottom-0 z-10 -mx-1 bg-slate-50/95 px-1 pb-3 pt-2 backdrop-blur dark:bg-slate-950/95">
         {error && <p className="mb-2 text-sm text-red-600">{error}</p>}
         <form
           onSubmit={submit}
-          className="flex items-end gap-2 rounded-2xl border border-slate-300 bg-white p-1.5 pl-3 shadow-sm focus-within:border-brand-500 focus-within:ring-2 focus-within:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-950"
+          className="flex items-end gap-2 rounded-[1.75rem] border border-slate-300 bg-white p-1.5 pl-5 shadow-sm focus-within:border-brand-500 dark:border-slate-800 dark:bg-slate-900"
         >
           <textarea
             value={text}
@@ -224,10 +223,11 @@ export function ChatPage() {
             rows={1}
             maxLength={2000}
             aria-label="Сообщение помощнику"
-            className="max-h-60 min-h-10 flex-1 resize-none bg-transparent py-2 outline-none"
+            placeholder={mode === 'olympiad' ? 'Вопрос по условию' : 'Спросить помощника'}
+            className="max-h-60 min-h-10 flex-1 resize-none bg-transparent py-2 outline-none placeholder:text-slate-400"
           />
           <button
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-600 text-white transition hover:bg-brand-700 disabled:opacity-40"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-600 text-white transition hover:bg-brand-700 active:scale-95 disabled:opacity-40"
             disabled={busy || !text.trim()}
             aria-label="Отправить"
             title="Отправить"
@@ -237,6 +237,9 @@ export function ChatPage() {
             </svg>
           </button>
         </form>
+        <div className="mt-1.5 text-center text-[11px] text-slate-500 lg:hidden">
+          ИИ может ошибаться. Не пиши личные данные.
+        </div>
         {left != null && <div className="mt-1 text-xs text-slate-500">Осталось сообщений на сегодня: {left}</div>}
       </div>
     </div>

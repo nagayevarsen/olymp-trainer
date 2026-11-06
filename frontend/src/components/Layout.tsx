@@ -67,13 +67,28 @@ export function Layout({ onLogout }: { onLogout: () => void }) {
       {/* фон основной области — едва заметные знаки математики и физики (.math-bg в index.css) */}
       <div className={`relative flex min-w-0 flex-1 flex-col overflow-y-auto ${prefs.decor ? 'math-bg' : ''}`}>
 
-        <div className="sticky top-0 z-20 flex items-center gap-2 border-b border-slate-200/70 bg-slate-50/85 px-3 py-2 backdrop-blur lg:hidden dark:border-slate-800 dark:bg-slate-950/85">
-          <button onClick={() => setDrawer(true)} className="icon-btn" aria-label="Открыть меню">
-            ☰
+        {/* телефон: круглая кнопка меню; в чате шапка прозрачная — по центру переключатель режимов из ChatPage */}
+        <div
+          className={`sticky top-0 z-20 flex h-16 items-center gap-3 px-3 lg:hidden ${
+            location.pathname === '/'
+              ? ''
+              : 'border-b border-slate-200/70 bg-slate-50/85 backdrop-blur dark:border-slate-800 dark:bg-slate-950/85'
+          }`}
+        >
+          <button
+            onClick={() => setDrawer(true)}
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-white/90 shadow-sm ring-1 ring-slate-200 transition active:scale-95 dark:bg-slate-900/90 dark:ring-slate-800"
+            aria-label="Открыть меню"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+              <path d="M4 8h16M4 16h10" />
+            </svg>
           </button>
-          <Link to="/" className="font-extrabold tracking-tight">
-            Название
-          </Link>
+          {location.pathname !== '/' && (
+            <Link to="/" className="font-extrabold tracking-tight">
+              Название
+            </Link>
+          )}
         </div>
 
         {holiday && (
@@ -83,7 +98,7 @@ export function Layout({ onLogout }: { onLogout: () => void }) {
         )}
         <RunBanner />
 
-        <main className="relative z-10 mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:py-8">
+        <main className={`relative z-10 mx-auto w-full max-w-5xl flex-1 px-4 sm:py-8 ${location.pathname === '/' ? 'pb-2 pt-0 lg:py-8' : 'py-6'}`}>
           <Suspense fallback={<PageLoading />}>
             <Outlet />
           </Suspense>
