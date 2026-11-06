@@ -279,9 +279,10 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
               readOnly={over}
               rows={6}
               maxLength={6000}
-              placeholder="Решение"
+              placeholder={p?.answer_kind === 'proof' ? 'Доказательство' : 'Решение'}
               className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-950"
             />
+            {p?.answer_kind !== 'proof' && (
             <input
               value={a.answer}
               onChange={(e) => updateAnswer(id, 'answer', e.target.value)}
@@ -290,13 +291,15 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
               placeholder="Ответ"
               className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
             />
+            )}
             {g && (
               <p
                 className={`rounded-xl p-3 text-sm ${g.answer_correct ? 'bg-emerald-50 dark:bg-emerald-500/10' : a.answer.trim() || a.solution.trim() ? 'bg-red-50 dark:bg-red-500/10' : 'bg-slate-100 dark:bg-slate-800'}`}
               >
                 {a.answer.trim() || a.solution.trim() ? (
                   <>
-                    <b>{g.answer_correct ? 'Ответ верный.' : 'Ответ неверный.'}</b> {g.comment}
+                    {p?.answer_kind !== 'proof' && <b>{g.answer_correct ? 'Ответ верный.' : 'Ответ неверный.'}</b>}{' '}
+                    {g.comment}
                   </>
                 ) : (
                   <b>Не сдано.</b>

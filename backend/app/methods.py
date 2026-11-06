@@ -21,6 +21,8 @@
 
 from __future__ import annotations
 
+from .methods_theorems import THEOREMS
+
 METHODS: list[dict] = [
     # ---------- Суммы ----------
     {
@@ -700,6 +702,8 @@ METHODS: list[dict] = [
         ],
     },
 ]
+# Теоремы и формулы олимпиадной математики и физики (Пифагор, Птолемей, Чева, Дирихле, Бёрнсайд…).
+METHODS += THEOREMS
 
 
 def methods_by_id() -> dict[str, dict]:

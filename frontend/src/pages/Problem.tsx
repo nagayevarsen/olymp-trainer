@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
-import { api, type CheckResult, type ProblemDetail } from '../api'
+import { api, type CheckResult, type ProblemDetail, type ProofResult } from '../api'
 import { Figures } from '../components/Figures'
 import { answerHint } from '../lib/answer'
 import { MathText } from '../components/MathText'
@@ -162,6 +162,16 @@ export function ProblemPage() {
           </div>
         </article>
 
+        {p.answer_kind === 'proof' ? (
+          <ProofForm
+            id={id}
+            hint={answerHint(p).text}
+            onDone={(r) => {
+              setPoints(r.total_points)
+              if (r.correct) load()
+            }}
+          />
+        ) : (
         <form onSubmit={check} className="card p-6">
           <label htmlFor="answer" className="font-bold">
             Твой ответ
@@ -185,6 +195,7 @@ export function ProblemPage() {
           </div>
           {result && <ResultBox r={result} />}
         </form>
+        )}
 
         {p.solution && (
           <section className="card animate-fade-up p-6">
@@ -376,5 +387,69 @@ function ErrorBox({ text }: { text: string }) {
         ← К задачам
       </Link>
     </div>
+  )
+}
+
+/** Сдача доказательства: текст решения → баллы и комментарий «жюри» (Sonnet по официальному решению). */
+function ProofForm({ id, hint, onDone }: { id: string; hint: string; onDone: (r: ProofResult) => void }) {
+  const [text, setText] = useState('')
+  const [busy, setBusy] = useState(false)
+  const [res, setRes] = useState<ProofResult | null>(null)
+  const [err, setErr] = useState('')
+
+  async function submit(e: FormEvent) {
+    e.preventDefault()
+    if (!text.trim() || busy) return
+    setBusy(true)
+    setErr('')
+    try {
+      const r = await api.proof(id, text)
+      setRes(r)
+      onDone(r)
+    } catch (e) {
+      setErr(e instanceof Error ? e.message : 'Ошибка')
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  return (
+    <form onSubmit={submit} className="card p-6">
+      <label htmlFor="proof" className="font-bold">
+        Твоё решение
+      </label>
+      <p className="mt-1 text-sm text-slate-500">{hint}</p>
+      <textarea
+        id="proof"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        rows={10}
+        maxLength={8000}
+        className="mt-3 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-950"
+      />
+      <div className="mt-2 flex items-center gap-3">
+        <button className="btn-primary px-6" disabled={busy || !text.trim()}>
+          {busy ? 'Жюри проверяет…' : 'Отправить на проверку'}
+        </button>
+        <span className="text-xs text-slate-500">Формулы можно писать как $x^2$</span>
+      </div>
+      {err && <p className="mt-3 text-sm text-red-600">{err}</p>}
+      {res && (
+        <div
+          className={`mt-4 animate-fade-up rounded-xl p-4 text-sm ${res.correct ? 'bg-emerald-50 dark:bg-emerald-500/10' : 'bg-amber-50 dark:bg-amber-500/10'}`}
+        >
+          <div className="text-lg font-extrabold">
+            {res.points} из {res.max_points} баллов {res.correct ? '✓' : ''}
+          </div>
+          <p className="mt-1 whitespace-pre-wrap">{res.comment}</p>
+          {res.first_solve && res.earned > 0 && (
+            <p className="mt-2 font-semibold text-emerald-700 dark:text-emerald-400">
+              Задача засчитана: +{res.earned} {pluralPoints(res.earned)}
+            </p>
+          )}
+          <p className="mt-2 text-xs text-slate-500">Оценка ИИ по официальному решению жюри — ориентировочная.</p>
+        </div>
+      )}
+    </form>
   )
 }

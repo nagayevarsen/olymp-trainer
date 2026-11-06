@@ -4,6 +4,11 @@ import type { ProblemDetail } from '../api'
 export function answerHint(p: Pick<ProblemDetail, 'answer_kind' | 'needs_unit' | 'variables'>): {
   text: string
 } {
+  if (p.answer_kind === 'proof') {
+    return {
+      text: 'Задача на доказательство: напиши решение полностью. ИИ сверит его с официальным решением жюри и поставит баллы из 7 — оценка ориентировочная.',
+    }
+  }
   if (p.answer_kind === 'formula') {
     const names = Object.entries(p.variables)
       .map(([k, v]) => `${k} — ${v}`)

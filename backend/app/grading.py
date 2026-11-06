@@ -97,3 +97,54 @@ async def grade(
     if not has_solution:
         comment = "Нужно полное решение с обоснованием, а не только ответ. " + comment
     return {"points": pts, "max_points": max_points, "comment": comment.strip()}
+
+
+# ---------- задачи на доказательство ----------
+# Доказательства оценивает Sonnet: Haiku слишком легко засчитывает решения с пробелами.
+PROOF_MODEL = "anthropic:claude-sonnet-5-5"
+
+PROOF_PROMPT = """Задача на доказательство:
+{statement}
+
+Официальное решение жюри (эталон; решение ученика может идти другим путём — это нормально):
+{official}
+
+<решение_ученика>
+{solution}
+</решение_ученика>
+
+Оцени решение ученика от 0 до {max_points} баллов, как жюри международной олимпиады:
+- полный балл — доказательство полное и верное (любым способом), все ключевые шаги обоснованы;
+- частичные баллы — только за существенное продвижение: доказанные ключевые леммы, разобранные
+  основные случаи; пересказ условия, примеры и проверка частных случаев без доказательства — 0–1 балл;
+- верная идея без обоснования — не больше половины;
+- ошибка в ключевом шаге — баллы только за то, что сделано до неё.
+Не придумывай за ученика того, чего он не написал. Если сомневаешься в шаге — скажи об этом в комментарии.
+
+Верни JSON: {{"points": <целое число>, "comment": "2–4 предложения ученику: что доказано, где пробел или ошибка, что дописать"}}"""
+
+
+async def grade_proof(statement: str, official_solution: str, solution: str, max_points: int) -> dict:
+    """Оценка доказательства ученика по официальному решению. Короткий текст — 0 без запроса к модели."""
+    if len(solution.strip()) < MIN_SOLUTION_CHARS:
+        return {
+            "points": 0,
+            "max_points": max_points,
+            "comment": "Решение слишком короткое: напиши доказательство полностью, с обоснованием каждого шага.",
+        }
+    data, _ = await complete_json(
+        PROOF_PROMPT.format(
+            statement=statement,
+            official=official_solution,
+            solution=_strip_tags(solution.strip()),
+            max_points=max_points,
+        ),
+        SYSTEM,
+        chain=[PROOF_MODEL],
+    )
+    try:
+        raw = float(data.get("points", 0))
+    except (TypeError, ValueError):
+        raw = 0.0
+    pts = max(0, min(max_points, round(raw)))
+    return {"points": pts, "max_points": max_points, "comment": str(data.get("comment") or "")[:800].strip()}

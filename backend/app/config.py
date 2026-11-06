@@ -71,6 +71,9 @@ class Settings:
     # Sonnet в чате — только для трудных задач, когда Haiku не справляется. Он в ~20 раз дороже.
     strong_per_user_daily: int = int(os.getenv("STRONG_PER_USER_DAILY", "5"))
     strong_global_daily: int = int(os.getenv("STRONG_GLOBAL_DAILY", "150"))
+    # Проверка доказательств (Sonnet, ≈ $0.015 за проверку): лимиты в день на ученика и на весь сайт.
+    proof_per_user_daily: int = int(os.getenv("PROOF_PER_USER_DAILY", "5"))
+    proof_global_daily: int = int(os.getenv("PROOF_GLOBAL_DAILY", "150"))
 
 
 settings = Settings()

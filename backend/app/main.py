@@ -222,6 +222,7 @@ def _daily_problem_id(user: dict, db: DB) -> str | None:
         for p in load_bank().values()
         if p.id not in solved
         and not p.source.olympiad.startswith("Демо")
+        and not p.is_proof
         and lo <= problem_points(p, stats) <= hi
     ]
     if user["grade"]:
@@ -492,6 +493,17 @@ async def grade_olympiad(
     _spend_ai(user, request, db, n=sum(1 for it in body.items if it.solution.strip() or it.answer.strip()))
     out = []
     for it, p in zip(body.items, problems):
+        if p.is_proof:
+            try:
+                if it.solution.strip():
+                    _take_proof_check(user, db)
+                g = await grading.grade_proof(p.statement, p.solution or "", it.solution, it.max_points)
+            except LLMError as exc:
+                log.warning("Проверка доказательства не удалась: %s", exc)
+                raise HTTPException(503, "Проверка решений сейчас недоступна, попробуй через минуту") from exc
+            ok = g["points"] >= PROOF_SOLVED_SHARE * it.max_points
+            out.append({"problem_id": p.id, "answer_correct": ok, **g})
+            continue
         statement, value, unit = p.statement, p.answer.formula or p.answer.value, p.answer.unit
         seed = it.seed if it.seed is not None and p.can_clone else None
         if seed is not None:
@@ -867,7 +879,7 @@ def problem_detail(
         "source": source_info(p),
         "track": track_info(p),
         "needs_unit": bool(p.answer.unit),
-        "answer_kind": "formula" if p.answer.formula is not None else "number",
+        "answer_kind": "proof" if p.is_proof else "formula" if p.answer.formula is not None else "number",
         "variables": p.answer.variables,
         "figures": figure_urls(p),
         "can_clone": p.can_clone,
@@ -931,6 +943,8 @@ def check(
     problem_id: str, body: CheckRequest, user: dict = Depends(current_user), db: DB = Depends(get_db)
 ) -> dict:
     p = require_problem(problem_id)
+    if p.is_proof:
+        raise HTTPException(422, "Это задача на доказательство — отправь решение целиком")
     # Перебор ответов подряд (скриптом) не должен приносить баллы рейтинга.
     rl.enforce(
         "check",
@@ -975,6 +989,74 @@ def check(
         "already_solved": result.correct and not first_solve,
         "daily_done": daily_done,
         "solve_rate": solve_rate(p, stats) if pr["solved"] else None,
+        "total_points": sum(x["points"] for x in db.all_progress(user["id"]).values()),
+    }
+
+
+class ProofRequest(BaseModel):
+    solution: str = Field(min_length=1, max_length=8000)
+
+
+PROOF_MAX_POINTS = 7  # как на IZhO и большинстве олимпиад с доказательствами
+PROOF_SOLVED_SHARE = 0.7  # от 5 баллов из 7 задача считается решённой
+
+
+def _take_proof_check(user: dict, db: DB) -> None:
+    ok = db.take_strong(
+        user["id"],
+        "proof:" + _today().isoformat(),
+        settings.proof_per_user_daily,
+        settings.proof_global_daily,
+    )
+    if not ok:
+        raise HTTPException(
+            429,
+            f"Сегодня проверок доказательств больше нет (до {settings.proof_per_user_daily} в день). Приходи завтра!",
+        )
+
+
+@app.post("/api/problems/{problem_id}/proof")
+async def check_proof(
+    problem_id: str,
+    body: ProofRequest,
+    request: Request,
+    user: dict = Depends(current_user),
+    db: DB = Depends(get_db),
+) -> dict:
+    """Оценка доказательства «как жюри»: Sonnet сверяет решение ученика с официальным."""
+    from . import grading
+
+    p = require_problem(problem_id)
+    if not p.is_proof:
+        raise HTTPException(422, "У этой задачи есть ответ — введи его в поле ответа")
+    if len(body.solution.strip()) >= grading.MIN_SOLUTION_CHARS:
+        _spend_ai(user, request, db)
+        _take_proof_check(user, db)
+    try:
+        g = await grading.grade_proof(p.statement, p.solution or "", body.solution, PROOF_MAX_POINTS)
+    except LLMError as exc:
+        log.warning("Проверка доказательства не удалась: %s", exc)
+        raise HTTPException(503, "Проверка решений сейчас недоступна, попробуй через минуту") from exc
+    correct = g["points"] >= PROOF_SOLVED_SHARE * PROOF_MAX_POINTS
+    db.log_submission(
+        user["id"], p.id, None, f"proof:{g['points']}/{PROOF_MAX_POINTS}", "correct" if correct else "wrong"
+    )
+    pr = db.progress(user["id"], p.id)
+    pr["attempts"] += 1
+    earned, first_solve = 0, False
+    if correct and not pr["solved"]:
+        stats = db.problem_stats()
+        earned = scoring.reward(
+            problem_points(p, stats), pr["hints_used"], bool(pr["solution_viewed"]), False
+        )
+        pr.update(solved=1, points=earned, solved_at=time.time())
+        first_solve = True
+    db.save_progress(pr)
+    return {
+        **g,
+        "correct": correct,
+        "earned": earned,
+        "first_solve": first_solve,
         "total_points": sum(x["points"] for x in db.all_progress(user["id"]).values()),
     }
 

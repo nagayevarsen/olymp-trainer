@@ -51,7 +51,7 @@ export interface ProblemDetail {
   source: { label: string; stage: string; url: string | null }
   track: { id: string; title: string }
   needs_unit: boolean
-  answer_kind: 'number' | 'formula'
+  answer_kind: 'number' | 'formula' | 'proof'
   variables: Record<string, string>
   figures: string[]
   can_clone: boolean
@@ -68,6 +68,16 @@ export interface ProblemDetail {
   }
   potential: number
   solve_rate: number | null
+}
+
+export interface ProofResult {
+  points: number
+  max_points: number
+  comment: string
+  correct: boolean
+  earned: number
+  first_solve: boolean
+  total_points: number
 }
 
 export interface CheckResult {
@@ -242,6 +252,7 @@ export const api = {
     post<{ seed: number; statement: string; verification: Verification | null }>(`/api/problems/${id}/variant`),
   check: (id: string, answer: string, seed?: number | null) =>
     post<CheckResult>(`/api/problems/${id}/check`, { answer, seed: seed ?? null }),
+  proof: (id: string, solution: string) => post<ProofResult>(`/api/problems/${id}/proof`, { solution }),
   hint: (id: string, level: number) =>
     post<{ level: number; text: string; total: number; potential: number }>(`/api/problems/${id}/hints/${level}`),
   solution: (id: string) => post<{ solution: string; can_clone: boolean }>(`/api/problems/${id}/solution`),

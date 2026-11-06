@@ -122,6 +122,11 @@ class Answer(BaseModel):
         "ответ получен независимо несколькими моделями и подтверждён программой (см. verified_by)",
     )
     verified_by: list[str] = Field(default=[], description="Как подтверждён ответ с origin=verified")
+    proof: bool = Field(
+        default=False,
+        description="Задача на доказательство: итогового числа нет, решение ученика сверяется "
+        "с официальным решением (Problem.solution) и оценивается баллами",
+    )
     rel_tol: float | None = Field(
         default=None,
         gt=0,
@@ -149,6 +154,10 @@ class Answer(BaseModel):
     def number_or_formula(self) -> Answer:
         from .formula import NAME_RE, FormulaError, parse
 
+        if self.proof:
+            if self.value is not None or self.formula is not None:
+                raise ValueError("У задачи на доказательство нет value и formula")
+            return self
         if (self.value is None) == (self.formula is None):
             raise ValueError("У ответа должно быть ровно одно: value (число) или formula (формула)")
         if self.formula is not None:
@@ -163,6 +172,8 @@ class Answer(BaseModel):
 
     def display(self) -> str:
         """Ответ для подсказок и проверки жюри: «17*g/29» или «4.5 м/с»."""
+        if self.proof:
+            return "доказательство (см. официальное решение)"
         if self.formula is not None:
             return self.formula
         return f"{self.value:g} {self.unit or ''}".strip()
@@ -248,6 +259,16 @@ class Problem(BaseModel):
             if not (figures_dir() / name).is_file():
                 raise ValueError(f"Нет файла рисунка data/figures/{name}")
         return v
+
+    @model_validator(mode="after")
+    def proof_needs_solution(self) -> Problem:
+        if self.answer.proof and not (self.solution and self.solution.strip()):
+            raise ValueError("У задачи на доказательство должно быть официальное решение (solution)")
+        return self
+
+    @property
+    def is_proof(self) -> bool:
+        return self.answer.proof
 
     @property
     def can_clone(self) -> bool:
