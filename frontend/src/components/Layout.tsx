@@ -88,7 +88,9 @@ export function Layout({ onLogout }: { onLogout: () => void }) {
             <Outlet />
           </Suspense>
         </main>
-        <footer className="relative z-10 mx-auto w-full max-w-5xl px-4 pb-6 text-xs text-slate-500">
+        <footer
+          className={`relative z-10 mx-auto w-full max-w-5xl px-4 pb-6 text-xs text-slate-500 ${location.pathname === '/' ? 'hidden lg:block' : ''}`}
+        >
           <Link to="/terms" className="hover:underline">
             Условия и данные
           </Link>{' '}

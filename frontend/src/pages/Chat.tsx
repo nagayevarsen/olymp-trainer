@@ -29,6 +29,14 @@ function Cards({ cards }: { cards: ChatCard[] }) {
   )
 }
 
+// Быстрый старт в пустом чате: нажал — и вопрос ушёл помощнику.
+const SUGGESTIONS = [
+  'Подбери мне задачу по геометрии',
+  'Хочу потренировать кинематику',
+  'Объясни принцип Дирихле на примере',
+  'С чего начать подготовку к Жаутыковской олимпиаде?',
+]
+
 export function ChatPage() {
   const [params] = useSearchParams()
   const navigate = useNavigate()
@@ -111,13 +119,13 @@ export function ChatPage() {
           <span className="chip w-fit bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
             ИИ-помощник
           </span>
-          <span className="text-xs leading-snug text-slate-500">
+          <span className="text-[11px] leading-snug text-slate-500 sm:text-xs">
             Отвечает ИИ, может ошибаться. Только математика, физика и олимпиады. Не пиши личные данные.
           </span>
         </div>
         <div
           role="tablist"
-          className="inline-flex justify-self-center rounded-2xl bg-slate-200/70 p-1 dark:bg-slate-800"
+          className="grid w-full grid-cols-2 rounded-2xl bg-slate-200/70 p-1 sm:inline-grid sm:w-auto sm:justify-self-center dark:bg-slate-800"
         >
           {(
             [
@@ -130,7 +138,7 @@ export function ChatPage() {
               role="tab"
               aria-selected={mode === m}
               onClick={() => switchMode(m)}
-              className={`rounded-xl px-5 py-1.5 text-sm font-semibold transition ${
+              className={`rounded-xl px-5 py-2 text-sm font-semibold transition sm:py-1.5 ${
                 mode === m
                   ? 'bg-white shadow-sm dark:bg-slate-950'
                   : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
@@ -150,6 +158,24 @@ export function ChatPage() {
       </div>
 
       {mode === 'olympiad' && <OlympiadPanel onFinishDiscuss={(summary) => void send(summary, 'training')} />}
+
+      {mode === 'training' && !problemId && turns.length === 0 && !busy && (
+        <div className="animate-fade-up my-auto py-6 text-center">
+          <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Чем займёмся?</h2>
+          <p className="mt-1 text-sm text-slate-500">Напиши свой вопрос или начни с одного из этих:</p>
+          <div className="mt-5 grid gap-2 sm:grid-cols-2">
+            {SUGGESTIONS.map((q) => (
+              <button
+                key={q}
+                onClick={() => void send(q)}
+                className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-left text-sm font-medium transition hover:border-brand-400 hover:bg-white dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-brand-500"
+              >
+                {q}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {(turns.length > 0 || busy) && (
         <div className="card space-y-4 p-4">
@@ -176,7 +202,10 @@ export function ChatPage() {
       {/* строка ввода всегда внизу экрана, как в ChatGPT */}
       <div className="sticky bottom-0 z-10 -mx-1 bg-slate-50/95 px-1 pb-3 pt-2 backdrop-blur dark:bg-slate-950/95">
         {error && <p className="mb-2 text-sm text-red-600">{error}</p>}
-        <form onSubmit={submit} className="flex gap-2">
+        <form
+          onSubmit={submit}
+          className="flex items-end gap-2 rounded-2xl border border-slate-300 bg-white p-1.5 pl-3 shadow-sm focus-within:border-brand-500 focus-within:ring-2 focus-within:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-950"
+        >
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -186,13 +215,26 @@ export function ChatPage() {
                 void send(text)
               }
             }}
-            rows={2}
+            onInput={(e) => {
+              // поле растёт вместе с текстом, но не выше 10 строк
+              const el = e.currentTarget
+              el.style.height = 'auto'
+              el.style.height = `${Math.min(el.scrollHeight, 240)}px`
+            }}
+            rows={1}
             maxLength={2000}
             aria-label="Сообщение помощнику"
-            className="flex-1 resize-none rounded-xl border border-slate-300 bg-white px-3 py-2.5 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-950"
+            className="max-h-60 min-h-10 flex-1 resize-none bg-transparent py-2 outline-none"
           />
-          <button className="btn-primary self-end" disabled={busy || !text.trim()}>
-            Отправить
+          <button
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-600 text-white transition hover:bg-brand-700 disabled:opacity-40"
+            disabled={busy || !text.trim()}
+            aria-label="Отправить"
+            title="Отправить"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+              <path d="M12 19V5M5 12l7-7 7 7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </button>
         </form>
         {left != null && <div className="mt-1 text-xs text-slate-500">Осталось сообщений на сегодня: {left}</div>}
