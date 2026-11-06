@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-region-2015-phys9-3",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Цилиндр в воде и масле",
+  "statement": "Прямой цилиндр, изготовленный из дерева плавает в воде так, что в нее погружена $n = 0{,}9$ объема цилиндра. На воду налили слой масла, полностью закрывающий цилиндр. Какая часть цилиндра в этом случае будет погружена в воду? Плотность воды и масла соответственно считать равными $\\rho_в = 1000$ кг/м$^3$ и $\\rho_м = 800$ кг/м$^3$. (7 баллов)",
+  "answer": {
+    "value": 0.5,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 0.5",
+      "решение: anthropic:claude-sonnet-5-5 → 0.5",
+      "программа (other): anthropic:claude-haiku-5-5 → 0.5",
+      "программа (other): anthropic:claude-sonnet-5-5 → 0.5"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2015,
+    "stage": "region",
+    "grade": 9,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2015/phys9-1-tasks.pdf"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "kz-rep-district-2022-phys10-1",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Два камня, брошенные под углом",
+  "statement": "Из некоторой точки одновременно бросают два камня: один в северном направлении под углом к горизонту $30°$ со скоростью $24$ м/с, другой в южном направлении под углом $60°$ со скоростью $32$ м/с. Найдите расстояние между камнями через $1{,}5$ с.",
+  "answer": {
+    "value": 60.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 60",
+      "решение: anthropic:claude-sonnet-5-5 → 60",
+      "программа (other): anthropic:claude-haiku-5-5 → 60",
+      "программа (other): anthropic:claude-sonnet-5-5 → 60"
+    ],
+    "unit": "м"
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2022,
+    "stage": "district",
+    "grade": 10,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2022/phys10-1-tasks.pdf"
+  }
+}

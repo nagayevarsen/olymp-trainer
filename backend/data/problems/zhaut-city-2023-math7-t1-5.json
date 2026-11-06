@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2023-math7-t1-5",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Перестановки с равными суммами",
+  "statement": "Сколько существует перестановок $(a_1,a_2,\\ldots, a_8)$ чисел $(1,2,\\ldots,8)$, для которых выполнено равенство $a_1+a_3+a_5+a_7=a_2+a_4+a_6+a_8?$",
+  "answer": {
+    "value": 4608.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 4608",
+      "решение: anthropic:claude-sonnet-5-5 → 4608",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 4608",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 4608"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/1087"
+  }
+}

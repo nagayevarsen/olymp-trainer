@@ -1,0 +1,25 @@
+{
+  "id": "zhaut-city-2022-math7-t1-3",
+  "subject": "math",
+  "topic": "система уравнений",
+  "title": "Система уравнений с дробями",
+  "statement": "Действительные числа $x$, $y$ и $z$ таковы, что $x+y=\\frac{xy}{2}$, $y+z=\\frac{yz}{3}$ и $z+x=\\frac{zx}{4}.$ Найдите значение $z$, если $xyz > 0$.",
+  "answer": {
+    "value": 24.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 24",
+      "решение: anthropic:claude-sonnet-5-5 → 24",
+      "программа (other): anthropic:claude-haiku-5-5 → 24",
+      "программа (other): anthropic:claude-sonnet-5-5 → 24"
+    ]
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 3,
+    "url": "https://matol.kz/olympiads/1084"
+  }
+}

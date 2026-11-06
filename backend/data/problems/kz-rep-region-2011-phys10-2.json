@@ -1,0 +1,26 @@
+{
+  "id": "kz-rep-region-2011-phys10-2",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Мощность двигателя вертолета",
+  "statement": "Модель вертолета в $1/8$ натуральной величины удерживается в воздухе двигателем мощностью 50 Вт. Какой мощности двигатель нужен для настоящего вертолета? В модели использованы те же материалы, что и в настоящем вертолете.",
+  "answer": {
+    "value": 72408.0,
+    "unit": "Вт",
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 72408",
+      "решение: anthropic:claude-sonnet-5-5 → 72400",
+      "программа (other): anthropic:claude-haiku-5-5 → 72408",
+      "программа (other): anthropic:claude-sonnet-5-5 → 72407.7"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2011,
+    "stage": "region",
+    "grade": 10,
+    "number": 2,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2011/phys10-1-tasks.pdf"
+  }
+}

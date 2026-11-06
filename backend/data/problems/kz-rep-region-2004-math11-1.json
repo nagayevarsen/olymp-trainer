@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-region-2004-math11-1",
+  "subject": "math",
+  "topic": "Логарифмы",
+  "title": "Хорошие числа",
+  "statement": "Школьник выбрал два целых положительных числа $m$ и $n$. Он называет целое положительное число $k$ хорошим, если из отрезков длинами $\\log_3 m$, $\\log_3 n$ и $\\log_3 k$ можно построить треугольник. Он нашел все хорошие числа, их оказалось ровно 100. Найдите максимально возможное значение $m$.",
+  "answer": {
+    "value": 67.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 67",
+      "решение: anthropic:claude-sonnet-5-5 → 67",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 67",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 67"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2004,
+    "stage": "region",
+    "grade": 11,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2004/math11-1-tasks.pdf"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-region-2007-math10-1",
+  "subject": "math",
+  "topic": "Логика",
+  "title": "Эльфы и тролли за столом",
+  "statement": "Эльфы и тролли сидят за круглым столом, всего 60 существ. Тролли всегда лгут, эльфы говорят правду, кроме случаев, когда они «ошибаются». Каждый из сидящих утверждает, что сидит между эльфом и троллем, причем ровно два эльфа «ошиблись». Сколько троллей сидит за столом?",
+  "answer": {
+    "value": 20.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 20",
+      "решение: anthropic:claude-sonnet-5-5 → 20",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 20",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 20"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2007,
+    "stage": "region",
+    "grade": 10,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2007/math10-1-tasks.pdf"
+  }
+}

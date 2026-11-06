@@ -1,0 +1,26 @@
+{
+  "id": "kz-rep-district-2019-phys9-4",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Изображения в пластине",
+  "statement": "Человек рассматривает свое собственное изображение в плоскопараллельной пластине толщиной $h = 15$ см, изготовленной из стекла с показателем преломления $n = 1{,}5$. При этом он наблюдает целый ряд изображений своего лица, отстоящих на одинаковом расстоянии $L$ друг от друга. Найдите $L$.",
+  "answer": {
+    "value": 20.0,
+    "unit": "см",
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 20",
+      "решение: anthropic:claude-sonnet-5-5 → 20",
+      "программа (other): anthropic:claude-haiku-5-5 → 20",
+      "программа (other): anthropic:claude-sonnet-5-5 → 20"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2019,
+    "stage": "district",
+    "grade": 9,
+    "number": 4,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2019/phys9-1-tasks.pdf"
+  }
+}

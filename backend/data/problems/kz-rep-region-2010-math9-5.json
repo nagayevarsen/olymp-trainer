@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-region-2010-math9-5",
+  "subject": "math",
+  "topic": "Арифметика",
+  "title": "Целая часть суммы корней",
+  "statement": "Вычислите значение выражения $$\\left[ \\sqrt{2010^2 + 1} + \\sqrt{2010^2 + 2} + \\cdots + \\sqrt{2010^2 + 4020} \\right],$$ где $[x]$ обозначает целую часть числа $x$, т. е. наибольшее целое число, не превосходящее $x$.",
+  "answer": {
+    "value": 8082210.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 8082210",
+      "решение: anthropic:claude-sonnet-5-5 → 8082210",
+      "программа (other): anthropic:claude-haiku-5-5 → 8082210",
+      "программа (other): anthropic:claude-sonnet-5-5 → 8082210"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2010,
+    "stage": "region",
+    "grade": 9,
+    "number": 5,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2010/math9-1-tasks.pdf"
+  }
+}

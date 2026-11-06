@@ -1,0 +1,26 @@
+{
+  "id": "kz-rep-region-2013-phys10-1",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Ракета в облаке пыли",
+  "statement": "Ракета массы $m_0 = 1$ т с поперечным сечением $S = 5$ м$^2$ летела с выключенным двигателем и попала в облако пыли. Масса каждой пылинки $m_1 = 10^{-6}$ кг, их концентрация $n = 10^{-4}$ м$^{-3}$, а соударения с ракетой абсолютно неупругие. Какова ширина облако $l$, если после пролета через него ракета потеряла 1 % скорости?",
+  "answer": {
+    "value": 20200000000.0,
+    "unit": "м",
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 20200000000",
+      "решение: anthropic:claude-sonnet-5-5 → 20200000000",
+      "программа (other): anthropic:claude-haiku-5-5 → 2.0202e+10",
+      "программа (other): anthropic:claude-sonnet-5-5 → 2.0202e+10"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2013,
+    "stage": "region",
+    "grade": 10,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2013/phys10-1-tasks.pdf"
+  }
+}

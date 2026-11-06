@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-district-2023-phys9-1",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Средняя скорость на пути",
+  "statement": "Фродо и Сэм на пути к Мордору проплыли первую часть пути по реке с некой скоростью $\\vartheta$, а остальную часть по болотному озеру со скоростью три раза меньшей. Найдите во сколько раз путь по болотному озеру больше пути по реке, если средняя скорость на всем пути $\\frac{\\vartheta}{2}$.",
+  "answer": {
+    "value": 1.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1",
+      "решение: anthropic:claude-sonnet-5-5 → 1",
+      "программа (other): anthropic:claude-haiku-5-5 → 1",
+      "программа (other): anthropic:claude-sonnet-5-5 → 1"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2023,
+    "stage": "district",
+    "grade": 9,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2023/phys9-1-tasks.pdf"
+  }
+}

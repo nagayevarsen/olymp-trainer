@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-district-2019-phys9-2",
+  "subject": "physics",
+  "topic": "Электростатика",
+  "title": "Шарик в конденсаторе",
+  "statement": "Заряженный шарик находится в равновесии в пространстве между горизонтально расположенными пластинами конденсатора. Когда это пространство заполнили жидким диэлектриком с $\\varepsilon = 3$, то равновесие не нарушилось. Найдите отношение плотностей материала шарика и жидкости.",
+  "answer": {
+    "value": 1.5,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1.5",
+      "решение: anthropic:claude-sonnet-5-5 → 1.5",
+      "программа (other): anthropic:claude-haiku-5-5 → 1.5",
+      "программа (other): anthropic:claude-sonnet-5-5 → 1.5"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2019,
+    "stage": "district",
+    "grade": 9,
+    "number": 2,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2019/phys9-1-tasks.pdf"
+  }
+}

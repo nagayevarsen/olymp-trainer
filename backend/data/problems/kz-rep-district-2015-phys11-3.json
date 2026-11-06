@@ -1,0 +1,26 @@
+{
+  "id": "kz-rep-district-2015-phys11-3",
+  "subject": "physics",
+  "topic": "Термодинамика",
+  "title": "Количество теплоты в процессе",
+  "statement": "Некоторое количество идеального одноатомного газа участвует в процессе, в ходе которого сначала давление газа изохорически увеличили в 2 раза, а затем его объем изобарически увеличили в 3 раза. Какое количество теплоты сообщают газу в указанном процессе? Начальное давление и объем газа $P_0 = 10^5$ Па и $V_0 = 100$ л соответственно.",
+  "answer": {
+    "value": 115000.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 115000",
+      "решение: anthropic:claude-sonnet-5-5 → 115000",
+      "программа (other): anthropic:claude-haiku-5-5 → 115000",
+      "программа (other): anthropic:claude-sonnet-5-5 → 115000"
+    ],
+    "unit": "Дж"
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2015,
+    "stage": "district",
+    "grade": 11,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2015/phys11-1-tasks.pdf"
+  }
+}

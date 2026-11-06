@@ -34,3 +34,9 @@ kz-kbo-physics 0.0257
 chat-sonnet-live-tests 0.06
 kz-rep-republic-math-tasks 2.1995
 kz-rep-region-math-tasks 1.5191
+zhaut-city-2 0.9003
+kz-rep-region-math-rest-tasks 2.5493
+kz-rep-district-math-tasks 0.0042
+kz-rep-republic-physics-tasks 0.3242
+kz-rep-region-physics-tasks 0.4527
+kz-rep-district-physics-tasks 0.3207

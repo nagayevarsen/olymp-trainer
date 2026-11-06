@@ -1,0 +1,26 @@
+{
+  "id": "kz-rep-district-2015-phys8-3",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Изображения в плоском зеркале",
+  "statement": "Два точечных источника света находятся на одном и том же расстоянии 20 см от поверхности плоского зеркала. Расстояние от одного из источников до изображения другого равно 50 см. Определите расстояние между источниками.",
+  "answer": {
+    "value": 30.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 30",
+      "решение: anthropic:claude-sonnet-5-5 → 30",
+      "программа (other): anthropic:claude-haiku-5-5 → 30",
+      "программа (other): anthropic:claude-sonnet-5-5 → 30"
+    ],
+    "unit": "см"
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2015,
+    "stage": "district",
+    "grade": 8,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2015/phys8-1-tasks.pdf"
+  }
+}

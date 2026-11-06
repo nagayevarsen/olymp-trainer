@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-region-2004-math11-3",
+  "subject": "math",
+  "topic": "Графы",
+  "title": "Знакомства школьников",
+  "statement": "В олимпиаде участвуют 45 школьников. Выяснилось, что любые двое из них, имеющие одинаковое количество знакомых среди участников олимпиады, не знакомы друг с другом. Каково наибольшее возможное число знакомых пар школьников среди участников олимпиады?",
+  "answer": {
+    "value": 870.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 870",
+      "решение: anthropic:claude-sonnet-5-5 → 870",
+      "программа (graph_theory): anthropic:claude-haiku-5-5 → 870",
+      "программа (graph_theory): anthropic:claude-sonnet-5-5 → 870"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2004,
+    "stage": "region",
+    "grade": 11,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2004/math11-1-tasks.pdf"
+  }
+}

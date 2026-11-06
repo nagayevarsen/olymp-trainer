@@ -1,0 +1,26 @@
+{
+  "id": "kz-rep-district-2015-phys8-4",
+  "subject": "physics",
+  "topic": "Электрические цепи",
+  "title": "Добавочное сопротивление для лампы",
+  "statement": "Какое сопротивление $R$ должно быть включено последовательно с лампой, чтобы лампа горела нормальным накалом при напряжении 220 В, если лампа рассчитана на напряжение 120 В при мощности 60 Вт?",
+  "answer": {
+    "value": 200.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 200",
+      "решение: anthropic:claude-sonnet-5-5 → 200",
+      "программа (other): anthropic:claude-haiku-5-5 → 200",
+      "программа (other): anthropic:claude-sonnet-5-5 → 200"
+    ],
+    "unit": "Ом"
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2015,
+    "stage": "district",
+    "grade": 8,
+    "number": 4,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2015/phys8-1-tasks.pdf"
+  }
+}
