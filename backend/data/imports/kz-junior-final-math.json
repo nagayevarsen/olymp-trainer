@@ -1,0 +1,24 @@
+[
+ {
+  "olympiad": "Юниорская олимпиада (Казахстан)",
+  "stage": "final",
+  "year": 2022,
+  "subject": "math",
+  "slug": "kz-junior-final",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/junior/2022/final/math7-sol.pdf"
+  ],
+  "grade": 7
+ },
+ {
+  "olympiad": "Юниорская олимпиада (Казахстан)",
+  "stage": "final",
+  "year": 2022,
+  "subject": "math",
+  "slug": "kz-junior-final",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/junior/2022/final/math8-sol.pdf"
+  ],
+  "grade": 8
+ }
+]

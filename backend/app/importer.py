@@ -152,9 +152,10 @@ def fetch_pdf(url: str) -> Path:
 def pdf_text(path: Path) -> str:
     try:
         out = subprocess.run(
-            ["pdftotext", "-layout", str(path), "-"], capture_output=True, text=True, timeout=60
+            ["pdftotext", "-layout", "-enc", "UTF-8", str(path), "-"], capture_output=True, timeout=60
         )
-        return out.stdout
+        # Явно UTF-8: на Windows pdftotext и Python по умолчанию берут системную кодировку.
+        return out.stdout.decode("utf-8", errors="replace")
     except (OSError, subprocess.TimeoutExpired):
         return ""
 
@@ -187,6 +188,8 @@ EXTRACT_PROMPT = """Это официальный файл олимпиады: {
   - "has_figure", "kind", "answer_value", "answer_unit", "answer_text" — как для задачи, но для этого пункта.
   Для "multi" поле "statement" — общее условие задачи без вопросов пунктов.
 Если ответа в документе нет — answer_value = null.
+Если одни и те же задачи даны в документе на двух языках (казахском и русском) — верни каждую
+задачу один раз, в русской версии; казахскую используй только когда русской нет.
 
 Верни JSON: {{"problems": [ ... ]}}"""
 
@@ -245,9 +248,13 @@ def answer_in_text(value: float, text: str) -> bool:
 
 MIN_PART_CONTEXT = 80
 NO_QUESTION_RE = re.compile(
-    r"не приведён|не приведен|не указан[оа]? в документе|в документе не|question (is )?not (given|stated)",
+    r"не приведён|не приведен|не указан[оа]? в документе|в документе не|question (is )?not (given|stated)"
+    r"|условие отсутствует|услови[ея] (задачи )?нет|приведено только решение|только решени[ея]",
     re.I,
 )
+
+
+PART_LABEL_RE = re.compile(r"\*\*Пункт[^*]*\*\*")
 
 
 def expand_parts(items: list[dict]) -> list[dict]:
@@ -298,7 +305,12 @@ async def import_pdf(
     slug: str,
     grade: int | None = None,
     dry_run: bool = False,
+    verify_missing: bool = False,
+    budget: float | None = None,
 ) -> ImportReport:
+    """verify_missing — если в файле нет ответа, получить его проверкой (app/verify.py):
+    независимые решения разных моделей и программы; без согласия задача не берётся.
+    budget — не начинать новую проверку, если расход Claude в процессе уже больше, $."""
     report = ImportReport(url=url)
     if reason := closed_reason(olympiad):
         report.error = f"олимпиада закрыта для Казахстана: {reason}"
@@ -340,10 +352,11 @@ async def import_pdf(
             report.skip(f"не числовой ответ ({it.get('kind')})")
             continue
         value = it.get("answer_value")
-        if not isinstance(value, (int, float)):
+        need_verify = not isinstance(value, (int, float))
+        if need_verify and not verify_missing:
             report.skip("нет ответа в файле")
             continue
-        if text and not answer_in_text(float(value), text):
+        if not need_verify and text and not answer_in_text(float(value), text):
             report.skip("ответ не найден в тексте PDF")
             continue
         unit = it.get("answer_unit") or None
@@ -369,7 +382,7 @@ async def import_pdf(
             "topic": (it.get("topic") or "Разное").strip()[:40],
             "title": (it.get("title") or f"Задача {number}").strip()[:60],
             "statement": (it.get("statement") or "").strip(),
-            "answer": {"value": float(value), **({"unit": unit} if unit else {})},
+            "answer": {"value": float(value or 0), **({"unit": unit} if unit else {})},
             "source": {
                 "olympiad": olympiad,
                 "year": year,
@@ -389,6 +402,22 @@ async def import_pdf(
         if NO_QUESTION_RE.search(raw["statement"]):
             report.skip("в файле нет текста вопроса")
             continue
+        if subject == "physics" and not re.search(r"\d", PART_LABEL_RE.sub("", raw["statement"])):
+            # Числовой ответ по физике без единого числа в условии — данные остались в таблице или рисунке.
+            report.skip("в условии нет данных")
+            continue
+        if need_verify:
+            from . import verify
+            from .llm import usage_cost
+
+            if budget is not None and usage_cost() >= budget:
+                report.skip("бюджет исчерпан")
+                continue
+            v = await verify.verify_answer(raw["statement"], unit)
+            if not v.accepted or v.answer is None:
+                report.skip("проверка не подтвердила ответ")
+                continue
+            raw["answer"].update(value=float(v.answer), origin="verified", verified_by=v.verified_by)
         try:
             problem = Problem.model_validate(raw)
         except ValidationError as exc:

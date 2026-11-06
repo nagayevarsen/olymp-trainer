@@ -165,6 +165,7 @@ async def cmd_import_manifest(args) -> int:
     from pathlib import Path
 
     from ..importer import import_pdf
+    from ..llm import usage_cost
 
     batches = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
     total_added = 0
@@ -173,6 +174,12 @@ async def cmd_import_manifest(args) -> int:
     async def one(b: dict, url: str) -> None:
         nonlocal total_added
         async with sem:
+            if args.budget is not None and usage_cost() >= args.budget:
+                print(
+                    f"{b['slug']} {b['year']} {url.rsplit('/', 1)[-1]}: пропущен — бюджет исчерпан",
+                    flush=True,
+                )
+                return
             rep = await import_pdf(
                 url,
                 olympiad=b["olympiad"],
@@ -182,6 +189,8 @@ async def cmd_import_manifest(args) -> int:
                 slug=b["slug"],
                 grade=b.get("grade"),
                 dry_run=args.dry_run,
+                verify_missing=args.verify_missing,
+                budget=args.budget,
             )
         total_added += len(rep.added)
         skipped = ", ".join(f"{k}: {v}" for k, v in rep.skipped.items())
@@ -195,7 +204,7 @@ async def cmd_import_manifest(args) -> int:
     await asyncio.gather(*(one(b, url) for b in batches for url in b["urls"]))
     load_bank.cache_clear()
     print(f"\nВсего добавлено: {total_added}")
-    from ..llm import USAGE, usage_cost
+    from ..llm import USAGE
 
     for model, u in USAGE.items():
         print(
@@ -282,6 +291,12 @@ def main(argv: list[str] | None = None) -> int:
     im.add_argument("manifest")
     im.add_argument("--dry-run", action="store_true")
     im.add_argument("--parallel", type=int, default=4, help="сколько файлов обрабатывать одновременно")
+    im.add_argument(
+        "--verify-missing",
+        action="store_true",
+        help="нет ответа в файле — получить его проверкой (verify.py)",
+    )
+    im.add_argument("--budget", type=float, default=None, help="остановиться при таком расходе Claude, $")
     ve = sub.add_parser("verify-eval", help="калибровка проверки ответов на задачах с ключом")
     ve.add_argument("--sample", type=int, default=20)
     ve.add_argument("--seed", type=int, default=1)

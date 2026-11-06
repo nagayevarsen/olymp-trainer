@@ -1,0 +1,35 @@
+[
+ {
+  "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+  "stage": "other",
+  "year": 2024,
+  "subject": "physics",
+  "slug": "kz-kbo",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+  "stage": "other",
+  "year": 2023,
+  "subject": "physics",
+  "slug": "kz-kbo",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+  "stage": "other",
+  "year": 2022,
+  "subject": "physics",
+  "slug": "kz-kbo",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/kbo/2022/phys-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/kbo/2022/phys-2-sol.pdf"
+  ]
+ }
+]

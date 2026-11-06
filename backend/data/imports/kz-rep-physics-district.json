@@ -1,0 +1,79 @@
+[
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "district",
+  "year": 2021,
+  "subject": "physics",
+  "slug": "kz-rep-district",
+  "grade": 9,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/region/2021/phys9-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "district",
+  "year": 2021,
+  "subject": "physics",
+  "slug": "kz-rep-district",
+  "grade": 10,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/region/2021/phys10-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "district",
+  "year": 2021,
+  "subject": "physics",
+  "slug": "kz-rep-district",
+  "grade": 11,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/region/2021/phys11-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "district",
+  "year": 2022,
+  "subject": "physics",
+  "slug": "kz-rep-district",
+  "grade": 9,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/region/2022/phys9-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "district",
+  "year": 2024,
+  "subject": "physics",
+  "slug": "kz-rep-district",
+  "grade": 9,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/region/2024/phys9-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "district",
+  "year": 2024,
+  "subject": "physics",
+  "slug": "kz-rep-district",
+  "grade": 10,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/region/2024/phys10-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "district",
+  "year": 2024,
+  "subject": "physics",
+  "slug": "kz-rep-district",
+  "grade": 11,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/region/2024/phys11-sol.pdf"
+  ]
+ }
+]

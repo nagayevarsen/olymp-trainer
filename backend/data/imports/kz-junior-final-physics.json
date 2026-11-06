@@ -1,0 +1,56 @@
+[
+ {
+  "olympiad": "Юниорская олимпиада (Казахстан)",
+  "stage": "final",
+  "year": 2022,
+  "subject": "physics",
+  "slug": "kz-junior-final",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/junior/2022/final/phys7-sol.pdf"
+  ],
+  "grade": 7
+ },
+ {
+  "olympiad": "Юниорская олимпиада (Казахстан)",
+  "stage": "final",
+  "year": 2022,
+  "subject": "physics",
+  "slug": "kz-junior-final",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/junior/2022/final/phys8-sol.pdf"
+  ],
+  "grade": 8
+ },
+ {
+  "olympiad": "Юниорская олимпиада (Казахстан)",
+  "stage": "final",
+  "year": 2021,
+  "subject": "physics",
+  "slug": "kz-junior-final",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/junior/2021/final/phys7-sol.pdf"
+  ],
+  "grade": 7
+ },
+ {
+  "olympiad": "Юниорская олимпиада (Казахстан)",
+  "stage": "final",
+  "year": 2021,
+  "subject": "physics",
+  "slug": "kz-junior-final",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/junior/2021/final/phys8-sol.pdf"
+  ],
+  "grade": 8
+ },
+ {
+  "olympiad": "Юниорская олимпиада (Казахстан)",
+  "stage": "final",
+  "year": 2019,
+  "subject": "physics",
+  "slug": "kz-junior-final",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/junior/2019/final/phys-sol.pdf"
+  ]
+ }
+]

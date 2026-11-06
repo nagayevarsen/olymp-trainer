@@ -1,0 +1,110 @@
+[
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2022,
+  "subject": "math",
+  "slug": "kz-rep-region",
+  "grade": 9,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2022/math9-2-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2022/math9-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2022,
+  "subject": "math",
+  "slug": "kz-rep-region",
+  "grade": 10,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2022/math10-2-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2022/math10-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2022,
+  "subject": "math",
+  "slug": "kz-rep-region",
+  "grade": 11,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2022/math11-2-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2022/math11-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2023,
+  "subject": "math",
+  "slug": "kz-rep-region",
+  "grade": 9,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2023/math9-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2023/math9-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2023,
+  "subject": "math",
+  "slug": "kz-rep-region",
+  "grade": 10,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2023/math10-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2023/math10-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2023,
+  "subject": "math",
+  "slug": "kz-rep-region",
+  "grade": 11,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2023/math11-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2023/math11-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2024,
+  "subject": "math",
+  "slug": "kz-rep-region",
+  "grade": 9,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math9-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math9-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2024,
+  "subject": "math",
+  "slug": "kz-rep-region",
+  "grade": 10,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math10-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math10-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2024,
+  "subject": "math",
+  "slug": "kz-rep-region",
+  "grade": 11,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math11-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math11-2-sol.pdf"
+  ]
+ }
+]

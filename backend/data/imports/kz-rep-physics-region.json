@@ -1,0 +1,178 @@
+[
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2020,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 9,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2020/phys9-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2020,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 10,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2020/phys10-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2020,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 11,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2020/phys11-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2021,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 9,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2021/phys9-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2021/phys9-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2021,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 10,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2021/phys10-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2021/phys10-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2021,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 11,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2021/phys11-1-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2021/phys11-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2022,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 9,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2022/phys9-2-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2022/phys9-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2022,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 10,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2022/phys10-2-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2022/phys10-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2022,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 11,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2022/phys11-2-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2022/phys11-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2023,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 9,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2023/phys9-2-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2023/phys9-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2023,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 10,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2023/phys10-2-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2023/phys10-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2023,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 11,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2023/phys11-2-sol.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2023/phys11-1-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2024,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 9,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2024/phys9-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2024,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 10,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2024/phys10-1-sol_rus.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2024/phys10-2-sol.pdf"
+  ]
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "region",
+  "year": 2024,
+  "subject": "physics",
+  "slug": "kz-rep-region",
+  "grade": 11,
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2024/phys11-1-sol_rus.pdf",
+   "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2024/phys11-2-sol.pdf"
+  ]
+ }
+]

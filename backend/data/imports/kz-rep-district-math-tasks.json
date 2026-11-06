@@ -1,0 +1,35 @@
+[
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "district",
+  "year": 2024,
+  "subject": "math",
+  "slug": "kz-rep-district",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/region/2024/math10-tasks.pdf"
+  ],
+  "grade": 10
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "district",
+  "year": 2024,
+  "subject": "math",
+  "slug": "kz-rep-district",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/region/2024/math11-tasks.pdf"
+  ],
+  "grade": 11
+ },
+ {
+  "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+  "stage": "district",
+  "year": 2024,
+  "subject": "math",
+  "slug": "kz-rep-district",
+  "urls": [
+   "https://cdn.bc-pf.org/olympiads/math/national/region/2024/math9-tasks.pdf"
+  ],
+  "grade": 9
+ }
+]
