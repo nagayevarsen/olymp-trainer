@@ -6,8 +6,6 @@ import { usePrefs } from '../prefs'
 import { SettingsDialog } from './SettingsDialog'
 import { Sidebar } from './Sidebar'
 
-const DECOR = ['π', '∑', '∫', '√', '∞', 'Δ', 'θ', '≈', 'λ', 'Ω', '∂', 'φ']
-
 /** Пока загружается код страницы — спокойная заглушка вместо пустого экрана. */
 function PageLoading() {
   return (
@@ -66,20 +64,8 @@ export function Layout({ onLogout }: { onLogout: () => void }) {
         </div>
       )}
 
-      <div className="relative flex min-w-0 flex-1 flex-col overflow-y-auto">
-        {prefs.decor && (
-          <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-0 overflow-hidden select-none">
-            {DECOR.map((ch, i) => (
-              <span
-                key={i}
-                className="absolute font-serif text-5xl text-slate-900/[0.035] dark:text-white/[0.04]"
-                style={{ left: `${(i * 37) % 95}%`, top: `${(i * 53 + 11) % 92}%`, transform: `rotate(${(i % 5) * 9 - 18}deg)` }}
-              >
-                {ch}
-              </span>
-            ))}
-          </div>
-        )}
+      {/* фон основной области — едва заметные знаки математики и физики (.math-bg в index.css) */}
+      <div className={`relative flex min-w-0 flex-1 flex-col overflow-y-auto ${prefs.decor ? 'math-bg' : ''}`}>
 
         <div className="sticky top-0 z-20 flex items-center gap-2 border-b border-slate-200/70 bg-slate-50/85 px-3 py-2 backdrop-blur lg:hidden dark:border-slate-800 dark:bg-slate-950/85">
           <button onClick={() => setDrawer(true)} className="icon-btn" aria-label="Открыть меню">
