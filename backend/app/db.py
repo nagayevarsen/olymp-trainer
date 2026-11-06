@@ -59,6 +59,12 @@ CREATE TABLE IF NOT EXISTS chat_usage (
     messages INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (user_id, day)
 );
+CREATE TABLE IF NOT EXISTS strong_usage (
+    user_id TEXT NOT NULL,
+    day TEXT NOT NULL,
+    requests INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (user_id, day)
+);
 CREATE TABLE IF NOT EXISTS sessions (
     token_hash TEXT PRIMARY KEY,
     user_id TEXT NOT NULL,
@@ -162,7 +168,15 @@ class DB:
     def delete_user(self, uid: str) -> None:
         """Удалить аккаунт и всё, что с ним связано."""
         with self.tx() as c:
-            for table in ("progress", "submissions", "chat_usage", "streaks", "daily", "sessions"):
+            for table in (
+                "progress",
+                "submissions",
+                "chat_usage",
+                "streaks",
+                "daily",
+                "sessions",
+                "strong_usage",
+            ):
                 c.execute(f"DELETE FROM {table} WHERE user_id = ?", (uid,))
             c.execute("DELETE FROM users WHERE id = ?", (uid,))
 
@@ -195,6 +209,24 @@ class DB:
             c.execute(
                 "DELETE FROM sessions WHERE user_id = ? AND token_hash != ?", (uid, _token_hash(keep_token))
             )
+
+    def take_strong(self, uid: str, day: str, per_user: int, total: int) -> bool:
+        """Занять один запрос к сильной модели (Sonnet), если не исчерпаны личный и общий дневные лимиты."""
+        with self.tx() as c:
+            mine = c.execute(
+                "SELECT requests FROM strong_usage WHERE user_id = ? AND day = ?", (uid, day)
+            ).fetchone()
+            everyone = c.execute(
+                "SELECT COALESCE(SUM(requests), 0) AS n FROM strong_usage WHERE day = ?", (day,)
+            ).fetchone()["n"]
+            if (mine["requests"] if mine else 0) >= per_user or everyone >= total:
+                return False
+            c.execute(
+                "INSERT INTO strong_usage (user_id, day, requests) VALUES (?, ?, 1) "
+                "ON CONFLICT(user_id, day) DO UPDATE SET requests = requests + 1",
+                (uid, day),
+            )
+        return True
 
     def chat_total(self, day: str) -> int:
         """Сколько запросов к ИИ сделали все ученики за день (защита общего бюджета)."""

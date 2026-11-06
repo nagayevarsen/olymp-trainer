@@ -24,3 +24,11 @@ euler.json 0.1097
 smagulov 0.8361
 templates 0.8080
 zhaut-city 1.1384
+bcpf-solutions 0.4025
+kz-junior-final-math 0.0030
+kz-junior-region-math 0.0051
+kz-junior-final-physics 0.0110
+kz-junior-region-physics 0.0050
+kz-junior-other-physics 0.0182
+kz-kbo-physics 0.0257
+chat-sonnet-live-tests 0.06

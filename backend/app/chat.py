@@ -22,10 +22,13 @@ from .llm import LLMError, _record_usage
 from .sandbox import SandboxError, run_solver
 
 CHAT_MODEL = os.environ.get("CHAT_MODEL", "claude-haiku-5-5")
+# Сильная модель — только когда Haiku не справляется (сам просит помощи или не досчитал).
+STRONG_MODEL = os.environ.get("CHAT_STRONG_MODEL", "claude-sonnet-5-5")
 DAILY_LIMIT = int(os.environ.get("CHAT_DAILY_LIMIT", "60"))
 MAX_MESSAGE = 2000
 MAX_HISTORY = 20
 MAX_TOOL_ROUNDS = 4
+MAX_TOKENS = 16000
 
 OFF_TOPIC_REPLY = (
     "Я помогаю только с математикой, физикой и олимпиадами. Давай вернёмся к задачам — "
@@ -155,6 +158,38 @@ CONTESTS_TOOL = {
         "additionalProperties": False,
     },
 }
+
+
+ESCALATE_TOOL = {
+    "name": "ask_stronger_model",
+    "description": (
+        "Передать вопрос более сильной модели. Только для действительно трудных задач, в решении которых "
+        "ты не уверен. Не для простых вопросов, теории, подбора задач и разговоров."
+    ),
+    "input_schema": {
+        "type": "object",
+        "properties": {"reason": {"type": "string", "description": "почему задача трудная, одной фразой"}},
+        "required": ["reason"],
+        "additionalProperties": False,
+    },
+}
+
+ESCALATE_HINT = """
+ТРУДНЫЕ ЗАДАЧИ
+Есть инструмент ask_stronger_model — более сильная модель. Она дорогая, вызывай её редко, только если:
+- задача трудная: графики и чтение графиков, сложная физика (несколько связанных тел, электродинамика,
+  оптика, нетривиальная термодинамика), олимпиадная математика с длинным перебором случаев, сложными
+  неравенствами или геометрией;
+- и ты не уверен в решении или run_code дважды не подтвердил твой ответ.
+Признак, что пора звать её: ты собираешься написать «точного ответа получить нельзя», «не уверен»,
+«данных не хватает» или дать ответ только для упрощённого случая. Тогда не отвечай сам — вызови
+ask_stronger_model (до этого ничего ученику не пиши).
+Для простых вопросов, объяснения теории, подбора задач и обычного разговора — отвечай сам."""
+
+NO_STRONG_NOTE = """
+Более сильная модель сейчас недоступна. Ответь сам как можешь и честно скажи, в чём не уверен."""
+
+GAVE_UP = "Не получилось досчитать — попробуй переформулировать вопрос."
 
 
 @dataclass
@@ -290,46 +325,95 @@ async def _run_tool(call, tools: ChatTools | None, cards: list[dict]) -> str:
     return f"Неизвестный инструмент {call.name}"
 
 
+@dataclass
+class _Turn:
+    text: str | None  # None — модель не дала ответа (попросила помощи или кончились шаги)
+    code_runs: int
+    wants_stronger: bool = False
+    refused: bool = False
+
+
+async def _converse(
+    client, model: str, system: str, messages: list[dict], tool_defs: list, tools, cards
+) -> _Turn:
+    """Один проход модели с инструментами до текстового ответа."""
+    convo: list = list(messages)
+    code_runs = 0
+    for _ in range(MAX_TOOL_ROUNDS + 1):
+        msg = await client.messages.create(
+            model=model,
+            # Место на ответ включает размышления модели: при 4000 на трудной задаче всё уходило в них.
+            max_tokens=MAX_TOKENS,
+            system=system,
+            messages=convo,
+            **({"tools": tool_defs} if tool_defs else {}),
+        )
+        _record_usage(model, msg.usage)
+        if msg.stop_reason == "refusal":
+            return _Turn(OFF_TOPIC_REPLY, code_runs, refused=True)
+        calls = [b for b in msg.content if b.type == "tool_use"]
+        if msg.stop_reason != "tool_use" or not calls:
+            text = "".join(b.text for b in msg.content if b.type == "text").strip()
+            if msg.stop_reason == "max_tokens" or not text:
+                # Не успела ответить (или ответ оборван) — это «не справилась», а не отказ.
+                return _Turn(None, code_runs)
+            return _Turn(text, code_runs)
+        if any(c.name == ESCALATE_TOOL["name"] for c in calls):
+            return _Turn(None, code_runs, wants_stronger=True)
+        convo.append({"role": "assistant", "content": msg.content})
+        results = []
+        for call in calls:
+            code_runs += call.name == "run_code"
+            out = await _run_tool(call, tools, cards)
+            results.append({"type": "tool_result", "tool_use_id": call.id, "content": out})
+        convo.append({"role": "user", "content": results})
+    return _Turn(None, code_runs)
+
+
 async def reply(
     messages: list[dict],
     level: Level,
     problem: dict | None = None,
     tools: ChatTools | None = None,
     olympiad: bool = False,
+    strong: Callable[[], bool] | None = None,
 ) -> tuple[str, int, list[dict]]:
-    """Ответ помощника: (текст, сколько раз запускался код, карточки задач/олимпиад из банка)."""
+    """Ответ помощника: (текст, сколько раз запускался код, карточки задач/олимпиад из банка).
+
+    Отвечает Haiku. Если он сам просит помощи (ask_stronger_model) или не досчитал за отведённые шаги,
+    вопрос один раз передаётся Sonnet — при условии, что strong() разрешил (дневные лимиты)."""
     import anthropic
 
     client = _client()
     system = build_system(level, problem, olympiad)
-    convo: list = list(messages)
-    code_runs = 0
     cards: list[dict] = []
     # Во время олимпиады помощник ничего не считает и не подбирает — только уточняет условия.
     tool_defs = [] if olympiad else [RUN_CODE_TOOL, *([SEARCH_TOOL, CONTESTS_TOOL] if tools else [])]
+    can_escalate = strong is not None and not olympiad
     try:
-        for _ in range(MAX_TOOL_ROUNDS + 1):
-            msg = await client.messages.create(
-                model=CHAT_MODEL,
-                max_tokens=4000,
-                system=system,
-                messages=convo,
-                **({"tools": tool_defs} if tool_defs else {}),
+        first = await _converse(
+            client,
+            CHAT_MODEL,
+            system + (ESCALATE_HINT if can_escalate else ""),
+            messages,
+            tool_defs + ([ESCALATE_TOOL] if can_escalate else []),
+            tools,
+            cards,
+        )
+        if first.refused:
+            return OFF_TOPIC_REPLY, first.code_runs, []
+        if first.text is not None:
+            return first.text, first.code_runs, cards[:8]
+        if can_escalate and strong():
+            second = await _converse(client, STRONG_MODEL, system, messages, tool_defs, tools, cards)
+        else:
+            # Сильная модель недоступна (лимит) — Haiku отвечает сам, без права просить помощи.
+            second = await _converse(
+                client, CHAT_MODEL, system + NO_STRONG_NOTE, messages, tool_defs, tools, cards
             )
-            _record_usage(CHAT_MODEL, msg.usage)
-            if msg.stop_reason == "refusal":
-                return OFF_TOPIC_REPLY, code_runs, []
-            calls = [b for b in msg.content if b.type == "tool_use"]
-            if msg.stop_reason != "tool_use" or not calls:
-                text = "".join(b.text for b in msg.content if b.type == "text").strip()
-                return text or OFF_TOPIC_REPLY, code_runs, cards[:8]
-            convo.append({"role": "assistant", "content": msg.content})
-            results = []
-            for call in calls:
-                code_runs += call.name == "run_code"
-                out = await _run_tool(call, tools, cards)
-                results.append({"type": "tool_result", "tool_use_id": call.id, "content": out})
-            convo.append({"role": "user", "content": results})
+        if second.refused:
+            return OFF_TOPIC_REPLY, first.code_runs + second.code_runs, []
+        return second.text or GAVE_UP, first.code_runs + second.code_runs, cards[:8]
     except anthropic.RateLimitError as exc:
         raise LLMError("Помощник перегружен, попробуй через минуту") from exc
     except anthropic.APIStatusError as exc:
@@ -338,4 +422,3 @@ async def reply(
         raise LLMError("Нет связи с помощником") from exc
     finally:
         await client.close()
-    return "Не получилось досчитать — попробуй переформулировать вопрос.", code_runs, cards[:8]

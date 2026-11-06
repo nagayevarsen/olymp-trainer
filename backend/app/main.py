@@ -400,13 +400,33 @@ async def chat_reply(
     problem = None
     if body.problem_id and (p := get_problem(body.problem_id)):
         problem = {"source": p.source.label(), "topic": p.topic, "statement": p.statement}
+    strong_used: list[bool] = []
+
+    def take_strong() -> bool:
+        """Разрешить один запрос к Sonnet, если не исчерпаны личный и общий дневные лимиты."""
+        ok = db.take_strong(
+            user["id"],
+            time.strftime("%Y-%m-%d"),
+            settings.strong_per_user_daily,
+            settings.strong_global_daily,
+        )
+        if ok:
+            strong_used.append(True)
+        return ok
+
     try:
         text, code_runs, cards = await chat.reply(
-            history, level, problem, tools, olympiad=body.mode == "olympiad"
+            history, level, problem, tools, olympiad=body.mode == "olympiad", strong=take_strong
         )
     except LLMError as exc:
         raise HTTPException(503, str(exc)) from exc
-    return {"reply": text, "code_runs": code_runs, "cards": cards, "left": max(0, chat.DAILY_LIMIT - used)}
+    return {
+        "reply": text,
+        "code_runs": code_runs,
+        "cards": cards,
+        "left": max(0, chat.DAILY_LIMIT - used),
+        "strong": bool(strong_used),
+    }
 
 
 def _search_bank(user: dict, db: DB, **kw) -> list[dict]:

@@ -68,6 +68,9 @@ class Settings:
     # Сколько новых аккаунтов в час с одного IP (у школы может быть один IP на класс).
     signups_per_ip_hour: int = int(os.getenv("SIGNUPS_PER_IP_HOUR", "40"))
     session_days: int = int(os.getenv("SESSION_DAYS", "180"))
+    # Sonnet в чате — только для трудных задач, когда Haiku не справляется. Он в ~20 раз дороже.
+    strong_per_user_daily: int = int(os.getenv("STRONG_PER_USER_DAILY", "5"))
+    strong_global_daily: int = int(os.getenv("STRONG_GLOBAL_DAILY", "150"))
 
 
 settings = Settings()
