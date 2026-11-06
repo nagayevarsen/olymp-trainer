@@ -60,7 +60,7 @@ def test_problems_of_track_are_not_mixed(client):
 
 
 def test_recommendations_stay_in_track(client):
-    uid = client.post("/api/users", json={"name": "x"}).json()["id"]
+    token = client.post("/api/users", json={"name": "x"}).json()["token"]
     dist = track_of(client, "Олимпиада Эйлера", "Дистанционный этап")
-    me = client.get(f"/api/me?track={dist['id']}", headers={"X-User-Id": uid}).json()
+    me = client.get(f"/api/me?track={dist['id']}", headers={"Authorization": f"Bearer {token}"}).json()
     assert [r["id"] for r in me["recommended"]] == ["euler-dist-2025"]

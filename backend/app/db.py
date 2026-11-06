@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import hashlib
+import secrets
 import sqlite3
 import threading
 import time
@@ -57,6 +59,12 @@ CREATE TABLE IF NOT EXISTS chat_usage (
     messages INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (user_id, day)
 );
+CREATE TABLE IF NOT EXISTS sessions (
+    token_hash TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL,
+    created_at REAL NOT NULL
+);
+CREATE INDEX IF NOT EXISTS sessions_user ON sessions(user_id);
 CREATE TABLE IF NOT EXISTS hint_cache (
     problem_id TEXT PRIMARY KEY,
     json TEXT NOT NULL,
@@ -66,6 +74,10 @@ CREATE TABLE IF NOT EXISTS hint_cache (
 """
 
 _lock = threading.Lock()
+
+
+def _token_hash(token: str) -> str:
+    return hashlib.sha256(token.encode()).hexdigest()
 
 
 class DB:
@@ -150,9 +162,46 @@ class DB:
     def delete_user(self, uid: str) -> None:
         """Удалить аккаунт и всё, что с ним связано."""
         with self.tx() as c:
-            for table in ("progress", "submissions", "chat_usage", "streaks", "daily"):
+            for table in ("progress", "submissions", "chat_usage", "streaks", "daily", "sessions"):
                 c.execute(f"DELETE FROM {table} WHERE user_id = ?", (uid,))
             c.execute("DELETE FROM users WHERE id = ?", (uid,))
+
+    # --- сессии: случайный токен входа (в базе только его хэш), id пользователя секретом не является ---
+    def create_session(self, uid: str) -> str:
+        token = secrets.token_urlsafe(32)
+        with self.tx() as c:
+            c.execute(
+                "INSERT INTO sessions (token_hash, user_id, created_at) VALUES (?, ?, ?)",
+                (_token_hash(token), uid, time.time()),
+            )
+        return token
+
+    def user_by_session(self, token: str, max_age_s: float) -> sqlite3.Row | None:
+        row = self.conn.execute(
+            "SELECT u.* , s.created_at AS session_created FROM sessions s JOIN users u ON u.id = s.user_id"
+            " WHERE s.token_hash = ?",
+            (_token_hash(token),),
+        ).fetchone()
+        if row is None or time.time() - row["session_created"] > max_age_s:
+            return None
+        return row
+
+    def delete_session(self, token: str) -> None:
+        with self.tx() as c:
+            c.execute("DELETE FROM sessions WHERE token_hash = ?", (_token_hash(token),))
+
+    def delete_other_sessions(self, uid: str, keep_token: str) -> None:
+        with self.tx() as c:
+            c.execute(
+                "DELETE FROM sessions WHERE user_id = ? AND token_hash != ?", (uid, _token_hash(keep_token))
+            )
+
+    def chat_total(self, day: str) -> int:
+        """Сколько запросов к ИИ сделали все ученики за день (защита общего бюджета)."""
+        row = self.conn.execute(
+            "SELECT COALESCE(SUM(messages), 0) AS n FROM chat_usage WHERE day = ?", (day,)
+        )
+        return int(row.fetchone()["n"])
 
     def get_daily(self, uid: str, day: str) -> str | None:
         row = self.conn.execute(

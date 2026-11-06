@@ -11,8 +11,10 @@ from __future__ import annotations
 
 import ast
 import json
+import os
 import subprocess
 import sys
+import threading
 from typing import Any
 
 SAFE_FUNCS = {
@@ -134,6 +136,9 @@ _ALLOWED_NODES = (
 MAX_CODE_LEN = 12000
 TIMEOUT_S = 5.0
 BRUTE_FORCE_TIMEOUT_S = 30.0
+MAX_CALLS = 5000
+MAX_PARALLEL = int(os.environ.get("SANDBOX_MAX_PARALLEL", "4"))
+_slots = threading.BoundedSemaphore(MAX_PARALLEL)
 
 
 class SandboxError(ValueError):
@@ -237,7 +242,12 @@ def run_solver(
     names = list(calls[0]) if calls else []
     for c in constraints or []:
         validate_expression(c, names)
+    if len(calls) > MAX_CALLS:
+        raise SandboxError("Слишком много наборов параметров")
     payload = json.dumps({"code": code, "calls": calls, "constraints": constraints or []})
+    # Одновременно — не больше MAX_PARALLEL процессов: иначе много запросов сразу съедят весь CPU и память.
+    if not _slots.acquire(timeout=timeout):
+        raise SandboxError("Сервер занят вычислениями, попробуй через минуту")
     try:
         proc = subprocess.run(
             [sys.executable, "-I", "-S", "-c", _RUNNER],
@@ -249,6 +259,8 @@ def run_solver(
         )
     except subprocess.TimeoutExpired as exc:
         raise SandboxError("Решатель работает слишком долго") from exc
+    finally:
+        _slots.release()
     if proc.returncode != 0:
         last = proc.stderr.strip().splitlines()[-1:] or ["неизвестная ошибка"]
         raise SandboxError(f"Решатель упал: {last[0][:200]}")

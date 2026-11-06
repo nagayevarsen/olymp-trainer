@@ -80,10 +80,51 @@ def parse_number(s: str) -> float:
     if len(re.findall(r"\^|\*\*", expr)) > 2 or re.search(r"(\^|\*\*)\s*\(?\s*\d{4,}", expr):
         raise ParseError("Слишком большая степень")
     try:
-        value = parse_expr(expr, local_dict=dict(_ALLOWED_NAMES), transformations=_TRANSFORMS)
-        num = complex(sympy.N(value, 15))
-    except Exception as exc:  # sympy бросает много разных исключений
+        # evaluate=False: sympy не считает выражение точно (999^999^999 повесил бы сервер),
+        # дерево вычисляется ниже обычными float с проверкой переполнения.
+        tree = parse_expr(expr, local_dict=dict(_ALLOWED_NAMES), transformations=_TRANSFORMS, evaluate=False)
+        value = _eval(tree)
+    except ParseError:
+        raise
+    except Exception as exc:  # sympy и math бросают много разных исключений
         raise ParseError("Не удалось разобрать число") from exc
-    if abs(num.imag) > 1e-12 or not math.isfinite(num.real):
+    if not math.isfinite(value):
         raise ParseError("Ответ должен быть действительным числом")
-    return float(num.real)
+    return value
+
+
+_FUNCS = {
+    sympy.sin: math.sin,
+    sympy.cos: math.cos,
+    sympy.tan: math.tan,
+    sympy.exp: math.exp,
+}
+
+
+def _eval(node) -> float:
+    """Посчитать дерево sympy в float. Только числа, + − × ÷, степени и функции из белого списка."""
+    if node is sympy.pi:
+        return math.pi
+    if node is sympy.E:
+        return math.e
+    if node.is_Number:
+        return float(node)
+    if isinstance(node, sympy.Add):
+        return math.fsum(_eval(a) for a in node.args)
+    if isinstance(node, sympy.Mul):
+        out = 1.0
+        for a in node.args:
+            out *= _eval(a)
+        return out
+    if isinstance(node, sympy.Pow):
+        base, exp = _eval(node.args[0]), _eval(node.args[1])
+        if base < 0 and not float(exp).is_integer():
+            raise ParseError("Ответ должен быть действительным числом")
+        if base == 0 and exp < 0:
+            raise ParseError("Деление на ноль")
+        return math.pow(base, exp)  # OverflowError при гигантских степенях
+    if isinstance(node, sympy.log):
+        return math.log(*[_eval(a) for a in node.args])
+    if node.func in _FUNCS and len(node.args) == 1:
+        return _FUNCS[node.func](_eval(node.args[0]))
+    raise ParseError("Не удалось разобрать число")

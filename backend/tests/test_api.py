@@ -17,8 +17,8 @@ def client():
 
 
 def new_user(client, name="Аян"):
-    uid = client.post("/api/users", json={"name": name, "grade": 7}).json()["id"]
-    return {"X-User-Id": uid}
+    token = client.post("/api/users", json={"name": name, "grade": 7}).json()["token"]
+    return {"Authorization": f"Bearer {token}"}
 
 
 def test_health(client):

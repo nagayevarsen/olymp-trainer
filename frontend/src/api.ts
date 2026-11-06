@@ -1,6 +1,6 @@
 // Клиент HTTP API бэкенда. В разработке запросы /api проксируются на localhost:8000.
 
-import { getUser } from './user'
+import { clearUser, getUser } from './user'
 
 const BASE = import.meta.env.VITE_API_URL ?? ''
 
@@ -179,7 +179,7 @@ export interface ContestDetail extends ContestRow {
   }[]
 }
 
-type Account = { id: string; name: string; grade: number | null }
+type Account = { id: string; name: string; grade: number | null; token: string }
 
 export interface LeaderRow {
   name: string
@@ -199,12 +199,17 @@ export class ApiError extends Error {
 async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   const user = getUser()
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
-  if (user) headers['X-User-Id'] = user.id
+  if (user) headers['Authorization'] = `Bearer ${user.token}`
   let res: Response
   try {
     res = await fetch(BASE + path, { ...init, headers: { ...headers, ...(init.headers ?? {}) } })
   } catch {
     throw new ApiError(0, 'Нет связи с сервером. Проверь интернет.')
+  }
+  if (res.status === 401 && user) {
+    // Сессия истекла или отозвана (выход на другом устройстве) — вернуться к экрану входа.
+    clearUser()
+    window.location.reload()
   }
   if (!res.ok) {
     let msg = `Ошибка ${res.status}`
@@ -222,8 +227,8 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
 const post = <T>(path: string, body: unknown = {}) => request<T>(path, { method: 'POST', body: JSON.stringify(body) })
 
 export const api = {
-  createUser: (name: string, grade: number | null) =>
-    post<{ id: string; name: string; grade: number | null }>('/api/users', { name, grade }),
+  createUser: (name: string, grade: number | null) => post<Account>('/api/users', { name, grade }),
+  logout: () => post<{ ok: boolean }>('/api/logout'),
   me: (track?: string | null) => request<Me>(`/api/me${track ? `?track=${track}` : ''}`),
   tracks: () => request<Track[]>('/api/tracks'),
   problems: (track?: string | null) => request<ProblemListItem[]>(`/api/problems${track ? `?track=${track}` : ''}`),

@@ -2,19 +2,22 @@
 
 from __future__ import annotations
 
+import asyncio
+import logging
 import random
 import time
 from collections import defaultdict
 from pathlib import Path
 from typing import Literal
 
-from fastapi import Depends, FastAPI, Header, HTTPException, Query
+from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from . import ai, chat, contests, olympiad_rules, scoring, streak
+from . import ratelimit as rl
 from .auth import AuthError, check_nick, check_password, hash_password, verify_password
 from .bank import STAGE_NAMES, Hints, Problem, get_problem, load_bank
 from .checker import AnswerKey, check_answer
@@ -23,13 +26,34 @@ from .config import settings
 from .db import DB
 from .llm import LLMError
 
+log = logging.getLogger("olymp")
 app = FastAPI(title=settings.app_name, version="0.1.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "DELETE"],
+    allow_headers=["Authorization", "Content-Type"],
 )
+
+MAX_BODY_BYTES = 1_000_000
+SEED_MAX = 2**31 - 1
+
+
+@app.middleware("http")
+async def security_headers(request: Request, call_next):
+    """Слишком большие запросы отклоняем сразу; ответам — стандартные заголовки безопасности."""
+    length = request.headers.get("content-length")
+    if length and length.isdigit() and int(length) > MAX_BODY_BYTES:
+        return JSONResponse({"detail": "Слишком большой запрос"}, status_code=413)
+    resp = await call_next(request)
+    resp.headers.setdefault("X-Content-Type-Options", "nosniff")
+    resp.headers.setdefault("X-Frame-Options", "DENY")
+    resp.headers.setdefault("Referrer-Policy", "no-referrer")
+    resp.headers.setdefault("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
+    if request.url.path.startswith("/api/"):
+        resp.headers.setdefault("Cache-Control", "no-store")
+    return resp
+
 
 _db: DB | None = None
 
@@ -47,11 +71,60 @@ def set_db(db: DB) -> None:
     _db = db
 
 
-def current_user(x_user_id: str = Header(default=""), db: DB = Depends(get_db)) -> dict:
-    user = db.get_user(x_user_id) if x_user_id else None
+def _bearer(authorization: str) -> str:
+    scheme, _, token = authorization.partition(" ")
+    token = token.strip()
+    return token if scheme.lower() == "bearer" and 20 <= len(token) <= 200 else ""
+
+
+def optional_user(authorization: str = Header(default=""), db: DB = Depends(get_db)) -> dict | None:
+    """Пользователь по токену сессии (Authorization: Bearer …). id пользователя секретом не является."""
+    token = _bearer(authorization)
+    row = db.user_by_session(token, settings.session_days * 86_400) if token else None
+    return dict(row) if row else None
+
+
+def current_user(user: dict | None = Depends(optional_user)) -> dict:
     if not user:
-        raise HTTPException(401, "Нужно войти: создайте профиль")
-    return dict(user)
+        raise HTTPException(401, "Нужно войти в аккаунт")
+    return user
+
+
+def _uid(user: dict | None) -> str:
+    return user["id"] if user else ""
+
+
+def _signup_guard(request: Request) -> None:
+    rl.enforce(
+        "signup",
+        rl.client_ip(request),
+        settings.signups_per_ip_hour,
+        3600,
+        "Слишком много новых аккаунтов с этого адреса. Попробуй через час.",
+    )
+
+
+def _spend_ai(user: dict, request: Request, db: DB, n: int = 1) -> int:
+    """Учесть n запросов к ИИ: личный дневной лимит, лимит на IP и общий бюджет сервера."""
+    day = time.strftime("%Y-%m-%d")
+    if db.chat_total(day) + n > settings.ai_global_daily_limit:
+        raise HTTPException(503, "ИИ-помощник на сегодня исчерпал общий лимит. Попробуй завтра.")
+    for _ in range(n):
+        rl.enforce(
+            "ai-ip",
+            rl.client_ip(request),
+            chat.DAILY_LIMIT * 10,
+            86_400,
+            "Слишком много запросов с этого адреса",
+        )
+    used = 0
+    for _ in range(n):
+        used = db.count_chat_message(user["id"], day)
+    if used > chat.DAILY_LIMIT:
+        raise HTTPException(
+            429, f"На сегодня лимит {chat.DAILY_LIMIT} сообщений помощнику. Возвращайся завтра!"
+        )
+    return used
 
 
 def require_problem(problem_id: str) -> Problem:
@@ -85,17 +158,18 @@ def source_info(p: Problem) -> dict:
 
 # ---------- схемы запросов ----------
 class NewUser(BaseModel):
-    name: str = Field(min_length=1, max_length=40)
+    # Имя гостя видно в рейтинге: только буквы, цифры, пробел, точка, дефис.
+    name: str = Field(min_length=1, max_length=20, pattern=r"^[\w .\-]+$")
     grade: int | None = Field(default=None, ge=1, le=12)
 
 
 class CheckRequest(BaseModel):
     answer: str = Field(min_length=1, max_length=200)
-    seed: int | None = None
+    seed: int | None = Field(default=None, ge=0, le=SEED_MAX)
 
 
 class VariantRequest(BaseModel):
-    seed: int | None = None
+    seed: int | None = Field(default=None, ge=0, le=SEED_MAX)
 
 
 # ---------- пользователи ----------
@@ -105,10 +179,14 @@ def health() -> dict:
 
 
 @app.post("/api/users")
-def create_user(body: NewUser, db: DB = Depends(get_db)) -> dict:
+def create_user(body: NewUser, request: Request, db: DB = Depends(get_db)) -> dict:
     """Профиль-гость без пароля (оставлен для совместимости; прогресс живёт только в этом браузере)."""
-    uid = db.create_user(body.name.strip(), body.grade)
-    return {"id": uid, "name": body.name.strip(), "grade": body.grade}
+    _signup_guard(request)
+    name = body.name.strip()
+    if not name:
+        raise HTTPException(422, "Пустое имя")
+    uid = db.create_user(name, body.grade)
+    return {"id": uid, "name": name, "grade": body.grade, "token": db.create_session(uid)}
 
 
 def _today():
@@ -221,23 +299,49 @@ def nick_available(nick: str, db: DB = Depends(get_db)) -> dict:
 
 
 @app.post("/api/register")
-def register(body: Register, db: DB = Depends(get_db)) -> dict:
+def register(body: Register, request: Request, db: DB = Depends(get_db)) -> dict:
     if not body.accept_terms:
         raise HTTPException(400, "Нужно согласиться с условиями использования")
     nick, pass_hash = _account_fields(body.nick, body.password)
+    _signup_guard(request)
     uid = db.create_account(nick, pass_hash, body.grade)
     if uid is None:
         raise HTTPException(409, "Такой ник уже занят")
-    return {"id": uid, "name": nick, "grade": body.grade}
+    return {"id": uid, "name": nick, "grade": body.grade, "token": db.create_session(uid)}
+
+
+LOGIN_FAILS_PER_NICK = 10  # за 15 минут
+LOGIN_FAILS_PER_IP = 50
 
 
 @app.post("/api/login")
-def login(body: Login, db: DB = Depends(get_db)) -> dict:
+async def login(body: Login, request: Request, db: DB = Depends(get_db)) -> dict:
+    nick_key, ip = body.nick.strip().lower(), rl.client_ip(request)
+    if not (
+        rl.allow("login-nick", nick_key, LOGIN_FAILS_PER_NICK, 900, count=False)
+        and rl.allow("login-ip", ip, LOGIN_FAILS_PER_IP, 900, count=False)
+    ):
+        raise HTTPException(429, "Слишком много неудачных попыток входа. Подожди 15 минут.")
     user = db.user_by_nick(body.nick.strip())
-    if not user or not verify_password(body.password, user["pass_hash"]):
-        time.sleep(0.5)  # замедляем подбор пароля
+    ok = bool(user) and await asyncio.to_thread(verify_password, body.password, user["pass_hash"])
+    if not ok:
+        rl.hit("login-nick", nick_key)
+        rl.hit("login-ip", ip)
+        await asyncio.sleep(0.5)  # замедляем подбор пароля, не блокируя сервер
         raise HTTPException(401, "Неверный ник или пароль")
-    return {"id": user["id"], "name": user["name"], "grade": user["grade"]}
+    return {
+        "id": user["id"],
+        "name": user["name"],
+        "grade": user["grade"],
+        "token": db.create_session(user["id"]),
+    }
+
+
+@app.post("/api/logout")
+def logout(authorization: str = Header(default=""), db: DB = Depends(get_db)) -> dict:
+    if token := _bearer(authorization):
+        db.delete_session(token)
+    return {"ok": True}
 
 
 @app.post("/api/me/account")
@@ -259,27 +363,25 @@ def delete_me(user: dict = Depends(current_user), db: DB = Depends(get_db)) -> d
 
 # ---------- чат с ИИ-помощником ----------
 class ChatMessage(BaseModel):
-    role: str
+    role: Literal["user", "assistant"]
     content: str = Field(max_length=chat.MAX_MESSAGE * 2)
 
 
 class ChatRequest(BaseModel):
     messages: list[ChatMessage] = Field(max_length=100)
-    problem_id: str | None = None
+    problem_id: str | None = Field(default=None, max_length=200)
     mode: Literal["training", "olympiad"] = "training"
 
 
 @app.post("/api/chat")
-async def chat_reply(body: ChatRequest, user: dict = Depends(current_user), db: DB = Depends(get_db)) -> dict:
+async def chat_reply(
+    body: ChatRequest, request: Request, user: dict = Depends(current_user), db: DB = Depends(get_db)
+) -> dict:
     try:
         history = chat.clean_history([m.model_dump() for m in body.messages])
     except ValueError as exc:
         raise HTTPException(400, str(exc)) from exc
-    used = db.count_chat_message(user["id"], time.strftime("%Y-%m-%d"))
-    if used > chat.DAILY_LIMIT:
-        raise HTTPException(
-            429, f"На сегодня лимит {chat.DAILY_LIMIT} сообщений помощнику. Возвращайся завтра!"
-        )
+    used = _spend_ai(user, request, db)
     prog = db.all_progress(user["id"])
     level = chat.Level(
         grade=user["grade"],
@@ -324,8 +426,8 @@ def _search_bank(user: dict, db: DB, **kw) -> list[dict]:
 
 # ---------- проверка полных решений олимпиады «как жюри» ----------
 class SolutionItem(BaseModel):
-    problem_id: str
-    seed: int | None = None
+    problem_id: str = Field(max_length=200)
+    seed: int | None = Field(default=None, ge=0, le=SEED_MAX)
     answer: str = Field(default="", max_length=200)
     solution: str = Field(default="", max_length=6000)
     max_points: int = Field(ge=1, le=scoring.MAX_POINTS)
@@ -336,12 +438,16 @@ class GradeRequest(BaseModel):
 
 
 @app.post("/api/olympiad/grade")
-async def grade_olympiad(body: GradeRequest, user: dict = Depends(current_user)) -> list[dict]:
+async def grade_olympiad(
+    body: GradeRequest, request: Request, user: dict = Depends(current_user), db: DB = Depends(get_db)
+) -> list[dict]:
     from . import grading
 
+    problems = [require_problem(it.problem_id) for it in body.items]
+    # Каждая задача с решением — отдельный запрос к ИИ: считаем их в общий дневной лимит.
+    _spend_ai(user, request, db, n=sum(1 for it in body.items if it.solution.strip() or it.answer.strip()))
     out = []
-    for it in body.items:
-        p = require_problem(it.problem_id)
+    for it, p in zip(body.items, problems):
         statement, value, unit = p.statement, p.answer.value, p.answer.unit
         if it.seed is not None and p.can_clone:
             try:
@@ -356,7 +462,9 @@ async def grade_olympiad(body: GradeRequest, user: dict = Depends(current_user))
                 statement, value, unit, p.solution, it.solution, it.answer, correct, it.max_points
             )
         except LLMError as exc:
-            raise HTTPException(503, f"Проверка недоступна: {exc}") from exc
+            # Подробности (модели, куски ответа) ученику не показываем — только в лог сервера.
+            log.warning("Проверка решения не удалась: %s", exc)
+            raise HTTPException(503, "Проверка решений сейчас недоступна, попробуй через минуту") from exc
         out.append({"problem_id": p.id, "answer_correct": correct, **g})
     return out
 
@@ -422,18 +530,23 @@ def olympiads_with_official_time() -> list[str]:
 
 @app.get("/api/contests")
 def list_contests(
-    query: str = "", subject: str | None = None, x_user_id: str = Header(default=""), db: DB = Depends(get_db)
+    query: str = Query(default="", max_length=100),
+    subject: str | None = None,
+    user: dict | None = Depends(optional_user),
+    db: DB = Depends(get_db),
 ) -> list[dict]:
-    return _list_contests(x_user_id, db, query, subject)
+    return _list_contests(_uid(user), db, query, subject)
 
 
 @app.get("/api/contests/{contest_id}")
-def contest_detail(contest_id: str, x_user_id: str = Header(default=""), db: DB = Depends(get_db)) -> dict:
+def contest_detail(
+    contest_id: str, user: dict | None = Depends(optional_user), db: DB = Depends(get_db)
+) -> dict:
     c = contests.build_contests(load_bank()).get(contest_id)
     if not c:
         raise HTTPException(404, "Олимпиада не найдена")
     stats = db.problem_stats()
-    prog = db.all_progress(x_user_id) if x_user_id else {}
+    prog = db.all_progress(_uid(user)) if user else {}
     problems = []
     for i, (p, pts) in enumerate(zip(c.problems, contest_points(c)), 1):
         pr = prog.get(p.id, {})
@@ -601,11 +714,11 @@ def list_problems(
     track: str | None = Query(default=None, description="Показать задачи только одного трека"),
     subject: str | None = Query(default=None),
     topic: str | None = Query(default=None),
-    x_user_id: str = Header(default=""),
+    user: dict | None = Depends(optional_user),
     db: DB = Depends(get_db),
 ) -> list[dict]:
     stats = db.problem_stats()
-    prog = db.all_progress(x_user_id) if x_user_id else {}
+    prog = db.all_progress(_uid(user)) if user else {}
     out = []
     for p in load_bank().values():
         if track and p.source.track_id != track:
@@ -645,18 +758,43 @@ def _hints_for(p: Problem, db: DB) -> Hints | None:
     return Hints.model_validate_json(cached) if cached else None
 
 
+_hint_locks: dict[str, asyncio.Lock] = defaultdict(asyncio.Lock)
+
+
+async def _ensure_hints(p: Problem, user: dict, db: DB) -> Hints:
+    """Подсказки задачи; если их нет — сгенерировать один раз (даже при одновременных запросах)."""
+    hints = _hints_for(p, db)
+    if hints is not None:
+        return hints
+    async with _hint_locks[p.id]:
+        hints = _hints_for(p, db)
+        if hints is not None:
+            return hints
+        rl.enforce(
+            "hintgen", user["id"], 30, 3600, "Подсказки для новых задач готовятся — попробуй через час"
+        )
+        try:
+            hints, model = await ai.generate_hints(p)
+        except LLMError as exc:
+            raise HTTPException(503, "ИИ-наставник сейчас перегружен, попробуй через минуту") from exc
+        db.cache_hints(p.id, hints.model_dump_json(), model)
+        return hints
+
+
 @app.get("/api/problems/{problem_id}")
 def problem_detail(
     problem_id: str,
-    seed: int | None = None,
-    x_user_id: str = Header(default=""),
+    request: Request,
+    seed: int | None = Query(default=None, ge=0, le=SEED_MAX),
+    user: dict | None = Depends(optional_user),
     db: DB = Depends(get_db),
 ) -> dict:
     p = require_problem(problem_id)
     stats = db.problem_stats()
-    pr = db.progress(x_user_id, p.id) if x_user_id else db.progress("", p.id)
+    pr = db.progress(_uid(user), p.id)
     statement = p.statement
     if seed is not None:
+        _variant_guard(request)
         try:
             statement = make_variant(p, seed).statement
         except CloneError as exc:
@@ -694,11 +832,17 @@ def problem_detail(
     }
 
 
+def _variant_guard(request: Request) -> None:
+    """Каждый новый вариант — запуск решателя в отдельном процессе; не даём завалить сервер."""
+    rl.enforce("variant", rl.client_ip(request), 60, 60, "Слишком много вариантов подряд — подожди минуту")
+
+
 @app.post("/api/problems/{problem_id}/variant")
-def new_variant(problem_id: str, body: VariantRequest | None = None) -> dict:
+def new_variant(problem_id: str, request: Request, body: VariantRequest | None = None) -> dict:
     p = require_problem(problem_id)
     if not p.can_clone:
         raise HTTPException(422, "Для этой задачи варианты пока недоступны")
+    _variant_guard(request)
     start = body.seed if body and body.seed else random.randint(1, 1_000_000)
     try:
         v = find_seed(p, start)
@@ -711,11 +855,22 @@ def new_variant(problem_id: str, body: VariantRequest | None = None) -> dict:
     }
 
 
+CHECKS_PER_PROBLEM = 15  # попыток ответа на одну задачу за 10 минут
+
+
 @app.post("/api/problems/{problem_id}/check")
 def check(
     problem_id: str, body: CheckRequest, user: dict = Depends(current_user), db: DB = Depends(get_db)
 ) -> dict:
     p = require_problem(problem_id)
+    # Перебор ответов подряд (скриптом) не должен приносить баллы рейтинга.
+    rl.enforce(
+        "check",
+        f"{user['id']}:{p.id}",
+        CHECKS_PER_PROBLEM,
+        600,
+        "Слишком много попыток подряд для этой задачи. Подумай ещё и попробуй через несколько минут.",
+    )
     if body.seed is not None:
         try:
             key = make_variant(p, body.seed).answer
@@ -766,13 +921,7 @@ async def open_hint(
     problem_id: str, level: int, user: dict = Depends(current_user), db: DB = Depends(get_db)
 ) -> dict:
     p = require_problem(problem_id)
-    hints = _hints_for(p, db)
-    if hints is None:
-        try:
-            hints, model = await ai.generate_hints(p)
-        except LLMError as exc:
-            raise HTTPException(503, "ИИ-наставник сейчас перегружен, попробуй через минуту") from exc
-        db.cache_hints(p.id, hints.model_dump_json(), model)
+    hints = await _ensure_hints(p, user, db)
     if not 1 <= level <= len(hints.steps):
         raise HTTPException(400, "Нет такой подсказки")
     pr = db.progress(user["id"], p.id)
@@ -797,16 +946,7 @@ async def open_solution(
     problem_id: str, user: dict = Depends(current_user), db: DB = Depends(get_db)
 ) -> dict:
     p = require_problem(problem_id)
-    solution = p.solution
-    if not solution:
-        hints = _hints_for(p, db)
-        if hints is None:
-            try:
-                hints, model = await ai.generate_hints(p)
-            except LLMError as exc:
-                raise HTTPException(503, "ИИ-наставник сейчас перегружен, попробуй через минуту") from exc
-            db.cache_hints(p.id, hints.model_dump_json(), model)
-        solution = hints.solution
+    solution = p.solution or (await _ensure_hints(p, user, db)).solution
     pr = db.progress(user["id"], p.id)
     pr["solution_viewed"] = 1
     db.save_progress(pr)
@@ -814,13 +954,15 @@ async def open_solution(
 
 
 # ---------- фронтенд (собранный) ----------
-_dist = Path(settings.frontend_dist)
+_dist = Path(settings.frontend_dist).resolve()
 if _dist.exists():
     app.mount("/assets", StaticFiles(directory=_dist / "assets"), name="assets")
 
     @app.get("/{path:path}", include_in_schema=False)
     def spa(path: str) -> FileResponse:
-        file = _dist / path
-        if path and file.is_file() and _dist in file.resolve().parents:
+        if path.startswith("api/"):
+            raise HTTPException(404, "Нет такого адреса API")
+        file = (_dist / path).resolve()
+        if path and _dist in file.parents and file.is_file():
             return FileResponse(file)
         return FileResponse(_dist / "index.html")

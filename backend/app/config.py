@@ -61,6 +61,13 @@ class Settings:
         default_factory=lambda: os.getenv("CORS_ORIGINS", "http://localhost:5173").split(",")
     )
     frontend_dist: str = os.getenv("FRONTEND_DIST", str(BACKEND_DIR.parent / "frontend" / "dist"))
+    # За обратным прокси (Render и т. п.) включить, чтобы IP брался из X-Forwarded-For.
+    trust_proxy: bool = os.getenv("TRUST_PROXY", "").lower() in ("1", "true", "yes")
+    # Сколько запросов к ИИ (чат + проверка решений) всего за день на весь сервер — защита бюджета.
+    ai_global_daily_limit: int = int(os.getenv("AI_GLOBAL_DAILY_LIMIT", "3000"))
+    # Сколько новых аккаунтов в час с одного IP (у школы может быть один IP на класс).
+    signups_per_ip_hour: int = int(os.getenv("SIGNUPS_PER_IP_HOUR", "40"))
+    session_days: int = int(os.getenv("SESSION_DAYS", "180"))
 
 
 settings = Settings()

@@ -201,7 +201,13 @@ def _tokenize(s: str) -> list[tuple[str, str]]:
 def _parse_pow(tok: str) -> int:
     t = tok.translate(_SUPERSCRIPTS)
     t = t.replace("^", "").replace("*", "").replace("(", "").replace(")", "").strip()
-    return int(t)
+    p = int(t)
+    if abs(p) > MAX_UNIT_POWER:
+        raise UnitError("Слишком большая степень у единицы")
+    return p
+
+
+MAX_UNIT_POWER = 12
 
 
 class _Parser:
@@ -265,7 +271,12 @@ def parse_unit(s: str | None) -> Quantity:
         return lookup_unit(s)
     tokens = _tokenize(s)
     p = _Parser(tokens)
-    q = p.expr()
+    try:
+        q = p.expr()
+    except (OverflowError, RecursionError, ZeroDivisionError) as exc:
+        raise UnitError(f"Не удалось разобрать единицы: «{s}»") from exc
+    if not math.isfinite(q.factor) or q.factor == 0:
+        raise UnitError(f"Не удалось разобрать единицы: «{s}»")
     if p.peek() is not None:
         raise UnitError(f"Не удалось разобрать единицы: «{s}»")
     return q

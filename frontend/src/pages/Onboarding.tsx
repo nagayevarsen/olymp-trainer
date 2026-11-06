@@ -46,7 +46,7 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
         mode === 'register'
           ? await api.register(nick.trim(), password, grade === '' ? null : grade)
           : await api.login(nick.trim(), password)
-      const user = { id: u.id, name: u.name }
+      const user = { id: u.id, name: u.name, token: u.token }
       saveUser(user)
       onDone(user)
     } catch (err) {
