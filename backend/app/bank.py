@@ -47,6 +47,26 @@ STAGE_NAMES = {
 }
 
 
+# Олимпиады, в которых школьники из Казахстана участвовать не могут. Задачи с них в банк не берём.
+# Ключ — подстрока названия олимпиады в банке, значение — причина.
+CLOSED_OLYMPIADS: dict[str, str] = {
+    "Всероссийская": "ВсОШ — только для учеников школ России",
+    "ВсОШ": "ВсОШ — только для учеников школ России",
+    "Беларусь": "Республиканская олимпиада Беларуси — только для учеников школ Беларуси",
+    "BelPhO": "Республиканская олимпиада Беларуси — только для учеников школ Беларуси",
+    "USAPhO": "USAPhO — только для граждан и резидентов США, находящихся в США",
+}
+
+
+def closed_reason(olympiad: str) -> str | None:
+    """Почему казахстанцы не могут участвовать в олимпиаде (None — могут)."""
+    low = olympiad.lower()
+    for key, reason in CLOSED_OLYMPIADS.items():
+        if key.lower() in low:
+            return reason
+    return None
+
+
 class Source(BaseModel):
     olympiad: str = Field(description="Название олимпиады, например «Республиканская олимпиада»")
     year: int | None = None
@@ -235,11 +255,15 @@ def load_bank() -> dict[str, Problem]:
                 f"В файле {path.name} источник {p.source.url} не из списка проверенных сайтов "
                 "(data/sources.json)"
             )
+        if reason := closed_reason(p.source.olympiad):
+            raise BankError(f"В файле {path.name} задача с олимпиады, закрытой для Казахстана: {reason}")
         bank[p.id] = p
     return bank
 
 
 def save_problem(problem: Problem) -> None:
+    if reason := closed_reason(problem.source.olympiad):
+        raise BankError(f"Задача {problem.id} не сохранена: {reason}")
     path = problems_dir() / f"{problem.id}.json"
     data = problem.model_dump(mode="json", exclude_none=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

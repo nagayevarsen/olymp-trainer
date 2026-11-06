@@ -24,7 +24,7 @@ from urllib.parse import urljoin
 import httpx
 from pydantic import ValidationError
 
-from .bank import Problem, is_trusted_url, problems_dir
+from .bank import Problem, closed_reason, is_trusted_url, problems_dir
 from .config import settings
 from .llm import Image, LLMError, complete_json
 from .units import UnitError, parse_unit
@@ -300,6 +300,9 @@ async def import_pdf(
     dry_run: bool = False,
 ) -> ImportReport:
     report = ImportReport(url=url)
+    if reason := closed_reason(olympiad):
+        report.error = f"олимпиада закрыта для Казахстана: {reason}"
+        return report
     try:
         path = fetch_pdf(url)
     except (ImportError_, httpx.HTTPError) as exc:

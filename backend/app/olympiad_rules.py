@@ -56,23 +56,6 @@ RULES: list[Rule] = [
         "https://postupi.online/olimpiada/olimpiada-ejlera/etap/regionalnyj-etap/",
     ),
     Rule(
-        "Всероссийская",
-        "region",
-        "math",
-        235,
-        "Порядок проведения регионального этапа ВсОШ по математике: каждый тур — 235 минут",
-        "https://vos.olimpiada.ru/upload/files/files-2025-26/region/procedure/proc-math-reg-2026.pdf",
-    ),
-    Rule(
-        "Всероссийская",
-        "region",
-        "physics",
-        300,
-        "Порядок проведения регионального этапа ВсОШ по физике: теоретический тур — 300 минут (9–11 классы)",
-        "https://vos.olimpiada.ru/upload/files/files-2025-26/region/procedure/proc-phys-reg-2026.pdf",
-        grades=(9, 11),
-    ),
-    Rule(
         "Эйлера",
         "final",
         "math",
@@ -122,7 +105,6 @@ def available_list() -> list[str]:
         "Жаутыковская": "Жаутыковская (IZhO)",
         "APMO": "APMO",
         "Эйлера": "Эйлера (региональный и заключительный этапы)",
-        "Всероссийская": "ВсОШ (региональный этап)",
         "Всесибирская": "Всесибирская по математике",
         "Смагулова": "Смагуловская (городской этап)",
     }

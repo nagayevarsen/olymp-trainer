@@ -126,7 +126,9 @@ def test_system_prompt_has_rules_level_and_problem():
     assert chat.OFF_TOPIC_REPLY in s and "9 класс" in s and "сильный" in s
     assert "Тело брошено" in s and "Не называй итоговый числовой ответ" in s
     assert "run_code" in s
-    assert "izho.kz" in s and "vos.olimpiada.ru" in s  # ссылки — только на проверенные сайты
+    assert (
+        "izho.kz" in s and "matol.kz" in s and "vos.olimpiada.ru" not in s
+    )  # ссылки — только на проверенные сайты
     assert "Казахстан" in s
 
 
@@ -275,10 +277,17 @@ def test_official_rules():
         ).points_per_problem
         == 7
     )
-    assert rule_for("Всероссийская олимпиада школьников (ВсОШ)", "region", "physics", 10).minutes == 300
-    assert (
-        rule_for("Всероссийская олимпиада школьников (ВсОШ)", "region", "physics", 8) is None
-    )  # 7–8 — другая олимпиада
     assert rule_for("Олимпиада им. Шалтая Смагулова", "city", "math").minutes == 180
     # время городской Жаутыковской официально не опубликовано — не угадываем
     assert rule_for("Городская Жаутыковская олимпиада (Алматы)", "city", "math") is None
+
+
+def test_closed_olympiads_blocked():
+    from app.bank import closed_reason, load_bank
+
+    assert closed_reason("Всероссийская олимпиада школьников (ВсОШ)")
+    assert closed_reason("USAPhO (олимпиада США по физике)")
+    assert closed_reason("Республиканская физическая олимпиада (Беларусь)")
+    assert closed_reason("Международная Жаутыковская олимпиада (IZhO)") is None
+    assert closed_reason("Олимпиада им. Шалтая Смагулова") is None
+    assert not [p for p in load_bank().values() if closed_reason(p.source.olympiad)]

@@ -19,7 +19,7 @@ import sys
 from html import unescape
 
 from .. import verify
-from ..bank import Problem, load_bank, problems_dir
+from ..bank import Problem, closed_reason, load_bank, problems_dir
 from ..importer import _get
 from ..llm import LLMError, complete_json, usage_cost
 
@@ -173,7 +173,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--stage", default="city")
     ap.add_argument("--budget", type=float, default=0.5, help="остановиться при таком расходе Claude, $")
     ap.add_argument("--parallel", type=int, default=3)
-    return asyncio.run(main_async(ap.parse_args(argv)))
+    args = ap.parse_args(argv)
+    if reason := closed_reason(args.olympiad):
+        print(f"Олимпиада закрыта для Казахстана, импорт не запущен: {reason}", file=sys.stderr)
+        return 2
+    return asyncio.run(main_async(args))
 
 
 if __name__ == "__main__":

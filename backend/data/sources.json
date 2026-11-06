@@ -117,19 +117,6 @@
       "added": "2026-11-04"
     },
     {
-      "domain": "vos.olimpiada.ru",
-      "name": "ВсОШ — задания",
-      "url": "https://vos.olimpiada.ru/tasks",
-      "subjects": [
-        "math",
-        "physics"
-      ],
-      "region": "Россия",
-      "kind": "official",
-      "note": "Классы, годы, этапы",
-      "added": "2026-11-04"
-    },
-    {
       "domain": "olimpiadakurchatov.ru",
       "name": "Олимпиада «Курчатов» — архив",
       "url": "https://olimpiadakurchatov.ru/tasks",
@@ -522,32 +509,9 @@
       "added": "2026-11-04"
     },
     {
-      "domain": "aapt.org",
-      "name": "USAPhO / F=ma — Past Exams",
-      "url": "https://aapt.org/physicsteam/PT-exams.cfm",
-      "subjects": [
-        "physics"
-      ],
-      "region": "Международные",
-      "kind": "official",
-      "note": "PDF и решения 2008–2026",
-      "added": "2026-11-04"
-    },
-    {
       "domain": "bpho.org.uk",
       "name": "British Physics Olympiad",
       "url": "https://www.bpho.org.uk/",
-      "subjects": [
-        "physics"
-      ],
-      "region": "Международные",
-      "kind": "official",
-      "added": "2026-11-04"
-    },
-    {
-      "domain": "belpho.org",
-      "name": "BelPhO",
-      "url": "https://belpho.org/",
       "subjects": [
         "physics"
       ],
