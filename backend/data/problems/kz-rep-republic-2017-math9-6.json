@@ -1,0 +1,26 @@
+{
+  "id": "kz-rep-republic-2017-math9-6",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Обнуление линий таблицы",
+  "statement": "В каждую клетку таблицы $100 \\times 100$ записано одно из чисел $1, 2, \\ldots, 100$, причем каждое из этих чисел встречается в таблице 100 раз. Назовем линией любую строку или столбец таблицы. За один ход разрешается взять линию, в которой сумма чисел больше 100, и обнулить все числа на этой линии. Какое наибольшее количество ненулевых чисел может остаться в таблице, если известно, что после нескольких ходов во всех линиях сумма чисел не превосходит 100?",
+  "answer": {
+    "value": 650.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 650",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 650",
+      "решение: anthropic:claude-sonnet-5-5 → 650",
+      "программа (enumeration): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 650",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 650"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2017,
+    "stage": "republic",
+    "grade": 9,
+    "number": 6,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2017/math9-1-tasks.pdf"
+  }
+}

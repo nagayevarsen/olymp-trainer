@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-region-2019-math9-1",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Наименьшее число сумм",
+  "statement": "Для пяти попарно различных натуральных чисел вычислили всевозможные суммы каждых трех из этих чисел. Какое наименьшее число различных сумм могло получиться при этом?",
+  "answer": {
+    "value": 7.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 7",
+      "решение: anthropic:claude-sonnet-5-5 → 7",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 7",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 7"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2019,
+    "stage": "region",
+    "grade": 9,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2019/math9-1-tasks.pdf"
+  }
+}

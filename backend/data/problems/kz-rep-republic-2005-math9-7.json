@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-republic-2005-math9-7",
+  "subject": "math",
+  "topic": "Числовые выражения",
+  "title": "Целая часть суммы",
+  "statement": "Найдите целую часть числа $\\frac{2^1}{1!} + \\frac{2^2}{2!} + \\frac{2^3}{3!} + \\dots + \\frac{2^{100}}{100!}$.",
+  "answer": {
+    "value": 6.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 6",
+      "решение: anthropic:claude-sonnet-5-5 → 6",
+      "программа (other): anthropic:claude-haiku-5-5 → 6",
+      "программа (other): anthropic:claude-sonnet-5-5 → 6"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2005,
+    "stage": "republic",
+    "grade": 9,
+    "number": 7,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2005/math9-1-tasks.pdf"
+  }
+}

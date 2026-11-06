@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-republic-2014-math11-1",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Точные квадраты в перестановке",
+  "statement": "Пусть $a_1, a_2, \\ldots, a_{2014}$ — перестановка чисел $1, 2, \\ldots, 2014$. Какое наибольшее количество чисел среди чисел $a_1^2 + a_2, a_2^2 + a_3, \\ldots, a_{2013}^2 + a_{2014}, a_{2014}^2 + a_1$ могут быть точными квадратами? (Сатылханов К.)",
+  "answer": {
+    "value": 1006.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1006",
+      "решение: anthropic:claude-sonnet-5-5 → 1006",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 1006",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 1006"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2014,
+    "stage": "republic",
+    "grade": 11,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2014/math11-1-tasks.pdf"
+  }
+}

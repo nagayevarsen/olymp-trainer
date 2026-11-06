@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-republic-2002-math11-3",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Максимум троек возрастающих элементов",
+  "statement": "Дана последовательность целых чисел $A = (a_1, a_2, \\ldots, a_{2001})$ (возможно с равными членами). Обозначим через $m$ количество троек $(a_i, a_j, a_k)$, где $1 \\le i < j < k \\le 2001$, таких что $a_j = a_i + 1$ и $a_k = a_j + 1$. Найдите максимально возможное значение $m$.",
+  "answer": {
+    "value": 296740963.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 296740963",
+      "решение: anthropic:claude-sonnet-5-5 → 296740963",
+      "программа (other): anthropic:claude-haiku-5-5 → 296740963",
+      "программа (other): anthropic:claude-sonnet-5-5 → 296740963"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2002,
+    "stage": "republic",
+    "grade": 11,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2002/math11-1-tasks.pdf"
+  }
+}

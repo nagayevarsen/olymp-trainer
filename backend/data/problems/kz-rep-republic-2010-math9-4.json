@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-republic-2010-math9-4",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Цифры после запятой",
+  "statement": "Пусть $x$ — наименьшее из решений уравнения $x^2-4x+2=0$. Чему равны первые две цифры после запятой в десятичной записи числа $x+x^2+\\dots+x^{20}$?",
+  "answer": {
+    "value": 41.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 41",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 41",
+      "программа (other): anthropic:claude-haiku-5-5 → 41",
+      "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 41"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2010,
+    "stage": "republic",
+    "grade": 9,
+    "number": 4,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2010/math9-1-tasks.pdf"
+  }
+}

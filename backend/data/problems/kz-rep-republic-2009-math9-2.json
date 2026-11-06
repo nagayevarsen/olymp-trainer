@@ -1,0 +1,26 @@
+{
+  "id": "kz-rep-republic-2009-math9-2",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Шахматный турнир и разряды",
+  "statement": "В шахматном турнире участвуют 11 человек. За весь турнир каждый игрок играет с каждым другим ровно одну партию. В каждой партии игроку за выигрыш начисляется $1$ очко, за ничью — $0{,}5$ очков, а за проигрыш — $0$ очков. Если по окончании турнира игрок набирает не менее $75\\%$ от максимального возможного количества очков, которые он может набрать, то ему присваивается разряд. Какое наибольшее количество участников турнира могут получить разряд?",
+  "answer": {
+    "value": 6.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 6",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 6",
+      "решение: anthropic:claude-sonnet-5-5 → 6",
+      "программа (graph_theory): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 6",
+      "программа (graph_theory): anthropic:claude-sonnet-5-5 → 6"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2009,
+    "stage": "republic",
+    "grade": 9,
+    "number": 2,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2009/math9-1-tasks.pdf"
+  }
+}

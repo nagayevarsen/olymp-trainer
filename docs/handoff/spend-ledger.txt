@@ -32,3 +32,5 @@ kz-junior-region-physics 0.0050
 kz-junior-other-physics 0.0182
 kz-kbo-physics 0.0257
 chat-sonnet-live-tests 0.06
+kz-rep-republic-math-tasks 2.1995
+kz-rep-region-math-tasks 1.5191

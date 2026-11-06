@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-region-2020-math9-3",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Максимум произведения трёх переменных",
+  "statement": "Для положительных действительных чисел $x$, $y$, $z$ выполнено равенство $2x^2 + 3y^2 + 6z^2 + 12(x + y + z) = 108$. Найдите наибольшее возможное значение выражения $x^3y^2z$.",
+  "answer": {
+    "value": 108.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 108",
+      "решение: anthropic:claude-sonnet-5-5 → 108",
+      "программа (other): anthropic:claude-haiku-5-5 → 108",
+      "программа (other): anthropic:claude-sonnet-5-5 → 108"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2020,
+    "stage": "region",
+    "grade": 9,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2020/math9-1-tasks.pdf"
+  }
+}

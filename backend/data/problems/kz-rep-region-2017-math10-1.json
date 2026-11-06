@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-region-2017-math10-1",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Наименьшая сумма на доске",
+  "statement": "На доске выписаны числа $1,2, \\ldots, 2016, 2017$. За один шаг разрешается выбрать три идущие подряд числа $a$, $b$ и $c$, из которых ни одно не равно $0$, и заменить их на тройку чисел $b - 1$, $c - 1$, $a - 1$ в указанном порядке. Какую наименьшую сумму записанных на доске чисел можно получить, делая такие шаги?",
+  "answer": {
+    "value": 2017.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 2017",
+      "решение: anthropic:claude-sonnet-5-5 → 2017",
+      "программа (other): anthropic:claude-haiku-5-5 → 2017",
+      "программа (other): anthropic:claude-sonnet-5-5 → 2017"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2017,
+    "stage": "region",
+    "grade": 10,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2017/math10-1-tasks.pdf"
+  }
+}

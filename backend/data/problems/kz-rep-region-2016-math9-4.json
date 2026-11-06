@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-region-2016-math9-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Биссектрисы треугольника",
+  "statement": "В треугольнике $ABC$ проведены биссектрисы $AK$ и $BL$. Известно, что $KL$ — биссектриса угла $AKC$. Найдите величину угла $BAC$.",
+  "answer": {
+    "value": 120.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 120",
+      "решение: anthropic:claude-sonnet-5-5 → 120",
+      "программа (other): anthropic:claude-haiku-5-5 → 120",
+      "программа (other): anthropic:claude-sonnet-5-5 → 120"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2016,
+    "stage": "region",
+    "grade": 9,
+    "number": 4,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2016/math9-1-tasks.pdf"
+  }
+}

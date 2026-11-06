@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-republic-2005-math9-2",
+  "subject": "math",
+  "topic": "Комбинаторика",
+  "title": "Минимальное число цифр",
+  "statement": "Найти минимальное целое число $k$, обладающее следующим свойством: в любом множестве из $k$ различных десятичных цифр существуют два элемента, что составленное ими двузначное число делится на квадрат целого числа, большего 1.",
+  "answer": {
+    "value": 5.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 5",
+      "решение: anthropic:claude-sonnet-5-5 → 5",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 5",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 5"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2005,
+    "stage": "republic",
+    "grade": 9,
+    "number": 2,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2005/math9-1-tasks.pdf"
+  }
+}

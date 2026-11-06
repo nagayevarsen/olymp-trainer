@@ -1,0 +1,20 @@
+{
+  "id": "kz-junior-region-2022-math8-3",
+  "subject": "math",
+  "topic": "Показательные уравнения",
+  "title": "Показательное уравнение",
+  "statement": "Решите уравнение в действительных числах $6^x + 30^x + 33^x = 45^x$, где $x \\geqslant 1$.",
+  "answer": {
+    "value": 2.0,
+    "origin": "official",
+    "verified_by": []
+  },
+  "source": {
+    "olympiad": "Юниорская олимпиада (Казахстан)",
+    "year": 2022,
+    "stage": "region",
+    "grade": 8,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/math/junior/2022/oblast/math8-junior-oblast-sol.pdf"
+  }
+}

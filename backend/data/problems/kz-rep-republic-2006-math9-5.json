@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-republic-2006-math9-5",
+  "subject": "math",
+  "topic": "Чётность",
+  "title": "Четные числа при замене знаков",
+  "statement": "На доске записано произведение $a_1 \\cdot a_2 \\cdot \\ldots \\cdot a_{100}$, где $a_1, \\ldots, a_{100}$ — натуральные числа. Рассмотрим 99 выражений, каждое из которых получается заменой одного из знаков умножения на знак сложения. Известно, что значения ровно 32 из этих выражений четные. Какое наибольшее количество четных чисел среди $a_1, a_2, \\ldots, a_{100}$ могло быть?",
+  "answer": {
+    "value": 33.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 33",
+      "решение: anthropic:claude-sonnet-5-5 → 33",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 33",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 33"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2006,
+    "stage": "republic",
+    "grade": 9,
+    "number": 5,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2006/math9-1-tasks.pdf"
+  }
+}

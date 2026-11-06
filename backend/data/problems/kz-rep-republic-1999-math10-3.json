@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-republic-1999-math10-3",
+  "subject": "math",
+  "topic": "Последовательности",
+  "title": "Номер члена последовательности 1999",
+  "statement": "Последовательность $\\{a_n\\}$ определена следующим образом: $a_1 = 1$ и для любого $n \\ge 2$\n\n$$a_n = \\begin{cases} a_{n-1} - n, & \\text{если } a_{n-1} > n, \\\\ a_{n-1} + n, & \\text{если } a_{n-1} \\le n. \\end{cases}$$\n\nНайдите минимальное $n$ такое, что $a_n = 1999$.",
+  "answer": {
+    "value": 12405.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 12405",
+      "решение: anthropic:claude-sonnet-5-5 → 12405",
+      "программа (other): anthropic:claude-haiku-5-5 → 12405",
+      "программа (other): anthropic:claude-sonnet-5-5 → 12405"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 1999,
+    "stage": "republic",
+    "grade": 10,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/1999/math10-1-tasks.pdf"
+  }
+}

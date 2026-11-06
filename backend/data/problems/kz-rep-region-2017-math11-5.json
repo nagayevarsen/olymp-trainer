@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-region-2017-math11-5",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Наименьшее значение суммы квадратов",
+  "statement": "Чему равно наименьшее возможное значение выражения $(x_1 - x_2)^2 + (x_2 - x_3)^2 + \\ldots + (x_{2016} - x_{2017})^2 + (x_{2017} - x_1)^2$, где $x_1, x_2, \\ldots, x_{2017}$ — различные целые числа.",
+  "answer": {
+    "value": 8062.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 8062",
+      "решение: anthropic:claude-sonnet-5-5 → 8062",
+      "программа (other): anthropic:claude-haiku-5-5 → 8062",
+      "программа (other): anthropic:claude-sonnet-5-5 → 8062"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2017,
+    "stage": "region",
+    "grade": 11,
+    "number": 5,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2017/math11-1-tasks.pdf"
+  }
+}

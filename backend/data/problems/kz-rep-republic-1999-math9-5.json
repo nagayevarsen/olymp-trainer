@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-republic-1999-math9-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Разрезание параллелепипеда",
+  "statement": "Параллелепипед размером $3 \\times 4 \\times 4$ нужно разрезать на кубики размером $1 \\times 1 \\times 1$. Если куски, полученные после разрезания, можно накладывать друг на друга, то за какое минимальное число разрезаний можно сделать?",
+  "answer": {
+    "value": 6.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 6",
+      "решение: anthropic:claude-sonnet-5-5 → 6",
+      "программа (enumeration): gemini:gemini-3.5-flash → 6",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 6"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 1999,
+    "stage": "republic",
+    "grade": 9,
+    "number": 5,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/1999/math9-1-tasks.pdf"
+  }
+}

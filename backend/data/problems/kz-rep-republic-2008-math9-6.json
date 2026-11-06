@@ -1,0 +1,25 @@
+{
+  "id": "kz-rep-republic-2008-math9-6",
+  "subject": "math",
+  "topic": "Комбинаторная геометрия",
+  "title": "Максимум прямых с восемью точками",
+  "statement": "Какое максимальное число прямых на плоскости можно выбрать так, чтобы нашлось 8 точек таких, что на каждой из выбранных прямых было не менее трёх из этих точек?",
+  "answer": {
+    "value": 7.0,
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 7",
+      "решение: anthropic:claude-sonnet-5-5 → 7",
+      "программа (other): anthropic:claude-haiku-5-5 → 7",
+      "программа (other): anthropic:claude-sonnet-5-5 → 7"
+    ]
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2008,
+    "stage": "republic",
+    "grade": 9,
+    "number": 6,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2008/math9-1-tasks.pdf"
+  }
+}
