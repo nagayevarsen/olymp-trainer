@@ -42,3 +42,4 @@ kz-rep-region-physics-tasks 0.4527
 kz-rep-district-physics-tasks 0.3207
 izho-phys-trial-timeout 0.0283
 izho-phys-trial-2012 0.3232
+izho-phys-trial-2012-ok 0.2209
