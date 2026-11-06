@@ -106,7 +106,7 @@ export function ChatPage() {
 
   return (
     <div className="mx-auto flex min-h-[calc(100dvh-7rem)] max-w-3xl flex-col gap-4">
-      <div className="grid items-center gap-3 lg:grid-cols-[1fr_auto_1fr]">
+      <div className="grid items-center gap-x-6 gap-y-3 sm:grid-cols-[minmax(0,1fr)_auto]">
         <div className="flex min-w-0 flex-col gap-1">
           <span className="chip w-fit bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
             ИИ-помощник

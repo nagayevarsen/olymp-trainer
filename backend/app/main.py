@@ -17,10 +17,10 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from . import ai, chat, contests, olympiad_rules, scoring, streak
+from . import ai, chat, contests, formula, olympiad_rules, scoring, streak
 from . import ratelimit as rl
 from .auth import AuthError, check_nick, check_password, hash_password, verify_password
-from .bank import STAGE_NAMES, Hints, Problem, get_problem, load_bank
+from .bank import STAGE_NAMES, Hints, Problem, figures_dir, get_problem, load_bank
 from .checker import AnswerKey, check_answer
 from .cloner import CloneError, find_seed, make_variant
 from .config import settings
@@ -161,6 +161,10 @@ def track_info(p: Problem) -> dict:
     return {"id": p.source.track_id, "title": p.source.track_title()}
 
 
+def figure_urls(p: Problem) -> list[str]:
+    return [f"/figures/{name}" for name in p.figures]
+
+
 def source_info(p: Problem) -> dict:
     return {
         "label": p.source.label(),
@@ -295,7 +299,7 @@ class Login(BaseModel):
 def _account_fields(nick: str, password: str) -> tuple[str, str]:
     try:
         nick = check_nick(nick)
-        check_password(password)
+        check_password(password, nick)
     except AuthError as exc:
         raise HTTPException(400, str(exc)) from exc
     return nick, hash_password(password)
@@ -410,9 +414,10 @@ async def chat_reply(
             if not user["grade"] or not r["grade"] or abs(r["grade"] - user["grade"]) <= 1
         ][:6],
     )
-    problem = None
+    problem, figures = None, []
     if body.problem_id and (p := get_problem(body.problem_id)):
         problem = {"source": p.source.label(), "topic": p.topic, "statement": p.statement}
+        figures = [figures_dir() / f for f in p.figures]
     strong_used: list[bool] = []
 
     def take_strong() -> bool:
@@ -429,7 +434,13 @@ async def chat_reply(
 
     try:
         text, code_runs, cards = await chat.reply(
-            history, level, problem, tools, olympiad=body.mode == "olympiad", strong=take_strong
+            history,
+            level,
+            problem,
+            tools,
+            olympiad=body.mode == "olympiad",
+            strong=take_strong,
+            figures=figures,
         )
     except LLMError as exc:
         raise HTTPException(503, str(exc)) from exc
@@ -481,15 +492,15 @@ async def grade_olympiad(
     _spend_ai(user, request, db, n=sum(1 for it in body.items if it.solution.strip() or it.answer.strip()))
     out = []
     for it, p in zip(body.items, problems):
-        statement, value, unit = p.statement, p.answer.value, p.answer.unit
-        if it.seed is not None and p.can_clone:
+        statement, value, unit = p.statement, p.answer.formula or p.answer.value, p.answer.unit
+        seed = it.seed if it.seed is not None and p.can_clone else None
+        if seed is not None:
             try:
-                v = make_variant(p, it.seed)
+                v = make_variant(p, seed)
                 statement, value, unit = v.statement, v.answer.value, v.answer.unit
             except CloneError:
-                pass
-        key = AnswerKey(value, unit, rel_tol=p.answer.tolerance)
-        correct = bool(it.answer.strip()) and check_answer(key, it.answer).correct
+                seed = None
+        correct = bool(it.answer.strip()) and check_problem_answer(p, it.answer, seed).correct
         try:
             g = await grading.grade(
                 statement, value, unit, p.solution, it.solution, it.answer, correct, it.max_points
@@ -856,6 +867,9 @@ def problem_detail(
         "source": source_info(p),
         "track": track_info(p),
         "needs_unit": bool(p.answer.unit),
+        "answer_kind": "formula" if p.answer.formula is not None else "number",
+        "variables": p.answer.variables,
+        "figures": figure_urls(p),
         "can_clone": p.can_clone,
         "verification": p.template.verification.model_dump() if p.template else None,
         "hints_total": len(hints.steps) if hints else 3,
@@ -901,6 +915,17 @@ def new_variant(problem_id: str, request: Request, body: VariantRequest | None =
 CHECKS_PER_PROBLEM = 15  # попыток ответа на одну задачу за 10 минут
 
 
+def check_problem_answer(p: Problem, raw: str, seed: int | None = None):
+    """Проверить ответ ученика: число (с единицами) или формула. seed — вариант задачи (только для чисел)."""
+    if p.answer.formula is not None:
+        return formula.check(p.answer.formula, p.answer.variables, raw)
+    if seed is not None:
+        key = make_variant(p, seed).answer
+    else:
+        key = AnswerKey(p.answer.value, p.answer.unit, p.answer.tolerance)
+    return check_answer(key, raw)
+
+
 @app.post("/api/problems/{problem_id}/check")
 def check(
     problem_id: str, body: CheckRequest, user: dict = Depends(current_user), db: DB = Depends(get_db)
@@ -914,15 +939,10 @@ def check(
         600,
         "Слишком много попыток подряд для этой задачи. Подумай ещё и попробуй через несколько минут.",
     )
-    if body.seed is not None:
-        try:
-            key = make_variant(p, body.seed).answer
-        except CloneError as exc:
-            raise HTTPException(422, str(exc)) from exc
-    else:
-        key = AnswerKey(p.answer.value, p.answer.unit, p.answer.tolerance)
-
-    result = check_answer(key, body.answer)
+    try:
+        result = check_problem_answer(p, body.answer, body.seed)
+    except CloneError as exc:
+        raise HTTPException(422, str(exc)) from exc
     db.log_submission(user["id"], p.id, body.seed, body.answer, result.status)
 
     pr = db.progress(user["id"], p.id)
@@ -997,6 +1017,10 @@ async def open_solution(
 
 
 # ---------- фронтенд (собранный) ----------
+_figures = figures_dir()
+_figures.mkdir(parents=True, exist_ok=True)
+app.mount("/figures", StaticFiles(directory=_figures), name="figures")
+
 _dist = Path(settings.frontend_dist).resolve()
 if _dist.exists():
     app.mount("/assets", StaticFiles(directory=_dist / "assets"), name="assets")

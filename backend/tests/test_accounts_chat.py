@@ -457,3 +457,16 @@ def test_strong_daily_limits():
 def test_system_prompt_requires_honesty():
     s = chat.build_system(chat.Level(9, 0, 0))
     assert "ЧЕСТНОСТЬ" in s and "Ничего не выдумывай" in s and "не проверен" in s
+
+
+def test_weak_and_leaked_passwords_rejected(client, monkeypatch):
+    from app import auth
+
+    assert register(client, password="short7!").status_code == 400  # меньше 8 символов
+    assert register(client, password="12345678").status_code == 400  # слишком простой
+    assert register(client, nick="mathfox1", password="mathfox1").status_code == 400  # совпадает с ником
+    monkeypatch.setattr(auth, "PWNED_CHECK", True)
+    monkeypatch.setattr(auth, "password_leaked", lambda p: p == "leaked-pass-1")
+    r = register(client, password="leaked-pass-1")
+    assert r.status_code == 400 and "утекал" in r.json()["detail"]
+    assert register(client, password="Zx9kQ2vLpR7w").status_code == 200

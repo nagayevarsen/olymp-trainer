@@ -8,6 +8,8 @@ import { StreakCard } from './StreakCard'
 import { ThemeSwitch } from './ThemeSwitch'
 
 const NAV = [
+  // Главная — чат с ИИ-помощником; первой и на всю ширину, чтобы из любого раздела было видно, как вернуться.
+  { to: '/', label: 'Чат с помощником', icon: '💬', wide: true },
   { to: '/problems', label: 'Задачи', icon: '∑' },
   { to: '/contests', label: 'Олимпиады', icon: '🏆' },
   { to: '/profile', label: 'Прогресс', icon: '📈' },
@@ -59,8 +61,9 @@ export function Sidebar({ onSettings, onCollapse }: { onSettings: () => void; on
           <NavLink
             key={n.to}
             to={n.to}
+            end={n.to === '/'}
             className={({ isActive }) =>
-              `flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm font-semibold transition ${
+              `flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm font-semibold transition ${'wide' in n ? 'col-span-2' : ''} ${
                 isActive
                   ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-200'
                   : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
