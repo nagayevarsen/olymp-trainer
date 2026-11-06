@@ -452,3 +452,8 @@ def test_strong_daily_limits():
     assert db.take_strong("u2", "2026-11-06", 2, 3) is True
     assert db.take_strong("u3", "2026-11-06", 2, 3) is False  # общий лимит на сервер
     assert db.take_strong("u1", "2026-11-07", 2, 3) is True  # новый день
+
+
+def test_system_prompt_requires_honesty():
+    s = chat.build_system(chat.Level(9, 0, 0))
+    assert "ЧЕСТНОСТЬ" in s and "Ничего не выдумывай" in s and "не проверен" in s

@@ -1,7 +1,15 @@
-.venv
+# В образ не должны попасть секреты, локальные базы и тяжёлые рабочие папки.
+.git
+**/.venv
 **/node_modules
 **/__pycache__
+**/.pytest_cache
+**/.ruff_cache
 frontend/dist
 backend/.env
+backend/.env.*
+!backend/.env.example
 backend/data/*.db*
-.git
+backend/data/raw
+docs/handoff
+.claude

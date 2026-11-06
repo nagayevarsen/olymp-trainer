@@ -1,0 +1,29 @@
+# Деплой на Render (Blueprint): New → Blueprint → выбрать этот репозиторий.
+# Подробная инструкция — docs/DEPLOY.md.
+services:
+  - type: web
+    name: olymp-trainer
+    runtime: docker
+    # Постоянный диск (для аккаунтов и прогресса) есть только на платных тарифах.
+    # На бесплатном (plan: free, без блока disk) база стирается при каждом перезапуске.
+    plan: starter
+    region: frankfurt
+    healthCheckPath: /api/health
+    autoDeploy: true
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: DB_PATH
+        value: /var/data/app.db
+      # Render стоит прокси перед приложением: IP ученика берём из X-Forwarded-For (лимиты по адресу).
+      - key: TRUST_PROXY
+        value: "1"
+      # Ключи вводятся вручную в панели Render при создании (в git их нет).
+      - key: OLYMP_ANTHROPIC_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
