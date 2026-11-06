@@ -11,7 +11,7 @@
   Нет официального времени — режима «олимпиада на время» для неё нет.
 - Ответы без официального ключа — только через проверку (`app/verify.py`).
 - Следить за расходами на Claude API. Учёт: `docs/handoff/spend-ledger.txt`
-  (потрачено ≈ $9.77 из пополненных $15; останавливаться и спрашивать при ≈ $14).
+  (потрачено ≈ $19.1 из пополненных $25; останавливаться и спрашивать при ≈ $24.5).
 - После каждой партии: `python -m app.tools.bank_tool check`, `pytest`, `ruff check .`,
   `ruff format --check .`, затем коммит и push в `main`.
 - Коммиты от имени nagayevarsen <arsvx12@gmail.com>, без строк Co-Authored-By и без упоминаний ИИ-помощника.
@@ -22,8 +22,8 @@
 `backend/.env` (не в git, образец — `backend/.env.example`):
 - `OLYMP_ANTHROPIC_API_KEY` — ключ Claude API;
 - `IMPORT_MODEL=anthropic:claude-haiku-5-5`;
-- для проверки ответов также используются Gemini (`generativelanguage.googleapis.com`) и OpenRouter — их ключи
-  в облаке подставлял прокси, локально их нужно положить в `.env` самостоятельно.
+- `GEMINI_API_KEY`, `OPENROUTER_API_KEY` — подсказки и перекрёстная проверка ответов (бесплатные квоты).
+- Те же ключи заданы в панели Render (Environment) — в git их нет.
 
 ## Сделано 6 ноября (локальная сессия)
 
@@ -51,12 +51,13 @@
 
 ## Что в работе
 
-1. Beyond Olympiads — оставшиеся файлы без решений (после пополнения баланса):
-   `bash`-очередь не сохранилась; запуск по одному манифесту из `backend`:
+1. IZhO по физике: проба 2012 (17 пунктов с рисунками и формулами) лежит в рабочей копии, не закоммичена —
+   проверить вручную, разобраться с отброшенными пунктами, затем `--all` для остальных 11 лет и matol 2005–2009.
+2. Beyond Olympiads — оставшиеся файлы без решений, по одному манифесту из `backend`:
    `PYTHONPATH=. python -m app.tools.bank_tool import-manifest data/imports/kz-rep-district-math-tasks.json --verify-missing --budget 1.0`.
    После импорта — просмотреть новые задачи вручную (дубликаты по классам, условия без данных).
-2. Городская Жаутыковская: 27 задач не успели по бюджету (≈ $1): `python -m app.tools.matol_import --node 525 514 504 492 491 --olympiad "Городская Жаутыковская олимпиада (Алматы)" --slug zhaut-city --stage city --budget 1.0 --parallel 3`.
-3. Обложка и название приложения — делает автор; заглушки: `frontend/src/components/Sidebar.tsx`, `frontend/src/config.ts`.
-4. Дизайн стрика — ждём идею от автора.
-5. Сайт работает: https://olymp-trainer.onrender.com (Render, бесплатный тариф — база стирается при каждом push
-   и перезапуске, см. docs/DEPLOY.md). Регистрация на конкурс — до 8 ноября 23:59.
+3. Городская Жаутыковская: из 27 недоделанных задач вторая партия добавила 11 — проверить, все ли остальные разобраны: `python -m app.tools.matol_import --node 525 514 504 492 491 --olympiad "Городская Жаутыковская олимпиада (Алматы)" --slug zhaut-city --stage city --budget 1.0 --parallel 3`.
+4. Название, слоган, обложка — выбирает автор; заглушки: `frontend/src/components/Sidebar.tsx`,
+   `frontend/src/components/Layout.tsx`, `frontend/src/config.ts`. После этого — новый сервис на Render и адрес в keepalive.
+5. Дизайн стрика — ждём идею от автора.
+6. Регистрация на конкурс — до 8 ноября 23:59, Demo Day — 10 ноября.
