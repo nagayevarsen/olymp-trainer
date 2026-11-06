@@ -63,20 +63,28 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
 
   return (
     <div className="mx-auto flex min-h-dvh max-w-5xl flex-col justify-center gap-10 px-4 py-10 lg:flex-row lg:items-center">
-      <section className="flex-1 animate-fade-up">
-        <div className="mb-4 flex items-center gap-3">
+      <section className="flex-1">
+        <div className="animate-rise mb-4 flex items-center gap-3">
           <img src="/favicon.svg" alt="" className="h-11 w-11" />
           <span className="text-xl font-extrabold tracking-tight">{APP_NAME}</span>
           <ThemeSwitch className="ml-auto" />
         </div>
-        <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+        <h1
+          className="animate-rise text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl"
+          style={{ animationDelay: '80ms' }}
+        >
           Готовься к олимпиадам, видя <span className="text-brand-600 dark:text-brand-400">свой прогресс,</span> а
           не готовые ответы
         </h1>
-        <p className="mt-4 max-w-xl text-lg text-slate-600 dark:text-slate-400">{APP_TAGLINE}</p>
+        <p
+          className="animate-rise mt-4 max-w-xl text-lg text-slate-600 dark:text-slate-400"
+          style={{ animationDelay: '160ms' }}
+        >
+          {APP_TAGLINE}
+        </p>
         <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-          {features.map((f) => (
-            <li key={f.title} className="card p-4">
+          {features.map((f, i) => (
+            <li key={f.title} className="card animate-rise p-4" style={{ animationDelay: `${240 + i * 80}ms` }}>
               <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-brand-50 text-lg font-bold text-brand-600 dark:bg-brand-900/40 dark:text-brand-300">
                 {f.icon}
               </div>
@@ -87,7 +95,11 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
         </ul>
       </section>
 
-      <form onSubmit={submit} className="card w-full max-w-sm animate-fade-up p-6 lg:shrink-0">
+      <form
+        onSubmit={submit}
+        className="card animate-rise w-full max-w-sm p-6 lg:shrink-0"
+        style={{ animationDelay: '200ms' }}
+      >
         <div className="mb-4 grid grid-cols-2 gap-1 rounded-xl bg-slate-100 p-1 text-sm font-semibold dark:bg-slate-800">
           {(['register', 'login'] as const).map((m) => (
             <button

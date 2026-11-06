@@ -10,3 +10,4 @@ node_modules/
 frontend/dist/
 .DS_Store
 backend/data/raw/
+.claude/launch.json

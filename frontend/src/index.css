@@ -84,6 +84,16 @@ body {
 }
 .animate-fade-up { animation: fade-up .3s ease-out both; }
 
+/* Появление снизу: элемент выезжает на место и проявляется. Задержка — через style={{ animationDelay }}. */
+@keyframes rise {
+  from { transform: translateY(28px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.animate-rise { animation: rise .55s cubic-bezier(.2, .8, .2, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise { animation: none; }
+}
+
 /* Экран «Нет интернета»: дуги сигнала по очереди гаснут и загораются, значок слегка покачивается. */
 @keyframes offline-wave {
   0%, 100% { opacity: .15; }
