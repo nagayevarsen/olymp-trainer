@@ -98,6 +98,7 @@ export interface TopicStat {
   solved: number
   tried: number
   points: number
+  mastery: number | null // уровень в теме, %: набранные баллы / баллы задач, которые пробовал
 }
 
 export interface Me {

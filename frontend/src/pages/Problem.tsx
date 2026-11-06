@@ -8,8 +8,9 @@ import { SUBJECT_NAMES, pluralPoints } from '../lib/text'
 import { usePoints } from '../points'
 import { problemLocked } from '../olympiadRun'
 
-const HINT_NAMES = ['Намёк', 'Ключевая идея', 'План решения']
-const HINT_FACTORS = [1, 0.8, 0.6, 0.4]
+const HINT_NAMES = ['Направление', 'Подход', 'Наводящий вопрос']
+// Штраф за открытые подсказки, как в backend/app/scoring.py: 0, 1, 2, 4, 6…
+const hintPenalty = (k: number) => (k <= 0 ? 0 : k === 1 ? 1 : 2 * (k - 1))
 
 export function ProblemPage() {
   const { id = '' } = useParams()
@@ -114,7 +115,7 @@ export function ProblemPage() {
     }
   }
 
-  const nextHintReward = Math.max(1, Math.round(p.points * HINT_FACTORS[Math.min(p.hints_opened.length + 1, 3)]))
+  const nextHintReward = Math.max(0, p.points - hintPenalty(p.hints_opened.length + 1))
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
@@ -244,7 +245,7 @@ export function ProblemPage() {
           <div className="card p-5">
             <h2 className="font-bold">Подсказки</h2>
             <p className="mt-1 text-sm text-slate-500">
-              Открывай по одной. Каждая немного снижает награду. Подсказки составляет ИИ.
+              Открывай по одной. Подсказки снимают баллы: первая −1, вторая −2, третья −4. Подсказки составляет ИИ.
             </p>
             <ol className="mt-4 space-y-3">
               {p.hints_opened.map((h, i) => (

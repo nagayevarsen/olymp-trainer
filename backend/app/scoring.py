@@ -4,8 +4,11 @@
    (или вручную полем points). Самая сложная задача — 10, самая простая — 3.
 2. Дальше баллы подстраиваются по статистике (не больше чем на ±2):
    если задачу решают почти все, она дешевле, если почти никто — дороже.
-3. Награда ученику уменьшается за открытые подсказки; после просмотра
-   разбора за оригинал баллы не дают, а за решённый вариант — половину.
+3. За открытые подсказки снимаются баллы: 1 подсказка — −1, 2 — −2, 3 — −4, дальше по −2
+   за каждую (−6, −8, −10…). После просмотра разбора за оригинал баллы не дают,
+   а за решённый вариант — половину.
+4. Уровень в теме — взвешенный процент: набранные баллы / сумма баллов задач, которые ученик
+   пробовал (сложная задача весит больше лёгкой).
 """
 
 from __future__ import annotations
@@ -28,7 +31,6 @@ STAGE_BASE = {
     "other": 5,
 }
 
-HINT_FACTORS = [1.0, 0.8, 0.6, 0.4]  # индекс = сколько подсказок открыто
 VARIANT_AFTER_SOLUTION_FACTOR = 0.5
 SMOOTHING = 10  # «виртуальных» попыток в априорной оценке
 
@@ -62,14 +64,24 @@ def dynamic_points(base: int, attempted: int, solved: int) -> int:
     return clamp(base + shift)
 
 
+def hint_penalty(hints_used: int) -> int:
+    """Сколько баллов снимают открытые подсказки: 0, 1, 2, 4, 6, 8, 10…"""
+    return 0 if hints_used <= 0 else 1 if hints_used == 1 else 2 * (hints_used - 1)
+
+
 def reward(points: int, hints_used: int, solution_viewed: bool, via_variant: bool) -> int:
-    hints_used = max(0, min(hints_used, len(HINT_FACTORS) - 1))
-    factor = HINT_FACTORS[hints_used]
+    earned = max(0, points - hint_penalty(hints_used))
     if solution_viewed:
         if not via_variant:
             return 0
-        factor *= VARIANT_AFTER_SOLUTION_FACTOR
-    return max(1, round(points * factor))
+        earned = round(earned * VARIANT_AFTER_SOLUTION_FACTOR)
+    return earned
+
+
+def mastery(earned: list[int], possible: list[int]) -> int | None:
+    """Уровень в теме, %: набранные баллы / баллы всех задач, которые ученик пробовал."""
+    total = sum(possible)
+    return round(100 * min(sum(earned), total) / total) if total else None
 
 
 def scale_for_contest(base: list[int]) -> list[int]:

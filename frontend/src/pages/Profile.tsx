@@ -81,14 +81,14 @@ export function ProfilePage({ onLogout }: { onLogout: () => void }) {
             <h2 className="mb-4 text-lg font-bold">Карта навыков: {SUBJECT_NAMES[subject]}</h2>
             <ul className="space-y-4">
               {topics.map((t) => {
-                const pct = t.total ? Math.round((100 * t.solved) / t.total) : 0
+                const pct = t.mastery ?? 0
                 const weak = me.weak_topics.includes(t.topic)
                 return (
                   <li key={t.topic}>
                     <div className="mb-1 flex justify-between text-sm">
                       <span className="font-semibold">{t.topic}</span>
                       <span className="text-slate-500">
-                        {t.solved}/{t.total} · {t.points} б.
+                        {t.mastery === null ? 'не начато' : `${t.mastery}%`} · решено {t.solved} из {t.total}
                       </span>
                     </div>
                     <div className="h-2.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">

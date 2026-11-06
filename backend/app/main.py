@@ -649,7 +649,7 @@ def me(
         track = _main_track(bank, prog)
 
     topics: dict[str, dict] = defaultdict(
-        lambda: {"total": 0, "solved": 0, "tried": 0, "points": 0, "hints": 0}
+        lambda: {"total": 0, "solved": 0, "tried": 0, "points": 0, "hints": 0, "possible": 0}
     )
     for p in bank.values():
         key = f"{p.subject}:{p.topic}"
@@ -659,15 +659,17 @@ def me(
         pr = prog.get(p.id)
         if pr:
             t["solved"] += pr["solved"]
-            t["tried"] += 1 if (pr["attempts"] or pr["hints_used"] or pr["solved"]) else 0
+            tried = bool(pr["attempts"] or pr["hints_used"] or pr["solved"])
+            t["tried"] += tried
             t["points"] += pr["points"]
             t["hints"] += pr["hints_used"]
+            if tried:
+                t["possible"] += problem_points(p, stats)
 
-    weak = [
-        t["topic"]
-        for t in topics.values()
-        if t["tried"] >= 1 and (t["solved"] / t["tried"] < 0.5 or t["hints"] / t["tried"] >= 2)
-    ]
+    # Уровень — взвешенный процент (scoring.mastery): сложная задача весит больше лёгкой.
+    for t in topics.values():
+        t["mastery"] = scoring.mastery([t["points"]], [t.pop("possible")])
+    weak = [t["topic"] for t in topics.values() if t["mastery"] is not None and t["mastery"] < 50]
 
     solved_points = [
         problem_points(bank[pid], stats) for pid, pr in prog.items() if pr["solved"] and pid in bank

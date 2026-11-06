@@ -1,5 +1,14 @@
 from app.bank import Answer, Problem, Source
-from app.scoring import MAX_POINTS, MIN_POINTS, base_points, dynamic_points, reward, scale_for_contest
+from app.scoring import (
+    MAX_POINTS,
+    MIN_POINTS,
+    base_points,
+    dynamic_points,
+    hint_penalty,
+    mastery,
+    reward,
+    scale_for_contest,
+)
 
 
 def make(stage="republic", grade=9, number=3, points=None):
@@ -36,11 +45,26 @@ def test_dynamic_points():
 
 def test_reward():
     assert reward(10, 0, False, False) == 10
-    assert reward(10, 1, False, False) == 8
-    assert reward(10, 3, False, False) == 4
-    assert reward(3, 3, False, False) == 1
+    assert reward(10, 1, False, False) == 9  # −1
+    assert reward(10, 2, False, False) == 8  # −2
+    assert reward(10, 3, False, False) == 6  # −4
+    assert reward(10, 6, False, False) == 0  # −10
+    assert reward(3, 3, False, False) == 0  # штраф больше стоимости — не в минус
     assert reward(10, 0, True, False) == 0  # смотрел разбор и решил оригинал
     assert reward(10, 0, True, True) == 5  # смотрел разбор, но решил новый вариант
+    assert reward(10, 2, True, True) == 4  # (10 − 2) / 2
+
+
+def test_hint_penalty_sequence():
+    assert [hint_penalty(k) for k in range(7)] == [0, 1, 2, 4, 6, 8, 10]
+
+
+def test_mastery_weights_hard_problems():
+    # 20 лёгких (3 б.) решено на 90%, 20 сложных (9 б.) — на 40%: не 65%, а 126/240 ≈ 52%
+    earned = [3] * 18 + [0] * 2 + [9] * 8 + [0] * 12
+    possible = [3] * 20 + [9] * 20
+    assert mastery(earned, possible) == 52
+    assert mastery([], []) is None
 
 
 def test_contest_scale_hardest_10_easiest_3():
