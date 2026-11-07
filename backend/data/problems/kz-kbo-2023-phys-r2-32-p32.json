@@ -1,0 +1,24 @@
+{
+  "id": "kz-kbo-2023-phys-r2-32-p32",
+  "subject": "physics",
+  "topic": "Молекулярно-кинетическая теория",
+  "title": "Средняя скорость молекул, пункт 32",
+  "statement": "Молярная масса молекулы воздуха 29 г/моль. Температура 300 К.\n\n**Пункт 32.** Найдите среднюю по модулю скорость молекулы воздуха.",
+  "answer": {
+    "value": 468.0,
+    "variables": {},
+    "unit": "м/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 32,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ A: ≈ 468 м/с (по $\\sqrt{8RT/(\\pi M)}$).",
+  "figures": []
+}

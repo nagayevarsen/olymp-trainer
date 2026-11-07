@@ -1,0 +1,32 @@
+{
+  "id": "kz-rep-republic-2012-phys9-r1-1-pc1",
+  "subject": "physics",
+  "topic": "кинематика, относительное движение",
+  "title": "Апокалипсис-1, пункт C1",
+  "statement": "Задача состоит из трёх частей: А (цунами), В (лавина) и С (черная дыра). Условия каждой части приведены в вопросах соответствующих пунктов.\n\n**Пункт C1.** Космический корабль падает на черную дыру по спирали с начального расстояния R. Радиальная скорость v_r = alpha/r и тангенциальная скорость v_t = beta*r^2, где alpha и beta - известные постоянные. Какой угол theta составляет вектор скорости v с направлением на центр черной дыры в момент, когда расстояние до центра стало равным R/2?",
+  "answer": {
+    "formula": "atan(beta*R**3/(8*alpha))",
+    "variables": {
+      "alpha": "постоянная в законе радиальной скорости v_r = alpha/r",
+      "beta": "постоянная в законе тангенциальной скорости v_t = beta*r^2",
+      "R": "начальное расстояние до центра черной дыры"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2012,
+    "stage": "republic",
+    "grade": 9,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/final/2012/phys9-1-sol.pdf"
+  },
+  "solution": "tg(theta) = v_t/v_r = beta(R/2)^2 / (alpha/(R/2)) = beta R^3/(8 alpha), откуда theta = arctg(beta R^3/(8 alpha)).",
+  "figures": [
+    "kz-rep-republic-2012-phys9-r1-1-fig1.png",
+    "kz-rep-republic-2012-phys9-r1-1-fig2.png",
+    "kz-rep-republic-2012-phys9-r1-1-fig3.png"
+  ]
+}

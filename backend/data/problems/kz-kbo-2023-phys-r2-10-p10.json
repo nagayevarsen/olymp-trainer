@@ -1,0 +1,26 @@
+{
+  "id": "kz-kbo-2023-phys-r2-10-p10",
+  "subject": "physics",
+  "topic": "Индуктивность",
+  "title": "Магнитная энергия контура, пункт 10",
+  "statement": "Индуктивность контура $L$, сила тока в нем $I$.\n\n**Пункт 10.** Найдите магнитную энергию контура.",
+  "answer": {
+    "formula": "L*I**2/2",
+    "variables": {
+      "L": "индуктивность контура",
+      "I": "сила тока в контуре"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 10,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ B: $W = LI^2/2$.",
+  "figures": []
+}

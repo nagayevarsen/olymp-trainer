@@ -1,0 +1,27 @@
+{
+  "id": "kz-rep-district-2021-phys10-r1-3-p3",
+  "subject": "physics",
+  "topic": "Электрический ток в среде",
+  "title": "Сопротивление среды между шариками, пункт 3",
+  "statement": "Два металлических шарика одинакового радиуса $r$ находятся в однородной слабо проводящей среде с удельным сопротивлением $\\rho$.\n\n**Пункт 3.** Найдите сопротивление среды $R$ между шариками при условии, что расстояние между ними значительно больше $r$.",
+  "answer": {
+    "formula": "rho/(2*pi*r)",
+    "variables": {
+      "rho": "удельное сопротивление среды",
+      "r": "радиус металлических шариков"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2021,
+    "stage": "district",
+    "grade": 10,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2021/phys10-1-sol.pdf"
+  },
+  "solution": "Шарики получают заряды $\\pm q$, потенциалы $\\varphi_{1,2} = \\pm q/(4\\pi\\varepsilon_0 r)$, разность $U = q/(2\\pi\\varepsilon_0 r)$. Ток с шарика $I = j\\cdot4\\pi r^2 = q/(\\rho\\varepsilon_0)$ (через $E = q/(4\\pi\\varepsilon_0 r^2)$, $j = E/\\rho$). По закону Ома $R = U/I = \\rho/(2\\pi r)$.",
+  "figures": []
+}

@@ -46,3 +46,7 @@ izho-phys-trial-2012-ok 0.2209
 izho-math-proofs 0.1204
 chat-upload-test 0.002
 izho-phys-all 1.0400
+euler-proofs 0.2090
+kz-math-proofs 0.1701
+smagulov-all 4.0974
+kz-physics-figs 2.0514

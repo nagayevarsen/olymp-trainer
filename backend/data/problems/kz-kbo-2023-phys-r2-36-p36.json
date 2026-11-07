@@ -1,0 +1,27 @@
+{
+  "id": "kz-kbo-2023-phys-r2-36-p36",
+  "subject": "physics",
+  "topic": "Термодинамика",
+  "title": "Максимум энтропии газа, пункт 36",
+  "statement": "Идеальный газ с показателем адиабаты $k$ совершает процесс по закону $P = P_0 - \\varepsilon V^2$, где $P_0$ и $\\varepsilon$ — положительные постоянные, $V$ — объем.\n\n**Пункт 36.** При каком значении объема энтропия газа окажется максимальной?",
+  "answer": {
+    "formula": "sqrt(k*P0/(eps*(k+2)))",
+    "variables": {
+      "k": "показатель адиабаты",
+      "P0": "положительная постоянная",
+      "eps": "положительная постоянная ε"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 36,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ C: $V = \\sqrt{kP_0/(\\varepsilon(k+2))}$.",
+  "figures": []
+}

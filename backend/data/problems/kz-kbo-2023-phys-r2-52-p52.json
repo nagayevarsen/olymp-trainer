@@ -1,0 +1,24 @@
+{
+  "id": "kz-kbo-2023-phys-r2-52-p52",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Максимальная высота броска, пункт 52",
+  "statement": "Тело брошено вертикально вверх со скоростью 30 м/с и падает в точку, из которой было брошено со скоростью 10 м/с. Сопротивление воздуха постоянно.\n\n**Пункт 52.** Какова максимальная высота, которую может достичь тело?",
+  "answer": {
+    "value": 25.0,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 52,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ A: 25 м.",
+  "figures": []
+}

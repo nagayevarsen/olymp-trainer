@@ -1,0 +1,27 @@
+{
+  "id": "kz-kbo-2023-phys-r2-53-p53",
+  "subject": "physics",
+  "topic": "Электродинамика",
+  "title": "Вихревое электрическое поле, пункт 53",
+  "statement": "Магнитное поле внутри цилиндра радиуса $R$ возрастает со временем: $B = \\alpha t^2$. Вектор $B$ параллелен оси цилиндра.\n\n**Пункт 53.** Найдите напряженность вихревого электрического поля на расстоянии $2R$ от оси цилиндра.",
+  "answer": {
+    "formula": "alpha*R*t/2",
+    "variables": {
+      "alpha": "коэффициент в B = alpha t^2",
+      "R": "радиус цилиндра",
+      "t": "время"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 53,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ B: $\\alpha R t/2$.",
+  "figures": []
+}

@@ -1,0 +1,31 @@
+{
+  "id": "kz-rep-republic-2012-phys9-r1-1-pc2",
+  "subject": "physics",
+  "topic": "кинематика, относительное движение",
+  "title": "Апокалипсис-1, пункт C2",
+  "statement": "Задача состоит из трёх частей: А (цунами), В (лавина) и С (черная дыра). Условия каждой части приведены в вопросах соответствующих пунктов.\n\n**Пункт C2.** Сколько времени прошло от начала падения корабля до момента, когда расстояние до центра черной дыры сократилось вдвое и стало равным R/2? Радиальная скорость v_r = alpha/r, тангенциальная v_t = beta*r^2, начальное расстояние R.",
+  "answer": {
+    "formula": "3*R**2/(8*alpha)",
+    "variables": {
+      "alpha": "постоянная в законе радиальной скорости v_r = alpha/r",
+      "R": "начальное расстояние до центра черной дыры"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2012,
+    "stage": "republic",
+    "grade": 9,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/final/2012/phys9-1-sol.pdf"
+  },
+  "solution": "Из v_r = dr/dt = alpha/r получаем dt = r dr/alpha. Интегрируя от R до R/2 (с усреднением по линейной функции): t = (1/alpha) * ((R + R/2)/2) * (R - R/2) = 3R^2/(8 alpha).",
+  "figures": [
+    "kz-rep-republic-2012-phys9-r1-1-fig1.png",
+    "kz-rep-republic-2012-phys9-r1-1-fig2.png",
+    "kz-rep-republic-2012-phys9-r1-1-fig3.png"
+  ]
+}

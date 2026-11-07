@@ -1,0 +1,23 @@
+{
+  "id": "kz-kbo-2023-phys-r2-17-p17",
+  "subject": "physics",
+  "topic": "Размерный анализ",
+  "title": "Показатель степени d, пункт 17",
+  "statement": "Синхротрон хранит пучок электронов. Ученик считает, что мощность излучения ондулятора $P = q^a m^b \\varepsilon_0^c v^d$, где $q$ — заряд (Кл), $m$ — масса (кг), $v$ — скорость (м/с), $\\varepsilon_0 = 8{,}85\\cdot10^{-12}$ Ф/м. Ватт выражается как кг·м²/с³.\n\n**Пункт 17.** Определите значение d в этом уравнении.",
+  "answer": {
+    "value": 5.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 17,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ D: d = 5. Решение в файле не приведено.",
+  "figures": []
+}

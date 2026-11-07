@@ -1,0 +1,27 @@
+{
+  "id": "kz-kbo-2023-phys-r2-8-p8",
+  "subject": "physics",
+  "topic": "Электромагнитная индукция",
+  "title": "ЭДС в движущемся проводнике, пункт 8",
+  "statement": "Провод длиной $l$ перемещают под прямым углом к магнитному полю Земли с индукцией $B$ со скоростью $v$.\n\n**Пункт 8.** Какая ЭДС возникает в проводнике?",
+  "answer": {
+    "formula": "B*v*l",
+    "variables": {
+      "B": "индукция магнитного поля",
+      "v": "скорость движения провода",
+      "l": "длина провода"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 8,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ B: $\\mathcal E = Bvl$.",
+  "figures": []
+}

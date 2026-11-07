@@ -1,0 +1,27 @@
+{
+  "id": "kz-rep-district-2021-phys11-r1-2-p2",
+  "subject": "physics",
+  "topic": "Электроёмкость",
+  "title": "Конденсаторы в схеме, пункт 2",
+  "statement": "В схеме, изображённой на рисунке 2, $C_1=3$ мкФ, $C_2=6$ мкФ, $C_3=10$ мкФ, $E=10$ В.\n\n**Пункт 2.** Чему равна эквивалентная емкость цепи в схеме, изображённой на рисунке 2, при $C_1=3$ мкФ, $C_2=6$ мкФ, $C_3=10$ мкФ?",
+  "answer": {
+    "value": 12.0,
+    "variables": {},
+    "unit": "мкФ",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2021,
+    "stage": "district",
+    "grade": 11,
+    "number": 2,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2021/phys11-1-sol.pdf"
+  },
+  "solution": "$C=C_3+\\dfrac{C_1C_2}{C_1+C_2}=10+\\dfrac{3\\cdot6}{3+6}=12$ мкФ.",
+  "figures": [
+    "kz-rep-district-2021-phys11-r1-2-fig1.png"
+  ]
+}

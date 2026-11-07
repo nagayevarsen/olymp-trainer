@@ -1,0 +1,24 @@
+{
+  "id": "kz-kbo-2023-phys-r2-31-p31",
+  "subject": "physics",
+  "topic": "Термодинамика",
+  "title": "КПД цикла Карно, пункт 31",
+  "statement": "1 кг воздуха совершает цикл Карно в пределах температур 327 °C и 27 °C.\n\n**Пункт 31.** Найдите КПД цикла.",
+  "answer": {
+    "value": 50.0,
+    "variables": {},
+    "unit": "%",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 31,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ C: ≈ 50 %. По формуле $\\eta = 1 - T_2/T_1 = 1 - 300/600$.",
+  "figures": []
+}

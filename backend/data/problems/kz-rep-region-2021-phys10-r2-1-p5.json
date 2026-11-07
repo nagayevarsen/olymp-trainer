@@ -1,0 +1,26 @@
+{
+  "id": "kz-rep-region-2021-phys10-r2-1-p5",
+  "subject": "physics",
+  "topic": "Термодинамика",
+  "title": "Адиабата смеси гелия и пара, пункт 5",
+  "statement": "В некотором опыте смесь гелия (одноатомный газ с молярной массой 4 г/моль) и водяного пара ($H_2O$, молярная масса 18 г/моль) участвует в адиабатическом процессе, изображённом на графике. Основываясь на опытных данных, определите массовое содержание водяного пара в смеси, если он всё время остаётся ненасыщенным. Предложите метод расчёта, дайте результат и определите его погрешность.\n\n**Пункт 5.** Определите абсолютную погрешность массовой доли водяного пара $\\Delta\\varepsilon_m$ при погрешности показателя адиабаты $\\Delta\\gamma=0.01$.",
+  "answer": {
+    "value": 0.03,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2021,
+    "stage": "region",
+    "grade": 10,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2021/phys10-2-sol.pdf"
+  },
+  "solution": "$\\Delta\\varepsilon_m=\\left|\\frac{\\partial\\varepsilon_m}{\\partial\\gamma}\\right|\\Delta\\gamma=\\frac{108}{(29-15\\gamma)^2}\\Delta\\gamma\\approx 0.03$.",
+  "figures": [
+    "kz-rep-region-2021-phys10-r2-1-fig1.png"
+  ]
+}

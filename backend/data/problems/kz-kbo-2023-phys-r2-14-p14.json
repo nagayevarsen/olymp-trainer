@@ -1,0 +1,23 @@
+{
+  "id": "kz-kbo-2023-phys-r2-14-p14",
+  "subject": "physics",
+  "topic": "Размерный анализ",
+  "title": "Показатель степени a, пункт 14",
+  "statement": "Синхротрон хранит пучок электронов. Ученик считает, что мощность излучения ондулятора $P = q^a m^b \\varepsilon_0^c v^d$, где $q$ — заряд (Кл), $m$ — масса (кг), $v$ — скорость (м/с), $\\varepsilon_0 = 8{,}85\\cdot10^{-12}$ Ф/м. Ватт выражается как кг·м²/с³.\n\n**Пункт 14.** Определите значение a в этом уравнении.",
+  "answer": {
+    "value": -2.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 14,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ A: a = −2. Решение в файле не приведено.",
+  "figures": []
+}

@@ -1,0 +1,24 @@
+{
+  "id": "kz-kbo-2023-phys-r2-33-p33",
+  "subject": "physics",
+  "topic": "Молекулярно-кинетическая теория",
+  "title": "Наиболее вероятная скорость, пункт 33",
+  "statement": "Молярная масса молекулы воздуха 29 г/моль. Температура 300 К.\n\n**Пункт 33.** Найдите наиболее вероятную скорость молекулы воздуха.",
+  "answer": {
+    "value": 415.0,
+    "variables": {},
+    "unit": "м/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 33,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ D: ≈ 415 м/с (по $\\sqrt{2RT/M}$).",
+  "figures": []
+}

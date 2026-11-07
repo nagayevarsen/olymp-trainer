@@ -1,0 +1,27 @@
+{
+  "id": "kz-rep-republic-2013-phys9-r1-1-px",
+  "subject": "physics",
+  "topic": "Динамика, теплообмен, цепи",
+  "title": "Карусель и термометр, пункт В",
+  "statement": "Задача состоит из трех независимых частей.\n\n**Пункт В.** В электрическую схему, изображенную на рисунке, включены по два одинаковых вольтметра и амперметра. Показания приборов: $V_1=10.0$ В, $V_2=10.5$ В, $I_1=50$ мА, $I_2=70$ мА. Определите сопротивление резистора $R$.",
+  "answer": {
+    "value": 323.0,
+    "variables": {},
+    "unit": "Ом",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2013,
+    "stage": "republic",
+    "grade": 9,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/final/2013/phys9-1-sol.pdf"
+  },
+  "solution": "Ток через $V_2$: $i_2=I_2-I_1$, $R_V=V_2/(I_2-I_1)$. Ток через $V_1$: $i_1=V_1/R_V=\\frac{V_1}{V_2}(I_2-I_1)$. Ток через резистор: $I_R=I_1-i_1$, откуда $R=\\frac{V_1}{I_R}=\\frac{V_1V_2}{V_2I_1-V_1(I_2-I_1)}\\approx 323$ Ом.",
+  "figures": [
+    "kz-rep-republic-2013-phys9-r1-1-fig1.png"
+  ]
+}

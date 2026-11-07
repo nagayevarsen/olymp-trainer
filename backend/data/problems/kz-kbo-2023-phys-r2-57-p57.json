@@ -1,0 +1,24 @@
+{
+  "id": "kz-kbo-2023-phys-r2-57-p57",
+  "subject": "physics",
+  "topic": "Гидродинамика",
+  "title": "Уменьшение глубины потока, пункт 57",
+  "statement": "По длинной наклонной плоскости стекает широкий поток воды. На протяжении $L$ по течению глубина уменьшается вдвое.\n\n**Пункт 57.** На протяжении какого пути глубина потока уменьшится в пять раз?",
+  "answer": {
+    "value": 8.0,
+    "variables": {},
+    "unit": "L",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 57,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ C: 8L.",
+  "figures": []
+}

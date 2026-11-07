@@ -1,0 +1,26 @@
+{
+  "id": "kz-kbo-2023-phys-r2-9-p9",
+  "subject": "physics",
+  "topic": "Индуктивность",
+  "title": "Магнитный поток контура, пункт 9",
+  "statement": "Индуктивность контура $L$, сила тока в нем $I$.\n\n**Пункт 9.** Найдите магнитный поток через контур.",
+  "answer": {
+    "formula": "L*I",
+    "variables": {
+      "L": "индуктивность контура",
+      "I": "сила тока в контуре"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2023,
+    "stage": "other",
+    "number": 9,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
+  },
+  "solution": "В ключе ответ A: $\\Phi = LI$.",
+  "figures": []
+}
