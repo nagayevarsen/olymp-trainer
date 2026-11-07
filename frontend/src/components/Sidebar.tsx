@@ -55,7 +55,7 @@ export function Sidebar({ onSettings, onCollapse }: { onSettings: () => void; on
       </div>
 
       <Link to="/" className="block rounded-xl px-1">
-        <div className="text-xl font-extrabold tracking-tight">{APP_NAME}</div>
+        <div className="font-brand text-lg font-bold tracking-tight">{APP_NAME}</div>
       </Link>
 
       <nav className="grid grid-cols-2 gap-1">

@@ -70,7 +70,7 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
       <section className="flex-1">
         <div className="animate-rise mb-4 flex items-center gap-3">
           <img src="/logo.webp" alt="" className="h-11 w-11 rounded-xl" />
-          <span className="text-xl font-extrabold tracking-tight">{APP_NAME}</span>
+          <span className="font-brand text-lg font-bold tracking-tight">{APP_NAME}</span>
           <span className="ml-auto flex items-center gap-2">
             <LangSwitch />
             <ThemeSwitch />

@@ -87,7 +87,7 @@ export function Layout({ onLogout }: { onLogout: () => void }) {
             </svg>
           </button>
           {location.pathname !== '/' && (
-            <Link to="/" className="font-extrabold tracking-tight">
+            <Link to="/" className="font-brand font-bold tracking-tight">
               {APP_NAME}
             </Link>
           )}
