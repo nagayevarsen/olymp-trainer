@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2025-math8-1",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Сумма произведений пяти чисел",
+  "statement": "Квантовый компьютер расходует 1 кВт/ч электроэнергии на каждую сделанную им операцию умножения или сложения. При этом он умеет хранить результаты промежуточных действий. Докажите, что для любых пяти хранящихся в компьютере чисел $a, b, c, d, e$ можно найти сумму $ab+ac+ad+ae+bc+bd+be+cd+ce+de$, затратив не более 10 кВт/ч. (К. Кноп)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2025,
+    "stage": "distance",
+    "grade": 8,
+    "number": 1,
+    "url": "https://www.matol.ru/files/Disttur1_24_sol.pdf"
+  },
+  "solution": "Искомую сумму за 10 операций можно получить, например, так. 1) $x_1 = a+b$. 2) $x_2 = x_1+c = a+b+c$. 3) $x_3 = d+e$. 4) $x_4 = x_2x_3 = (a+b+c)(d+e) = ad+ae+bd+be+cd+ce$. 5) $x_5 = cx_1 = ac+bc$. 6) $x_6 = ab$. 7) $x_7 = de$. 8) $x_8 = x_6+x_7 = ab+de$. 9) $x_9 = x_5+x_8 = ab+ac+bc+de$. 10) $x_{10} = x_4+x_9 = ab+ac+ad+ae+bc+bd+be+cd+ce+de$.",
+  "figures": []
+}

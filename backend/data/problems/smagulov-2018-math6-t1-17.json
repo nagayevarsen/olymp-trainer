@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math6-t1-17",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Коробочки в коробочках",
+  "statement": "На столе лежит 5 коробочек. В некоторых коробочках лежит по пять коробочек, в некоторых из них тоже лежит по пять коробочек, и так далее, а пустых коробочек получилось всего 25. Сколько всего коробочек?",
+  "answer": {
+    "value": 30.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 30",
+      "решение: anthropic:claude-sonnet-5-5 → 30",
+      "программа (other): anthropic:claude-haiku-5-5 → 30",
+      "программа (other): anthropic:claude-sonnet-5-5 → 30"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 6,
+    "number": 17,
+    "url": "https://matol.kz/olympiads/855"
+  },
+  "figures": []
+}

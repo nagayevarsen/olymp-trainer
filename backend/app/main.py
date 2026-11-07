@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import asyncio
+import base64
+import json
 import logging
 import random
 import time
@@ -383,6 +385,45 @@ def attach_account(body: Login, user: dict = Depends(current_user), db: DB = Dep
     return {"id": user["id"], "name": nick}
 
 
+class AvatarBody(BaseModel):
+    kind: Literal["pixel", "photo"]
+    seed: int | None = Field(default=None, ge=0, le=2**31)
+    data_url: str | None = Field(default=None, max_length=60_000)
+
+
+JPEG_PREFIX = "data:image/jpeg;base64,"
+JPEG_MAGIC = bytes([0xFF, 0xD8, 0xFF])
+
+
+@app.get("/api/me/avatar")
+def get_avatar(user: dict = Depends(current_user)) -> dict:
+    """Аватарка видна только владельцу: в рейтинге и других местах она не показывается."""
+    raw = user.get("avatar")
+    return {"avatar": json.loads(raw) if raw else None}
+
+
+@app.put("/api/me/avatar")
+def put_avatar(body: AvatarBody, user: dict = Depends(current_user), db: DB = Depends(get_db)) -> dict:
+    if body.kind == "pixel":
+        if body.seed is None:
+            raise HTTPException(422, "Нужен seed")
+        value = {"kind": "pixel", "seed": body.seed}
+    else:
+        url = body.data_url or ""
+        try:
+            ok = (
+                url.startswith(JPEG_PREFIX)
+                and base64.b64decode(url[len(JPEG_PREFIX) :], validate=True)[:3] == JPEG_MAGIC
+            )
+        except ValueError:
+            ok = False
+        if not ok:
+            raise HTTPException(422, "Нужна картинка JPEG")
+        value = {"kind": "photo", "dataUrl": url}
+    db.set_avatar(user["id"], json.dumps(value))
+    return {"avatar": value}
+
+
 @app.delete("/api/me")
 def delete_me(user: dict = Depends(current_user), db: DB = Depends(get_db)) -> dict:
     db.delete_user(user["id"])
@@ -446,6 +487,9 @@ async def chat_reply(
     problem, figures = None, []
     if body.problem_id and (p := get_problem(body.problem_id)):
         problem = {"source": p.source.label(), "topic": p.topic, "statement": p.statement}
+        if db.progress(user["id"], p.id)["solution_viewed"]:  # разбор ученик уже видел — его можно обсуждать
+            hints = _hints_for(p, db)
+            problem["solution"] = p.solution or (hints.solution if hints else "")
         figures = [figures_dir() / f for f in p.figures]
     strong_used: list[bool] = []
 

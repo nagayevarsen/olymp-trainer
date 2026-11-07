@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t1-7",
+  "subject": "math",
+  "topic": "уравнения",
+  "title": "Уравнение с вложенными дробями",
+  "statement": "Решите уравнение: $1+\\frac{4}{2-\\frac{2}{1+\\frac{3}{1+\\frac{10}{x}}}}=5.$",
+  "answer": {
+    "value": 5.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 5",
+      "решение: anthropic:claude-sonnet-5-5 → 5",
+      "программа (other): anthropic:claude-haiku-5-5 → 5",
+      "программа (other): anthropic:claude-sonnet-5-5 → 5"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 7,
+    "url": "https://matol.kz/olympiads/1007"
+  },
+  "figures": []
+}

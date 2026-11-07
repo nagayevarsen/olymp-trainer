@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2013-math8-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Трапеция и равенство сторон",
+  "statement": "Точка E — середина основания AD трапеции ABCD. Отрезки BD и CE пересекаются в точке F. Известно, что AF ⊥ BD. Докажите, что BC = FC.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2013,
+    "stage": "distance",
+    "grade": 8,
+    "number": 5,
+    "url": "https://www.matol.ru/files/Disttur2_12_sol.pdf"
+  },
+  "solution": "Решение. FE — медиана, проведенная к гипотенузе прямоугольного треугольника AFD. Поэтому FE = AD/2 = ED и ∠EDF = ∠DFE. Но углы EDF и CBF равны как внутренние накрест лежащие при параллельных прямых AD и BC, а углы DFE и BFC равны как вертикальные. Поэтому ∠CBF = ∠BFC, откуда BC = FC.",
+  "figures": []
+}

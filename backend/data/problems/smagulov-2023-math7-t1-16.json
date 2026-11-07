@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t1-16",
+  "subject": "math",
+  "topic": "алгебра, суммы",
+  "title": "Разность сумм квадратов",
+  "statement": "Известно, что $A={{1}^{2}}+{{3}^{2}}+{{5}^{2}}+\\ldots +{{2023}^{2}}$, $B={{2}^{2}}+{{4}^{2}}+{{6}^{2}}+\\ldots +{{2022}^{2}}$. Найдите значение выражения $\\frac{A-B}{2023}$.",
+  "answer": {
+    "value": 1012.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1012",
+      "решение: anthropic:claude-sonnet-5-5 → 1012",
+      "программа (other): anthropic:claude-haiku-5-5 → 1012",
+      "программа (other): anthropic:claude-sonnet-5-5 → 1012"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 16,
+    "url": "https://matol.kz/olympiads/1071"
+  },
+  "figures": []
+}

@@ -69,13 +69,19 @@ def raw_dir() -> Path:
 def _get(url: str) -> httpx.Response:
     if not is_trusted_url(url):
         raise ImportError_(f"{url} не из списка проверенных сайтов")
-    resp = httpx.get(
-        url,
-        timeout=60,
-        follow_redirects=True,
-        verify=os.environ.get("SSL_CERT_FILE") or os.environ.get("REQUESTS_CA_BUNDLE") or True,
-        headers={"User-Agent": USER_AGENT},
-    )
+    for attempt in range(4):  # matol.ru иногда обрывает скачивание на середине файла
+        try:
+            resp = httpx.get(
+                url,
+                timeout=60,
+                follow_redirects=True,
+                verify=os.environ.get("SSL_CERT_FILE") or os.environ.get("REQUESTS_CA_BUNDLE") or True,
+                headers={"User-Agent": USER_AGENT},
+            )
+            break
+        except httpx.RemoteProtocolError:
+            if attempt == 3:
+                raise
     if not is_trusted_url(str(resp.url)):
         raise ImportError_(f"{url} перенаправил на непроверенный сайт {resp.url}")
     resp.raise_for_status()

@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math7-t1-12",
+  "subject": "math",
+  "topic": "проценты",
+  "title": "Изменение дроби при увеличении",
+  "statement": "Числитель дроби увеличили на $50\\%$. На сколько процентов надо уменьшить её знаменатель, чтобы в итоге дробь возросла втрое?",
+  "answer": {
+    "value": 50.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 50",
+      "решение: anthropic:claude-sonnet-5-5 → 50",
+      "программа (other): anthropic:claude-haiku-5-5 → 50",
+      "программа (other): anthropic:claude-sonnet-5-5 → 50"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 7,
+    "number": 12,
+    "url": "https://matol.kz/olympiads/856"
+  },
+  "figures": []
+}

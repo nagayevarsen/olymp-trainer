@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math7-t1-17",
+  "subject": "math",
+  "topic": "теория чисел",
+  "title": "Делители трёх последовательных чисел",
+  "statement": "Целое число $n$ имеет два натуральных делителя, а число $n+1$  – три натуральных делителя. Сколько натуральных делителей имеет число $n+2$?",
+  "answer": {
+    "value": 2.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 2",
+      "решение: anthropic:claude-sonnet-5-5 → 2",
+      "программа (other): anthropic:claude-haiku-5-5 → 2",
+      "программа (other): anthropic:claude-sonnet-5-5 → 2"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 7,
+    "number": 17,
+    "url": "https://matol.kz/olympiads/856"
+  },
+  "figures": []
+}

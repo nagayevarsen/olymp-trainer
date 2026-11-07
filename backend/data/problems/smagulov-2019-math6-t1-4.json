@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2019-math6-t1-4",
+  "subject": "math",
+  "topic": "факториалы",
+  "title": "Последняя цифра суммы факториалов",
+  "statement": "Обозначим  через $n!$ произведение всех натуральных чисел от 1 до $n.$ (Например, $4!=1\\cdot2 \\cdot3 \\cdot4$.) Какой цифрой оканчивается сумма $1!+2!+3!+4!+5!+6!+7!+8!+9!$?",
+  "answer": {
+    "value": 3.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 3",
+      "решение: anthropic:claude-sonnet-5-5 → 3",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 3",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 3"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2019,
+    "stage": "city",
+    "grade": 6,
+    "number": 4,
+    "url": "https://matol.kz/olympiads/862"
+  },
+  "figures": []
+}

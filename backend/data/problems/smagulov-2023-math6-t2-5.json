@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t2-5",
+  "subject": "math",
+  "topic": "делимость и делители",
+  "title": "Делители с суммой 99",
+  "statement": "Найдите наименьшее натуральное число $n$, у которого имеются два различных деятеля, отличных от 1 и $n$, сумма которых равна 99.",
+  "answer": {
+    "value": 132.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 132",
+      "решение: anthropic:claude-sonnet-5-5 → 132",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 132",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 132"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/1072"
+  },
+  "figures": []
+}

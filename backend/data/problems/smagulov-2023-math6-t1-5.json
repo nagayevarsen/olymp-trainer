@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-5",
+  "subject": "math",
+  "topic": "деление с остатком",
+  "title": "Деление с остатком 2023",
+  "statement": "На какое число поделили число 2023, если в частном получилось 43, а в остатке 2?",
+  "answer": {
+    "value": 47.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 47",
+      "решение: anthropic:claude-sonnet-5-5 → 47",
+      "программа (other): anthropic:claude-haiku-5-5 → 47",
+      "программа (other): anthropic:claude-sonnet-5-5 → 47"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

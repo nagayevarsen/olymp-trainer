@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math6-t2-1",
+  "subject": "math",
+  "topic": "проценты",
+  "title": "Скидка и прибыль",
+  "statement": "Предприниматель покупает один товар по оптовой цене, равной 99 тенге. Для продажи этих товаров он сделал следующий маркетинговый ход: «Товар стоит $X$ тенге, но сегодня Вы сможете купить его со скидкой 70%». Известно, после этого объявления он продал весь товар за день. Чему равно $X$, если он с каждого товара получил прибыль ровно 99 тенге?",
+  "answer": {
+    "value": 660.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 660",
+      "решение: anthropic:claude-sonnet-5-5 → 660",
+      "программа (other): anthropic:claude-haiku-5-5 → 660",
+      "программа (other): anthropic:claude-sonnet-5-5 → 660"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/488"
+  },
+  "figures": []
+}

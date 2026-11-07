@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t1-9",
+  "subject": "math",
+  "topic": "чётность и делимость",
+  "title": "Чётные числа в пятёрке",
+  "statement": "Пусть $p$ и $q$ — натуральные числа. Рассмотрим пять чисел: $pq + 2$, $p^2 +q^3$, $(p + 1)(q + 1)$, $(p +q)^2$, $p(q + 1)$. Какое наибольшее количество четных чисел может оказаться в этой пятерке?",
+  "answer": {
+    "value": 4.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 4",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 4",
+      "программа (other): anthropic:claude-haiku-5-5 → 4",
+      "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 4"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 9,
+    "url": "https://matol.kz/olympiads/487"
+  },
+  "figures": []
+}

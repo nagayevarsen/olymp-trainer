@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math6-t1-12",
+  "subject": "math",
+  "topic": "стоимость и смеси",
+  "title": "Кости в говядине",
+  "statement": "Килограмм говядины с костями стоит 78 рублей, килограмм говядины без костей — 90 рублей, а килограмм костей — 15 рублей. Сколько граммов костей в килограмме говядины с костями?",
+  "answer": {
+    "value": 160.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 160",
+      "решение: anthropic:claude-sonnet-5-5 → 160",
+      "программа (other): anthropic:claude-haiku-5-5 → 160",
+      "программа (other): anthropic:claude-sonnet-5-5 → 160"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 6,
+    "number": 12,
+    "url": "https://matol.kz/olympiads/855"
+  },
+  "figures": []
+}

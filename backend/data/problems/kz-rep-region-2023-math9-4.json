@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-region-2023-math9-4",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "НОК трёх чисел",
+  "statement": "Найти все натуральные $a,b,c$ такие, что $$[a,b,c]=\\frac{ab+bc+ca}{5}.$$ Здесь $[x,y]$ — наименьшее общее кратное чисел $x$ и $y$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2023,
+    "stage": "region",
+    "grade": 9,
+    "number": 4,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2023/math9-2-sol.pdf"
+  },
+  "solution": "Пусть $(a,b,c)=d$, $(a/d,b/d)=x$, $(b/d,c/d)=y$, $(c/d,a/d)=z$. Тогда можно взять $a,b,c$ как $dxzk$, $dxym$, $dyzn$ соответственно (где $(zk,ym)=(xm,zn)=(xk,yn)=1$). Заметим, что $[a,b,c]=\\frac{ab+bc+ca}{5}$ делится на $k$. Значит, $bc$ тоже делится на $k$. Но $k$ делитель $a$, но не $b,c$. Следовательно $k=1$. Аналогично получим $m=n=1$. Поставим в наше уравнение и получим $$dxyz=\\frac{d^2xyz(x+y+z)}{5}.$$ Сократим всё на $dxyz$: $$5=d(x+y+z)\\Rightarrow d=1,$$ так как $x,y,z\\ge 1$. Без ограничения общности будем считать, что $x\\ge y\\ge z\\Rightarrow x=y=2,\\ z=1\\Rightarrow (a,b,c)=(4,2,2).$ Ответ: $(a,b,c)=(4,2,2),(2,4,2),(2,2,4)$.",
+  "figures": []
+}

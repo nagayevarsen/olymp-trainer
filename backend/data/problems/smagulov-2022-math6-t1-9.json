@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t1-9",
+  "subject": "math",
+  "topic": "арифметика",
+  "title": "Яблоки и новая операция",
+  "statement": "Дана операция $m*n = m \\cdot n +m - 2 \\cdot n$. У Армана есть $8*11$ яблок. Он дал Асану $5*3$ яблок, а $\\frac{1}{4}$ часть оставшихся яблок дал Айдане. Сколько яблок остается у Армана после этого?",
+  "answer": {
+    "value": 45.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 45",
+      "решение: anthropic:claude-sonnet-5-5 → 45",
+      "программа (other): anthropic:claude-haiku-5-5 → 45",
+      "программа (other): anthropic:claude-sonnet-5-5 → 45"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 9,
+    "url": "https://matol.kz/olympiads/1007"
+  },
+  "figures": []
+}

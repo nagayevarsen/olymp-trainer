@@ -67,7 +67,7 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
     <div className="mx-auto flex min-h-dvh max-w-5xl flex-col justify-center gap-10 px-4 py-10 lg:flex-row lg:items-center">
       <section className="flex-1">
         <div className="animate-rise mb-4 flex items-center gap-3">
-          <img src="/favicon.svg" alt="" className="h-11 w-11" />
+          <img src="/logo.webp" alt="" className="h-11 w-11 rounded-xl" />
           <span className="text-xl font-extrabold tracking-tight">{APP_NAME}</span>
           <ThemeSwitch className="ml-auto" />
         </div>

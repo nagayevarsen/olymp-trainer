@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math7-t1-15",
+  "subject": "math",
+  "topic": "шифровка, делимость",
+  "title": "Шифровка слова АЛМАТА",
+  "statement": "Под словом АЛМАТА зашифровали некоторое натуральное число, делящиеся на 45. Также известно, что при шифровке не использовали цифру 0. Найдите наименьшее возможное значение суммы цифр этого зашифрованного числа. (В шифровке одинаковые буквы означает одинаковые цифры, разные буквы — разные цифры.)",
+  "answer": {
+    "value": 27.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 27",
+      "решение: anthropic:claude-sonnet-5-5 → 27",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 27",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 27"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 7,
+    "number": 15,
+    "url": "https://matol.kz/olympiads/1006"
+  },
+  "figures": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t2-1",
+  "subject": "math",
+  "topic": "десятичные дроби",
+  "title": "Цифра на 2023 месте",
+  "statement": "Дробь $\\frac{469}{1998}$ привели в десятичный вид. Какая цифра после запятой стоит на 2023 месте?",
+  "answer": {
+    "value": 7.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 7",
+      "решение: anthropic:claude-sonnet-5-5 → 7",
+      "программа (other): anthropic:claude-haiku-5-5 → 7",
+      "программа (other): anthropic:claude-sonnet-5-5 → 7"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1072"
+  },
+  "figures": []
+}

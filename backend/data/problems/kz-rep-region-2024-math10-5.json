@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-region-2024-math10-5",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Неравенство при abc=1",
+  "statement": "Даны положительные действительные числа $a, b, c$ такие, что $abc = 1$. Докажите, что $\\left(\\frac{a^3}{b} + \\frac{b^3}{c} + \\frac{c^3}{a}\\right) + 2\\left(\\frac{a}{b} + \\frac{b}{c} + \\frac{c}{a}\\right) + (a + b + c) \\ge 4(ab + bc + ca)$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2024,
+    "stage": "region",
+    "grade": 10,
+    "number": 5,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math10-2-sol.pdf"
+  },
+  "solution": "По неравенству Коши $\\frac{a^3}{b} + c \\ge 2\\sqrt{\\frac{a^3}{b}\\cdot c} = 2\\cdot\\frac{a}{b}$. (1) Аналогично $\\frac{b^3}{c} + a \\ge 2\\cdot\\frac{b}{c}$, (2) $\\frac{c^3}{a} + b \\ge 2\\cdot\\frac{c}{a}$. (3) Из (1), (2) и (3) получим, что $\\left(\\frac{a^3}{b} + \\frac{b^3}{c} + \\frac{c^3}{a}\\right) + 2\\left(\\frac{a}{b} + \\frac{b}{c} + \\frac{c}{a}\\right) + (a + b + c) \\ge 4\\left(\\frac{a}{b} + \\frac{b}{c} + \\frac{c}{a}\\right)$. (4) Пусть $x, y, z > 0$ такие числа, что $a = x/y$, $b = z/x$, $c = y/z$. Тогда нам достаточно доказать, что $\\frac{a}{b} + \\frac{b}{c} + \\frac{c}{a} \\ge ab + bc + ca \\iff \\frac{x^2}{yz} + \\frac{y^2}{zx} + \\frac{z^2}{xy} \\ge \\frac{x}{z} + \\frac{y}{x} + \\frac{z}{y} \\iff x^3 + y^3 + z^3 \\ge x^2y + y^2z + z^2x$. (5) По неравенству Коши $\\frac{x^3 + x^3 + y^3}{3} \\ge x^2y$, $\\frac{y^3 + y^3 + z^3}{3} \\ge y^2z$ и $\\frac{z^3 + z^3 + x^3}{3} \\ge z^2x$. Складывая последние три неравенства получим (5).",
+  "figures": []
+}

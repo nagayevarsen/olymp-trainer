@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math7-t1-7",
+  "subject": "math",
+  "topic": "остатки от деления",
+  "title": "Сумма трёхзначных чисел",
+  "statement": "Найдите сумму всех трёхзначных чисел, которые при делении на 51 дают остаток 10.",
+  "answer": {
+    "value": 9819.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 9819",
+      "решение: anthropic:claude-sonnet-5-5 → 9819",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 9819",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 9819"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 7,
+    "url": "https://matol.kz/olympiads/1008"
+  },
+  "figures": []
+}

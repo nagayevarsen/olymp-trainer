@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math6-t1-7",
+  "subject": "math",
+  "topic": "делимость",
+  "title": "Наибольшее трёхзначное кратное",
+  "statement": "Найдите максимальное трехзначное число кратное 5, 10 и 12.",
+  "answer": {
+    "value": 960.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 960",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 960",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 960",
+      "программа (enumeration): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 960"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 7,
+    "url": "https://matol.kz/olympiads/486"
+  },
+  "figures": []
+}

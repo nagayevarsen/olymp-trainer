@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t1-5",
+  "subject": "math",
+  "topic": "среднее арифметическое",
+  "title": "Удалённое число в среднем",
+  "statement": "Среднее арифметическое шести чисел равно 12. После того, как одно из шести чисел удалили, среднее арифметическое оставшихся пяти чисел оказалось равно 10. Чему было равно удалённое число?",
+  "answer": {
+    "value": 22.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 22",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 22",
+      "программа (other): anthropic:claude-haiku-5-5 → 22",
+      "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 22"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/487"
+  },
+  "figures": []
+}

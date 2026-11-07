@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t1-4",
+  "subject": "math",
+  "topic": "Цифры и последовательности",
+  "title": "Цифра на 2023 месте",
+  "statement": "Кемель написал на доске подряд только неотрицательные целые четные числа: $024681012\\ldots$. Найдите цифру в стоящую на 2023 месте в полученной последовательности.",
+  "answer": {
+    "value": 2.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 2",
+      "решение: anthropic:claude-sonnet-5-5 → 2",
+      "программа (other): anthropic:claude-haiku-5-5 → 2",
+      "программа (other): anthropic:claude-sonnet-5-5 → 2"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 4,
+    "url": "https://matol.kz/olympiads/1071"
+  },
+  "figures": []
+}

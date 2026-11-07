@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t1-11",
+  "subject": "math",
+  "topic": "проценты, смеси",
+  "title": "Смешивание соков с нектаром",
+  "statement": "Вид первого сока содержит 20\\% нектара, а второго — 23\\%. Когда смешали несколько граммов первого сока и несколько граммов второго, получилось 400 граммов сока, содержащий 22,25\\% нектара. Сколько граммов второго сока было до смешиваний?",
+  "answer": {
+    "value": 300.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 300",
+      "решение: anthropic:claude-sonnet-5-5 → 300",
+      "программа (other): anthropic:claude-haiku-5-5 → 300",
+      "программа (other): anthropic:claude-sonnet-5-5 → 300"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 11,
+    "url": "https://matol.kz/olympiads/1071"
+  },
+  "figures": []
+}

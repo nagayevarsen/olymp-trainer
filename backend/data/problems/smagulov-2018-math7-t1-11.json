@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math7-t1-11",
+  "subject": "math",
+  "topic": "логика, расписание",
+  "title": "Подковка лошадей кузнецами",
+  "statement": "Четверо кузнецов должны подковать 5 лошадей. За какое наименьшее время они могут это сделать, если на одну подкову один кузнец затрачивает 5 минут, а лошадь не может стоять на двух ногах?",
+  "answer": {
+    "value": 25.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 25",
+      "решение: anthropic:claude-sonnet-5-5 → 25",
+      "программа (other): anthropic:claude-haiku-5-5 → 25",
+      "программа (other): anthropic:claude-sonnet-5-5 → 25"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 7,
+    "number": 11,
+    "url": "https://matol.kz/olympiads/856"
+  },
+  "figures": []
+}

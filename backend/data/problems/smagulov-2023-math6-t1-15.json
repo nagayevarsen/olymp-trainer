@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-15",
+  "subject": "math",
+  "topic": "арифметика",
+  "title": "Знаки в выражении",
+  "statement": "В ряд выписали числа в порядке 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 и перед каждым числом записали знаки «$+$» или «$-$».Тогда значение выражения оказалось равным 7. Какова сумма чисел, стоящих после знаков плюс?",
+  "answer": {
+    "value": 31.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 31",
+      "решение: anthropic:claude-sonnet-5-5 → 31",
+      "программа (other): anthropic:claude-haiku-5-5 → 31",
+      "программа (other): anthropic:claude-sonnet-5-5 → 31"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 15,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

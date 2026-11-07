@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-11",
+  "subject": "math",
+  "topic": "системы уравнений",
+  "title": "Звери в лесу",
+  "statement": "Если сложить количество зайцев и волков в лесу, то сумма будет в 5/3 раза больше количества медведей и на 1 больше количества птиц. Если 7/8 количества ног волков равно количеству зайцев, а сумма количества ног медведей и количество ушей зайцев в 4 раза больше, чем количество птиц, то сколько медведей в лесу?",
+  "answer": {
+    "value": 54.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 54",
+      "решение: anthropic:claude-sonnet-5-5 → 54",
+      "программа (other): anthropic:claude-haiku-5-5 → 54",
+      "программа (other): anthropic:claude-sonnet-5-5 → 54"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 11,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

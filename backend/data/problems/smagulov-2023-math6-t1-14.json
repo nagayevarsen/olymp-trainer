@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-14",
+  "subject": "math",
+  "topic": "делимость чисел",
+  "title": "Наибольшее и наименьшее числа",
+  "statement": "Среди всех 10-значных чисел, цифры которых не повторяются и делятся на 36, пусть $A$ — наибольшее, а $B$ — наименьшее. Найдите сумму $A + B$.",
+  "answer": {
+    "value": 10900001016.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 10900001016",
+      "решение: anthropic:claude-sonnet-5-5 → 10900001016",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 10900001016",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 10900001016"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 14,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

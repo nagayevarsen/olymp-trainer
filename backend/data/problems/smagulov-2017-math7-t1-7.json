@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t1-7",
+  "subject": "math",
+  "topic": "логика множеств",
+  "title": "Пушистые и полосатые кошки",
+  "statement": "Среди кошек, обитающих в лагере «Ласточка», три — пушистые, а две — полосатые. Какое наименьшее количество неполосатых пушистых кошек может быть в лагере?",
+  "answer": {
+    "value": 1.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 1",
+      "программа (other): anthropic:claude-haiku-5-5 → 1",
+      "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 1"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 7,
+    "url": "https://matol.kz/olympiads/487"
+  },
+  "figures": []
+}

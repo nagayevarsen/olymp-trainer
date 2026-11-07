@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2014-math8-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Угол NMK",
+  "statement": "На стороне $AB$ треугольника $ABC$ с углом в $100^\\circ$ при вершине $C$ взяты точки $P$ и $Q$ такие, что $AP = BC$ и $BQ = AC$. Пусть $M$, $N$, $K$ — середины отрезков $AB$, $CP$, $CQ$ соответственно. Найдите угол $NMK$. (М. Кунгожин + жюри)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2014,
+    "stage": "final",
+    "grade": 8,
+    "number": 2,
+    "url": "https://www.matol.ru/files/3etap2014sol.pdf"
+  },
+  "solution": "Ответ: $40^\\circ$. Достроим треугольник до параллелограмма $ACBD$. Тогда $M$ является серединой отрезка $CD$. Так как $AP = BC = AD$ и $BQ = AC = BD$, треугольники $APD$ и $BQD$ — равнобедренные. Поэтому $\\angle QDP = \\angle ADP + \\angle BDQ - \\angle ADB = (90^\\circ - \\angle DAB/2) + (90^\\circ - \\angle DBA/2) - 100^\\circ = 80^\\circ - (\\angle DAB + \\angle DBA)/2 = 40^\\circ$. Осталось заметить, что $\\angle QDP = \\angle KMN$, так как $MK$ и $MN$ — средние линии треугольников $DQC$ и $DPC$ соответственно. (На рисунке: треугольник $ABC$, точки $P$ и $Q$ лежат на стороне $AB$, точка $D$ — четвёртая вершина параллелограмма $ACBD$, точки $M$, $N$, $K$ — середины $AB$, $CP$, $CQ$.)",
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "euler-region-2013-math8-4",
+  "subject": "math",
+  "topic": "Арифметика",
+  "title": "Равенство с суммами",
+  "statement": "Существуют ли шесть различных натуральных чисел $a, b, c, d, e, f$ таких, что справедливо равенство $(a+b+c+d+e+f) : \\left(\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}+\\frac{1}{d}+\\frac{1}{e}+\\frac{1}{f}\\right) = 2012$?",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2013,
+    "stage": "region",
+    "grade": 8,
+    "number": 4,
+    "url": "https://www.matol.ru/files/Euler_reg_12-13_sol.pdf"
+  },
+  "solution": "Ответ. Да, существуют. Решение. Положим, например, $a = 1$, $b = 2012$, $c = 2$, $d = 1006$, $e = 4$, $f = 503$; тогда $ab = cd = ef = 2012$. Значит, $\\frac{1}{a}+\\frac{1}{b}+\\frac{1}{c}+\\frac{1}{d}+\\frac{1}{e}+\\frac{1}{f}=\\frac{a+b}{ab}+\\frac{c+d}{cd}+\\frac{e+f}{ef}=\\frac{a+b+c+d+e+f}{2012}$, откуда и следует требуемое равенство.",
+  "figures": []
+}

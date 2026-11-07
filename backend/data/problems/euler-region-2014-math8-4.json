@@ -1,0 +1,23 @@
+{
+  "id": "euler-region-2014-math8-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Треугольник с медианой",
+  "statement": "На стороне AC треугольника ABC выбрана точка D такая, что BD = AC. Медиана AM этого треугольника пересекает отрезок BD в точке K. Оказалось, что DK = DC. Докажите, что AM + KM = AB.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2014,
+    "stage": "region",
+    "grade": 8,
+    "number": 4,
+    "url": "https://www.matol.ru/files/Euler_reg_13-14_sol.pdf"
+  },
+  "solution": "Решение. Обозначим через L точку, симметричную K относительно M. Тогда AD = AC – CD = BD – DK = BK = CL. Поскольку углы BDA и ACL равны как соответственные, а BD = AC по условию, треугольники BDA и ACL равны по двум сторонам и углу между ними. Отсюда AB = AL = AM + ML = AM + KM.",
+  "figures": []
+}

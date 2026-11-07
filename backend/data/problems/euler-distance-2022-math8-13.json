@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2022-math8-13",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Степени двух чисел",
+  "statement": "Два числа таковы, что их сумма, сумма их квадратов и сумма их кубов равны одному и тому же числу $m$. Докажите, что сумма четвёртых степеней этих чисел тоже равна $m$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2022,
+    "stage": "distance",
+    "grade": 8,
+    "number": 13,
+    "url": "https://www.matol.ru/files/Disttur3_21_sol.pdf"
+  },
+  "solution": "Первое решение. Пусть $a+b = a^2+b^2 = a^3+b^3 = m$. Тогда $m = a^3+b^3 = (a+b)(a^2-ab+b^2) = m(m-ab)$, откуда $m = 0$ или $ab = m-1$. Если $m = a^2+b^2 = 0$, то $a = b = 0$ и $a^4+b^4 = 0 = m$. Если $ab = m-1$, то $m^2 = (a+b)(a^3+b^3) = a^4+b^4+ab(a^2+b^2) = a^4+b^4+(m-1)m$, откуда $a^4+b^4 = m$.",
+  "figures": []
+}

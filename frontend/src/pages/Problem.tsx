@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
-import { api, type CheckResult, type ProblemDetail, type ProofResult } from '../api'
+import { api, type ChatTurn, type CheckResult, type ProblemDetail, type ProofResult } from '../api'
 import { Figures } from '../components/Figures'
 import { answerHint } from '../lib/answer'
 import { MathText } from '../components/MathText'
@@ -11,6 +11,60 @@ import { problemLocked } from '../olympiadRun'
 const HINT_NAMES = ['Направление', 'Подход', 'Наводящий вопрос']
 // Штраф за открытые подсказки, как в backend/app/scoring.py: 0, 1, 2, 4, 6…
 const hintPenalty = (k: number) => (k <= 0 ? 0 : k === 1 ? 1 : 2 * (k - 1))
+
+// Короткий вопрос по разбору: помощник видит задачу и разбор, который ученик уже открыл.
+function SolutionAsk({ problemId }: { problemId: string }) {
+  const [q, setQ] = useState('')
+  const [turns, setTurns] = useState<ChatTurn[]>([])
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState('')
+
+  async function ask(e: FormEvent) {
+    e.preventDefault()
+    const text = q.trim()
+    if (!text || busy) return
+    const next: ChatTurn[] = [...turns, { role: 'user', content: text }]
+    setTurns(next)
+    setQ('')
+    setBusy(true)
+    setError('')
+    try {
+      const r = await api.chat(next, problemId, 'training')
+      setTurns([...next, { role: 'assistant', content: r.reply }])
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Не удалось получить ответ')
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  return (
+    <div className="mt-5 border-t border-slate-200 pt-4 dark:border-slate-800">
+      {turns.map((t, i) => (
+        <div
+          key={i}
+          className={t.role === 'user' ? 'mb-2 ml-auto w-fit max-w-[85%] rounded-2xl bg-brand-600 px-3 py-2 text-white' : 'mb-3'}
+        >
+          {t.role === 'user' ? t.content : <MathText text={t.content} />}
+        </div>
+      ))}
+      {busy && <p className="mb-2 text-sm text-slate-500">Думаю…</p>}
+      {error && <p className="mb-2 text-sm text-red-600">{error}</p>}
+      <form onSubmit={ask} className="flex gap-2">
+        <input
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          maxLength={500}
+          placeholder="Что непонятно в разборе?"
+          className="min-w-0 flex-1 rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand-500 dark:border-slate-700 dark:bg-slate-950"
+        />
+        <button className="btn-primary" disabled={busy || !q.trim()}>
+          Спросить
+        </button>
+      </form>
+    </div>
+  )
+}
 
 export function ProblemPage() {
   const { id = '' } = useParams()
@@ -203,6 +257,7 @@ export function ProblemPage() {
           <section className="card animate-fade-up p-6">
             <h2 className="mb-3 text-lg font-bold">Разбор</h2>
             <MathText text={p.solution} />
+            <SolutionAsk problemId={p.id} />
             {p.can_clone && !solved && (
               <div className="mt-5 rounded-xl bg-brand-50 p-4 text-sm dark:bg-brand-900/30">
                 Разобрался? Реши <b>новый вариант</b> этой задачи с другими числами — и получи половину баллов.

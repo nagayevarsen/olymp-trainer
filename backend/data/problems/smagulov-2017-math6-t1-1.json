@@ -1,0 +1,29 @@
+{
+  "id": "smagulov-2017-math6-t1-1",
+  "subject": "math",
+  "topic": "проценты",
+  "title": "Проценты от процента",
+  "statement": "Чему равно 20 процентов от 16 процентов числа 2016?",
+  "answer": {
+    "value": 64.512,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 64.512",
+      "решение: gemini:gemini-3.5-flash → 64.512",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 64.512",
+      "программа (other): anthropic:claude-haiku-5-5 → 64.512",
+      "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 64.512"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/486"
+  },
+  "figures": []
+}

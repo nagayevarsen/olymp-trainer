@@ -1,0 +1,23 @@
+{
+  "id": "euler-region-2021-math8-7",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Сумма углов",
+  "statement": "Точка $M$ — середина стороны $AC$ равностороннего треугольника $ABC$. Точки $P$ и $R$ на отрезках $AM$ и $BC$ соответственно выбраны так, что $AP = BR$. Найдите сумму углов $ARM$, $PBM$ и $BMR$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2021,
+    "stage": "region",
+    "grade": 8,
+    "number": 7,
+    "url": "https://www.matol.ru/files/8 klass2021_2 etap_day2_sol.pdf"
+  },
+  "solution": "Ответ. $60^\\circ$. Решение. Пусть отрезки $AR$ и $BM$ пересекаются в точке $Q$. Так как треугольники $ABP$ и $BAR$ равны по первому признаку, $\\angle BAR = \\angle ABP = \\alpha$. Тогда $\\angle ARM + \\angle BMR = 180^\\circ - \\angle AQB = 2\\alpha + \\angle PBM$ (здесь первое равенство — теорема о внешнем угле для треугольника $MQR$, а второе — теорема о сумме углов для треугольника $AQB$), откуда $\\angle ARM + \\angle BMR + \\angle PBM = 2(\\alpha + \\angle PBM) = 2\\angle ABM = 60^\\circ$.",
+  "figures": []
+}

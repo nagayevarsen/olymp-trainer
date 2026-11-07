@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t1-8",
+  "subject": "math",
+  "topic": "делимость",
+  "title": "Цифра вместо звёздочки",
+  "statement": "Девятизначное число $2021\\!*\\!2022$, в котором цифра посередине заменена звездочкой, делится на 21. Найдите эту цифру, заменённую звездочкой.",
+  "answer": {
+    "value": 1.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1",
+      "решение: anthropic:claude-sonnet-5-5 → 1",
+      "программа (other): anthropic:claude-haiku-5-5 → 1",
+      "программа (other): anthropic:claude-sonnet-5-5 → 1"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 8,
+    "url": "https://matol.kz/olympiads/1007"
+  },
+  "figures": []
+}

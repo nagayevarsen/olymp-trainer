@@ -255,6 +255,8 @@ const post = <T>(path: string, body: unknown = {}) => request<T>(path, { method:
 export const api = {
   createUser: (name: string, grade: number | null) => post<Account>('/api/users', { name, grade }),
   logout: () => post<{ ok: boolean }>('/api/logout'),
+  getAvatar: () => request<{ avatar: unknown }>('/api/me/avatar'),
+  setAvatar: (a: unknown) => request<{ avatar: unknown }>('/api/me/avatar', { method: 'PUT', body: JSON.stringify(a) }),
   me: (track?: string | null) => request<Me>(`/api/me${track ? `?track=${track}` : ''}`),
   tracks: () => request<Track[]>('/api/tracks'),
   problems: (track?: string | null) => request<ProblemListItem[]>(`/api/problems${track ? `?track=${track}` : ''}`),

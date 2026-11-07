@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math7-t1-8",
+  "subject": "math",
+  "topic": "движение",
+  "title": "Пешеход и велосипедист",
+  "statement": "Пешеход вышел из пункта $N$ в пункт $M$. Через 40 минут из $N$ в $M$ выехал велосипедист. Когда велосипедист прибыл в $M$, пешеходу оставалось $20\\%$ всего пути. Сколько времени потратил пешеход на весь путь, если известно, что велосипедист догнал пешехода на середине пути из $N$? Скорости пешехода и велосипедиста постоянны. Укажите ответ в минутах.",
+  "answer": {
+    "value": 200.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 200",
+      "решение: anthropic:claude-sonnet-5-5 → 200",
+      "программа (other): anthropic:claude-haiku-5-5 → 200",
+      "программа (other): anthropic:claude-sonnet-5-5 → 200"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 8,
+    "url": "https://matol.kz/olympiads/1008"
+  },
+  "figures": []
+}

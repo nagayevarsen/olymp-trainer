@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-region-2024-math11-6",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Оценка произведения abcd",
+  "statement": "Неотрицательные действительные числа $a, b, c, d$ таковы, что $(a-b)(b-c)(c-d)(d-a) \\ge a^2+b^2+c^2+d^2 = 12$. Докажите, что $abcd < 1.61$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2024,
+    "stage": "region",
+    "grade": 11,
+    "number": 6,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math11-2-sol.pdf"
+  },
+  "solution": "Решение. Обозначим $X = abcd$, $Y = (a-b)(b-c)(c-d)(d-a)$ и $Z = a^2+b^2+c^2+d^2$. По условию $Y \\ge Z = 12$. По неравенству Коши $Z = (a - b)^2 + (c - d)^2 + 2(ab + cd) \\ge 2|(a - b)(c - d)| + 4\\sqrt{X}$. (1) Аналогично $Z \\ge 2|(b - c)(d - a)| + 4\\sqrt{X}$. (2) Перемножив (1) и (2) получим, что $144 = Z^2 \\ge 16X + 4Y + 8\\sqrt{X}(|(a - b)(c - d)| + |(b - c)(d - a)|) \\ge 16X + 4Y + 16\\sqrt{XY} \\ge 16X + 48 + 16\\sqrt{12X} \\implies 6 \\ge X + \\sqrt{12X} \\implies 9 \\ge (\\sqrt{X} + \\sqrt{3})^2 \\implies X \\le (3 - \\sqrt{3})^2 = 12 - 6\\sqrt{3}$. Достаточно доказать, что $12 - 6\\sqrt{3} < 1.61 \\iff 10.39 < 6\\sqrt{3} \\iff 107.9521 < 108$, что верно.",
+  "figures": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-12",
+  "subject": "math",
+  "topic": "арифметика",
+  "title": "Обмен конфетами",
+  "statement": "Два малыша делились конфетами. Сначала первый дал половину своих конфет (отдал второму), потом второй дал половину своих первому, потом снова первый дал половину своих. В результате у первого оказалось 15 конфет, а у второго — 33. Сколько конфет было у первого в начале?",
+  "answer": {
+    "value": 24.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 24",
+      "решение: anthropic:claude-sonnet-5-5 → 24",
+      "программа (other): anthropic:claude-haiku-5-5 → 24",
+      "программа (other): anthropic:claude-sonnet-5-5 → 24"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 12,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

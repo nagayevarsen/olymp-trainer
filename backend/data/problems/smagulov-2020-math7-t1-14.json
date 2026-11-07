@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math7-t1-14",
+  "subject": "math",
+  "topic": "теория чисел",
+  "title": "Остаток простого числа",
+  "statement": "Известно, что остаток от деления некоторого простого числа на 60 равен составному числу. Какому?",
+  "answer": {
+    "value": 49.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 49",
+      "решение: anthropic:claude-sonnet-5-5 → 49",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 49",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 49"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 7,
+    "number": 14,
+    "url": "https://matol.kz/olympiads/1006"
+  },
+  "figures": []
+}

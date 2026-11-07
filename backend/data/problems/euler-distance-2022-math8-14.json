@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2022-math8-14",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Угол C меньше 36°",
+  "statement": "В треугольнике $ABC$ провели биссектрису $BE$ и серединный перпендикуляр $m$ к стороне $AB$. Оказалось, что $BE = EC$, а прямая $m$ пересекает сторону $BC$. Докажите, что угол $C$ меньше 36 градусов.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2022,
+    "stage": "distance",
+    "grade": 8,
+    "number": 14,
+    "url": "https://www.matol.ru/files/Disttur3_21_sol.pdf"
+  },
+  "solution": "Решение. Пусть $\\angle ABC = 2\\beta$, а прямая $m$ пересекает сторону $BC$ в точке $D$. По свойству серединного перпендикуляра $DA = DB$, откуда $\\angle DAB = \\angle ABD = 2\\beta$. Значит, по теореме о внешнем угле треугольника $\\angle ADC = \\angle DAB+\\angle ABD = 4\\beta$. Кроме того, поскольку $BE = EC$, $\\angle C = \\angle DBE = \\beta$. Из треугольника $ADC$ имеем $180^\\circ = \\angle DAC+\\angle ADC+\\angle C = \\angle DAC+4\\beta+\\beta$, откуда $\\angle C = \\beta = \\frac{180^\\circ-\\angle DAC}{5} < 36^\\circ$.",
+  "figures": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math6-t1-12",
+  "subject": "math",
+  "topic": "пропорции",
+  "title": "Проверка утверждений о пропорциях",
+  "statement": "Даны числа $a,b,c,d$. Известно, что $a\\ne b$, $c\\ne d$ и $\\frac{a}{b}=\\frac{c}{d}$. Какое из четырех утверждении не всегда верно:\n1) $\\frac{a+b}{b}=\\frac{c+d}{d}$;\n2) $\\frac{a-b}{b}=\\frac{c-d}{d}$;\n3) $\\frac{a-c}{b}=\\frac{b-d}{d}$;\n4) $\\frac{a+b}{a-b}=\\frac{c+d}{c-d}$.",
+  "answer": {
+    "value": 3.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 3",
+      "решение: anthropic:claude-sonnet-5-5 → 3",
+      "программа (other): anthropic:claude-haiku-5-5 → 3",
+      "программа (other): anthropic:claude-sonnet-5-5 → 3"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 6,
+    "number": 12,
+    "url": "https://matol.kz/olympiads/1005"
+  },
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-region-2023-math10-1",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Монотонные функции",
+  "statement": "Найдите все монотонные функции $f : \\mathbb{R} \\to \\mathbb{R}$ такие, что $$f\\left(\\frac{x+y}{4}\\right) = \\frac{f(x)+f(y)}{2}.$$",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2023,
+    "stage": "region",
+    "grade": 10,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2023/math10-1-sol.pdf"
+  },
+  "solution": "Поставим $x = 3y$ и получим $f(3y) = f(y)$. В полученное поставим вместо $y = 1, y = 3^1, y = 3^2, \\ldots, y = 3^k, \\ldots$ и используя монотонность, получим, что $f(x) = c$ для всех $x \\geqslant 1$ ($c$ — некоторая константа). Аналогично получим, что $f(x) = g$ для всех $x \\leqslant -1$ ($g$ — некоторая константа). Поставим в исходное уравнение такие $x, y$, что $x, \\frac{x+y}{4} \\geqslant 1$ и $y \\geqslant -1$. Тогда получим, что $c = \\frac{c+g}{2} \\Rightarrow c = g$. Применяя условия монотонности, получим, что $f(x) = c$ для всех $x$. Очевидно, что такая функция удовлетворяет условию задачи.",
+  "figures": []
+}

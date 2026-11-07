@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math6-t1-20",
+  "subject": "math",
+  "topic": "делители чисел",
+  "title": "Вычитание наибольших делителей",
+  "statement": "Дано число $A=\\underbrace{13 \\cdot 13 \\cdot \\ldots \\cdot 13}_{100 \\text{ раз}}$ (т.е. когда число 13 умножили на самого себя 100 раз, получили число $A$). Из числа $A$ вычли наибольший его делитель, не равный самому числу. Из полученной разности также вычли наибольший её делитель, не равный ей самой, и т.д. После пяти вычитаний получили число $B$. Какое частное получится, если $A$ разделить на $B$?",
+  "answer": {
+    "value": 13.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 13",
+      "решение: anthropic:claude-sonnet-5-5 → 13",
+      "программа (other): anthropic:claude-haiku-5-5 → 13",
+      "программа (other): anthropic:claude-sonnet-5-5 → 13"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 6,
+    "number": 20,
+    "url": "https://matol.kz/olympiads/1005"
+  },
+  "figures": []
+}

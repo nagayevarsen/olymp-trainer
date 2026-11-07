@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t2-1",
+  "subject": "math",
+  "topic": "перебор чисел",
+  "title": "Выбор числа Гани",
+  "statement": "Гани выбрал целое нечетное число между 1 и 99, причем оно не больше 90, не меньше 30, не является квадратом натурального числа, не является простым числом, не делится на 3, и его последняя цифра не равна 5. Какое число мог выбрать Гани (Укажите все возможные варианты, ответ обоснуйте)?",
+  "answer": {
+    "value": 77.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 77",
+      "решение: anthropic:claude-sonnet-5-5 → 77",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 77",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 77"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/489"
+  },
+  "figures": []
+}

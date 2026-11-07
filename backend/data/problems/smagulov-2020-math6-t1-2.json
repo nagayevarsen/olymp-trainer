@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math6-t1-2",
+  "subject": "math",
+  "topic": "теория множеств",
+  "title": "Знание двух языков",
+  "statement": "В международной школе лингвистов $85\\%$ учеников знают английский язык, а $75\\%$ — испанский (каждый из учеников знает хотя бы один из этих языков). Какая часть учеников наверняка знает оба языка? (Ответ дайте в процентах.)",
+  "answer": {
+    "value": 60.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 60",
+      "решение: anthropic:claude-sonnet-5-5 → 60",
+      "программа (other): anthropic:claude-haiku-5-5 → 60",
+      "программа (other): anthropic:claude-sonnet-5-5 → 60"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 6,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/1005"
+  },
+  "figures": []
+}

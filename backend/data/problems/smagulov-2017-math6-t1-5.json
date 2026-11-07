@@ -1,0 +1,29 @@
+{
+  "id": "smagulov-2017-math6-t1-5",
+  "subject": "math",
+  "topic": "произведение чисел",
+  "title": "Наименьшее произведение пары",
+  "statement": "Из ряда чисел $-9$, $-8$, $-7$, $2$, $4$, $6$ выбрали два числа и перемножили их. Чему равен наименьший возможный результат?",
+  "answer": {
+    "value": -54.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → -54",
+      "решение: gemini:gemini-3.8-flash → -54",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → -54",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → -54",
+      "программа (enumeration): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → -54"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/486"
+  },
+  "figures": []
+}

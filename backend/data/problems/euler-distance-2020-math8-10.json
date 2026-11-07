@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2020-math8-10",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Оценка отрезка MN",
+  "statement": "Точки $D$ и $E$ лежат на продолжениях сторон $AB$ и $BC$ остроугольного треугольника $ABC$ за точки $B$ и $C$ соответственно. Точки $M$ и $N$ — середины отрезков $AE$ и $DC$. Докажите, что $MN > AD/2$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2020,
+    "stage": "distance",
+    "grade": 8,
+    "number": 10,
+    "url": "https://www.matol.ru/files/Disttur2_19_sol.pdf"
+  },
+  "solution": "Решение. Пусть $L$ и $K$ — середины сторон $AB$ и $AC$ соответственно. Так как средние линии $KL$ и $KM$ треугольников $ABC$ и $ACE$ параллельны одной и той же прямой $BC$, а точки $L$ и $M$ лежат по разные стороны от прямой $AC$, точка $K$ лежит на отрезке $LM$. Заметим, что $\\angle NKM = \\angle NKC+\\angle CKM = \\angle BAC+\\angle BCA = 180^\\circ-\\angle ABC > 90^\\circ$. Поэтому $MN$ — самая длинная сторона в треугольнике $MKN$. В частности, $MN > KN = AD/2$, что и требовалось доказать.",
+  "figures": []
+}

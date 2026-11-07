@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t1-5",
+  "subject": "math",
+  "topic": "геометрия часов",
+  "title": "Угол между стрелками часов",
+  "statement": "Какой угол образуют минутная и часовая стрелки в 10 часов 22 минут? Если в задаче получили два ответа, то необходимо указать меньшее из них.",
+  "answer": {
+    "value": 179.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 179",
+      "решение: anthropic:claude-sonnet-5-5 → 179",
+      "программа (other): anthropic:claude-haiku-5-5 → 179",
+      "программа (other): anthropic:claude-sonnet-5-5 → 179"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/1007"
+  },
+  "figures": []
+}

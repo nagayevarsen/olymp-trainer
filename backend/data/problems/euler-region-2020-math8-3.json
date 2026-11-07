@@ -1,0 +1,23 @@
+{
+  "id": "euler-region-2020-math8-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Биссектриса и равные углы",
+  "statement": "Биссектриса угла $A$ выпуклого четырёхугольника $ABCD$ пересекает сторону $CD$ в точке $K$. Оказалось, что $DK = BC$ и $KC+AB = AD$. Докажите, что $\\angle BCD = \\angle ADC$. (С. Берлов)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2020,
+    "stage": "region",
+    "grade": 8,
+    "number": 3,
+    "url": "https://www.matol.ru/files/8klass2020_2etap_sol.pdf"
+  },
+  "solution": "Пусть точка $D'$ симметрична $D$ относительно прямой $AK$. Тогда $BC = DK = D'K$ и $KC = AD-AB = AD'-AB = BD'$, откуда следует равенство треугольников $BD'K$ и $BCK$ по трём сторонам. Тогда $\\angle BCK = \\angle BD'K = \\angle AD'K = \\angle ADK = \\angle ADC$.",
+  "figures": []
+}

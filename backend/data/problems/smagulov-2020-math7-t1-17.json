@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math7-t1-17",
+  "subject": "math",
+  "topic": "делимость и НОД",
+  "title": "НОД шестизначных палиндромов",
+  "statement": "Палиндромом называют те числа, которые не изменяются при написании в обратном порядке. Найдите наибольший общий делитель (НОД) всех шестизначных палиндромов.",
+  "answer": {
+    "value": 11.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 11",
+      "решение: anthropic:claude-sonnet-5-5 → 11",
+      "программа (other): anthropic:claude-haiku-5-5 → 11",
+      "программа (other): anthropic:claude-sonnet-5-5 → 11"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 7,
+    "number": 17,
+    "url": "https://matol.kz/olympiads/1006"
+  },
+  "figures": []
+}

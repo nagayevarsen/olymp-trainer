@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2025-math8-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Равновеликие треугольники",
+  "statement": "Прямая пересекает основание $AC$ равнобедренного треугольника $ABC$ в точке $D$, боковую сторону $AB$ в точке $E$ и луч $CB$ в точке $F$, причем $\\angle ADE = \\angle CDB$. Докажите, что площади треугольников $BCE$ и $AEF$ равны. (А. Кузнецов)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2025,
+    "stage": "final",
+    "grade": 8,
+    "number": 2,
+    "url": "https://www.matol.ru/files/3etap2025.zip#member=3etap2025day1sol.pdf"
+  },
+  "solution": "Первое решение. Достроим треугольник $ABC$ до ромба $ABCG$. Тогда в силу равенства $\\angle ADE = \\angle CDB$ точка $G$ окажется на прямой $DE$. Так как $CG \\parallel AB$, $S(BCE) = S(BGE)$. Заметим теперь, что, так как $AG \\parallel BF$, $S(BGE)+S(BFE) = S(BGF) = S(BAF) = S(AEF)+S(BFE)$, откуда $S(BCE) = S(BGE) = S(AEF)$. Второе решение. Треугольники $ADE$ и $CDB$ подобны по двум углам. Поскольку равны углы $EDB$ и $BDF$, точки $B$ и $F$ — соответственные в этих подобных треугольниках. Значит, $S(AEF)/S(BEF) = AE/EB = CB/BF = S(BCE)/S(BEF)$, откуда $S(AEF) = S(BCE)$.",
+  "figures": []
+}

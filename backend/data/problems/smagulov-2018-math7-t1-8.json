@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math7-t1-8",
+  "subject": "math",
+  "topic": "теория множеств",
+  "title": "Далматинцы с пятнами на ушах",
+  "statement": "Из 101 далматинца у 29-ти  пятно только на левом ухе, у 17-ти — только на правом ухе, а у 22 далматинцев нет пятен на ушах. Сколько далматинцев имеют пятно на правом ухе?",
+  "answer": {
+    "value": 50.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 50",
+      "решение: anthropic:claude-sonnet-5-5 → 50",
+      "программа (other): anthropic:claude-haiku-5-5 → 50",
+      "программа (other): anthropic:claude-sonnet-5-5 → 50"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 7,
+    "number": 8,
+    "url": "https://matol.kz/olympiads/856"
+  },
+  "figures": []
+}

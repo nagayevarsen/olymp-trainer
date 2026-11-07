@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t1-16",
+  "subject": "math",
+  "topic": "линейные уравнения",
+  "title": "Середина отрезка на прямой",
+  "statement": "Дано число $x$ для которого определены три точки на координатной прямой: $A(20x+21)$, $B(21x+22)$, $C(22x+20)$. Известно, что одна из точек лежит ровно посередине двух других. Найдите сумму всех таких $x$, удовлетворяющие этому условию.",
+  "answer": {
+    "value": 1.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1",
+      "решение: anthropic:claude-sonnet-5-5 → 1",
+      "программа (other): anthropic:claude-haiku-5-5 → 1",
+      "программа (other): anthropic:claude-sonnet-5-5 → 1"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 16,
+    "url": "https://matol.kz/olympiads/1007"
+  },
+  "figures": []
+}

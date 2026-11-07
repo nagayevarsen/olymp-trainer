@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t1-1",
+  "subject": "math",
+  "topic": "проценты",
+  "title": "Проценты от процентов",
+  "statement": "Сколько процентов от $5\\%$ от числа $a$ составляет столько же, сколько $8\\%$\nот $3\\%$ от числа $2a$?",
+  "answer": {
+    "value": 9.6,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 9.6",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 9.6",
+      "программа (other): anthropic:claude-haiku-5-5 → 9.6",
+      "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 9.6"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/487"
+  },
+  "figures": []
+}

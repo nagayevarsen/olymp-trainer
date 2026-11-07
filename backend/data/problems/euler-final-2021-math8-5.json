@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2021-math8-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Трапеция и подобие",
+  "statement": "Диагонали трапеции $ABCD$ ($AD \\parallel BC$) пересекаются в точке $K$. Внутри треугольника $ABK$ нашлась такая точка $M$, что $\\angle MBC = \\angle MAD$, $\\angle MCB = \\angle MDA$. Докажите, что прямая $MK$ параллельна основаниям трапеции. (М. Кунгожин)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2021,
+    "stage": "final",
+    "grade": 8,
+    "number": 5,
+    "url": "https://www.matol.ru/files/3etap2021sol.pdf"
+  },
+  "solution": "Решение. Опустим из точки $M$ перпендикуляры $MP$ и $MQ$ на прямые $AD$ и $BC$ соответственно. Треугольники $MBC$ и $MAD$ подобны по двум углам. Поэтому $MP/MQ = AD/BC$. Теперь опустим перпендикуляры $KR$ и $KS$ на прямые $AD$ и $BC$ из точки $K$. Треугольники $KBC$ и $KDA$ также подобны по двум углам, откуда $KR/KS = AD/BC = MP/MQ = m$. Кроме того $MP+MQ = PQ = RS = KR+KS = n$. Тогда из равенств $MP/(n-MP) = m = KR/(n-KR)$ имеем $MP = mn/(m+1) = KR$. Таким образом, $MPRK$ — прямоугольник, откуда и следует утверждение задачи.",
+  "figures": []
+}

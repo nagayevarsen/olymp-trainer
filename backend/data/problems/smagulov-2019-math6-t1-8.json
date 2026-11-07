@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2019-math6-t1-8",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Пары двузначных чисел",
+  "statement": "Сколько существует пар двузначных чисел, разность которых равна 32?",
+  "answer": {
+    "value": 58.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 58",
+      "решение: anthropic:claude-sonnet-5-5 → 58",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 58",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 58"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2019,
+    "stage": "city",
+    "grade": 6,
+    "number": 8,
+    "url": "https://matol.kz/olympiads/862"
+  },
+  "figures": []
+}

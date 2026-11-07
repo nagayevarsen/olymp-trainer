@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t1-17",
+  "subject": "math",
+  "topic": "Диофантовы уравнения",
+  "title": "Натуральные пары с суммой",
+  "statement": "Сколько натуральных пар $(x,y)$, с суммой $x+y$ меньше 200, удовлетворяют уравнению $5x=7y$?",
+  "answer": {
+    "value": 16.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 16",
+      "решение: anthropic:claude-sonnet-5-5 → 16",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 16",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 16"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 17,
+    "url": "https://matol.kz/olympiads/1007"
+  },
+  "figures": []
+}

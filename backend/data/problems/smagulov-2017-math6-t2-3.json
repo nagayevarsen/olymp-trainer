@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math6-t2-3",
+  "subject": "math",
+  "topic": "арифметика",
+  "title": "Суммы последовательных чисел",
+  "statement": "Определите количество натуральных чисел от 1 до 2016, которые одновременно являются суммой двух последовательных натуральных чисел и суммой пяти последовательных натуральных чисел. (Например,  $25 = 12 + 13 = 3 + 4 + 5 + 6 + 7$.)",
+  "answer": {
+    "value": 201.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 201",
+      "решение: anthropic:claude-sonnet-5-5 → 201",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 201",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 201"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 3,
+    "url": "https://matol.kz/olympiads/488"
+  },
+  "figures": []
+}

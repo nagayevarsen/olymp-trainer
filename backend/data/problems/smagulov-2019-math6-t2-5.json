@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2019-math6-t2-5",
+  "subject": "math",
+  "topic": "теория чисел",
+  "title": "Удивительные трехзначные числа",
+  "statement": "Трехзначное число назовем удивительным, если у него количество натуральных четных делителей совпадает с количеством натуральных делителей, кратных 3. Найдите наибольшее количество последовательных удивительных трехзначных чисел. (Последовательные числа, это целые числа, каждое из которых больше предыдущего на единицу, например 5, 6, 7.)",
+  "answer": {
+    "value": 3.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 3",
+      "решение: anthropic:claude-sonnet-5-5 → 3",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 3",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 3"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2019,
+    "stage": "city",
+    "grade": 6,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/864"
+  },
+  "figures": []
+}

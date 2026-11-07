@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t1-20",
+  "subject": "math",
+  "topic": "произведение цифр",
+  "title": "Наименьшее число с произведением 2016",
+  "statement": "Вася выписал все числа, произведение цифр которых равно 2016. Вова выбрал наименьшее из них. Какое число выбрал Вова?",
+  "answer": {
+    "value": 4789.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 4789",
+      "решение: anthropic:claude-sonnet-5-5 → 4789",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 4789",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 4789"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 20,
+    "url": "https://matol.kz/olympiads/487"
+  },
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2014-math8-6",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Пятиугольник и равенство диагоналей",
+  "statement": "Диагонали AD и BE выпуклого пятиугольника ABCDE пересекаются в точке P. Известно, что AC = CE = AE, $\\angle APB = \\angle ACE$ и AB + BC = CD + DE. Докажите, что AD = BE.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2014,
+    "stage": "distance",
+    "grade": 8,
+    "number": 6,
+    "url": "https://www.matol.ru/files/Disttur1_13_sol.pdf"
+  },
+  "solution": "Решение. По условию треугольник ACE — равносторонний, откуда $\\angle APB=\\angle ACE=60^\\circ$ и $\\angle APE=120^\\circ$. Положим $\\varphi=\\angle BEA$. Тогда $\\angle DAE=180^\\circ-\\angle APE-\\angle BEA=60^\\circ-\\varphi$, откуда $\\angle CAD=\\varphi$. Поэтому при повороте на $120^\\circ$ относительно центра треугольника ACE, переводящем A в E, луч AD перейдет в луч EB, а точка D — в такую точку F, что EF = AD и AF + FC = CD + DE = AB + BC. Заметим, что если EF < EB, то AF + FC < AB + BC. В самом деле, по построению точка F лежит вне треугольника ACE, и, стало быть, внутри треугольника ABC. Продолжим AF до пересечения с BC в точке G. Тогда по неравенству треугольника $AB+BC=AB+BG+GC>AG+GC=AF+FG+GC>AF+FC$. Аналогично, если EF > EB, то AF + FC > AB + BC. Поэтому AD = EF = EB.",
+  "figures": []
+}

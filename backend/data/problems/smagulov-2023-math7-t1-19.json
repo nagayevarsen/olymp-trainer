@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t1-19",
+  "subject": "math",
+  "topic": "дробные уравнения",
+  "title": "Наибольшее значение B",
+  "statement": "$A$ и $B$ двузначные натуральные числа такие, что $\\frac{A-5}{A}+\\frac{4}{B}=1.$ Какое наибольшее значение может принимать число $B$?",
+  "answer": {
+    "value": 76.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 76",
+      "решение: anthropic:claude-sonnet-5-5 → 76",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 76",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 76"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 19,
+    "url": "https://matol.kz/olympiads/1071"
+  },
+  "figures": []
+}

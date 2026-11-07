@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-republic-2021-math11-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Синусы углов треугольника",
+  "statement": "Внутри треугольника $ABC$ взята такая точка $M$, что $\\max(\\angle MAB, \\angle MBC, \\angle MCA) = \\angle MCA$. Докажите, что $\\sin \\angle MAB + \\sin \\angle MBC \\leq 1$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2021,
+    "stage": "republic",
+    "grade": 11,
+    "number": 2,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2021/math11-1-sol.pdf"
+  },
+  "solution": "Заметим, что среди трёх углов $\\angle MCA, \\angle MAB, \\angle MBC$ не может быть двух неострых (они вкладываются в углы треугольника $ABC$). Значит, исследуемые два угла острые. 1) Зафиксируем точки $M, B, C$ и будем двигать точку $A'$ по отрезку $AM$ от $A$ к $M$. Угол $\\angle MCA'$ будет непрерывно уменьшаться, угол $\\angle MA'B$ — непрерывно увеличиваться, угол $\\angle MBC$ не будет меняться. Поскольку в финальном положении имеем $\\angle MCA' = 0 < \\angle MBC$, в некоторый момент угол $\\angle MCA'$ станет равен одному из углов $\\angle MA'B$ или $\\angle MBC$, оставаясь не меньше другого. По замечанию в начале решения, теперь все три угла острые. Значит, достаточно доказать неравенство для новой конфигурации. Итак, считаем, без ограничения общности, что $\\angle MCA = \\angle MAB \\geq \\angle MBC$. Тогда окружность $AMC$ касается $AB$. 2) Пусть $CM$ пересекает $AB$ в точке $K$. Пусть $B'$ — точка, симметричная точке $A$ относительно $K$. Тогда $KB'^2 = KA^2 = KM \\cdot KC$, так что окружность $CMB'$ касается $AB$. Поскольку $B$ находится вне этой окружности, получаем $\\angle MBC \\leq \\angle MB'C$. Если $\\angle MB'C \\geq \\angle MCA$, то на отрезке $BB'$ можно выбрать точку $B^*$ такую, что $\\angle MB^*C = \\angle MCA = \\varphi$. Пусть $X, Y, Z$ основание перпендикуляра из точки $M$ на стороны $AB^*, B^*C, CA$. По неравенству Эрдеша–Морделла $MA + MB^* + MC \\geq 2(MX + MY + MZ) = 2\\sin\\varphi(MA + MB^* + MC)$, следовательно $\\varphi \\leq \\pi/6$, откуда и следует требуемое. (Неравенство Эрдеша–Морделла: для произвольной точки $S$ внутри треугольника сумма расстояний от $S$ до вершин треугольника не меньше, чем удвоенная сумма расстояний от $S$ до сторон треугольника.) Иначе имеем $\\angle MB'C < \\angle MCA$, и в треугольнике $AB'C$ по-прежнему все углы $\\angle MCA, \\angle MAB', \\angle MB'C$ острые. Поэтому достаточно доказать утверждение для точки $B$, заменённой на $B'$. Таким образом, мы свели задачу к случаю, когда $CK$ — медиана треугольника $ABC$, а окружности $CMA$ и $CMB$ касаются $AB$, то есть $\\angle MBA = \\angle MCB$ и $\\angle MCA = \\angle MAB$. При этом $\\angle MBC \\leq \\angle MCA$, откуда $\\beta = \\angle ABC = \\angle MBA + \\angle MBC \\leq \\angle MCB + \\angle MCA = \\angle BCA = \\gamma$. 3) Пусть $BM$ и $CM$ пересекают окружность $ABC$ в точках $L$ и $T$ соответственно. Тогда $\\angle ABT = \\angle ACT = \\angle MAB$, так что $BT \\parallel AM$; аналогично, $AT \\parallel BM$, так что $AMBT$ — параллелограмм. Считая, что диаметр окружности $ABC$ равен 1, получаем $\\sin \\angle MAB = \\sin \\angle MCA = AT = BM$. Далее, $\\angle CLM = \\angle CAB = \\alpha$, и из касания $\\angle CML = \\angle CBA = \\beta$, так что $\\angle MCL = \\gamma$. Поскольку $\\beta \\leq \\gamma$, получаем $\\sin \\angle MBC = CL \\leq LM$. Итак, $$\\sin \\angle MAB + \\sin \\angle MBC = AT + CL \\leq BM + LM = BL \\leq 1,$$ что и требовалось доказать.",
+  "figures": []
+}

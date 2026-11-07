@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math6-t1-16",
+  "subject": "math",
+  "topic": "проценты, делимость",
+  "title": "Пассажиры в автобусе",
+  "statement": "В автобусе ехало не более ста пассажиров, причем число стоящих пассажиров было в два раза больше числа сидящих. На остановке из автобуса вышло $4\\%$ всех пассажиров. Найдите число пассажиров, оставшихся в автобусе.",
+  "answer": {
+    "value": 72.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 72",
+      "решение: anthropic:claude-sonnet-5-5 → 72",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 72",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 72"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 6,
+    "number": 16,
+    "url": "https://matol.kz/olympiads/1005"
+  },
+  "figures": []
+}

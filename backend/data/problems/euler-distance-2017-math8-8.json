@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2017-math8-8",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Сторона трапеции",
+  "statement": "В трапеции $ABCD$ ($AD \\parallel BC$) $AD = 2$, $BC = 1$, $\\angle ABD = 90^\\circ$. Найдите сторону $CD$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2017,
+    "stage": "distance",
+    "grade": 8,
+    "number": 8,
+    "url": "https://www.matol.ru/files/Disttur2_16_sol.pdf"
+  },
+  "solution": "Ответ. $CD = 1$. Решение. (На рисунке трапеция $ABCD$ с основаниями $AD$ и $BC$, проведены отрезок $BE$, где $E$ — середина основания $AD$, и диагональ $BD$.) Пусть $E$ — середина основания $AD$. Так как треугольник $ABD$ прямоугольный, $BE = AE = DE = 1$. С другой стороны, $BC = DE$ и $BC \\parallel DE$, так что $BCDE$ — параллелограмм. Следовательно, $CD = BE = 1$.",
+  "figures": []
+}

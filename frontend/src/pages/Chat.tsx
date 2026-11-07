@@ -219,7 +219,7 @@ export function ChatPage() {
         </ul>
       )}
       {/* строка ввода всегда внизу экрана, как в ChatGPT */}
-      <div className="sticky bottom-0 z-10 -mx-1 bg-slate-50/95 px-1 pb-3 pt-2 backdrop-blur dark:bg-slate-950/95">
+      <div className="sticky bottom-0 z-10 -mx-1 bg-slate-50/95 px-1 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur dark:bg-slate-950/95">
         {error && <p className="mb-2 text-sm text-red-600">{error}</p>}
         {files.length > 0 && (
           <div className="mb-2 flex flex-wrap gap-2">

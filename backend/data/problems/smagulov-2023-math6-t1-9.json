@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-9",
+  "subject": "math",
+  "topic": "оптимизация времени",
+  "title": "Совместное решение задач",
+  "statement": "Каждую задачу по геометрии Арман решает за 3 минуты, а Талгат — за 5 минут. Каждую логическую задачу Арман решает за 9 минут, а Талгат — за 7 минут. За какое наименьшее время (в минутах) Арман и Талгат вместе решат 9 геомертических и 5 логических задач? (Каждую задачу они решают индивидуально.)",
+  "answer": {
+    "value": 33.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 33",
+      "решение: anthropic:claude-sonnet-5-5 → 33",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 33",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 33"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 9,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

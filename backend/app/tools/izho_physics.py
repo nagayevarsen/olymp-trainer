@@ -54,7 +54,7 @@ EXTRACT_SYSTEM = """Ты аккуратно переносишь олимпиа�
 Ничего не придумывай: условие — только из файла условий, ответ — только из файла официальных решений.
 Отвечай только JSON."""
 
-EXTRACT_PROMPT = """Первый PDF — условия теоретического тура Международной Жаутыковской олимпиады {year} года,
+EXTRACT_PROMPT = """Первый PDF — условия {title} {year} года,
 второй — официальные решения. Выдели ВСЕ задачи и их пункты (вопросы).
 
 Для каждой задачи:
@@ -128,7 +128,7 @@ async def _ask(client, model: str, system: str, content: list[dict], max_tokens:
     m = re.search(r"\{.*\}", text, re.S)
     if not m:
         raise ValueError("в ответе модели нет JSON")
-    return json.loads(m.group(0))
+    return json.loads(m.group(0), strict=False)
 
 
 def _pdf_block(path: Path) -> dict:
@@ -247,15 +247,50 @@ def _write(problem: Problem) -> None:
 
 
 async def import_year(client, year: int, budget: float, dry_run: bool) -> Report:
+    return await import_pair(
+        client,
+        olympiad=OLYMPIAD,
+        slug="izho",
+        stage="international",
+        year=year,
+        grade=None,
+        tasks_url=B + PAIRS[year][0],
+        sol_url=B + PAIRS[year][1],
+        title="теоретического тура Международной Жаутыковской олимпиады",
+        budget=budget,
+        dry_run=dry_run,
+    )
+
+
+async def import_pair(
+    client,
+    *,
+    olympiad: str,
+    slug: str,
+    stage: str,
+    year: int,
+    grade: int | None,
+    tasks_url: str,
+    sol_url: str,
+    title: str,
+    budget: float,
+    dry_run: bool,
+    cache_name: str = "izho-phys",
+    replace_old: bool = True,
+    tag: str = "",
+) -> Report:
+    """Физика из пары PDF (условия + официальные решения): рисунки вырезаются, ответ перепроверяется моделями."""
     rep = Report()
-    tasks_pdf, sol_pdf = fetch_pdf(B + PAIRS[year][0]), fetch_pdf(B + PAIRS[year][1])
-    cache_dir = Path(figures_dir()).parent / "raw" / "izho-phys"
+    tasks_pdf, sol_pdf = fetch_pdf(tasks_url), fetch_pdf(sol_url)
+    key = f"{slug}-{year}-{grade or 0}{tag}"
+    prefix = f"{slug}-{year}-phys{grade or ''}{tag}"
+    cache_dir = Path(figures_dir()).parent / "raw" / cache_name
     cache_dir.mkdir(parents=True, exist_ok=True)
-    extract_cache = cache_dir / f"{year}-extract.json"
+    extract_cache = cache_dir / f"{key}-extract.json"
     if extract_cache.exists():
         data = json.loads(extract_cache.read_text(encoding="utf-8"))
     else:
-        prompt = EXTRACT_PROMPT.format(year=year)
+        prompt = EXTRACT_PROMPT.format(title=title, year=year)
         content = [_pdf_block(tasks_pdf), _pdf_block(sol_pdf), {"type": "text", "text": prompt}]
         data = await _ask(client, HAIKU, EXTRACT_SYSTEM, content)
         extract_cache.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -275,10 +310,18 @@ async def import_year(client, year: int, budget: float, dry_run: bool) -> Report
                 rep.skip("пункт без числа/формулы")
         if not parts:
             continue
+        if not replace_old and any(
+            q.source.olympiad == olympiad
+            and q.subject == "physics"
+            and (q.source.year, q.source.stage, q.source.grade, q.source.number) == (year, stage, grade, n)
+            for q in bank.values()
+        ):
+            rep.skip("уже в банке")  # не тратим деньги на перепроверку того, что уже есть
+            continue
         figs: list[str] = []
         for k, f in enumerate(prob.get("figures") or [], 1):
             page, box = int(f.get("page") or 0), f.get("box") or []
-            name = crop_figure(tasks_pdf, page, box, f"izho-{year}-phys-{n}-fig{k}")
+            name = crop_figure(tasks_pdf, page, box, f"{prefix}-{n}-fig{k}")
             if name:
                 figs.append(name)
         fig_paths = [figures_dir() / f for f in figs]
@@ -287,7 +330,7 @@ async def import_year(client, year: int, budget: float, dry_run: bool) -> Report
             rep.skip("бюджет исчерпан")
             continue
         try:
-            haiku = await _solve(client, HAIKU, intro, fig_paths, parts, cache_dir / f"{year}-{n}-haiku.json")
+            haiku = await _solve(client, HAIKU, intro, fig_paths, parts, cache_dir / f"{key}-{n}-haiku.json")
         except ValueError:
             haiku = [None] * len(parts)
         doubtful = [p for p, a in zip(parts, haiku) if not _matches(p, a)]
@@ -298,7 +341,7 @@ async def import_year(client, year: int, budget: float, dry_run: bool) -> Report
         if doubtful:
             try:
                 sonnet = await _solve(
-                    client, SONNET, intro, fig_paths, doubtful, cache_dir / f"{year}-{n}-sonnet.json"
+                    client, SONNET, intro, fig_paths, doubtful, cache_dir / f"{key}-{n}-sonnet.json"
                 )
             except ValueError:
                 sonnet = [None] * len(doubtful)
@@ -307,17 +350,22 @@ async def import_year(client, year: int, budget: float, dry_run: bool) -> Report
         old = [
             pid
             for pid, q in bank.items()
-            if q.source.olympiad == OLYMPIAD
+            if q.source.olympiad == olympiad
             and q.subject == "physics"
             and q.source.year == year
+            and q.source.stage == stage
+            and q.source.grade == grade
             and q.source.number == n
         ]
+        if old and not replace_old:
+            rep.skip("уже в банке")
+            continue
         if not dry_run:
             for pid in old:
                 (problems_dir() / f"{pid}.json").unlink(missing_ok=True)
         for p in parts:
             label = str(p["label"])
-            pid = f"izho-{year}-phys-{n}-p{re.sub(r'[^a-z0-9]+', '-', label.lower()).strip('-') or 'x'}"
+            pid = f"{prefix}-{n}-p{re.sub(r'[^a-z0-9]+', '-', label.lower()).strip('-') or 'x'}"
             if label in bad:
                 shown = p.get("formula") or f"{format_number(p['value'])} {p.get('unit') or ''}"
                 rep.dropped.append(f"{pid}: официальный ответ {shown} — не подтвердили ни Haiku, ни Sonnet")
@@ -334,11 +382,12 @@ async def import_year(client, year: int, budget: float, dry_run: bool) -> Report
                 "statement": f"{intro}\n\n**Пункт {label}.** {str(p['question']).strip()}",
                 "answer": answer,
                 "source": {
-                    "olympiad": OLYMPIAD,
+                    "olympiad": olympiad,
                     "year": year,
-                    "stage": "international",
+                    "stage": stage,
+                    **({"grade": grade} if grade else {}),
                     "number": n,
-                    "url": B + PAIRS[year][1],
+                    "url": sol_url,
                 },
                 "solution": str(p.get("solution") or "").strip() or None,
                 "figures": figs,

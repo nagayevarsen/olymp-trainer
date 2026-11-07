@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math7-t1-16",
+  "subject": "math",
+  "topic": "факториал и нули",
+  "title": "Нули в конце факториала",
+  "statement": "Обозначим  через $n!$ произведение всех натуральных чисел от 1 до $n.$  Вася заметил, что все числа $n!,$ $(n+1)!,$ $(n+2)!,$ $(n+3)!$ и $(n+4)!$  оканчиваются четырьмя ноликами. Сколькими ноликами оканчивается число $\\left( n+5 \\right)!$?",
+  "answer": {
+    "value": 6.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 6",
+      "решение: anthropic:claude-sonnet-5-5 → 6",
+      "программа (other): anthropic:claude-haiku-5-5 → 6",
+      "программа (other): anthropic:claude-sonnet-5-5 → 6"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 7,
+    "number": 16,
+    "url": "https://matol.kz/olympiads/856"
+  },
+  "figures": []
+}

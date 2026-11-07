@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2023-math8-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Четырёхугольник и середина стороны",
+  "statement": "Точка $N$ — середина стороны $AD$ выпуклого четырёхугольника $ABCD$, а точка $M$ на стороне $AB$ такова, что $CM \\perp BD$. Докажите, что если $BM > MA$, то $2BC+AD > 2CN$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2023,
+    "stage": "final",
+    "grade": 8,
+    "number": 2,
+    "url": "https://www.matol.ru/files/3etap2023_day1_sol.pdf"
+  },
+  "solution": "Обозначим через $P$ точку пересечения $CM$ и $BD$. Опустим перпендикуляр $AQ$ на прямую $BD$. Поскольку $BM > AM$, то по теореме Фалеса $BP > PQ$, откуда $BC > CQ$. Но, поскольку угол $AQD$ прямой, $QN = AD/2$. В силу неравенства треугольника, $CN \\le CQ + QN < BC + AD/2$, откуда $2BC + AD > 2CN$.",
+  "figures": []
+}

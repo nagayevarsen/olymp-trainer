@@ -492,3 +492,26 @@ def test_mix_is_one_kind_and_many_olympiads(client):
         assert all(p.is_proof == (kind == "proof") for p in ps)
         assert len({p.source.olympiad for p in ps}) > 1 or kind == "proof"
     assert client.get("/api/mix", params={"n": 1}, headers=auth(token)).status_code == 422
+
+
+def test_avatar_saved_on_server_and_validated(client):
+    import base64
+
+    token = register(client).json()["token"]
+    h = auth(token)
+    assert client.get("/api/me/avatar", headers=h).json() == {"avatar": None}
+    assert client.put("/api/me/avatar", json={"kind": "pixel", "seed": 7}, headers=h).status_code == 200
+    assert client.get("/api/me/avatar", headers=h).json()["avatar"] == {"kind": "pixel", "seed": 7}
+    jpeg = "data:image/jpeg;base64," + base64.b64encode(bytes([0xFF, 0xD8, 0xFF, 0xE0]) + b"x" * 20).decode()
+    assert (
+        client.put("/api/me/avatar", json={"kind": "photo", "data_url": jpeg}, headers=h).status_code == 200
+    )
+    bad = "data:image/jpeg;base64," + base64.b64encode(b"<script>alert(1)</script>").decode()
+    assert client.put("/api/me/avatar", json={"kind": "photo", "data_url": bad}, headers=h).status_code == 422
+    assert (
+        client.put(
+            "/api/me/avatar", json={"kind": "photo", "data_url": "http://x/y.jpg"}, headers=h
+        ).status_code
+        == 422
+    )
+    assert client.get("/api/me/avatar").status_code == 401  # без входа — нельзя

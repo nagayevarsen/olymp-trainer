@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math6-t1-14",
+  "subject": "math",
+  "topic": "уравнения, проценты",
+  "title": "Погружение дайвера",
+  "statement": "Дайвер погружался на дно. Вначале он погрузился на 1 метр и испугался. Потом он набрался храбрости и преодолел еще половину оставшейся глубины. Затем, после небольшой передышки, он погрузился еще на 1 метр. До дна уже оставалось $30\\$ всей глубины. На какую глубину погружался дайвер?",
+  "answer": {
+    "value": 7.5,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 7.5",
+      "решение: anthropic:claude-sonnet-5-5 → 7.5",
+      "программа (other): anthropic:claude-haiku-5-5 → 7.5",
+      "программа (other): anthropic:claude-sonnet-5-5 → 7.5"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 6,
+    "number": 14,
+    "url": "https://matol.kz/olympiads/1005"
+  },
+  "figures": []
+}

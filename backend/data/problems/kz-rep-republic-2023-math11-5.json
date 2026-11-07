@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-republic-2023-math11-5",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Уравнение в простых числах",
+  "statement": "Решите уравнение в простых числах $p^3 + q^3 + r^3 = p^2qr$.\nОтвет: $(p, q, r) = (3, 3, 3)$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2023,
+    "stage": "republic",
+    "grade": 11,
+    "number": 5,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2023/math-2-sol.pdf"
+  },
+  "solution": "Пусть $p \\le 3$. Тогда по неравенству Коши $3pqr \\le p^3 + q^3 + r^3 = p^2qr \\le 3pqr$. Причём равенство достигается только при $p = q = r = 3$, что удовлетворяет условию задачи. Пусть теперь $p > 3$.\nЕсли $r = 3$, то $p^3 + q^3 + 27 = 3p^2q \\Rightarrow 3 \\mid p + q \\Rightarrow p^2 - pq + q^2 \\equiv 3q^2 \\equiv 0 \\pmod 3 \\Rightarrow 9 \\mid p^3 + q^3 \\Rightarrow 9 \\mid 3p^2q \\Rightarrow q = 3 \\Rightarrow p = 3$. Аналогично, если $q = 3$, то получим, что $p = r = 3$. Пусть теперь $q, r \\ne 3$. Если $q = p$, то $p \\mid r^3 \\Rightarrow p = r$. В этом случае $3p^3 = p^3 + q^3 + r^3 = p^2qr = p^4 \\Rightarrow p = q = r = 3$, что неверно. Аналогично $p \\ne r$, т.е. $(3p, qr) = 1$.\nЗаметим, что $p^2 \\mid p^2(qr - p) = q^3 + r^3 = (q + r)(q^2 - qr + r^2)$. Значит $p^2 \\mid q + r$ или $p \\mid (q^2 - qr + r^2)$.\n1) $p^2 \\mid q + r$. Тогда $q + r \\ge p^2$. По неравенству Коши $q^3 + r^3 = (q+r)(q^2 - qr + r^2) \\ge (q+r)qr$, следовательно $p^3 + q^3 + r^3 > (q+r)qr \\ge p^2qr$, что неверно.\n2) $p \\mid (q^2 - qr + r^2)$. Рассмотрим два случая.\na) $p \\equiv 1 \\pmod 3$. Так как $x^3 \\equiv x \\pmod 3$ и $p^2 \\equiv 1 \\pmod 3$, то из $p^3 + q^3 + r^3 = p^2qr$ следует, что $p + q + r \\equiv qr \\pmod 3 \\Rightarrow 1 + q + r \\equiv qr \\pmod 3 \\Rightarrow (q-1)(r-1) \\equiv 2 \\pmod 3$. (1) Перебрав $q, r \\equiv 1, 2 \\pmod 3$, получим, что (1) не выполняется.\nb) $p \\equiv 2 \\pmod 3$. Так как $p > 2$, число $(p-2)/3$ — нечётно. Из $p \\mid (q^2 - qr + r^2)$ следует, что $q^3 \\equiv -r^3 \\pmod p \\Rightarrow (q^3)^{\\frac{p-2}{3}} \\equiv (-r^3)^{\\frac{p-2}{3}} \\pmod p \\Rightarrow q^{p-2} \\equiv -r^{p-2} \\pmod p$. (2) Умножив обе части (2) на $qr$ и используя малую теорему Ферма, получим, что $r \\equiv -q \\pmod p$. Тогда $0 \\equiv q^2 - qr + r^2 \\equiv 3r^2 \\pmod p$, что неверно.",
+  "figures": []
+}

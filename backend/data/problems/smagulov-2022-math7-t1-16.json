@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math7-t1-16",
+  "subject": "math",
+  "topic": "теория чисел",
+  "title": "Целые числа на доске",
+  "statement": "Какое наибольшее количество целых чисел можно написать на доске так, чтобы и сумма и разность любых двух из них не делилась на 125.",
+  "answer": {
+    "value": 63.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 63",
+      "решение: anthropic:claude-sonnet-5-5 → 63",
+      "программа (other): anthropic:claude-haiku-5-5 → 63",
+      "программа (other): anthropic:claude-sonnet-5-5 → 63"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 16,
+    "url": "https://matol.kz/olympiads/1008"
+  },
+  "figures": []
+}

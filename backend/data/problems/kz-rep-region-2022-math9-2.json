@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-region-2022-math9-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Биссектрисы и равенство отрезков",
+  "statement": "Дан треугольник $ABC$, в котором $\\angle ABC = 120^\\circ$. Биссектрисы $AP$, $BQ$ и $CR$ треугольника $ABC$ пересекаются в точке $I$. Перпендикуляр из точки $P$ на $CR$ пересекает $AC$ в точке $S$; перпендикуляр из точки $R$ на $AP$ пересекает $AC$ в точке $T$. Докажите, что\n(a) $\\angle TIS = 90^\\circ$;\n(b) $QS = QT$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2022,
+    "stage": "region",
+    "grade": 9,
+    "number": 2,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2022/math9-1-sol.pdf"
+  },
+  "solution": "Во-первых, из-за того, что $\\angle B = 120^\\circ$, находим, что $\\angle AIC = 150^\\circ$, поэтому $\\angle RIA = 30^\\circ$. Точка $T$ симметрична $R$ относительно $AI$, поэтому $\\angle TIA = \\angle RIA = 30^\\circ$. Аналогично, $\\angle STC = 30^\\circ$. Следовательно, $\\angle TIS = 150^\\circ - \\angle TIA - \\angle SIC = 90^\\circ$.\nЗаметим, что\n$\\angle A + \\angle C = 180^\\circ - \\angle B = 180^\\circ - 120^\\circ = 60^\\circ$.\nДалее заметим, что\n$\\angle QTI = \\angle TAI + \\angle TIA = \\frac{\\angle A}{2} + 30^\\circ = \\frac{60^\\circ - \\angle C}{2} + 30^\\circ = 60^\\circ - \\frac{\\angle C}{2}$,\n$\\angle QIT = \\angle QIA - \\angle TIA = 90^\\circ - \\frac{\\angle C}{2} - 30^\\circ = 60^\\circ - \\frac{\\angle C}{2}$.\nТаким образом, $\\angle QTI = \\angle QIT$, следовательно, $QT = QI$. Аналогично, $QS = QI$. Значит, $QS = QT$. Что и требовалось доказать.",
+  "figures": []
+}

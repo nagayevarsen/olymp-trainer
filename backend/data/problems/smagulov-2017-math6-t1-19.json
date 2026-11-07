@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math6-t1-19",
+  "subject": "math",
+  "topic": "логика, подсчёт",
+  "title": "Шарики Бенито",
+  "statement": "У Бенито есть 20 разноцветных шариков: желтых, зеленых, синих и черных. Из этих шариков 17 — не зеленые, 5 — черные, а 12 — не желтые. Сколько синих шариков у Бенито?",
+  "answer": {
+    "value": 4.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 4",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 4",
+      "программа (other): anthropic:claude-haiku-5-5 → 4",
+      "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 4"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 19,
+    "url": "https://matol.kz/olympiads/486"
+  },
+  "figures": []
+}

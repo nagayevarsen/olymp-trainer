@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-18",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Числа с одинаковыми цифрами",
+  "statement": "Даны числа 1, 2, 3, $\\ldots$, 2023. Сколько из этих чисел имеют не менее трех одинаковых цифр?",
+  "answer": {
+    "value": 48.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 48",
+      "решение: anthropic:claude-sonnet-5-5 → 48",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 48",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 48"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 18,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

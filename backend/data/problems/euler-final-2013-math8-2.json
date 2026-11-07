@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2013-math8-2",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Неравенство с дробями",
+  "statement": "Каждое из чисел x, y и z не меньше 0 и не больше 1. Докажите неравенство $\\frac{x^2}{1+x+xyz}+\\frac{y^2}{1+y+xyz}+\\frac{z^2}{1+z+xyz}\\leq 1$. (А. Храбров)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2013,
+    "stage": "final",
+    "grade": 8,
+    "number": 2,
+    "url": "https://www.matol.ru/files/3etap2013sol.pdf"
+  },
+  "solution": "Заметим, что 1+yz ≥ y+z, поскольку (1–y)(1–z) ≥ 0. Следовательно, 1+x+xyz = 1+x(1+yz) ≥ 1+x(y+z) ≥ x²+xy+xz. Поэтому $\\frac{x^2}{1+x+xyz}\\leq\\frac{x^2}{x^2+xy+xz}=\\frac{x}{x+y+z}$. Применяя такую оценку к каждой из трёх дробей, получаем требуемое.",
+  "figures": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t1-2",
+  "subject": "math",
+  "topic": "последовательности",
+  "title": "Место дроби в последовательности",
+  "statement": "Дана бесконечная последовательность дробей, имеющая некоторую закономерность: $\\frac{1}{2},\\frac{1}{4}$, $\\frac{3}{4}$, $\\frac{1}{6}$, $\\frac{3}{6}$, $\\frac{5}{6}$, $\\frac{1}{8}$, $\\ldots$. На каком месте стоит дробь $\\frac{2023}{2024}$?",
+  "answer": {
+    "value": 512578.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 512578",
+      "решение: anthropic:claude-sonnet-5-5 → 512578",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 512578",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 512578"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/1071"
+  },
+  "figures": []
+}

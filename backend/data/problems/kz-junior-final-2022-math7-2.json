@@ -1,0 +1,23 @@
+{
+  "id": "kz-junior-final-2022-math7-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Равнобедренный треугольник и медиана",
+  "statement": "Дан треугольник $ABC$, в котором $BC = 2AB$. Точка $D$ — середина стороны $BC$, точка $K$ — середина отрезка $BD$. Докажите, что $AC = 2AK$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Юниорская олимпиада (Казахстан)",
+    "year": 2022,
+    "stage": "final",
+    "grade": 7,
+    "number": 2,
+    "url": "https://cdn.bc-pf.org/olympiads/math/junior/2022/final/math7-sol.pdf"
+  },
+  "solution": "Заметим, что $BD = \\frac{BC}{2} = AB$, поэтому треугольник $ABD$ — равнобедренный с $AB = BD$.\n\nПусть $E$ — середина $AB$. Тогда $BE = \\frac{AB}{2} = \\frac{BD}{2} = BK$. Следовательно, $\\triangle ABK = \\triangle DBE$, и как следствие, $AK = DE$. С другой стороны, $DE$ является средней линией стороны $AC$ в треугольнике $ABC$. Значит, $AC = 2DE = 2AK$, что и требовалось доказать.",
+  "figures": []
+}

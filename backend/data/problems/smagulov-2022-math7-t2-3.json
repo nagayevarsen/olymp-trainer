@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math7-t2-3",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Числа из нулей и единиц",
+  "statement": "Сколько натуральных чисел, меньших 11111100111, записано только цифрами 0 и 1?",
+  "answer": {
+    "value": 2022.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 2022",
+      "решение: anthropic:claude-sonnet-5-5 → 2022",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 2022",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 2022"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 3,
+    "url": "https://matol.kz/olympiads/1010"
+  },
+  "figures": []
+}

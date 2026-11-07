@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t1-3",
+  "subject": "math",
+  "topic": "геометрия треугольника",
+  "title": "Угол ABC с биссектрисой",
+  "statement": "Пусь $AD$ — биссектриса треугольника $ABC$ и точка $E$ взята на стороне $AB$ так, чтобы $\\angle ACE=\\angle ABC$. Найдите градусную меру угла $ABC$, если $\\angle AEC=85^\\circ$, $\\angle ADC=70^\\circ$.",
+  "answer": {
+    "value": 45.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 45",
+      "решение: anthropic:claude-sonnet-5-5 → 45",
+      "программа (other): anthropic:claude-haiku-5-5 → 45",
+      "программа (other): anthropic:claude-sonnet-5-5 → 45"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 3,
+    "url": "https://matol.kz/olympiads/1071"
+  },
+  "figures": []
+}

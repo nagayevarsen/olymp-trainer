@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2017-math8-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Четырёхугольник с единичными сторонами",
+  "statement": "Диагонали выпуклого четырехугольника $ABCD$ пересекаются в точке $E$. Известно, что $AB = BC = CD = DE = 1$. Докажите, что $AD < 2$. (А. Кузнецов)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2017,
+    "stage": "final",
+    "grade": 8,
+    "number": 3,
+    "url": "https://www.matol.ru/files/3etap2017sol.pdf"
+  },
+  "solution": "Первое решение. Заметим, что $\\angle CED < 90^\\circ$, потому что это угол при основании равнобедренного треугольника $CDE$. Значит, $\\angle BEC > 90^\\circ$, поэтому $BC > CE$. Обозначим через $B'$ точку, симметричную точке $B$ относительно прямой $AC$. Поскольку $BC = CD = DE$, $\\angle B'CD = \\angle DCE - \\angle B'CE = \\angle CED - \\angle BCE = \\angle CBE = \\angle CDE$. Также $AB' = CB' = CD = 1$. Тогда треугольники $DCB'$ и $EDC$ равны по двум сторонам и углу между ними, откуда $B'D = CE$. Таким образом, $AD \\le AB' + B'D = 1 + CE < 1 + BC = 2$, что и требовалось доказать. Второе решение. Положим $\\angle EDC = 2\\alpha$, $\\angle EDA = \\beta$, $\\angle EAD = \\gamma$. Поскольку $BC = CD = DE$, имеем $\\angle CBE = 2\\alpha$ и $\\angle CED = \\angle DCE = 90^\\circ - \\alpha$. Так как угол $CED$ — внешний для треугольника $BEC$, $\\angle BCE = 90^\\circ - \\alpha - 2\\alpha = 90^\\circ - 3\\alpha$, откуда $\\angle BAC = 90^\\circ - 3\\alpha$ и $\\angle ABE = 180^\\circ - \\angle BAE - \\angle BEA = 180^\\circ - (90^\\circ - \\alpha) - (90^\\circ - 3\\alpha) = 4\\alpha$. Предположим, что $AD \\ge 2$. Тогда $AE + ED > 2$. Значит, $AE > 1 = AB$. Следовательно $\\angle ABE > \\angle AEB$, то есть $4\\alpha > 90^\\circ - \\alpha$, откуда $5\\alpha > 90^\\circ$. Также $AE > ED$, поэтому $\\beta > \\gamma$. Поскольку $\\angle CED = 90^\\circ - \\alpha$ внешний для треугольника $AED$, $90^\\circ - \\alpha = \\beta + \\gamma < 2\\beta$. Заметим, что $AD \\ge AB + BC > AC$. Значит, $\\angle ACD < \\angle ADC$, то есть $90^\\circ - \\alpha > 2\\alpha + \\beta$. Тогда $180^\\circ - 2\\alpha > 4\\alpha + 2\\beta > 90^\\circ + 3\\alpha$, откуда следует, что $90^\\circ > 5\\alpha$. Получили противоречие с ранее доказанным неравенством $5\\alpha > 90^\\circ$. Таким образом, $AD < 2$, что и требовалось доказать.",
+  "figures": []
+}

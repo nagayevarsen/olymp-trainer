@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math6-t1-8",
+  "subject": "math",
+  "topic": "движение",
+  "title": "Скорость и время в пути",
+  "statement": "Сергей проехал за четыре часа 200 километров. За какое время он проедет следующие 150 километров, если будет ехать в два раза быстрее? (Ответ укажите в часах.)",
+  "answer": {
+    "value": 1.5,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1.5",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 1.5",
+      "программа (other): anthropic:claude-haiku-5-5 → 1.5",
+      "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 1.5"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 8,
+    "url": "https://matol.kz/olympiads/486"
+  },
+  "figures": []
+}

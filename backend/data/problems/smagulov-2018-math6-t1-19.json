@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math6-t1-19",
+  "subject": "math",
+  "topic": "совместная работа",
+  "title": "Пух и Пятачок едят сгущенку",
+  "statement": "Винни-Пух съедает 3 банки сгущенки и банку меда за 25 минут, а Пятачок – за 55 минут. Одну банку сгущенки и 3 банки меда Винни-Пух съедает за 35 минут, а Пятачок – за 85 минут. За сколько минут они вместе съедят 6 банок сгущенки?",
+  "answer": {
+    "value": 20.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 20",
+      "решение: anthropic:claude-sonnet-5-5 → 20",
+      "программа (other): anthropic:claude-haiku-5-5 → 20",
+      "программа (other): anthropic:claude-sonnet-5-5 → 20"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 6,
+    "number": 19,
+    "url": "https://matol.kz/olympiads/855"
+  },
+  "figures": []
+}

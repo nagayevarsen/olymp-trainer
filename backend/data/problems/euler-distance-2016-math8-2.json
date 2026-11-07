@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2016-math8-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Медиана и угол",
+  "statement": "В треугольнике $ABC$ точка $M$ — середина $AC$, кроме того, $BC = \\frac{2AC}{3}$ и $\\angle BMC= 2\\angle ABM$. Найдите отношение $\\frac{AM}{AB}$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2016,
+    "stage": "distance",
+    "grade": 8,
+    "number": 2,
+    "url": "https://www.matol.ru/files/Disttur1_15_sol.pdf"
+  },
+  "solution": "Ответ. $\\frac{AM}{AB}=\\frac{3}{2\\sqrt{5}}$. Решение. Положим $\\angle ABM = \\alpha$. Тогда $\\angle BMC = 2\\alpha$, $\\angle BMA = 180^\\circ-2\\alpha$, $\\angle BAM = 180^\\circ-\\angle ABM-\\angle AMB = \\alpha = \\angle ABM$, откуда $BM = AM = MC$. Получается, что медиана $BM$ треугольника $ABC$ равна половине стороны $AC$, откуда $\\angle ABC = 90^\\circ$. Положим $BC = 4m$. Тогда $AC = 6m$, $AM = 3m$, $AB = \\sqrt{36m^2 - 16m^2} = 2m\\sqrt{5}$, и, деля $AM$ на $AB$, получаем ответ.",
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "euler-region-2018-math8-8",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Биссектриса и равнобедренный треугольник",
+  "statement": "На биссектрисе $AL$ треугольника $ABC$ выбрана точка $D$. Известно, что $\\angle BAC=2\\alpha$, $\\angle ADC=3\\alpha$, $\\angle ACB=4\\alpha$. Докажите, что $BC+CD=AB$. (А. Кузнецов)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2018,
+    "stage": "region",
+    "grade": 8,
+    "number": 8,
+    "url": "https://www.matol.ru/files/Euler2018_reg_sol_day_2.pdf"
+  },
+  "solution": "На продолжении отрезка $BC$ за точку $C$ выберем точку $E$ так, что $CD=CE$. Тогда $\\angle ACD=180^\\circ-\\angle DAC-\\angle ADC=180^\\circ-4\\alpha=\\angle ACE$. Следовательно, треугольники $ACD$ и $ACE$ равны по двум сторонам и углу между ними, поэтому $\\angle AEC=\\angle ADC=3\\alpha$ и $\\angle CAE=\\angle CAD=\\alpha$. Заметим, что $\\angle BAE=\\angle BAC+\\angle CAE=3\\alpha=\\angle AEB$. Таким образом, треугольник $ABE$ равнобедренный и $AB=BE=BC+CE=BC+CD$.",
+  "figures": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math6-t1-9",
+  "subject": "math",
+  "topic": "целые числа",
+  "title": "Сумма целых чисел",
+  "statement": "Асан выписал на доске все целые числа $n$ такие, что ${{n}^{2}}<100.$ А Хасан нашел сумму выписанных чисел. Какую сумму получил Хасан?",
+  "answer": {
+    "value": 0.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 0",
+      "решение: anthropic:claude-sonnet-5-5 → 0",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 0",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 0"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 6,
+    "number": 9,
+    "url": "https://matol.kz/olympiads/855"
+  },
+  "figures": []
+}

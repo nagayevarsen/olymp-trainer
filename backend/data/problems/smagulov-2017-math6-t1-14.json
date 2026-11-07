@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math6-t1-14",
+  "subject": "math",
+  "topic": "отношения чисел",
+  "title": "Цепочка отношений чисел",
+  "statement": "Даны четыре числа. Отношение первого числа ко второму равно 7, отношение второго к третьему  равно 8, третьего к четвертому равно 9. Чему равно отношение первого числа к четвертому?",
+  "answer": {
+    "value": 504.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 504",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 504",
+      "программа (other): anthropic:claude-haiku-5-5 → 504",
+      "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 504"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 14,
+    "url": "https://matol.kz/olympiads/486"
+  },
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2018-math8-9",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Равенство нулю четырёх чисел",
+  "statement": "Докажите, что если $a+b+c+d = 0$ и $ab+cd+ac+bc+ad+bd = 0$, то $a = b = c = d = 0$. (Фольклор)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2018,
+    "stage": "distance",
+    "grade": 8,
+    "number": 9,
+    "url": "https://www.matol.ru/files/Disttur2_17_sol.pdf"
+  },
+  "solution": "Решение. Возводя равенство $a+b+c+d = 0$ в квадрат, получаем $a^2+b^2+c^2+d^2+2(ab+cd+ac+bc+ad+bd) = 0$, откуда $a^2+b^2+c^2+d^2 = 0$, что возможно только при $a = b = c = d = 0$.",
+  "figures": []
+}

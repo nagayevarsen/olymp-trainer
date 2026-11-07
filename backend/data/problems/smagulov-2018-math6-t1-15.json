@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math6-t1-15",
+  "subject": "math",
+  "topic": "делимость",
+  "title": "Числа, делящиеся на 6 и 7",
+  "statement": "Среди последовательных чисел $1,2,3,\\ldots ,n$ ровно восемь чисел делятся на 6, и ровно шесть чисел делятся на 7. Найдите число $n.$",
+  "answer": {
+    "value": 48.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 48",
+      "решение: anthropic:claude-sonnet-5-5 → 48",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 48",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 48"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 6,
+    "number": 15,
+    "url": "https://matol.kz/olympiads/855"
+  },
+  "figures": []
+}

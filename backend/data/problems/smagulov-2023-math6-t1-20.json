@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-20",
+  "subject": "math",
+  "topic": "алгебра",
+  "title": "Система уравнений с буквами",
+  "statement": "Если $c\\ne 0$, $a+b+d=m\\cdot n$, $n\\cdot c=a$ и $b\\cdot c+d\\cdot c+4c=m\\cdot a$ то, найти значение $a$.",
+  "answer": {
+    "value": 4.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 4",
+      "решение: anthropic:claude-sonnet-5-5 → 4",
+      "программа (other): anthropic:claude-haiku-5-5 → 4",
+      "программа (other): anthropic:claude-sonnet-5-5 → 4"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 20,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math7-t1-1",
+  "subject": "math",
+  "topic": "Совместная работа",
+  "title": "Два фонтана наполняют бассейн",
+  "statement": "Первый фонтан наполняет бассейн за 2 часа 30 минут, а второй — за 3 часа 45 минут. За какое время наполняют бассейн оба фонтана, работая вместе?",
+  "answer": {
+    "value": 1.5,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1.5",
+      "решение: anthropic:claude-sonnet-5-5 → 1.5",
+      "программа (other): anthropic:claude-haiku-5-5 → 1.5",
+      "программа (other): anthropic:claude-sonnet-5-5 → 1.5"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 7,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1006"
+  },
+  "figures": []
+}

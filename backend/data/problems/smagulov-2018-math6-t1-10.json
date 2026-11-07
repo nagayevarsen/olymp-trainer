@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math6-t1-10",
+  "subject": "math",
+  "topic": "алгебра, уравнения",
+  "title": "Задачи Вовочки за три дня",
+  "statement": "Вовочка любит решать математические задачи. Известно, что вчера он решил на 11 задач меньше, чем позавчера и на 32 задачи меньше, чем позавчера и сегодня вместе. Сколько задач решил Вовочка сегодня?",
+  "answer": {
+    "value": 21.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 21",
+      "решение: anthropic:claude-sonnet-5-5 → 21",
+      "программа (other): anthropic:claude-haiku-5-5 → 21",
+      "программа (other): anthropic:claude-sonnet-5-5 → 21"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 6,
+    "number": 10,
+    "url": "https://matol.kz/olympiads/855"
+  },
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2015-math8-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Равенство отрезков в треугольнике",
+  "statement": "В треугольнике $ABC$ сторона $AB$ больше стороны $BC$. На продолжении стороны $BC$ за точку $C$ отметили точку $N$ так, что $2BN = AB+BC$. Пусть $BS$ — биссектриса треугольника $ABC$, $M$ — середина стороны $AC$, а $L$ — такая точка на отрезке $BS$, что $ML \\parallel AB$. Докажите, что $2LN = AC$. (А. Антропов)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2015,
+    "stage": "final",
+    "grade": 8,
+    "number": 2,
+    "url": "https://www.matol.ru/files/3etap2015sol.pdf"
+  },
+  "solution": "Продлим $BN$ за $N$ и $BL$ за $L$ на отрезки $NN' = BN$ и $LL' = BL$ соответственно. Так как $M$ — середина $AC$ и $ML \\parallel AB$, прямая $ML$ содержит среднюю линию $MK$ треугольника $ABC$. Поскольку $L$ — середина $BL'$, эта прямая содержит также среднюю линию $LK$ треугольника $BCL'$; итак, $CL' \\parallel LM \\parallel AB$. Поэтому $\\angle CL'B = \\angle L'BA = \\angle L'BC$, откуда $CL' = CB$. Далее, $CN' = BN' - BC = 2BN - BC = BA$ и $\\angle N'CL' = \\angle CBA$. Значит, треугольники $N'CL'$ и $ABC$ равны, и потому $AC = N'L' = 2LN$.",
+  "figures": []
+}

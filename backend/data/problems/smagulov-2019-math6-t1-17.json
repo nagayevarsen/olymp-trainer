@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2019-math6-t1-17",
+  "subject": "math",
+  "topic": "остатки от деления",
+  "title": "Наименьшее число с различными остатками",
+  "statement": "Пусть $N$ — наименьшее натуральное число, остатки от деления которого на 2, 3, 4, 5 и 6 различны. Какой остаток  дает $ N$ при делении на 5?",
+  "answer": {
+    "value": 0.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 0",
+      "решение: anthropic:claude-sonnet-5-5 → 0",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 0",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 0"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2019,
+    "stage": "city",
+    "grade": 6,
+    "number": 17,
+    "url": "https://matol.kz/olympiads/862"
+  },
+  "figures": []
+}

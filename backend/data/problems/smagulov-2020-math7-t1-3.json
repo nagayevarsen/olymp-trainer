@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math7-t1-3",
+  "subject": "math",
+  "topic": "геометрия",
+  "title": "Сторона треугольника по периметру",
+  "statement": "Периметр треугольника $ABC$ равен 49 см. Известно, что сторона $AB$ в полтора раза больше чем сторона $BC$, и на 7 см больше чем сторона $AC$. Найдите сторону $BC$.",
+  "answer": {
+    "value": 14.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 14",
+      "решение: anthropic:claude-sonnet-5-5 → 14",
+      "программа (other): anthropic:claude-haiku-5-5 → 14",
+      "программа (other): anthropic:claude-sonnet-5-5 → 14"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 7,
+    "number": 3,
+    "url": "https://matol.kz/olympiads/1006"
+  },
+  "figures": []
+}

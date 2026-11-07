@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math7-t1-1",
+  "subject": "math",
+  "topic": "простые числа",
+  "title": "Наибольшее n для простых",
+  "statement": "Через $a_n$ обозначим $n$-ое простое число. Например, $a_1=2$, $a_2=3$, $a_3=5$. Найдите наибольшее такое число $n$, что $3n$ не меньше числа $a_n$.",
+  "answer": {
+    "value": 11.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 11",
+      "решение: anthropic:claude-sonnet-5-5 → 11",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 11",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 11"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1008"
+  },
+  "figures": []
+}

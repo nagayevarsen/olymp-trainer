@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2019-math6-t1-13",
+  "subject": "math",
+  "topic": "проценты",
+  "title": "Подешевевший картофель",
+  "statement": "Картофель подешевел на $20\\%$. На сколько процентов больше картофеля можно купить на ту же сумму денег?",
+  "answer": {
+    "value": 25.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 25",
+      "решение: anthropic:claude-sonnet-5-5 → 25",
+      "программа (other): anthropic:claude-haiku-5-5 → 25",
+      "программа (other): anthropic:claude-sonnet-5-5 → 25"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2019,
+    "stage": "city",
+    "grade": 6,
+    "number": 13,
+    "url": "https://matol.kz/olympiads/862"
+  },
+  "figures": []
+}

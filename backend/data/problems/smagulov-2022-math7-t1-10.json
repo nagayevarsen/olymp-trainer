@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math7-t1-10",
+  "subject": "math",
+  "topic": "проценты",
+  "title": "Повышение цены товара",
+  "statement": "Цена товара $X$ на $20\\%$ ниже, по сравнению с товаром $Y$. Цена товара $Y$ подорожал вначале на $20\\%$, а потом ещё на $20\\%$. На сколько процентов требуется поднять цену товара $X$, чтобы его новая цена равнялась новой цене товара $Y$?",
+  "answer": {
+    "value": 80.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 80",
+      "решение: anthropic:claude-sonnet-5-5 → 80",
+      "программа (other): anthropic:claude-haiku-5-5 → 80",
+      "программа (other): anthropic:claude-sonnet-5-5 → 80"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 10,
+    "url": "https://matol.kz/olympiads/1008"
+  },
+  "figures": []
+}

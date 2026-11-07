@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t1-14",
+  "subject": "math",
+  "topic": "арифметика",
+  "title": "Сумма арифметической прогрессии",
+  "statement": "Вычислите значение суммы $0,\\!5x+0,\\!6x+0,\\!7x+\\ldots+4,\\!4x$ при $x= 11$.",
+  "answer": {
+    "value": 1078.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1078",
+      "решение: anthropic:claude-sonnet-5-5 → 1078",
+      "программа (other): anthropic:claude-haiku-5-5 → 1078",
+      "программа (other): anthropic:claude-sonnet-5-5 → 1078"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 14,
+    "url": "https://matol.kz/olympiads/1007"
+  },
+  "figures": []
+}

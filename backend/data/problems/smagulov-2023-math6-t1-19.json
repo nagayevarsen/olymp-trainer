@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-19",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Закрашенные клетки прямоугольника",
+  "statement": "В клетчатом прямоугольнике $20\\times 23$ произвольным образом закрасили 4 строки и 4 столбца. Сколько всего клеток закрасили?",
+  "answer": {
+    "value": 156.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 156",
+      "решение: anthropic:claude-sonnet-5-5 → 156",
+      "программа (other): anthropic:claude-haiku-5-5 → 156",
+      "программа (other): anthropic:claude-sonnet-5-5 → 156"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 19,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2015-math8-13",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Биссектрисы и углы треугольника",
+  "statement": "Биссектрисы углов A и C разрезают неравнобедренный треугольник ABC на четырёхугольник и три треугольника, причём среди этих трёх треугольников есть два равнобедренных. Найдите углы треугольника ABC.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2015,
+    "stage": "distance",
+    "grade": 8,
+    "number": 13,
+    "url": "https://www.matol.ru/files/Disttur3_14_sol.pdf"
+  },
+  "solution": "Ответ. $\\frac{180^\\circ}{7}$, $\\frac{2\\cdot 180^\\circ}{7}$, $\\frac{4\\cdot 180^\\circ}{7}$. Решение. Пусть AK и CM — биссектрисы, I — их точка пересечения. Посмотрим, какие углы в каких треугольниках могут быть равными. Треугольник AIC равнобедренным быть не может: в нём $\\angle AIC = 90^\\circ+\\angle ABC/2$ — тупой, а $\\angle IAC = \\angle BAC/2 \\ne \\angle BCA/2 = \\angle ICA$. Невозможны также равенства $\\angle MIA = \\angle MAI$ и $\\angle KCI = \\angle KIC$, так как внешний угол треугольника AIC не может быть равен внутреннему, не смежному с ним. Наконец, невозможно одновременное выполнение равенств $\\angle MIA = \\angle IMA$ и $\\angle KIC = \\angle IKC$, или одновременное выполнение равенств $\\angle IAM = \\angle IMA$ и $\\angle ICK = \\angle IKC$, так как тогда $\\angle BAC = \\angle ACB$. Поэтому остаётся единственная (с точностью до перестановки точек A и C) возможность: $\\angle AIM = \\angle AMI = 90^\\circ-\\angle ABC/2 = 90^\\circ-\\angle BAC/4$, $\\angle ICK = \\angle IKC = \\angle ACB/2 = 90^\\circ+\\angle ABC/2-\\angle ACB/2$. Это означает, что $2\\angle ABC = \\angle BAC$ и $\\angle ACB = 90^\\circ+\\angle ABC/2$. Тогда $7\\angle ABC/2 = 90^\\circ$, что и приводит к ответу.",
+  "figures": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math6-t1-16",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Прямоугольники из прямых",
+  "statement": "На плоскости даны 4 горизонтальных и 3 вертикальных прямых. Сколько прямоугольников могли образоваться с помощью этих линий?",
+  "answer": {
+    "value": 18.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 18",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 18",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 18",
+      "программа (enumeration): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 18"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 16,
+    "url": "https://matol.kz/olympiads/486"
+  },
+  "figures": []
+}

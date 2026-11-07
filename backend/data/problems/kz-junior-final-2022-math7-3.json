@@ -1,0 +1,23 @@
+{
+  "id": "kz-junior-final-2022-math7-3",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Делимость чисел из одинаковых цифр",
+  "statement": "Известно, что $\\overline{a\\dots a}$ кратно $\\overline{b\\dots b}$. Обязательно ли количество цифр первого числа делится на количество цифр второго?",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Юниорская олимпиада (Казахстан)",
+    "year": 2022,
+    "stage": "final",
+    "grade": 7,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/math/junior/2022/final/math7-sol.pdf"
+  },
+  "solution": "Пусть $n$ — количество цифр числа $\\overline{a\\dots a}$, $m$ — количество цифр числа $\\overline{b\\dots b}$.\n\nОбозначим $1_m = \\underbrace{1\\dots1}_{m \\text{ единиц}}$.\n\nЗаметим, что $\\overline{b\\dots b} \\,\\vdots\\, \\underbrace{1\\dots1}_{m \\text{ единиц}}$. Тогда $\\overline{a\\dots a}$ (из $n$ цифр) делится на $X = \\underbrace{1\\dots1}_{m \\text{ единиц}}$. Очевидно, что $n \\ge m$. Можем считать, что $n > m$ (иначе обязательно следует, что $n = m$ и задача решена). Отсюда $A - X$ делится на $X$ $\\Leftrightarrow$ $\\overline{a\\dots a}$ ($n-m$ единиц) делится на $X = \\underbrace{1\\dots1}_{m \\text{ единиц}}$. Продолжая процесс, получим, что $n = mk$ для некоторого целого $k$, ч.т.д.",
+  "figures": []
+}

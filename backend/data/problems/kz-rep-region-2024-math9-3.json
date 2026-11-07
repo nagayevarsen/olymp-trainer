@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-region-2024-math9-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Параллельность BD и CE",
+  "statement": "Остроугольный треугольник $ABC$ вписан в окружность с центром $O$. На стороне $BC$ взята точка $K$, из которой опущены перпендикуляры $KF$ и $KG$ на стороны $AB$ и $AC$ соответственно. Прямая $AO$ пересекает прямые $KG$ и $KF$ в точках $D$ и $E$ соответственно. Докажите, что $BD \\parallel CE$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2024,
+    "stage": "region",
+    "grade": 9,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math9-2-sol.pdf"
+  },
+  "solution": "[Рисунок: остроугольный треугольник $ABC$ с центром описанной окружности $O$; на стороне $BC$ точка $K$; $F$ на $AB$, $G$ на $AC$ — основания перпендикуляров из $K$; прямая $AO$ пересекает $KG$ в точке $D$ и $KF$ в точке $E$.]\n\nРешение. Обозначим $\\angle C = \\gamma$. Тогда $\\angle AOB = 2\\gamma$, следовательно $\\angle AEF = 90^\\circ - \\angle BAO = 90^\\circ - \\frac{180^\\circ - \\angle AOB}{2} = \\gamma = \\angle ACK$. Откуда точки $A, K, E, C$ лежат на одной окружности. Аналогично точки $A, K, D, B$ лежат на одной окружности. Тогда $\\angle KCE = \\angle KAE = \\angle KAD = \\angle KBD$, следовательно $BD \\parallel CE$.",
+  "figures": []
+}

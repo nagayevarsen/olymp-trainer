@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2016-math8-7",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Неравенство для четырёх чисел",
+  "statement": "Сумма неотрицательных чисел $a, b, c$ и $d$ равна 4. Докажите, что $(ab+cd)(ac+bd)(ad+bc) \\le 8$. (А. Храбров)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2016,
+    "stage": "final",
+    "grade": 8,
+    "number": 7,
+    "url": "https://www.matol.ru/files/3etap2016sol.pdf"
+  },
+  "solution": "Решение. $\\sqrt{(ab+cd)(ac+bd)} \\le \\dfrac{ab+cd+ac+bd}{2} = \\dfrac{(a+d)(b+c)}{2} \\le \\dfrac{1}{2}\\left(\\dfrac{a+b+c+d}{2}\\right)^2 = 2$. Аналогично, $\\sqrt{(ab+cd)(ad+bc)} \\le 2$ и $\\sqrt{(ac+bd)(ad+bc)} \\le 2$. Перемножая три полученных неравенства, получаем искомое.",
+  "figures": []
+}

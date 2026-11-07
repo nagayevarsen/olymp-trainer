@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math7-t1-12",
+  "subject": "math",
+  "topic": "квадратичная функция",
+  "title": "Максимум квадратичной функции",
+  "statement": "Найдите наибольшее значение выражения: $-3x^2+6x+2202$.",
+  "answer": {
+    "value": 2205.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 2205",
+      "решение: anthropic:claude-sonnet-5-5 → 2205",
+      "программа (other): anthropic:claude-haiku-5-5 → 2205",
+      "программа (other): anthropic:claude-sonnet-5-5 → 2205"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 12,
+    "url": "https://matol.kz/olympiads/1008"
+  },
+  "figures": []
+}

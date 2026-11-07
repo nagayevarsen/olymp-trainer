@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t1-8",
+  "subject": "math",
+  "topic": "углы треугольника",
+  "title": "Углы треугольника ABC",
+  "statement": "В треугольнике $ABC$ угол $A$ в три раза больше угла $B$ и равен половине угла $C$. Чему равен  угол $A$?",
+  "answer": {
+    "value": 54.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 54",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 54",
+      "программа (other): anthropic:claude-haiku-5-5 → 54",
+      "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 54"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 8,
+    "url": "https://matol.kz/olympiads/487"
+  },
+  "figures": []
+}

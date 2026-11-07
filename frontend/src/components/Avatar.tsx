@@ -1,7 +1,9 @@
 // Аватарка: по умолчанию случайная пиксельная мордочка (бесцветная, 8×8), можно сменить на своё фото.
-// Фото хранится ТОЛЬКО на этом устройстве (на сервер не отправляется) — так мы не собираем персональные данные.
+// Аватарка сохраняется в аккаунте на сервере (на всех устройствах одна и та же) и видна только владельцу.
 
 import { useEffect, useRef, useState } from 'react'
+import { api } from '../api'
+import { getUser } from '../user'
 
 type AvatarData = { kind: 'pixel'; seed: number } | { kind: 'photo'; dataUrl: string }
 
@@ -16,17 +18,37 @@ function load(): AvatarData {
     /* нет хранилища */
   }
   const fresh: AvatarData = { kind: 'pixel', seed: Math.floor(Math.random() * 1_000_000_000) }
-  save(fresh)
+  save(fresh, false)
   return fresh
 }
 
-function save(a: AvatarData) {
+function save(a: AvatarData, push = true) {
   try {
     localStorage.setItem(KEY, JSON.stringify(a))
   } catch {
-    /* фото слишком большое или хранилище недоступно — просто не запомнится */
+    /* хранилище недоступно — аватарка останется только на сервере */
   }
   listeners.forEach((f) => f())
+  if (push && getUser()) {
+    const body = a.kind === 'photo' ? { kind: 'photo', data_url: a.dataUrl } : a
+    api.setAvatar(body).catch(() => {}) // не вышло сохранить — останется на этом устройстве
+  }
+}
+
+let syncedFor = ''
+
+/** Один раз за вход: взять аватарку из аккаунта; если её там ещё нет — отправить текущую. */
+async function syncAvatar() {
+  const token = getUser()?.token
+  if (!token || syncedFor === token) return
+  syncedFor = token
+  try {
+    const { avatar } = (await api.getAvatar()) as { avatar: AvatarData | null }
+    if (avatar) save(avatar, false)
+    else save(load())
+  } catch {
+    syncedFor = ''
+  }
 }
 
 /** Детерминированный генератор чисел по seed. */
@@ -135,6 +157,10 @@ export function AvatarButton({ size = 44 }: { size?: number }) {
   const file = useRef<HTMLInputElement>(null)
   const box = useRef<HTMLDivElement>(null)
 
+  useEffect(() => {
+    void syncAvatar()
+  }, [])
+
   // Закрыть меню по клику мимо или по Esc.
   useEffect(() => {
     if (!open) return
@@ -185,9 +211,6 @@ export function AvatarButton({ size = 44 }: { size?: number }) {
           >
             🖼 Поставить своё фото
           </button>
-          <p className="px-3 pb-1 text-xs text-slate-500">
-            Фото остаётся только на этом устройстве и никуда не отправляется.
-          </p>
           {error && <p className="px-3 text-xs text-red-600">{error}</p>}
           <input ref={file} type="file" accept="image/*" hidden onChange={(e) => void onFile(e.target.files?.[0])} />
         </div>

@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-republic-2023-math11-4",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Минимум суммы x+y",
+  "statement": "Пусть $x$ и $y$ — положительные действительные числа такие, что $x^2y^2 + 2x^3y = 1$. Найдите наименьшее возможное значение суммы $x + y$.\nОтвет: $\\sqrt{2}$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2023,
+    "stage": "republic",
+    "grade": 11,
+    "number": 4,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2023/math-2-sol.pdf"
+  },
+  "solution": "По неравенству Коши для чисел $x^2$ и $y^2 + 2xy$ получим, что $1 = x^2y^2 + 2x^3y = x^2(y^2 + 2xy) \\le \\left(\\frac{x^2 + y^2 + 2xy}{2}\\right)^2 = \\frac{1}{4}(x+y)^4$, откуда $x + y \\ge \\sqrt{2}$. При $x = 1$ и $y = \\sqrt{2} - 1$ получим, что $x^2y^2 + 2x^3y = 1$ и $x + y = \\sqrt{2}$.",
+  "figures": []
+}

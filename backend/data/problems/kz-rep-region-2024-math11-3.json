@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-region-2024-math11-3",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Простота числа t",
+  "statement": "Натуральные числа $x, y, t$ таковы, что $x^2 + 257 = y^t$ и $2 \\le t \\le 48$. Докажите, что число $t$ — простое.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2024,
+    "stage": "region",
+    "grade": 11,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math11-1-sol.pdf"
+  },
+  "solution": "Решение. Предположим, что $t$ — составное и $p$ наименьший простой делитель $t$. Тогда $p \\le \\sqrt{t}$, откуда $p < 7$. Обозначим $k = t/p > 1$ и $y^k = z$. 1) $p = 2$. По условию $257 = z^2 - x^2 = (z - x)(z + x) \\implies z - x = 1$, $z + x = 257 \\implies y^k = z = 129$, что невозможно. 2) $p = 3$. Если $x \\equiv 1 \\pmod 2$, то $z^3 = x^2 + 257 \\equiv 2 \\pmod 4$, что невозможно. Значит $2 \\mid x$ и $z^3 \\equiv 1 \\pmod 4$, откуда $z \\equiv 1 \\pmod 4$. Так как $z^2+z+1 \\equiv 3 \\pmod 4$, то найдется простое число $p \\equiv 3 \\pmod 4$ такое, что $p \\mid z^2 + z + 1$. Следовательно $y^2 + 16^2 = z^3 - 1 = (z - 1)(z^2 + z + 1)$ делится на $p$. По теореме Жирара $p \\mid y, 16$, противоречие. 3) $p = 5$. Тогда $z^5 \\equiv 0, 1, -1 \\pmod{11}$ и $x^2 + 257 \\equiv 2, 4, 5, 7, 8, 9 \\pmod{11}$, что невозможно.",
+  "figures": []
+}

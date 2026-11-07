@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t2-3",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Простые числа в полоске",
+  "statement": "В клетках таблицы $5\\times 5$ записаны все натуральные числа от 1 до 25. Известно, что любые два последовательных числа записаны в соседних по стороне клетках. Полоской назовём любую строку или столбец. Рассмотрим полоску, в которой находятся наибольшее количество простых чисел. Какое наибольшее количество простых чисел может оказаться в этой полоске?",
+  "answer": {
+    "value": 4.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 4",
+      "решение: anthropic:claude-sonnet-5-5 → 4",
+      "программа (graph_theory): anthropic:claude-haiku-5-5 → 4",
+      "программа (graph_theory): anthropic:claude-sonnet-5-5 → 4"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 3,
+    "url": "https://matol.kz/olympiads/1072"
+  },
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "euler-region-2025-math8-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Трапеция с биссектрисой",
+  "statement": "В трапеции $ABCD$ диагональ $BD$ является биссектрисой угла $ADC$. На основаниях $BC$ и $AD$ выбрали точки $X$ и $Y$ соответственно таким образом, что $AX = BD$ и $AY = CD$. Оказалось, что $\\angle BCD = 130^\\circ$. Найдите величину угла $AXY$. (С. Берлов)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2025,
+    "stage": "region",
+    "grade": 8,
+    "number": 4,
+    "url": "https://www.matol.ru/files/8_klass2025_2_etap_sol.pdf"
+  },
+  "solution": "Ответ. $25^\\circ$. Решение. Так как $AX = BD$, $ABXD$ — равнобедренная трапеция. Поэтому $\\angle XAD = \\angle BDA = \\angle BDC$. Следовательно, треугольники $AXY$ и $BDC$ равны по двум сторонам и углу между ними, откуда $\\angle AXY = \\angle CBD = \\angle BDA = \\frac{180^\\circ-\\angle BCD}{2} = 25^\\circ$. (На рисунке изображена трапеция $ABCD$ с основаниями $BC$ и $AD$, точки $X$ на $BC$ и $Y$ на $AD$, проведена диагональ $BD$.)",
+  "figures": []
+}

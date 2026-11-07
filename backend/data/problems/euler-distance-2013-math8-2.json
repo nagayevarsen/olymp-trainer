@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2013-math8-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Углы в треугольнике с точками",
+  "statement": "В треугольнике ABC AB = BC. На лучах CA, AB и BC отмечены соответственно точки D, E и F так, что AD = AC, BE = BA, CF = CB. Найдите сумму углов ADB, BEC и CFA.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2013,
+    "stage": "distance",
+    "grade": 8,
+    "number": 2,
+    "url": "https://www.matol.ru/files/Disttur1_12_sol.pdf"
+  },
+  "solution": "Ответ: 90°. Решение. Положим ∠BAC = ∠BCA = α. Треугольники BAD и FCA равны (AD = CA, BA = BC = FC, ∠BAD = 180°–α = ∠FCA). Поэтому ∠CFA+∠ADB = ∠ABD+∠ADB = α (1). С другой стороны, EB = BA = BC, откуда 180°–2α = ∠ABC = 2∠BEC и ∠BEC = 90°–α. Складывая это равенство с равенством (1), получаем ответ.",
+  "figures": []
+}

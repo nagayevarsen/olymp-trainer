@@ -1,0 +1,23 @@
+{
+  "id": "kz-junior-region-2022-math8-1",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Натуральные решения уравнения",
+  "statement": "Решить в натуральных числах $5n = 2021S(n) + 2022$, где $S(n)$ — сумма цифр числа $n$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Юниорская олимпиада (Казахстан)",
+    "year": 2022,
+    "stage": "region",
+    "grade": 8,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/math/junior/2022/oblast/math8-junior-oblast-sol.pdf"
+  },
+  "solution": "Ответ: $\\varnothing$. Решение. Заметим, что $S(n) \\equiv n \\pmod{9}$. Следовательно $2021S(n) \\equiv 5n \\pmod{9}$. Значит $5n - 2021S(n) = 2022$ делится на 9. Но это не так. Значит такого $n$ не существует.",
+  "figures": []
+}

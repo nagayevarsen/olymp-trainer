@@ -1,0 +1,28 @@
+{
+  "id": "kz-junior-other-2023-phys7-2-p2-1",
+  "subject": "physics",
+  "topic": "Законы сохранения",
+  "title": "Столкновения, пункт 2.1",
+  "statement": "Два одинаковых упругих шарика летят навстречу друг другу с одинаковыми скоростями $v$.\n\n**Пункт 2.1.** Каковы их скорости после столкновения?",
+  "answer": {
+    "formula": "v",
+    "variables": {
+      "v": "модуль скорости шариков до столкновения"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Юниорская олимпиада (Казахстан)",
+    "year": 2023,
+    "stage": "other",
+    "grade": 7,
+    "number": 2,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/junior/2023/phys7-sol.pdf"
+  },
+  "solution": "Из закона сохранения энергии и симметрии следует $u_1=u_2=v$ (по модулю; шарики отскакивают в противоположные стороны).",
+  "figures": [
+    "kz-junior-other-2023-phys7-2-fig1.png"
+  ]
+}

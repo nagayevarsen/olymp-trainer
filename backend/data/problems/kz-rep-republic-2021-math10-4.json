@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-republic-2021-math10-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Касательная параллельна BD",
+  "statement": "На стороне $AC$ треугольника $ABC$ нашлась такая точка $D$, что $BC = DC$. Пусть $J$ — центр вписанной окружности треугольника $ABD$. Докажите, что одна из касательных из точки $J$ ко вписанной окружности треугольника $ABC$ параллельна прямой $BD$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2021,
+    "stage": "republic",
+    "grade": 10,
+    "number": 4,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2021/math10-1-sol.pdf"
+  },
+  "solution": "Пусть $I$ — центр вписанной окружности треугольника $ABC$. Для начала покажем, что $IJ = IB$. Пусть $\\angle IAB = \\alpha$, $\\angle ABD = \\beta$. Заметим, что точки $I$, $J$, $A$ лежат на биссектрисе угла $A$. $\\angle IJB = \\angle JBA + \\angle JAB = \\alpha + \\frac{\\beta}{2}$ и $\\angle CBD = \\angle CDB = \\beta + 2\\alpha$. Так как $\\angle CBI = \\angle ABI = \\frac{\\angle ABC}{2} = \\alpha + \\beta$, то $\\angle DBI = \\alpha$. Значит $$\\angle IBJ = \\angle DBI + \\angle DBJ = \\angle DBI + \\frac{\\angle ABD}{2} = \\alpha + \\frac{\\beta}{2} = \\angle IJB,$$ откуда $IB = IJ$. Пусть $K \\in AB$ такая точка, что $JK \\parallel BD$. Тогда $$\\angle KJB = \\angle AKJ - \\angle KBJ = \\angle ABD - \\angle KBJ = \\angle KBJ,$$ поэтому $JK = BK$. Значит $\\triangle IKJ = \\triangle IKB$, следовательно $\\angle IKJ = \\angle IKB$. Пусть вписанная окружность треугольника $ABC$ касается $AB$ в точке $E$, а $F$ такая точка на отрезке $JK$, что $KE = KF$. Тогда $\\triangle IKE = \\triangle IKF$, поэтому $IE = IF$ и $\\angle IFK = \\angle IEK = 90^\\circ$. Значит $KJ$ касается вписанной окружности треугольника $ABC$ в точке $F$ и $JF \\parallel BD$, что и требовалось доказать.",
+  "figures": []
+}

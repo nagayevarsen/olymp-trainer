@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math6-t1-16",
+  "subject": "math",
+  "topic": "числовые последовательности",
+  "title": "Сумма трёх подряд идущих",
+  "statement": "В ряд выписано сто чисел. Сумма любых трех подряд идущих чисел равна 4, а сумма всех ста чисел равна 140. Чему равно последнее число?",
+  "answer": {
+    "value": 8.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 8",
+      "решение: anthropic:claude-sonnet-5-5 → 8",
+      "программа (other): anthropic:claude-haiku-5-5 → 8",
+      "программа (other): anthropic:claude-sonnet-5-5 → 8"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 6,
+    "number": 16,
+    "url": "https://matol.kz/olympiads/855"
+  },
+  "figures": []
+}

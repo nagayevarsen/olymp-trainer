@@ -125,6 +125,13 @@ PROBLEM_CONTEXT = """
 Не называй итоговый числовой ответ этой задачи — ученик вводит его сам в поле проверки на странице задачи.
 Помогай наводящими вопросами и подсказками."""
 
+SOLVED_CONTEXT = """
+УЧЕНИК ОТКРЫЛ РАЗБОР задачи из банка ({source}, тема «{topic}»).
+Условие: {statement}
+Разбор: {solution}
+Ответ ученик уже видел. Объясняй непонятные шаги разбора и отвечай на вопросы по нему, простыми словами и
+короткими шагами. Если ученик нашёл в разборе ошибку — проверь её (run_code, если можно) и честно скажи."""
+
 RUN_CODE_TOOL = {
     "name": "run_code",
     "description": (
@@ -305,7 +312,11 @@ OLYMPIAD_MODE = """
 
 
 def build_system(level: Level, problem: dict | None = None, olympiad: bool = False) -> str:
-    ctx = PROBLEM_CONTEXT.format(**problem) if problem else ""
+    ctx = (
+        (SOLVED_CONTEXT if problem and problem.get("solution") else PROBLEM_CONTEXT).format(**problem)
+        if problem
+        else ""
+    )
     lo, hi = level.points_range()
     points_hint = (
         f"сейчас ученику подходят задачи примерно {lo}–{hi} баллов (min_points={lo}, max_points={hi})"

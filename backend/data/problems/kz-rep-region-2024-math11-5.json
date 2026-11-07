@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-region-2024-math11-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Прямая YI через середину AC",
+  "statement": "Дан треугольник $ABC$, в котором $BC = 2AB$, а точка $I$ — центр вписанной окружности. Внешняя биссектриса угла $\\angle BAC$ пересекает прямую $BC$ в точке $Y$. Докажите, что прямая $YI$ проходит через середину отрезка $AC$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2024,
+    "stage": "region",
+    "grade": 11,
+    "number": 5,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math11-2-sol.pdf"
+  },
+  "solution": "Решение. Пусть $YI \\cap AC = M$. Обозначим $\\angle A = 2\\alpha$ и $\\angle C = \\gamma$, тогда $\\angle YAC = 90 + \\alpha$. Из точки $I$ опустим перпендикуляры $ID$ и $IE$ на стороны $BC$ и $AC$ соответственно. Так как $\\angle IAY = \\angle IDY = 90^\\circ$, то точки $A, I, D, Y$ лежат на одной окружности. По теореме синусов получим $\\frac{CY}{AY} = \\frac{\\sin(90^\\circ + \\alpha)}{\\sin\\gamma} = \\frac{\\cos\\alpha}{\\sin\\gamma}$, (1) $\\frac{\\sin\\angle CYM}{\\sin\\angle AYM} = \\frac{\\sin\\angle DYI}{\\sin\\angle AYI} = \\frac{ID}{AI} = \\frac{IE}{AI} = \\sin\\alpha$. (2) Используя (1) и (2) получим, что $\\frac{S_{CYM}}{S_{AYM}} = \\frac{\\frac{1}{2}CY\\cdot YM\\cdot\\sin\\angle CYM}{\\frac{1}{2}AY\\cdot YM\\cdot\\sin\\angle AYM} = \\frac{\\cos\\alpha\\sin\\alpha}{\\sin\\gamma} = \\frac{\\sin 2\\alpha}{2\\sin\\gamma} = \\frac{BC}{2AB} = 1$, откуда $M$ — середина $AC$ ($S_{PQR}$ — площадь треугольника $PQR$).",
+  "figures": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math7-t1-10",
+  "subject": "math",
+  "topic": "суммы чисел",
+  "title": "Суммы в таблице",
+  "statement": "Прямоугольная таблица горизонтальными и вертикальными прямыми разбита на единичные клетки, и в каждую клетку записано по одному числу.  В таблице 8 столбцов, сумма чисел в каждом столбце равна 10, а в каждой строке равна 20. Сколько в таблице строк?",
+  "answer": {
+    "value": 4.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 4",
+      "решение: anthropic:claude-sonnet-5-5 → 4",
+      "программа (other): anthropic:claude-haiku-5-5 → 4",
+      "программа (other): anthropic:claude-sonnet-5-5 → 4"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 7,
+    "number": 10,
+    "url": "https://matol.kz/olympiads/856"
+  },
+  "figures": []
+}

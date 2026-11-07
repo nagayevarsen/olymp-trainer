@@ -1,0 +1,23 @@
+{
+  "id": "euler-region-2018-math8-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Угол в параллелограмме",
+  "statement": "Внутри параллелограмма $ABCD$ выбрана точка $E$ так, что $AE=DE$ и $\\angle ABE=90^\\circ$. Точка $M$ — середина отрезка $BC$. Найдите угол $DME$. (А. Кузнецов)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2018,
+    "stage": "region",
+    "grade": 8,
+    "number": 4,
+    "url": "https://www.matol.ru/files/Euler2018_reg_sol_day_1.pdf"
+  },
+  "solution": "Ответ. $90^\\circ$. Обозначим через $N$ середину отрезка $AD$. Поскольку треугольник $AED$ равнобедренный, $EN\\perp AD$. Так как $AB\\parallel MN$ и $\\angle ABE=90^\\circ$, то $BE\\perp MN$. Таким образом, $E$ — точка пересечения высот треугольника $BMN$. Значит, $ME\\perp BN$. Так как $BMDN$ — параллелограмм, $BN\\parallel DM$, откуда $\\angle DME=90^\\circ$.",
+  "figures": []
+}

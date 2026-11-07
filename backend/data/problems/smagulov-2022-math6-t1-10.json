@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t1-10",
+  "subject": "math",
+  "topic": "остатки от деления",
+  "title": "Книги и пачки",
+  "statement": "Книги на столе пытались связывать в пачки по 7, по 3 и по 5 книг, и каждый раз оставалась одна лишняя. Сколько книг было на столе если известно, что их было не больше 150 и не меньше 10?",
+  "answer": {
+    "value": 106.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 106",
+      "решение: anthropic:claude-sonnet-5-5 → 106",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 106",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 106"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 10,
+    "url": "https://matol.kz/olympiads/1007"
+  },
+  "figures": []
+}

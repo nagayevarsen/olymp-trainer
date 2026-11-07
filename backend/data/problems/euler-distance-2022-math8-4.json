@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2022-math8-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Сравнение отрезков EC и AC",
+  "statement": "Дан треугольник $ABC$, в котором $AB = BC$. На стороне $BC$ нашлась такая точка $D$, что $CD = AC$. Точка $E$ на луче $DA$ такова, что $DE = AC$. Какой отрезок длиннее — $EC$ или $AC$?",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2022,
+    "stage": "distance",
+    "grade": 8,
+    "number": 4,
+    "url": "https://www.matol.ru/files/Disttur1_21_sol.pdf"
+  },
+  "solution": "Ответ. Отрезок $AC$ не короче отрезка $EC$. Решение. Если треугольник $ABC$ равносторонний, отрезки $AC$ и $EC$ равны. Рассмотрим случай, когда треугольник $ABC$ не равносторонний. Так как $BC > CD = AC$, $AC$ — наименьшая сторона равнобедренного треугольника $ABC$, и лежащий против неё угол $ABC$ — наименьший угол треугольника $ABC$. Значит, $\\angle ABC < 60^\\circ$, а $\\angle ACB > 60^\\circ$. Тогда из треугольника $ACD$ имеем $\\angle ADC = \\frac{180^\\circ-\\angle ACB}{2} < 60^\\circ$, а из треугольника $CDE$ $\\angle DEC = \\frac{180^\\circ-\\angle CDE}{2} = \\frac{180^\\circ-\\angle CDA}{2} > 60^\\circ$. Таким образом, в треугольнике $CDE$ $\\angle DEC > 60^\\circ > \\angle EDC = \\angle ADC$, откуда $AC = CD > CE$.",
+  "figures": []
+}

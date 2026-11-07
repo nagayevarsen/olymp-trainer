@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-republic-2021-math9-4",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Ортоцентр и биссектриса",
+  "statement": "Треугольник $ABC$ ($AC > BC$) вписан в окружность $\\omega$. Биссектриса $CN$ этого треугольника пересекает $\\omega$ в точке $M$ ($M \\neq C$). На отрезке $BN$ отмечена произвольная точка $T$. Пусть $H$ — ортоцентр треугольника $MNT$. Описанная окружность треугольника $MNH$ пересекает $\\omega$ в точке $R$ ($R \\neq M$). Докажите, что $\\angle ACT = \\angle BCR$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2021,
+    "stage": "republic",
+    "grade": 9,
+    "number": 4,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2021/math9-2-sol.pdf"
+  },
+  "solution": "Пусть $T'$ — образ точки $T$ при симметрии относительно прямой $CN$. Тогда $\\angle NHM = 90^\\circ - \\angle HMT = \\angle NTM = \\angle NT'M$. Значит точки $M, N, H, T'$ и $R$ лежат на одной окружности. Тогда $\\angle T'RM = 180^\\circ - \\angle T'NM = 180^\\circ - \\angle TNM = \\angle CNB = \\angle CAB + \\angle ACM = \\angle CAB + \\angle BAM = \\angle CAM = \\angle CRM$. Следовательно, точки $R, T', C$ лежат на одной прямой. Откуда $\\angle BCR = \\angle BCT' = \\angle ACT$, что и требовалось доказать.",
+  "figures": []
+}

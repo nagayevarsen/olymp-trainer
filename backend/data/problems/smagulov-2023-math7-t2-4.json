@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t2-4",
+  "subject": "math",
+  "topic": "планиметрия",
+  "title": "Периметры треугольников в прямоугольнике",
+  "statement": "В прямоугольнике $ABCD$, где $AB>CB$, биссектриса угла $ABC$ пересекает сторону $CD$ в точке $E$. $AF$ высота в треугольнике $ABE$ ($F$ лежит на $BE$). Оказалось, что $AE = 5$. Найдите значение выражения $P(AFE)+P(AED)-P(ABE)$. Не забудьте пояснить свой ответ. Здесь через $P(XYZ)$ обозначен периметр треугольника $XYZ$.",
+  "answer": {
+    "value": 5.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 5",
+      "решение: anthropic:claude-sonnet-5-5 → 5",
+      "программа (other): anthropic:claude-haiku-5-5 → 5",
+      "программа (other): anthropic:claude-sonnet-5-5 → 5"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 4,
+    "url": "https://matol.kz/olympiads/1073"
+  },
+  "figures": []
+}

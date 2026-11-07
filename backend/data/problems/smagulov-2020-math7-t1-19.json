@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math7-t1-19",
+  "subject": "math",
+  "topic": "теория чисел",
+  "title": "Вычитание наибольшего делителя",
+  "statement": "Из числа $13^{100}$ вычли наибольший его делитель, не равный самому числу. Из полученной разности также вычли наибольший её делитель, не равный ей самой, и т.д., пока после очередного вычитания не получилась единица. Сколько всего вычитаний было произведено?",
+  "answer": {
+    "value": 500.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 500",
+      "решение: anthropic:claude-sonnet-5-5 → 500",
+      "программа (other): anthropic:claude-haiku-5-5 → 500",
+      "программа (other): anthropic:claude-sonnet-5-5 → 500"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 7,
+    "number": 19,
+    "url": "https://matol.kz/olympiads/1006"
+  },
+  "figures": []
+}

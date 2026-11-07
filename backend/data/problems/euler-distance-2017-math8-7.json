@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2017-math8-7",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Три положительных числа",
+  "statement": "Положительные числа $a$, $b$ и $c$ таковы, что $a^2 < b$, $b^2 < c$ и $c^2 < a$. Докажите, что все три числа $a$, $b$ и $c$ меньше 1.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2017,
+    "stage": "distance",
+    "grade": 8,
+    "number": 7,
+    "url": "https://www.matol.ru/files/Disttur2_16_sol.pdf"
+  },
+  "solution": "Решение. Пусть $a \\ge 1$. Тогда $b > a^2 \\ge 1$, $c > b^2 \\ge 1$ и $a > c^2 > 1$. Но тогда $a^2 < b < b^2 < c < c^2 < a$, откуда $a < 1$. Противоречие.",
+  "figures": []
+}

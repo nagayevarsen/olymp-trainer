@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math7-t1-15",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Суммы последовательных натуральных чисел",
+  "statement": "Рассмотрим все такие натуральные числа $n$, что найдется $n$ подряд идущих натуральных чисел, сумма которых равна 2022. Найдите произведение всех таких натуральных $n$.",
+  "answer": {
+    "value": 144.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 144",
+      "решение: anthropic:claude-sonnet-5-5 → 144",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 144",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 144"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 15,
+    "url": "https://matol.kz/olympiads/1008"
+  },
+  "figures": []
+}

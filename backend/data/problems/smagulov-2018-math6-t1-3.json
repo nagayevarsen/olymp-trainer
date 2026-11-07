@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math6-t1-3",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Наибольшее и наименьшее числа",
+  "statement": "Чему равна сумма наибольшего и наименьшего четырехзначного числа, все цифры которых различны? (Все цифры первого числа различны, а также различны все цифры второго числа.)",
+  "answer": {
+    "value": 10899.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 10899",
+      "решение: anthropic:claude-sonnet-5-5 → 10899",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 10899",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 10899"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 6,
+    "number": 3,
+    "url": "https://matol.kz/olympiads/855"
+  },
+  "figures": []
+}

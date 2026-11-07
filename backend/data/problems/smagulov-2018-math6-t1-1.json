@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math6-t1-1",
+  "subject": "math",
+  "topic": "НОД и НОК",
+  "title": "НОД и НОК двух чисел",
+  "statement": "Пусть $A=33$ и $B=77.$ Вычислите: $\\frac{\\text{НОД}\\left( A;B \\right)\\cdot\\text{НОК} \\left( A;B \\right)}{\\text{НОД}\\left( A;B \\right)+\\text{НОК}\\left( A;B \\right)}.$",
+  "answer": {
+    "value": 10.5,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 10.5",
+      "решение: anthropic:claude-sonnet-5-5 → 10.5",
+      "программа (other): anthropic:claude-haiku-5-5 → 10.5",
+      "программа (other): anthropic:claude-sonnet-5-5 → 10.5"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 6,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/855"
+  },
+  "figures": []
+}

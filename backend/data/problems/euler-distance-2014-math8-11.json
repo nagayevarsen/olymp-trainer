@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2014-math8-11",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Треугольник с углом 120°",
+  "statement": "На стороне AC треугольника ABC с углом 120 градусов при вершине B отмечены такие точки D и E, что AD = AB и CE = CB. Из точки D опущен перпендикуляр DF на прямую BE. Найдите отношение $\\frac{BD}{DF}$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2014,
+    "stage": "distance",
+    "grade": 8,
+    "number": 11,
+    "url": "https://www.matol.ru/files/Disttur3_13_sol.pdf"
+  },
+  "solution": "Ответ. 2. Решение. Положим $\\angle CAB=\\alpha$, $\\angle ACB=\\beta$. Так как AD = AB и CE = CB, имеем $\\angle DBE=\\angle DBA+\\angle EBC-\\angle ABC=\\frac{180^\\circ-\\alpha}{2}+\\frac{180^\\circ-\\beta}{2}-120^\\circ=60^\\circ-\\frac{\\alpha+\\beta}{2}=30^\\circ$. Таким образом, в прямоугольном треугольнике BFD угол при вершине B равен $30^\\circ$, откуда $\\frac{BD}{DF}=2$.",
+  "figures": []
+}

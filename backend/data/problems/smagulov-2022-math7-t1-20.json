@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math7-t1-20",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Натуральные решения уравнения",
+  "statement": "Найдите число натуральных решений $(x, y, z)$ уравнения $x+y+z=65$.",
+  "answer": {
+    "value": 2016.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 2016",
+      "решение: anthropic:claude-sonnet-5-5 → 2016",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 2016",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 2016"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 20,
+    "url": "https://matol.kz/olympiads/1008"
+  },
+  "figures": []
+}

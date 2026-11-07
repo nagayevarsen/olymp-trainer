@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-region-2024-math10-1",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Недостижимые числа",
+  "statement": "Докажите, что существует бесконечно много целых чисел, не представимых в виде $x^2 + y^2 + z^2 + xyz$, где $x, y, z$ — целые числа.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2024,
+    "stage": "region",
+    "grade": 10,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math10-1-sol.pdf"
+  },
+  "solution": "Заметим, что если количество четных чисел среди $x, y, z$ не равно 2, то $x^2 +y^2 +z^2 +xyz$ — четно, а если равно 2, то $x^2 +y^2 +z^2 +xyz \\equiv 0+ 0+ 1+ 0 \\equiv 1 \\pmod 4$. Значит $x^2 + y^2 + z^2 + xyz \\not\\equiv 3 \\pmod 4$ при всех целых $x, y, z$, откуда все числа вида $4k + 3$ (их бесконечно много) не представимы в виде $x^2 +y^2 +z^2 +xyz$.",
+  "figures": []
+}

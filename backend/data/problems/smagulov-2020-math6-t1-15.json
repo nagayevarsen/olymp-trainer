@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math6-t1-15",
+  "subject": "math",
+  "topic": "теория чисел",
+  "title": "НОК и НОД троек чисел",
+  "statement": "Даны натуральные числа $a,$ $b,$ и $c$. Оказалось, что $\\text{НОК}(a,b)=60$, $\\text{НОК}(b,c)=150$, $\\text{НОК}(a,c)=300$, $\\text{НОК}(a,b,c)=300$, $\\text{НОД}(a,b,c)=1$. Найдите произведение чисел $a,b,c$.",
+  "answer": {
+    "value": 9000.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 9000",
+      "решение: anthropic:claude-sonnet-5-5 → 9000",
+      "программа (other): anthropic:claude-haiku-5-5 → 9000",
+      "программа (other): anthropic:claude-sonnet-5-5 → 9000"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 6,
+    "number": 15,
+    "url": "https://matol.kz/olympiads/1005"
+  },
+  "figures": []
+}

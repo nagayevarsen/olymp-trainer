@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t1-11",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Трёхзначные числа с нулём",
+  "statement": "Асан выписал все трехзначные числа. А из выписанных чисел Есен стер только те числа, произведение цифр которых равно нулю. Сколько чисел стер Есен?",
+  "answer": {
+    "value": 171.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 171",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 171",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 171",
+      "программа (enumeration): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 171"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 11,
+    "url": "https://matol.kz/olympiads/487"
+  },
+  "figures": []
+}

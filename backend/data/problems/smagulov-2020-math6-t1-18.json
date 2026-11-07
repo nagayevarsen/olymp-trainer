@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math6-t1-18",
+  "subject": "math",
+  "topic": "делимость чисел",
+  "title": "Наименьшие числа с делимостью квадрата",
+  "statement": "Вася выбрал самое маленькое натуральное число, квадрат которого делится на 1, потом самое маленькое натуральное число, квадрат которого делится на 2, и т. д., самое маленькое натуральное число, квадрат которого делится на 10. Чему равна сумма десяти чисел, выбранных Васей?",
+  "answer": {
+    "value": 43.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 43",
+      "решение: anthropic:claude-sonnet-5-5 → 43",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 43",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 43"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 6,
+    "number": 18,
+    "url": "https://matol.kz/olympiads/1005"
+  },
+  "figures": []
+}

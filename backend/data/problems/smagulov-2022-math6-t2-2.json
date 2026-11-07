@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t2-2",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Наименьшее число с ограничением",
+  "statement": "Используя цифры от 0 до 9 ровно по одному разу, составьте наименьшее 10-значное число, в котором сумма любых трех подряд идущих цифр не больше 15.",
+  "answer": {
+    "value": 1257348069.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1257348069",
+      "решение: anthropic:claude-sonnet-5-5 → 1257348069",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 1257348069",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 1257348069"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/1009"
+  },
+  "figures": []
+}

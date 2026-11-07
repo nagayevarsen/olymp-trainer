@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t2-4",
+  "subject": "math",
+  "topic": "раскраска вершин",
+  "title": "Раскраска вершин 100-угольника",
+  "statement": "Вершины выпуклого 100-угольника покрасили в несколько цветов так, что в любом треугольнике, сторонами которого являются диагонали 100-угольника, не все три вершины окрашены одинаковым цветом. Какое наименьшее количество цветов могло быть использовано? (Диагональ многоугольника — это отрезок, соединяющий две несоседние вершины.)",
+  "answer": {
+    "value": 25.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 25",
+      "решение: anthropic:claude-sonnet-5-5 → 25",
+      "программа (graph_theory): anthropic:claude-haiku-5-5 → 25",
+      "программа (graph_theory): anthropic:claude-sonnet-5-5 → 25"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 4,
+    "url": "https://matol.kz/olympiads/1072"
+  },
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "euler-region-2026-math8-1",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Сравнение степеней",
+  "statement": "Числа $a$, $b$, $c$ таковы, что $a^2+b^2 > (a+b)^2$ и $b^2+c^2 > (b+c)^2$. Что больше: $c^4+a^4$ или $(a+c)^4$? (А. Кузнецов, И. Рубанов)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2026,
+    "stage": "region",
+    "grade": 8,
+    "number": 1,
+    "url": "https://www.matol.ru/files/8_klass2026_2_etap_day1_sol.pdf"
+  },
+  "solution": "Ответ. $(a+c)^4$. Решение. $a^2+b^2 > (a+b)^2 = a^2+2ab+b^2 \\Leftrightarrow ab < 0$. Аналогично $bc < 0$. Таким образом, числа $a$ и $b$ имеют разные знаки, числа $c$ и $b$ — тоже. Значит, числа $a$ и $c$ имеют один знак, то есть $ac > 0$. Следовательно, $(a+c)^4 - (a^4+c^4) = 4a^3c+6a^2c^2+4ac^3 = ac(4a^2+6ac+4c^2) > 0$, откуда $(a+c)^4 > a^4+c^4$.",
+  "figures": []
+}

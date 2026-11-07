@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t1-20",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Сумма трёхзначных чисел по кругу",
+  "statement": "Цифры 1, 2, 3, $\\ldots$, 9 записали по кругу в некотором порядке. Возьмем все трехзначные числа (таких чисел 9), полученные взятием трёх цифр подряд  по часовой стрелке. Какова сумма всех этих девяти чисел?",
+  "answer": {
+    "value": 4995.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 4995",
+      "решение: anthropic:claude-sonnet-5-5 → 4995",
+      "программа (other): anthropic:claude-haiku-5-5 → 4995",
+      "программа (other): anthropic:claude-sonnet-5-5 → 4995"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 20,
+    "url": "https://matol.kz/olympiads/1071"
+  },
+  "figures": []
+}

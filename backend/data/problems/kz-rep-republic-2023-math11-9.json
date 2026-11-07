@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-republic-2023-math11-9",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Неравенство с максимумом дробей",
+  "statement": "Пусть $a, b, c$ — положительные действительные числа такие, что $\\max\\left(\\frac{a(b+c)}{a^2+bc}, \\frac{b(c+a)}{b^2+ca}, \\frac{c(a+b)}{c^2+ab}\\right) \\le \\frac{5}{2}$. Докажите неравенство $\\frac{a(b+c)}{a^2+bc} + \\frac{b(c+a)}{b^2+ca} + \\frac{c(a+b)}{c^2+ab} \\le 3$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2023,
+    "stage": "republic",
+    "grade": 11,
+    "number": 9,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2023/math-1-sol.pdf"
+  },
+  "solution": "Без ограничения общности положим $a \\ge b \\ge c$. Достаточно показать, что\n$\\frac{ba+bc}{b^2+ac} - 1 \\le 1 - \\frac{ab+ac}{a^2+bc} + 1 - \\frac{ca+cb}{c^2+ab} \\Leftrightarrow \\frac{(a-b)(b-c)}{b^2+ac} \\le \\frac{(a-b)(a-c)}{a^2+bc} + \\frac{(a-c)(b-c)}{c^2+ab}$. (1)\nЕсли $a = b$ или $b = c$, то (1) верно, поскольку каждое слагаемое в правой части (1) неотрицательно. Теперь будем считать, что $a > b > c$. Тогда (1) эквивалентно:\n$\\frac{1}{(a-c)(b^2+ac)} \\le \\frac{1}{(b-c)(a^2+bc)} + \\frac{1}{(a-b)(c^2+ab)}$. (2)\nПо неравенству Коши–Буняковского\n$\\frac{1^2}{(b-c)(a^2+bc)} + \\frac{1^2}{(a-b)(c^2+ab)} \\ge \\frac{(1+1)^2}{(b-c)(a^2+bc) + (a-b)(c^2+ab)} = \\frac{4}{(a-c)(2ab + 2bc - b^2 - ac)}$. (3)\nПоэтому достаточно показать, что\n$\\frac{4}{(a-c)(2ab+2bc-b^2-ac)} \\ge \\frac{1}{(a-c)(b^2+ac)} \\Leftrightarrow 5b^2 + 5ac \\ge 2(ab+bc) \\Leftrightarrow \\frac{5}{2} \\ge \\frac{b(c+a)}{b^2+ac}$,\nчто верно по условию задачи.",
+  "figures": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t3-1",
+  "subject": "math",
+  "topic": "проценты, делимость",
+  "title": "Школьники на кружках",
+  "statement": "В школе учатся меньше 150 школьников. Известно, что $56\\%$ девочек этой школы и $74\\%$ мальчиков ходят на кружок логики, а $65\\%$ всех школьников ходят на кружок математики. Сколько всего детей учатся в этой школе?",
+  "answer": {
+    "value": 100.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 100",
+      "решение: anthropic:claude-sonnet-5-5 → 100",
+      "программа (other): anthropic:claude-haiku-5-5 → 100",
+      "программа (other): anthropic:claude-sonnet-5-5 → 100"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1011"
+  },
+  "figures": []
+}

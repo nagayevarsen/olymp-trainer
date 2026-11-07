@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math6-t1-8",
+  "subject": "math",
+  "topic": "арифметическая прогрессия",
+  "title": "Номер члена последовательности",
+  "statement": "Рассмотрим последовательность: 1, 4, 7, 10, $\\ldots$, 2014, 2017. Под каким номером стоит число 2017?",
+  "answer": {
+    "value": 673.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 673",
+      "решение: anthropic:claude-sonnet-5-5 → 673",
+      "программа (other): anthropic:claude-haiku-5-5 → 673",
+      "программа (other): anthropic:claude-sonnet-5-5 → 673"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 6,
+    "number": 8,
+    "url": "https://matol.kz/olympiads/855"
+  },
+  "figures": []
+}

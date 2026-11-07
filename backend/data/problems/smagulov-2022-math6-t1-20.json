@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t1-20",
+  "subject": "math",
+  "topic": "числовые последовательности",
+  "title": "Закономерность в последовательности",
+  "statement": "На доске записали последовательность чисел: 0, 2, 6, 12, 20, 30, 42. Ученик, сразу поняв закономерность в последовательности, записал еще два следующих члена. Чему равен модуль разности этих двух записанных членов?",
+  "answer": {
+    "value": 16.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 16",
+      "решение: anthropic:claude-sonnet-5-5 → 16",
+      "программа (other): anthropic:claude-haiku-5-5 → 16",
+      "программа (other): anthropic:claude-sonnet-5-5 → 16"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 20,
+    "url": "https://matol.kz/olympiads/1007"
+  },
+  "figures": []
+}

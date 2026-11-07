@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t1-2",
+  "subject": "math",
+  "topic": "квадраты чисел",
+  "title": "Дополнение 2016 до квадрата",
+  "statement": "Найдите наименьшее натуральное число, которое нужно добавить к числу 2016, чтобы получился квадрат целого числа.",
+  "answer": {
+    "value": 9.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 9",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 9",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 9",
+      "программа (enumeration): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 9"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/487"
+  },
+  "figures": []
+}

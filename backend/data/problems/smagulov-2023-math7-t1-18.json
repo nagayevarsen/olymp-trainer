@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t1-18",
+  "subject": "math",
+  "topic": "Диофантовы уравнения",
+  "title": "Натуральные решения уравнения",
+  "statement": "Найдите число натуральных решений $\\left( x, y, z \\right)$ уравнения $2x+y+z=101$.",
+  "answer": {
+    "value": 2450.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 2450",
+      "решение: anthropic:claude-sonnet-5-5 → 2450",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 2450",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 2450"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 18,
+    "url": "https://matol.kz/olympiads/1071"
+  },
+  "figures": []
+}

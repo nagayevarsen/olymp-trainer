@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t1-18",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Пары с равными разностями",
+  "statement": "Сколькими способами можно разбить на пары числа 1, 2, 3, 4, 5, 6, 7, 8 так, чтобы разности большего и меньшего чисел во всех парах были одинаковы?",
+  "answer": {
+    "value": 3.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 3",
+      "решение: anthropic:claude-sonnet-5-5 → 3",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 3",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 3"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 18,
+    "url": "https://matol.kz/olympiads/487"
+  },
+  "figures": []
+}

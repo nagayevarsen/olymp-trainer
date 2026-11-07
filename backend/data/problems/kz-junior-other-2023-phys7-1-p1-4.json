@@ -1,0 +1,25 @@
+{
+  "id": "kz-junior-other-2023-phys7-1-p1-4",
+  "subject": "physics",
+  "topic": "Истечение жидкости",
+  "title": "Протечка, пункт 1.4",
+  "statement": "Цилиндрический сосуд с площадью поперечного сечения $S$ заполнен водой до уровня $H$. В дне сосуда проделано отверстие с площадью $\\sigma$.\n\n**Пункт 1.4.** За какое время вытечет вода из сосуда при $H = 0{,}5$ м, $S = 100$ см², $\\sigma = 1$ см², $g \\approx 10$ м/с²?",
+  "answer": {
+    "value": 31.6,
+    "variables": {},
+    "unit": "с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Юниорская олимпиада (Казахстан)",
+    "year": 2023,
+    "stage": "other",
+    "grade": 7,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/junior/2023/phys7-sol.pdf"
+  },
+  "solution": "Средняя скорость понижения уровня $u_{ср}=\\frac{\\sigma}{S}\\sqrt{gH/2}$, время $t=\\frac{H}{u_{ср}}=\\frac{S}{\\sigma}\\sqrt{\\frac{2H}{g}}\\approx 31{,}6$ с.",
+  "figures": []
+}

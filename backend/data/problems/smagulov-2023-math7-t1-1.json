@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t1-1",
+  "subject": "math",
+  "topic": "уравнение с дробями",
+  "title": "Поиск x в уравнении",
+  "statement": "Найдите $x$ из уравнения $\\frac{2}{43}=\\frac{1}{42} + \\frac{1}{86}+\\frac{1}{129}+\\frac{1}{x}$.",
+  "answer": {
+    "value": 301.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 301",
+      "решение: anthropic:claude-sonnet-5-5 → 301",
+      "программа (other): anthropic:claude-haiku-5-5 → 301",
+      "программа (other): anthropic:claude-sonnet-5-5 → 301"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1071"
+  },
+  "figures": []
+}

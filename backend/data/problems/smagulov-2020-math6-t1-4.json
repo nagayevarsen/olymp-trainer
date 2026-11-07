@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math6-t1-4",
+  "subject": "math",
+  "topic": "неравенства",
+  "title": "Натуральные решения двойного неравенства",
+  "statement": "Сколько натуральных чисел $x$ удовлетворяют неравенствам $$\\frac{3}{4} < \\frac{x}{400} < \\frac{4}{5}?$$",
+  "answer": {
+    "value": 19.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 19",
+      "решение: anthropic:claude-sonnet-5-5 → 19",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 19",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 19"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 6,
+    "number": 4,
+    "url": "https://matol.kz/olympiads/1005"
+  },
+  "figures": []
+}

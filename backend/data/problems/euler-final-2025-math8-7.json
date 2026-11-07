@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2025-math8-7",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Угол пятиугольника",
+  "statement": "В выпуклом пятиугольнике $ABCDE$ $\\angle ACB = \\angle CBD = \\angle DCE = \\angle BDC = 30^\\circ$, а $AB+BC+CD+DE = AD+BE$. Чему может быть равен угол $A$ этого пятиугольника?",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2025,
+    "stage": "final",
+    "grade": 8,
+    "number": 7,
+    "url": "https://www.matol.ru/files/3etap2025.zip#member=3etap2025day2sol.pdf"
+  },
+  "solution": "Ответ. $90^\\circ$. Решение. Построим точку $X$, симметричную точке $C$ относительно прямой $BD$. Так как $\\angle CBD = \\angle BDC = 30^\\circ$, выполнены равенства $BX = BC = CD = DX$ и $\\angle CBX = \\angle CDX = 60^\\circ$. Значит, $BCDX$ — ромб, а треугольники $BXC$ и $DXC$ — равносторонние. Поэтому $\\angle ACX = \\angle BCX - \\angle ACB = 30^\\circ$, откуда $AC$ — серединный перпендикуляр к отрезку $BX$ и $AX = AB$. Аналогично, $EX = ED$. Значит, выполнено неравенство $AB+CD = AX+DX \\ge AD$. Складывая его с аналогичным неравенством $BC+DE \\ge BE$, получаем, что $AB+BC+CD+DE = AD+BE$ только тогда, когда $AB+CD = AX+XD = AD$ и $BC+DE = BX+XE = BE$. Первое равенство выполнено только когда $X$ лежит на отрезке $AD$, второе — только когда $X$ лежит на отрезке $BE$. Таким образом, $X$ совпадает с точкой пересечения диагоналей $AD$ и $BE$. Тогда треугольник $ABX$ — равносторонний, так как $AX = AB$ и $\\angle BXA = 180^\\circ - \\angle BXD = 60^\\circ$. Аналогично треугольник $EDX$ — равносторонний. Тогда $AX = BX = DX = EX$, следовательно, треугольник $AXE$ — равнобедренный. При этом $\\angle AXE = \\angle BXD = 120^\\circ$, откуда $\\angle XAE = 30^\\circ$. Поэтому $\\angle BAE = \\angle BAX + \\angle XAE = 60^\\circ + 30^\\circ = 90^\\circ$.",
+  "figures": []
+}

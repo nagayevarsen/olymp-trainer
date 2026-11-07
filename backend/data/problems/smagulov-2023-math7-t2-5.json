@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t2-5",
+  "subject": "math",
+  "topic": "теория графов",
+  "title": "Раскраска вершин многоугольника",
+  "statement": "Вершины 101-угольника нужно покрасить в несколько цветов так, чтобы любые две вершины, не соединенные стороной, были разного цвета. Какое наименьшее количество цветов для этого понадобится?",
+  "answer": {
+    "value": 51.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 51",
+      "решение: anthropic:claude-sonnet-5-5 → 51",
+      "программа (graph_theory): anthropic:claude-haiku-5-5 → 51",
+      "программа (graph_theory): anthropic:claude-sonnet-5-5 → 51"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/1073"
+  },
+  "figures": []
+}

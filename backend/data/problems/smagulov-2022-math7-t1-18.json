@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math7-t1-18",
+  "subject": "math",
+  "topic": "делимость степеней",
+  "title": "Степень двойки в произведении",
+  "statement": "Найдите наибольшее такое число $n$, что $100 \\cdot 101 \\cdot 102 \\cdot \\ldots \\cdot 200={{2}^{n}} \\cdot k$. Здесь $k$ и $n$ — натуральные числа.",
+  "answer": {
+    "value": 102.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 102",
+      "решение: anthropic:claude-sonnet-5-5 → 102",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 102",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 102"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 18,
+    "url": "https://matol.kz/olympiads/1008"
+  },
+  "figures": []
+}

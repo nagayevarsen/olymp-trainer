@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math7-t1-11",
+  "subject": "math",
+  "topic": "комбинаторика, графы",
+  "title": "Разноцветные отрезки на окружности",
+  "statement": "На окружности отмечено 40 точек. Каждые две из них соединили отрезком. Сеня покрасил точки в два цвета. Какое наибольшее количество отрезков с концами в точках разного цвета могло получиться?",
+  "answer": {
+    "value": 400.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 400",
+      "решение: anthropic:claude-sonnet-5-5 → 400",
+      "программа (graph_theory): anthropic:claude-haiku-5-5 → 400",
+      "программа (graph_theory): anthropic:claude-sonnet-5-5 → 400"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 7,
+    "number": 11,
+    "url": "https://matol.kz/olympiads/1006"
+  },
+  "figures": []
+}

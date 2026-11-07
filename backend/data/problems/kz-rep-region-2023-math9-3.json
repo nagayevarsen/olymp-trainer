@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-region-2023-math9-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Три описанные трапеции",
+  "statement": "На сторонах $BC$, $CA$, $AB$ треугольника $ABC$ выбраны соответственно точки $K$, $L$, $M$, а внутри треугольника выбрана точка $P$ так, что $PL\\parallel BC$, $PM\\parallel CA$, $PK\\parallel AB$. Может ли оказаться, что все три трапеции $AMPL$, $BKPM$, $CLPK$ — описанные?",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2023,
+    "stage": "region",
+    "grade": 9,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2023/math9-2-sol.pdf"
+  },
+  "solution": "Ответ: не может. Решение. Продлим отрезки $PK$, $PL$, $PM$ до пересечения со сторонами в точках $E$, $F$, $G$ (рис.). Из критерия описанности имеем $AL+PM=AM+PL$, откуда $AE+EL+PM-AM-PL=0$ или (используя то, что $AMPE$ — параллелограмм) $$2PM+EL-PE-PL=0.$$ Сложим это равенство с аналогичными равенствами $$2PL+GK-PG-PK=0$$ и $$2PK+FM-PF-PM=0,$$ получим $$(PK+GK-PG)+(PM+FM-PF)+(PL+EL-PE)=0.$$ Но, согласно неравенству треугольника, каждая скобка в левой части положительна. Противоречие.",
+  "figures": []
+}

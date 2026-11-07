@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2022-math8-5",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Равенство отрезков",
+  "statement": "В выпуклом пятиугольнике $ABCDE$ диагонали $AD$ и $CE$ пересекаются в точке $X$. Оказалось, что $ABCX$ — параллелограмм и $BD = CX$; $BE = AX$. Докажите, что $AE = CD$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2022,
+    "stage": "final",
+    "grade": 8,
+    "number": 5,
+    "url": "https://www.matol.ru/files/3etap2022 day2 sol.pdf"
+  },
+  "solution": "Первое решение. Заметим, что $AB = CX = BD$; $BC = AX = BE$ и $\\angle ABD = 180^\\circ-2\\angle BAD = 180^\\circ-2\\angle BCE = \\angle CBE$, откуда $\\angle ABE = \\angle CBD$. Следовательно, треугольники $ABE$ и $DBC$ равны по двум сторонам и углу между ними, поэтому $AE = CD$.\n\nВторое решение. Проведем отрезок $BX$. У трапеции $ABXE$ равны диагонали $AX$ и $BE$, поэтому она — равнобедренная, то есть $AE = BX$. Аналогично из равнобедренной трапеции $BCDX$ получаем $CD = BX$. Следовательно, $AE = BX = CD$.",
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-republic-2021-math11-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Прямая O1O2 делит EF",
+  "statement": "Остроугольный треугольник $ABC$ вписан в окружность $\\Omega$. В этом треугольнике проведены высоты $AD$, $BE$ и $CF$. Прямая $AD$ пересекает $\\Omega$ вторично в точке $P$, а прямые $PF$ и $PE$ пересекают $\\Omega$ вторично в точках $R$ и $Q$ соответственно. Пусть $O_1$ и $O_2$ — центры описанных окружностей треугольников $BFR$ и $CEQ$ соответственно. Докажите, что прямая $O_1O_2$ делит отрезок $EF$ пополам.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2021,
+    "stage": "republic",
+    "grade": 11,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2021/math11-2-sol.pdf"
+  },
+  "solution": "Пусть $M$ середина $BC$. Так как $O_1B = O_1F$ и $MB = MF$, то $MO_1 \\perp BF$. Следовательно, $MO_1 \\parallel CF$. Заметим, что $$\\angle BO_1M = \\frac{\\angle BO_1F}{2} = \\angle BRF = \\angle BRP = \\angle BAP = 90^\\circ - \\angle ABC = \\angle BCF = \\angle BMO_1,$$ то есть четырёхугольник $O_1FMB$ — ромб. Следовательно, $O_1F = BM$ и $O_1F \\parallel BC$. Аналогично, $EO_2 = CM = BM$ и $EO_2 \\parallel BC$. Значит, четырёхугольник $O_1FO_2E$ — параллелограмм, то есть $O_1O_2$ делит $FE$ пополам.",
+  "figures": []
+}

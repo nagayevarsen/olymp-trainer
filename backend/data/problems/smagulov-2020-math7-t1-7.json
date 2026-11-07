@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math7-t1-7",
+  "subject": "math",
+  "topic": "алгебра",
+  "title": "Упрощение алгебраической дроби",
+  "statement": "Найдите значение выражения $\\frac{ab+a+b+1}{bc+b+c+1}:\\frac{ed+e+d+1}{cd+c+d+1}$ при $a=2019$ и $e=1$.",
+  "answer": {
+    "value": 1010.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1010",
+      "решение: anthropic:claude-sonnet-5-5 → 1010",
+      "программа (other): anthropic:claude-haiku-5-5 → 1010",
+      "программа (other): anthropic:claude-sonnet-5-5 → 1010"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 7,
+    "number": 7,
+    "url": "https://matol.kz/olympiads/1006"
+  },
+  "figures": []
+}

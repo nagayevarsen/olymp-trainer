@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t1-19",
+  "subject": "math",
+  "topic": "движение, скорость",
+  "title": "Погоня на велосипедах",
+  "statement": "Заяц и волк соревновались на велосипеде. Колесо велосипеда волка совершает 50 оборотов в минуту и имеет диаметр 1 м, а колесо велосипеда кролика 80 оборотов в минуту и имеет диаметр 0,5 м. За сколько минут волк догонит кролика, если заяц находится на 157 м впереди волка? $(\\pi =3,14)$.",
+  "answer": {
+    "value": 5.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 5",
+      "решение: anthropic:claude-sonnet-5-5 → 5",
+      "программа (other): anthropic:claude-haiku-5-5 → 5",
+      "программа (other): anthropic:claude-sonnet-5-5 → 5"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 19,
+    "url": "https://matol.kz/olympiads/1007"
+  },
+  "figures": []
+}

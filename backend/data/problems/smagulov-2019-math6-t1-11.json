@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2019-math6-t1-11",
+  "subject": "math",
+  "topic": "двойной подсчёт",
+  "title": "Туристы и павильоны",
+  "statement": "На выставку EXPO-2017, проходившую в Астане, на которой насчитывалось 111 павильонов, прибыла группа туристов. Известно, что каждый турист из этой группы  посетил ровно 37 павильонов, а каждый павильон принял ровно 3 туриста из этой группы. Сколько всего было туристов в этой группе?",
+  "answer": {
+    "value": 9.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 9",
+      "решение: anthropic:claude-sonnet-5-5 → 9",
+      "программа (other): anthropic:claude-haiku-5-5 → 9",
+      "программа (other): anthropic:claude-sonnet-5-5 → 9"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2019,
+    "stage": "city",
+    "grade": 6,
+    "number": 11,
+    "url": "https://matol.kz/olympiads/862"
+  },
+  "figures": []
+}

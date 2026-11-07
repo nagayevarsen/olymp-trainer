@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2015-math8-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Медиана и отношение сторон",
+  "statement": "В треугольнике ABC проведена медиана BM. Известно, что $\\angle ABM = 40^\\circ$, а $\\angle CBM = 70^\\circ$. Найдите отношение AB : BM.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2015,
+    "stage": "distance",
+    "grade": 8,
+    "number": 3,
+    "url": "https://www.matol.ru/files/Disttur1_14_sol.pdf"
+  },
+  "solution": "Ответ: 2. Первое решение. Достроим треугольник ABC до параллелограмма ABCD. Так как диагонали параллелограмма, пересекаясь, делятся пополам, точка M является точкой их пересечения и $BD = 2BM$. С другой стороны, $\\angle BDA = \\angle CBD = 70^\\circ$, а $\\angle BAD = 180^\\circ - \\angle BDA - \\angle ABD = 70^\\circ = \\angle BDA$, откуда $AB = BD = 2BM$ и $AB:BM = 2BM:BM = 2$. Второе решение. Заметим, что BC — биссектриса внешнего угла при вершине B треугольника ABM. Поэтому $AB:BM = AC:CM = 2$.",
+  "figures": []
+}

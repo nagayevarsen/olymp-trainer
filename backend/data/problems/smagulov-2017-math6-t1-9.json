@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math6-t1-9",
+  "subject": "math",
+  "topic": "площадь прямоугольника",
+  "title": "Увеличение площади гаража",
+  "statement": "Николай решил увеличить свой гараж. Ширина гаража --- 4 метра, а длина --- 5 метров. Он хочет в три раза увеличить длину и удвоить ширину. Как при этом изменится площадь гаража?",
+  "answer": {
+    "value": 6.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 6",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 6",
+      "программа (other): anthropic:claude-haiku-5-5 → 6",
+      "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 6"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 9,
+    "url": "https://matol.kz/olympiads/486"
+  },
+  "figures": []
+}

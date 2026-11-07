@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math6-t1-1",
+  "subject": "math",
+  "topic": "остатки от деления",
+  "title": "Разность наибольшего и наименьшего",
+  "statement": "От наименьшего 5-значного числа, которое при делении на 43 дает остаток 25, отняли наибольшее 3-значное число, которое при делении на 51 дает остаток 22. Чему равна полученная разность?",
+  "answer": {
+    "value": 9010.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 9010",
+      "решение: anthropic:claude-sonnet-5-5 → 9010",
+      "программа (other): anthropic:claude-haiku-5-5 → 9010",
+      "программа (other): anthropic:claude-sonnet-5-5 → 9010"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 6,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1007"
+  },
+  "figures": []
+}

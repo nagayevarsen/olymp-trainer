@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2018-math8-8",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Равенство углов в параллелограммах",
+  "statement": "Вершина $F$ параллелограмма $ACEF$ лежит на стороне $BC$ параллелограмма $ABCD$. Известно, что $AC = AD$ и $AE = 2CD$. Докажите, что $\\angle CDE = \\angle BEF$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2018,
+    "stage": "final",
+    "grade": 8,
+    "number": 8,
+    "url": "https://www.matol.ru/files/3etap2018sol.pdf"
+  },
+  "solution": "Первое решение. Пусть $M$ — середина отрезка $CF$. Поскольку четырехугольник $ACEF$ — параллелограмм, точка $M$ является серединой отрезка $AE$. Обозначим $\\angle MAC = \\angle MEF = \\alpha$ и $\\angle ABC = \\angle ADC = \\angle ACD = \\beta$. Так как $AM = AE/2 = CD$, $AMCD$ — равнобокая трапеция, откуда мы получаем что $\\alpha = \\angle MAC = \\angle MDC$ и $MD = AC = AD$. Кроме того, поскольку $MA = CD = AB$ и $\\angle ABM = \\angle ADC = \\beta$, равнобедренные треугольники $ABM$ и $ACD$ подобны, поэтому $AB/BM = AC/CD$. Треугольники $BME$ и $EMD$ также подобны, так как $\\angle BME = 180^\\circ-\\beta = 180^\\circ-\\angle DMA = \\angle EMD$ и $BM/ME = BM/MA = CD/AD = MA/MD = EM/MD$. Значит, $\\angle BEM = \\angle EDM$, откуда $\\angle BEF = \\angle BEM-\\alpha = \\angle EDM-\\alpha = \\angle CDE$, что и требовалось.",
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2016-math8-3",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Равносторонний треугольник и угол",
+  "statement": "Дан равносторонний треугольник $ABC$. Точка $D$ выбрана на продолжении стороны $AB$ за точку $A$, точка $E$ — на продолжении $BC$ за точку $C$, а точка $F$ — на продолжении $AC$ за точку $C$ так, что $CF = AD$ и $AC + EF = DE$. Найдите угол $BDE$. (А. Кузнецов)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2016,
+    "stage": "final",
+    "grade": 8,
+    "number": 3,
+    "url": "https://www.matol.ru/files/3etap2016sol.pdf"
+  },
+  "solution": "Ответ. $60^\\circ$. Решение. Достроим треугольник $ACE$ до параллелограмма $ACEG$. Так как $CF = AD$, $CE = AG$ и $\\angle FCE = \\angle DAG = 60^\\circ$, треугольники $DAG$ и $FCE$ равны, откуда $GD = EF$. Следовательно, $DE = AC + EF = GE + GD$. Значит, точка $G$ лежит на отрезке $DE$, и потому $DE \\parallel AC$, откуда $\\angle BDE = \\angle BAC = 60^\\circ$.",
+  "figures": []
+}

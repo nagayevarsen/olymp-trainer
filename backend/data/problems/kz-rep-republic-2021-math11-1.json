@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-republic-2021-math11-1",
+  "subject": "math",
+  "topic": "Теория чисел",
+  "title": "Целые части сумм корней",
+  "statement": "Докажите, что существует бесконечно много пар $(a, b)$ натуральных чисел таких, что $a \\neq b$ и для любого натурального $n$ выполняется равенство $\\left[\\sqrt{a^2n} + \\sqrt{b^2n + 1}\\right] = \\left[\\sqrt{(a + b)^2n + 3}\\right]$. (Здесь $[x]$ — целая часть числа $x$, то есть наибольшее целое число, не превосходящее $x$.)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2021,
+    "stage": "republic",
+    "grade": 11,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2021/math11-1-sol.pdf"
+  },
+  "solution": "Докажем, что подходят все пары вида $(2k, k)$, где $k$ — натуральное число. Действительно, пусть $n$ — произвольное натуральное число. Обозначим $x = \\sqrt{a^2n} + \\sqrt{b^2n + 1}$, $y = \\sqrt{(a + b)^2n + 3}$, $s = k^2n$. Заметим, что $$y^2 - x^2 = 2\\left(abn + 1 - \\sqrt{(abn)^2 + a^2n}\\right) = 2\\left(1 - \\frac{a^2n}{abn + \\sqrt{(abn)^2 + a^2n}}\\right) = 2\\left(1 - \\frac{2kn}{kn + \\sqrt{k^2n^2 + n}}\\right) = 2\\left(1 - \\frac{2}{1 + \\sqrt{1 + \\frac{1}{s}}}\\right) = 2 \\cdot \\frac{\\sqrt{s + 1} - \\sqrt{s}}{\\sqrt{s + 1} + \\sqrt{s}} = \\frac{2}{\\left(\\sqrt{s + 1} + \\sqrt{s}\\right)^2}. \\quad (1)$$ Из (1) следует, что $$0 < y^2 - x^2 < \\frac{1}{2s}. \\quad (2)$$ Так как $x + y > 6\\sqrt{s}$, то из (2) получим, что $$0 < y - x = \\frac{y^2 - x^2}{y + x} < \\frac{1}{12s\\sqrt{s}}. \\quad (3)$$ Лемма. Для любого натурального $m$ выполнено неравенство $\\{\\sqrt{9m + 3}\\} > \\frac{1}{4\\sqrt{m}}$. Доказательство. Пусть $v = \\left[\\sqrt{9m + 3}\\right]$, откуда $v^2 \\leq 9m + 3$. Так как $v^2 \\equiv 0, 1, 4, 7 \\pmod 9$, то $v^2 \\leq 9m + 1$. Тогда $$\\{\\sqrt{9m + 3}\\} = \\sqrt{9m + 3} - v \\geq \\sqrt{9m + 3} - \\sqrt{9m + 1} = \\frac{2}{\\sqrt{9m + 3} + \\sqrt{9m + 1}} > \\frac{1}{\\sqrt{9m + 3}} > \\frac{1}{4\\sqrt{m}}.$$ Используя лемму и (3), получим, что $y - [y] = \\{y\\} = \\{\\sqrt{9s + 3}\\} > \\frac{1}{4\\sqrt{s}} > y - x$, откуда $[y] < x < y$. Значит $[x] = [y]$, что и требовалось доказать.",
+  "figures": []
+}

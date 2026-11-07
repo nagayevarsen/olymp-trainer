@@ -1,0 +1,23 @@
+{
+  "id": "kz-junior-region-2022-math7-1",
+  "subject": "math",
+  "topic": "Арифметика",
+  "title": "Числа, делящиеся на 2, 7, 3, 5",
+  "statement": "Аслан записал на доске количество всех чисел от 1 до 2022 включительно, которые делятся на 2 или 7. Алмаз записал на доске количество всех чисел от 1 до 2022 включительно, которые делятся на 3 или 5. У кого из них число больше?",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Юниорская олимпиада (Казахстан)",
+    "year": 2022,
+    "stage": "region",
+    "grade": 7,
+    "number": 1,
+    "url": "https://cdn.bc-pf.org/olympiads/math/junior/2022/oblast/math7-junior-oblast-sol.pdf"
+  },
+  "solution": "Ответ: у Алмаза число больше.\n\nЧисел, которые делятся на 2 или на 7, будет\n$\\left[\\frac{2022}{2}\\right] + \\left[\\frac{2022}{2}\\right] - \\left[\\frac{2022}{14}\\right] = 1011 + 288 - 144 = 1155.$\n\nЧисел, которые делятся на 3 или на 5, будет\n$\\left[\\frac{2022}{3}\\right] + \\left[\\frac{2022}{5}\\right] - \\left[\\frac{2022}{15}\\right] = 674 + 404 - 134 = 1212.$\n\nЗначит, у Алмаза число больше.",
+  "figures": []
+}

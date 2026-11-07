@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t1-5",
+  "subject": "math",
+  "topic": "теория чисел",
+  "title": "НОД repunit-чисел",
+  "statement": "Вычислите $\\text{НОД}\\left( 111111111111, 11111111 \\right)$.",
+  "answer": {
+    "value": 1111.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1111",
+      "решение: anthropic:claude-sonnet-5-5 → 1111",
+      "программа (other): anthropic:claude-haiku-5-5 → 1111",
+      "программа (other): anthropic:claude-sonnet-5-5 → 1111"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/1071"
+  },
+  "figures": []
+}

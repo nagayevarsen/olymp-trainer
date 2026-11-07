@@ -109,6 +109,8 @@ class DB:
                 c.execute("ALTER TABLE users ADD COLUMN nick TEXT")
             if "pass_hash" not in cols:
                 c.execute("ALTER TABLE users ADD COLUMN pass_hash TEXT")
+            if "avatar" not in cols:
+                c.execute("ALTER TABLE users ADD COLUMN avatar TEXT")
             c.execute(
                 "CREATE UNIQUE INDEX IF NOT EXISTS users_nick ON users(nick COLLATE NOCASE) WHERE nick IS NOT NULL"
             )
@@ -168,6 +170,10 @@ class DB:
 
     def user_by_nick(self, nick: str) -> sqlite3.Row | None:
         return self.conn.execute("SELECT * FROM users WHERE nick = ? COLLATE NOCASE", (nick,)).fetchone()
+
+    def set_avatar(self, uid: str, value: str) -> None:
+        with self.tx() as c:
+            c.execute("UPDATE users SET avatar = ? WHERE id = ?", (value, uid))
 
     def delete_user(self, uid: str) -> None:
         """Удалить аккаунт и всё, что с ним связано."""

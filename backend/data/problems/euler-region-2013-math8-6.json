@@ -1,0 +1,23 @@
+{
+  "id": "euler-region-2013-math8-6",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Углы треугольника A2BC2",
+  "statement": "Дан остроугольный треугольник $ABC$. Высота $AA_1$ продолжена за вершину $A$ на отрезок $AA_2 = BC$. Высота $CC_1$ продолжена за вершину $C$ на отрезок $CC_2 = AB$. Найдите углы треугольника $A_2BC_2$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2013,
+    "stage": "region",
+    "grade": 8,
+    "number": 6,
+    "url": "https://www.matol.ru/files/Euler_reg_12-13_sol.pdf"
+  },
+  "solution": "Ответ. $\\angle A_2BC_2 = 90^\\circ$, $\\angle BA_2C_2 = \\angle BC_2A_2 = 45^\\circ$. Решение. Треугольники $ABA_2$ и $CC_2B$ равны по двум сторонам и углу между ними ($AB = CC_2$, $AA_2 = BC$, а углы $BAA_2$ и $BCC_2$ равны как смежные с углами $A_1AB$ и $C_1CB$, равными $90^\\circ-\\angle ABC$). Поэтому $\\angle BA_2A = \\angle CBC_2$, откуда $\\angle A_2BC_2 = \\angle A_2BA+\\angle ABC+\\angle CBC_2 = \\angle ABC+(\\angle A_2BA+\\angle BA_2A) = \\angle ABC+\\angle BAA_1 = 90^\\circ$. Кроме того, $A_2B = C_2B$, откуда $\\angle BA_2C_2 = \\angle BC_2A_2 = (180^\\circ-\\angle A_2BC_2)/2 = 45^\\circ$.",
+  "figures": []
+}

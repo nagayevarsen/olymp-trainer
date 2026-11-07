@@ -1,0 +1,29 @@
+{
+  "id": "smagulov-2017-math6-t1-13",
+  "subject": "math",
+  "topic": "делимость чисел",
+  "title": "Вычеркивание чисел от 1 до 100",
+  "statement": "Из набора чисел 1, 2, $\\ldots$, $100$ вычеркнуты все четные числа, а также все такие числа $x$, что $100-x$ делится на 3. Сколько чисел осталось?",
+  "answer": {
+    "value": 33.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 33",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 33",
+      "решение: anthropic:claude-sonnet-5-5 → 33",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 33",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 33"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 13,
+    "url": "https://matol.kz/olympiads/486"
+  },
+  "figures": []
+}

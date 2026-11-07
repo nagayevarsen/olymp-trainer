@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2022-math7-t3-2",
+  "subject": "math",
+  "topic": "модули функций",
+  "title": "Минимум суммы модулей",
+  "statement": "Найдите наименьшее значение выражения $|20x+22|+|22x+33|$.",
+  "answer": {
+    "value": 8.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 8",
+      "решение: anthropic:claude-sonnet-5-5 → 8",
+      "программа (other): anthropic:claude-haiku-5-5 → 8",
+      "программа (other): anthropic:claude-sonnet-5-5 → 8"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2022,
+    "stage": "city",
+    "grade": 7,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/1012"
+  },
+  "figures": []
+}

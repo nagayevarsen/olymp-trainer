@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2020-math7-t1-18",
+  "subject": "math",
+  "topic": "Числовые суммы",
+  "title": "Сумма дробей и гармонического ряда",
+  "statement": "Вычислите: $$\\left(\\frac{1+2}{3}+\\frac{4+5}{6}+\\ldots+\\frac{2017+2018}{2019}\\right)+\\left(\\frac{1}{1}+\\frac{1}{2}+\\ldots+\\frac{1}{673}\\right).$$",
+  "answer": {
+    "value": 1346.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1346",
+      "решение: anthropic:claude-sonnet-5-5 → 1346",
+      "программа (other): anthropic:claude-haiku-5-5 → 1346",
+      "программа (other): anthropic:claude-sonnet-5-5 → 1346"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2020,
+    "stage": "city",
+    "grade": 7,
+    "number": 18,
+    "url": "https://matol.kz/olympiads/1006"
+  },
+  "figures": []
+}

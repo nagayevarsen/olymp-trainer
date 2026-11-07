@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2019-math6-t1-18",
+  "subject": "math",
+  "topic": "Углы часов",
+  "title": "Угол между стрелками часов",
+  "statement": "На стене висят двое часов. Одни часы показывают точное время, а другие спешат. Сейчас угол между часовыми стрелками этих часов равен $72^\\circ$. Чему равен угол между минутными стрелками этих часов?",
+  "answer": {
+    "value": 144.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 144",
+      "решение: anthropic:claude-sonnet-5-5 → 144",
+      "программа (other): anthropic:claude-haiku-5-5 → 144",
+      "программа (other): anthropic:claude-sonnet-5-5 → 144"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2019,
+    "stage": "city",
+    "grade": 6,
+    "number": 18,
+    "url": "https://matol.kz/olympiads/862"
+  },
+  "figures": []
+}

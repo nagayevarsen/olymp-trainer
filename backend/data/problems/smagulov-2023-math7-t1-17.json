@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math7-t1-17",
+  "subject": "math",
+  "topic": "простые числа",
+  "title": "Наибольшее простое p",
+  "statement": "Найдите наибольшее число $p$ такое, что все числа $p$, $\\frac{p+1}{2}$, $\\frac{p+2}{5}$ являются простыми.",
+  "answer": {
+    "value": 13.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 13",
+      "решение: anthropic:claude-sonnet-5-5 → 13",
+      "программа (other): anthropic:claude-haiku-5-5 → 13",
+      "программа (other): anthropic:claude-sonnet-5-5 → 13"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 17,
+    "url": "https://matol.kz/olympiads/1071"
+  },
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "euler-final-2017-math8-6",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Углы четырёхугольника",
+  "statement": "В выпуклом четырёхугольнике $ABCD$ углы $A$ и $C$ равны $100^\\circ$. На сторонах $AB$ и $BC$ выбраны точки $X$ и $Y$ соответственно так, что $AX = CY$. Оказалось, что прямая $YD$ параллельна биссектрисе угла $ABC$. Найдите угол $AXY$. (А. Кузнецов, С. Берлов)",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2017,
+    "stage": "final",
+    "grade": 8,
+    "number": 6,
+    "url": "https://www.matol.ru/files/3etap2017sol.pdf"
+  },
+  "solution": "Решение. Проведём через точку $Y$ прямую, параллельную $AB$. Пусть она пересечёт $AD$ в точке $K$. Тогда $\\angle DYC = \\angle DYK$ и $\\angle C = 100^\\circ = \\angle BAD = \\angle YKD$, поэтому треугольники $DYC$ и $DYK$ равны по двум углам и стороне. Поэтому $YK = YC = AX$ и $AXYK$ — параллелограмм. Но тогда $\\angle AXY = \\angle AKY = 80^\\circ$. (На рисунке: четырёхугольник ABCD с точками X на AB, Y на BC, K на AD, прямая YK параллельна AB.)",
+  "figures": []
+}

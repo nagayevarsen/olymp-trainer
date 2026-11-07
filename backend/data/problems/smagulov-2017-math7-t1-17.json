@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t1-17",
+  "subject": "math",
+  "topic": "степени",
+  "title": "Уравнение со степенями",
+  "statement": "Решите уравнение: ${50^{50}}:{25^{25}} = {X^{25}}.$",
+  "answer": {
+    "value": 100.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 100",
+      "решение: anthropic:claude-sonnet-5-5 → 100",
+      "программа (other): anthropic:claude-haiku-5-5 → 100",
+      "программа (other): anthropic:claude-sonnet-5-5 → 100"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 17,
+    "url": "https://matol.kz/olympiads/487"
+  },
+  "figures": []
+}

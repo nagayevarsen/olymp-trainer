@@ -1,0 +1,23 @@
+{
+  "id": "kz-rep-region-2024-math9-2",
+  "subject": "math",
+  "topic": "Геометрия",
+  "title": "Равенство сумм углов",
+  "statement": "На стороне $AC$ треугольника $ABC$ выбрана точка $D$ так, что $AB \\cdot AD = CB \\cdot CD$. Точка $M$ — середина отрезка $BD$. Докажите, что если $\\angle AMC = 90^\\circ$, то $\\angle CAM + \\angle BCM = \\angle ACM + \\angle BAM$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2024,
+    "stage": "region",
+    "grade": 9,
+    "number": 2,
+    "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2024/math9-1-sol.pdf"
+  },
+  "solution": "[Рисунок: треугольник $ABC$, точка $D$ на стороне $AC$, точка $M$ — середина $BD$; точки $P$ и $Q$ на лучах $AM$ и $CM$; точка $E$ на отрезке $AC$.]\n\nРешение. На лучах $AM$ и $CM$ отметим точки $P$ и $Q$ так, что $AP = 2AM$ и $CQ = 2CM$. Заметим, что $BP \\parallel AC \\parallel BQ$, откуда $B \\in PQ$. Так как $AM$ серединный перпендикуляр к $CQ$, то $AC = AQ$. Аналогично $CA = CP$. Так как $ACPQ$ — параллелограмм, то $PQ = AC = AQ = CP$. Следовательно, $ACPQ$ — ромб.\n\nОтметим на отрезке $AC$ точку $E$ так, что $AE = CD$. Тогда $BE$ — биссектриса угла $\\angle ABC$, так как $\\frac{AB}{BC} = \\frac{CD}{DA} = \\frac{AE}{EC}$. $QBEA$ и $BPCE$ — параллелограммы, поэтому $\\angle CAM - \\angle BAM = \\angle QAM - \\angle BAM = \\angle BAQ = \\angle ABE = \\angle EBC = \\angle BCP = \\angle PCM - \\angle BCM = \\angle ACM - \\angle BCM$, что и требовалось доказать.",
+  "figures": []
+}

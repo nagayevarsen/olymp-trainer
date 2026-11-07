@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math6-t1-18",
+  "subject": "math",
+  "topic": "арифметические ребусы",
+  "title": "Ребус АЛМА − АТА",
+  "statement": "В ребусе $\\mbox{АЛМА}-\\mbox{АТА}=1230$ одинаковым буквам соответствуют одинаковые цифры, разным буквам — разные. Какое максимальное значение может принимать Т?",
+  "answer": {
+    "value": 9.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 9",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 9",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 9",
+      "программа (enumeration): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 9"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 6,
+    "number": 18,
+    "url": "https://matol.kz/olympiads/486"
+  },
+  "figures": []
+}

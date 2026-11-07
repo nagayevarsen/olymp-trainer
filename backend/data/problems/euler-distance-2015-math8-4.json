@@ -1,0 +1,23 @@
+{
+  "id": "euler-distance-2015-math8-4",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Неравенство для трёх чисел",
+  "statement": "Различные неотрицательные числа a, b, c таковы, что $a^2+b^2 = c^2+ab$. Докажите, что $c^2+ab < ac+bc$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Леонарда Эйлера",
+    "year": 2015,
+    "stage": "distance",
+    "grade": 8,
+    "number": 4,
+    "url": "https://www.matol.ru/files/Disttur1_14_sol.pdf"
+  },
+  "solution": "Решение. Не умаляя общности, положим $a < b$. Тогда $c^2+ab < ac+bc \\Leftrightarrow (c-b)(c-a) < 0 \\Leftrightarrow a < c < b$. Докажем последнее неравенство от противного. Допустим, $c \\le a$. Тогда $c^2+ab \\le a^2+ab < a^2+b^2$ — противоречие. Допустим, $c \\ge b$. Тогда $c^2+ab \\ge b^2+ab > b^2+a^2$ — снова противоречие.",
+  "figures": []
+}

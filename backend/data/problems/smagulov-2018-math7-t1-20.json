@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math7-t1-20",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Треугольники на двух прямых",
+  "statement": "На одной прямой отметили 9 точек, а на другой прямой также отметили 9 точек, и, точку пересечения этих прямых, отметили как 19-ю точку. Сколько имеется треугольников с вершинами в данных точках?",
+  "answer": {
+    "value": 729.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 729",
+      "решение: anthropic:claude-sonnet-5-5 → 729",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 729",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 729"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 7,
+    "number": 20,
+    "url": "https://matol.kz/olympiads/856"
+  },
+  "figures": []
+}

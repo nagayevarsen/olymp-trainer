@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2017-math7-t1-6",
+  "subject": "math",
+  "topic": "делимость",
+  "title": "Количество книг Петра",
+  "statement": "Количество книг у Петра больше 150, но меньше 200. Из них $20\\%$ — романы, а 1/7 — сборники стихов. Сколько книг у Петра?",
+  "answer": {
+    "value": 175.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 175",
+      "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 175",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 175",
+      "программа (enumeration): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 175"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2017,
+    "stage": "city",
+    "grade": 7,
+    "number": 6,
+    "url": "https://matol.kz/olympiads/487"
+  },
+  "figures": []
+}

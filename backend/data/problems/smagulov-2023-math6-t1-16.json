@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-16",
+  "subject": "math",
+  "topic": "теория чисел",
+  "title": "Пары с заданным НОД",
+  "statement": "Сколько существует натуральных пар $(X,Y)$ таких, что $\\text{НОД}(X,Y)=8$ и $X \\cdot Y = 384$?",
+  "answer": {
+    "value": 4.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 4",
+      "решение: anthropic:claude-sonnet-5-5 → 4",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 4",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 4"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 16,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

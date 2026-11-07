@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-10",
+  "subject": "math",
+  "topic": "Остатки от деления",
+  "title": "Остаток суммы факториалов",
+  "statement": "Пусть $A = 1! + 2! + 3! + \\ldots  + 2023!$. Вычислите остаток от деления $A$ на 100. Как обычно, через $n!$ обозначется произведение всех натуральных чисел от 1 до $n$.",
+  "answer": {
+    "value": 13.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 13",
+      "решение: anthropic:claude-sonnet-5-5 → 13",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 13",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 13"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 10,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "kz-junior-region-2022-math8-2",
+  "subject": "math",
+  "topic": "Алгебра",
+  "title": "Неравенство с корнями",
+  "statement": "Сумма положительных чисел $a$, $b$, $c$ и $d$ равна 7. Докажите неравенство $\\sqrt{a + 2022b} + \\sqrt{b + 2022c} + \\sqrt{c + 2022d} + \\sqrt{d + 2022a} \\leqslant 238$.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Юниорская олимпиада (Казахстан)",
+    "year": 2022,
+    "stage": "region",
+    "grade": 8,
+    "number": 2,
+    "url": "https://cdn.bc-pf.org/olympiads/math/junior/2022/oblast/math8-junior-oblast-sol.pdf"
+  },
+  "solution": "Решение. По неравенству Коши–Буняковского $\\sqrt{a + 2022b} + \\sqrt{b + 2022c} + \\sqrt{c + 2022d} + \\sqrt{d + 2022a} = 1 \\cdot \\sqrt{a + 2022b} + 1 \\cdot \\sqrt{b + 2022c} + 1 \\cdot \\sqrt{c + 2022d} + 1 \\cdot \\sqrt{d + 2022a} \\leqslant \\sqrt{1^2 + 1^2 + 1^2 + 1^2} \\times \\sqrt{(\\sqrt{a + 2022b})^2 + (\\sqrt{b + 2022c})^2 + (\\sqrt{c + 2022d})^2 + (\\sqrt{d + 2022a})^2} = \\sqrt{4} \\cdot \\sqrt{a + 2022b + b + 2022c + c + 2022d + d + 2022a} = 2 \\cdot \\sqrt{2023a + 2023b + 2023c + 2023d} = 2 \\cdot \\sqrt{2023(a + b + c + d)} = 2\\sqrt{2023} \\cdot 7 = 2\\sqrt{7 \\cdot 17^2 \\cdot 7} = 2 \\cdot 7 \\cdot 17 = 238$. Неравенство доказано.",
+  "figures": []
+}

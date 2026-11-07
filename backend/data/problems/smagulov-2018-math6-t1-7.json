@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2018-math6-t1-7",
+  "subject": "math",
+  "topic": "делимость",
+  "title": "Авиалинии в стране Цифра",
+  "statement": "В стране «Цифра» есть 9 городов с названиями 1, 2, 3, 4, 5, 6, 7, 8, 9. Путешественник обнаружил, что два города соединены авиалинией в том и только в том случае, если двузначное число, составленное из цифр — названий этих городов, делится на 3. Сколько всего авиалиний в стране «Цифра»?",
+  "answer": {
+    "value": 12.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 12",
+      "решение: anthropic:claude-sonnet-5-5 → 12",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 12",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 12"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2018,
+    "stage": "city",
+    "grade": 6,
+    "number": 7,
+    "url": "https://matol.kz/olympiads/855"
+  },
+  "figures": []
+}

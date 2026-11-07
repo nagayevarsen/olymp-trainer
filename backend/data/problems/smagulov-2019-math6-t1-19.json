@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2019-math6-t1-19",
+  "subject": "math",
+  "topic": "делимость и квадраты",
+  "title": "Красивые числа под 1000",
+  "statement": "Назовем натуральное число красивым, если при делении этого числа на один из его делителей частное будет равно этому делителю. Сколько всего существует красивых чисел, меньших 1000?",
+  "answer": {
+    "value": 31.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 31",
+      "решение: anthropic:claude-sonnet-5-5 → 31",
+      "программа (enumeration): anthropic:claude-haiku-5-5 → 31",
+      "программа (enumeration): anthropic:claude-sonnet-5-5 → 31"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2019,
+    "stage": "city",
+    "grade": 6,
+    "number": 19,
+    "url": "https://matol.kz/olympiads/862"
+  },
+  "figures": []
+}

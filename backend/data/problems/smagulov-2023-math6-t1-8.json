@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-8",
+  "subject": "math",
+  "topic": "комбинаторика",
+  "title": "Партии Асана в турнире",
+  "statement": "В турнире участвуют 16 шахматистов, где каждый игрок должен играть с каждым другим ровно один раз. В некоторый момент времени из сыгранных партий Асан имел половину выигрышей, треть проигрышей и 2 ничьих. Сколько партий ещё оставалось сыграть Асану?",
+  "answer": {
+    "value": 3.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 3",
+      "решение: anthropic:claude-sonnet-5-5 → 3",
+      "программа (other): anthropic:claude-haiku-5-5 → 3",
+      "программа (other): anthropic:claude-sonnet-5-5 → 3"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 8,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}

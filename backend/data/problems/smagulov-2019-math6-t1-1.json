@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2019-math6-t1-1",
+  "subject": "math",
+  "topic": "арифметика",
+  "title": "Вычисление выражения с делением",
+  "statement": "Вычислите $(((1111:11+1010):101+110):11):11$.",
+  "answer": {
+    "value": 1.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 1",
+      "решение: anthropic:claude-sonnet-5-5 → 1",
+      "программа (other): anthropic:claude-haiku-5-5 → 1",
+      "программа (other): anthropic:claude-sonnet-5-5 → 1"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2019,
+    "stage": "city",
+    "grade": 6,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/862"
+  },
+  "figures": []
+}

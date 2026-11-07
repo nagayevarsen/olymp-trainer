@@ -1,0 +1,28 @@
+{
+  "id": "smagulov-2023-math6-t1-7",
+  "subject": "math",
+  "topic": "единицы измерения",
+  "title": "Молоко для щенка",
+  "statement": "Щенок Армана выпивает 6 чашек молока в день, а 5 литров молока, как известно, стоит 1500 тг. Если  вместимость чашки 250 мл, на сколько тенге Арман должен купить молоко для щенка на 10 дней?",
+  "answer": {
+    "value": 4500.0,
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение: anthropic:claude-haiku-5-5 → 4500",
+      "решение: anthropic:claude-sonnet-5-5 → 4500",
+      "программа (other): anthropic:claude-haiku-5-5 → 4500",
+      "программа (other): anthropic:claude-sonnet-5-5 → 4500"
+    ],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2023,
+    "stage": "city",
+    "grade": 6,
+    "number": 7,
+    "url": "https://matol.kz/olympiads/1070"
+  },
+  "figures": []
+}
