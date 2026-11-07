@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { usePrefs } from '../prefs'
 import { ThemeSwitch } from './ThemeSwitch'
+import { LangSwitch } from './LangSwitch'
+import { t } from '../i18n'
 
 /** Расширенные настройки (шестерёнка в левой панели). */
 export function SettingsDialog({ open, onClose, onLogout }: { open: boolean; onClose: () => void; onLogout: () => void }) {
@@ -20,34 +22,37 @@ export function SettingsDialog({ open, onClose, onLogout }: { open: boolean; onC
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="Настройки"
+        aria-label={t('Настройки')}
         className="card w-full max-w-md animate-fade-up space-y-5 p-5"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold">Настройки</h2>
-          <button onClick={onClose} className="icon-btn" aria-label="Закрыть">
+          <h2 className="text-lg font-bold">{t('Настройки')}</h2>
+          <button onClick={onClose} className="icon-btn" aria-label={t('Закрыть')}>
             ✕
           </button>
         </div>
-        <Row title="Тема" hint="Светлая, тёмная или как в системе устройства">
+        <Row title={t('Тема')} hint={t('Светлая, тёмная или как в системе устройства')}>
           <ThemeSwitch />
         </Row>
-        <Row title="Праздничное оформление" hint="Новый год, 8 Марта, Наурыз, День Конституции, День Независимости">
+        <Row title={t('Язык')} hint={t('Русский или қазақша')}>
+          <LangSwitch />
+        </Row>
+        <Row title={t('Праздничное оформление')} hint={t('Новый год, 8 Марта, Наурыз, День Конституции, День Независимости')}>
           <Toggle checked={prefs.holidays} onChange={(v) => setPref('holidays', v)} />
         </Row>
-        <Row title="Фоновые символы" hint="Еле заметные π, ∑, ∫ на фоне">
+        <Row title={t('Фоновые символы')} hint={t('Еле заметные π, ∑, ∫ на фоне')}>
           <Toggle checked={prefs.decor} onChange={(v) => setPref('decor', v)} />
         </Row>
         <div className="flex flex-wrap gap-4 border-t border-slate-200 pt-4 text-sm dark:border-slate-800">
           <Link to="/profile" onClick={onClose} className="font-semibold text-brand-600 hover:underline">
-            Аккаунт и прогресс
+            {t('Аккаунт и прогресс')}
           </Link>
           <Link to="/terms" onClick={onClose} className="font-semibold text-brand-600 hover:underline">
-            Условия и данные
+            {t('Условия и данные')}
           </Link>
           <button onClick={onLogout} className="ml-auto font-semibold text-slate-500 hover:underline">
-            Выйти
+            {t('Выйти')}
           </button>
         </div>
       </div>

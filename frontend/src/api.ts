@@ -1,3 +1,4 @@
+import { getLang, t } from './i18n'
 // Клиент HTTP API бэкенда. В разработке запросы /api проксируются на localhost:8000.
 
 import { clearUser, getUser } from './user'
@@ -230,7 +231,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     res = await fetch(BASE + path, { ...init, headers: { ...headers, ...(init.headers ?? {}) } })
   } catch {
     window.dispatchEvent(new Event('olymp:network-error')) // покажет экран «Нет интернета», если сети нет
-    throw new ApiError(0, 'Нет связи с сервером. Проверь интернет.')
+    throw new ApiError(0, t('Нет связи с сервером. Проверь интернет.'))
   }
   if (res.status === 401 && user) {
     // Сессия истекла или отозвана (выход на другом устройстве) — вернуться к экрану входа.
@@ -238,7 +239,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     window.location.reload()
   }
   if (!res.ok) {
-    let msg = `Ошибка ${res.status}`
+    let msg = t('Ошибка {n}', { n: res.status })
     try {
       const body = await res.json()
       if (typeof body.detail === 'string') msg = body.detail
@@ -295,5 +296,5 @@ export const api = {
     problemId?: string | null,
     mode: 'training' | 'olympiad' = 'training',
     attachments: { data: string }[] = [],
-  ) => post<ChatReply>('/api/chat', { messages, problem_id: problemId ?? null, mode, attachments }),
+  ) => post<ChatReply>('/api/chat', { messages, problem_id: problemId ?? null, mode, attachments, lang: getLang() }),
 }

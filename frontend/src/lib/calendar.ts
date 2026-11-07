@@ -1,3 +1,4 @@
+import { t } from '../i18n'
 // Праздники (Казахстан и международные) для тонкой праздничной полоски.
 
 export interface Holiday {
@@ -13,12 +14,12 @@ const HOLIDAYS: { from: [number, number]; to: [number, number]; h: Holiday }[] =
   {
     from: [12, 25],
     to: [1, 2],
-    h: { id: 'newyear', emoji: '❄️', greeting: 'С Новым годом!', strip: 'from-sky-500/15 via-indigo-500/15 to-sky-500/15' },
+    h: { id: 'newyear', emoji: '❄️', greeting: t('С Новым годом!'), strip: 'from-sky-500/15 via-indigo-500/15 to-sky-500/15' },
   },
   {
     from: [3, 7],
     to: [3, 8],
-    h: { id: 'march8', emoji: '🌷', greeting: 'С 8 Марта!', strip: 'from-pink-500/15 via-rose-400/15 to-pink-500/15' },
+    h: { id: 'march8', emoji: '🌷', greeting: t('С 8 Марта!'), strip: 'from-pink-500/15 via-rose-400/15 to-pink-500/15' },
   },
   {
     from: [3, 20],
@@ -26,19 +27,19 @@ const HOLIDAYS: { from: [number, number]; to: [number, number]; h: Holiday }[] =
     h: {
       id: 'nauryz',
       emoji: '🌸',
-      greeting: 'Наурыз мейрамы құтты болсын!',
+      greeting: t('Наурыз мейрамы құтты болсын!'),
       strip: 'from-emerald-500/15 via-amber-400/15 to-emerald-500/15',
     },
   },
   {
     from: [8, 30],
     to: [8, 30],
-    h: { id: 'constitution', emoji: '📜', greeting: 'С Днём Конституции Республики Казахстан!', strip: 'from-sky-500/15 via-amber-400/15 to-sky-500/15' },
+    h: { id: 'constitution', emoji: '📜', greeting: t('С Днём Конституции Республики Казахстан!'), strip: 'from-sky-500/15 via-amber-400/15 to-sky-500/15' },
   },
   {
     from: [12, 16],
     to: [12, 17],
-    h: { id: 'independence', emoji: '🇰🇿', greeting: 'С Днём Независимости!', strip: 'from-sky-500/15 via-amber-400/15 to-sky-500/15' },
+    h: { id: 'independence', emoji: '🇰🇿', greeting: t('С Днём Независимости!'), strip: 'from-sky-500/15 via-amber-400/15 to-sky-500/15' },
   },
 ]
 

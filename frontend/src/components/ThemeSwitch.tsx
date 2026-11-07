@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getThemeChoice, setThemeChoice, watchSystemTheme, type ThemeChoice } from '../theme'
+import { t } from '../i18n'
 
 const svg = {
   width: 16,
@@ -33,9 +34,9 @@ const ICONS: Record<ThemeChoice, React.ReactNode> = {
 }
 
 const OPTIONS: { value: ThemeChoice; label: string }[] = [
-  { value: 'light', label: 'Светлая тема' },
-  { value: 'dark', label: 'Тёмная тема' },
-  { value: 'system', label: 'Как в системе' },
+  { value: 'light', label: t('Светлая тема') },
+  { value: 'dark', label: t('Тёмная тема') },
+  { value: 'system', label: t('Как в системе') },
 ]
 
 /** Плашка из трёх кнопок: светлая / тёмная / как в системе. */
@@ -47,7 +48,7 @@ export function ThemeSwitch({ className = '' }: { className?: string }) {
   return (
     <div
       role="radiogroup"
-      aria-label="Тема оформления"
+      aria-label={t('Тема оформления')}
       className={`inline-flex rounded-xl border border-slate-200 bg-white p-0.5 dark:border-slate-700 dark:bg-slate-900 ${className}`}
     >
       {OPTIONS.map((o) => (

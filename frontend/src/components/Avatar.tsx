@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { api } from '../api'
 import { getUser } from '../user'
+import { t } from '../i18n'
 
 type AvatarData = { kind: 'pixel'; seed: number } | { kind: 'photo'; dataUrl: string }
 
@@ -178,12 +179,12 @@ export function AvatarButton({ size = 44 }: { size?: number }) {
 
   async function onFile(f: File | undefined) {
     if (!f) return
-    if (!f.type.startsWith('image/')) return setError('Нужна картинка')
+    if (!f.type.startsWith('image/')) return setError(t('Нужна картинка'))
     try {
       save({ kind: 'photo', dataUrl: await shrink(f) })
       setOpen(false)
     } catch {
-      setError('Не получилось открыть фото')
+      setError(t('Не получилось открыть фото'))
     }
   }
 
@@ -191,8 +192,8 @@ export function AvatarButton({ size = 44 }: { size?: number }) {
     <div className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        title="Сменить аватарку"
-        aria-label="Сменить аватарку"
+        title={t('Сменить аватарку')}
+        aria-label={t('Сменить аватарку')}
         className="block"
       >
         <AvatarImage size={size} />
@@ -203,13 +204,13 @@ export function AvatarButton({ size = 44 }: { size?: number }) {
             onClick={() => save({ kind: 'pixel', seed: Math.floor(Math.random() * 1_000_000_000) })}
             className="w-full rounded-lg px-3 py-2 text-left hover:bg-slate-100 dark:hover:bg-slate-800"
           >
-            🎲 Другая фигурка
+            {t('🎲 Другая фигурка')}
           </button>
           <button
             onClick={() => file.current?.click()}
             className="w-full rounded-lg px-3 py-2 text-left hover:bg-slate-100 dark:hover:bg-slate-800"
           >
-            🖼 Поставить своё фото
+            {t('🖼 Поставить своё фото')}
           </button>
           {error && <p className="px-3 text-xs text-red-600">{error}</p>}
           <input ref={file} type="file" accept="image/*" hidden onChange={(e) => void onFile(e.target.files?.[0])} />

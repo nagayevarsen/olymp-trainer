@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { api, type ProblemListItem, type Subject, type Track } from '../api'
 import { SUBJECT_NAMES, pluralTasks } from '../lib/text'
 import { getTrack, saveTrack } from '../user'
+import { t } from '../i18n'
 
 type Filter = 'all' | Subject
 
@@ -62,19 +63,19 @@ export function ProblemsPage() {
     <div>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight">Задачи</h1>
+          <h1 className="text-3xl font-extrabold tracking-tight">{t('Задачи')}</h1>
           {items && (
             <p className="mt-1 text-slate-500">
-              Решено {solvedCount} из {items.length}. Чем больше баллов — тем интереснее задача.
+              {t('Решено {a} из {b}. Чем больше баллов — тем интереснее задача.', { a: solvedCount, b: items.length })}
             </p>
           )}
         </div>
         <Link to="/mix" className="btn-ghost">
-          Микс задач
+          {t('Микс задач')}
         </Link>
         <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400">
           <input type="checkbox" checked={hideSolved} onChange={(e) => setHideSolved(e.target.checked)} />
-          Скрыть решённые
+          {t('Скрыть решённые')}
         </label>
       </div>
 
@@ -95,7 +96,7 @@ export function ProblemsPage() {
               }}
               className={`btn ${subject === s ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900' : 'btn-ghost'}`}
             >
-              {s === 'all' ? 'Все' : SUBJECT_NAMES[s]}
+              {s === 'all' ? t('Все') : SUBJECT_NAMES[s]}
             </button>
           ))}
         </div>
@@ -127,7 +128,7 @@ export function ProblemsPage() {
         ))}
       </ul>
       {items && visible.length === 0 && (
-        <p className="py-10 text-center text-slate-500">Здесь пусто. Попробуй другой фильтр.</p>
+        <p className="py-10 text-center text-slate-500">{t('Здесь пусто. Попробуй другой фильтр.')}</p>
       )}
     </div>
   )
@@ -150,14 +151,14 @@ function TrackPicker({
 }) {
   return (
     <section className="mb-6">
-      <div className="mb-2 text-sm font-semibold text-slate-500">Олимпиада и этап</div>
+      <div className="mb-2 text-sm font-semibold text-slate-500">{t('Олимпиада и этап')}</div>
       <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-1">
-        {tracks.map((t) => {
-          const active = t.id === current
+        {tracks.map((tk) => {
+          const active = tk.id === current
           return (
             <button
-              key={t.id}
-              onClick={() => onChoose(t.id)}
+              key={tk.id}
+              onClick={() => onChoose(tk.id)}
               aria-pressed={active}
               className={`min-w-56 shrink-0 rounded-2xl border p-4 text-left transition ${
                 active
@@ -165,15 +166,15 @@ function TrackPicker({
                   : 'border-slate-200 bg-white hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900'
               }`}
             >
-              <div className="font-bold leading-snug">{t.olympiad}</div>
-              {t.stage !== 'Другое' && <div className="mt-0.5 text-sm text-slate-500">{t.stage}</div>}
-              {t.russian && (
+              <div className="font-bold leading-snug">{tk.olympiad}</div>
+              {tk.stage !== 'Другое' && <div className="mt-0.5 text-sm text-slate-500">{t(tk.stage)}</div>}
+              {tk.russian && (
                 <div className="mt-1 text-xs font-semibold text-amber-700 dark:text-amber-400">
-                  Российская · для тренировки
+                  {t('Российская · для тренировки')}
                 </div>
               )}
               <div className="mt-2 text-xs font-semibold text-slate-500">
-                {[yearsLabel(t.years), `${t.count} ${pluralTasks(t.count)}`].filter(Boolean).join(' · ')}
+                {[yearsLabel(tk.years), `${tk.count} ${pluralTasks(tk.count)}`].filter(Boolean).join(' · ')}
               </div>
             </button>
           )
@@ -191,7 +192,7 @@ function ProblemCard({ p }: { p: ProblemListItem }) {
     >
       <div className="flex items-center justify-between gap-2 text-xs font-semibold text-slate-500">
         <span>
-          {SUBJECT_NAMES[p.subject]} · {p.topic}
+          {SUBJECT_NAMES[p.subject]} · {t(p.topic)}
         </span>
         <span
           className={`chip ${
@@ -200,7 +201,7 @@ function ProblemCard({ p }: { p: ProblemListItem }) {
               : 'bg-gold-400/15 text-amber-700 dark:text-gold-400'
           }`}
         >
-          {p.solved ? `✓ +${p.earned}` : `${p.points} б.`}
+          {p.solved ? `✓ +${p.earned}` : t('{n} б.', { n: p.points })}
         </span>
       </div>
       <h3 className="mt-3 text-lg font-bold leading-snug group-hover:text-brand-700 dark:group-hover:text-brand-300">
@@ -208,9 +209,9 @@ function ProblemCard({ p }: { p: ProblemListItem }) {
       </h3>
       <p className="mt-1 line-clamp-2 text-sm text-slate-500">{p.source}</p>
       <div className="mt-auto flex flex-wrap gap-2 pt-4 text-xs font-medium text-slate-500">
-        {p.can_clone && <span className="chip bg-slate-100 dark:bg-slate-800">∞ варианты</span>}
-        {p.started && !p.solved && <span className="chip bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300">в процессе</span>}
-        {p.solve_rate !== null && <span className="chip bg-slate-100 dark:bg-slate-800">решили {p.solve_rate}%</span>}
+        {p.can_clone && <span className="chip bg-slate-100 dark:bg-slate-800">{t('∞ варианты')}</span>}
+        {p.started && !p.solved && <span className="chip bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300">{t('в процессе')}</span>}
+        {p.solve_rate !== null && <span className="chip bg-slate-100 dark:bg-slate-800">{t('решили {n}%', { n: p.solve_rate })}</span>}
       </div>
     </Link>
   )

@@ -311,7 +311,13 @@ OLYMPIAD_MODE = """
 после окончания времени."""
 
 
-def build_system(level: Level, problem: dict | None = None, olympiad: bool = False) -> str:
+KAZAKH_NOTE = """
+
+Язык: ученик выбрал казахский интерфейс — отвечай по-казахски (формулы, термины и названия олимпиад
+оставляй как есть). Если ученик пишет по-русски, отвечай по-русски."""
+
+
+def build_system(level: Level, problem: dict | None = None, olympiad: bool = False, lang: str = "ru") -> str:
     ctx = (
         (SOLVED_CONTEXT if problem and problem.get("solution") else PROBLEM_CONTEXT).format(**problem)
         if problem
@@ -321,13 +327,17 @@ def build_system(level: Level, problem: dict | None = None, olympiad: bool = Fal
     points_hint = (
         f"сейчас ученику подходят задачи примерно {lo}–{hi} баллов (min_points={lo}, max_points={hi})"
     )
-    return SYSTEM.format(
-        off_topic=OFF_TOPIC_REPLY,
-        level=level.describe(),
-        points_hint=points_hint,
-        problem=ctx,
-        sites=trusted_sites(),
-    ) + (OLYMPIAD_MODE if olympiad else "")
+    return (
+        SYSTEM.format(
+            off_topic=OFF_TOPIC_REPLY,
+            level=level.describe(),
+            points_hint=points_hint,
+            problem=ctx,
+            sites=trusted_sites(),
+        )
+        + (OLYMPIAD_MODE if olympiad else "")
+        + (KAZAKH_NOTE if lang == "kk" else "")
+    )
 
 
 def clean_history(messages: list[dict]) -> list[dict]:
@@ -520,6 +530,7 @@ async def reply(
     strong: Callable[[], bool] | None = None,
     figures: list[Path] | None = None,
     uploads: list[dict] | None = None,
+    lang: str = "ru",
 ) -> tuple[str, int, list[dict]]:
     """Ответ помощника: (текст, сколько раз запускался код, карточки задач/олимпиад из банка).
 
@@ -528,7 +539,7 @@ async def reply(
     import anthropic
 
     client = _client()
-    system = build_system(level, problem, olympiad)
+    system = build_system(level, problem, olympiad, lang)
     messages = with_uploads(with_figures(messages, figures or []), uploads or [])
     cards: list[dict] = []
     # Во время олимпиады помощник ничего не считает и не подбирает — только уточняет условия.

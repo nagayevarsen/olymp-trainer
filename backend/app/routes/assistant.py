@@ -43,6 +43,7 @@ class ChatRequest(BaseModel):
     attachments: list[ChatAttachment] = Field(default=[], max_length=chat.MAX_UPLOADS)
     problem_id: str | None = Field(default=None, max_length=200)
     mode: Literal["training", "olympiad"] = "training"
+    lang: Literal["ru", "kk"] = "ru"
 
 
 @router.post("/api/chat")
@@ -113,6 +114,7 @@ async def chat_reply(
             strong=take_strong,
             figures=figures,
             uploads=uploads,
+            lang=body.lang,
         )
     except LLMError as exc:
         raise HTTPException(503, str(exc)) from exc

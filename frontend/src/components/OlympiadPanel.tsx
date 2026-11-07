@@ -4,9 +4,10 @@ import { pluralTasks } from '../lib/text'
 import { formatLeft, getRun, msLeft, onRunChange, parseRequest, setRun, type OlympiadRun } from '../olympiadRun'
 import { Figures } from './Figures'
 import { MathText } from './MathText'
+import { t } from '../i18n'
 
 function hours(min: number): string {
-  return min % 60 === 0 ? `${min / 60} ч` : `${Math.floor(min / 60)} ч ${min % 60} мин`
+  return min % 60 === 0 ? t('{h} ч', { h: min / 60 }) : t('{h} ч {m} мин', { h: Math.floor(min / 60), m: min % 60 })
 }
 
 /** Вкладка «Олимпиада»: строка «олимпиада и класс» → вариант → «Старт» → решения с таймером → проверка. */
@@ -45,17 +46,17 @@ function Picker() {
         const available = await api.olympiadsWithTime().catch(() => [] as string[])
         setNote(
           (all.length
-            ? 'Для этой олимпиады мы пока не нашли официального времени тура, поэтому пробная олимпиада на время недоступна.'
-            : 'Такой олимпиады в банке пока нет.') + (available.length ? ` Доступны: ${available.join(', ')}.` : ''),
+            ? t('Для этой олимпиады мы пока не нашли официального времени тура, поэтому пробная олимпиада на время недоступна.')
+            : t('Такой олимпиады в банке пока нет.')) + (available.length ? ' ' + t('Доступны: {list}.', { list: available.join(', ') }) : ''),
         )
         setChosen(null)
         return
       }
-      if (grade && !byGrade.length) setNote(`За ${grade} класс вариантов нет — показываю другой класс.`)
+      if (grade && !byGrade.length) setNote(t('За {n} класс вариантов нет — показываю другой класс.', { n: grade }))
       setCandidates(list)
       await open(list[Math.floor(Math.random() * list.length)])
     } catch (err) {
-      setNote(err instanceof Error ? err.message : 'Ошибка')
+      setNote(err instanceof Error ? err.message : t('Ошибка'))
     } finally {
       setBusy(false)
     }
@@ -94,11 +95,11 @@ function Picker() {
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Олимпиада и класс"
+          placeholder={t('Олимпиада и класс')}
           className="flex-1 rounded-xl border border-slate-300 bg-white px-3 py-2.5 dark:border-slate-700 dark:bg-slate-950"
         />
         <button className="btn-primary" disabled={busy || !text.trim()}>
-          {busy ? 'Ищу…' : 'Найти'}
+          {busy ? t('Ищу…') : t('Найти')}
         </button>
       </form>
       {note && <p className="text-sm text-slate-500">{note}</p>}
@@ -108,39 +109,39 @@ function Picker() {
           <div>
             <h2 className="text-lg font-bold">{chosen.title}</h2>
             <p className="text-sm text-slate-500">
-              {chosen.count} {pluralTasks(chosen.count)} · баллы за задачи:{' '}
+              {chosen.count} {pluralTasks(chosen.count)} · {t('баллы за задачи:')}{' '}
               {chosen.problems
                 .map((p) => p.points)
                 .sort((a, b) => a - b)
                 .join(', ')}{' '}
-              (всего {chosen.total_points})
+              {t('(всего {n})', { n: chosen.total_points })}
             </p>
             {candidates.length > 1 && (
               <button onClick={anotherYear} className="mt-1 text-sm font-semibold text-brand-600 hover:underline">
-                Другой год
+                {t('Другой год')}
               </button>
             )}
           </div>
           <div className="rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700">
-            <div className="font-semibold">Время: {hours(chosen.duration_min ?? 0)} — как на настоящей олимпиаде</div>
+            <div className="font-semibold">{t('Время: {h} — как на настоящей олимпиаде', { h: hours(chosen.duration_min ?? 0) })}</div>
             {chosen.duration_source && (
               <div className="mt-1 text-xs text-slate-500">
-                Источник:{' '}
+                {t('Источник:')}{' '}
                 <a href={chosen.duration_source.url} target="_blank" rel="noreferrer" className="underline">
                   {chosen.duration_source.name}
                 </a>
-                {chosen.official_points && ' · баллы за задачи — официальные'}
+                {chosen.official_points && t(' · баллы за задачи — официальные')}
               </div>
             )}
           </div>
           <ul className="list-disc space-y-1 rounded-xl bg-amber-50 p-3 pl-7 text-sm dark:bg-amber-500/10">
-            <li>Как на настоящей олимпиаде: к каждой задаче — полное решение с обоснованием и ответ.</li>
-            <li>Без обоснования, с пробелами или неаккуратным оформлением баллы снимаются.</li>
-            <li>Подсказок и разборов нет до конца времени. Результаты — после окончания.</li>
-            <li>Задачи взяты из архивов олимпиад (источник указан), числа в части задач изменены и проверены кодом.</li>
+            <li>{t('Как на настоящей олимпиаде: к каждой задаче — полное решение с обоснованием и ответ.')}</li>
+            <li>{t('Без обоснования, с пробелами или неаккуратным оформлением баллы снимаются.')}</li>
+            <li>{t('Подсказок и разборов нет до конца времени. Результаты — после окончания.')}</li>
+            <li>{t('Задачи взяты из архивов олимпиад (источник указан), числа в части задач изменены и проверены кодом.')}</li>
           </ul>
           <button onClick={start} className="btn-primary w-full text-base">
-            ▶ Старт
+            {t('▶ Старт')}
           </button>
         </div>
       )}
@@ -204,7 +205,7 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
       )
       setRun({ ...runRef.current, finished: true, grades: rows })
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Ошибка проверки')
+      setError(err instanceof Error ? err.message : t('Ошибка проверки'))
     } finally {
       setGrading(false)
     }
@@ -221,13 +222,13 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
       <div className="card flex flex-wrap items-center gap-3 p-4">
         <div className="min-w-0 flex-1">
           <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-            {run.grades ? 'Итоги' : over ? 'Время вышло' : 'Идёт олимпиада'}
+            {run.grades ? t('Итоги') : over ? t('Время вышло') : t('Идёт олимпиада')}
           </div>
           <h2 className="truncate text-lg font-bold">{run.title}</h2>
         </div>
         {run.grades ? (
           <div className="rounded-xl bg-amber-50 px-4 py-2 text-2xl font-extrabold dark:bg-amber-500/10">
-            {scored} <span className="text-base font-semibold text-slate-500">из {total}</span>
+            {scored} <span className="text-base font-semibold text-slate-500">{t('из {n}', { n: total })}</span>
           </div>
         ) : (
           <div
@@ -246,9 +247,9 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
         return (
           <section key={id} className="card space-y-3 p-5">
             <div className="flex items-center justify-between gap-3">
-              <h3 className="font-bold">Задача {i + 1}</h3>
+              <h3 className="font-bold">{t('Задача {n}', { n: i + 1 })}</h3>
               <span className="chip bg-slate-100 dark:bg-slate-800">
-                {g ? `${g.points} из ${g.max_points} б.` : `${run.points[id]} б.`}
+                {g ? t('{a} из {b} б.', { a: g.points, b: g.max_points }) : t('{n} б.', { n: run.points[id] })}
               </span>
             </div>
             {p ? (
@@ -261,13 +262,13 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
             )}
             {m && (
               <p className="text-xs text-slate-500">
-                Источник: {m.source}
-                {run.seeds[id] ? ' · числа изменены, ответ проверен кодом' : ''}
+                {t('Источник:')} {m.source}
+                {run.seeds[id] ? t(' · числа изменены, ответ проверен кодом') : ''}
                 {m.url && (
                   <>
                     {' · '}
                     <a href={m.url} target="_blank" rel="noreferrer" className="underline">
-                      оригинал
+                      {t('оригинал')}
                     </a>
                   </>
                 )}
@@ -279,7 +280,7 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
               readOnly={over}
               rows={6}
               maxLength={6000}
-              placeholder={p?.answer_kind === 'proof' ? 'Доказательство' : 'Решение'}
+              placeholder={p?.answer_kind === 'proof' ? t('Доказательство') : t('Решение')}
               className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm dark:border-slate-700 dark:bg-slate-950"
             />
             {p?.answer_kind !== 'proof' && (
@@ -288,7 +289,7 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
               onChange={(e) => updateAnswer(id, 'answer', e.target.value)}
               readOnly={over}
               maxLength={200}
-              placeholder="Ответ"
+              placeholder={t('Ответ')}
               className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm dark:border-slate-700 dark:bg-slate-950"
             />
             )}
@@ -298,11 +299,11 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
               >
                 {a.answer.trim() || a.solution.trim() ? (
                   <>
-                    {p?.answer_kind !== 'proof' && <b>{g.answer_correct ? 'Ответ верный.' : 'Ответ неверный.'}</b>}{' '}
+                    {p?.answer_kind !== 'proof' && <b>{g.answer_correct ? t('Ответ верный.') : t('Ответ неверный.')}</b>}{' '}
                     {g.comment}
                   </>
                 ) : (
-                  <b>Не сдано.</b>
+                  <b>{t('Не сдано.')}</b>
                 )}
               </p>
             )}
@@ -314,28 +315,28 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
       <div className="flex flex-wrap gap-2">
         {!over && (
           <button onClick={() => setRun({ ...run, finished: true })} className="btn-ghost">
-            Сдать досрочно
+            {t('Сдать досрочно')}
           </button>
         )}
         {over && !run.grades && (
           <button onClick={grade} disabled={grading} className="btn-primary">
-            {grading ? 'Жюри проверяет…' : 'Отправить на проверку'}
+            {grading ? t('Жюри проверяет…') : t('Отправить на проверку')}
           </button>
         )}
         {run.grades && (
           <>
             <button
               onClick={() => {
-                const summary = `Я закончил олимпиаду «${run.title}»: ${scored} из ${total} баллов. Давай разберём задачи, где сняли баллы.`
+                const summary = t('Я закончил олимпиаду «{title}»: {a} из {b} баллов. Давай разберём задачи, где сняли баллы.', { title: run.title, a: scored, b: total })
                 setRun(null)
                 onFinishDiscuss(summary)
               }}
               className="btn-primary"
             >
-              Разобрать с помощником
+              {t('Разобрать с помощником')}
             </button>
             <button onClick={() => setRun(null)} className="btn-ghost">
-              Новая олимпиада
+              {t('Новая олимпиада')}
             </button>
           </>
         )}

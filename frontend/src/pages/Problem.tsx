@@ -7,8 +7,9 @@ import { MathText } from '../components/MathText'
 import { SUBJECT_NAMES, pluralPoints } from '../lib/text'
 import { usePoints } from '../points'
 import { problemLocked } from '../olympiadRun'
+import { t } from '../i18n'
 
-const HINT_NAMES = ['Направление', 'Подход', 'Наводящий вопрос']
+const HINT_NAMES = [t('Направление'), t('Подход'), t('Наводящий вопрос')]
 // Штраф за открытые подсказки, как в backend/app/scoring.py: 0, 1, 2, 4, 6…
 const hintPenalty = (k: number) => (k <= 0 ? 0 : k === 1 ? 1 : 2 * (k - 1))
 
@@ -32,7 +33,7 @@ function SolutionAsk({ problemId }: { problemId: string }) {
       const r = await api.chat(next, problemId, 'training')
       setTurns([...next, { role: 'assistant', content: r.reply }])
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Не удалось получить ответ')
+      setError(err instanceof Error ? err.message : t('Не удалось получить ответ'))
     } finally {
       setBusy(false)
     }
@@ -48,18 +49,18 @@ function SolutionAsk({ problemId }: { problemId: string }) {
           {t.role === 'user' ? t.content : <MathText text={t.content} />}
         </div>
       ))}
-      {busy && <p className="mb-2 text-sm text-slate-500">Думаю…</p>}
+      {busy && <p className="mb-2 text-sm text-slate-500">{t('Думаю…')}</p>}
       {error && <p className="mb-2 text-sm text-red-600">{error}</p>}
       <form onSubmit={ask} className="flex gap-2">
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
           maxLength={500}
-          placeholder="Что непонятно в разборе?"
+          placeholder={t('Что непонятно в разборе?')}
           className="min-w-0 flex-1 rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none focus:border-brand-500 dark:border-slate-700 dark:bg-slate-950"
         />
         <button className="btn-primary" disabled={busy || !q.trim()}>
-          Спросить
+          {t('Спросить')}
         </button>
       </form>
     </div>
@@ -112,7 +113,7 @@ export function ProblemPage() {
       setPoints(r.total_points)
       if (r.correct) load()
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Ошибка')
+      setError(err instanceof Error ? err.message : t('Ошибка'))
     } finally {
       setBusy('')
     }
@@ -178,14 +179,14 @@ export function ProblemPage() {
           to="/problems"
           className="text-sm font-semibold text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
         >
-          ← Все задачи
+          {t('← Все задачи')}
         </Link>
 
         <article className="card p-6 sm:p-8">
           <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-500">
-            <span>{SUBJECT_NAMES[p.subject]}</span>·<span>{p.topic}</span>
+            <span>{SUBJECT_NAMES[p.subject]}</span>·<span>{t(p.topic)}</span>
             <span className="chip ml-auto bg-gold-400/15 text-base text-amber-700 dark:text-gold-400">
-              {p.points} б.
+              {t('{n} б.', { n: p.points })}
             </span>
           </div>
           <h1 className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">{p.title}</h1>
@@ -199,19 +200,19 @@ export function ProblemPage() {
 
           {showOriginal && p.original_statement && (
             <div className="mt-4 rounded-xl border border-dashed border-slate-300 p-4 text-slate-500 dark:border-slate-700">
-              <div className="mb-1 text-xs font-bold uppercase tracking-wide">Оригинал</div>
+              <div className="mb-1 text-xs font-bold uppercase tracking-wide">{t('Оригинал')}</div>
               <MathText text={p.original_statement} />
             </div>
           )}
 
           <div className="mt-6 text-sm text-slate-500">
             {p.source.label}
-            {p.source.russian && ' · российская олимпиада, для тренировки'}
+            {p.source.russian && t(' · российская олимпиада, для тренировки')}
             {p.source.url && (
               <>
                 {' · '}
                 <a href={p.source.url} target="_blank" rel="noreferrer" className="underline">
-                  оригинал
+                  {t('оригинал')}
                 </a>
               </>
             )}
@@ -230,7 +231,7 @@ export function ProblemPage() {
         ) : (
         <form onSubmit={check} className="card p-6">
           <label htmlFor="answer" className="font-bold">
-            Твой ответ
+            {t('Твой ответ')}
           </label>
           <p className="mt-1 text-sm text-slate-500">
             {answerHint(p).text}
@@ -242,11 +243,11 @@ export function ProblemPage() {
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               autoComplete="off"
-              aria-label="Ответ"
+              aria-label={t('Ответ')}
               className="min-w-0 flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-lg outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 dark:border-slate-700 dark:bg-slate-950"
             />
             <button className="btn-primary px-6" disabled={busy === 'check' || !answer.trim()}>
-              {busy === 'check' ? '…' : 'Проверить'}
+              {busy === 'check' ? '…' : t('Проверить')}
             </button>
           </div>
           {result && <ResultBox r={result} />}
@@ -255,14 +256,14 @@ export function ProblemPage() {
 
         {p.solution && (
           <section className="card animate-fade-up p-6">
-            <h2 className="mb-3 text-lg font-bold">Разбор</h2>
+            <h2 className="mb-3 text-lg font-bold">{t('Разбор')}</h2>
             <MathText text={p.solution} />
             <SolutionAsk problemId={p.id} />
             {p.can_clone && !solved && (
               <div className="mt-5 rounded-xl bg-brand-50 p-4 text-sm dark:bg-brand-900/30">
-                Разобрался? Реши <b>новый вариант</b> этой задачи с другими числами — и получи половину баллов.
+                {t('Разобрался? Реши новый вариант этой задачи с другими числами — и получи половину баллов.')}
                 <button onClick={newVariant} className="btn-primary mt-3 w-full" disabled={busy === 'variant'}>
-                  Новый вариант →
+                  {t('Новый вариант →')}
                 </button>
               </div>
             )}
@@ -274,53 +275,53 @@ export function ProblemPage() {
         <div className="card p-5">
           {solved ? (
             <div>
-              <div className="text-sm font-semibold text-emerald-600">Задача решена ✓</div>
+              <div className="text-sm font-semibold text-emerald-600">{t('Задача решена ✓')}</div>
               <div className="mt-1 text-2xl font-extrabold">
                 +{p.progress.earned} {pluralPoints(p.progress.earned)}
               </div>
               {p.solve_rate !== null && (
-                <div className="mt-1 text-sm text-slate-500">Эту задачу решили {p.solve_rate}% учеников</div>
+                <div className="mt-1 text-sm text-slate-500">{t('Эту задачу решили {n}% учеников', { n: p.solve_rate })}</div>
               )}
             </div>
           ) : (
             <div>
-              <div className="text-sm font-semibold text-slate-500">Сейчас можно получить</div>
-              <div className="mt-1 text-3xl font-extrabold text-amber-600 dark:text-gold-400">{p.potential} б.</div>
+              <div className="text-sm font-semibold text-slate-500">{t('Сейчас можно получить')}</div>
+              <div className="mt-1 text-3xl font-extrabold text-amber-600 dark:text-gold-400">{t('{n} б.', { n: p.potential })}</div>
             </div>
           )}
         </div>
 
         {locked ? (
           <div className="card p-5 text-sm">
-            <h2 className="font-bold">⏱ Идёт олимпиада</h2>
+            <h2 className="font-bold">{t('⏱ Идёт олимпиада')}</h2>
             <p className="mt-1 text-slate-500">
-              Подсказки, разбор и помощник откроются после окончания времени — как на настоящей олимпиаде.
+              {t('Подсказки, разбор и помощник откроются после окончания времени — как на настоящей олимпиаде.')}
             </p>
           </div>
         ) : (
           <div className="card p-5">
-            <h2 className="font-bold">Подсказки</h2>
+            <h2 className="font-bold">{t('Подсказки')}</h2>
             <p className="mt-1 text-sm text-slate-500">
-              Открывай по одной. Подсказки снимают баллы (всего): открыл одну — −1, две — −2, три — −4. Подсказки составляет ИИ.
+              {t('Открывай по одной. Подсказки снимают баллы (всего): открыл одну — −1, две — −2, три — −4. Подсказки составляет ИИ.')}
             </p>
             <ol className="mt-4 space-y-3">
               {p.hints_opened.map((h, i) => (
                 <li key={i} className="animate-fade-up rounded-xl bg-slate-50 p-3 text-sm dark:bg-slate-800/60">
                   <div className="mb-1 text-xs font-bold uppercase tracking-wide text-brand-600 dark:text-brand-300">
-                    {i + 1}. {HINT_NAMES[i] ?? 'Подсказка'}
+                    {i + 1}. {HINT_NAMES[i] ?? t('Подсказка')}
                   </div>
                   <MathText text={h} />
                 </li>
               ))}
             </ol>
             <Link to={`/?problem=${p.id}`} className="btn-ghost mt-3 w-full">
-              Спросить ИИ-помощника об этой задаче
+              {t('Спросить ИИ-помощника об этой задаче')}
             </Link>
             {p.hints_opened.length < p.hints_total && !p.solution && (
               <button onClick={openHint} disabled={busy === 'hint'} className="btn-ghost mt-3 w-full">
                 {busy === 'hint'
-                  ? 'Наставник думает…'
-                  : `${HINT_NAMES[p.hints_opened.length]}${solved ? '' : ` · станет ${nextHintReward} б.`}`}
+                  ? t('Наставник думает…')
+                  : `${HINT_NAMES[p.hints_opened.length]}${solved ? '' : t(' · станет {n} б.', { n: nextHintReward })}`}
               </button>
             )}
 
@@ -329,15 +330,15 @@ export function ProblemPage() {
                 {confirmSolution ? (
                   <div className="text-sm">
                     <p>
-                      После разбора за эту задачу баллов не будет.
-                      {p.can_clone && ' Но можно будет решить новый вариант за половину баллов.'}
+                      {t('После разбора за эту задачу баллов не будет.')}
+                      {p.can_clone && t(' Но можно будет решить новый вариант за половину баллов.')}
                     </p>
                     <div className="mt-3 flex gap-2">
                       <button onClick={openSolution} className="btn-primary flex-1" disabled={busy === 'solution'}>
-                        Показать
+                        {t('Показать')}
                       </button>
                       <button onClick={() => setConfirmSolution(false)} className="btn-ghost flex-1">
-                        Ещё подумаю
+                        {t('Ещё подумаю')}
                       </button>
                     </div>
                   </div>
@@ -346,7 +347,7 @@ export function ProblemPage() {
                     onClick={() => (solved ? openSolution() : setConfirmSolution(true))}
                     className="w-full text-sm font-semibold text-slate-500 underline-offset-4 hover:underline"
                   >
-                    Показать полный разбор
+                    {t('Показать полный разбор')}
                   </button>
                 )}
               </div>
@@ -356,19 +357,19 @@ export function ProblemPage() {
 
         {p.can_clone && (
           <div className="card p-5">
-            <h2 className="font-bold">Тренировка на вариантах</h2>
+            <h2 className="font-bold">{t('Тренировка на вариантах')}</h2>
             <p className="mt-1 text-sm text-slate-500">
-              Та же идея, другие числа. Каждый вариант проверен: решатель воспроизводит официальный ответ.
+              {t('Та же идея, другие числа. Каждый вариант проверен: решатель воспроизводит официальный ответ.')}
             </p>
             <button onClick={newVariant} disabled={busy === 'variant'} className="btn-ghost mt-3 w-full">
-              {busy === 'variant' ? 'Подбираю и проверяю…' : '∞ Сделать новый вариант'}
+              {busy === 'variant' ? t('Подбираю и проверяю…') : t('∞ Сделать новый вариант')}
             </button>
             {seed !== null && (
               <button
                 onClick={() => setParams({})}
                 className="mt-2 w-full text-sm font-semibold text-slate-500 hover:underline"
               >
-                Вернуться к оригиналу
+                {t('Вернуться к оригиналу')}
               </button>
             )}
           </div>
@@ -382,13 +383,13 @@ function VariantBanner({ p, showOriginal, toggle }: { p: ProblemDetail; showOrig
   const v = p.verification
   return (
     <div className="mt-4 flex flex-wrap items-center gap-2 rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-200">
-      <span className="font-bold">✓ Проверенный вариант</span>
+      <span className="font-bold">{t('✓ Проверенный вариант')}</span>
       <span className="text-emerald-700/80 dark:text-emerald-300/80">
-        решатель воспроизводит официальный ответ
-        {v?.cross_checked && ', ответ сверен с независимой ИИ-моделью'}
+        {t('решатель воспроизводит официальный ответ')}
+        {v?.cross_checked && t(', ответ сверен с независимой ИИ-моделью')}
       </span>
       <button onClick={toggle} className="ml-auto font-semibold underline-offset-4 hover:underline">
-        {showOriginal ? 'Скрыть оригинал' : 'Показать оригинал'}
+        {showOriginal ? t('Скрыть оригинал') : t('Показать оригинал')}
       </button>
     </div>
   )
@@ -424,11 +425,11 @@ function ResultBox({ r }: { r: CheckResult }) {
             </div>
           )}
           {r.first_solve && r.earned === 0 && (
-            <div className="mt-1 text-sm">Баллы не начислены — был открыт разбор. Попробуй новый вариант!</div>
+            <div className="mt-1 text-sm">{t('Баллы не начислены — был открыт разбор. Попробуй новый вариант!')}</div>
           )}
-          {r.already_solved && <div className="mt-1 text-sm">Задача уже решена — это была тренировка.</div>}
+          {r.already_solved && <div className="mt-1 text-sm">{t('Задача уже решена — это была тренировка.')}</div>}
           {r.solve_rate !== null && r.first_solve && (
-            <div className="mt-1 text-sm opacity-80">Эту задачу решили {r.solve_rate}% учеников.</div>
+            <div className="mt-1 text-sm opacity-80">{t('Эту задачу решили {n}% учеников.', { n: r.solve_rate })}</div>
           )}
         </div>
       </div>
@@ -441,7 +442,7 @@ function ErrorBox({ text }: { text: string }) {
     <div className="card p-6">
       <p className="text-red-600">{text}</p>
       <Link to="/problems" className="btn-ghost mt-4">
-        ← К задачам
+        {t('← К задачам')}
       </Link>
     </div>
   )
@@ -464,7 +465,7 @@ function ProofForm({ id, hint, onDone }: { id: string; hint: string; onDone: (r:
       setRes(r)
       onDone(r)
     } catch (e) {
-      setErr(e instanceof Error ? e.message : 'Ошибка')
+      setErr(e instanceof Error ? e.message : t('Ошибка'))
     } finally {
       setBusy(false)
     }
@@ -473,7 +474,7 @@ function ProofForm({ id, hint, onDone }: { id: string; hint: string; onDone: (r:
   return (
     <form onSubmit={submit} className="card p-6">
       <label htmlFor="proof" className="font-bold">
-        Твоё решение
+        {t('Твоё решение')}
       </label>
       <p className="mt-1 text-sm text-slate-500">{hint}</p>
       <textarea
@@ -486,9 +487,9 @@ function ProofForm({ id, hint, onDone }: { id: string; hint: string; onDone: (r:
       />
       <div className="mt-2 flex items-center gap-3">
         <button className="btn-primary px-6" disabled={busy || !text.trim()}>
-          {busy ? 'Жюри проверяет…' : 'Отправить на проверку'}
+          {busy ? t('Жюри проверяет…') : t('Отправить на проверку')}
         </button>
-        <span className="text-xs text-slate-500">Формулы можно писать как $x^2$</span>
+        <span className="text-xs text-slate-500">{t('Формулы можно писать как $x^2$')}</span>
       </div>
       {err && <p className="mt-3 text-sm text-red-600">{err}</p>}
       {res && (
@@ -496,15 +497,15 @@ function ProofForm({ id, hint, onDone }: { id: string; hint: string; onDone: (r:
           className={`mt-4 animate-fade-up rounded-xl p-4 text-sm ${res.correct ? 'bg-emerald-50 dark:bg-emerald-500/10' : 'bg-amber-50 dark:bg-amber-500/10'}`}
         >
           <div className="text-lg font-extrabold">
-            {res.points} из {res.max_points} баллов {res.correct ? '✓' : ''}
+            {t('{a} из {b} баллов', { a: res.points, b: res.max_points })} {res.correct ? '✓' : ''}
           </div>
           <p className="mt-1 whitespace-pre-wrap">{res.comment}</p>
           {res.first_solve && res.earned > 0 && (
             <p className="mt-2 font-semibold text-emerald-700 dark:text-emerald-400">
-              Задача засчитана: +{res.earned} {pluralPoints(res.earned)}
+              {t('Задача засчитана:')} +{res.earned} {pluralPoints(res.earned)}
             </p>
           )}
-          <p className="mt-2 text-xs text-slate-500">Оценка ИИ по официальному решению жюри — ориентировочная.</p>
+          <p className="mt-2 text-xs text-slate-500">{t('Оценка ИИ по официальному решению жюри — ориентировочная.')}</p>
         </div>
       )}
     </form>

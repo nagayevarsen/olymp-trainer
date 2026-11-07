@@ -1,3 +1,4 @@
+import { t } from '../i18n'
 // Разбор текста задачи на куски: обычный текст, жирный, формулы $...$ и $$...$$.
 
 export type Segment =
@@ -22,22 +23,22 @@ export function splitMath(src: string): Segment[] {
 }
 
 export const SUBJECT_NAMES: Record<string, string> = {
-  math: 'Математика',
-  physics: 'Физика',
+  math: t('Математика'),
+  physics: t('Физика'),
 }
 
 export function pluralPoints(n: number): string {
   const mod10 = n % 10
   const mod100 = n % 100
-  if (mod10 === 1 && mod100 !== 11) return 'балл'
-  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return 'балла'
-  return 'баллов'
+  if (mod10 === 1 && mod100 !== 11) return t('балл')
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return t('балла')
+  return t('баллов')
 }
 
 export function pluralTasks(n: number): string {
   const mod10 = n % 10
   const mod100 = n % 100
-  if (mod10 === 1 && mod100 !== 11) return 'задача'
-  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return 'задачи'
-  return 'задач'
+  if (mod10 === 1 && mod100 !== 11) return t('задача')
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return t('задачи')
+  return t('задач')
 }

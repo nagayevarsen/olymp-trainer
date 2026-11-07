@@ -8,6 +8,7 @@ import { getRun, msLeft } from '../olympiadRun'
 import { pluralTasks } from '../lib/text'
 import { toAttachment, type Attached } from '../lib/attach'
 import { useDictation } from '../lib/dictation'
+import { t } from '../i18n'
 
 function Cards({ cards }: { cards: ChatCard[] }) {
   return (
@@ -20,8 +21,8 @@ function Cards({ cards }: { cards: ChatCard[] }) {
         >
           <div className="text-xs text-slate-500">
             {c.kind === 'problem'
-              ? `${c.topic ?? ''} · ${c.points} б.`
-              : `олимпиада целиком · ${c.count} ${pluralTasks(c.count ?? 0)} · ${c.total_points} б.`}
+              ? `${c.topic ? t(c.topic) : ''} · ${t('{n} б.', { n: c.points ?? 0 })}`
+              : `${t('олимпиада целиком')} · ${c.count} ${pluralTasks(c.count ?? 0)} · ${t('{n} б.', { n: c.total_points ?? 0 })}`}
           </div>
           <div className="font-semibold">{c.title}</div>
           {c.source && <div className="mt-0.5 text-xs text-slate-500">{c.source}</div>}
@@ -33,10 +34,10 @@ function Cards({ cards }: { cards: ChatCard[] }) {
 
 // Быстрый старт в пустом чате: нажал — и вопрос ушёл помощнику.
 const SUGGESTIONS: [string, string][] = [
-  ['📐', 'Подбери мне задачу по геометрии'],
-  ['🚀', 'Хочу потренировать кинематику'],
-  ['🕊️', 'Объясни принцип Дирихле на примере'],
-  ['🏆', 'С чего начать подготовку к Жаутыковской?'],
+  ['📐', t('Подбери мне задачу по геометрии')],
+  ['🚀', t('Хочу потренировать кинематику')],
+  ['🕊️', t('Объясни принцип Дирихле на примере')],
+  ['🏆', t('С чего начать подготовку к Жаутыковской?')],
 ]
 
 export function ChatPage() {
@@ -63,7 +64,7 @@ export function ChatPage() {
       const added = await Promise.all(Array.from(list).slice(0, 3).map(toAttachment))
       setFiles((f) => [...f, ...added].slice(0, 3))
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Не удалось прикрепить файл')
+      setError(err instanceof Error ? err.message : t('Не удалось прикрепить файл'))
     }
   }
 
@@ -83,7 +84,7 @@ export function ChatPage() {
 
   async function send(message: string, forceMode?: ChatMode) {
     const sending = forceMode ? [] : files
-    const q = message.trim() || (sending.length ? 'Помоги разобраться с задачей из файла' : '')
+    const q = message.trim() || (sending.length ? t('Помоги разобраться с задачей из файла') : '')
     if (!q || busy) return
     const shown = sending.length ? `${q}\n📎 ${sending.map((f) => f.name).join(', ')}` : q
     const chatMode = forceMode ?? mode
@@ -119,7 +120,7 @@ export function ChatPage() {
       if (id !== chatId) navigate(`/?c=${id}`, { replace: !forceMode })
       setLeft(r.left)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Ошибка')
+      setError(err instanceof Error ? err.message : t('Ошибка'))
       setTurns(base)
       setText(q)
     } finally {
@@ -137,10 +138,10 @@ export function ChatPage() {
       <div className="grid items-center gap-x-6 gap-y-3 sm:grid-cols-[minmax(0,1fr)_auto]">
         <div className="hidden min-w-0 flex-col gap-1 lg:flex">
           <span className="chip w-fit bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">
-            ИИ-помощник
+            {t('ИИ-помощник')}
           </span>
           <span className="text-[11px] leading-snug text-slate-500 sm:text-xs">
-            Отвечает ИИ, может ошибаться. Только математика, физика и олимпиады. Не пиши личные данные.
+            {t('Отвечает ИИ, может ошибаться. Только математика, физика и олимпиады. Не пиши личные данные.')}
           </span>
         </div>
         <div
@@ -149,8 +150,8 @@ export function ChatPage() {
         >
           {(
             [
-              ['training', 'Тренировка'],
-              ['olympiad', 'Олимпиада'],
+              ['training', t('Тренировка')],
+              ['olympiad', t('Олимпиада')],
             ] as const
           ).map(([m, label]) => (
             <button
@@ -171,7 +172,7 @@ export function ChatPage() {
         <div className="justify-self-end">
           {problemId && (
             <Link to={`/problem/${problemId}`} className="text-sm font-semibold text-brand-600 hover:underline">
-              ← к задаче
+              {t('← к задаче')}
             </Link>
           )}
         </div>
@@ -195,7 +196,7 @@ export function ChatPage() {
               </div>
             </div>
           ))}
-          {busy && <div className="text-sm text-slate-500">Помощник думает…</div>}
+          {busy && <div className="text-sm text-slate-500">{t('Помощник думает…')}</div>}
           <div ref={bottom} />
         </div>
       )}
@@ -240,7 +241,7 @@ export function ChatPage() {
                   type="button"
                   onClick={() => setFiles((all) => all.filter((_, j) => j !== i))}
                   className="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-slate-900/70 text-white"
-                  aria-label="Убрать файл"
+                  aria-label={t('Убрать файл')}
                 >
                   ×
                 </button>
@@ -270,8 +271,8 @@ export function ChatPage() {
                 onClick={() => fileInput.current?.click()}
                 disabled={files.length >= 3}
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 dark:hover:bg-slate-800 dark:hover:text-white"
-                aria-label="Прикрепить фото или PDF"
-                title="Прикрепить фото задачи или PDF"
+                aria-label={t('Прикрепить фото или PDF')}
+                title={t('Прикрепить фото задачи или PDF')}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                   <path d="M12 5v14M5 12h14" />
@@ -296,8 +297,8 @@ export function ChatPage() {
             }}
             rows={1}
             maxLength={2000}
-            aria-label="Сообщение помощнику"
-            placeholder={mode === 'olympiad' ? 'Вопрос по условию' : 'Спросить помощника'}
+            aria-label={t('Сообщение помощнику')}
+            placeholder={mode === 'olympiad' ? t('Вопрос по условию') : t('Спросить помощника')}
             className={`max-h-60 min-h-10 flex-1 resize-none bg-transparent py-2 outline-none placeholder:text-slate-400 ${mode === 'training' ? '' : 'pl-3.5'}`}
           />
           {mic.supported && (
@@ -309,8 +310,8 @@ export function ChatPage() {
                   ? 'animate-pulse bg-red-500 text-white'
                   : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-white'
               }`}
-              aria-label={mic.listening ? 'Остановить диктовку' : 'Надиктовать'}
-              title={mic.listening ? 'Остановить диктовку' : 'Надиктовать'}
+              aria-label={mic.listening ? t('Остановить диктовку') : t('Надиктовать')}
+              title={mic.listening ? t('Остановить диктовку') : t('Надиктовать')}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <rect x="9" y="3" width="6" height="11" rx="3" />
@@ -321,8 +322,8 @@ export function ChatPage() {
           <button
             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-600 text-white transition hover:bg-brand-700 active:scale-95 disabled:opacity-40"
             disabled={busy || (!text.trim() && files.length === 0)}
-            aria-label="Отправить"
-            title="Отправить"
+            aria-label={t('Отправить')}
+            title={t('Отправить')}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
               <path d="M12 19V5M5 12l7-7 7 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -330,9 +331,9 @@ export function ChatPage() {
           </button>
         </form>
         <div className="mt-1.5 text-center text-[11px] text-slate-500 lg:hidden">
-          ИИ может ошибаться. Не пиши личные данные.
+          {t('ИИ может ошибаться. Не пиши личные данные.')}
         </div>
-        {left != null && <div className="mt-1 text-xs text-slate-500">Осталось сообщений на сегодня: {left}</div>}
+        {left != null && <div className="mt-1 text-xs text-slate-500">{t('Осталось сообщений на сегодня: {n}', { n: left })}</div>}
       </div>
     </div>
   )

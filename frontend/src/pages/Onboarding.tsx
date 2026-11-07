@@ -4,11 +4,13 @@ import { APP_NAME, APP_TAGLINE } from '../config'
 import { saveUser, type StoredUser } from '../user'
 import { TermsText } from './Terms'
 import { ThemeSwitch } from '../components/ThemeSwitch'
+import { LangSwitch } from '../components/LangSwitch'
+import { t } from '../i18n'
 
 const features = [
-  { icon: '✓', title: 'Проверенные варианты', text: 'Каждый новый вариант задачи проверен кодом — без ошибок в условии.' },
-  { icon: '↗', title: 'Подсказки по шагам', text: 'Сначала намёк, потом идея, потом план. Ответ — только если сам захочешь.' },
-  { icon: '⚖', title: 'Проверка размерности', text: 'Перепутал м/с и м/с²? Тренажёр покажет, где ошибка.' },
+  { icon: '✓', title: t('Проверенные варианты'), text: t('Каждый новый вариант задачи проверен кодом — без ошибок в условии.') },
+  { icon: '↗', title: t('Подсказки по шагам'), text: t('Сначала намёк, потом идея, потом план. Ответ — только если сам захочешь.') },
+  { icon: '⚖', title: t('Проверка размерности'), text: t('Перепутал м/с и м/с²? Тренажёр покажет, где ошибка.') },
 ]
 
 export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
@@ -28,13 +30,13 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
       setNickNote(null)
       return
     }
-    const t = setTimeout(() => {
+    const timer = setTimeout(() => {
       api
         .nickAvailable(nick.trim())
-        .then((r) => setNickNote(r.available ? { ok: true, text: 'Ник свободен' } : { ok: false, text: r.reason ?? 'Ник занят' }))
+        .then((r) => setNickNote(r.available ? { ok: true, text: t('Ник свободен') } : { ok: false, text: r.reason ?? t('Ник занят') }))
         .catch(() => setNickNote(null))
     }, 350)
-    return () => clearTimeout(t)
+    return () => clearTimeout(timer)
   }, [nick, mode])
 
   async function submit(e: FormEvent) {
@@ -50,7 +52,7 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
       saveUser(user)
       onDone(user)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Ошибка')
+      setError(err instanceof Error ? err.message : t('Ошибка'))
     } finally {
       setBusy(false)
     }
@@ -69,14 +71,17 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
         <div className="animate-rise mb-4 flex items-center gap-3">
           <img src="/logo.webp" alt="" className="h-11 w-11 rounded-xl" />
           <span className="text-xl font-extrabold tracking-tight">{APP_NAME}</span>
-          <ThemeSwitch className="ml-auto" />
+          <span className="ml-auto flex items-center gap-2">
+            <LangSwitch />
+            <ThemeSwitch />
+          </span>
         </div>
         <h1
           className="animate-rise text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl"
           style={{ animationDelay: '80ms' }}
         >
-          Готовься к олимпиадам, видя <span className="text-brand-600 dark:text-brand-400">свой прогресс,</span> а
-          не готовые ответы
+          {t('Готовься к олимпиадам, видя')} <span className="text-brand-600 dark:text-brand-400">{t('свой прогресс,')}</span>{' '}
+          {t('а не готовые ответы')}
         </h1>
         <p
           className="animate-rise mt-4 max-w-xl text-lg text-slate-600 dark:text-slate-400"
@@ -113,17 +118,17 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
               }}
               className={`rounded-lg py-1.5 transition ${mode === m ? 'bg-white shadow-sm dark:bg-slate-950' : 'text-slate-500'}`}
             >
-              {m === 'register' ? 'Регистрация' : 'Вход'}
+              {m === 'register' ? t('Регистрация') : t('Вход')}
             </button>
           ))}
         </div>
         <p className="text-sm text-slate-500">
           {mode === 'register'
-            ? 'Нужны только ник и пароль — без почты и телефона. Прогресс сохранится на любом устройстве.'
-            : 'Войди, чтобы продолжить с того места, где остановился.'}
+            ? t('Нужны только ник и пароль — без почты и телефона. Прогресс сохранится на любом устройстве.')
+            : t('Войди, чтобы продолжить с того места, где остановился.')}
         </p>
         <label className="mt-5 block text-sm font-semibold" htmlFor="nick">
-          Ник
+          {t('Ник')}
         </label>
         <input
           id="nick"
@@ -136,11 +141,11 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
         />
         {mode === 'register' && (
           <p className={`mt-1 text-xs ${nickNote ? (nickNote.ok ? 'text-emerald-600' : 'text-red-600') : 'text-slate-500'}`}>
-            {nickNote?.text ?? 'Придумай ник, настоящее имя не нужно. 3–20 символов.'}
+            {nickNote?.text ?? t('Придумай ник, настоящее имя не нужно. 3–20 символов.')}
           </p>
         )}
         <label className="mt-4 block text-sm font-semibold" htmlFor="password">
-          Пароль
+          {t('Пароль')}
         </label>
         <input
           id="password"
@@ -150,12 +155,12 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className={input}
-          placeholder="от 8 символов"
+          placeholder={t('от 8 символов')}
         />
         {mode === 'register' && (
           <>
             <label className="mt-4 block text-sm font-semibold" htmlFor="grade">
-              Класс
+              {t('Класс')}
             </label>
             <select
               id="grade"
@@ -163,21 +168,21 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
               onChange={(e) => setGrade(e.target.value ? Number(e.target.value) : '')}
               className={input}
             >
-              <option value="">Не указывать</option>
+              <option value="">{t('Не указывать')}</option>
               {[5, 6, 7, 8, 9, 10, 11].map((g) => (
                 <option key={g} value={g}>
-                  {g} класс
+                  {t('{n} класс', { n: g })}
                 </option>
               ))}
             </select>
             <label className="mt-4 flex items-start gap-2 text-sm">
               <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} className="mt-0.5" />
               <span>
-                Согласен с{' '}
+                {t('Согласен с')}{' '}
                 <button type="button" onClick={() => setShowTerms((v) => !v)} className="font-semibold text-brand-600 underline">
-                  условиями
+                  {t('условиями')}
                 </button>
-                . В тренажёре работает ИИ.
+                {t('. В тренажёре работает ИИ.')}
               </span>
             </label>
             {showTerms && (
@@ -189,7 +194,7 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
         )}
         {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
         <button className="btn-primary mt-6 w-full" disabled={busy || !canSubmit}>
-          {busy ? 'Секунду…' : mode === 'register' ? 'Создать аккаунт →' : 'Войти →'}
+          {busy ? t('Секунду…') : mode === 'register' ? t('Создать аккаунт →') : t('Войти →')}
         </button>
       </form>
     </div>

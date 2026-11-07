@@ -1,3 +1,4 @@
+import { t } from '../i18n'
 const BASE = import.meta.env.VITE_API_URL ?? ''
 
 /** Рисунки к условию задачи (вырезаны из официального PDF). */
@@ -9,7 +10,7 @@ export function Figures({ urls }: { urls: string[] }) {
         <a key={u} href={BASE + u} target="_blank" rel="noreferrer" className="block">
           <img
             src={BASE + u}
-            alt={`Рисунок ${i + 1} к условию`}
+            alt={t('Рисунок {n} к условию', { n: i + 1 })}
             loading="lazy"
             className="max-h-80 max-w-full rounded-xl border border-slate-200 bg-white p-2 dark:border-slate-700 dark:invert-[0.88]"
           />

@@ -2,6 +2,7 @@
 // и сам исчезает, когда связь вернулась.
 
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { t } from '../i18n'
 
 const BASE = import.meta.env.VITE_API_URL ?? ''
 const RETRY_MS = 5000
@@ -94,13 +95,13 @@ export function OfflineOverlay() {
           />
         </svg>
         <h1 id="offline-title" className="mt-6 text-2xl font-extrabold tracking-tight">
-          Нет интернета
+          {t('Нет интернета')}
         </h1>
         <p className="mt-2 text-slate-600 dark:text-slate-400">
-          Проверь Wi-Fi или мобильную сеть. Как только связь появится, всё продолжится с того же места.
+          {t('Проверь Wi-Fi или мобильную сеть. Как только связь появится, всё продолжится с того же места.')}
         </p>
         <button onClick={retry} disabled={checking} className="btn-primary mt-6">
-          {checking ? 'Проверяю…' : 'Попробовать снова'}
+          {checking ? t('Проверяю…') : t('Попробовать снова')}
         </button>
       </div>
     </div>
