@@ -1,3 +1,4 @@
+import { APP_NAME } from '../config'
 import { Suspense, useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { holidayOn } from '../lib/calendar'
@@ -87,7 +88,7 @@ export function Layout({ onLogout }: { onLogout: () => void }) {
           </button>
           {location.pathname !== '/' && (
             <Link to="/" className="font-extrabold tracking-tight">
-              {t('Название')}
+              {APP_NAME}
             </Link>
           )}
         </div>

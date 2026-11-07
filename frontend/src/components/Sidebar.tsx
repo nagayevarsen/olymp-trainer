@@ -1,3 +1,4 @@
+import { APP_NAME } from '../config'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate, useSearchParams } from 'react-router-dom'
 import { deleteChat, listChats, onChatsChange, type StoredChat } from '../chats'
@@ -54,9 +55,7 @@ export function Sidebar({ onSettings, onCollapse }: { onSettings: () => void; on
       </div>
 
       <Link to="/" className="block rounded-xl px-1">
-        {/* Название и слоган придумаем позже — пока заглушки. */}
-        <div className="text-xl font-extrabold tracking-tight">{t('Название')}</div>
-        <div className="text-sm text-slate-500">{t('Слоган')}</div>
+        <div className="text-xl font-extrabold tracking-tight">{APP_NAME}</div>
       </Link>
 
       <nav className="grid grid-cols-2 gap-1">
