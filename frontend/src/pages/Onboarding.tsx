@@ -169,7 +169,7 @@ export function Onboarding({ onDone }: { onDone: (u: StoredUser) => void }) {
               className={input}
             >
               <option value="">{t('Не указывать')}</option>
-              {[5, 6, 7, 8, 9, 10, 11].map((g) => (
+              {[6, 7, 8, 9, 10, 11].map((g) => (
                 <option key={g} value={g}>
                   {t('{n} класс', { n: g })}
                 </option>
