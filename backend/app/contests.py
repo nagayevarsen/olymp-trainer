@@ -13,7 +13,7 @@ from dataclasses import dataclass
 
 from .bank import Problem
 
-MIN_CONTEST_PROBLEMS = 2
+MIN_CONTEST_PROBLEMS = 4
 
 
 def _norm(s: str) -> str:
