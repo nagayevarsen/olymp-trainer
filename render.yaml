@@ -4,18 +4,23 @@ services:
   - type: web
     name: olymp-trainer
     runtime: docker
-    # Бесплатный тариф: база (аккаунты, прогресс) стирается при обновлении и перезапуске сервиса,
-    # после 15 минут без посетителей сайт засыпает. Чтобы хранить базу постоянно — plan: starter
-    # и блок disk (см. docs/DEPLOY.md).
-    plan: free
+    # Платный тариф: сайт не засыпает, а база лежит на постоянном диске и не стирается при обновлении.
+    plan: starter
     region: frankfurt
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 1
     healthCheckPath: /api/health
     autoDeploy: true
     envVars:
+      # База на постоянном диске.
+      - key: DB_PATH
+        value: /var/data/app.db
       # Render стоит прокси перед приложением: IP ученика берём из X-Forwarded-For (лимиты по адресу).
       - key: TRUST_PROXY
         value: "1"
-      # На бесплатном тарифе 512 МБ памяти — не больше 2 запусков кода одновременно.
+      # 512 МБ памяти — не больше 2 запусков кода одновременно.
       - key: SANDBOX_MAX_PARALLEL
         value: "2"
       # Ключи вводятся вручную в панели Render при создании (в git их нет).
