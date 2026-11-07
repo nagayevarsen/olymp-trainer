@@ -98,6 +98,12 @@ SYSTEM = """Ты — ИИ-помощник тренажёра «Olymp Trainer» 
 Но если ученик назвал конкретную олимпиаду («как на Жаутыковской») — ищи именно её, без min_points
 и max_points: найдутся самые лёгкие задачи этой олимпиады. Не подменяй её другой олимпиадой.
 Если ученик хочет решить олимпиаду целиком (вариант с баллами за каждую задачу) — инструмент list_contests.
+Российские олимпиады (Курчатов, Всесибирская, ММО) — тренировочный материал: их очные этапы проходят
+в России. Не предлагай их как «полноценную олимпиаду» (list_contests их и не покажет), если ученик
+не назвал их сам.
+Если ученик закрыл тему и хочет разнообразия, можешь предложить микс — задачи из разных олимпиад.
+Собирай его инструментом make_mix, только если ученик согласился, и не смешивай типы: либо все
+задачи на доказательство, либо все с ответом.
 Найденные задачи и олимпиады покажутся ученику карточками со ссылками под твоим ответом —
 адреса не пиши, просто коротко скажи, что подобрал и почему. Если в банке ничего не нашлось —
 скажи честно и тогда можешь составить свою задачу (проверив ответ run_code).
@@ -177,6 +183,29 @@ CONTESTS_TOOL = {
 }
 
 
+MIX_TOOL = {
+    "name": "make_mix",
+    "description": (
+        "Собрать микс: несколько нерешённых задач из разных олимпиад, все одного типа "
+        "(только на доказательство или только с ответом). Для тренировки, не для олимпиады на время."
+    ),
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "kind": {
+                "type": "string",
+                "enum": ["answer", "proof"],
+                "description": "answer — с ответом, proof — доказательства",
+            },
+            "subject": {"type": "string", "enum": ["math", "physics"]},
+            "count": {"type": "integer", "description": "сколько задач, 2–10 (по умолчанию 6)"},
+        },
+        "required": ["kind"],
+        "additionalProperties": False,
+    },
+}
+
+
 ESCALATE_TOOL = {
     "name": "ask_stronger_model",
     "description": (
@@ -222,6 +251,7 @@ class ChatTools:
 
     search: Callable[..., list[dict]]
     contests: Callable[..., list[dict]]
+    mix: Callable[..., list[dict]] | None = None
 
 
 @dataclass
@@ -338,6 +368,11 @@ async def _run_tool(call, tools: ChatTools | None, cards: list[dict]) -> str:
         found = tools.search(
             **{k: v for k, v in args.items() if k in SEARCH_TOOL["input_schema"]["properties"]}
         )
+        cards.extend({"kind": "problem", **f} for f in found if f["id"] not in {c["id"] for c in cards})
+        return json.dumps(found, ensure_ascii=False) if found else "Ничего не нашлось"
+    if call.name == "make_mix":
+        allowed = MIX_TOOL["input_schema"]["properties"]
+        found = tools.mix(**{k: v for k, v in args.items() if k in allowed}) if tools.mix else []
         cards.extend({"kind": "problem", **f} for f in found if f["id"] not in {c["id"] for c in cards})
         return json.dumps(found, ensure_ascii=False) if found else "Ничего не нашлось"
     if call.name == "list_contests":
@@ -486,7 +521,9 @@ async def reply(
     messages = with_uploads(with_figures(messages, figures or []), uploads or [])
     cards: list[dict] = []
     # Во время олимпиады помощник ничего не считает и не подбирает — только уточняет условия.
-    tool_defs = [] if olympiad else [RUN_CODE_TOOL, *([SEARCH_TOOL, CONTESTS_TOOL] if tools else [])]
+    tool_defs = (
+        [] if olympiad else [RUN_CODE_TOOL, *([SEARCH_TOOL, CONTESTS_TOOL, MIX_TOOL] if tools else [])]
+    )
     can_escalate = strong is not None and not olympiad
     try:
         first = await _converse(

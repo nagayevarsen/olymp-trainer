@@ -470,3 +470,25 @@ def test_weak_and_leaked_passwords_rejected(client, monkeypatch):
     r = register(client, password="leaked-pass-1")
     assert r.status_code == 400 and "утекал" in r.json()["detail"]
     assert register(client, password="Zx9kQ2vLpR7w").status_code == 200
+
+
+def test_russian_contests_hidden_unless_named(client):
+    rows = client.get("/api/contests").json()
+    assert rows and not any(r["russian"] for r in rows)
+    named = client.get("/api/contests", params={"query": "курчатов"}).json()
+    assert named and all(r["russian"] for r in named)
+
+
+def test_mix_is_one_kind_and_many_olympiads(client):
+    token = register(client).json()["token"]
+    for kind in ("answer", "proof"):
+        rows = client.get(
+            "/api/mix", params={"kind": kind, "subject": "math", "n": 8}, headers=auth(token)
+        ).json()
+        assert len(rows) == 8
+        from app.bank import get_problem
+
+        ps = [get_problem(r["id"]) for r in rows]
+        assert all(p.is_proof == (kind == "proof") for p in ps)
+        assert len({p.source.olympiad for p in ps}) > 1 or kind == "proof"
+    assert client.get("/api/mix", params={"n": 1}, headers=auth(token)).status_code == 422

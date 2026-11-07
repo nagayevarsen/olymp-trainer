@@ -69,6 +69,9 @@ export function ProblemsPage() {
             </p>
           )}
         </div>
+        <Link to="/mix" className="btn-ghost">
+          Микс задач
+        </Link>
         <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400">
           <input type="checkbox" checked={hideSolved} onChange={(e) => setHideSolved(e.target.checked)} />
           Скрыть решённые
@@ -164,6 +167,11 @@ function TrackPicker({
             >
               <div className="font-bold leading-snug">{t.olympiad}</div>
               {t.stage !== 'Другое' && <div className="mt-0.5 text-sm text-slate-500">{t.stage}</div>}
+              {t.russian && (
+                <div className="mt-1 text-xs font-semibold text-amber-700 dark:text-amber-400">
+                  Российская · для тренировки
+                </div>
+              )}
               <div className="mt-2 text-xs font-semibold text-slate-500">
                 {[yearsLabel(t.years), `${t.count} ${pluralTasks(t.count)}`].filter(Boolean).join(' · ')}
               </div>

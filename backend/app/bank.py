@@ -59,6 +59,16 @@ CLOSED_OLYMPIADS: dict[str, str] = {
 }
 
 
+# Российские олимпиады: онлайн-этапы открыты и для казахстанцев, но очные этапы проходят в России.
+# У нас это тренировочный материал: не показываем их как «полноценную олимпиаду» по умолчанию.
+RUSSIAN_OLYMPIADS = ("Курчатов", "Всесибирская", "Московская математическая")
+RUSSIAN_QUERY_WORDS = ("курчат", "всесиб", "ммо", "москов")
+
+
+def is_russian(olympiad: str) -> bool:
+    return any(k in olympiad for k in RUSSIAN_OLYMPIADS)
+
+
 def closed_reason(olympiad: str) -> str | None:
     """Почему казахстанцы не могут участвовать в олимпиаде (None — могут)."""
     low = olympiad.lower()
@@ -75,6 +85,10 @@ class Source(BaseModel):
     grade: int | None = Field(default=None, ge=1, le=12)
     number: int | None = Field(default=None, ge=1, description="Номер задачи в варианте")
     url: str | None = None
+
+    @property
+    def russian(self) -> bool:
+        return is_russian(self.olympiad)
 
     @property
     def track_id(self) -> str:

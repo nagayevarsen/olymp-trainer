@@ -152,6 +152,7 @@ export function ProblemPage() {
 
           <div className="mt-6 text-sm text-slate-500">
             {p.source.label}
+            {p.source.russian && ' · российская олимпиада, для тренировки'}
             {p.source.url && (
               <>
                 {' · '}

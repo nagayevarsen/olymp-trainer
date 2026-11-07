@@ -15,6 +15,7 @@ const ContestPage = lazy(() => import('./pages/Contests').then((m) => ({ default
 const LeaderboardPage = lazy(() => import('./pages/Leaderboard').then((m) => ({ default: m.LeaderboardPage })))
 const ProblemPage = lazy(() => import('./pages/Problem').then((m) => ({ default: m.ProblemPage })))
 const ProblemsPage = lazy(() => import('./pages/Problems').then((m) => ({ default: m.ProblemsPage })))
+const MixPage = lazy(() => import('./pages/Mix').then((m) => ({ default: m.MixPage })))
 const ProfilePage = lazy(() => import('./pages/Profile').then((m) => ({ default: m.ProfilePage })))
 const TermsPage = lazy(() => import('./pages/Terms').then((m) => ({ default: m.TermsPage })))
 
@@ -41,6 +42,7 @@ export default function App() {
               <Route index element={<ChatPage />} />
               <Route path="problems" element={<ProblemsPage />} />
               <Route path="problem/:id" element={<ProblemPage />} />
+              <Route path="mix" element={<MixPage />} />
               <Route path="profile" element={<ProfilePage onLogout={logout} />} />
               <Route path="leaderboard" element={<LeaderboardPage />} />
               <Route path="chat" element={<ChatRedirect />} />

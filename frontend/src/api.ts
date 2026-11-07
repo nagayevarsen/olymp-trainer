@@ -10,6 +10,7 @@ export interface Track {
   id: string
   title: string
   olympiad: string
+  russian: boolean
   stage: string
   subjects: Subject[]
   years: number[]
@@ -48,7 +49,7 @@ export interface ProblemDetail {
   original_statement: string | null
   seed: number | null
   points: number
-  source: { label: string; stage: string; url: string | null }
+  source: { label: string; stage: string; url: string | null; russian: boolean }
   track: { id: string; title: string }
   needs_unit: boolean
   answer_kind: 'number' | 'formula' | 'proof'
@@ -142,6 +143,7 @@ export interface ChatReply {
 }
 
 export interface ContestRow {
+  russian: boolean
   duration_min: number | null
   duration_source: { name: string; url: string } | null
   official_points: boolean
@@ -154,6 +156,15 @@ export interface ContestRow {
   total_points: number
   solved: number
   earned: number
+}
+
+export interface MixItem {
+  id: string
+  title: string
+  source: string
+  topic: string
+  points: number
+  subject: Subject
 }
 
 export interface StreakInfo {
@@ -268,6 +279,8 @@ export const api = {
   deleteMe: () => request<{ deleted: boolean }>('/api/me', { method: 'DELETE' }),
   contests: (query = '', subject?: Subject | null) =>
     request<ContestRow[]>(`/api/contests?query=${encodeURIComponent(query)}${subject ? `&subject=${subject}` : ''}`),
+  mix: (kind: 'answer' | 'proof', subject: Subject | null, n: number) =>
+    request<MixItem[]>(`/api/mix?kind=${kind}&n=${n}${subject ? `&subject=${subject}` : ''}`),
   contest: (id: string) => request<ContestDetail>(`/api/contests/${id}`),
   daily: () => request<DailyInfo>('/api/daily'),
   restoreStreak: () => post<StreakInfo>('/api/daily/restore'),

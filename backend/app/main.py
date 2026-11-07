@@ -20,7 +20,16 @@ from pydantic import BaseModel, Field
 from . import ai, chat, contests, formula, olympiad_rules, scoring, streak
 from . import ratelimit as rl
 from .auth import AuthError, check_nick, check_password, hash_password, verify_password
-from .bank import STAGE_NAMES, Hints, Problem, figures_dir, get_problem, load_bank
+from .bank import (
+    RUSSIAN_QUERY_WORDS,
+    STAGE_NAMES,
+    Hints,
+    Problem,
+    figures_dir,
+    get_problem,
+    is_russian,
+    load_bank,
+)
 from .checker import AnswerKey, check_answer
 from .cloner import CloneError, find_seed, make_variant
 from .config import settings
@@ -170,6 +179,7 @@ def source_info(p: Problem) -> dict:
         "label": p.source.label(),
         "stage": STAGE_NAMES[p.source.stage],
         "url": p.source.url,
+        "russian": p.source.russian,
     }
 
 
@@ -419,6 +429,13 @@ async def chat_reply(
         best_points=max((p["points"] for p in prog.values() if p["solved"]), default=0),
     )
     tools = chat.ChatTools(
+        mix=lambda **kw: _mix(
+            user,
+            db,
+            kw.get("subject"),
+            kw.get("kind") == "proof",
+            min(max(int(kw.get("count") or 6), 2), MIX_MAX),
+        ),
         search=lambda **kw: _search_bank(user, db, **kw),
         contests=lambda **kw: [
             r
@@ -464,6 +481,59 @@ async def chat_reply(
         "left": max(0, chat.DAILY_LIMIT - used),
         "strong": bool(strong_used),
     }
+
+
+MIX_MAX = 10
+
+
+def _mix(user: dict, db: DB, subject: str | None, proof: bool, n: int) -> list[dict]:
+    """Микс: нерешённые задачи разных олимпиад одного типа — все на доказательство или все с ответом."""
+    stats = db.problem_stats()
+    solved = {pid for pid, pr in db.all_progress(user["id"]).items() if pr["solved"]}
+    by_olympiad: dict[str, list[Problem]] = defaultdict(list)
+    for p in load_bank().values():
+        if (
+            p.id in solved
+            or p.source.olympiad.startswith("Демо")
+            or (subject and p.subject != subject)
+            or p.is_proof != proof
+            or (user["grade"] and p.source.grade and abs(p.source.grade - user["grade"]) > 1)
+        ):
+            continue
+        by_olympiad[p.source.olympiad].append(p)
+    queues = list(by_olympiad.values())
+    for q in queues:
+        random.shuffle(q)
+    random.shuffle(queues)
+    picked: list[Problem] = []
+    while queues and len(picked) < n:  # по кругу: по одной задаче из каждой олимпиады
+        for q in queues:
+            if q and len(picked) < n:
+                picked.append(q.pop())
+        queues = [q for q in queues if q]
+    picked.sort(key=lambda p: problem_points(p, stats))
+    return [
+        {
+            "id": p.id,
+            "title": p.title,
+            "source": p.source.label(),
+            "topic": p.topic,
+            "points": problem_points(p, stats),
+            "subject": p.subject,
+        }
+        for p in picked
+    ]
+
+
+@app.get("/api/mix")
+def mix(
+    subject: Literal["math", "physics"] | None = None,
+    kind: Literal["answer", "proof"] = "answer",
+    n: int = Query(default=6, ge=2, le=MIX_MAX),
+    user: dict = Depends(current_user),
+    db: DB = Depends(get_db),
+) -> list[dict]:
+    return _mix(user, db, subject, kind == "proof", n)
 
 
 def _search_bank(user: dict, db: DB, **kw) -> list[dict]:
@@ -561,6 +631,7 @@ def _contest_row(c: contests.Contest, stats: dict, prog: dict) -> dict:
         "year": c.year,
         "grade": c.grade,
         "count": len(c.problems),
+        "russian": is_russian(c.olympiad),
         "total_points": sum(pts),
         "solved": sum(1 for p in c.problems if prog.get(p.id, {}).get("solved")),
         "earned": sum(prog.get(p.id, {}).get("points", 0) for p in c.problems),
@@ -582,10 +653,14 @@ def _rule_info(rule: olympiad_rules.Rule | None) -> dict:
 def _list_contests(uid: str, db: DB, query: str = "", subject: str | None = None) -> list[dict]:
     stats = db.problem_stats()
     prog = db.all_progress(uid) if uid else {}
+    # Российские олимпиады (очные этапы в России) показываем, только если ученик назвал их сам.
+    named = any(w in query.lower() for w in RUSSIAN_QUERY_WORDS)
     rows = [
         _contest_row(c, stats, prog)
         for c in contests.build_contests(load_bank()).values()
-        if (not subject or c.subject == subject) and (not query or contests.matches(c.problems[0], query))
+        if (not subject or c.subject == subject)
+        and (not query or contests.matches(c.problems[0], query))
+        and (named or not is_russian(c.olympiad))
     ]
     rows.sort(key=lambda r: (r["title"].split(",")[0], -(r["year"] or 0), r["grade"] or 0))
     return rows
@@ -742,6 +817,7 @@ def _build_tracks(bank: dict[str, Problem]) -> list[dict]:
                 "id": p.source.track_id,
                 "title": p.source.track_title(),
                 "olympiad": p.source.olympiad,
+                "russian": p.source.russian,
                 "stage": STAGE_NAMES[p.source.stage],
                 "subjects": set(),
                 "years": set(),
