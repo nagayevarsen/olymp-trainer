@@ -1,6 +1,8 @@
 """Треки: олимпиада + этап. Разные годы одной олимпиады и этапа — один трек,
 разные этапы или олимпиады — разные треки, и задачи из них не смешиваются."""
 
+import sys
+
 import pytest
 from fastapi.testclient import TestClient
 
@@ -34,8 +36,12 @@ BANK = {
 
 @pytest.fixture
 def client(monkeypatch):
-    monkeypatch.setattr(main, "load_bank", lambda: BANK)
-    monkeypatch.setattr(main, "get_problem", BANK.get)
+    for name, mod in list(sys.modules.items()):  # банк подменяем во всех модулях, где он импортирован
+        if name.startswith("app."):
+            if hasattr(mod, "load_bank"):
+                monkeypatch.setattr(mod, "load_bank", lambda: BANK)
+            if hasattr(mod, "get_problem"):
+                monkeypatch.setattr(mod, "get_problem", BANK.get)
     main.set_db(DB(":memory:"))
     return TestClient(main.app)
 
