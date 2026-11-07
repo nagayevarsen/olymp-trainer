@@ -2,13 +2,16 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App'
+import { ready } from './i18n'
 import { OfflineOverlay } from './components/Offline'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-    <OfflineOverlay />
-  </StrictMode>,
+void ready.then(() =>
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <App />
+      <OfflineOverlay />
+    </StrictMode>,
+  ),
 )
 
 // Service worker хранит оболочку приложения — без интернета откроется экран «Нет интернета».

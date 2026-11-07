@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { api, type ContestDetail, type ContestRow, type Subject } from '../api'
 import { SUBJECT_NAMES, pluralTasks } from '../lib/text'
-import { t } from '../i18n'
+import { t, tt } from '../i18n'
 
 /** Список «олимпиад целиком»: задачи одной олимпиады, года и класса из банка. */
 export function ContestsPage() {
@@ -138,7 +138,7 @@ export function ContestPage() {
                 {p.n}
               </span>
               <span className="flex-1">
-                <span className="block font-semibold">{p.title}</span>
+                <span className="block font-semibold">{tt(p.id, p.title)}</span>
                 <span className="text-xs text-slate-500">{p.topic}</span>
               </span>
               <span className="text-right text-sm">

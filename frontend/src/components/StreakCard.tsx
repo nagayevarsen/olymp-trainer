@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api, type DailyInfo } from '../api'
 import { usePoints } from '../points'
-import { t } from '../i18n'
+import { t, tt } from '../i18n'
 
 /** Серия дней и задача дня. Внешний вид — временный, команда пришлёт свой вариант. */
 export function StreakCard() {
@@ -58,7 +58,7 @@ export function StreakCard() {
           className="block rounded-lg bg-white px-3 py-2 transition hover:ring-2 hover:ring-amber-400 dark:bg-slate-900"
         >
           <div className="text-xs text-slate-500">{t('Задача дня · {n} б.', { n: problem.points })}</div>
-          <div className="truncate font-semibold">{problem.title}</div>
+          <div className="truncate font-semibold">{tt(problem.id, problem.title)}</div>
         </Link>
       )}
     </div>

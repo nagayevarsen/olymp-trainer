@@ -50,3 +50,4 @@ euler-proofs 0.2090
 kz-math-proofs 0.1701
 smagulov-all 4.0974
 kz-physics-figs 2.0514
+kk-titles 0.0891

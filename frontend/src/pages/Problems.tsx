@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { api, type ProblemListItem, type Subject, type Track } from '../api'
 import { SUBJECT_NAMES, pluralTasks } from '../lib/text'
 import { getTrack, saveTrack } from '../user'
-import { t } from '../i18n'
+import { t, tt } from '../i18n'
 
 type Filter = 'all' | Subject
 
@@ -205,7 +205,7 @@ function ProblemCard({ p }: { p: ProblemListItem }) {
         </span>
       </div>
       <h3 className="mt-3 text-lg font-bold leading-snug group-hover:text-brand-700 dark:group-hover:text-brand-300">
-        {p.title}
+        {tt(p.id, p.title)}
       </h3>
       <p className="mt-1 line-clamp-2 text-sm text-slate-500">{p.source}</p>
       <div className="mt-auto flex flex-wrap gap-2 pt-4 text-xs font-medium text-slate-500">

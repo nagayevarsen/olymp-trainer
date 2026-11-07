@@ -26,6 +26,20 @@ export function setLang(lang: Lang): void {
 }
 
 const lang = getLang()
+
+// Названия задач и недостающие темы по-казахски (backend/app/tools/kk_titles.py): грузятся только для казахского.
+let BANK: { titles: Record<string, string>; topics: Record<string, string> } = { titles: {}, topics: {} }
+export const ready: Promise<void> =
+  lang === 'kk'
+    ? import('./titles.kk.json').then((m) => {
+        BANK = m.default
+      })
+    : Promise.resolve()
+
+/** Название задачи из банка на текущем языке. */
+export function tt(id: string, ru: string): string {
+  return (lang === 'kk' && BANK.titles[id]) || ru
+}
 if (typeof document !== 'undefined') document.documentElement.lang = lang
 
 /** Перевод русской фразы на текущий язык; {имя} в фразе подставляется из params. */
@@ -38,7 +52,7 @@ export function t(ru: string, params?: Record<string, string | number>): string 
 function topic(ru: string): string {
   return ru.replace(/[^,;]+/g, (part) => {
     const low = part.trim().toLowerCase()
-    const kk = KK_TOPICS[low]
+    const kk = KK_TOPICS[low] ?? BANK.topics[low]
     return kk ? part.replace(part.trim(), part.trim()[0] === part.trim()[0].toUpperCase() ? kk[0].toUpperCase() + kk.slice(1) : kk) : part
   })
 }

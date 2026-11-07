@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api, type MixItem, type Subject } from '../api'
 import { SUBJECT_NAMES } from '../lib/text'
-import { t } from '../i18n'
+import { t, tt } from '../i18n'
 
 export function MixPage() {
   const [kind, setKind] = useState<'answer' | 'proof'>('answer')
@@ -60,7 +60,7 @@ export function MixPage() {
                 <div className="text-xs text-slate-500">
                   {i + 1}. {SUBJECT_NAMES[p.subject]} · {t(p.topic)} · {t('{n} б.', { n: p.points })}
                 </div>
-                <div className="mt-1 font-semibold">{p.title}</div>
+                <div className="mt-1 font-semibold">{tt(p.id, p.title)}</div>
                 <div className="mt-0.5 text-xs text-slate-500">{p.source}</div>
               </Link>
             </li>

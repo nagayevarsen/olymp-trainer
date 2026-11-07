@@ -7,7 +7,7 @@ import { MathText } from '../components/MathText'
 import { SUBJECT_NAMES, pluralPoints } from '../lib/text'
 import { usePoints } from '../points'
 import { problemLocked } from '../olympiadRun'
-import { t } from '../i18n'
+import { t, tt } from '../i18n'
 
 const HINT_NAMES = [t('Направление'), t('Подход'), t('Наводящий вопрос')]
 // Штраф за открытые подсказки, как в backend/app/scoring.py: 0, 1, 2, 4, 6…
@@ -189,7 +189,7 @@ export function ProblemPage() {
               {t('{n} б.', { n: p.points })}
             </span>
           </div>
-          <h1 className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">{p.title}</h1>
+          <h1 className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">{tt(p.id, p.title)}</h1>
 
           {seed !== null && (
             <VariantBanner p={p} showOriginal={showOriginal} toggle={() => setShowOriginal((s) => !s)} />

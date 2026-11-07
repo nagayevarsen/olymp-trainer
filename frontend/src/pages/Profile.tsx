@@ -4,7 +4,7 @@ import { api, type Me } from '../api'
 import { SUBJECT_NAMES, pluralPoints } from '../lib/text'
 import { clearUser, getTrack, getUser, saveUser } from '../user'
 import { ThemeSwitch } from '../components/ThemeSwitch'
-import { t } from '../i18n'
+import { t, tt } from '../i18n'
 
 export function ProfilePage({ onLogout }: { onLogout: () => void }) {
   const [me, setMe] = useState<Me | null>(null)
@@ -69,7 +69,7 @@ export function ProfilePage({ onLogout }: { onLogout: () => void }) {
                 <div className="text-xs font-semibold text-slate-500">
                   {t(r.topic)} · {t('{n} б.', { n: r.points })}
                 </div>
-                <div className="mt-1 font-bold">{r.title}</div>
+                <div className="mt-1 font-bold">{tt(r.id, r.title)}</div>
               </Link>
             ))}
           </div>
