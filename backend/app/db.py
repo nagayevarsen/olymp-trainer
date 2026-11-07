@@ -79,7 +79,41 @@ CREATE TABLE IF NOT EXISTS hint_cache (
 );
 """
 
-_lock = threading.Lock()
+_lock = threading.RLock()  # реентерабельный: tx() держит замок, пока внутри идут запросы
+
+
+class _Rows(list):
+    """Строки ответа, уже прочитанные из базы (как курсор, но без обращения к соединению)."""
+
+    def fetchone(self):
+        return self[0] if self else None
+
+    def fetchall(self):
+        return list(self)
+
+
+class _SharedConn:
+    """Одно соединение SQLite на все потоки. Одновременные запросы к нему дают случайные InterfaceError
+    и IndexError, поэтому каждый запрос выполняется и читается целиком под замком."""
+
+    def __init__(self, conn: sqlite3.Connection):
+        self._c = conn
+
+    def execute(self, sql: str, params=()) -> _Rows:
+        with _lock:
+            return _Rows(self._c.execute(sql, params).fetchall())
+
+    def executescript(self, sql: str) -> None:
+        with _lock:
+            self._c.executescript(sql)
+
+    def commit(self) -> None:
+        with _lock:
+            self._c.commit()
+
+    def rollback(self) -> None:
+        with _lock:
+            self._c.rollback()
 
 
 def _token_hash(token: str) -> str:
@@ -91,8 +125,9 @@ class DB:
         self.path = path or settings.db_path
         if self.path != ":memory:":
             Path(self.path).parent.mkdir(parents=True, exist_ok=True)
-        self.conn = sqlite3.connect(self.path, check_same_thread=False)
-        self.conn.row_factory = sqlite3.Row
+        raw = sqlite3.connect(self.path, check_same_thread=False)
+        raw.row_factory = sqlite3.Row
+        self.conn = _SharedConn(raw)
         self.conn.execute("PRAGMA journal_mode=WAL" if self.path != ":memory:" else "PRAGMA foreign_keys=ON")
         # С WAL этого достаточно для надёжности, а записи (каждая попытка ответа) заметно быстрее.
         self.conn.execute("PRAGMA synchronous=NORMAL")

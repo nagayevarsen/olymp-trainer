@@ -301,7 +301,7 @@ export function ProblemPage() {
           <div className="card p-5">
             <h2 className="font-bold">Подсказки</h2>
             <p className="mt-1 text-sm text-slate-500">
-              Открывай по одной. Подсказки снимают баллы: первая −1, вторая −2, третья −4. Подсказки составляет ИИ.
+              Открывай по одной. Подсказки снимают баллы (всего): открыл одну — −1, две — −2, три — −4. Подсказки составляет ИИ.
             </p>
             <ol className="mt-4 space-y-3">
               {p.hints_opened.map((h, i) => (
