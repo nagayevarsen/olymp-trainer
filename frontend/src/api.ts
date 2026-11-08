@@ -157,6 +157,8 @@ export interface ContestRow {
   total_points: number
   solved: number
   earned: number
+  /** Точного совпадения с запросом нет, олимпиада показана как «возможно подходящая». */
+  approx?: boolean
 }
 
 export interface MixItem {

@@ -137,13 +137,15 @@ def _list_contests(uid: str, db: DB, query: str = "", subject: str | None = None
     prog = db.all_progress(uid) if uid else {}
     # Российские олимпиады (очные этапы в России) показываем, только если ученик назвал их сам.
     named = any(w in query.lower() for w in RUSSIAN_QUERY_WORDS)
-    rows = [
-        _contest_row(c, stats, prog)
+    pool = [
+        c
         for c in contests.build_contests(load_bank()).values()
-        if (not subject or c.subject == subject)
-        and (not query or contests.matches(c.problems[0], query))
-        and (named or not is_russian(c.olympiad))
+        if (not subject or c.subject == subject) and (named or not is_russian(c.olympiad))
     ]
+    exact = [c for c in pool if not query or contests.matches(c.problems[0], query)]
+    # Точного совпадения нет — показываем олимпиады, где совпало хотя бы одно слово («возможно, подойдут»).
+    near = [] if exact else [c for c in pool if contests.matches(c.problems[0], query, partial=True)]
+    rows = [{**_contest_row(c, stats, prog), "approx": not exact} for c in exact or near]
     rows.sort(key=lambda r: (r["title"].split(",")[0], -(r["year"] or 0), r["grade"] or 0))
     return rows
 

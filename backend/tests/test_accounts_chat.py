@@ -96,7 +96,8 @@ def test_chat_passes_level_and_problem_without_answer(client, monkeypatch):
     )
     assert r.status_code == 200 and r.json()["code_runs"] == 1
     cards = r.json()["cards"]
-    assert len(cards) == 2 and all(c["id"].startswith("izho") for c in cards)
+    # «жаутыковская» находит и международную (IZhO), и городскую Жаутыковскую.
+    assert len(cards) == 2 and all("Жаутыков" in c["source"] for c in cards)
     assert seen["level"].grade == 8 and seen["level"].solved == 0
     assert "statement" in seen["problem"] and "answer" not in seen["problem"]
 
@@ -477,6 +478,26 @@ def test_russian_contests_hidden_unless_named(client):
     assert rows and not any(r["russian"] for r in rows)
     named = client.get("/api/contests", params={"query": "курчатов"}).json()
     assert named and all(r["russian"] for r in named)
+
+
+def test_contest_search_is_forgiving(client):
+    # «смагуловская» в банке называется «им. Шалтая Смагулова»: ищем по корню слова.
+    rows = client.get("/api/contests", params={"query": "смагуловская"}).json()
+    assert rows and all("Смагулов" in r["title"] and not r["approx"] for r in rows)
+    # Нет точного совпадения (лишнее слово) — показываем частичные как «возможно подходящие».
+    near = client.get("/api/contests", params={"query": "смагуловская финал"}).json()
+    assert near and all("Смагулов" in r["title"] and r["approx"] for r in near)
+
+    # Одну олимпиаду находят по нескольким названиям.
+    def titles(q):
+        return {r["title"].split(" — ")[0] for r in client.get("/api/contests", params={"query": q}).json()}
+
+    assert titles("жаут") == titles("олимпиада имени жаутыкова") == titles("жаутыковская")
+    assert len(titles("жаут")) == 2  # международная и городская
+    assert titles("эйлер") == titles("олимпиада имени эйлера") and titles("эйлер")
+    assert titles("вшэ") == titles("вышка") == titles("высшая проба") and titles("вшэ")
+    # Совсем незнакомое название — по-прежнему пусто.
+    assert client.get("/api/contests", params={"query": "несуществующая"}).json() == []
 
 
 def test_mix_is_one_kind_and_many_olympiads(client):

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
 import { api, type ContestDetail, type ContestRow, type ProblemDetail } from '../api'
 import { pluralTasks } from '../lib/text'
 import { formatLeft, getRun, msLeft, onRunChange, parseRequest, setRun, type OlympiadRun } from '../olympiadRun'
@@ -9,6 +9,10 @@ import { t } from '../i18n'
 function hours(min: number): string {
   return min % 60 === 0 ? t('{h} ч', { h: min / 60 }) : t('{h} ч {m} мин', { h: Math.floor(min / 60), m: min % 60 })
 }
+
+// Название вида «Олимпиада — этап, год, класс (предмет)»: берём олимпиаду и этап.
+const nameOf = (r: ContestRow) => r.title.split(' — ')[0]
+const stageOf = (r: ContestRow) => r.title.split(' — ')[1]?.split(',')[0] ?? ''
 
 /** Вкладка «Олимпиада»: строка «олимпиада и класс» → вариант → «Старт» → решения с таймером → проверка. */
 export function OlympiadPanel({ onFinishDiscuss }: { onFinishDiscuss: (summary: string) => void }) {
@@ -25,10 +29,40 @@ function Picker() {
   const [chosen, setChosen] = useState<ContestDetail | null>(null)
   const [note, setNote] = useState('')
   const [busy, setBusy] = useState(false)
+  const [olymp, setOlymp] = useState('')
+  const [subject, setSubject] = useState('')
+  const [stage, setStage] = useState('')
+  const [idx, setIdx] = useState(0)
 
-  async function open(row: ContestRow) {
-    setChosen(await api.contest(row.id))
-  }
+  // Варианты по выбранным фильтрам: от старых годов к новым, стрелками можно листать все.
+  const view = useMemo(
+    () =>
+      candidates
+        .filter((r) => nameOf(r) === olymp && (!subject || r.subject === subject) && (!stage || stageOf(r) === stage))
+        .sort((a, b) => (a.year ?? 0) - (b.year ?? 0) || (a.grade ?? 0) - (b.grade ?? 0)),
+    [candidates, olymp, subject, stage],
+  )
+  const current = view[Math.min(idx, view.length - 1)]
+  const olympNames = [...new Set(candidates.map(nameOf))]
+  const ofOlymp = candidates.filter((r) => nameOf(r) === olymp)
+  const stages = [...new Set(ofOlymp.filter((r) => !subject || r.subject === subject).map(stageOf))].filter(Boolean)
+  const subjects = [...new Set(ofOlymp.map((r) => r.subject))]
+
+  // Фильтры или поиск поменялись — начинаем с самого свежего года.
+  useEffect(() => setIdx(Math.max(0, view.length - 1)), [view.length, olymp, subject, stage])
+
+  const currentId = current?.id
+  useEffect(() => {
+    if (!currentId) return
+    let stale = false
+    api
+      .contest(currentId)
+      .then((c) => !stale && setChosen(c))
+      .catch((err) => !stale && setNote(err instanceof Error ? err.message : t('Ошибка')))
+    return () => {
+      stale = true
+    }
+  }, [currentId])
 
   async function find(e: FormEvent) {
     e.preventDefault()
@@ -44,28 +78,37 @@ function Picker() {
       const list = byGrade.length ? byGrade : rows
       if (!list.length) {
         const available = await api.olympiadsWithTime().catch(() => [] as string[])
-        setNote(
-          (all.length
-            ? t('Для этой олимпиады мы пока не нашли официального времени тура, поэтому пробная олимпиада на время недоступна.')
-            : t('Такой олимпиады в банке пока нет.')) + (available.length ? ' ' + t('Доступны: {list}.', { list: available.join(', ') }) : ''),
-        )
+        if (all.length) {
+          setNote(
+            t('Для этой олимпиады мы пока не нашли официального времени тура, поэтому пробная олимпиада на время недоступна.') +
+              (available.length ? ' ' + t('Доступны: {list}.', { list: available.join(', ') }) : ''),
+          )
+        } else {
+          // Весь список олимпиад банка, а не только те, где известно время тура.
+          const every = await api.contests().catch(() => [] as ContestRow[])
+          const names = [...new Set(every.map((r) => r.title.split(' — ')[0]))].join(', ')
+          setNote(
+            t('Такой олимпиады в банке пока нет.') +
+              (names ? ' ' + t('В банке есть: {list}.', { list: names }) : '') +
+              (available.length ? ' ' + t('Пробная олимпиада на время доступна для: {list}.', { list: available.join(', ') }) : ''),
+          )
+        }
         setChosen(null)
         return
       }
-      if (grade && !byGrade.length) setNote(t('За {n} класс вариантов нет — показываю другой класс.', { n: grade }))
+      if (list.some((r) => r.approx)) {
+        const names = [...new Set(list.map((r) => r.title.split(' — ')[0]))].join(', ')
+        setNote(t('Точного совпадения нет. Возможно, вы искали: {list}.', { list: names }))
+      } else if (grade && !byGrade.length) setNote(t('За {n} класс вариантов нет — показываю другой класс.', { n: grade }))
+      setSubject('')
+      setStage('')
+      setOlymp(nameOf(list[0]))
       setCandidates(list)
-      await open(list[Math.floor(Math.random() * list.length)])
     } catch (err) {
       setNote(err instanceof Error ? err.message : t('Ошибка'))
     } finally {
       setBusy(false)
     }
-  }
-
-  async function anotherYear() {
-    if (candidates.length < 2 || !chosen) return
-    const others = candidates.filter((c) => c.id !== chosen.id)
-    await open(others[Math.floor(Math.random() * others.length)])
   }
 
   function start() {
@@ -103,6 +146,61 @@ function Picker() {
         </button>
       </form>
       {note && <p className="text-sm text-slate-500">{note}</p>}
+      {candidates.length > 0 && (olympNames.length > 1 || subjects.length > 1 || stages.length > 1) && (
+        <div className="flex flex-wrap gap-2 text-sm">
+          {olympNames.length > 1 && (
+            <select
+              value={olymp}
+              onChange={(e) => {
+                setOlymp(e.target.value)
+                setSubject('')
+                setStage('')
+              }}
+              aria-label={t('Олимпиада')}
+              className="rounded-xl border border-slate-300 bg-white px-3 py-1.5 dark:border-slate-700 dark:bg-slate-950"
+            >
+              {olympNames.map((n) => (
+                <option key={n} value={n}>
+                  {n}
+                </option>
+              ))}
+            </select>
+          )}
+          {subjects.length > 1 && (
+            <select
+              value={subject}
+              onChange={(e) => {
+                setSubject(e.target.value)
+                setStage('')
+              }}
+              aria-label={t('Предмет')}
+              className="rounded-xl border border-slate-300 bg-white px-3 py-1.5 dark:border-slate-700 dark:bg-slate-950"
+            >
+              <option value="">{t('Все предметы')}</option>
+              {subjects.map((s) => (
+                <option key={s} value={s}>
+                  {s === 'physics' ? t('Физика') : t('Математика')}
+                </option>
+              ))}
+            </select>
+          )}
+          {stages.length > 1 && (
+            <select
+              value={stage}
+              onChange={(e) => setStage(e.target.value)}
+              aria-label={t('Этап')}
+              className="rounded-xl border border-slate-300 bg-white px-3 py-1.5 dark:border-slate-700 dark:bg-slate-950"
+            >
+              <option value="">{t('Все этапы')}</option>
+              {stages.map((s) => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
+            </select>
+          )}
+        </div>
+      )}
 
       {chosen && (
         <div className="space-y-4 border-t border-slate-200 pt-4 dark:border-slate-800">
@@ -116,12 +214,31 @@ function Picker() {
                 .join(', ')}{' '}
               {t('(всего {n})', { n: chosen.total_points })}
             </p>
-            {candidates.length > 1 && (
-              <button onClick={anotherYear} className="mt-1 text-sm font-semibold text-brand-600 hover:underline">
-                {t('Другой год')}
-              </button>
-            )}
           </div>
+          {view.length > 1 && (
+            <div className="flex items-center justify-between gap-3 rounded-xl bg-slate-100 px-3 py-2 dark:bg-slate-800">
+              <button
+                onClick={() => setIdx(idx - 1)}
+                disabled={idx <= 0}
+                aria-label={t('Предыдущий год')}
+                className="btn-ghost px-3 py-1 text-lg disabled:opacity-30"
+              >
+                ←
+              </button>
+              <span className="text-center text-sm font-semibold">
+                {[current?.year, current?.grade ? t('{n} класс', { n: current.grade }) : null].filter(Boolean).join(', ')}
+                <span className="ml-2 font-normal text-slate-500">{t('{i} из {n}', { i: idx + 1, n: view.length })}</span>
+              </span>
+              <button
+                onClick={() => setIdx(idx + 1)}
+                disabled={idx >= view.length - 1}
+                aria-label={t('Следующий год')}
+                className="btn-ghost px-3 py-1 text-lg disabled:opacity-30"
+              >
+                →
+              </button>
+            </div>
+          )}
           <div className="rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700">
             <div className="font-semibold">{t('Время: {h} — как на настоящей олимпиаде', { h: hours(chosen.duration_min ?? 0) })}</div>
             {chosen.duration_source && (
