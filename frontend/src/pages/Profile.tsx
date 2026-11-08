@@ -40,6 +40,8 @@ export function ProfilePage({ onLogout }: { onLogout: () => void }) {
         <Stat label={t('место из {n}', { n: me.users_total })} value={me.rank ?? '—'} />
       </section>
 
+      <AccountBox hasAccount={me.has_account} onLogout={onLogout} onAttached={(name) => setMe({ ...me, name, has_account: true })} />
+
       {me.weak_topics.length > 0 && (
         <section className="card border-amber-200 bg-amber-50/60 p-6 dark:border-amber-900 dark:bg-amber-950/20">
           <h2 className="font-bold">{t('Стоит подтянуть')}</h2>
@@ -105,8 +107,6 @@ export function ProfilePage({ onLogout }: { onLogout: () => void }) {
           </div>
         ))}
       </section>
-
-      <AccountBox hasAccount={me.has_account} onLogout={onLogout} onAttached={(name) => setMe({ ...me, name, has_account: true })} />
     </div>
   )
 }
