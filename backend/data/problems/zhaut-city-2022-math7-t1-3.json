@@ -6,13 +6,15 @@
   "statement": "Действительные числа $x$, $y$ и $z$ таковы, что $x+y=\\frac{xy}{2}$, $y+z=\\frac{yz}{3}$ и $z+x=\\frac{zx}{4}.$ Найдите значение $z$, если $xyz > 0$.",
   "answer": {
     "value": 24.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 24",
       "решение: anthropic:claude-sonnet-5-5 → 24",
       "программа (other): anthropic:claude-haiku-5-5 → 24",
       "программа (other): anthropic:claude-sonnet-5-5 → 24"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,45 @@
     "grade": 7,
     "number": 3,
     "url": "https://matol.kz/olympiads/1084"
-  }
+  },
+  "template": {
+    "text": "Действительные числа $x$, $y$ и $z$ таковы, что $x+y=\frac{xy}{{a}}$, $y+z=\frac{yz}{{b}}$ и $z+x=\frac{zx}{{c}}.$ Найдите значение $z$, если $xyz > 0$.",
+    "params": {
+      "a": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 2.0,
+      "b": 3.0,
+      "c": 4.0
+    },
+    "solver": "def solve(a, b, c):\n    # 1/x + 1/y = 1/a, 1/y + 1/z = 1/b, 1/z + 1/x = 1/c\n    # Пусть u = 1/x, v = 1/y, w = 1/z\n    # u + v = 1/a\n    # v + w = 1/b\n    # w + u = 1/c\n    # Находим w = 1/z через полусумму (u+v+w) - (u+v)\n    # (u + v + w) = (1/a + 1/b + 1/c) / 2\n    s = 0.5 * (1.0/a + 1.0/b + 1.0/c)\n    w = s - (1.0/a)\n    z = 1.0 / w\n    return z",
+    "constraints": [
+      "answer > 0",
+      "a != b or b != c or c != a"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
+  },
+  "figures": []
 }

@@ -6,13 +6,15 @@
   "statement": "Сколькими способами в каждой клетке таблицы $4\\times 4$ можно расположить цифры 0 и 1 так, чтобы сумма чисел в каждом столбце и сумма чисел в каждой строчке была четной?",
   "answer": {
     "value": 512.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 512",
       "решение: anthropic:claude-sonnet-5-5 → 512",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 512",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 512"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,32 @@
     "grade": 7,
     "number": 2,
     "url": "https://matol.kz/olympiads/1087"
-  }
+  },
+  "template": {
+    "text": "Сколькими способами в каждой клетке таблицы {n}\\times {n} можно расположить цифры 0 и 1 так, чтобы сумма чисел в каждом столбце и сумма чисел в каждой строчке была четной?",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 8.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 4.0
+    },
+    "solver": "def solve(n):\n    return pow(2, (n - 1) * (n - 1))",
+    "constraints": [
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
+  },
+  "figures": []
 }

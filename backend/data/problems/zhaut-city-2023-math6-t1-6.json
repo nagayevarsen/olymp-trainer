@@ -6,13 +6,15 @@
   "statement": "Числа 1, 2, 3, 4, 5 и 6 записаны по кругу указанном порядке. Каждую минуту все числа одновременно заменяются по следующему правилу: каждое число, за которым следует большее число, увеличивается на 1, каждое число, за которым следует меньшее число, уменьшается на 1, а остальные числа не изменяются. (Все направления считаются по ходу часовой стрелки.) Найдите сумму чисел, записанных по кругу после 2019 минут.",
   "answer": {
     "value": 27.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 27",
       "решение: anthropic:claude-sonnet-5-5 → 27",
       "программа (other): anthropic:claude-haiku-5-5 → 27",
       "программа (other): anthropic:claude-sonnet-5-5 → 27"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,68 @@
     "grade": 6,
     "number": 6,
     "url": "https://matol.kz/olympiads/1086"
-  }
+  },
+  "template": {
+    "text": "Числа {n1}, {n2}, {n3}, {n4}, {n5} и {n6} записаны по кругу в указанном порядке. Каждую минуту все числа одновременно заменяются по следующему правилу: каждое число, за которым следует большее число, увеличивается на 1, каждое число, за которым следует меньшее число, уменьшается на 1, а остальные числа не изменяются. (Все направления считаются по ходу часовой стрелки.) Найдите сумму чисел, записанных по кругу после {minutes} минут.",
+    "params": {
+      "n1": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "n2": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "n3": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "n4": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "n5": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "n6": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "minutes": {
+        "min": 100.0,
+        "max": 5000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n1": 1.0,
+      "n2": 2.0,
+      "n3": 3.0,
+      "n4": 4.0,
+      "n5": 5.0,
+      "n6": 6.0,
+      "minutes": 2019.0
+    },
+    "solver": "def solve(n1, n2, n3, n4, n5, n6, minutes):\n    arr = [n1, n2, n3, n4, n5, n6]\n    for _ in range(minutes):\n        new_arr = list(arr)\n        n = len(arr)\n        for i in range(n):\n            nxt = arr[(i + 1) % n]\n            if arr[i] < nxt:\n                new_arr[i] += 1\n            elif arr[i] > nxt:\n                new_arr[i] -= 1\n        arr = new_arr\n    return sum(arr)",
+    "constraints": [
+      "minutes > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
+  },
+  "figures": []
 }

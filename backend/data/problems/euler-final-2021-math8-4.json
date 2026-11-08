@@ -6,8 +6,10 @@
   "statement": "Несколько команд сыграли турнир в один круг, причём ничьих не было. Оказалось, что среди любых 100 команд есть команда, выигравшая у всех остальных 99 команд, но нет команды, проигравшей всем остальным 99 командам. Какое наибольшее число команд могло участвовать в турнире?",
   "answer": {
     "value": 148.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Леонарда Эйлера",
@@ -16,5 +18,33 @@
     "grade": 8,
     "number": 4,
     "url": "https://www.matol.ru/files/3etap2021sol.pdf"
-  }
+  },
+  "template": {
+    "text": "Несколько команд сыграли турнир в один круг, причём ничьих не было. Оказалось, что среди любых {k} команд есть команда, выигравшая у всех остальных {k_minus_1} команд, но нет команды, проигравшей всем остальным {k_minus_1} командам. Какое наибольшее число команд могло участвовать в турнире?",
+    "params": {
+      "k": {
+        "min": 4.0,
+        "max": 200.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "k": 100.0
+    },
+    "solver": "def solve(k):\n    return int(round(1.5 * k - 2))\n",
+    "constraints": [
+      "k >= 4",
+      "answer > k"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
+  },
+  "figures": []
 }

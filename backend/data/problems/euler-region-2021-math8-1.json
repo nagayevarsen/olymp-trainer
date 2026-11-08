@@ -6,8 +6,10 @@
   "statement": "Натуральное число, большее 1000000, даёт одинаковые остатки при делении на 40 и на 125. Какая цифра может стоять у этого числа в разряде сотен?",
   "answer": {
     "value": 0.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Леонарда Эйлера",
@@ -16,5 +18,46 @@
     "grade": 8,
     "number": 1,
     "url": "https://www.matol.ru/files/8 klass2021_2 etap_day1_sol.pdf"
-  }
+  },
+  "template": {
+    "text": "Натуральное число, большее {limit}, даёт одинаковые остатки при делении на {a} и на {b}. Какая цифра может стоять у этого числа в разряде сотен?",
+    "params": {
+      "limit": {
+        "min": 100000.0,
+        "max": 10000000.0,
+        "step": 100000.0
+      },
+      "a": {
+        "min": 10.0,
+        "max": 100.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 50.0,
+        "max": 200.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "limit": 1000000.0,
+      "a": 40.0,
+      "b": 125.0
+    },
+    "solver": "def solve(limit, a, b):\n    m = lcm(a, b)\n    # Числа имеют вид k*m + r, где 0 <= r < gcd(a,b) (на самом деле r=0, так как остатки одинаковые)\n    # Т.е. число кратно lcm(a, b). Нам нужно найти цифру в разряде сотен для наименьшего числа > limit, кратного lcm(a, b).\n    start = ((limit // m) + 1) * m\n    return (start // 100) % 10",
+    "constraints": [
+      "a > 1",
+      "b > 1",
+      "a != b"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
+  },
+  "figures": []
 }

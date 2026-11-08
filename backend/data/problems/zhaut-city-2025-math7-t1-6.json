@@ -6,13 +6,15 @@
   "statement": "Для попарно различных действительных чисел $a,b,c$ выполнены равенства: $a^{2}(b+c)=b^{2}(a+c)=2025.$ Чему может равняться значение выражения $c^{2}(a+b)$?\n(\nУалихан А.\n)",
   "answer": {
     "value": 2025.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 2025",
       "решение: gemini:gemini-3.5-flash → 2025",
       "решение: gemini:gemini-3.5-flash → 2025",
       "программа (other): anthropic:claude-haiku-5-5 → 2025"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,32 @@
     "grade": 7,
     "number": 6,
     "url": "https://matol.kz/olympiads/1159"
-  }
+  },
+  "template": {
+    "text": "Для попарно различных действительных чисел $a,b,c$ выполнены равенства: $a^{2}(b+c)=b^{2}(a+c)={v}.$ Чему может равняться значение выражения $c^{2}(a+b)$?",
+    "params": {
+      "v": {
+        "min": 1.0,
+        "max": 10000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "v": 2025.0
+    },
+    "solver": "def solve(v):\n    return v",
+    "constraints": [
+      "v > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
+  },
+  "figures": []
 }

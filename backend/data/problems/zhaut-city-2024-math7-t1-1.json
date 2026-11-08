@@ -6,13 +6,15 @@
   "statement": "В наборе 2024 чисел: $2^1, 2^2, 2^3, \\ldots, 2^{2024}$. Сколькими способами из этого набора можно убрать одно число, чтобы произведение оставшихся чисел было квадратом некоторого натурального числа?",
   "answer": {
     "value": 1012.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 1012",
       "решение: anthropic:claude-sonnet-5-5 → 1012",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 1012",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 1012"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,34 @@
     "grade": 7,
     "number": 1,
     "url": "https://matol.kz/olympiads/1122"
-  }
+  },
+  "template": {
+    "text": "В наборе {n} чисел: $2^1, 2^2, 2^3, \\ldots, 2^{{n}}$. Сколькими способами из этого набора можно убрать одно число, чтобы произведение оставшихся чисел было квадратом некоторого натурального числа?",
+    "params": {
+      "n": {
+        "min": 4.0,
+        "max": 3000.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "n": 2024.0
+    },
+    "solver": "def solve(n):\n    return n // 2",
+    "constraints": [
+      "n % 2 == 0",
+      "n > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
+  },
+  "figures": []
 }

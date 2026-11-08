@@ -9,7 +9,8 @@
     "variables": {},
     "unit": "м",
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -17,6 +18,63 @@
     "stage": "international",
     "number": 2,
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2018-Theory_rus_sol.pdf"
+  },
+  "template": {
+    "text": "Атмосфера реальной планеты, такой как Земля, имеет довольно сложное строение ввиду большого многообразия участвующих в ее формировании процессов и явлений. В этой задаче мы рассмотрим две простые модели нижнего слоя атмосферы, называемого тропосферой, который простирается на высоту до 10-15 км над поверхностью Земли. Для понимания физики некоторых явлений достаточно считать атмосферу Земли состоящей из однокомпонентного двухатомного газа, имеющего молярную массу $\\mu_{air}={mu_air}\\cdot10^{-3}$ кг/моль.\\n\\n**Пункт 2.5.** При подъеме в адиабатической тропосфере (температура у подножия $T_0={T_0}$ К, $\\gamma={gamma}$, $\\mu_{air}={mu_air}\\cdot10^{-3}$ кг/моль, $g={g}$ м/с², $R={R}$ Дж/(моль·К)) снег появляется там, где температура равна 0 °C ($T_{melt}={T_melt}$ К). На какой высоте $h_0$ альпинист заметил появление снежного покрова?",
+    "params": {
+      "T_0": {
+        "min": 280.0,
+        "max": 310.0,
+        "step": 1.0
+      },
+      "T_melt": {
+        "min": 270.0,
+        "max": 280.0,
+        "step": 1.0
+      },
+      "gamma": {
+        "value": 1.4,
+        "step": 1.0
+      },
+      "mu_air": {
+        "value": 28.9,
+        "step": 1.0
+      },
+      "g": {
+        "value": 9.81,
+        "step": 1.0
+      },
+      "R": {
+        "value": 8.31,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "T_0": 293.0,
+      "T_melt": 273.0,
+      "gamma": 1.4,
+      "mu_air": 28.9,
+      "g": 9.81,
+      "R": 8.31
+    },
+    "solver": "def solve(T_0, T_melt, gamma, mu_air, g, R):\n    mu = mu_air * 1e-3\n    return (R * (T_0 - T_melt)) / (mu * g * (gamma - 1) / gamma)",
+    "constraints": [
+      "T_0 > T_melt",
+      "gamma > 1",
+      "mu_air > 0",
+      "g > 0",
+      "R > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
   },
   "solution": "По формуле $T(h)=T_0-\\beta h$ находим $h_0=\\frac{\\gamma R(T_0-T_{melt})}{(\\gamma-1)\\mu_{air}g}=2.05\\cdot10^3$ м.",
   "figures": []

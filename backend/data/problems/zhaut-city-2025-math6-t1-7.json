@@ -6,13 +6,15 @@
   "statement": "Дана фигура Кенгуру, которая за раз ходит на 2 клетки по вертикали и на 2 клетки по горизонтали (то есть ходит из одного угла квадрата $3 \\times 3$ в другую диагонально противоположную). Какое наибольшее число фигуры Кенгуру можно поставить на доску $6\\times 6$ так, чтобы никакие две из них не били друг друга.\n(\nТнымкулов М.\n)",
   "answer": {
     "value": 24.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 24",
       "решение: anthropic:claude-sonnet-5-5 → 24",
       "программа (graph_theory): anthropic:claude-haiku-5-5 → 24",
       "программа (graph_theory): anthropic:claude-sonnet-5-5 → 24"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,34 @@
     "grade": 6,
     "number": 7,
     "url": "https://matol.kz/olympiads/1158"
-  }
+  },
+  "template": {
+    "text": "Дана фигура Кенгуру, которая за раз ходит на 2 клетки по вертикали и на 2 клетки по горизонтали (то есть ходит из одного угла квадрата 3 на 3 в другую диагонально противоположную). Какое наибольшее число фигуры Кенгуру можно поставить на доску {n} на {n} так, чтобы никакие две из них не били друг друга.",
+    "params": {
+      "n": {
+        "min": 4.0,
+        "max": 10.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "n": 6.0
+    },
+    "solver": "def solve(n):\n    return (n * n * 2) // 3",
+    "constraints": [
+      "n >= 4",
+      "n % 2 == 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
+  },
+  "figures": []
 }

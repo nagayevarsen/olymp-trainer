@@ -9,7 +9,8 @@
     "variables": {},
     "unit": "Дж/г",
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -17,6 +18,64 @@
     "stage": "international",
     "number": 2,
     "url": "https://izho.kz/wp-content/uploads/2020/01/IZhO-2020-Theory_eng_sol.pdf"
+  },
+  "template": {
+    "text": "Тетрахлорметан (плотность {rho_c} г/см³, молярная масса {mu_c} г/моль, температура кипения при нормальном давлении {t_b_c} °C) практически не растворяется в воде. В сосуд налита смесь с границей вода–тетрахлорметан; пограничное кипение начинается при t^*={t_star} °C. Рассчитайте по этим данным удельную теплоту испарения тетрахлорметана r, если давление насыщенных паров воды при температуре пограничного кипения P_w(t^*)= {p_w_mm} мм рт. ст., атмосферное давление {p_atm_mm} мм рт. ст.",
+    "params": {
+      "rho_c": {
+        "min": 1.0,
+        "max": 2.5,
+        "step": 0.05
+      },
+      "mu_c": {
+        "min": 100.0,
+        "max": 200.0,
+        "step": 0.1
+      },
+      "t_b_c": {
+        "min": 50.0,
+        "max": 100.0,
+        "step": 0.1
+      },
+      "t_star": {
+        "min": 50.0,
+        "max": 90.0,
+        "step": 0.1
+      },
+      "p_w_mm": {
+        "min": 50.0,
+        "max": 500.0,
+        "step": 1.0
+      },
+      "p_atm_mm": {
+        "min": 700.0,
+        "max": 800.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "rho_c": 1.6,
+      "mu_c": 153.8,
+      "t_b_c": 76.65,
+      "t_star": 66.0,
+      "p_w_mm": 196.0,
+      "p_atm_mm": 760.0
+    },
+    "solver": "def solve(rho_c, mu_c, t_b_c, t_star, p_w_mm, p_atm_mm):\n    R = 8.31\n    T_star = t_star + 273.15\n    P_atm = p_atm_mm * 101325.0 / 760.0\n    P_w = p_w_mm * 101325.0 / 760.0\n    P_c = P_atm - P_w\n    \n    # p_w(76.65 °C) for CCl4 is normal atmospheric pressure\n    # Clausius-Clapeyron for CCl4 at normal boiling point:\n    # L_c / (R * T_b^2) approx dT/dP or using two points: at T_star, P_c and at T_boil, P_atm\n    # Actually, Clapeyron-Clapeyron integrated assuming constant L:\n    # ln(P2/P1) = (L / R) * (1/T1 - 1/T2)\n    # Here P1 = P_c at T1 = T_star, P2 = P_atm at T2 = t_b_c + 273.15\n    \n    T_b_K = t_b_c + 273.15\n    # ln(P_atm / P_c) = (r * mu_c / R) * (1 / T_star - 1 / T_b_K)\n    # r = R * log(P_atm / P_c) / (mu_c * (1 / T_star - 1 / T_b_K))\n    \n    r = R * log(P_atm / P_c) / (mu_c * (1.0 / T_star - 1.0 / T_b_K))\n    return r",
+    "constraints": [
+      "p_atm_mm > p_w_mm",
+      "t_b_c > t_star",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
   },
   "solution": "$P^*=P_0-P_w(t^*)$; интегрирование Клапейрона–Клаузиуса от $T=349{,}8$ К до $T^*=339{,}15$ К: $\\ln(P_0/P^*)=r\\mu\\Delta T/(RTT^*)$, откуда $r=\\dfrac{RTT^*\\ln(P_0/P^*)}{\\mu(T-T^*)}\\approx180$ Дж/г (эксперимент: 195 Дж/г).",
   "figures": []

@@ -9,7 +9,8 @@
     "variables": {},
     "unit": "Дж/г",
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -17,6 +18,103 @@
     "stage": "international",
     "number": 2,
     "url": "https://izho.kz/wp-content/uploads/2020/01/IZhO-2020-Theory_eng_sol.pdf"
+  },
+  "template": {
+    "text": "При заданном давлении переход из одного агрегатного состояния вещества (фазы) в другое происходит всегда при строго определённой температуре, при этом сам переход называется фазовым. Во всех предлагаемых ниже задачах считайте, что удельный объём жидкой фазы пренебрежимо мал по сравнению с удельным объёмом насыщенного пара, который можно считать идеальным газом. Теплоёмкость жидкой воды считайте независящей от температуры. Справочные данные: газовая постоянная R={R} Дж/(моль·К); молярная масса воздуха \\mu_{{air}}={mu_air} г/моль; ускорение свободного падения g={g} м/с²; нормальные условия: P_0={P_0} Па, T_0={T_0} К. Свойства воды: молярная масса \\mu_w={mu_w} г/моль; плотность воды \\rho_w={rho_w} г/см³; плотность льда \\rho_i={rho_i} г/см³; температура плавления льда при нормальном давлении t_m={t_m} °C; температура кипения при нормальном давлении t_b={t_b} °C; удельная теплоёмкость воды c_w={c_w} Дж/(г·К); удельная теплота плавления льда q_i={q_i} Дж/г; удельная теплота парообразования воды (при 100 °C) r_w={r_w} Дж/г; показатель адиабаты для водяных паров \\gamma={gamma}. Формула Клапейрона–Клаузиуса: dP/dT=q/(T(v_2-v_1)), где q — удельная теплота перехода из фазы 1 в фазу 2.\n\nВычислите удельную теплоту парообразования воды при комнатной температуре t={t} °C.",
+    "params": {
+      "R": {
+        "value": 8.31,
+        "step": 1.0
+      },
+      "mu_air": {
+        "value": 29.0,
+        "step": 1.0
+      },
+      "g": {
+        "value": 9.81,
+        "step": 1.0
+      },
+      "P_0": {
+        "value": 101325.0,
+        "step": 1.0
+      },
+      "T_0": {
+        "value": 273.15,
+        "step": 1.0
+      },
+      "mu_w": {
+        "value": 18.0,
+        "step": 1.0
+      },
+      "rho_w": {
+        "value": 1.0,
+        "step": 1.0
+      },
+      "rho_i": {
+        "value": 0.92,
+        "step": 1.0
+      },
+      "t_m": {
+        "value": 0.0,
+        "step": 1.0
+      },
+      "t_b": {
+        "value": 100.0,
+        "step": 1.0
+      },
+      "c_w": {
+        "value": 4.2,
+        "step": 1.0
+      },
+      "q_i": {
+        "value": 334.0,
+        "step": 1.0
+      },
+      "r_w": {
+        "value": 2259.0,
+        "step": 1.0
+      },
+      "gamma": {
+        "value": 1.3333333333333333,
+        "step": 1.0
+      },
+      "t": {
+        "min": 10.0,
+        "max": 30.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "R": 8.31,
+      "mu_air": 29.0,
+      "g": 9.81,
+      "P_0": 101325.0,
+      "T_0": 273.15,
+      "mu_w": 18.0,
+      "rho_w": 1.0,
+      "rho_i": 0.92,
+      "t_m": 0.0,
+      "t_b": 100.0,
+      "c_w": 4.2,
+      "q_i": 334.0,
+      "r_w": 2259.0,
+      "gamma": 1.3333333333333333,
+      "t": 20.0
+    },
+    "solver": "def solve(R, mu_air, g, P_0, T_0, mu_w, rho_w, rho_i, t_m, t_b, c_w, q_i, r_w, gamma, t):\n    T1 = t_b + 273.15\n    T2 = t + 273.15\n    MW = mu_w / 1000.0\n    RW = R / MW\n    # r_w is at t_b. Using Kirchhoff's law: dr/dT = c_p - c_w\n    # For vapor, c_p = R / (mu * (gamma - 1)) * gamma? Wait, c_p for water vapor can be estimated or using standard:\n    # Actually c_v = R / (MW * (gamma - 1)), c_p = gamma * c_v\n    # Let's compute c_p of water vapor:\n    cv_vapor = R / (MW * (gamma - 1))\n    cp_vapor = gamma * cv_vapor\n    # c_w is in J/(g*K), convert to J/(kg*K) -> c_w * 1000\n    cw_kg = c_w * 1000.0\n    # dr/dT = cp_vapor - cw_kg (in J/(kg*K))\n    dc_dT = cp_vapor - cw_kg\n    # integrate from T1 to T2\n    r_T2_J_kg = r_w * 1000.0 + dc_dT * (T2 - T1)\n    return r_T2_J_kg / 1000.0",
+    "constraints": [
+      "answer > 0",
+      "t < t_b"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
   },
   "solution": "Изменение молярной теплоты: $\\mu_w\\Delta r=C_P\\Delta T-\\mu_w c_w\\Delta T$ с $C_P=4R$, откуда $r(T)=r_w-(c_w-4R/\\mu_w)(T-T_b)\\approx2447$ Дж/г.",
   "figures": []

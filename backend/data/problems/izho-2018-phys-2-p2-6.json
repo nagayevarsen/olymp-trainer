@@ -9,7 +9,8 @@
     "variables": {},
     "unit": "м",
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -17,6 +18,66 @@
     "stage": "international",
     "number": 2,
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2018-Theory_rus_sol.pdf"
+  },
+  "template": {
+    "text": "Атмосфера реальной планеты, такой как Земля, имеет довольно сложное строение ввиду большого многообразия участвующих в ее формировании процессов и явлений. В этой задаче мы рассмотрим две простые модели нижнего слоя атмосферы, называемого тропосферой, который простирается на высоту до 10-15 км над поверхностью Земли. Для понимания физики некоторых явлений достаточно считать атмосферу Земли состоящей из однокомпонентного двухатомного газа, имеющего молярную массу $\\mu_{air}={mu}\\cdot10^{-3}$ кг/моль.\n\n**Пункт 2.6.** Известно, что снежный покров полностью исчезает с горы при температуре у подножия $T={T}$ К. Используя адиабатическую модель ($\\mu_{air}={mu}\\cdot10^{-3}$ кг/моль, $g={g}$ м/с², $R={R}$ Дж/(моль·К), $\\gamma={gamma_num}/{gamma_den}$, $T_{melt}={T_melt}$ К), найдите и вычислите высоту $H_0$ горы.",
+    "params": {
+      "mu": {
+        "min": 25.0,
+        "max": 35.0,
+        "step": 0.1
+      },
+      "T": {
+        "min": 290.0,
+        "max": 330.0,
+        "step": 1.0
+      },
+      "g": {
+        "value": 9.81,
+        "step": 1.0
+      },
+      "R": {
+        "value": 8.31,
+        "step": 1.0
+      },
+      "gamma_num": {
+        "value": 7.0,
+        "step": 1.0
+      },
+      "gamma_den": {
+        "value": 5.0,
+        "step": 1.0
+      },
+      "T_melt": {
+        "min": 260.0,
+        "max": 280.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "mu": 28.9,
+      "T": 310.0,
+      "g": 9.81,
+      "R": 8.31,
+      "gamma_num": 7.0,
+      "gamma_den": 5.0,
+      "T_melt": 273.0
+    },
+    "solver": "def solve(mu, T, g, R, gamma_num, gamma_den, T_melt):\n    gamma = gamma_num / gamma_den\n    mu_kg = mu * 0.001\n    # Адиабатический градиент температуры: dT/dz = -g * (gamma - 1) / (gamma * R / mu)\n    # Или через формулу для высоты в адиабатической атмосфере:\n    # T_top = T - (mu_kg * g * H) / (R * gamma / (gamma - 1))\n    # T_melt = T - (mu_kg * g * H0) / (R * (gamma / (gamma - 1))) - нет, проще через работу и изоэнтропу, \n    # но в адиабатической модели тропосферы dT/dz = - (1 - 1/gamma) * mu * g / R ... точнее:\n    # Из уравнения Пуассона для сухоадиабатического градиента:\n    # dT/dz = -g * mu / (R * (gamma / (gamma - 1))) ? Нет, cp = R * gamma / (gamma - 1).\n    # dT/dz = -g / cp = -g * (gamma - 1) / (gamma * R / mu_kg)\n    # Высота H0 = (T - T_melt) / (g * (gamma - 1) / (gamma * R / mu_kg))\n    cp = R * gamma_den / (gamma_num - gamma_den) # R * gamma / (gamma - 1)\n    # Точнее cp для 1 моля: R * gamma / (gamma - 1) = R * (7/5) / (2/5) = 3.5 R\n    cp_mol = R * (gamma_num / (gamma_num - gamma_den))\n    # dT/dz = -mu_kg * g / cp_mol\n    grad = mu_kg * g / cp_mol\n    H0 = (T - T_melt) / grad\n    return H0",
+    "constraints": [
+      "T > T_melt",
+      "answer > 0",
+      "answer < 10000"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "gemini:gemini-3.5-flash-lite"
+      ]
+    }
   },
   "solution": "Из условия исчезновения снега на вершине температура вершины равна $T_{melt}$, значит $H_0=\\frac{\\gamma R(T-T_{melt})}{(\\gamma-1)\\mu_{air}g}=3.78\\cdot10^3$ м.",
   "figures": []
