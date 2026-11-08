@@ -87,10 +87,21 @@ def mastery(earned: list[int], possible: list[int]) -> int | None:
 
 def scale_for_contest(base: list[int]) -> list[int]:
     """Баллы внутри варианта олимпиады: самая сложная задача — 10, самая простая — 3,
-    остальные — пропорционально (если официальных баллов за задачи нет)."""
+    остальные — пропорционально (если официальных баллов за задачи нет). Сумма всегда кратна 5."""
     if not base:
         return []
     lo, hi = min(base), max(base)
     if hi == lo:
-        return [MAX_POINTS if len(base) == 1 else 7] * len(base)
-    return [clamp(MIN_POINTS + (b - lo) * (MAX_POINTS - MIN_POINTS) / (hi - lo)) for b in base]
+        return [MAX_POINTS if len(base) == 1 else 5] * len(base)
+    pts = [clamp(MIN_POINTS + (b - lo) * (MAX_POINTS - MIN_POINTS) / (hi - lo)) for b in base]
+    # Сумма баллов варианта кратна 5: подгоняем к ближайшему кратному, сдвигая задачи по одному баллу
+    # (сначала самые сложные), не выходя за 3..10.
+    step = 1 if sum(pts) % 5 >= 3 else -1
+    order = sorted(range(len(pts)), key=lambda i: -base[i])
+    i = 0
+    while sum(pts) % 5 and i < 10 * len(pts):
+        k = order[i % len(order)]
+        if MIN_POINTS <= pts[k] + step <= MAX_POINTS:
+            pts[k] += step
+        i += 1
+    return pts

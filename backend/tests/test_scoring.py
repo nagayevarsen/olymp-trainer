@@ -78,6 +78,11 @@ def test_mastery_weights_hard_problems():
 
 
 def test_contest_scale_hardest_10_easiest_3():
-    assert scale_for_contest([4, 5, 7]) == [3, 5, 10]
+    assert scale_for_contest([4, 5, 7]) == [4, 6, 10]  # 3+5+10=18 → подогнано до 20
+    for n in range(2, 21):  # сумма баллов варианта всегда кратна 5
+        for seed in range(30):
+            base = [(seed * 7 + i * 3) % 9 + 3 for i in range(n)]
+            pts = scale_for_contest(base)
+            assert sum(pts) % 5 == 0 and all(MIN_POINTS <= p <= MAX_POINTS for p in pts), (base, pts)
     assert scale_for_contest([6]) == [10]
     assert scale_for_contest([]) == []
