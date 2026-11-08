@@ -74,6 +74,11 @@ export function ContestsPage() {
                 <div className="mt-1 font-semibold">
                   {[r.year, r.grade ? t('{n} класс', { n: r.grade }) : null].filter(Boolean).join(', ') || t('Вариант')}
                 </div>
+                {r.complete === false && (
+                  <div className="mt-1 text-xs text-amber-600">
+                    {t('Неполный вариант: в официальном {n} задач', { n: r.official_count ?? 0 })}
+                  </div>
+                )}
                 {r.solved > 0 && (
                   <div className="mt-2 text-xs font-semibold text-emerald-600">
                     {t('решено {a} из {b}', { a: r.solved, b: r.count })} · {t('{n} б.', { n: r.earned })}

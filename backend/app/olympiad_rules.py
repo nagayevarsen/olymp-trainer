@@ -19,6 +19,64 @@ class Rule:
     source_url: str
     points_per_problem: int | None = None  # официальные баллы за задачу, если они одинаковые
     grades: tuple[int, int] | None = None  # для каких классов (включительно); None — для всех
+    tours: tuple[int, ...] | None = None  # для каких туров; None — для всех (и когда тур неизвестен)
+
+
+@dataclass(frozen=True)
+class OfficialSet:
+    """Состав официального варианта: сколько в нём задач и равноценны ли они."""
+
+    olympiad: str  # подстрока названия олимпиады в банке
+    stage: str
+    problems: int | None  # None — число задач не подтверждено документом
+    tour: int | None = None  # None — для любого тура
+    equal_weight: bool = False  # все задачи стоят одинаково
+    source: str = ""
+
+
+OFFICIAL_SETS: list[OfficialSet] = [
+    OfficialSet(
+        "Смагулова",
+        "city",
+        20,
+        tour=1,
+        equal_weight=True,
+        source="matol.kz/olympiads/1227: «1 тур», задачи №1–№20",
+    ),
+    OfficialSet(
+        "Смагулова",
+        "city",
+        5,
+        tour=2,
+        equal_weight=True,
+        source="matol.kz/olympiads/1235: «2 тур», задачи №1–№5",
+    ),
+    OfficialSet(
+        "Смагулова", "city", None, equal_weight=True, source="городские этапы: все задачи равноценны"
+    ),
+    OfficialSet(
+        "Городская Жаутыковская",
+        "city",
+        20,
+        equal_weight=True,
+        source="по данным команды: 20 задач, все равноценны",
+    ),
+    OfficialSet(
+        "APMO",
+        "international",
+        5,
+        equal_weight=True,
+        source="apmo-official.org/regulations: five questions, 7 points each",
+    ),
+]
+
+
+def official_set(olympiad: str, stage: str, tour: int | None = None) -> OfficialSet | None:
+    """Первый подходящий состав: запись для конкретного тура идёт раньше общей записи об олимпиаде."""
+    for s in OFFICIAL_SETS:
+        if s.olympiad in olympiad and s.stage == stage and s.tour in (None, tour):
+            return s
+    return None
 
 
 RULES: list[Rule] = [
@@ -86,20 +144,25 @@ RULES: list[Rule] = [
         180,
         "Объявление ЦОП «Аль-Фараби»: II городской этап — «5 заданий письменной олимпиады на 3 часа»",
         "https://matol.kz/announce/263",
+        tours=(2,),  # время в объявлении — у письменного тура из 5 задач; у 1 тура (20 задач) времени нет
     ),
 ]
 
 
-def rule_for(olympiad: str, stage: str, subject: str, grade: int | None = None) -> Rule | None:
+def rule_for(
+    olympiad: str, stage: str, subject: str, grade: int | None = None, tour: int | None = None
+) -> Rule | None:
     for r in RULES:
         if r.olympiad in olympiad and (r.stage in (None, stage)) and (r.subject in (None, subject)):
             if r.grades and not (grade and r.grades[0] <= grade <= r.grades[1]):
+                continue
+            if r.tours and tour is not None and tour not in r.tours:
                 continue
             return r
     return None
 
 
-def available_list() -> list[str]:
+def available_list(have: set[str] | None = None) -> list[str]:
     """Человекочитаемый список олимпиад, для которых известно официальное время."""
     names = {
         "Жаутыковская": "Жаутыковская (IZhO)",
@@ -108,4 +171,9 @@ def available_list() -> list[str]:
         "Всесибирская": "Всесибирская по математике",
         "Смагулова": "Смагуловская (городской этап)",
     }
-    return list(dict.fromkeys(names[r.olympiad] for r in RULES))
+    # have — названия олимпиад, у которых в банке есть полный вариант; None — не фильтровать.
+    return list(
+        dict.fromkeys(
+            names[r.olympiad] for r in RULES if have is None or any(r.olympiad in name for name in have)
+        )
+    )

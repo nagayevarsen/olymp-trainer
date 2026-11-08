@@ -219,7 +219,10 @@ def test_daily_problem_and_streak_flow(client):
     from app.checker import format_number
 
     p = get_problem(d["problem"]["id"])
-    ans = format_number(p.answer.value) + (f" {p.answer.unit}" if p.answer.unit else "")
+    if p.answer.value is None:  # задача дня может быть и с ответом-формулой
+        ans = p.answer.formula
+    else:
+        ans = format_number(p.answer.value) + (f" {p.answer.unit}" if p.answer.unit else "")
     r = client.post(f"/api/problems/{p.id}/check", json={"answer": ans}, headers=h).json()
     assert r["correct"] and r["daily_done"]
     st = client.get("/api/daily", headers=h).json()["streak"]

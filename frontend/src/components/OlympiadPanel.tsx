@@ -32,24 +32,26 @@ function Picker() {
   const [olymp, setOlymp] = useState('')
   const [subject, setSubject] = useState('')
   const [stage, setStage] = useState('')
+  const [gradeF, setGradeF] = useState(0) // 0 — все классы
   const [idx, setIdx] = useState(0)
 
   // Варианты по выбранным фильтрам: от старых годов к новым, стрелками можно листать все.
   const view = useMemo(
     () =>
       candidates
-        .filter((r) => nameOf(r) === olymp && (!subject || r.subject === subject) && (!stage || stageOf(r) === stage))
+        .filter((r) => nameOf(r) === olymp && (!subject || r.subject === subject) && (!stage || stageOf(r) === stage) && (!gradeF || r.grade === gradeF))
         .sort((a, b) => (a.year ?? 0) - (b.year ?? 0) || (a.grade ?? 0) - (b.grade ?? 0)),
-    [candidates, olymp, subject, stage],
+    [candidates, olymp, subject, stage, gradeF],
   )
   const current = view[Math.min(idx, view.length - 1)]
   const olympNames = [...new Set(candidates.map(nameOf))]
   const ofOlymp = candidates.filter((r) => nameOf(r) === olymp)
   const stages = [...new Set(ofOlymp.filter((r) => !subject || r.subject === subject).map(stageOf))].filter(Boolean)
   const subjects = [...new Set(ofOlymp.map((r) => r.subject))]
+  const gradeList = [...new Set(ofOlymp.map((r) => r.grade).filter((g): g is number => !!g))].sort((a, b) => a - b)
 
   // Фильтры или поиск поменялись — начинаем с самого свежего года.
-  useEffect(() => setIdx(Math.max(0, view.length - 1)), [view.length, olymp, subject, stage])
+  useEffect(() => setIdx(Math.max(0, view.length - 1)), [view.length, olymp, subject, stage, gradeF])
 
   const currentId = current?.id
   useEffect(() => {
@@ -73,14 +75,19 @@ function Picker() {
     try {
       const all = await api.contests(query)
       // Пробная олимпиада — только там, где известно официальное время тура (не угадываем).
-      const rows = all.filter((r) => r.duration_min)
+      // и только если в банке все задачи официального варианта: число задач должно быть как на настоящей олимпиаде.
+      const rows = all.filter((r) => r.duration_min && r.complete !== false)
       const byGrade = grade ? rows.filter((r) => r.grade === grade) : rows
+      // Если нужного класса нет — оставляем все классы, фильтр «Класс» ниже покажет, какие есть.
       const list = byGrade.length ? byGrade : rows
       if (!list.length) {
         const available = await api.olympiadsWithTime().catch(() => [] as string[])
         if (all.length) {
+          const partial = all.find((r) => r.duration_min && r.complete === false)
           setNote(
-            t('Для этой олимпиады мы пока не нашли официального времени тура, поэтому пробная олимпиада на время недоступна.') +
+            (partial
+              ? t('В банке пока не все задачи этого тура (в официальном их {n}), поэтому пробная олимпиада на время недоступна.', { n: partial.official_count ?? 0 })
+              : t('Для этой олимпиады мы пока не нашли официального времени тура, поэтому пробная олимпиада на время недоступна.')) +
               (available.length ? ' ' + t('Доступны: {list}.', { list: available.join(', ') }) : ''),
           )
         } else {
@@ -99,9 +106,16 @@ function Picker() {
       if (list.some((r) => r.approx)) {
         const names = [...new Set(list.map((r) => r.title.split(' — ')[0]))].join(', ')
         setNote(t('Точного совпадения нет. Возможно, вы искали: {list}.', { list: names }))
-      } else if (grade && !byGrade.length) setNote(t('За {n} класс вариантов нет — показываю другой класс.', { n: grade }))
+      } else if (grade && !byGrade.length) {
+        const have = [...new Set(list.map((r) => r.grade).filter(Boolean))].sort()
+        setNote(
+          t('За {n} класс вариантов нет — показываю другой класс.', { n: grade }) +
+            (have.length ? ' ' + t('Есть классы: {list}.', { list: have.join(', ') }) : ''),
+        )
+      }
       setSubject('')
       setStage('')
+      setGradeF(byGrade.length ? (grade ?? 0) : 0)
       setOlymp(nameOf(list[0]))
       setCandidates(list)
     } catch (err) {
@@ -146,7 +160,7 @@ function Picker() {
         </button>
       </form>
       {note && <p className="text-sm text-slate-500">{note}</p>}
-      {candidates.length > 0 && (olympNames.length > 1 || subjects.length > 1 || stages.length > 1) && (
+      {candidates.length > 0 && (olympNames.length > 1 || subjects.length > 1 || stages.length > 1 || gradeList.length > 1) && (
         <div className="flex flex-wrap gap-2 text-sm">
           {olympNames.length > 1 && (
             <select
@@ -155,6 +169,7 @@ function Picker() {
                 setOlymp(e.target.value)
                 setSubject('')
                 setStage('')
+                setGradeF(0)
               }}
               aria-label={t('Олимпиада')}
               className="rounded-xl border border-slate-300 bg-white px-3 py-1.5 dark:border-slate-700 dark:bg-slate-950"
@@ -195,6 +210,21 @@ function Picker() {
               {stages.map((s) => (
                 <option key={s} value={s}>
                   {s}
+                </option>
+              ))}
+            </select>
+          )}
+          {gradeList.length > 1 && (
+            <select
+              value={gradeF}
+              onChange={(e) => setGradeF(Number(e.target.value))}
+              aria-label={t('Класс')}
+              className="rounded-xl border border-slate-300 bg-white px-3 py-1.5 dark:border-slate-700 dark:bg-slate-950"
+            >
+              <option value={0}>{t('Все классы')}</option>
+              {gradeList.map((g) => (
+                <option key={g} value={g}>
+                  {t('{n} класс', { n: g })}
                 </option>
               ))}
             </select>

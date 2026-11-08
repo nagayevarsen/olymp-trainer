@@ -159,6 +159,10 @@ export interface ContestRow {
   earned: number
   /** Точного совпадения с запросом нет, олимпиада показана как «возможно подходящая». */
   approx?: boolean
+  /** Сколько задач в официальном варианте (null — не подтверждено) и все ли они есть в банке. */
+  official_count?: number | null
+  complete?: boolean
+  equal_weight?: boolean
 }
 
 export interface MixItem {

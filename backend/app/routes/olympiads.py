@@ -91,22 +91,42 @@ async def grade_olympiad(
 
 # ---------- полные олимпиады: все задачи банка одной олимпиады, года и класса ----------
 def contest_rule(c: contests.Contest) -> olympiad_rules.Rule | None:
-    return olympiad_rules.rule_for(c.olympiad, c.stage, c.subject, c.grade)
+    return olympiad_rules.rule_for(c.olympiad, c.stage, c.subject, c.grade, c.tour)
+
+
+EQUAL_POINTS = 5  # городские этапы: задачи равноценны, а сколько баллов за каждую — в документах нет
 
 
 def contest_points(c: contests.Contest) -> list[int]:
     """Баллы задач варианта: самая сложная — 10, самая простая — 3 (официальных баллов в данных нет).
-    Сложность — по этапу/классу и номеру задачи в варианте (дальние задачи труднее)."""
+    Сложность — по этапу/классу и номеру задачи в варианте (дальние задачи труднее).
+    Если у олимпиады все задачи равноценны (городские Смагулова и Жаутыковская), баллы одинаковые."""
     rule = contest_rule(c)
     if rule and rule.points_per_problem:
         return [rule.points_per_problem] * len(c.problems)  # официальные баллы
+    official = olympiad_rules.official_set(c.olympiad, c.stage, c.tour)
+    if official and official.equal_weight:
+        return [EQUAL_POINTS] * len(c.problems)
     difficulty = [scoring.base_points(p) + 0.3 * (p.source.number or i) for i, p in enumerate(c.problems, 1)]
     return scoring.scale_for_contest(difficulty)
+
+
+def _completeness(c: contests.Contest) -> dict:
+    """Сколько задач в официальном варианте и все ли они есть в банке (задачи одного номера — пункты одной задачи)."""
+    official = olympiad_rules.official_set(c.olympiad, c.stage, c.tour)
+    need = official.problems if official else None
+    have = len({p.source.number or p.id for p in c.problems})
+    return {
+        "official_count": need,
+        "complete": need is None or have == need,
+        "equal_weight": bool(official and official.equal_weight),
+    }
 
 
 def _contest_row(c: contests.Contest, stats: dict, prog: dict) -> dict:
     pts = contest_points(c)
     return {
+        **_completeness(c),
         "id": c.id,
         "title": c.title,
         "subject": c.subject,
@@ -152,7 +172,12 @@ def _list_contests(uid: str, db: DB, query: str = "", subject: str | None = None
 
 @router.get("/api/olympiad/available")
 def olympiads_with_official_time() -> list[str]:
-    return olympiad_rules.available_list()
+    complete = {
+        c.olympiad
+        for c in contests.build_contests(load_bank()).values()
+        if contest_rule(c) and _completeness(c)["complete"]
+    }
+    return olympiad_rules.available_list(complete)
 
 
 @router.get("/api/contests")
