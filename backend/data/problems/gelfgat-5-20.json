@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-5-20",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Шар в лунке (5.20)",
+  "statement": "В доске сделали лунку и положили в нее шар (см. рисунок). Глубина лунки в два раза меньше радиуса шара. На какой угол $\\alpha$ нужно наклонить доску, чтобы шар выскочил из лунки?",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=36"
+  },
+  "solution": "Ответ из книги: α > π/3",
+  "figures": [
+    "gelfgat-5-20-fig1.png"
+  ]
+}

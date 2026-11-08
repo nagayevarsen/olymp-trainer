@@ -1,0 +1,24 @@
+{
+  "id": "gelfgat-8-4-p2",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Шарик на нити (8.4, T_max)",
+  "statement": "Шарик массой $m$, подвешенный на нити, отклоняют до горизонтального положения нити и отпускают. При каком угле $\\alpha$ между нитью и вертикалью сила натяжения нити будет равна $mg$? Чему равна максимальная сила $T_{max}$ натяжения нити?\n\n**Часть T_max.** Ответь только на эту часть задачи.",
+  "answer": {
+    "formula": "3*m*g",
+    "variables": {
+      "m": "масса шарика",
+      "g": "ускорение свободного падения"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=51"
+  },
+  "solution": "В произвольный момент $mv^2/R = T - mg\\cos\\alpha$, $mv^2/2 = mgR\\cos\\alpha$. Отсюда $T = 3mg\\cos\\alpha$. Максимальное натяжение $T_{max} = 3mg$. Угол $\\alpha = \\arccos(1/3) \\approx 71°$.",
+  "figures": []
+}

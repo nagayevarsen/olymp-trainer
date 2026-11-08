@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-20-27",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Экран за линзой (20.27)",
+  "statement": "На дифракционную решетку с периодом $d = 2{,}0$ мкм падает нормально свет с длиной волны $\\lambda = 500$ нм. За решеткой расположена собирающая линза с фокусным расстоянием $F = 50$ см. Где нужно разместить экран, чтобы получить на нем четкий дифракционный спектр? Каково расстояние $s$ на экране между спектром третьего порядка и центральным максимумом?",
+  "answer": {
+    "value": 57.0,
+    "variables": {},
+    "unit": "см",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=156"
+  },
+  "solution": "Из $d\\sin\\varphi_3 = 3\\lambda$ получаем $\\tan\\varphi_3 = \\frac{3\\lambda}{\\sqrt{d^2-9\\lambda^2}}$, расстояние $s = F\\tan\\varphi_3 = \\frac{3\\lambda F}{\\sqrt{d^2-9\\lambda^2}} \\approx 0{,}57$ м.",
+  "figures": []
+}

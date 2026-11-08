@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-1-49",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Струя из шланга (1.49)",
+  "statement": "Из шланга, лежащего на земле, бьет под углом $\\alpha = 45°$ к горизонту вода с начальной скоростью $v_0 = 10$ м/с. Площадь сечения отверстия шланга $S = 5$ см². Определите массу $m$ струи, находящейся в воздухе.",
+  "answer": {
+    "value": 7.2,
+    "variables": {},
+    "unit": "кг",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=11"
+  },
+  "solution": "Время полёта капли $t=\\frac{2v_0\\sin\\alpha}{g}$; масса воды в цилиндре высотой $v_0t$ и площадью $S$: $m=\\rho S v_0 t=\\frac{2\\rho v_0^2 S\\sin\\alpha}{g}$.",
+  "figures": []
+}

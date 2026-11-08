@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-22-22",
+  "subject": "physics",
+  "topic": "Атомная физика",
+  "title": "Дифракция электронов (22.22)",
+  "statement": "Пучок электронов, пройдя через узкую щель, дал на фотопластинке такую же дифракционную картину, как монохроматический свет с длиной волны $\\lambda = 550$ нм. Чему равна скорость $v$ электронов?",
+  "answer": {
+    "value": 1300.0,
+    "variables": {},
+    "unit": "м/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=166"
+  },
+  "solution": "Длина волны де Бройля электрона равна длине волны света: $h/p=\\lambda$. Тогда $v=\\frac{p}{m}=\\frac{h}{m\\lambda}$.",
+  "figures": []
+}

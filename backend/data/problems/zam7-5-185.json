@@ -1,0 +1,25 @@
+{
+  "id": "zam7-5-185",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Часть объема в верхней жидкости (5.185)",
+  "statement": "На границе раздела двух несмешивающихся жидкостей с плотностями $\\rho_1$ и $\\rho_2$ ($\\rho_1 > \\rho_2$) плавает тело с плотностью $\\rho$. Какая часть объема тела находится в верхней жидкости?",
+  "answer": {
+    "formula": "(rho1-rho)/(rho1-rho2)",
+    "variables": {
+      "rho1": "плотность ρ1",
+      "rho": "плотность ρ",
+      "rho2": "плотность ρ2"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=211"
+  },
+  "figures": []
+}

@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-20-25",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Наибольший порядок спектра (20.25)",
+  "statement": "Монохроматический свет с длиной волны $\\lambda = 520$ нм падает нормально на дифракционную решетку, имеющую 500 штрихов на миллиметр. Определите наибольший порядок наблюдаемого спектра $k_{max}$.",
+  "answer": {
+    "value": 3.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=156"
+  },
+  "solution": "Из $k = \\frac{d\\sin\\varphi}{\\lambda} \\le \\frac{d}{\\lambda}$ при $d = 2\\cdot10^{-6}$ м получаем $k < 3{,}85$, т.е. $k_{max} = 3$.",
+  "figures": []
+}

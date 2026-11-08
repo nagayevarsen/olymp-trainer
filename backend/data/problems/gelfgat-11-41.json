@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-11-41",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "КПД цикла в pV (11.41)",
+  "statement": "Рабочим телом тепловой машины является одноатомный идеальный газ. Определите КПД тепловой машины, график цикла которой показан на рисунке.",
+  "answer": {
+    "value": 15.0,
+    "variables": {},
+    "unit": "%",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=81"
+  },
+  "solution": "$A'=\\frac{9p_0V_0}{2}$, $Q_н=Q_{1\\text{-}2}=30p_0V_0$, откуда $\\eta=0{,}15$.",
+  "figures": [
+    "gelfgat-11-41-fig1.png"
+  ]
+}

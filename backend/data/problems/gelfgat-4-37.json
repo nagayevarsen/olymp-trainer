@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-4-37",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Угол разлёта (4.37)",
+  "statement": "При нецентральном ударе бильярдного шара о такой же, но неподвижный, оба шара разлетаются всегда под одним и тем же углом. Найдите этот угол.",
+  "answer": {
+    "value": 90.0,
+    "variables": {},
+    "unit": "°",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=26"
+  },
+  "solution": "Из законов сохранения импульса и энергии следует $v_0 = v_1 + v_2$ (векторно) и $v_0^2 = v_1^2 + v_2^2$. Значит, $v_1 v_2 \\cos\\alpha = 0$, т.е. $\\alpha = 90°$ (прямой угол).",
+  "figures": []
+}

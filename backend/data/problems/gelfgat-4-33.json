@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-4-33",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Прыжок в воду (4.33)",
+  "statement": "Человек прыгает в воду со скалы высотой $h = 10$ м. На какую глубину $H$ он бы при этом опустился, если бы можно было пренебречь силами сопротивления воздуха и воды? Масса человека $m = 60$ кг, объем $V = 66$ л.",
+  "answer": {
+    "value": 100.0,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=26"
+  },
+  "solution": "Из баланса энергии системы человек–вода–Земля: $-mg(H+h) + \\rho V g H = 0$, откуда $H = \\frac{m}{\\rho V - m} h = 10h = 100$ м.",
+  "figures": []
+}

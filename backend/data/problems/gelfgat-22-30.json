@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-22-30",
+  "subject": "physics",
+  "topic": "Атомная физика",
+  "title": "Реакция синтеза (22.30)",
+  "statement": "Какая энергия выделяется при реакции синтеза между дейтерием и тритием? Реакция сопровождается вылетом одного нейтрона.",
+  "answer": {
+    "value": 17.6,
+    "variables": {},
+    "unit": "МэВ",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=166"
+  },
+  "solution": "Дефект масс реакции $\\Delta m = 1{,}89\\cdot10^{-2}$ а.е.м., $W_0=\\Delta m c^2 = 17{,}6$ МэВ.",
+  "figures": []
+}

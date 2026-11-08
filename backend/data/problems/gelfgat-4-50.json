@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-4-50",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Вторая космическая скорость (4.50)",
+  "statement": "Какую минимальную скорость нужно сообщить телу, чтобы оно покинуло Землю насовсем? Суточное вращение Земли не учитывать. Радиус Земли R = 6400 км.",
+  "answer": {
+    "value": 11.0,
+    "variables": {},
+    "unit": "км/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
+  },
+  "solution": "Полная энергия $W = \\frac{mv^2}{2} - G\\frac{mM}{R} = 0$ (на большом удалении энергии обращаются в нуль), откуда $v = \\sqrt{2gR}$.",
+  "figures": []
+}

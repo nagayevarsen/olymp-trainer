@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-12-49-p2",
+  "subject": "physics",
+  "topic": "Электроемкость",
+  "title": "Заряды в цепи (12.49, q2)",
+  "statement": "Определите заряды на каждом из конденсаторов в цепи, изображенной на рисунке, если $C_1 = 2$ мкФ, $C_2 = 4$ мкФ, $C_3 = 6$ мкФ, $\\mathcal{E} = 18$ В.\n\n**Часть q2.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 12.0,
+    "variables": {},
+    "unit": "мкКл",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=91"
+  },
+  "solution": "Ёмкость участка $C_{23}=C_2+C_3$, общая ёмкость $C=\\frac{C_1C_{23}}{C_1+C_{23}}$. Заряд батареи $q=\\mathcal{E}C=30$ мкКл. Напряжение $U_2=U_3=\\frac{q}{C_{23}}=3$ В; $q_2=U_2C_2=12$ мкКл, $q_3=U_3C_3=18$ мкКл.",
+  "figures": [
+    "gelfgat-12-49-p2-fig1.png"
+  ]
+}

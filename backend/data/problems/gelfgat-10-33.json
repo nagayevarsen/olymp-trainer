@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-10-33",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Высота столба в капилляре (10.33)",
+  "statement": "Длинная, открытая с обоих концов тонкостенная капиллярная трубка радиусом $r = 1{,}0$ мм расположена вертикально. Какова максимально возможная высота $h$ столба воды, находящейся в трубке?",
+  "answer": {
+    "value": 3.0,
+    "variables": {},
+    "unit": "см",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=71"
+  },
+  "solution": "Два мениска — полусферы: $2F_{\\text{пов}} = 4\\pi\\sigma r = mg$, $m = \\rho\\pi r^2 h$, откуда $h = 4\\sigma/(\\rho g r) = 0{,}03$ м.",
+  "figures": []
+}

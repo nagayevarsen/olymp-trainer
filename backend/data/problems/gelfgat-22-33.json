@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-22-33",
+  "subject": "physics",
+  "topic": "Атомная физика",
+  "title": "Бор и нейтроны (22.33)",
+  "statement": "При бомбардировке нейтронами изотопа бора ${}^{10}_{5}\\mathrm{B}$ образуются $\\alpha$-частицы. Напишите уравнение этой ядерной реакции и определите ее энергетический выход $W$.",
+  "answer": {
+    "value": 2.8,
+    "variables": {},
+    "unit": "МэВ",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=166"
+  },
+  "solution": "Реакция ${}^{10}B + {}^1n \\to {}^7Li + {}^4He$. Энергия $W=\\Delta m c^2 = 2{,}8$ МэВ.",
+  "figures": []
+}

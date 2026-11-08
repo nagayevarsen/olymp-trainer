@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-1-43",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Струя воды (1.43)",
+  "statement": "Под каким углом $\\alpha$ к горизонту нужно направить струю воды, чтобы высота ее подъема была равна дальности?",
+  "answer": {
+    "value": 76.0,
+    "variables": {},
+    "unit": "°",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=6"
+  },
+  "solution": "Из $L = \\frac{2v_0^2\\sin\\alpha\\cos\\alpha}{g}$ и $H = \\frac{v_0^2\\sin^2\\alpha}{2g}$ при $L = 4H$ получаем $\\operatorname{tg}\\alpha = 4$, $\\alpha = \\operatorname{arctg}4 \\approx 76^\\circ$.",
+  "figures": []
+}

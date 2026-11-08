@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-13-1-p2",
+  "subject": "physics",
+  "topic": "Постоянный ток",
+  "title": "Медная проволока (13.1, S)",
+  "statement": "Моток медной проволоки имеет массу $m = 300$ г и электрическое сопротивление $R = 57$ Ом. Определите длину проволоки $l$ и площадь ее поперечного сечения $S$.\n\n**Часть S.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 0.1,
+    "variables": {},
+    "unit": "мм²",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=96"
+  },
+  "solution": "Выражаем массу и сопротивление проволоки: $m = dS$, $R = \\rho l/S$. Отсюда $l = \\sqrt{mR/(d\\rho)}$, $S = \\sqrt{\\rho m/(dR)}$.",
+  "figures": []
+}

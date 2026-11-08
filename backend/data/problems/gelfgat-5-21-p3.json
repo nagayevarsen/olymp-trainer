@@ -1,0 +1,24 @@
+{
+  "id": "gelfgat-5-21-p3",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Вал с диском (5.21, F_B)",
+  "statement": "На конце вала, проходящего через подшипники A и B (см. рисунок), укреплен массивный диск C. Масса вала — 7 кг, масса диска — 28 кг, $AB = 70$ см, $BC = 10$ см. Чему равны силы давления вала на подшипники A и B?\n\n**Часть F_B.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 350.0,
+    "variables": {},
+    "unit": "Н",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=36"
+  },
+  "figures": [
+    "gelfgat-5-21-p3-fig1.png"
+  ]
+}

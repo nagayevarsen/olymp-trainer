@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-5-13-p1",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Цепочка на потолке (5.13, α)",
+  "statement": "Цепочка массой m подвешена к потолку (см. рисунок). При каком угле α сила натяжения цепочки в ее нижней точке равна весу цепочки? Чему будет равна при этом сила T натяжения в точке подвеса?\n\n**Часть α.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 27.0,
+    "variables": {},
+    "unit": "°",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
+  },
+  "solution": "Рассматриваем половину цепочки: силы $N$, $T'$ и $mg/2$ уравновешены. Проекции дают $N\\sin\\alpha = mg/2$, $N\\cos\\alpha = T'$. Отсюда $T' = \\frac{1}{2} mg\\,\\mathrm{ctg}\\alpha$. Условие $T' = mg$ даёт $\\mathrm{ctg}\\alpha = 2$, то есть $\\alpha = 27°$. Далее $T = N = \\frac{\\sqrt{5}}{2} mg$.",
+  "figures": [
+    "gelfgat-5-13-p1-fig1.png"
+  ]
+}

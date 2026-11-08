@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-10-52",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Обрыв проволоки при охлаждении (10.52)",
+  "statement": "Стальная проволока натянута горизонтально с небольшим усилием между двумя стенками при температуре $t_1 = 0$°C. При охлаждении до какой температуры $t_2$ она может лопнуть?",
+  "answer": {
+    "value": -210.0,
+    "variables": {},
+    "unit": "°C",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.057142857142857134
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=71"
+  },
+  "solution": "Проволока лопнет при $\\sigma=\\sigma_{пч}$. Из $\\sigma=E\\alpha(t_1-t_2)$ получаем $t_2=t_1-\\sigma_{пч}/(E\\alpha)=-210$ °C.",
+  "figures": []
+}

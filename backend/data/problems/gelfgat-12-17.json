@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-12-17",
+  "subject": "physics",
+  "topic": "Электростатика",
+  "title": "Шарики в керосине (12.17)",
+  "statement": "Два одинаковых одноименно заряженных шарика, подвешенных в одной точке на нитях равной длины, опускают в керосин. При этом угол расхождения нитей не изменяется. Какова плотность $\\rho$ материала шариков?",
+  "answer": {
+    "value": 1500.0,
+    "variables": {},
+    "unit": "кг/м³",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.08
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=86"
+  },
+  "solution": "Из условий равновесия в воздухе и в керосине с учетом $F_k'=F_k/\\varepsilon$ и силы Архимеда получаем $mg-F_A=mg/\\varepsilon$, откуда $\\rho=\\rho_k\\varepsilon/(\\varepsilon-1)$.",
+  "figures": []
+}

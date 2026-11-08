@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-1-30",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Капли с карниза (1.30)",
+  "statement": "С каким промежутком времени оторвались от карниза крыши две капли, если спустя 2 с после начала падения второй капли расстояние между каплями равно 25 м?",
+  "answer": {
+    "value": 1.0,
+    "variables": {},
+    "unit": "с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=6"
+  },
+  "figures": []
+}

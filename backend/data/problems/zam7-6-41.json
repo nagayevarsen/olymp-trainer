@@ -1,0 +1,23 @@
+{
+  "id": "zam7-6-41",
+  "subject": "physics",
+  "topic": "Работа и энергия",
+  "title": "Прыжок с обрыва (6.41)",
+  "statement": "Мальчик ныряет с обрыва с горизонтально направленной скоростью $u = 3$ м/с и входит в воду со скоростью $v = 7$ м/с. Определите высоту обрыва.",
+  "answer": {
+    "value": 2.0,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=251"
+  },
+  "figures": []
+}

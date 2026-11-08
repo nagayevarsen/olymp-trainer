@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-1-25",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Свободное падение тела (1.25)",
+  "statement": "Свободно падающее тело прошло последние $s = 30$ м за время $\\tau = 0{,}5$ с. С какой высоты $H$ падало тело?",
+  "answer": {
+    "value": 200.0,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=6"
+  },
+  "solution": "Из $H=\\frac{gt^2}{2}$ и $H-s=\\frac{g(t-\\tau)^2}{2}$ находим $t=\\frac{s}{g\\tau}+\\frac{\\tau}{2}$, откуда $H=\\frac{g}{2}\\left(\\frac{s}{g\\tau}+\\frac{\\tau}{2}\\right)^2$.",
+  "figures": []
+}

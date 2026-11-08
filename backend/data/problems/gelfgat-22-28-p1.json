@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-22-28-p1",
+  "subject": "physics",
+  "topic": "Атомная физика",
+  "title": "Энергия связи ядер (22.28, Li, Eсв)",
+  "statement": "Определите энергию связи $E_{св}$ и удельную энергию связи $E_{св}/A$ для ядер ${}^{7}_{3}\\mathrm{Li}$ и ${}^{27}_{13}\\mathrm{Al}$.\n\n**Часть Li, Eсв.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 39.2,
+    "variables": {},
+    "unit": "МэВ",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=166"
+  },
+  "solution": "Дефект масс $\\Delta m = Z m_H + N m_n - m_{я}$, энергия связи $E_{св} = \\Delta m c^2$, $E_{св}/A$ — удельная энергия связи. Для лития $\\Delta m = 0{,}0421$ а.е.м., для алюминия $\\Delta m = 0{,}242$ а.е.м.",
+  "figures": []
+}

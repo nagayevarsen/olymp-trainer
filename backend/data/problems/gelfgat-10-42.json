@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-10-42",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Выдувание пузырька (10.42)",
+  "statement": "Конец стеклянной капиллярной трубки радиуса $r = 0{,}50$ мм опущен в воду на глубину $h = 2{,}0$ см. Какое избыточное давление $\\Delta p$ необходимо создать в трубке, чтобы выдуть пузырек воздуха через ее нижний конец?",
+  "answer": {
+    "value": 490.0,
+    "variables": {},
+    "unit": "Па",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=71"
+  },
+  "solution": "Избыточное давление $\\Delta p = \\rho g h + 2\\sigma/r$ необходимо для отрыва пузырька.",
+  "figures": []
+}

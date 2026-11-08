@@ -1,0 +1,26 @@
+{
+  "id": "zam7-4-78",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Равноплечий рычаг (4.78)",
+  "statement": "На одно плечо равноплечего рычага действует сила $F = 100$ Н, направленная под углом $\\alpha = 30^\\circ$ к горизонтали (см. рисунок). Определите, какая масса должна быть подвешена к противоположному плечу рычага, чтобы он остался в равновесии.",
+  "answer": {
+    "value": 5.0,
+    "variables": {},
+    "unit": "кг",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=146"
+  },
+  "solution": "M = F/(2g)",
+  "figures": [
+    "zam7-4-78-fig1.png"
+  ]
+}

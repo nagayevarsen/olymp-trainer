@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-5-16-p1",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Тянущий муравей (5.16, F3)",
+  "statement": "Каким станет ответ в задаче 5.15, если первый муравей будет не толкать кусок коры, а тянуть его на себя с той же силой?\n\n**Часть F3.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 2.0,
+    "variables": {},
+    "unit": "мН",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
+  },
+  "figures": []
+}

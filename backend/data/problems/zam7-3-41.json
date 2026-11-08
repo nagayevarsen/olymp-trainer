@@ -1,0 +1,25 @@
+{
+  "id": "zam7-3-41",
+  "subject": "physics",
+  "topic": "Плотность",
+  "title": "Масса одного шара (3.41)",
+  "statement": "Товарный вагон объемом $V$ наполнен одинаковыми шарами. Масса всех шаров $M$. В каждом кубическом метре объема вагона находится $n$ штук шаров. Какова масса одного шара?",
+  "answer": {
+    "formula": "M/(V*n)",
+    "variables": {
+      "M": "масса",
+      "V": "объем",
+      "n": "количество"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=101"
+  },
+  "figures": []
+}

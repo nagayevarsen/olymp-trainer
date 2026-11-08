@@ -1,0 +1,23 @@
+{
+  "id": "zam7-2-275",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Дятел и крыша (2.275)",
+  "statement": "Дятел стучит на дереве, делая 30 ударов в минуту. Мальчик, сидящий на крыше, слышит 32 удара/мин. С какой скоростью едет крыша? Скорость звука 330 м/с.",
+  "answer": {
+    "value": 22.0,
+    "variables": {},
+    "unit": "м/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=66"
+  },
+  "figures": []
+}

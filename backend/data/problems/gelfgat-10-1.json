@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-10-1",
+  "subject": "physics",
+  "topic": "Пары, жидкости",
+  "title": "Влажность при нагреве (10.1)",
+  "statement": "При $t_1 = 30$°C относительная влажность воздуха $\\varphi_1 = 80$%. Какова будет относительная влажность $\\varphi_2$, если этот воздух нагреть при постоянном объеме до $t_2 = 50$°C?",
+  "answer": {
+    "value": 29.0,
+    "variables": {},
+    "unit": "%",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=66"
+  },
+  "solution": "При изохорном нагревании $\\varphi_2/\\varphi_1=\\rho_{н1}/\\rho_{н2}$, откуда $\\varphi_2=29\\%$ по табличным данным плотности насыщенного пара.",
+  "figures": []
+}

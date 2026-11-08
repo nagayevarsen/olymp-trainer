@@ -1,0 +1,25 @@
+{
+  "id": "zam7-6-46",
+  "subject": "physics",
+  "topic": "Работа и энергия",
+  "title": "Груз на нити (6.46)",
+  "statement": "Грузик, подвешенный на нити, вращается в вертикальной плоскости, как показано на рисунке. В нижней точке скорость груза равна $v_2 = 10$ м/с, а в верхней точке — $v_1 = 8$ м/с. Определите длину нити, на которой вращается груз.",
+  "answer": {
+    "value": 0.9,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=251"
+  },
+  "figures": [
+    "zam7-6-46-fig1.png"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "zam7-6-6-p1",
+  "subject": "physics",
+  "topic": "механика",
+  "title": "Шарик в воде (6.6, Amg)",
+  "statement": "Алюминиевый шарик объемом $V = 10$ см$^3$ равномерно движется в воде, опускаясь на глубину $h = 15$ м. Определите работу всех сил, действующих на шарик во время движения.\n\n**Часть Amg.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 4.05,
+    "variables": {},
+    "unit": "Дж",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=246"
+  },
+  "figures": []
+}

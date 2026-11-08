@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-22-4",
+  "subject": "physics",
+  "topic": "Квантовая физика",
+  "title": "Скорость фотоэлектронов (22.4)",
+  "statement": "Для калия красная граница фотоэффекта $\\lambda_{max} = 0{,}62$ мкм. Какую максимальную скорость $v$ могут иметь фотоэлектроны, вылетающие при облучении калия фиолетовым светом с длиной волны $\\lambda = 0{,}42$ мкм?",
+  "answer": {
+    "value": 580.0,
+    "variables": {},
+    "unit": "км/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
+  },
+  "solution": "Работа выхода $A=\\frac{hc}{\\lambda_{max}}$. По уравнению Эйнштейна $h\\nu=A+\\frac{mv^2}{2}$ получаем $v=\\sqrt{\\frac{2hc(\\lambda_{max}-\\lambda)}{m\\lambda\\lambda_{max}}}=5{,}8\\cdot10^5$ м/с.",
+  "figures": []
+}

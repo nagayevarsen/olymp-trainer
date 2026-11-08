@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-10-36",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Шарик с парафином (10.36)",
+  "statement": "Какой радиус должен иметь алюминиевый шарик, натертый парафином, чтобы он «плавал» в воде, погрузившись ровно наполовину?",
+  "answer": {
+    "value": 2.25,
+    "variables": {},
+    "unit": "мм",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=71"
+  },
+  "solution": "Парафин не смачивается водой; из условия равновесия получаем $r = \\sqrt{3\\sigma/(g(2\\rho_в - \\rho))} = 2{,}25$ мм.",
+  "figures": []
+}

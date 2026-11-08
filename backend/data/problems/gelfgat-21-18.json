@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-21-18",
+  "subject": "physics",
+  "topic": "Теория относительности",
+  "title": "Прирост массы поезда (21.18)",
+  "statement": "Масса покоящегося поезда $m = 3000$ т. На какую величину $\\Delta m$ увеличивается масса поезда при движении со скоростью $v = 72$ км/ч?",
+  "answer": {
+    "value": 6.7e-06,
+    "variables": {},
+    "unit": "г",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
+  },
+  "solution": "По соотношению Эйнштейна $\\Delta m=\\frac{W_k}{c^2}=\\frac{mv^2}{2c^2}=6{,}7\\cdot10^{-9}$ кг (в книге указано $6{,}7\\cdot10^{-6}$ г).",
+  "figures": []
+}

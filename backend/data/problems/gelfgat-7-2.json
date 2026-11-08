@@ -1,0 +1,21 @@
+{
+  "id": "gelfgat-7-2",
+  "subject": "physics",
+  "topic": "Колебания",
+  "title": "Доля периода у равновесия (7.2)",
+  "statement": "Амплитуда гармонических колебаний маятника 6 см. Какую часть периода груз маятника находится не далее 3 см от положения равновесия?",
+  "answer": {
+    "value": 0.3333333333333333,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
+  },
+  "figures": []
+}

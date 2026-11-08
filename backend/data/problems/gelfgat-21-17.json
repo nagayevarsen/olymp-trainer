@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-21-17",
+  "subject": "physics",
+  "topic": "Теория относительности",
+  "title": "Скорость электрона (21.17)",
+  "statement": "На сколько меньше скорости света должна быть скорость электрона, чтобы его энергия была равна энергии покоя протона?",
+  "answer": {
+    "value": 44.5,
+    "variables": {},
+    "unit": "м/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
+  },
+  "solution": "Из $\\frac{m_ec^2}{\\sqrt{1-v^2/c^2}}=m_pc^2$ получаем $v=c\\sqrt{1-(m_e/m_p)^2}$. Так как $m_e/m_p\\ll1$, $c-v\\approx\\frac{c}{2}(m_e/m_p)^2=44{,}5$ м/с.",
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-6-19",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Кубик в ртути (6.19)",
+  "statement": "Стальной кубик с длиной ребра $a = 10$ см плавает в ртути. Поверх ртути наливают воду вровень с верхней гранью кубика. Какова высота $H$ слоя воды?",
+  "answer": {
+    "value": 4.6,
+    "variables": {},
+    "unit": "см",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
+  },
+  "solution": "Ответ записан как $H = a\\frac{\\rho_{тт} - \\rho}{\\rho_{тт} - \\rho_в}$, где $\\rho$ — плотность стали, $\\rho_{тт}$ — плотность ртути, $\\rho_в$ — плотность воды.",
+  "figures": []
+}

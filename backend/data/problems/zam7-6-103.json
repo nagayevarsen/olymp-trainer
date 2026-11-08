@@ -1,0 +1,26 @@
+{
+  "id": "zam7-6-103",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Гиря на рычаге (6.103)",
+  "statement": "Гиря висит на горизонтальном рычаге, закрепленном слева шарнирно, как показано на рисунке. Определите силу натяжения верхней нити в предложенной системе. Масса гири $m = 3$ кг.",
+  "answer": {
+    "value": 50.0,
+    "variables": {},
+    "unit": "Н",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=261"
+  },
+  "solution": "T = (5/3)mg",
+  "figures": [
+    "zam7-6-103-fig1.png"
+  ]
+}

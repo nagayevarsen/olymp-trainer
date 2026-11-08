@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-13-70",
+  "subject": "physics",
+  "topic": "Электрический ток",
+  "title": "Ток короткого замыкания (13.70)",
+  "statement": "При поочередном подключении к источнику ЭДС двух электрических нагревателей с сопротивлениями $R_1 = 3$ Ом и $R_2 = 48$ Ом в них выделяется одинаковая мощность $P = 1{,}2$ кВт. Определите силу тока $I_{кз}$ при коротком замыкании источника.",
+  "answer": {
+    "value": 25.0,
+    "variables": {},
+    "unit": "А",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=111"
+  },
+  "solution": "Ток короткого замыкания $I_{кз} = \\mathcal{E}/r$. Из $r = \\sqrt{R_1R_2}$ и выражения для мощности найдено $\\mathcal{E} = \\sqrt{P}(\\sqrt{R_1}+\\sqrt{R_2})$, затем $I_{кз} = \\sqrt{P}\\left(\\frac{1}{\\sqrt{R_1}}+\\frac{1}{\\sqrt{R_2}}\\right)$.",
+  "figures": []
+}

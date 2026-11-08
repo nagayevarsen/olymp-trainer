@@ -1,0 +1,27 @@
+{
+  "id": "kz-kbo-2024-phys-r2-33-p33",
+  "subject": "physics",
+  "topic": "Поверхностные волны",
+  "title": "Максимальная скорость волн, пункт 33",
+  "statement": "Скорость поверхностных волн с длиной волны λ на жидкости плотностью ρ определяется формулой $v = \\sqrt{\\frac{a\\lambda}{2\\pi} + \\frac{2\\pi b}{\\rho\\lambda}}$, где a и b — константы.\n\n**Пункт 33.** Найдите максимальное значение скорости через ρ, a, b.",
+  "answer": {
+    "formula": "(4*a*b/rho)**(1/4)",
+    "variables": {
+      "a": "константа",
+      "b": "константа",
+      "rho": "плотность жидкости"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2024,
+    "stage": "other",
+    "number": 33,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
+  },
+  "solution": "Официальное решение в файле не приведено; в ключе ответ — вариант D.",
+  "figures": []
+}

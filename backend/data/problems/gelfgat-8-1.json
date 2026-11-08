@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-8-1",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "КПД наклонной плоскости (8.1)",
+  "statement": "Чему равен коэффициент полезного действия $\\eta$ наклонной плоскости длиной $L = 3$ м и высотой $h = 1{,}8$ м, если коэффициент трения $\\mu = 0{,}1$?",
+  "answer": {
+    "value": 88.0,
+    "variables": {},
+    "unit": "%",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=46"
+  },
+  "solution": "$\\eta = mgh/(FL)$, где F — направленная вдоль наклонной плоскости сила, необходимая для равномерного подъёма тела массой m.",
+  "figures": []
+}

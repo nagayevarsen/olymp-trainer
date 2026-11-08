@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-22-12",
+  "subject": "physics",
+  "topic": "Квантовая физика",
+  "title": "Порог рождения пары (22.12)",
+  "statement": "При какой частоте $\\nu$ излучение способно при взаимодействии с веществом вызвать рождение пары электрон-позитрон?",
+  "answer": {
+    "value": 2.47e+20,
+    "variables": {},
+    "unit": "Гц",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
+  },
+  "solution": "Энергия кванта должна превышать энергию покоя пары электрон-позитрон: $h\\nu > 2mc^2$, откуда $\\nu > 2mc^2/h$.",
+  "figures": []
+}

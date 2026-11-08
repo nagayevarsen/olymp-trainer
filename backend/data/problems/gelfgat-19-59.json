@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-19-59",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Фокусное расстояние окуляра (19.59)",
+  "statement": "Фокусное расстояние объектива микроскопа $F_1 = 3{,}5$ мм, а увеличение микроскопа $\\Gamma = 100$. Определите фокусное расстояние $F_2$ окуляра, если он расположен на расстоянии $l = 12{,}4$ см от объектива.",
+  "answer": {
+    "value": 5.0,
+    "variables": {},
+    "unit": "см",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=151"
+  },
+  "solution": "Из условия $f + F_2 = l$ и $\\frac{dF_1}{d-F_1} + F_2 = l$ получаем систему; решение $F_2 = \\frac{d_0(l-F_1)}{d_0 + \\Gamma F_1} = 5{,}0$ см.",
+  "figures": []
+}

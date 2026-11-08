@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-5-9-p2",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Стержни AC и BC (5.9, F_BC)",
+  "statement": "Найти силы, действующие на шарнирно закрепленные стержни BC и AC, если AB = 60 см, AC = 1,2 м, BC = 1,6 м (см. рисунок). Масса груза 50 кг, массой стержней можно пренебречь.\n\n**Часть F_BC.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 1.3,
+    "variables": {},
+    "unit": "кН",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
+  },
+  "solution": "Условие равновесия точки C: $mg + F_{BC} + F_{AC} = 0$. Из подобия треугольника ABC и треугольника сил: $\\frac{F_{AC}}{mg} = \\frac{AC}{AB}$, $\\frac{F_{BC}}{mg} = \\frac{BC}{AB}$.",
+  "figures": [
+    "gelfgat-5-9-p2-fig1.png"
+  ]
+}

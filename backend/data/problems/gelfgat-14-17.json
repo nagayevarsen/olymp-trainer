@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-14-17",
+  "subject": "physics",
+  "topic": "Электрический ток",
+  "title": "Ионизация атома неона (14.17)",
+  "statement": "Какой наименьшей скоростью $v$ должен обладать электрон, чтобы он мог ионизировать неподвижный атом неона? Потенциал ионизации атомов неона $\\varphi = 21{,}5$ В.",
+  "answer": {
+    "value": 2700.0,
+    "variables": {},
+    "unit": "км/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=116"
+  },
+  "solution": "Энергия электрона равна энергии ионизации: $mv^2/2 = e\\varphi$.",
+  "figures": []
+}

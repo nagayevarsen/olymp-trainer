@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-5-4-p1",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Минимальная сила (5.4, α)",
+  "statement": "Груз массой m необходимо равномерно перемещать по горизонтальной плоскости. Какую минимальную силу F_min нужно для этого приложить и под каким углом α к плоскости следует ее направить? Коэффициент трения равен μ.\n\n**Часть α.** Ответь только на эту часть задачи.",
+  "answer": {
+    "formula": "atan(mu)",
+    "variables": {
+      "mu": "коэффициент трения"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
+  },
+  "solution": "Минимум $F$ соответствует максимуму $f(\\alpha) = \\cos\\alpha + \\mu\\sin\\alpha$: $\\tg\\alpha = \\mu$, $f_{max} = \\sqrt{1+\\mu^2}$.",
+  "figures": []
+}

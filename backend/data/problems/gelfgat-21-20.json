@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-21-20",
+  "subject": "physics",
+  "topic": "Теория относительности",
+  "title": "Кинетическая энергия покоя (21.20)",
+  "statement": "При какой скорости $v$ движения частицы ее кинетическая энергия равна энергии покоя?",
+  "answer": {
+    "value": 260000000.0,
+    "variables": {},
+    "unit": "м/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
+  },
+  "solution": "$W_k=W-mc^2$ и $W=\\frac{mc^2}{\\sqrt{1-v^2/c^2}}$. При $W_k=mc^2$ имеем $\\sqrt{1-v^2/c^2}=\\frac{1}{2}$, откуда $v=\\frac{c\\sqrt3}{2}$.",
+  "figures": []
+}

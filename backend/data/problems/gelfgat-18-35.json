@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-18-35",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Кажущаяся глубина (18.35)",
+  "statement": "Если смотреть сверху на неглубокий водоем с чистой водой, то дно хорошо видно, однако глубина водоема кажется меньшей, чем она есть в действительности. Во сколько раз?",
+  "answer": {
+    "value": 1.33,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
+  },
+  "solution": "Кажущаяся глубина $h=H/n$ для лучей, близких к вертикальному, так как $\\sin\\alpha\\approx\\mathrm{tg}\\alpha$ и $\\sin\\beta\\approx\\mathrm{tg}\\beta$. Глубина уменьшается в $n=1{,}33$ раза.",
+  "figures": []
+}

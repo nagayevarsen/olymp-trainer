@@ -1,0 +1,20 @@
+{
+  "id": "gelfgat-5-5",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Клин в бревне (5.5)",
+  "statement": "Каков должен быть коэффициент трения μ для того, чтобы заклиненный в бревно клин не выскакивал из него? Угол при вершине клина α = 30°.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
+  },
+  "solution": "Ответ из книги: μ > 0,27\n\nИз равенства нулю проекции сил на вертикальную ось, с учётом $N_1 = N_2$ и $F_{тр} \\le \\mu N$, получаем $\\mu \\ge \\tg\\frac{\\alpha}{2} \\approx 0{,}27$.",
+  "figures": []
+}

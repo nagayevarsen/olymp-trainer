@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-2-27",
+  "subject": "physics",
+  "topic": "Динамика",
+  "title": "Санки на горке (2.27)",
+  "statement": "Санки толкнули вверх по ледяной горке, составляющей угол $\\alpha = 30^\\circ$ с горизонтом. Санки въехали на некоторую высоту и спустились обратно. Время спуска $t_с$ в $n = 1{,}2$ раза превышает время подъема $t_п$. Чему равен коэффициент трения?",
+  "answer": {
+    "value": 0.1,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=16"
+  },
+  "solution": "Ускорения при подъёме и спуске: $a_п=g(\\sin\\alpha+\\mu\\cos\\alpha)$, $a_с=g(\\sin\\alpha-\\mu\\cos\\alpha)$. Из $s=at^2/2$ следует $a_п/a_с=t_с^2/t_п^2=n^2$, откуда $\\mu=\\frac{n^2-1}{n^2+1}\\operatorname{tg}\\alpha$.",
+  "figures": []
+}

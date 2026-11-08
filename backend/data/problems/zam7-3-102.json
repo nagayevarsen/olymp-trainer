@@ -1,0 +1,23 @@
+{
+  "id": "zam7-3-102",
+  "subject": "physics",
+  "topic": "Плотность",
+  "title": "Смесь воды и спирта (3.102)",
+  "statement": "При смешивании 100 литров воды и 100 литров спирта плотностью 0,8 г/см$^3$ оказалось, что суммарный объем уменьшился на 5 %. Какова плотность полученного раствора?",
+  "answer": {
+    "value": 0.947,
+    "variables": {},
+    "unit": "г/см³",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=116"
+  },
+  "figures": []
+}

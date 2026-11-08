@@ -1,0 +1,24 @@
+{
+  "id": "gelfgat-14-7",
+  "subject": "physics",
+  "topic": "Электрический ток в средах",
+  "title": "Теплота в единице объема (14.7)",
+  "statement": "Какое количество теплоты $q$ выделяется в единице объема проводника за единицу времени при плотности тока $j$? Удельное сопротивление проводника равно $\\rho$.",
+  "answer": {
+    "formula": "rho*j**2",
+    "variables": {
+      "rho": "удельное сопротивление проводника",
+      "j": "плотность тока"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=111"
+  },
+  "solution": "За время $\\Delta t$ выделяется $Q = I^2R\\Delta t$. Используя $q = Q/(V\\Delta t)$, $V = Sl$, $I = jS$, $R = \\rho l/S$, получаем $q = \\rho j^2$.",
+  "figures": []
+}

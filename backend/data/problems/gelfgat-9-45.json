@@ -1,0 +1,20 @@
+{
+  "id": "gelfgat-9-45",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Радиус воздушного шара (9.45)",
+  "statement": "Какой радиус $r$ должен иметь наполненный гелием воздушный шар, чтобы он мог подниматься в воздух, если масса 1 м$^2$ оболочки шара $m_0 = 50$ г? Температура воздуха $t = 27$°C, давление $p_A = 100$ кПа.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=66"
+  },
+  "solution": "Ответ из книги: r ≥ 0,15 м",
+  "figures": []
+}

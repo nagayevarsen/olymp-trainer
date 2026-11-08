@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-22-3",
+  "subject": "physics",
+  "topic": "Квантовая физика",
+  "title": "Напряжение рентгеновской трубки (22.3)",
+  "statement": "Под каким напряжением $U$ работает рентгеновская трубка, если самое «жесткое» излучение в спектре этой трубки имеет длину волны $\\lambda_{min} = 3{,}0\\cdot10^{-11}$ м?",
+  "answer": {
+    "value": 41.0,
+    "variables": {},
+    "unit": "кВ",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
+  },
+  "solution": "Энергия фотона не может превышать $W_k=eU$, поэтому $\\frac{hc}{\\lambda_{min}}=eU$, откуда $U=\\frac{hc}{e\\lambda_{min}}=41$ кВ.",
+  "figures": []
+}

@@ -1,0 +1,24 @@
+{
+  "id": "gelfgat-18-33",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Малые углы призмы (18.33)",
+  "statement": "Угол падения луча на боковую грань призмы равен $\\alpha$. Преломляющий угол призмы $\\varphi$, показатель преломления материала призмы $n$. Определите угол $\\delta$ отклонения луча от первоначального направления, если углы $\\alpha$ и $\\varphi$ малы.",
+  "answer": {
+    "formula": "phi*(n-1)",
+    "variables": {
+      "phi": "угол призмы",
+      "n": "показатель преломления"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
+  },
+  "solution": "Углы малы: $\\beta_1=\\alpha/n$, $\\beta=\\alpha n$. Отклонения при входе и выходе: $\\delta=\\delta_1+\\delta_2=\\varphi(n-1)$, не зависит от $\\alpha$.",
+  "figures": []
+}

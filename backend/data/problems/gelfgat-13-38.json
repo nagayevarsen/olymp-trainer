@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-13-38",
+  "subject": "physics",
+  "topic": "Электричество",
+  "title": "Амперметр в цепи (13.38)",
+  "statement": "Какую силу тока $I$ покажет амперметр в изображенной на рисунке цепи? Сопротивления резисторов: $R_1 = 6$ Ом; $R_2 = 8$ Ом; $R_3 = 12$ Ом; $R_4 = 24$ Ом. ЭДС источника $\\mathcal{E} = 36$ В, его внутреннее сопротивление $r = 1$ Ом.",
+  "answer": {
+    "value": 4.0,
+    "variables": {},
+    "unit": "А",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=101"
+  },
+  "solution": "Полное сопротивление внешней цепи $R = 8$ Ом, сила тока по закону Ома для замкнутой цепи $I = \\mathcal{E}/(R + r) = 4$ А.",
+  "figures": [
+    "gelfgat-13-38-fig1.png"
+  ]
+}

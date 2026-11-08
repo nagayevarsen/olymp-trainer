@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-3-1",
+  "subject": "physics",
+  "topic": "механика",
+  "title": "Масса Солнца (3.1)",
+  "statement": "Оцените массу Солнца, считая расстояние $R$ от Земли до Солнца равным $1{,}5\\cdot10^{8}$ км.",
+  "answer": {
+    "value": 2e+30,
+    "variables": {},
+    "unit": "кг",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=21"
+  },
+  "solution": "Центростремительное ускорение Земли $a = \\frac{4\\pi^2 R}{T^2}$ (с $T = 1$ год) приравнивается к $G\\frac{M}{R^2}$ с учётом движения вокруг Солнца.",
+  "figures": []
+}

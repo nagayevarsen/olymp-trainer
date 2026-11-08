@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-9-38",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Число вышедших молекул (9.38)",
+  "statement": "Сколько молекул воздуха выходит из комнаты объемом $V = 80$ м$^3$ при повышении температуры от $t_1 = 15$°C до $t_2 = 27$°C? Атмосферное давление $p_A = 10^5$ Па.",
+  "answer": {
+    "value": 8.05e+25,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=66"
+  },
+  "solution": "Число молекул $N=\\frac{pV}{kT}$, поэтому $N_1-N_2=\\frac{pV}{k}\\left(\\frac{1}{T_1}-\\frac{1}{T_2}\\right)=8{,}05\\cdot10^{25}$.",
+  "figures": []
+}

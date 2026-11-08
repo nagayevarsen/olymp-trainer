@@ -1,0 +1,20 @@
+{
+  "id": "gelfgat-11-10",
+  "subject": "physics",
+  "topic": "Термодинамика",
+  "title": "Алюминиевый куб на льду (11.10)",
+  "statement": "Нагретый алюминиевый куб положили на лед, и куб полностью погрузился в лед. До какой температуры $t$ был нагрет куб? Температура льда 0 °C, потерями тепла пренебречь.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=76"
+  },
+  "solution": "Ответ из книги: t > 125°C\n\nИз уравнения теплового баланса $\\rho_A V c_A \\Delta t=\\lambda\\rho_л V$ получаем $\\Delta t=\\frac{\\lambda\\rho_л}{c_A\\rho_A}=125^\\circ$C. При большей температуре верхняя грань куба окажется ниже поверхности льда.",
+  "figures": []
+}

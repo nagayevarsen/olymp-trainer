@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-22-35",
+  "subject": "physics",
+  "topic": "Атомная физика",
+  "title": "Кинетическая энергия протона (22.35)",
+  "statement": "Найдите минимальную кинетическую энергию $W_k$ протона, способного «разбить» ядро дейтерия на протон и нейтрон.",
+  "answer": {
+    "value": 3.3,
+    "variables": {},
+    "unit": "МэВ",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=166"
+  },
+  "solution": "Из условия равенства импульсов гамма-кванта и протона при $\\upsilon = \\upsilon_0/3$ и закона сохранения энергии: $W_k = \\frac{3\\Delta m\\, c^2}{2}$.",
+  "figures": []
+}

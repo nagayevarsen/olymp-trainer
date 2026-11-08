@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-5-25-p1",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Стержень на шарнире (5.25, N)",
+  "statement": "Тонкий однородный стержень укреплен на шарнире в точке A и удерживается в равновесии горизонтальной нитью (см. рисунок). Масса стержня $m = 1$ кг, угол его наклона к горизонту $\\alpha = 45°$. Найдите величину и направление силы N реакции шарнира.\n\n**Часть N.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 11.0,
+    "variables": {},
+    "unit": "Н",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=36"
+  },
+  "solution": "Момент сил относительно точки A: $T l\\sin\\alpha - mg\\frac{l}{2}\\cos\\alpha = 0$, откуда $T = \\frac{1}{2} mg\\,\\mathrm{ctg}\\alpha$. Из равновесия трёх сил проекции $N_x = T$, $N_y = mg$, поэтому $N = \\frac{mg}{2}\\sqrt{4 + \\mathrm{ctg}^2\\alpha}$ и $\\mathrm{tg}\\beta = \\frac{N_x}{N_y} = \\frac{\\mathrm{ctg}\\alpha}{2}$.",
+  "figures": [
+    "gelfgat-5-25-p1-fig1.png"
+  ]
+}

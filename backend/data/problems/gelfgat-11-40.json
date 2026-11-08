@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-11-40",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "КПД цикла изохор (11.40)",
+  "statement": "Одноатомный идеальный газ совершает показанный на рисунке цикл из двух изохор и двух изобар. Определите КПД цикла.",
+  "answer": {
+    "value": 17.0,
+    "variables": {},
+    "unit": "%",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.11294117647058821
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=81"
+  },
+  "solution": "$\\eta=A'/Q_н$, где $A'=2p_0V_0$, $Q_н=Q_{1\\text{-}2}+Q_{2\\text{-}3}=11{,}5\\,p_0V_0$, откуда $\\eta\\approx0{,}17$.",
+  "figures": [
+    "gelfgat-11-40-fig1.png"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "gelfgat-16-26",
+  "subject": "physics",
+  "topic": "Электромагнетизм",
+  "title": "Индуктивность катушки (16.26)",
+  "statement": "На замкнутый ферромагнитный сердечник намотана катушка. Как зависит ее индуктивность $L$ от числа витков $N$? Магнитную проницаемость сердечника считать неизменной.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=126"
+  },
+  "solution": "Ответ из книги: L пропорциональна N²\n\nЭДС самоиндукции $\\mathcal{E}_s = L|\\Delta I/\\Delta t|$. Каждый виток пронизывается одинаковым потоком $\\Phi = BS$, в каждом витке наводится ЭДС $\\mathcal{E}_1 \\sim N$ (поскольку $B \\sim N$). Полная ЭДС $\\mathcal{E} = N\\mathcal{E}_1 \\sim N^2$, откуда $L \\sim N^2$.",
+  "figures": []
+}

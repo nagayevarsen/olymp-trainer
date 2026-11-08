@@ -1,0 +1,20 @@
+{
+  "id": "gelfgat-5-7",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Равнодействующая сил (5.7)",
+  "statement": "Найти равнодействующую n приложенных в одной точке сил, каждая из которых равна по модулю F и образует угол 2π/n с соседними (ближайшими по направлению) силами.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
+  },
+  "solution": "Ответ из книги: равнодействующая равна нулю",
+  "figures": []
+}

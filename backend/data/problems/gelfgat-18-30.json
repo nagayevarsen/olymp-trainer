@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-18-30",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Призма 60° (18.30)",
+  "statement": "Преломляющий угол $\\varphi$ призмы (см. рисунок) равен $60^\\circ$. Угол падения луча на грань призмы $\\alpha = 30^\\circ$. Определите угол $\\delta$ отклонения луча от первоначального направления после прохождения через призму. Показатель преломления материала призмы $n = 1{,}5$.",
+  "answer": {
+    "value": 47.0,
+    "variables": {},
+    "unit": "°",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
+  },
+  "solution": "При первом преломлении $\\beta_1 = \\arcsin(\\sin\\alpha/n) = 19{,}5^\\circ$, угол отклонения $\\delta_1 = 10{,}5^\\circ$. При втором преломлении $\\beta_2 = 77^\\circ$, $\\delta_2 = 36{,}5^\\circ$. Суммарный угол отклонения $\\delta = 47^\\circ$.",
+  "figures": [
+    "gelfgat-18-30-fig1.png"
+  ]
+}

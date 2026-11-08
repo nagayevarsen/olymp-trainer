@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-19-22",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Съемка с разных расстояний (19.22)",
+  "statement": "При съемке с расстояния $d_1 = 4{,}25$ м изображение предмета имеет высоту $H_1 = 2{,}7$ мм; при съемке с расстояния $d_2 = 1{,}0$ м — высоту $H_2 = 12$ мм. Определите фокусное расстояние $F$ объектива.",
+  "answer": {
+    "value": 5.6,
+    "variables": {},
+    "unit": "см",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=146"
+  },
+  "figures": []
+}

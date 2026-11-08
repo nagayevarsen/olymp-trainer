@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-2-15",
+  "subject": "physics",
+  "topic": "Динамика",
+  "title": "Скольжение по желобу (2.15)",
+  "statement": "Из верхней точки вертикального диска радиуса $R$ прорезан желоб (см. рисунок). Как зависит от угла $\\beta$ время $t$ скольжения грузика по желобу? Трением пренебречь.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=16"
+  },
+  "solution": "Ответ из книги: время не зависит от угла наклона желоба\n\nВдоль наклонной плоскости: $ma = mg\\sin\\alpha$, $a = g\\sin\\alpha$. Длина желоба $l = 2R\\cos\\beta = 2R\\sin\\alpha$, время из $l = at^2/2$: $t = 2\\sqrt{R/g}$.",
+  "figures": [
+    "gelfgat-2-15-fig1.png"
+  ]
+}

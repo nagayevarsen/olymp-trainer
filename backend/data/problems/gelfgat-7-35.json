@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-7-35",
+  "subject": "physics",
+  "topic": "Механические волны",
+  "title": "Сверхзвуковой самолет (7.35)",
+  "statement": "Реактивный самолет пролетел со скоростью, в два раза превышающей скорость звука, на высоте $h = 5$ км над наблюдателем. На каком расстоянии от наблюдателя был самолет, когда человек услышал звук?",
+  "answer": {
+    "value": 10.0,
+    "variables": {},
+    "unit": "км",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=46"
+  },
+  "solution": "Для $\\sin\\alpha=\\frac{v}{u}=0{,}5$ расстояние $AB=\\frac{h}{\\sin\\alpha}=2h=10$ км.",
+  "figures": []
+}

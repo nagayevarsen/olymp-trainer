@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-11-33",
+  "subject": "physics",
+  "topic": "Термодинамика",
+  "title": "Расход бензина автомобиля (11.33)",
+  "statement": "Автомобиль движется со скоростью $v = 72$ км/ч. Мощность двигателя $N = 60$ кВт, его КПД равен 30%. Определите расход бензина на $s = 1$ км пути.",
+  "answer": {
+    "value": 0.22,
+    "variables": {},
+    "unit": "кг",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=76"
+  },
+  "solution": "Масса бензина находится из условия $\\eta q m = Ns$ при $\\eta=0{,}3$.",
+  "figures": []
+}

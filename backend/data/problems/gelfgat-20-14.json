@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-20-14",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Толщина мыльной пленки (20.14)",
+  "statement": "Когда монохроматический свет падает нормально на поверхность мыльной пленки, интенсивность отраженного света зависит от длины волны: она имеет максимум при $\\lambda_1 = 630$ нм и ближайший к нему минимум при $\\lambda_2 = 525$ нм. Какова толщина пленки $d$? Показатель преломления пленки $n = 1{,}33$.",
+  "answer": {
+    "value": 590.0,
+    "variables": {},
+    "unit": "нм",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=151"
+  },
+  "solution": "Из условий максимума $(k-\\frac{1}{2})\\lambda_1 = 2dn$ и минимума $k\\lambda_2 = 2dn$ находят $k = \\frac{\\lambda_1}{2(\\lambda_1-\\lambda_2)} = 3$ и $d = \\frac{\\lambda_1\\lambda_2}{4n(\\lambda_1-\\lambda_2)} = 590$ нм.",
+  "figures": []
+}

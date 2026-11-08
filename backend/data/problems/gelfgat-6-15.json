@@ -1,0 +1,20 @@
+{
+  "id": "gelfgat-6-15",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Брусок и слой масла (6.15)",
+  "statement": "Пластмассовый брусок плавает в воде. Как изменится глубина погружения бруска в воду, если поверх воды налить слой масла, полностью покрывающий брусок?",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
+  },
+  "solution": "Ответ из книги: уменьшится",
+  "figures": []
+}

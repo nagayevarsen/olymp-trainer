@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-4-6",
+  "subject": "physics",
+  "topic": "механика",
+  "title": "Лодка и человек (4.6)",
+  "statement": "На сколько сместится неподвижная лодка массой $M = 280$ кг, если человек массой $m = 70$ кг перейдет с ее носа на корму? Расстояние от носа до кормы $l = 5$ м, сопротивление воды пренебрежимо мало.",
+  "answer": {
+    "value": 1.0,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=21"
+  },
+  "solution": "Лодка смещается на $s=\\frac{m}{M+m}l=1$ м.",
+  "figures": []
+}

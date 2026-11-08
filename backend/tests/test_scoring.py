@@ -34,6 +34,16 @@ def test_base_points_grow_with_stage_and_number_within_3_to_10():
             assert MIN_POINTS <= base_points(make(stage=st, number=n, grade=11)) <= MAX_POINTS
 
 
+def test_every_stage_has_base_points():
+    # Новый этап без баллов роняет проверку ответа (KeyError → 500) на всех его задачах.
+    from typing import get_args
+
+    from app.bank import STAGE_NAMES, Stage
+    from app.scoring import STAGE_BASE
+
+    assert set(get_args(Stage)) == set(STAGE_NAMES) == set(STAGE_BASE)
+
+
 def test_dynamic_points():
     base = 6
     assert dynamic_points(base, 0, 0) == base  # нет данных — стартовая цена

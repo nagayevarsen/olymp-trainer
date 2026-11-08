@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-10-51",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Сила в закрепленном стержне (10.51)",
+  "statement": "Концы стального стержня сечением $S = 2{,}0$ см² прочно закреплены при температуре $t_1 = 15$°C. С какой силой $F$ стержень будет действовать на опоры, если его нагреть до $t_2 = 150$°C?",
+  "answer": {
+    "value": 65.0,
+    "variables": {},
+    "unit": "кН",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.11076923076923077
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=71"
+  },
+  "solution": "Удлинение без опор $\\Delta l=\\alpha l(t_2-t_1)$. Сила $F$ создаёт такое же сжатие: $\\varepsilon=\\Delta l/l$, $\\sigma=E\\varepsilon$, $F=ES\\alpha(t_2-t_1)$.",
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-6-11",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Работа погружения льдины (6.11)",
+  "statement": "В воде плавает льдина с площадью поперечного сечения $S = 5$ м² и высотой $H = 0{,}5$ м. Какую работу надо совершить, чтобы полностью погрузить льдину в воду?",
+  "answer": {
+    "value": 61.0,
+    "variables": {},
+    "unit": "Дж",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
+  },
+  "solution": "Работа равна площади под графиком $F(h)$: $A = \\frac{F_{max} h_0}{2} = \\frac{gSH^2(\\rho_в - \\rho_л)^2}{2\\rho_в}$.",
+  "figures": []
+}

@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-18-29",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Призма с δ = 25° (18.29)",
+  "statement": "Преломляющий угол призмы $\\varphi = 45^\\circ$. Луч света выходит из призмы под тем же углом, под каким он в нее входит; при этом луч отклоняется от первоначального направления на угол $\\delta = 25^\\circ$. Определите показатель преломления $n$ материала призмы.",
+  "answer": {
+    "value": 1.5,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
+  },
+  "solution": "При каждом преломлении луч отклоняется на угол $\\delta/2$, поэтому $\\beta = \\varphi/2$ и $n = \\sin((\\varphi+\\delta)/2)/\\sin(\\varphi/2) = 1{,}5$.",
+  "figures": []
+}

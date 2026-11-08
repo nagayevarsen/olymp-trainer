@@ -30,6 +30,7 @@ Stage = Literal[
     "republic",
     "final",
     "international",
+    "collection",
     "other",
 ]
 Subject = Literal["math", "physics"]
@@ -44,6 +45,7 @@ STAGE_NAMES = {
     "republic": "Республиканский этап",
     "final": "Заключительный этап",
     "international": "Международная олимпиада",
+    "collection": "Сборник задач",
     "other": "Другое",
 }
 
@@ -96,7 +98,7 @@ class Source(BaseModel):
         return hashlib.sha1(f"{self.olympiad}|{self.stage}".encode()).hexdigest()[:10]
 
     def track_title(self) -> str:
-        if self.stage == "other":
+        if self.stage in ("other", "collection"):
             return self.olympiad
         return f"{self.olympiad} — {STAGE_NAMES[self.stage].lower()}"
 

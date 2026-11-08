@@ -1,0 +1,24 @@
+{
+  "id": "zam7-5-27",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Выдёргивание пробки ванны (5.27)",
+  "statement": "Какую силу надо приложить к легкой гладкой пробке ванны, чтобы ее выдернуть? Площадь пробки $S = 4$ см². Уровень воды в ванне $h = 0{,}5$ м. Давление в трубе 80 % от атмосферного.",
+  "answer": {
+    "value": 10.0,
+    "variables": {},
+    "unit": "Н",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=181"
+  },
+  "solution": "F = (0,2p0 + ρgh)S",
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "zam7-3-14",
+  "subject": "physics",
+  "topic": "Плотность",
+  "title": "Керосин, вытесненный болтом (3.14)",
+  "statement": "Медный болт массой $2$ кг опустили в банку, наполненную до краев керосином. Определите массу керосина, вытесненного этим болтом.",
+  "answer": {
+    "value": 0.18,
+    "variables": {},
+    "unit": "кг",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=101"
+  },
+  "figures": []
+}

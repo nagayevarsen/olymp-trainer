@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-21-16",
+  "subject": "physics",
+  "topic": "Теория относительности",
+  "title": "Энергия через импульс (21.16)",
+  "statement": "Выразите полную энергию $W$ релятивистской частицы и ее кинетическую энергию $W_k$ через массу покоя $m$ и импульс $p$.",
+  "answer": {
+    "formula": "c*sqrt(p**2+m**2*c**2)",
+    "variables": {
+      "p": "импульс частицы",
+      "m": "масса покоя частицы",
+      "c": "скорость света"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
+  },
+  "solution": "Полная энергия $W=\\frac{mc^2}{\\sqrt{1-v^2/c^2}}$, импульс $p=\\frac{mv}{\\sqrt{1-v^2/c^2}}$. Исключая $v$, получаем $v^2=\\frac{c^2p^2}{m^2c^2+p^2}$ и $W=c\\sqrt{p^2+m^2c^2}$. Кинетическая энергия $W_k=W-mc^2$.",
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "zam7-2-353-p2",
+  "subject": "physics",
+  "topic": "Механическое движение",
+  "title": "Шарнирные ромбы (2.353, б)",
+  "statement": "Определите скорость $u$, считая скорость $v$ известной (см. рисунок). Шарнирные конструкции образуют одинаковые ромбы.\n\n**Часть б.** Ответь только на эту часть задачи.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=96"
+  },
+  "solution": "Ответ из книги: 3v/2",
+  "figures": [
+    "zam7-2-353-p2-fig1.png"
+  ]
+}

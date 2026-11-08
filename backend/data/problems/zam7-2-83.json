@@ -1,0 +1,23 @@
+{
+  "id": "zam7-2-83",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Средняя скорость за время (2.83)",
+  "statement": "Средняя скорость автомобиля за 20 с всего движения составила 4 м/с. Его средняя скорость за последние 4 с движения составила 10 м/с. Определите среднюю скорость автомобиля за первые 16 с движения.",
+  "answer": {
+    "value": 2.5,
+    "variables": {},
+    "unit": "м/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=36"
+  },
+  "figures": []
+}

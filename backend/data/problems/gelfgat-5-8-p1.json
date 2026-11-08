@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-5-8-p1",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Стержни с фонарем (5.8, AB)",
+  "statement": "Невесомые стержни AB и BC шарнирно закреплены в точках A, B, C (см. рисунок). Чему равны действующие на стержни силы, если α = 60°, а масса подвешенного в точке B фонаря m = 3 кг?\n\n**Часть AB.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 17.0,
+    "variables": {},
+    "unit": "Н",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
+  },
+  "solution": "Силы в стержнях направлены вдоль стержней. Под действием груза стержень AB растянут, стержень BC сжат. Из условия равновесия: $F_{BC}\\cos\\alpha - F_{AB} = 0$, $F_{BC}\\sin\\alpha - mg = 0$.",
+  "figures": [
+    "gelfgat-5-8-p1-fig1.png"
+  ]
+}

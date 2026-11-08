@@ -1,0 +1,26 @@
+{
+  "id": "zam7-4-94",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Два стержня с нитями (4.94)",
+  "statement": "Система из двух однородных стержней, изображенная на рисунке, находится в равновесии. Масса верхнего стержня $m_1 = 3{,}6$ кг. Определите, при какой массе нижнего стержня $m_2$ возможно такое равновесие.",
+  "answer": {
+    "value": 2.1,
+    "variables": {},
+    "unit": "кг",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=151"
+  },
+  "solution": "m2 = 7m1/12",
+  "figures": [
+    "zam7-4-94-fig1.png"
+  ]
+}

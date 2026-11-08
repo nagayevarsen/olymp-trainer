@@ -122,6 +122,8 @@ def _build(bank: dict[str, Problem]) -> dict[str, Contest]:
     for p in bank.values():
         if p.source.stage == "other" and p.source.olympiad.startswith("Демо"):
             continue
+        if p.source.stage == "collection":
+            continue  # сборник — не олимпиада: «вариантов на время» из него не делаем
         groups.setdefault(contest_id(p), []).append(p)
     out = {}
     for cid, ps in groups.items():

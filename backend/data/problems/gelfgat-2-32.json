@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-2-32",
+  "subject": "physics",
+  "topic": "Динамика",
+  "title": "Самолет на вираже (2.32)",
+  "statement": "На вираже летчик поворачивает корпус самолета вокруг направления движения на угол $\\alpha = 10^\\circ$. Скорость полета $v = 360$ км/ч. Определите радиус поворота $R$.",
+  "answer": {
+    "value": 5800.0,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=16"
+  },
+  "solution": "Подъёмная сила перпендикулярна плоскости крыла; центростремительное ускорение создаётся равнодействующей подъёмной силы и силы тяжести: $R=v^2\\operatorname{ctg}\\alpha/g$.",
+  "figures": []
+}

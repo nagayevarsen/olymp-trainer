@@ -1,0 +1,29 @@
+{
+  "id": "gelfgat-17-30-p3",
+  "subject": "physics",
+  "topic": "Переменный ток",
+  "title": "Действующие значения тока (17.30, в)",
+  "statement": "Найдите действующие значения $I$ переменных токов (см. рисунки а, б, в).\n\n**Часть в.** Ответь только на эту часть задачи.",
+  "answer": {
+    "formula": "I0*(tau/T)**0.5",
+    "variables": {
+      "I0": "амплитуда силы тока",
+      "tau": "время действия тока",
+      "T": "период"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=131"
+  },
+  "solution": "Для постоянного тока $I$ и переменного тока за период выделяется одинаковое количество теплоты: $I^2 = \\overline{i^2}$. а) $i^2 = I_0^2$, поэтому $I = I_0$. б) $I^2T = I_0^2\\frac{T}{2}$, откуда $I = I_0/\\sqrt{2}$. в) $I^2T = I_0^2\\tau$, откуда $I = I_0\\sqrt{\\tau/T}$.",
+  "figures": [
+    "gelfgat-17-30-p3-fig1.png",
+    "gelfgat-17-30-p3-fig2.png",
+    "gelfgat-17-30-p3-fig3.png"
+  ]
+}

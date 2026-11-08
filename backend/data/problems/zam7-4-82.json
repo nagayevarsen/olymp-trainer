@@ -1,0 +1,26 @@
+{
+  "id": "zam7-4-82",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Труба на наклонной плоскости (4.82)",
+  "statement": "На плоскости, наклоненной к горизонту под углом $\\alpha = 30^\\circ$, труба удерживается в равновесии при помощи намотанной на нее веревки, как показано на рисунке. Сила натяжения веревки вертикальна и равна $T = 10$ Н. Определите массу трубы.",
+  "answer": {
+    "value": 3.0,
+    "variables": {},
+    "unit": "кг",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=146"
+  },
+  "solution": "M = 3T/g",
+  "figures": [
+    "zam7-4-82-fig1.png"
+  ]
+}

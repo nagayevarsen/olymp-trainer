@@ -1,0 +1,23 @@
+{
+  "id": "zam7-2-54",
+  "subject": "physics",
+  "topic": "Механическое движение",
+  "title": "Трактор с ремонтом (2.54)",
+  "statement": "Трактор несколько часов ехал со скоростью 30 км/ч. Затем он один час стоял и ремонтировался, после чего еще два часа двигался со скоростью 45 км/ч. Найдите среднюю скорость трактора на всем пути.",
+  "answer": {
+    "value": 30.0,
+    "variables": {},
+    "unit": "км/ч",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=31"
+  },
+  "figures": []
+}

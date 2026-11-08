@@ -1,0 +1,24 @@
+{
+  "id": "zam7-4-52",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Натяжение длинной нити (4.52)",
+  "statement": "Система из блоков массой $m = 1{,}0$ кг и нитей удерживает в равновесии груз массой $4m$ (см. рисунок). Определите силу натяжения длинной нити.",
+  "answer": {
+    "value": 12.0,
+    "variables": {},
+    "unit": "Н",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=136"
+  },
+  "solution": "T = 1,2mg",
+  "figures": []
+}

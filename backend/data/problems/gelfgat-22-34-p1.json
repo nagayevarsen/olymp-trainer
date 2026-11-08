@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-22-34-p1",
+  "subject": "physics",
+  "topic": "Атомная физика",
+  "title": "Разбиение ядра дейтерия (22.34, W)",
+  "statement": "Найдите минимальную энергию $W$ и частоту $\\nu$ гамма-кванта, способного «разбить» ядро дейтерия на протон и нейтрон.\n\n**Часть W.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 2.2,
+    "variables": {},
+    "unit": "МэВ",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=166"
+  },
+  "solution": "Дефект масс ядра дейтерия: $\\Delta m = m_p + m_n - m_д = 2{,}4 \\cdot 10^{-3}$ а.е.м. Минимальная энергия гамма-кванта: $W = \\Delta m c^2$. Частота: $\\nu = W/h$.",
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-18-36",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Рыба и рыболов (18.36)",
+  "statement": "Рыба, находящаяся на глубине $h_1 = 1{,}0$ м, смотрит вертикально вверх на глаза рыболова. Голова рыболова находится на высоте $h_2 = 1{,}5$ м над водой. Каким покажется рыбе расстояние $l$ до головы рыболова?",
+  "answer": {
+    "value": 3.0,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
+  },
+  "solution": "$l=h_1+nh_2$; см. задачу 18.35.",
+  "figures": []
+}

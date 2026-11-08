@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-11-16",
+  "subject": "physics",
+  "topic": "Термодинамика",
+  "title": "Падение воды и нагрев (11.16)",
+  "statement": "С какой высоты $h$ должна падать вода, чтобы при ударе о землю она закипала? На нагрев воды идет 50% расходуемой механической энергии, начальная температура воды $t_1 = 20$ °C.",
+  "answer": {
+    "value": 70.0,
+    "variables": {},
+    "unit": "км",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=76"
+  },
+  "solution": "Кинетическая энергия $\\frac{1}{2}mgh$ равна энергии нагрева воды $mc(t_2 - t_1)$, $t_2 = 100^\\circ C$; отсюда $h = \\frac{2c(t_2 - t_1)}{g} ≈ 70$ км.",
+  "figures": []
+}

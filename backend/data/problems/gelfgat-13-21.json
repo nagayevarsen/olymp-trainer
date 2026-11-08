@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-13-21",
+  "subject": "physics",
+  "topic": "Электричество",
+  "title": "Куб, точки A и A1 (13.21)",
+  "statement": "Определите сопротивление $R$ проволочного куба (см. задачу 13.19) при включении его в цепь точками $A$ и $A_1$.",
+  "answer": {
+    "formula": "7*R0/12",
+    "variables": {
+      "R0": "сопротивление резистора"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=101"
+  },
+  "figures": []
+}

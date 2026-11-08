@@ -1,0 +1,27 @@
+{
+  "id": "gelfgat-1-21",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Скорость точки пересечения (1.21)",
+  "statement": "Две прямые, пересекающиеся под углом $\\alpha$ (см. рисунок), движутся перпендикулярно самим себе со скоростями $v_1$ и $v_2$. Определите скорость $v$ точки пересечения прямых.",
+  "answer": {
+    "formula": "sqrt(v1**2+v2**2+2*v1*v2*cos(alpha))/sin(alpha)",
+    "variables": {
+      "v1": "скорость первой прямой",
+      "v2": "скорость второй прямой",
+      "alpha": "угол между прямыми"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=6"
+  },
+  "solution": "За время $\\Delta t$ точка пересечения прямых перемещается на диагональ параллелограмма $s=\\frac{\\Delta t\\sqrt{v_1^2+v_2^2+2v_1v_2\\cos\\alpha}}{\\sin\\alpha}$ (теорема косинусов). Скорость точки пересечения $v=s/\\Delta t$.",
+  "figures": [
+    "gelfgat-1-21-fig1.png"
+  ]
+}

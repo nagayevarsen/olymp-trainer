@@ -1,0 +1,25 @@
+{
+  "id": "zam7-5-5",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Сообщающиеся сосуды (5.5)",
+  "statement": "В сообщающиеся сосуды налита вода (см. рисунок). Левый сосуд сверху закрыт, правый открыт. Найдите гидростатическое давление воды в точке $A$. Атмосферное давление не учитывать.",
+  "answer": {
+    "value": 3.0,
+    "variables": {},
+    "unit": "кПа",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=176"
+  },
+  "figures": [
+    "zam7-5-5-fig1.png"
+  ]
+}

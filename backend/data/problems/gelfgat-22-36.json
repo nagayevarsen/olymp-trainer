@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-22-36",
+  "subject": "physics",
+  "topic": "Атомная физика",
+  "title": "Порог ядерной реакции (22.36)",
+  "statement": "Какую минимальную кинетическую энергию $W_0$ должна иметь $\\alpha$-частица для осуществления ядерной реакции ${}^{7}_{3}\\mathrm{Li} + {}^{4}_{2}\\mathrm{He} \\to {}^{10}_{5}\\mathrm{B} + {}^{1}_{0}\\mathrm{n}$?",
+  "answer": {
+    "value": 4.4,
+    "variables": {},
+    "unit": "МэВ",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=166"
+  },
+  "solution": "Из закона сохранения импульса $\\upsilon = 4\\upsilon_0/11$ и закона сохранения энергии $W_0 = W_1 + \\frac{4W_0}{11}$, откуда $W_0 = \\frac{11W_1}{7}$, $W_1=2{,}8$ МэВ.",
+  "figures": []
+}

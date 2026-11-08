@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-7-28",
+  "subject": "physics",
+  "topic": "Механические волны",
+  "title": "Частоты воздушного столба (7.28)",
+  "statement": "Найдите собственные частоты колебаний воздушного столба в закрытой с обоих концов трубе длиной $l = 3{,}4$ м.",
+  "answer": {
+    "formula": "50*k",
+    "variables": {
+      "k": "произвольное натуральное число"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=46"
+  },
+  "solution": "Собственные колебания воздушного столба в трубе с закрытыми концами: $l = \\frac{\\lambda_k}{2}k$, откуда $\\lambda_k = \\frac{2l}{k}$. Частоты $\\nu_k = \\frac{v}{\\lambda_k} = \\frac{v}{2l}k$. При $v/(2l) = 50$ Гц получаем $\\nu_k = k \\cdot 50$ Гц.",
+  "figures": []
+}

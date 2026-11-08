@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-5-2",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Тяга веревки (5.2)",
+  "statement": "С какой силой F надо тянуть за веревку, привязанную к ящику массой m = 40 кг и образующую угол α = 30° с горизонтом, чтобы ящик двигался по горизонтальной поверхности равномерно? Коэффициент трения между ящиком и площадкой μ = 0,27.",
+  "answer": {
+    "value": 110.0,
+    "variables": {},
+    "unit": "Н",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
+  },
+  "solution": "Из второго закона Ньютона в проекциях: $F\\cos\\alpha - F_{тр} = 0$, $N + F\\sin\\alpha - mg = 0$, $F_{тр} = \\mu N$. Отсюда $F = \\frac{\\mu mg}{\\cos\\alpha + \\mu\\sin\\alpha}$.",
+  "figures": []
+}

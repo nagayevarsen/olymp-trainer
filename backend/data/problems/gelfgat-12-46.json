@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-12-46",
+  "subject": "physics",
+  "topic": "Электростатика",
+  "title": "Давление внутри заряженной капли (12.46)",
+  "statement": "Капле ртути радиуса $R = 1$ мм, находящейся в вакууме, сообщили заряд $Q = 1$ нКл. Найдите давление $p$ внутри капли.",
+  "answer": {
+    "value": 660.0,
+    "variables": {},
+    "unit": "Па",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=86"
+  },
+  "solution": "Давление растягивающее $p_1=\\frac{Q^2}{32\\pi^2\\varepsilon_0R^4}$, сжимающее лапласовское $p_2=2\\sigma/R$; $p=p_2-p_1=660$ Па.",
+  "figures": []
+}

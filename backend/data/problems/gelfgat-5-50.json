@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-5-50",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Центр тяжести полуокружности (5.50)",
+  "statement": "Найдите центр тяжести тонкой однородной проволоки, согнутой в виде полуокружности радиуса $r$.",
+  "answer": {
+    "formula": "2*r/pi",
+    "variables": {
+      "r": "радиус полуокружности"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
+  },
+  "solution": "По формуле $x=\\sum \\rho\\Delta l\\,x_i/\\sum\\rho\\Delta l$ и подобию треугольников $x=\\dfrac{\\sum\\Delta l\\,r}{\\sum\\Delta l}\\cdot\\dfrac{r\\sum\\Delta l}{\\sum\\Delta l}$; $\\sum\\Delta l=\\pi r$ (длина полуокружности), $\\sum\\Delta l_i=2r$ (диаметр), откуда $x=\\dfrac{2r}{\\pi}\\approx0{,}64r$.",
+  "figures": []
+}

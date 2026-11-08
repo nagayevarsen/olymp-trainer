@@ -104,6 +104,18 @@
       "added": "2026-11-04"
     },
     {
+      "domain": "fizmat.space",
+      "name": "Библиотека РФМШ — сборники задач",
+      "url": "https://fizmat.space/library/",
+      "subjects": [
+        "physics"
+      ],
+      "region": "Казахстан",
+      "kind": "aggregator",
+      "note": "Сборники олимпиадной физики (Замятнин, Гельфгат, Зильберман); добавлено по указанию команды 8 ноября 2026",
+      "added": "2026-11-08"
+    },
+    {
       "domain": "olimpiada.ru",
       "name": "Olimpiada.ru",
       "url": "https://olimpiada.ru/",

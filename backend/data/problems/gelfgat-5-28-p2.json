@@ -1,0 +1,20 @@
+{
+  "id": "gelfgat-5-28-p2",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Колесо и ступенька (5.28, 2)",
+  "statement": "Колесо радиусом R и массой m стоит перед ступенькой высотой h. Какую горизонтальную силу F надо приложить к оси колеса, чтобы оно въехало на ступеньку?\n\n**Часть 2.** Ответь только на эту часть задачи.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=36"
+  },
+  "solution": "Ответ из книги: при h ≥ R решения нет",
+  "figures": []
+}

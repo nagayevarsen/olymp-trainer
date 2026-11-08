@@ -1,0 +1,20 @@
+{
+  "id": "gelfgat-6-10-p1",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Бутылка в воде (6.10, 1)",
+  "statement": "Потонет ли в воде стеклянная бутылка, доверху наполненная водой? Бутылка со ртутью — в ртути?\n\n**Часть 1.** Ответь только на эту часть задачи.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
+  },
+  "solution": "Ответ из книги: потонет\n\nСравнивают $(m_ж+m_б)g$ с силой Архимеда $F_A=\\rho_ж V g$. Разность $R=(\\rho_б-\\rho_ж)Vg$: при $\\rho_б>\\rho_ж$ бутылка тонет, при $\\rho_б<\\rho_ж$ всплывает.",
+  "figures": []
+}

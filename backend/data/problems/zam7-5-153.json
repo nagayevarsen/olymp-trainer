@@ -1,0 +1,23 @@
+{
+  "id": "zam7-5-153",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Надводная часть банки (5.153)",
+  "statement": "Жестяная банка массой 100 г и высотой 10 см плавает в воде. Площадь основания банки 100 см$^2$. Определите высоту надводной части банки.",
+  "answer": {
+    "value": 9.0,
+    "variables": {},
+    "unit": "см",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=211"
+  },
+  "figures": []
+}

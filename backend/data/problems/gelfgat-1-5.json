@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-1-5",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Лодка и плот (1.5)",
+  "statement": "Моторная лодка проходит расстояние между двумя пунктами A и B по течению реки за время $t_1 = 3$ ч, а плот — за время $t = 12$ ч. Сколько времени $t_2$ затратит моторная лодка на обратный путь?",
+  "answer": {
+    "value": 6.0,
+    "variables": {},
+    "unit": "ч",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=1"
+  },
+  "solution": "Из условия $t_1=\\frac{s}{v+u}$ и $t=\\frac{s}{u}$ (за время t плот проходит s), обратный путь $t_2=\\frac{tt_1}{t-2t_1}=6$ ч.",
+  "figures": []
+}

@@ -1,0 +1,26 @@
+{
+  "id": "gelfgat-1-53",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Груз на канатах (1.53)",
+  "statement": "Концы каната $A$ и $B$ (см. рисунок) тянут вниз с одинаковой скоростью $v$. Какую скорость $u$ имеет груз в тот момент, когда угол между канатами в точке его закрепления равен $2\\alpha$?",
+  "answer": {
+    "formula": "v/cos(alpha)",
+    "variables": {
+      "v": "скорость лодки",
+      "alpha": "угол"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=11"
+  },
+  "solution": "Указание: см. задачу 1.52.",
+  "figures": [
+    "gelfgat-1-53-fig1.png"
+  ]
+}

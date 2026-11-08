@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-22-26",
+  "subject": "physics",
+  "topic": "Атомная физика",
+  "title": "Распад йода-131 (22.26)",
+  "statement": "Период полураспада радиоактивного йода-131 равен восьми суткам. За какое время $t$ количество атомов йода-131 уменьшится в 1000 раз?",
+  "answer": {
+    "value": 80.0,
+    "variables": {},
+    "unit": "сут",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=166"
+  },
+  "figures": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "gelfgat-12-60",
+  "subject": "physics",
+  "topic": "Электроемкость",
+  "title": "Разность потенциалов (12.60)",
+  "statement": "Определите разность потенциалов между точками $A$ и $B$ в схеме на рисунке.",
+  "answer": {
+    "formula": "(C1*E1 - C2*E2)/(C1 + C2)",
+    "variables": {
+      "C1": "емкость первого конденсатора",
+      "C2": "емкость второго конденсатора",
+      "E1": "ЭДС первого источника",
+      "E2": "ЭДС второго источника"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=91"
+  },
+  "solution": "Батарея конденсаторов $C_1$ и $C_2$ заряжается напряжением $\\mathcal{E}_1+\\mathcal{E}_2$. Напряжение на $C_1$ равно $U_1=\\frac{C_2}{C_1+C_2}(\\mathcal{E}_1+\\mathcal{E}_2)$. Так как тока нет, $\\varphi_D-\\varphi_B=\\mathcal{E}_1$, и $\\varphi_A-\\varphi_B=\\frac{C_1\\mathcal{E}_1-C_2\\mathcal{E}_2}{C_1+C_2}$.",
+  "figures": [
+    "gelfgat-12-60-fig1.png"
+  ]
+}

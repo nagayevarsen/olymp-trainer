@@ -1,0 +1,24 @@
+{
+  "id": "zam7-6-71",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Пуля пробивает доску (6.71)",
+  "statement": "Пуля массой $m = 5$ г, летевшая горизонтально со скоростью $v_1 = 800$ м/с, пробивает доску и вылетает из нее со скоростью $v_2 = 400$ м/с. Найдите величину работы, совершенной над пулей силой сопротивления доски.",
+  "answer": {
+    "value": 1200.0,
+    "variables": {},
+    "unit": "Дж",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=256"
+  },
+  "solution": "E = 0,5m(V2² − V1²)",
+  "figures": []
+}

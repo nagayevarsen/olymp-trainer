@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-7-9",
+  "subject": "physics",
+  "topic": "Колебания",
+  "title": "Период пружинного маятника (7.9)",
+  "statement": "Подвешенный груз растягивает легкую пружину на $\\Delta l = 16$ см. Чему равен период колебаний груза на этой пружине?",
+  "answer": {
+    "value": 0.8,
+    "variables": {},
+    "unit": "с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
+  },
+  "solution": "Из условия $mg = k\\Delta l$ следует $\\frac{m}{k} = \\frac{\\Delta l}{g}$, поэтому $T = 2\\pi\\sqrt{\\frac{\\Delta l}{g}}$, что дает 0,80 с. Период определяется удлинением пружины.",
+  "figures": []
+}

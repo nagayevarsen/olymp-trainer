@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-9-1",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Испарение воды (9.1)",
+  "statement": "Из открытого стакана за время $t = 20$ сут испарилась вода массой $m = 200$ г. Сколько молекул испарялось за $\\tau = 1$ с?",
+  "answer": {
+    "value": 3.9e+18,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=56"
+  },
+  "solution": "Число молекул воды $N = \\frac{m}{M}N_A$ в стакане; из пропорции $N_t/N = t/\\tau$ получаем $N_t = \\frac{N\\,t}{\\tau}$ — количество испарившихся молекул.",
+  "figures": []
+}

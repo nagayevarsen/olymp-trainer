@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-7-5",
+  "subject": "physics",
+  "topic": "Колебания",
+  "title": "Укорочение маятника (7.5)",
+  "statement": "Стоя на вершине горы, барон Мюнхаузен (см. задачу 7.4) решил восстановить точность своих маятниковых часов. На какую часть длины он должен укоротить маятник?",
+  "answer": {
+    "value": 0.002,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.2
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
+  },
+  "solution": "$\\frac{\\Delta l}{l} = 1 - \\frac{R^2}{(R+h)^2} \\approx \\frac{2h}{R}$; маятник надо укоротить примерно на 0,2% его длины.",
+  "figures": []
+}

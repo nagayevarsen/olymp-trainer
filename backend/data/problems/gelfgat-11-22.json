@@ -1,0 +1,20 @@
+{
+  "id": "gelfgat-11-22",
+  "subject": "physics",
+  "topic": "Термодинамика",
+  "title": "Связь теплоемкостей газа (11.22)",
+  "statement": "Докажите, что молярные теплоемкости идеального газа при постоянном давлении $C_p$ и при постоянном объеме $C_V$ связаны соотношением $C_p - C_V = R$, где $R$ — универсальная газовая постоянная.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=76"
+  },
+  "solution": "Ответ из книги: $C_p - C_V = R$\n\nИз определения молярной теплоёмкости $C = \\frac{Q}{\\nu\\Delta T}$. При изохорном нагревании $Q_V = \\Delta U$, при изобарном $Q_p = \\Delta U + A'$, где $A' = p\\Delta V = \\nu R\\Delta T$. Отсюда $C_p = \\frac{\\Delta U}{\\nu\\Delta T} + R$, и $C_p - C_V = R$.",
+  "figures": []
+}

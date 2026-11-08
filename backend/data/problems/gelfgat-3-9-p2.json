@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-3-9-p2",
+  "subject": "physics",
+  "topic": "механика",
+  "title": "Движение Луны (3.9, T)",
+  "statement": "Определите скорость движения Луны относительно Земли и период ее обращения вокруг Земли. Считайте, что Луна движется по круговой орбите радиуса 384 000 км.\n\n**Часть T.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 27.3,
+    "variables": {},
+    "unit": "сут",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=21"
+  },
+  "figures": []
+}

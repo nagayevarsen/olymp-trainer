@@ -1,0 +1,26 @@
+{
+  "id": "gelfgat-11-42",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "КПД составного цикла (11.42)",
+  "statement": "КПД цикла 1-2-3-1 (см. рисунок) равен $\\eta_1$, а КПД цикла 1-3-4-1 равен $\\eta_2$. Определите КПД $\\eta$ цикла 1-2-3-4-1.",
+  "answer": {
+    "formula": "eta1 + eta2 - eta1*eta2",
+    "variables": {
+      "eta1": "КПД первого цикла",
+      "eta2": "КПД второго цикла"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=81"
+  },
+  "solution": "Из КПД циклов $\\eta_1$, $\\eta_2$ выражаются теплоты, и итоговый КПД: $\\eta=1-(1-\\eta_1)(1-\\eta_2)$.",
+  "figures": [
+    "gelfgat-11-42-fig1.png"
+  ]
+}

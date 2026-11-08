@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-18-20-p2",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Тень сваи (18.20, l2)",
+  "statement": "Свая вбита в дно реки и возвышается над водой на $h_1 = 1{,}0$ м. Глубина реки $h_2 = 2{,}0$ м. Определите длину тени сваи на поверхности воды и на дне реки, когда высота солнца над горизонтом $\\alpha = 30^\\circ$.\n\n**Часть l2.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 3.4,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
+  },
+  "solution": "Длина тени на воде $l_1 = h_1\\,\\mathrm{ctg}\\,\\alpha$; длина тени на дне $l_2 = l_1 + h_2\\,\\mathrm{tg}\\,\\beta$, где $\\sin\\beta = \\sin(90^\\circ-\\alpha)/n$, $\\mathrm{tg}\\,\\beta = \\cos\\alpha/\\sqrt{n^2-\\cos^2\\alpha}$.",
+  "figures": []
+}

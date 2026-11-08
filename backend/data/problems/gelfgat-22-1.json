@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-22-1",
+  "subject": "physics",
+  "topic": "Квантовая физика",
+  "title": "Число фотонов лазера (22.1)",
+  "statement": "Гелий-неоновый лазер работает в непрерывном режиме, развивая мощность $P = 2{,}0$ мВт. Излучение лазера имеет длину волны $\\lambda = 630$ нм. Сколько фотонов излучает лазер за одну секунду?",
+  "answer": {
+    "value": 6300000000000000.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
+  },
+  "solution": "Энергия излучения за время $\\tau=1$ с равна $P\\tau$, энергия фотона $h\\nu=\\frac{hc}{\\lambda}$. Число фотонов $N=\\frac{P\\tau\\lambda}{hc}=6{,}3\\cdot10^{15}$.",
+  "figures": []
+}

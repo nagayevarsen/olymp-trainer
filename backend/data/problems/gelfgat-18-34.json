@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-18-34",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Пластинка с серебром (18.34)",
+  "statement": "Нижняя поверхность плоскопараллельной стеклянной пластинки посеребрена. На пластинку сверху падает луч света; в результате от нее отражаются два параллельных луча, идущих на расстоянии $a = 20$ мм друг от друга. Определите толщину $h$ пластинки, если угол падения луча $\\alpha = 60^\\circ$.",
+  "answer": {
+    "formula": "a*sqrt(n**2-sin(alpha)**2)/sin(2*alpha)",
+    "variables": {
+      "a": "расстояние между точками на верхней поверхности",
+      "n": "показатель преломления",
+      "alpha": "угол падения"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
+  },
+  "solution": "Из рисунка $a=AB\\cos\\alpha=2h\\cos\\alpha\\,\\mathrm{tg}\\beta$, $\\sin\\beta=\\sin\\alpha/n$, откуда $h=\\dfrac{a\\sqrt{n^2-\\sin^2\\alpha}}{\\sin2\\alpha}$. Численно $h=3{,}1$ см.",
+  "figures": []
+}

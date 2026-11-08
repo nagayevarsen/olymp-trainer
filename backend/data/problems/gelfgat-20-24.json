@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-20-24",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Длина волны по решетке (20.24)",
+  "statement": "На дифракционную решетку с периодом $d = 14$ мкм падает нормально монохроматическая световая волна. На экране, удаленном от решетки на $L = 2{,}0$ м, расстояние между спектрами второго и третьего порядков $s = 8{,}7$ см. Какова длина волны $\\lambda$ падающего света?",
+  "answer": {
+    "value": 0.61,
+    "variables": {},
+    "unit": "мкм",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=156"
+  },
+  "solution": "Из $d\\sin\\varphi = k\\lambda$ и малости углов $s = L(\\sin\\varphi_3 - \\sin\\varphi_2) = \\frac{L\\lambda}{d}$, откуда $\\lambda = \\frac{sd}{L} = 6{,}1 \\cdot 10^{-7}$ м.",
+  "figures": []
+}

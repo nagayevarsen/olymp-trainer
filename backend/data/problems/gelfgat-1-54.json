@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-1-54",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Скользящая лестница (1.54)",
+  "statement": "Нижний край опирающейся о стену лестницы скользит по полу со скоростью 2 м/с. Определите скорость верхнего края лестницы, когда она образует со стеной угол $\\alpha = 60°$.",
+  "answer": {
+    "value": 3.5,
+    "variables": {},
+    "unit": "м/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=11"
+  },
+  "solution": "Проекции скоростей концов отрезка AB на него одинаковы: $v_A\\sin\\alpha=v_B\\cos\\alpha$, откуда $v_B=v_A\\tg\\alpha$.",
+  "figures": []
+}

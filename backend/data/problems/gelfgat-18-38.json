@@ -1,0 +1,24 @@
+{
+  "id": "gelfgat-18-38",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Капля воды (18.38)",
+  "statement": "На сферическую каплю воды падает луч света. Определите угол $\\delta$ отклонения луча от первоначального направления в результате двух преломлений и одного отражения на поверхности капли. Угол падения луча из воздуха на поверхность капли равен $\\alpha$.",
+  "answer": {
+    "formula": "pi+2*alpha-4*asin(sin(alpha)/n)",
+    "variables": {
+      "alpha": "угол падения солнечного луча",
+      "n": "показатель преломления воды или капли"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
+  },
+  "solution": "При преломлении луч отклоняется на $\\delta_1=\\alpha-\\beta$, при отражении на $\\delta_2=\\pi-2\\beta$, где $\\beta=\\arcsin(\\sin\\alpha/n)$. Суммарно $\\delta=2\\delta_1+\\delta_2$.",
+  "figures": []
+}

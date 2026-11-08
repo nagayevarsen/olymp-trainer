@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-10-8",
+  "subject": "physics",
+  "topic": "Пары, жидкости",
+  "title": "Влажность после сжатия и нагрева (10.8)",
+  "statement": "В цилиндре под поршнем — воздух, имеющий температуру $t_1 = 10$°C и относительную влажность $\\varphi_1 = 60$%. Какой станет относительная влажность $\\varphi_2$ этого воздуха после нагревания его до температуры $t_2 = 100$°C и уменьшения объема втрое?",
+  "answer": {
+    "value": 2.9,
+    "variables": {},
+    "unit": "%",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=66"
+  },
+  "solution": "$\\varphi_2 = \\frac{p_2}{p_{н2}} \\cdot 100\\%$, где $p_2 = \\frac{3p_1T_2}{T_1}$ и $p_{н2} = p_а$. Получаем $\\varphi_2 = 2{,}9\\%$.",
+  "figures": []
+}

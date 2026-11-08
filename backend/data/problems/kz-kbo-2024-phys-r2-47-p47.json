@@ -1,0 +1,24 @@
+{
+  "id": "kz-kbo-2024-phys-r2-47-p47",
+  "subject": "physics",
+  "topic": "Закон Ома",
+  "title": "Ток в лампе, пункт 47",
+  "statement": "Сопротивление нити накала электрической лампы составляет 400 Ом, а напряжение на нити равно 100 В.\n\n**Пункт 47.** Какова сила тока в лампе?",
+  "answer": {
+    "value": 0.25,
+    "variables": {},
+    "unit": "А",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2024,
+    "stage": "other",
+    "number": 47,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
+  },
+  "solution": "Официальное решение в файле не приведено; в ключе ответ — вариант A (0,25 А).",
+  "figures": []
+}

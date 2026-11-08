@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-4-20",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Тормозной путь (4.20)",
+  "statement": "Автомобиль при полностью включенных тормозах (колеса не вращаются) может удерживаться на участке горной дороги с наклоном до $\\alpha = 30°$. Каков тормозной путь $s$ этого автомобиля на горизонтальном участке той же дороги при скорости $v = 72$ км/ч?",
+  "answer": {
+    "value": 35.0,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=26"
+  },
+  "solution": "$s=\\frac{v^2}{2g\\mu\\tan\\alpha}$.",
+  "figures": []
+}

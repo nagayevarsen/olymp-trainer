@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-22-38",
+  "subject": "physics",
+  "topic": "Атомная физика",
+  "title": "Мишень из лития (22.38)",
+  "statement": "Мишень из ${}^{6}_{3}\\mathrm{Li}$ подвергают бомбардировке нейтронами. В направлении движения нейтронов вылетают $\\alpha$-частицы с кинетической энергией $W_\\alpha = 3{,}0$ МэВ. Какова кинетическая энергия $W_n$ нейтронов?",
+  "answer": {
+    "value": 0.61,
+    "variables": {},
+    "unit": "МэВ",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=166"
+  },
+  "solution": "Реакция ${}^6Li + {}^1n \\to {}^3H + {}^4He$, энергия $W=4{,}8$ МэВ. Из законов сохранения энергии и импульса с учетом $x=\\upsilon_n/\\upsilon_0 = 0{,}90$ получено $W_\\alpha = \\frac{x^2 m_\\alpha \\upsilon_\\alpha^2}{4}$, $W_n = 0{,}61$ МэВ.",
+  "figures": []
+}

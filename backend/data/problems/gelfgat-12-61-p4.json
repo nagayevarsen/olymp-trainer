@@ -1,0 +1,29 @@
+{
+  "id": "gelfgat-12-61-p4",
+  "subject": "physics",
+  "topic": "Электроемкость",
+  "title": "Емкости систем (12.61, г)",
+  "statement": "Определите емкости показанных на рис. а–е систем. Все конденсаторы имеют емкость $C$.\n\n**Часть г.** Ответь только на эту часть задачи.",
+  "answer": {
+    "formula": "3*C/5",
+    "variables": {
+      "C": "емкость C"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=91"
+  },
+  "figures": [
+    "gelfgat-12-61-p4-fig1.png",
+    "gelfgat-12-61-p4-fig2.png",
+    "gelfgat-12-61-p4-fig3.png",
+    "gelfgat-12-61-p4-fig4.png",
+    "gelfgat-12-61-p4-fig5.png",
+    "gelfgat-12-61-p4-fig6.png"
+  ]
+}

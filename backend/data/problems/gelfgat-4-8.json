@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-4-8",
+  "subject": "physics",
+  "topic": "механика",
+  "title": "Откат пушки (4.8)",
+  "statement": "Масса пушки $M = 800$ кг. Пушка выстреливает ядро массой $m = 10$ кг с начальной скоростью $v_0 = 200$ м/с относительно Земли под углом $\\alpha = 60^\\circ$ к горизонту. Какова скорость $u$ отката пушки? Трением пренебречь.",
+  "answer": {
+    "value": 1.25,
+    "variables": {},
+    "unit": "м/с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=21"
+  },
+  "solution": "По закону сохранения импульса в проекции на горизонталь: $u=\\frac{mv_0\\cos\\alpha}{M}=1{,}25$ м/с.",
+  "figures": []
+}

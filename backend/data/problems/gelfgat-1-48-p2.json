@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-1-48-p2",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Тело под двумя углами (1.48, t2)",
+  "statement": "Под углом $\\alpha = 60°$ к горизонту брошено тело с начальной скоростью $v_0 = 20$ м/с. Через какое время $t$ оно будет двигаться под углом $\\beta = 45°$ к горизонту?\n\n**Часть t2.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 2.8,
+    "variables": {},
+    "unit": "с",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=11"
+  },
+  "solution": "Условие $|v_y|=v_x\\,\\mathrm{tg}\\beta$, где $v_y=v_0\\sin\\alpha-gt$, $v_x=v_0\\cos\\alpha$. Отсюда $t=\\frac{v_0}{g}(\\sin\\alpha\\pm\\mathrm{tg}\\beta\\cos\\alpha)$. Моментов времени два.",
+  "figures": []
+}

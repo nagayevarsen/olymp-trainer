@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-6-28",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Масса атмосферы Земли (6.28)",
+  "statement": "Оцените массу атмосферы Земли (радиус Земли $R = 6400$ км).",
+  "answer": {
+    "value": 5e+18,
+    "variables": {},
+    "unit": "кг",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.072
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
+  },
+  "solution": "mg = 4πR²·p_A, откуда m = 4πR²p_A/g. При R = 6400 км и p_A = 10⁵ Па получаем m ≈ 5·10¹⁸ кг.",
+  "figures": []
+}

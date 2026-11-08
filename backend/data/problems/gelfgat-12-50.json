@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-12-50",
+  "subject": "physics",
+  "topic": "Электроемкость",
+  "title": "Емкость батареи (12.50)",
+  "statement": "Определите емкость $C_0$ батареи конденсаторов, изображенной на рисунке.",
+  "answer": {
+    "formula": "C1",
+    "variables": {
+      "C1": "емкость конденсатора C1"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=91"
+  },
+  "solution": "Верхняя и нижняя ветви одинаковы, поэтому $\\varphi_A=\\varphi_B$ и напряжение на конденсаторе $C_2$ равно нулю. Конденсатор $C_2$ можно изъять из цепи, и емкость $C_0=C_1$.",
+  "figures": [
+    "gelfgat-12-50-fig1.png"
+  ]
+}

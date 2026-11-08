@@ -1,0 +1,23 @@
+{
+  "id": "zam7-2-32",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Электричка Дубна-Дмитров (2.32)",
+  "statement": "На дорогу от Дубны до Дмитрова ($L = 65$ км) электричка тратит $T = 1$ ч 10 минут. Средняя скорость электрички на перегонах между платформами $v = 70$ км/ч. Сколько времени электричка стоит на остановках?",
+  "answer": {
+    "value": 14.3,
+    "variables": {},
+    "unit": "мин",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=26"
+  },
+  "figures": []
+}

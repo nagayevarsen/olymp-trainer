@@ -1,0 +1,24 @@
+{
+  "id": "gelfgat-4-51",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Энергия обруча (4.51)",
+  "statement": "Какова кинетическая энергия W_k обруча массой m, катящегося без проскальзывания со скоростью v по плоской поверхности?",
+  "answer": {
+    "formula": "m*v**2",
+    "variables": {
+      "m": "масса тела",
+      "v": "скорость тела"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
+  },
+  "solution": "См. задачу 4.47.",
+  "figures": []
+}

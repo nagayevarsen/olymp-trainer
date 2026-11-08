@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-10-34",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Кубик на поверхности воды (10.34)",
+  "statement": "Смачиваемый водой кубик массы $m = 20$ г плавает на поверхности воды. Длина ребра кубика $a = 3{,}0$ см. На каком расстоянии $h$ от поверхности воды находится нижняя грань кубика?",
+  "answer": {
+    "value": 2.3,
+    "variables": {},
+    "unit": "см",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=71"
+  },
+  "solution": "Условие равновесия $F_A = mg + F_{пн}$, где $F_{пн} = 4\\sigma a$ и $F_A = \\rho_в g a^2 h$. Отсюда $h = \\frac{mg + 4\\sigma a}{\\rho_в g a^2} \\approx 0{,}023$ м.",
+  "figures": []
+}

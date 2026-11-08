@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-18-21",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Толщина пластинки (18.21)",
+  "statement": "Угол падения луча света на стеклянную плоскопараллельную пластинку $\\alpha = 60^\\circ$. Выйдя из пластинки, луч сместился на $a = 15$ мм. Какова толщина $h$ пластинки?",
+  "answer": {
+    "value": 28.0,
+    "variables": {},
+    "unit": "мм",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05571428571428574
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
+  },
+  "solution": "Смещение луча $a = AB\\sin(\\alpha-\\beta)$, толщина пластинки $h = a\\sqrt{n^2-\\sin^2\\alpha}/(\\sin\\alpha(\\sqrt{n^2-\\sin^2\\alpha}-\\cos\\alpha))$ с учётом закона преломления $\\sin\\beta=\\sin\\alpha/n$.",
+  "figures": []
+}

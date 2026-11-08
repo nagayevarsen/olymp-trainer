@@ -1,0 +1,20 @@
+{
+  "id": "gelfgat-9-33-p2",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Нагревание расширяющегося газа (9.33, б)",
+  "statement": "Нагревается или охлаждается газ, расширяющийся по закону: а) $pV^2 = \\text{const}$; б) $p = \\text{const}$; в) $p/V = \\text{const}$?\n\n**Часть б.** Ответь только на эту часть задачи.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=61"
+  },
+  "solution": "Ответ из книги: нагревается\n\nЧтобы найти связь между V и T, нужно выразить p через V и T из уравнения Клапейрона: $p=\\text{const}\\cdot T/V$. Получаем: а) $TV=\\text{const}$; б) $T/V=\\text{const}$; в) $T/V^2=\\text{const}$.",
+  "figures": []
+}

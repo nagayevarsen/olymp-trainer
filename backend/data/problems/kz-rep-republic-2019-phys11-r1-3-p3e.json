@@ -1,0 +1,31 @@
+{
+  "id": "kz-rep-republic-2019-phys11-r1-3-p3e",
+  "subject": "physics",
+  "topic": "Магнетизм, электромагнитная индукция",
+  "title": "Закон Ампера о циркуляции, пункт 3E",
+  "statement": "Теорема Ампера о циркуляции магнитного поля гласит, что суммирование произведения индукции магнитного поля $\\vec{B}$ по замкнутой кривой, разбитой на небольшие отрезки длиной $\\Delta\\vec{l}$, пропорционально суммарному току $I$, заключенному внутри контура: $\\oint \\vec{B}\\,\\Delta\\vec{l}=\\mu_0 I$.\n\n**Пункт 3E.** В некоторой области линии магнитного поля характеризуются компонентами $B_r=\\frac{a\\cos^2\\theta}{r^5}$ и $B_\\tau=\\frac{b\\sin2\\theta}{r^5}$ (нормальная и тангенциальная составляющие в полярной системе координат с полюсом в точке отсчета). Найдите соотношение $\\gamma=a/b$ для данного поля.",
+  "answer": {
+    "value": 4.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Республиканская олимпиада школьников (Казахстан)",
+    "year": 2019,
+    "stage": "republic",
+    "grade": 11,
+    "number": 3,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/national/final/2019/phys11-1-sol.pdf"
+  },
+  "solution": "Теорема Ампера для элементарного контура, стороны которого направлены вдоль $r$ и $\\theta$: $B_r(\\theta+\\Delta\\theta)-B_r(\\theta)$ связано с $\\frac{d(B_\\tau r)}{dr}$, то есть $\\frac{dB_r}{d\\theta}=\\frac{d(rB_\\tau)}{dr}$. Тогда $-\\frac{2a\\cos\\theta\\sin\\theta}{r^5}=-\\frac{4b\\sin2\\theta}{r^5}$ при $\\sin2\\theta=2\\sin\\theta\\cos\\theta$, откуда $\\gamma=a/b=4$.",
+  "figures": [
+    "kz-rep-republic-2019-phys11-r1-3-fig1.png",
+    "kz-rep-republic-2019-phys11-r1-3-fig2.png",
+    "kz-rep-republic-2019-phys11-r1-3-fig3.png",
+    "kz-rep-republic-2019-phys11-r1-3-fig4.png",
+    "kz-rep-republic-2019-phys11-r1-3-fig5.png",
+    "kz-rep-republic-2019-phys11-r1-3-fig6.png"
+  ]
+}

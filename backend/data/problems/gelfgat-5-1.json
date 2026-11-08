@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-5-1",
+  "subject": "physics",
+  "topic": "Статика",
+  "title": "Фонарь на канате (5.1)",
+  "statement": "Фонарь массой m = 10 кг висит посередине улицы шириной l = 10 м. Допустимая сила натяжения каната T = 500 Н. На какой высоте H могут быть закреплены концы каната, чтобы точка подвеса фонаря находилась на высоте h = 5 м?",
+  "answer": {
+    "value": 5.5,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
+  },
+  "solution": "Равнодействующая трёх сил в точке A равна нулю: $2T\\sin\\alpha - mg = 0$. Из условия $H_{min} - h = \\frac{l}{2}\\tg\\alpha$ и выражения для $\\tg\\alpha$ через $\\sin\\alpha$ получаем $H_{min} = h + \\frac{mgl}{2\\sqrt{4T^2-(mg)^2}}$.",
+  "figures": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-11-29",
+  "subject": "physics",
+  "topic": "Термодинамика",
+  "title": "Изобарное нагревание кислорода (11.29)",
+  "statement": "Кислород нагревают при постоянном давлении от температуры $t_1 = 0$ °C. Какое количество теплоты $Q$ необходимо сообщить газу, чтобы его объем удвоился? Количество вещества $\\nu = 1$ моль.",
+  "answer": {
+    "value": 7.9,
+    "variables": {},
+    "unit": "кДж",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=76"
+  },
+  "solution": "При изобарном процессе $T_2=2T_1$, $\\Delta T=T_1=273$ К. Тогда $Q=c_p m\\Delta T=\\frac{7}{2}\\nu R T_1\\approx 7{,}9$ кДж.",
+  "figures": []
+}

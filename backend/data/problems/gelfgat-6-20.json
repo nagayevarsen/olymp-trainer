@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-6-20",
+  "subject": "physics",
+  "topic": "Гидростатика",
+  "title": "Плотность тела по динамометру (6.20)",
+  "statement": "Однородное тело подвешено к динамометру. Показание динамометра в воздухе $P_1 = 8{,}4$ Н, а в воде $P_2 = 5$ Н. Чему равна плотность тела $\\rho$?",
+  "answer": {
+    "value": 2500.0,
+    "variables": {},
+    "unit": "кг/м³",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
+  },
+  "solution": "$\\rho = \\frac{\\rho_1}{\\rho_1 - \\rho_2}\\rho_в$.",
+  "figures": []
+}

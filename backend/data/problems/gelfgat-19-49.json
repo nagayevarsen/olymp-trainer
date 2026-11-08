@@ -1,0 +1,20 @@
+{
+  "id": "gelfgat-19-49",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Очки с оптической силой (19.49)",
+  "statement": "Человек с нормальным зрением надел очки с оптической силой $D = +3$ дптр. На каком расстоянии $d$ можно расположить предмет, чтобы человек рассматривал его без ощутимого напряжения?",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=151"
+  },
+  "solution": "Ответ из книги: 14 см < d < 33 см",
+  "figures": []
+}

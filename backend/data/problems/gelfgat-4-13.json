@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-4-13",
+  "subject": "physics",
+  "topic": "механика",
+  "title": "Подъём веревки (4.13)",
+  "statement": "Какая работа $A$ совершается при подъеме на крышу веревки длиной $l = 40$ м и массой $m = 6$ кг? Первоначально веревка свешивалась вертикально с края крыши.",
+  "answer": {
+    "value": 1.2,
+    "variables": {},
+    "unit": "кДж",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=21"
+  },
+  "solution": "Работа равна площади под графиком $F(x)$: $A=\\frac{mgl}{2}$.",
+  "figures": []
+}

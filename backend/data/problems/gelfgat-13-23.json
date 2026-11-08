@@ -1,0 +1,24 @@
+{
+  "id": "gelfgat-13-23",
+  "subject": "physics",
+  "topic": "Электричество",
+  "title": "Цепь из звеньев (13.23)",
+  "statement": "Определите сопротивление $R$ показанной на рисунке цепи, если сопротивление каждого звена $R_0$.",
+  "answer": {
+    "formula": "3*R0/2",
+    "variables": {
+      "R0": "сопротивление резистора"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=101"
+  },
+  "figures": [
+    "gelfgat-13-23-fig1.png"
+  ]
+}

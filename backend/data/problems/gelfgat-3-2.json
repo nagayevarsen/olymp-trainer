@@ -1,0 +1,21 @@
+{
+  "id": "gelfgat-3-2",
+  "subject": "physics",
+  "topic": "механика",
+  "title": "Притяжение Земли и Солнца (3.2)",
+  "statement": "Оцените, во сколько раз отличаются силы притяжения вашего тела к Земле и к Солнцу. Расстояние до Солнца считайте равным $1{,}5\\cdot10^{8}$ км.",
+  "answer": {
+    "value": 1600.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=21"
+  },
+  "figures": []
+}

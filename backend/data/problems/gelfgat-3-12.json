@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-3-12",
+  "subject": "physics",
+  "topic": "механика",
+  "title": "Плотность планеты (3.12)",
+  "statement": "На экваторе некоторой планеты тела весят втрое меньше, чем на полюсе. Период обращения этой планеты вокруг своей оси равен $T = 55$ мин. Определите среднюю плотность $\\rho$ планеты.",
+  "answer": {
+    "value": 19500.0,
+    "variables": {},
+    "unit": "кг/м³",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=21"
+  },
+  "solution": "Из $P_1=mg=GMm/R^2$ и $P_2=P_1-ma$ при $P_1=3P_2$ получаем $\\rho=\\frac{4\\pi^2 \\cdot 3R}{...}$, численно $\\rho=\\frac{9\\pi}{2GT^2}=19{,}5\\cdot10^3$ кг/м³.",
+  "figures": []
+}

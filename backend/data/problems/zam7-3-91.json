@@ -1,0 +1,23 @@
+{
+  "id": "zam7-3-91",
+  "subject": "physics",
+  "topic": "Плотность",
+  "title": "Плотность оловянно-свинцового сплава (3.91)",
+  "statement": "Сплав состоит из олова массой 2,92 кг и свинца массой 1,13 кг. Какова плотность сплава, если считать, что объем сплава равен сумме объемов его составных частей?",
+  "answer": {
+    "value": 8.1,
+    "variables": {},
+    "unit": "г/см³",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=116"
+  },
+  "figures": []
+}

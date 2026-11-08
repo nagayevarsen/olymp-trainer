@@ -28,6 +28,7 @@ STAGE_BASE = {
     "republic": 7,
     "final": 7,
     "international": 8,
+    "collection": 5,
     "other": 5,
 }
 

@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-18-25",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Глубина озера (18.25)",
+  "statement": "В ясный солнечный день стоящий на дне озера водолаз видит в водном «зеркале» у себя над головой отражение всех участков дна, находящихся от него на расстоянии $s = 10$ м и более. Какова глубина $H$ озера? Рост водолаза $h = 1{,}7$ м.",
+  "answer": {
+    "value": 5.2,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
+  },
+  "solution": "Из условия $\\sin\\alpha_0 = 1/n$ и равенства $AD = AE + DE$ получаем $s = (2H-h)\\sin\\alpha_0/\\sqrt{1-\\sin^2\\alpha_0}$ при $h\\ll H$, откуда $H = 5{,}2$ м.",
+  "figures": []
+}

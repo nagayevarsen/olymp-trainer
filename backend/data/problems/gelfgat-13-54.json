@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-13-54",
+  "subject": "physics",
+  "topic": "Электричество",
+  "title": "ЭДС аккумулятора (13.54)",
+  "statement": "В цепи (см. рисунок) гальванометр показывает отсутствие тока. Эталонный элемент имеет ЭДС $\\mathcal{E}_0 = 1{,}5$ В, внутреннее сопротивление $r_0 = 1{,}5$ Ом. Сопротивления резисторов: $R_1 = 4$ Ом; $R_2 = 4{,}5$ Ом. Определите ЭДС $\\mathcal{E}$ аккумулятора.",
+  "answer": {
+    "value": 0.6,
+    "variables": {},
+    "unit": "В",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=106"
+  },
+  "solution": "Напряжение на резисторе $R_1$ равно ЭДС $\\mathcal{E}$ аккумулятора (компенсационный метод). Сила тока в цепи $I=\\frac{\\mathcal{E}_0}{r_0+R_1+R_2}$, поэтому $\\mathcal{E}=IR_1=\\mathcal{E}_0\\frac{R_1}{r_0+R_1+R_2}=0{,}60$ В.",
+  "figures": [
+    "gelfgat-13-54-fig1.png"
+  ]
+}

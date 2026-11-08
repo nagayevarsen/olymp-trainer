@@ -1,0 +1,24 @@
+{
+  "id": "zam7-3-35",
+  "subject": "physics",
+  "topic": "Плотность",
+  "title": "Масса куба с вырезом (3.35)",
+  "statement": "Чему равна масса кубика плотностью $\\rho$ и с ребром $a$, из которого вырезали кубик с ребром $a/4$?",
+  "answer": {
+    "formula": "63*rho*a**3/64",
+    "variables": {
+      "rho": "плотность",
+      "a": "размер"
+    },
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Замятнин М. Ю. (ред.). Сборник задач по физике. 7 класс",
+    "stage": "collection",
+    "grade": 7,
+    "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=101"
+  },
+  "figures": []
+}

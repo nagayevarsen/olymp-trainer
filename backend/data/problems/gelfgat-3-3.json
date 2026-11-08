@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-3-3",
+  "subject": "physics",
+  "topic": "механика",
+  "title": "Рычажные весы (3.3)",
+  "statement": "К равноплечим рычажным весам подвешивают груз и гири с помощью невесомых нитей различной длины (см. рисунок). Оцените, при какой разнице $h$ длин нитей весы будут давать погрешность $\\Delta m = 0{,}01$ г при взвешивании груза массой $m = 10$ кг. Радиус Земли $R = 6400$ км. Вращение Земли не учитывать.",
+  "answer": {
+    "value": 3.2,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=21"
+  },
+  "solution": "Условие равновесия весов: $G\\frac{Mm}{R^2} = G\\frac{M(m+\\Delta m)}{(R+h)^2}$. При $h \\ll R$ получаем $\\Delta m = \\frac{2hm}{R}$, откуда $h = \\frac{R\\,\\Delta m}{2m}$.",
+  "figures": [
+    "gelfgat-3-3-fig1.png"
+  ]
+}

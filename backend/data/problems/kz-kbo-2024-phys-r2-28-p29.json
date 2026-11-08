@@ -1,0 +1,23 @@
+{
+  "id": "kz-kbo-2024-phys-r2-28-p29",
+  "subject": "physics",
+  "topic": "Анализ размерностей, кратеры",
+  "title": "Степень кинетической энергии, пункт 29",
+  "statement": "Диаметр кратера d зависит от кинетической энергии метеорита E, плотности породы ρ и напряжённости поля g: $d = kE^{\\alpha}\\rho^{\\beta}g^{\\gamma}$, где k — числовая константа, k ≈ 1.\n\n**Пункт 29.** Найдите степень β плотности.",
+  "answer": {
+    "value": -0.25,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
+  },
+  "source": {
+    "olympiad": "Қазақстан Білім Олимпиадасы (КБО)",
+    "year": 2024,
+    "stage": "other",
+    "number": 28,
+    "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
+  },
+  "solution": "Официальное решение в файле не приведено; в ключе ответ — вариант C (−1/4).",
+  "figures": []
+}

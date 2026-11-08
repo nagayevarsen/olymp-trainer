@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-5-45",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Медь и алюминий (5.45)",
+  "statement": "Одна треть цилиндрического стержня изготовлена из меди, а две трети — из алюминия (см. рисунок). В какой из частей стержня расположен его центр тяжести?",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=36"
+  },
+  "solution": "Ответ из книги: в алюминиевой части",
+  "figures": [
+    "gelfgat-5-45-fig1.png"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-10-28",
+  "subject": "physics",
+  "topic": "Молекулярная физика",
+  "title": "Вода в решете (10.28)",
+  "statement": "Действительно ли нельзя носить воду в решете? Пусть тонкие нити решета протянуты на расстоянии $d = 1{,}0$ мм друг от друга. Сколько воды можно унести в таком круглом решете радиуса $r = 10$ см?",
+  "answer": {
+    "value": 1.0,
+    "variables": {},
+    "unit": "л",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.07200000000000006
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=71"
+  },
+  "solution": "Высота подъёма $h = 4\\sigma/(\\rho g d) = 3$ см; масса воды $m = \\pi r^2 h \\rho = 4\\pi\\sigma r^2/(gd) \\approx 0{,}94$ кг, то есть около 1 л.",
+  "figures": []
+}

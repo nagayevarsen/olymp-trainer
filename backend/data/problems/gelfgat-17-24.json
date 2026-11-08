@@ -1,0 +1,25 @@
+{
+  "id": "gelfgat-17-24",
+  "subject": "physics",
+  "topic": "Переменный ток",
+  "title": "Показания вольтметров (17.24)",
+  "statement": "В цепи переменного тока (см. рисунок) показания первого и второго вольтметров $U_1 = 12$ В и $U_2 = 9$ В. Каково показание $U_3$ третьего вольтметра?",
+  "answer": {
+    "value": 15.0,
+    "variables": {},
+    "unit": "В",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=131"
+  },
+  "solution": "Напряжения на участках сдвинуты по фазе, поэтому U3 ≠ U1 + U2. U3 = sqrt(U1^2 + U2^2) = 15 В.",
+  "figures": [
+    "gelfgat-17-24-fig1.png"
+  ]
+}

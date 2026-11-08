@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-18-18",
+  "subject": "physics",
+  "topic": "Оптика",
+  "title": "Перпендикулярные лучи (18.18)",
+  "statement": "Луч света идет из стекла в воду и преломляется на плоской границе стекло-вода. При каком угле падения $\\alpha$ отраженный и преломленный лучи перпендикулярны друг другу?",
+  "answer": {
+    "value": 40.0,
+    "variables": {},
+    "unit": "°",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=136"
+  },
+  "solution": "Из закона преломления sin α / sin β = n и равенства α + β = 90° следует tg α = n, откуда α = arctg n = 40°.",
+  "figures": []
+}

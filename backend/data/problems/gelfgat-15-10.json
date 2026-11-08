@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-15-10",
+  "subject": "physics",
+  "topic": "Магнитное поле",
+  "title": "Проводник на проволочках (15.10)",
+  "statement": "В вертикальном однородном магнитном поле с индукцией $B = 0{,}50$ Тл подвешен на двух тонких проволочках горизонтальный проводник массой $m = 30$ г и длиной $l = 49$ см. По проводнику пропускают ток силой $I = 1{,}2$ А. На какой угол $\\alpha$ от вертикали отклонятся проволочки?",
+  "answer": {
+    "value": 45.0,
+    "variables": {},
+    "unit": "°",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=116"
+  },
+  "solution": "Из условия равновесия $\\tan\\alpha = F_A/(mg) = IBl/(mg)$, откуда $\\alpha = \\operatorname{arctg}(IBl/(mg))$.",
+  "figures": []
+}

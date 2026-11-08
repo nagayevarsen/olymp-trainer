@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-4-27",
+  "subject": "physics",
+  "topic": "Механика",
+  "title": "Санки с горы (4.27)",
+  "statement": "Санки съезжают с горы, длина основания которой $a = 5$ м, а высота $H = 2$ м. После этого они проезжают до остановки еще $s = 35$ м по горизонтальной площадке. Определите коэффициент трения $\\mu$, считая его одинаковым на всем пути. Переход склона горы в горизонтальную поверхность считайте достаточно плавным.",
+  "answer": {
+    "value": 0.05,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=26"
+  },
+  "solution": "Из $mgH=\\mu mg\\cos\\alpha\\cdot L+\\mu mg\\cdot s$ и $L\\cos\\alpha=a$ получаем $mgH=\\mu mg(a+s)$, откуда $\\mu=\\frac{H}{a+s}$ и $\\mu=0{,}05$.",
+  "figures": []
+}

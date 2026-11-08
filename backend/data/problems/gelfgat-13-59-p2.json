@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-13-59-p2",
+  "subject": "physics",
+  "topic": "Электричество",
+  "title": "Напряжения на конденсаторах (13.59, U2)",
+  "statement": "Определите напряжения $U_1$, $U_2$, $U_3$ на каждом из конденсаторов (см. рисунок).\n\n**Часть U2.** Ответь только на эту часть задачи.",
+  "answer": {
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=106"
+  },
+  "solution": "Ответ из книги: равно ℰ\n\nСм. решение задачи 13.58.",
+  "figures": [
+    "gelfgat-13-59-p2-fig1.png"
+  ]
+}

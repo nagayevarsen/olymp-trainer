@@ -1,0 +1,22 @@
+{
+  "id": "gelfgat-1-26-p1",
+  "subject": "physics",
+  "topic": "Кинематика",
+  "title": "Половина пути при падении (1.26, H)",
+  "statement": "В последнюю секунду свободного падения тело прошло половину своего пути. С какой высоты $H$ и какое время $t$ падало тело?\n\n**Часть H.** Ответь только на эту часть задачи.",
+  "answer": {
+    "value": 57.0,
+    "variables": {},
+    "unit": "м",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=6"
+  },
+  "figures": []
+}

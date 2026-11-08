@@ -1,0 +1,23 @@
+{
+  "id": "gelfgat-11-8",
+  "subject": "physics",
+  "topic": "Термодинамика",
+  "title": "Нагрев смеси паром (11.8)",
+  "statement": "Смесь, состоящую из $m_л = 5{,}0$ кг льда и $m_в = 15$ кг воды при общей температуре $t_1 = 0$ °C, нужно нагреть до температуры $\\Theta = 80$ °C, пропуская водяной пар с температурой $t_2 = 100$ °C. Определите необходимую массу пара $m_п$.",
+  "answer": {
+    "value": 3.5,
+    "variables": {},
+    "unit": "кг",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
+    "rel_tol": 0.05
+  },
+  "source": {
+    "olympiad": "Гельфгат И. М., Генденштейн Л. Э., Кирик Л. А. 1001 задача по физике",
+    "stage": "collection",
+    "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=76"
+  },
+  "solution": "Уравнение теплового баланса $Q_л+Q_в+Q_п=0$ с $Q_л=m_л\\lambda+m_л c(\\Theta-t_1)$, $Q_в=m_в c(\\Theta-t_2)$, $Q_п=-m_п L+m_п c(\\Theta-t_п)$ даёт $m_п=3{,}5$ кг.",
+  "figures": []
+}
