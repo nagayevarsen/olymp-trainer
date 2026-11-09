@@ -47,7 +47,7 @@ class SolutionItem(BaseModel):
 
 
 class GradeRequest(BaseModel):
-    items: list[SolutionItem] = Field(max_length=15)
+    items: list[SolutionItem] = Field(max_length=25)  # варианты без официального времени бывают до 20 задач
 
 
 @router.post("/api/olympiad/grade")

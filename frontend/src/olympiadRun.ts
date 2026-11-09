@@ -45,7 +45,9 @@ export function onRunChange(f: () => void): () => void {
   return () => listeners.delete(f)
 }
 
+/** durationMin = 0 — тур без официального времени: таймера нет, ученик сдаёт сам. */
 export function msLeft(run: OlympiadRun, now = Date.now()): number {
+  if (!run.durationMin) return Infinity
   return Math.max(0, run.start + run.durationMin * 60_000 - now)
 }
 

@@ -76,7 +76,8 @@ function Picker() {
       const all = await api.contests(query)
       // Пробная олимпиада — только там, где известно официальное время тура (не угадываем).
       // и только если в банке все задачи официального варианта: число задач должно быть как на настоящей олимпиаде.
-      const rows = all.filter((r) => r.duration_min && r.complete !== false)
+      // С официальным временем — только полные варианты; без времени (например, городские этапы) — без таймера.
+      const rows = all.filter((r) => !r.duration_min || r.complete !== false)
       const byGrade = grade ? rows.filter((r) => r.grade === grade) : rows
       // Если нужного класса нет — оставляем все классы, фильтр «Класс» ниже покажет, какие есть.
       const list = byGrade.length ? byGrade : rows
@@ -269,7 +270,11 @@ function Picker() {
             </div>
           )}
           <div className="rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700">
-            <div className="font-semibold">{t('Время: {h} — как на настоящей олимпиаде', { h: hours(chosen.duration_min ?? 0) })}</div>
+            <div className="font-semibold">
+              {chosen.duration_min
+                ? t('Время: {h} — как на настоящей олимпиаде', { h: hours(chosen.duration_min) })
+                : t('Время тура в документах не указано, поэтому без таймера: сдаёшь, когда закончишь.')}
+            </div>
             {chosen.duration_source && (
               <div className="mt-1 text-xs text-slate-500">
                 {t('Источник:')}{' '}
@@ -368,7 +373,7 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
       <div className="card flex flex-wrap items-center gap-3 p-4">
         <div className="min-w-0 flex-1">
           <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-            {run.grades ? t('Итоги') : over ? t('Время вышло') : t('Идёт олимпиада')}
+            {run.grades ? t('Итоги') : over ? (run.durationMin ? t('Время вышло') : t('Сдано')) : t('Идёт олимпиада')}
           </div>
           <h2 className="truncate text-lg font-bold">{run.title}</h2>
         </div>
@@ -380,7 +385,7 @@ function RunView({ run, onFinishDiscuss }: { run: OlympiadRun; onFinishDiscuss: 
           <div
             className={`rounded-xl px-4 py-2 font-mono text-2xl font-bold ${over ? 'bg-slate-100 dark:bg-slate-800' : 'bg-brand-600 text-white'}`}
           >
-            {over ? '0:00:00' : formatLeft(left)}
+            {over ? '0:00:00' : run.durationMin ? formatLeft(left) : formatLeft(now - run.start)}
           </div>
         )}
       </div>
