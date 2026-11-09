@@ -3,11 +3,13 @@
   "subject": "math",
   "topic": "Комбинаторика",
   "title": "Группы городов и рейсы",
-  "statement": "The country Dreamland consists of 2016 cities. The airline Starways wants to establish some one-way flights between pairs of cities in such a way that each city has exactly one flight out of it. Find the smallest positive integer $k$ such that no matter how Starways establishes its flights, the cities can always be partitioned into $k$ groups so that from any city it is not possible to reach another city in the same group by using at most 28 flights.",
+  "statement": "Страна Dreamland состоит из 2016 городов. Авиакомпания Starways хочет установить некоторые односторонние рейсы между парами городов так, чтобы из каждого города был ровно один рейс. Найдите наименьшее натуральное число $k$ такое, что независимо от того, как Starways установит свои рейсы, города всегда можно разбить на $k$ групп так, чтобы из любого города нельзя было добраться до другого города той же группы, используя не более 28 рейсов.",
   "answer": {
     "value": 57.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
@@ -15,5 +17,6 @@
     "stage": "international",
     "number": 4,
     "url": "https://www.apmo-official.org/static/solutions/apmo2016_sol.pdf"
-  }
+  },
+  "figures": []
 }

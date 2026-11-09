@@ -3,11 +3,13 @@
   "subject": "math",
   "topic": "Теория чисел",
   "title": "Наибольшее делящееся число",
-  "statement": "Determine the largest of all integers $n$ with the property that $n$ is divisible by all positive integers that are less than $\\sqrt{n}$.",
+  "statement": "Определите наибольшее из всех целых чисел $n$, обладающих тем свойством, что $n$ делится на все натуральные числа, меньшие $\\sqrt{n}$.",
   "answer": {
     "value": 420.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
@@ -15,5 +17,6 @@
     "stage": "international",
     "number": 5,
     "url": "https://www.apmo-official.org/static/solutions/apmo1998_sol.pdf"
-  }
+  },
+  "figures": []
 }

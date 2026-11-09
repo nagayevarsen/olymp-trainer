@@ -3,11 +3,13 @@
   "subject": "math",
   "topic": "Комбинаторика",
   "title": "Максимум клоунов с наборами цветов",
-  "statement": "In a circus, there are $n$ clowns who dress and paint themselves up using a selection of 12 distinct colours. Each clown is required to use at least five different colours. One day, the ringmaster of the circus orders that no two clowns have exactly the same set of colours and no more than 20 clowns may use any one particular colour. Find the largest number $n$ of clowns so as to make the ringmaster's order possible.",
+  "statement": "В цирке работают $n$ клоунов, которые одеваются и раскрашиваются, используя набор из 12 различных цветов. Каждый клоун должен использовать не менее пяти различных цветов. Однажды директор цирка распорядился, чтобы никакие два клоуна не имели в точности одинакового набора цветов и чтобы любым конкретным цветом пользовались не более чем 20 клоунов. Найдите наибольшее число $n$ клоунов, при котором распоряжение директора выполнимо.",
   "answer": {
     "value": 48.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
@@ -15,5 +17,6 @@
     "stage": "international",
     "number": 5,
     "url": "https://www.apmo-official.org/static/solutions/apmo2006_sol.pdf"
-  }
+  },
+  "figures": []
 }

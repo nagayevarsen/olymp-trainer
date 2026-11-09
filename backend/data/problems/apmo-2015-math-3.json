@@ -3,11 +3,13 @@
   "subject": "math",
   "topic": "Последовательности",
   "title": "Хорошие последовательности",
-  "statement": "A sequence of real numbers $a_0, a_1, \\ldots$ is said to be good if the following three conditions hold.\n(i) The value of $a_0$ is a positive integer.\n(ii) For each non-negative integer $i$ we have $a_{i+1} = 2a_i + 1$ or $a_{i+1} = \\dfrac{a_i}{a_i + 2}$.\n(iii) There exists a positive integer $k$ such that $a_k = 2014$.\nFind the smallest positive integer $n$ such that there exists a good sequence $a_0, a_1, \\ldots$ of real numbers with the property that $a_n = 2014$.",
+  "statement": "Последовательность действительных чисел $a_0, a_1, \\ldots$ называется хорошей, если выполняются следующие три условия.\n(i) Значение $a_0$ является положительным целым числом.\n(ii) Для каждого неотрицательного целого $i$ выполняется $a_{i+1} = 2a_i + 1$ или $a_{i+1} = \\dfrac{a_i}{a_i + 2}$.\n(iii) Существует положительное целое $k$ такое, что $a_k = 2014$.\nНайдите наименьшее положительное целое $n$, для которого существует хорошая последовательность $a_0, a_1, \\ldots$ действительных чисел, обладающая свойством $a_n = 2014$.",
   "answer": {
     "value": 60.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
@@ -15,5 +17,6 @@
     "stage": "international",
     "number": 3,
     "url": "https://www.apmo-official.org/static/solutions/apmo2015_sol.pdf"
-  }
+  },
+  "figures": []
 }

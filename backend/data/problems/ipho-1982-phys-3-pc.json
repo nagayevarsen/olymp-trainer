@@ -3,12 +3,14 @@
   "subject": "physics",
   "topic": "Термодинамика",
   "title": "Воздушный шар, пункт c",
-  "statement": "Consider a hot-air balloon with fixed volume $V_B = 1.1$ m³. The mass of the balloon-envelope, whose volume is to be neglected in comparison to $V_B$, is $m_H = 0.187$ kg. The balloon shall be started, where the external air temperature is $\\vartheta_1 = 20$ °C and the normal external air pressure is $p_0 = 1.013 \\cdot 10^5$ Pa. Under these conditions the density of air is $\\rho_1 = 1.2$ kg/m³.\n\n**Пункт c.** Consider the balloon being tied up at the bottom (the density of the internal air stays constant). With a steady-state temperature $\\vartheta_3 = 110$ °C of the internal air the balloon rises in an isothermal atmosphere of 20 °C and a ground pressure of $p_0 = 1.013 \\cdot 10^5$ Pa. Which height h can be gained by the balloon under these conditions?",
+  "statement": "Рассмотрим воздушный шар с постоянным объёмом $V_B = 1.1$ м³. Масса оболочки шара, объёмом которой по сравнению с $V_B$ можно пренебречь, равна $m_H = 0.187$ кг. Шар запускается при температуре внешнего воздуха $\\vartheta_1 = 20$ °C и нормальном внешнем давлении $p_0 = 1.013 \\cdot 10^5$ Па. При этих условиях плотность воздуха равна $\\rho_1 = 1.2$ кг/м³.\n\n**Пункт c.** Рассмотрим шар, привязанный у земли (плотность внутреннего воздуха остаётся постоянной). При установившейся температуре внутреннего воздуха $\\vartheta_3 = 110$ °C шар поднимается в изотермической атмосфере с температурой 20 °C и приземным давлением $p_0 = 1.013 \\cdot 10^5$ Па. Какую высоту h может набрать шар в этих условиях?",
   "answer": {
     "value": 843.0,
+    "variables": {},
     "unit": "м",
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная физическая олимпиада (IPhO)",
@@ -16,5 +18,6 @@
     "stage": "international",
     "number": 3,
     "url": "https://www.ipho-new.org/download/479/#member=1982/13th_IPhO_1982.pdf"
-  }
+  },
+  "figures": []
 }

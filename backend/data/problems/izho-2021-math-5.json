@@ -3,9 +3,13 @@
   "subject": "math",
   "topic": "Игры",
   "title": "Игра с гостями",
-  "statement": "On a party with 99 guests, hosts Ann and Bob play a game (the hosts are not regarded as guests). There are 99 chairs arranged in a circle; initially, all guests hang around those chairs. The hosts take turns alternately. By a turn, a host orders any standing guest to sit on an unoccupied chair $c$. If some chair adjacent to $c$ is already occupied, the same host orders one guest on such chair to stand up (if both chairs adjacent to $c$ are occupied, the host chooses exactly one of them). All orders are carried out immediately. Ann makes the first move; her goal is to fulfill, after some move of hers, that at least $k$ chairs are occupied. Determine the largest $k$ for which Ann can reach the goal, regardless of Bob's play.",
+  "statement": "На вечеринке с 99 гостями ведущие Энн и Боб играют в игру (ведущие не считаются гостями). Есть 99 стульев, расставленных по кругу; сначала все гости стоят вокруг этих стульев. Ведущие ходят по очереди. За ход ведущий приказывает любому стоящему гостю сесть на незанятый стул $c$. Если какой-либо стул, соседний с $c$, уже занят, тот же ведущий приказывает одному из гостей, сидящих на таком стуле, встать (если оба стула, соседних с $c$, заняты, ведущий выбирает ровно один из них). Все приказы выполняются немедленно. Энн делает первый ход; её цель — добиться, чтобы после некоторого её хода было занято не менее $k$ стульев. Определите наибольшее $k$, при котором Энн может достичь цели независимо от игры Боба.",
   "answer": {
-    "value": 34.0
+    "value": 34.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -13,5 +17,6 @@
     "stage": "international",
     "number": 5,
     "url": "https://izho.kz/wp-content/uploads/2021/01/Solutions-IZHO-2021.pdf"
-  }
+  },
+  "figures": []
 }

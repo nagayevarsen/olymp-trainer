@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { api, type Me } from '../api'
+import { api, type Me, type TopicStat } from '../api'
 import { SUBJECT_NAMES, pluralPoints } from '../lib/text'
 import { clearUser, getTrack, getUser, saveUser } from '../user'
 import { ThemeSwitch } from '../components/ThemeSwitch'
@@ -80,33 +80,53 @@ export function ProfilePage({ onLogout }: { onLogout: () => void }) {
 
       <section className="grid gap-6 md:grid-cols-2">
         {bySubject.map(({ subject, topics }) => (
-          <div key={subject} className="card p-6">
-            <h2 className="mb-4 text-lg font-bold">{t('Карта навыков:')} {SUBJECT_NAMES[subject]}</h2>
-            <ul className="space-y-4">
-              {topics.map((tp) => {
-                const pct = tp.mastery ?? 0
-                const weak = me.weak_topics.includes(tp.topic)
-                return (
-                  <li key={tp.topic}>
-                    <div className="mb-1 flex justify-between text-sm">
-                      <span className="font-semibold">{t(tp.topic)}</span>
-                      <span className="text-slate-500">
-                        {tp.mastery === null ? t('не начато') : `${tp.mastery}%`} · {t('решено {a} из {b}', { a: tp.solved, b: tp.total })}
-                      </span>
-                    </div>
-                    <div className="h-2.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
-                      <div
-                        className={`h-full rounded-full transition-all ${weak ? 'bg-amber-500' : 'bg-brand-500'}`}
-                        style={{ width: `${pct}%` }}
-                      />
-                    </div>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
+          <SkillMap key={subject} subject={subject} topics={topics} weak={me.weak_topics} />
         ))}
       </section>
+    </div>
+  )
+}
+
+function SkillMap({ subject, topics, weak }: { subject: string; topics: TopicStat[]; weak: string[] }) {
+  const [open, setOpen] = useState(false) // список длинный (все темы банка): по умолчанию свёрнут
+  return (
+    <div className="card p-6">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className="flex w-full items-center justify-between text-left"
+      >
+        <h2 className="text-lg font-bold">
+          {t('Карта навыков:')} {SUBJECT_NAMES[subject]}
+        </h2>
+        <span className={`text-sm text-slate-500 transition-transform ${open ? 'rotate-180' : ''}`} aria-hidden>
+          ▾
+        </span>
+      </button>
+      {open && (
+        <ul className="mt-4 space-y-4">
+          {topics.map((tp) => {
+            const pct = tp.mastery ?? 0
+            const isWeak = weak.includes(tp.topic)
+            return (
+              <li key={tp.topic}>
+                <div className="mb-1 flex justify-between text-sm">
+                  <span className="font-semibold">{t(tp.topic)}</span>
+                  <span className="text-slate-500">
+                    {tp.mastery === null ? t('не начато') : `${tp.mastery}%`} · {t('решено {a} из {b}', { a: tp.solved, b: tp.total })}
+                  </span>
+                </div>
+                <div className="h-2.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+                  <div
+                    className={`h-full rounded-full transition-all ${isWeak ? 'bg-amber-500' : 'bg-brand-500'}`}
+                    style={{ width: `${pct}%` }}
+                  />
+                </div>
+              </li>
+            )
+          })}
+        </ul>
+      )}
     </div>
   )
 }

@@ -3,11 +3,13 @@
   "subject": "math",
   "topic": "Теория чисел",
   "title": "Уравнение с σ(n) и p(n)",
-  "statement": "Find all integers $n$ satisfying $n \\geq 2$ and $\\frac{\\sigma(n)}{p(n)-1} = n$, in which $\\sigma(n)$ denotes the sum of all positive divisors of $n$, and $p(n)$ denotes the largest prime divisor of $n$.",
+  "statement": "Найдите все целые $n$, удовлетворяющие условию $n \\geq 2$ и $\\frac{\\sigma(n)}{p(n)-1} = n$, где $\\sigma(n)$ обозначает сумму всех положительных делителей числа $n$, а $p(n)$ обозначает наибольший простой делитель числа $n$.",
   "answer": {
     "value": 6.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
@@ -15,5 +17,6 @@
     "stage": "international",
     "number": 2,
     "url": "https://www.apmo-official.org/static/solutions/apmo2023_sol.pdf"
-  }
+  },
+  "figures": []
 }

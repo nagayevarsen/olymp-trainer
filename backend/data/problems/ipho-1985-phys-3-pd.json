@@ -3,11 +3,13 @@
   "subject": "physics",
   "topic": "Небесная механика",
   "title": "Запуск зонда из Солнечной системы, пункт d",
-  "statement": "In a space research project two schemes of launching a space probe out of the Solar system are discussed. The first scheme (i) is to launch the probe with a velocity large enough to escape from the Solar system directly. According to the second one (ii), the probe is to approach one of the outer planets, and with its help change its direction of motion and reach the velocity necessary to escape from the Solar system. Assume that the probe moves under the gravitational field of only the Sun or the planet, depending on whichever field is stronger at that point.\n\nHint: From the result a) you know the optimal magnitude and the direction of the velocity of the probe that is necessary to escape from the Solar system after leaving the gravitational field of Mars. (You do not have to worry about the precise position of Mars during the encounter.) Find the relation between this velocity and the velocity components before the probe enters the gravitational field of Mars; i.e. the components you determined in b). What about the conservation of energy of the probe?\n\nNotes: Assume that all the planets revolve round the Sun in circles, in the same direction and in the same plane. Neglect the air resistance, the rotation of the Earth around its axis as well as the energy used in escaping from the Earth's gravitational field.\n\nData: Velocity of the Earth round the Sun is 30 km/s, and the ratio of the distances of the Earth and Mars from the Sun is 2/3.\n\n**Пункт d.** Estimate the maximum possible fractional saving of energy in scheme (ii) with respect to scheme (i). (Data: v'_a = 12.3 km/s, v'_b = 5.5 km/s.)",
+  "statement": "В космическом исследовательском проекте обсуждаются две схемы запуска космического зонда за пределы Солнечной системы. Первая схема (i) состоит в том, чтобы запустить зонд со скоростью, достаточной для того, чтобы напрямую вылететь из Солнечной системы. Согласно второй схеме (ii), зонд должен приблизиться к одной из внешних планет и с её помощью изменить направление своего движения и достичь скорости, необходимой для выхода из Солнечной системы. Считайте, что зонд движется только в гравитационном поле Солнца или планеты, в зависимости от того, какое поле сильнее в данной точке.\n\nПодсказка: Из результата а) вы знаете оптимальные величину и направление скорости зонда, необходимые для выхода из Солнечной системы после того, как он покинет гравитационное поле Марса. (Точное положение Марса во время сближения учитывать не нужно.) Найдите связь между этой скоростью и компонентами скорости до того, как зонд войдёт в гравитационное поле Марса, то есть компонентами, которые вы определили в б). Что можно сказать о сохранении энергии зонда?\n\nПримечания: Считайте, что все планеты обращаются вокруг Солнца по окружностям, в одном направлении и в одной плоскости. Пренебрегите сопротивлением воздуха, вращением Земли вокруг собственной оси, а также энергией, затрачиваемой на выход из гравитационного поля Земли.\n\nДанные: скорость Земли вокруг Солнца равна 30 км/с, отношение расстояний Земли и Марса от Солнца равно 2/3.\n\n**Пункт d.** Оцените максимально возможную относительную экономию энергии в схеме (ii) по сравнению со схемой (i). (Данные: v'_a = 12.3 км/с, v'_b = 5.5 км/с.)",
   "answer": {
     "value": 0.8,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная физическая олимпиада (IPhO)",
@@ -15,5 +17,6 @@
     "stage": "international",
     "number": 3,
     "url": "https://www.ipho-new.org/download/488/#member=1985/16th_IPhO_1985.pdf"
-  }
+  },
+  "figures": []
 }

@@ -196,9 +196,12 @@ def _search_bank(user: dict, db: DB, **kw) -> list[dict]:
     def points(p):
         return problem_points(p, stats)
 
-    found = contests.search_problems(load_bank(), points, solved, grade=user["grade"], **kw)
+    grade = (
+        kw.pop("grade", None) or user["grade"]
+    )  # класс, который назвал ученик в чате, важнее класса из профиля
+    found = contests.search_problems(load_bank(), points, solved, grade=grade, **kw)
     if not found and kw.get("query") and (kw.get("min_points") or kw.get("max_points")):
         # Названная олимпиада важнее уровня: берём её самые лёгкие задачи.
         kw = {k: v for k, v in kw.items() if k not in ("min_points", "max_points")}
-        found = contests.search_problems(load_bank(), points, solved, grade=user["grade"], **kw)
+        found = contests.search_problems(load_bank(), points, solved, grade=grade, **kw)
     return found

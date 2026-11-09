@@ -554,3 +554,17 @@ def test_avatar_saved_on_server_and_validated(client):
         == 422
     )
     assert client.get("/api/me/avatar").status_code == 401  # без входа — нельзя
+
+
+def test_grade_named_in_chat_overrides_profile_grade(client):
+    from app.db import DB
+    from app.routes.assistant import _search_bank
+
+    db = DB(":memory:")
+    uid = db.create_user("Т", 11)
+    user = {"id": uid, "grade": 11}
+    found = _search_bank(user, db, query="смагулова", grade=7)
+    from app.bank import get_problem
+
+    grades = {get_problem(f["id"]).source.grade for f in found}
+    assert found and grades <= {6, 7, 8}  # класс из запроса ±1, а не 10–12 из профиля

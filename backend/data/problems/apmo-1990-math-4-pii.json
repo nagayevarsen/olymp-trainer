@@ -3,11 +3,13 @@
   "subject": "math",
   "topic": "Комбинаторика",
   "title": "Разбиение на группы знакомых, пункт ii",
-  "statement": "A set of 1990 persons is divided into non-intersecting subsets in such a way that (a) no one in a subset knows all the others in the subset; (b) among any three persons in a subset, there are always at least two who do not know each other; and (c) for any two persons in a subset who do not know each other, there is exactly one person in the same subset knowing both of them. Note: it is understood that if a person $A$ knows person $B$, then person $B$ will know person $A$; an acquaintance is someone who is known. Every person is assumed to know one's self.\n\n**Пункт ii.** Determine the maximum possible number of subsets (the set of 1990 persons is divided as described above).",
+  "statement": "Множество из 1990 человек разбито на непересекающиеся подмножества так, что (a) никто в подмножестве не знает всех остальных в этом подмножестве; (b) среди любых трёх человек из одного подмножества всегда найдутся хотя бы два, которые не знакомы друг с другом; и (c) для любых двух человек из одного подмножества, которые не знакомы друг с другом, существует ровно один человек из того же подмножества, знающий обоих. Примечание: предполагается, что если человек $A$ знает человека $B$, то человек $B$ знает человека $A$; знакомый — это тот, кого знают. Предполагается, что каждый человек знает самого себя.\n\n**Пункт ii.** Определите наибольшее возможное число подмножеств (множество из 1990 человек разбивается описанным выше образом).",
   "answer": {
     "value": 398.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
@@ -15,5 +17,6 @@
     "stage": "international",
     "number": 4,
     "url": "https://www.apmo-official.org/static/solutions/apmo1990_sol.pdf"
-  }
+  },
+  "figures": []
 }
