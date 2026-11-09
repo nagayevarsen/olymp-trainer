@@ -100,12 +100,20 @@ export function ChatPage() {
     const run = getRun()
     const apiMode = chatMode === 'olympiad' && run && !run.finished && msLeft(run) > 0 ? 'olympiad' : 'training'
     try {
+      // Помощник должен видеть тот же вариант задачи, что и ученик (страница задачи запомнила его).
+      let seed: number | null = null
+      try {
+        seed = (problemId && Number(localStorage.getItem('olymp-analogue:' + problemId))) || null
+      } catch {
+        /* без localStorage помощник увидит исходное условие */
+      }
       // В модель уходит только текст переписки, без карточек.
       const r = await api.chat(
         next.map(({ role, content }) => ({ role, content })),
         problemId,
         apiMode,
         sending.map((f) => ({ data: f.data })),
+        seed,
       )
       if (sending.length) setFiles([])
       const withReply: ChatTurn[] = [...next, { role: 'assistant', content: r.reply, cards: r.cards }]

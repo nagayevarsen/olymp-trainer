@@ -24,5 +24,46 @@
     "number": 1,
     "url": "https://matol.kz/olympiads/488"
   },
+  "template": {
+    "text": "Предприниматель покупает один товар по оптовой цене, равной {c} тенге. Для продажи этих товаров он сделал следующий маркетинговый ход: «Товар стоит $X$ тенге, но сегодня Вы сможете купить его со скидкой {d}%». Известно, после этого объявления он продал весь товар за день. Чему равно $X$, если он с каждого товара получил прибыль ровно {p} тенге?",
+    "params": {
+      "c": {
+        "min": 10.0,
+        "max": 500.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 5.0,
+        "max": 90.0,
+        "step": 5.0
+      },
+      "p": {
+        "min": 1.0,
+        "max": 500.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "c": 99.0,
+      "d": 70.0,
+      "p": 99.0
+    },
+    "solver": "def solve(c, d, p):\n    # Цена продажи со скидкой: X*(1 - d/100). Прибыль: X*(1 - d/100) - c = p\n    return (c + p) / (1 - d / 100)",
+    "constraints": [
+      "d > 0",
+      "d < 100",
+      "answer > 0",
+      "answer > c"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

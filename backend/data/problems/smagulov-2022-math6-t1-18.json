@@ -24,5 +24,40 @@
     "number": 18,
     "url": "https://matol.kz/olympiads/1007"
   },
+  "template": {
+    "text": "В один ряд положили 5 коробок. В каждой коробке находится не меньше одного мячика. Два мячика будем называть «соседними», если они находятся в одной коробке или в двух соседних. Известно, что у каждого мячика есть еще {p}, либо {q} «соседних» мячиков. Сколько всего мячиков в этих 5 коробках?",
+    "params": {
+      "p": {
+        "min": 1.0,
+        "max": 8.0,
+        "step": 1.0
+      },
+      "q": {
+        "min": 3.0,
+        "max": 20.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "p": 3.0,
+      "q": 7.0
+    },
+    "solver": "def solve(p, q):\n    return p + q + 2",
+    "constraints": [
+      "p >= 1",
+      "q > p",
+      "q >= 2*p",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

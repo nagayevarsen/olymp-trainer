@@ -6,13 +6,15 @@
   "statement": "Сколькими способами множество, содержащее $12$ элементов, можно разбить на $6$ множеств, каждое из которых содержит по $2$ элемента?",
   "answer": {
     "value": 10395.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 10395",
       "решение: anthropic:claude-sonnet-5-5 → 10395",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 10395",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 10395"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,40 @@
     "grade": 9,
     "number": 5,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2013/math9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Сколькими способами множество, содержащее {n} элементов, можно разбить на {k} множеств, каждое из которых содержит по 2 элемента?",
+    "params": {
+      "n": {
+        "min": 4.0,
+        "max": 20.0,
+        "step": 2.0
+      },
+      "k": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 12.0,
+      "k": 6.0
+    },
+    "solver": "def solve(n, k):\n    return factorial(n) / (factorial(k) * pow(2, k))",
+    "constraints": [
+      "n == 2 * k",
+      "n >= 4",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

@@ -20,6 +20,47 @@
     "number": 2,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/final/2019/phys10-1-sol.pdf"
   },
+  "template": {
+    "text": "Кристаллы имеют упорядоченную структуру, что позволяет связать их макроскопические свойства, такие как плотность, с микроскопическими параметрами, такими как расстояние между отдельными атомами или ионами.\n\n**Пункт 2A.** Кристалл фторида лития имеет простейшую кубическую структуру с чередующимися ионами лития и фтора. Определите расстояние a между ближайшими ионами кристалла LiF, если плотность этого кристалла ρ = {rho} кг/м³, а молярные массы лития и фтора равны μ_Li = {mu_Li} г/моль и μ_F = {mu_F} г/моль соответственно.",
+    "params": {
+      "rho": {
+        "min": 2000.0,
+        "max": 4000.0,
+        "step": 10.0
+      },
+      "mu_Li": {
+        "min": 6.0,
+        "max": 8.0,
+        "step": 0.1
+      },
+      "mu_F": {
+        "min": 17.0,
+        "max": 21.0,
+        "step": 0.5
+      }
+    },
+    "original": {
+      "rho": 2640.0,
+      "mu_Li": 6.9,
+      "mu_F": 19.0
+    },
+    "solver": "def solve(rho, mu_Li, mu_F):\n    NA = 6.022e23\n    M = (mu_Li + mu_F) * 1e-3\n    a3 = M / (2 * NA * rho)\n    return pow(a3, 1.0 / 3.0)",
+    "constraints": [
+      "answer > 0",
+      "mu_Li > 0",
+      "mu_F > 0",
+      "rho > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "В элементарной кубической ячейке содержится $M = 4\\cdot\\frac18 m_{Li} + 4\\cdot\\frac18 m_F = \\frac{m_{Li}+m_F}{2}$. По определению $\\rho = M/a^3$, откуда $a = \\sqrt[3]{\\frac{\\mu_{Li}+\\mu_F}{2\\rho N_A}} \\approx 0.2\\cdot10^{-9}$ м.",
   "figures": [
     "kz-rep-republic-2019-phys10-r1-2-fig1.png",

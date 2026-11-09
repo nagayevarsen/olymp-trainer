@@ -6,13 +6,15 @@
   "statement": "Санжар сказал своей маме: «Если переставить цифры в моём двузначном возрасте, получится твой возраст». Мама ответила: «Завтра у меня день рождения, и после того, как он наступит, мой возраст станет ровно в два раза больше твоего возраста на тот момент». Известно, что их дни рождения не совпадают. Сколько лет Санжару?",
   "answer": {
     "value": 37.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 37",
       "решение: anthropic:claude-sonnet-5-5 → 37",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 37",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 37"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,33 @@
     "grade": 6,
     "number": 2,
     "url": "https://matol.kz/olympiads/1220"
-  }
+  },
+  "template": {
+    "text": "Санжар сказал своей маме: «Если переставить цифры в моём двузначном возрасте, получится твой возраст». Мама ответила: «Завтра у меня день рождения, и после того, как он наступит, мой возраст станет ровно в {k} раза больше твоего возраста на тот момент». Известно, что их дни рождения не совпадают. Сколько лет Санжару?",
+    "params": {
+      "k": {
+        "min": 2.0,
+        "max": 5.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "k": 2.0
+    },
+    "solver": "def solve(k):\n    cnt = 0\n    res = 0\n    for a in range(1, 10):\n        for b in range(0, 10):\n            if 10*b + a + 1 == k*(10*a + b):\n                cnt += 1\n                res = 10*a + b\n    if cnt == 1:\n        return res\n    return 0",
+    "constraints": [
+      "k >= 2",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

@@ -24,5 +24,39 @@
     "number": 14,
     "url": "https://matol.kz/olympiads/862"
   },
+  "template": {
+    "text": "Мама может прополоть одну грядку за {a} часов непрерывной работы, а вместе с дочкой за — {b} часов. За какое время справится с работой дочка, если будет полоть грядку одна? (Укажите ответ в часах.)",
+    "params": {
+      "a": {
+        "min": 3.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 2.0,
+        "max": 19.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 7.0,
+      "b": 5.0
+    },
+    "solver": "def solve(a, b):\n    return a * b / (a - b)",
+    "constraints": [
+      "a > b",
+      "b > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

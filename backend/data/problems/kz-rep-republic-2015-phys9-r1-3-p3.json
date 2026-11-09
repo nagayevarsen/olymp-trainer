@@ -20,6 +20,38 @@
     "number": 3,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/final/2015/phys9-1-sol.pdf"
   },
+  "template": {
+    "text": "В схеме используются одинаковые вольтметры с сопротивлением $R = 1{,}00$ кОм и черный ящик (ЧЯ), вольтамперная характеристика которого задана уравнением $(U/U_0)^2+(I/I_0)^2=1$ при $|U|\\le U_0$ и $I=0$ при $|U|>U_0$, где $U_0 = {U0}$ В, $I_0 = {I0}$ мА. Напряжение источника можно регулировать.\n\n**Пункт 3.** Найдите максимальную мощность, развиваемую черным ящиком, если его вольтамперная характеристика задана уравнением $(U/U_0)^2+(I/I_0)^2=1$, $U_0 = {U0}$ В, $I_0 = {I0}$ мА.",
+    "params": {
+      "U0": {
+        "min": 0.5,
+        "max": 3.0,
+        "step": 0.1
+      },
+      "I0": {
+        "min": 0.5,
+        "max": 3.0,
+        "step": 0.1
+      }
+    },
+    "original": {
+      "U0": 1.0,
+      "I0": 1.0
+    },
+    "solver": "def solve(U0, I0):\n    return U0 * I0 / 2",
+    "constraints": [
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "Мощность $P=UI$ при $(U/U_0)^2+(I/I_0)^2=1$ максимальна при $U=U_0/\\sqrt{2}$, $I=I_0/\\sqrt{2}$, $P_{max}=U_0I_0/2=0{,}5$ мВт.",
   "figures": [
     "kz-rep-republic-2015-phys9-r1-3-fig1.png",

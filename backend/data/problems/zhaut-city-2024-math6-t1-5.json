@@ -6,13 +6,15 @@
   "statement": "Даны 23 последовательных нечетных числа. Наибольшее из них в 5 раз больше наименьшего. Найдите сумму всех этих 23 чисел.",
   "answer": {
     "value": 759.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 759",
       "решение: anthropic:claude-sonnet-5-5 → 759",
       "программа (other): anthropic:claude-haiku-5-5 → 759",
       "программа (other): anthropic:claude-sonnet-5-5 → 759"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,42 @@
     "grade": 6,
     "number": 5,
     "url": "https://matol.kz/olympiads/1121"
-  }
+  },
+  "template": {
+    "text": "Даны {n} последовательных нечетных чисел. Наибольшее из них в {k} раз больше наименьшего. Найдите сумму всех этих {n} чисел.",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 60.0,
+        "step": 1.0
+      },
+      "k": {
+        "min": 2.0,
+        "max": 20.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 23.0,
+      "k": 5.0
+    },
+    "solver": "def solve(n, k):\n    a = 2*(n-1)//(k-1)\n    return n*(k+1)*a//2",
+    "constraints": [
+      "n >= 2",
+      "k >= 2",
+      "(2*(n-1)) % (k-1) == 0",
+      "((2*(n-1))//(k-1)) % 2 == 1",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

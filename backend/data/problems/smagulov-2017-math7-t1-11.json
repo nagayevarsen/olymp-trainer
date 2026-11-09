@@ -24,5 +24,31 @@
     "number": 11,
     "url": "https://matol.kz/olympiads/487"
   },
+  "template": {
+    "text": "Асан выписал все {n}-значные числа. А из выписанных чисел Есен стер только те числа, произведение цифр которых равно нулю. Сколько чисел стер Есен?",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 6.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 3.0
+    },
+    "solver": "def solve(n):\n    total = 9 * 10 ** (n - 1)\n    nonzero = 9 ** n\n    return total - nonzero",
+    "constraints": [
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

@@ -59,6 +59,20 @@ def test_same_olympiad_and_stage_different_years_is_one_track(client):
     assert euler_reg["count"] == 2 and euler_reg["years"] == [2023, 2026]
 
 
+def test_third_recommendation_is_the_hardest_left(client, monkeypatch):
+    for n in range(1, 9):
+        p = prob(f"euler-reg-x{n}", "Олимпиада Эйлера", "region", 2020)
+        p.source.number = n
+        monkeypatch.setitem(BANK, p.id, p)
+    token = client.post("/api/users", json={"name": "x"}).json()["token"]
+    euler_reg = track_of(client, "Олимпиада Эйлера", "Региональный (областной) этап")
+    me = client.get(f"/api/me?track={euler_reg['id']}", headers={"Authorization": f"Bearer {token}"}).json()
+    first_two = {r["id"] for r in me["recommended"][:2]}
+    rows = client.get(f"/api/problems?track={euler_reg['id']}").json()
+    points = [p["points"] for p in rows if p["id"] not in first_two]
+    assert len(set(points)) > 1 and me["recommended"][2]["points"] == max(points)
+
+
 def test_problems_of_track_are_not_mixed(client):
     euler_reg = track_of(client, "Олимпиада Эйлера", "Региональный (областной) этап")
     ids = {p["id"] for p in client.get(f"/api/problems?track={euler_reg['id']}").json()}

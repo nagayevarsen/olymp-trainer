@@ -24,5 +24,38 @@
     "number": 7,
     "url": "https://matol.kz/olympiads/487"
   },
+  "template": {
+    "text": "Среди кошек, обитающих в лагере «Ласточка», {f} — пушистые, а {s} — полосатые. Какое наименьшее количество неполосатых пушистых кошек может быть в лагере?",
+    "params": {
+      "f": {
+        "min": 2.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "s": {
+        "min": 1.0,
+        "max": 30.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "f": 3.0,
+      "s": 2.0
+    },
+    "solver": "def solve(f, s):\n    return max(0, f - s)",
+    "constraints": [
+      "f > s",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

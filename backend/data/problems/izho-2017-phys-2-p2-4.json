@@ -9,7 +9,8 @@
     "variables": {},
     "unit": "Дж",
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -17,6 +18,38 @@
     "stage": "international",
     "number": 2,
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
+  },
+  "template": {
+    "text": "Разведывательный космический корабль развитой цивилизации бороздит просторы Вселенной. В этой задаче Вам предстоит рассмотреть несколько ситуаций этого межзвездного путешествия с физической точки зрения. Во всех численных расчетах считайте гравитационную постоянную известной и равной $G = 6.672 \\times 10^{-11}\\ \\text{м}^3/(\\text{кг}\\cdot\\text{с}^2)$.\n\n**Пункт 2.4.** Найдите минимальную работу $A$, которую необходимо совершить, чтобы постепенно доставить все пылевые частицы облака радиуса $R = {R}$ м и плотности $\\rho_4 = {rho}$ кг/м³ на очень удаленный перерабатывающий завод.",
+    "params": {
+      "R": {
+        "min": 500000000000.0,
+        "max": 2000000000000.0,
+        "step": 100000000000.0
+      },
+      "rho": {
+        "min": 0.0005,
+        "max": 0.003,
+        "step": 1e-05
+      }
+    },
+    "original": {
+      "R": 1000000000000.0,
+      "rho": 0.001376
+    },
+    "solver": "def solve(R, rho):\n    G = 6.672e-11\n    M = 4.0/3.0*pi*rho*R**3\n    return 3.0*G*M*M/(5.0*R)",
+    "constraints": [
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
   },
   "solution": "Облако растаскивают симметрично тонкими слоями $\\Delta r$. Работа по удалению слоя при радиусе $r$: $\\Delta A=\\frac{16}{3}\\pi^2G\\rho_4^2r^4\\Delta r$. Интегрируя от 0 до $R$: $A=\\frac{16}{15}\\pi^2G\\rho_4^2R^5=1.33\\times10^{45}$ Дж.",
   "figures": [

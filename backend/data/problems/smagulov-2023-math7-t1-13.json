@@ -24,5 +24,65 @@
     "number": 13,
     "url": "https://matol.kz/olympiads/1071"
   },
+  "template": {
+    "text": "Арман задумал число, которое составляет {m1}/{m2} часть числа, задуманного Канатом. Если из числа, задуманного Арманом, вычесть {s1}, а из числа, задуманного Канатом, {s2}, то соответствующее отношение полученных разностей будет равно {r1}/{r2}. Какое число задумал Арман?",
+    "params": {
+      "m1": {
+        "min": 1.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "m2": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "s1": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "s2": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "r1": {
+        "min": 1.0,
+        "max": 19.0,
+        "step": 1.0
+      },
+      "r2": {
+        "min": 2.0,
+        "max": 30.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "m1": 4.0,
+      "m2": 5.0,
+      "s1": 2.0,
+      "s2": 5.0,
+      "r1": 17.0,
+      "r2": 20.0
+    },
+    "solver": "def solve(m1, m2, s1, s2, r1, r2):\n    return m1 * (r2 * s1 - r1 * s2) / (r2 * m1 - r1 * m2)",
+    "constraints": [
+      "m1 < m2",
+      "r1 < r2",
+      "r2 * m1 != r1 * m2",
+      "answer > 0",
+      "answer == floor(answer)"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

@@ -19,6 +19,33 @@
     "number": 2,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2021/phys9-1-sol.pdf"
   },
+  "template": {
+    "text": "Пластины конденсатора расположены горизонтально и в пространстве между ними в равновесии находится заряженный шарик. Через некоторое время расстояние между обкладками заполняют жидким диэлектриком с диэлектрической проницаемостью $\\varepsilon = {eps}$, несмотря на это шарик сохранил свое равновесие.\n\n**Пункт 2.** Чему равно отношение плотности материала заряженного шарика к плотности жидкого диэлектрика при $\\varepsilon = {eps}$?",
+    "params": {
+      "eps": {
+        "min": 2.0,
+        "max": 6.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "eps": 3.0
+    },
+    "solver": "def solve(eps):\n    return eps / (eps - 1)",
+    "constraints": [
+      "eps > 1",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Условие равновесия: $mg=F_k$ в воздухе и $mg=F_k/\\varepsilon+F_A$ в диэлектрике. Отсюда $F_A=mg(\\varepsilon-1)/\\varepsilon$. С учётом $m=\\rho_ш V$, $F_A=\\rho_ж gV$ получаем $\\rho_ш/\\rho_ж=\\varepsilon/(\\varepsilon-1)$. При $\\varepsilon=3$: $3/(3-1)=1{,}5$.",
   "figures": []
 }

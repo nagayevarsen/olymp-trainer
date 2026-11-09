@@ -19,6 +19,40 @@
     "number": 47,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "Сопротивление нити накала электрической лампы составляет {R} Ом, а напряжение на нити равно {U} В.\n\n**Пункт 47.** Какова сила тока в лампе?",
+    "params": {
+      "R": {
+        "min": 100.0,
+        "max": 1000.0,
+        "step": 10.0
+      },
+      "U": {
+        "min": 10.0,
+        "max": 240.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "R": 400.0,
+      "U": 100.0
+    },
+    "solver": "def solve(R, U):\n    return U / R",
+    "constraints": [
+      "answer > 0",
+      "R > 0",
+      "U > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Официальное решение в файле не приведено; в ключе ответ — вариант A (0,25 А).",
   "figures": []
 }

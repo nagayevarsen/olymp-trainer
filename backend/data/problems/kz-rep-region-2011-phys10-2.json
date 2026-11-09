@@ -6,6 +6,7 @@
   "statement": "Модель вертолета в $1/8$ натуральной величины удерживается в воздухе двигателем мощностью 50 Вт. Какой мощности двигатель нужен для настоящего вертолета? В модели использованы те же материалы, что и в настоящем вертолете.",
   "answer": {
     "value": 72408.0,
+    "variables": {},
     "unit": "Вт",
     "origin": "verified",
     "verified_by": [
@@ -13,7 +14,8 @@
       "решение: anthropic:claude-sonnet-5-5 → 72400",
       "программа (other): anthropic:claude-haiku-5-5 → 72408",
       "программа (other): anthropic:claude-sonnet-5-5 → 72407.7"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -22,5 +24,40 @@
     "grade": 10,
     "number": 2,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2011/phys10-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Модель вертолета в $1/{k}$ натуральной величины удерживается в воздухе двигателем мощностью {P0} Вт. Какой мощности двигатель нужен для настоящего вертолета? В модели использованы те же материалы, что и в настоящем вертолете.",
+    "params": {
+      "P0": {
+        "min": 10.0,
+        "max": 500.0,
+        "step": 10.0
+      },
+      "k": {
+        "min": 2.0,
+        "max": 20.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "P0": 50.0,
+      "k": 8.0
+    },
+    "solver": "def solve(P0, k):\n    return P0 * pow(k, 3.5)",
+    "constraints": [
+      "P0 > 0",
+      "k > 1",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

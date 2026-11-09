@@ -24,5 +24,45 @@
     "number": 11,
     "url": "https://matol.kz/olympiads/856"
   },
+  "template": {
+    "text": "{n} кузнецов должны подковать {m} лошадей. За какое наименьшее время они могут это сделать, если на одну подкову один кузнец затрачивает {t} минут, а лошадь не может стоять на двух ногах?",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 8.0,
+        "step": 1.0
+      },
+      "m": {
+        "min": 2.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "t": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 4.0,
+      "m": 5.0,
+      "t": 5.0
+    },
+    "solver": "def solve(n, m, t):\n    rounds = max(ceil(4*m/n), 4)\n    return rounds * t",
+    "constraints": [
+      "answer > 0",
+      "n >= 2",
+      "m >= n"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

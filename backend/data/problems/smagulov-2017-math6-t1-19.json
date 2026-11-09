@@ -24,5 +24,54 @@
     "number": 19,
     "url": "https://matol.kz/olympiads/486"
   },
+  "template": {
+    "text": "У Бенито есть {n} разноцветных шариков: желтых, зеленых, синих и черных. Из этих шариков {a} — не зеленые, {b} — черные, а {c} — не желтые. Сколько синих шариков у Бенито?",
+    "params": {
+      "n": {
+        "min": 12.0,
+        "max": 40.0,
+        "step": 1.0
+      },
+      "a": {
+        "min": 8.0,
+        "max": 39.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 1.0,
+        "max": 15.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 8.0,
+        "max": 39.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 20.0,
+      "a": 17.0,
+      "b": 5.0,
+      "c": 12.0
+    },
+    "solver": "def solve(n, a, b, c):\n    green = n - a\n    yellow = n - c\n    return n - green - yellow - b",
+    "constraints": [
+      "a < n",
+      "c < n",
+      "b > 0",
+      "n - a > 0",
+      "n - c > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

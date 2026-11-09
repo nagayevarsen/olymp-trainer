@@ -24,5 +24,31 @@
     "number": 20,
     "url": "https://matol.kz/olympiads/1070"
   },
+  "template": {
+    "text": "Если $c\\ne 0$, $a+b+d=m\\cdot n$, $n\\cdot c=a$ и $b\\cdot c+d\\cdot c+{k}c=m\\cdot a$ то, найти значение $a$.",
+    "params": {
+      "k": {
+        "min": 1.0,
+        "max": 20.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "k": 4.0
+    },
+    "solver": "def solve(k):\n    return k",
+    "constraints": [
+      "k != 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

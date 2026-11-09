@@ -20,6 +20,43 @@
     "number": 2,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/final/2019/phys10-1-sol.pdf"
   },
+  "template": {
+    "text": "Кристаллы имеют упорядоченную структуру, что позволяет связать их макроскопические свойства, такие как плотность, с микроскопическими параметрами, такими как расстояние между отдельными атомами или ионами.\n\n**Пункт 2B.** Сульфид цинка имеет кристаллическую структуру: атомы цинка расположены в вершинах куба со стороной a и по центрам каждой из граней куба, внутри куба вкраплены атомы серы. Плотность соединения ρ = {rho} кг/м³, молярные массы цинка и серы μ_Zn = {mu_Zn} г/моль и μ_S = {mu_S} г/моль соответственно. Найдите характерное расстояние кристаллической решетки a сульфида цинка.",
+    "params": {
+      "rho": {
+        "min": 2000.0,
+        "max": 6000.0,
+        "step": 5.0
+      },
+      "mu_Zn": {
+        "value": 65.4,
+        "step": 1.0
+      },
+      "mu_S": {
+        "value": 32.1,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "rho": 2635.0,
+      "mu_Zn": 65.4,
+      "mu_S": 32.1
+    },
+    "solver": "def solve(rho, mu_Zn, mu_S):\n    N_A = 6.022e23\n    # в ячейке 4 атома Zn (8*1/8 + 6*1/2) и 4 атома S внутри\n    m_cell = 4 * (mu_Zn + mu_S) * 1e-3 / N_A\n    V = m_cell / rho\n    return pow(V, 1.0 / 3.0)",
+    "constraints": [
+      "answer > 0",
+      "rho > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "$\\rho = M/a^3$; внутри куба: $M = 4m_S + 8\\cdot\\frac18 m_{Zn} + 6\\cdot\\frac12 m_{Zn} = 4(m_S + m_{Zn})$. Отсюда $a = \\sqrt[3]{\\frac{4(\\mu_S+\\mu_{Zn})}{\\rho N_A}} = 0.62$ нм.",
   "figures": [
     "kz-rep-republic-2019-phys10-r1-2-fig1.png",

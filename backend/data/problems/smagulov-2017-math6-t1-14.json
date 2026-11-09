@@ -24,5 +24,46 @@
     "number": 14,
     "url": "https://matol.kz/olympiads/486"
   },
+  "template": {
+    "text": "Даны четыре числа. Отношение первого числа ко второму равно {m1}, отношение второго к третьему равно {m2}, третьего к четвертому равно {m3}. Чему равно отношение первого числа к четвертому?",
+    "params": {
+      "m1": {
+        "min": 2.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "m2": {
+        "min": 2.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "m3": {
+        "min": 2.0,
+        "max": 12.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "m1": 7.0,
+      "m2": 8.0,
+      "m3": 9.0
+    },
+    "solver": "def solve(m1, m2, m3):\n    return m1 * m2 * m3",
+    "constraints": [
+      "m1 > 0",
+      "m2 > 0",
+      "m3 > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

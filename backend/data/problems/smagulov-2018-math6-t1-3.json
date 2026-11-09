@@ -24,5 +24,33 @@
     "number": 3,
     "url": "https://matol.kz/olympiads/855"
   },
+  "template": {
+    "text": "Чему равна сумма наибольшего и наименьшего {n}-значного числа, все цифры которых различны? (Все цифры первого числа различны, а также различны все цифры второго числа.)",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 4.0
+    },
+    "solver": "def solve(n):\n    big = 0\n    for i in range(n):\n        big = big * 10 + (9 - i)\n    small = 10\n    for k in range(2, n):\n        small = small * 10 + k\n    return big + small",
+    "constraints": [
+      "n >= 2",
+      "n <= 10",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

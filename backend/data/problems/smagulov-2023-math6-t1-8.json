@@ -24,5 +24,38 @@
     "number": 8,
     "url": "https://matol.kz/olympiads/1070"
   },
+  "template": {
+    "text": "В турнире участвуют {n} шахматистов, где каждый игрок должен играть с каждым другим ровно один раз. В некоторый момент времени из сыгранных партий Асан имел половину выигрышей, треть проигрышей и {d} ничьих. Сколько партий ещё оставалось сыграть Асану?",
+    "params": {
+      "n": {
+        "min": 8.0,
+        "max": 40.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 16.0,
+      "d": 2.0
+    },
+    "solver": "def solve(n, d):\n    # x — число сыгранных партий: x/2 + x/3 + d = x, откуда x = 6*d\n    x = 6 * d\n    return n - 1 - x",
+    "constraints": [
+      "answer > 0",
+      "6*d < n - 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

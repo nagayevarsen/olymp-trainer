@@ -20,6 +20,37 @@
     "number": 4,
     "url": "https://cdn.bc-pf.org/olympiads/physics/junior/2021/final/phys7-sol.pdf"
   },
+  "template": {
+    "text": "Система из блоков, показанная на рисунке 4, находится в равновесии. Рычаг и блоки имеют пренебрежимо малую массу. Длину промежутков между делениями на рычаге считать одинаковыми (рисунок может выглядеть не пропорциональным). Считая $F = {F}$ Н, определите массу $m$ подвешенного бруска. Ускорение свободного падения считать равным $g = {g}$ м/с².",
+    "params": {
+      "F": {
+        "min": 5.0,
+        "max": 100.0,
+        "step": 5.0
+      },
+      "g": {
+        "value": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "F": 25.0,
+      "g": 10.0
+    },
+    "solver": "def solve(F, g):\n    # Из условий равновесия блоков и рычага (по рисунку): m*g = (8/5)*F\n    # Для F = 25 Н: m*g = 40 Н, m = 4 кг\n    return 8 * F / (5 * g)",
+    "constraints": [
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "Подвижный блок с силой F даёт силу на рычаге $2F$, а блок с бруском даёт силу $mg/2$ на рычаге. Из равенства моментов относительно точки подвеса рычага $2F\\cdot 2x = \\frac{mg}{2}\\cdot 5x$, откуда $m=\\frac{8F}{5g}=4$ кг.",
   "figures": [
     "kz-junior-final-2021-phys7-4-fig1.png"

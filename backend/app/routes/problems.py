@@ -176,13 +176,16 @@ def problem_detail(
             raise HTTPException(422, str(exc)) from exc
     hints = _hints_for(p, db)
     opened = pr["hints_used"]
+    # Задачи олимпиад в тренировке заменяются аналогами (оригиналы берегут для тура), поэтому оригинал не показываем.
+    replace = bool(p.can_clone and p.source.stage != "collection")
     return {
+        "analogue_only": replace,
         "id": p.id,
         "title": p.title,
         "subject": p.subject,
         "topic": p.topic,
         "statement": statement,
-        "original_statement": p.statement if seed is not None else None,
+        "original_statement": p.statement if seed is not None and not replace else None,
         "seed": seed,
         "points": problem_points(p, stats),
         "source": source_info(p),

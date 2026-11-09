@@ -48,6 +48,7 @@ export interface ProblemDetail {
   topic: string
   statement: string
   original_statement: string | null
+  analogue_only: boolean // в тренировке показываем только аналог, оригинал берегут для олимпиады
   seed: number | null
   points: number
   source: { label: string; stage: string; url: string | null; russian: boolean }
@@ -302,5 +303,6 @@ export const api = {
     problemId?: string | null,
     mode: 'training' | 'olympiad' = 'training',
     attachments: { data: string }[] = [],
-  ) => post<ChatReply>('/api/chat', { messages, problem_id: problemId ?? null, mode, attachments, lang: getLang() }),
+    seed: number | null = null,
+  ) => post<ChatReply>('/api/chat', { messages, problem_id: problemId ?? null, seed, mode, attachments, lang: getLang() }),
 }

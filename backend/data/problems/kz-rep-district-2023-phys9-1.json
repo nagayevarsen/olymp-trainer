@@ -6,13 +6,15 @@
   "statement": "Фродо и Сэм на пути к Мордору проплыли первую часть пути по реке с некой скоростью $\\vartheta$, а остальную часть по болотному озеру со скоростью три раза меньшей. Найдите во сколько раз путь по болотному озеру больше пути по реке, если средняя скорость на всем пути $\\frac{\\vartheta}{2}$.",
   "answer": {
     "value": 1.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 1",
       "решение: anthropic:claude-sonnet-5-5 → 1",
       "программа (other): anthropic:claude-haiku-5-5 → 1",
       "программа (other): anthropic:claude-sonnet-5-5 → 1"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,40 @@
     "grade": 9,
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2023/phys9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Фродо и Сэм на пути к Мордору проплыли первую часть пути по реке с некой скоростью $\\vartheta$, а остальную часть по болотному озеру со скоростью в {m} раз меньшей. Найдите во сколько раз путь по болотному озеру больше пути по реке, если средняя скорость на всем пути $\\frac{\\vartheta}{{n}}$.",
+    "params": {
+      "m": {
+        "min": 3.0,
+        "max": 8.0,
+        "step": 1.0
+      },
+      "n": {
+        "min": 2.0,
+        "max": 7.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "m": 3.0,
+      "n": 2.0
+    },
+    "solver": "def solve(m, n):\n    return (n - 1) / (m - n)",
+    "constraints": [
+      "n > 1",
+      "m > n",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

@@ -24,5 +24,32 @@
     "number": 5,
     "url": "https://matol.kz/olympiads/1072"
   },
+  "template": {
+    "text": "Найдите наименьшее натуральное число $n$, у которого имеются два различных деятеля, отличных от 1 и $n$, сумма которых равна {S}.",
+    "params": {
+      "S": {
+        "min": 20.0,
+        "max": 200.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "S": 99.0
+    },
+    "solver": "def solve(S):\n    best = None\n    for d1 in range(2, (S - 1) // 2 + 1):\n        d2 = S - d1\n        if d1 == d2:\n            continue\n        l = lcm(d1, d2)\n        n = l if l > d2 else 2 * l\n        if best is None or n < best:\n            best = n\n    return best",
+    "constraints": [
+      "S >= 7",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

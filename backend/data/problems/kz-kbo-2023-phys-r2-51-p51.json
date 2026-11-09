@@ -18,6 +18,34 @@
     "number": 51,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "В замкнутом усеченном конусе с радиусом нижнего основания {k}r и верхнего r находится жидкость плотности ρ. Суммарная сила на боковую поверхность равна F_1. Когда конус перевернут, сила на боковую поверхность равна F_2.\n\n**Пункт 51.** Чему равно отношение F_1/F_2?",
+    "params": {
+      "k": {
+        "min": 1.5,
+        "max": 5.0,
+        "step": 0.5
+      }
+    },
+    "original": {
+      "k": 2.0
+    },
+    "solver": "def solve(k):\n    return abs(1 + k - 2*k*k) / abs(k*k + k - 2)",
+    "constraints": [
+      "k > 0",
+      "k != 1",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "В ключе ответ A: 5/4.",
   "figures": [
     "kz-kbo-2023-phys-r2-51-fig1.png"

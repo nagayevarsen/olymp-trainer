@@ -24,5 +24,39 @@
     "number": 9,
     "url": "https://matol.kz/olympiads/1071"
   },
+  "template": {
+    "text": "Если в треугольнике провести медиану к большей стороне, то разность периметров полученных маленьких треугольников будет равна {d1}, если провести к меньшей стороне — будет также равна {d2}. Чему будет равна модуль разности периметров маленьких треугольников, полученных после проведения медианы к средней стороне?",
+    "params": {
+      "d1": {
+        "min": 1.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "d2": {
+        "min": 1.0,
+        "max": 30.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "d1": 10.0,
+      "d2": 10.0
+    },
+    "solver": "def solve(d1, d2):\n    return d1 + d2",
+    "constraints": [
+      "d1 > 0",
+      "d2 > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

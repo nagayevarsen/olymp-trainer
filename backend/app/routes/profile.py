@@ -89,13 +89,15 @@ def me(
     solved_points = [
         problem_points(bank[pid], stats) for pid, pr in prog.items() if pr["solved"] and pid in bank
     ]
-    target = (sum(solved_points) / len(solved_points) + 100) if solved_points else 200
+    target = (sum(solved_points) / len(solved_points) + 1) if solved_points else 5
     # рекомендуем только из одного трека: олимпиады и этапы не смешиваем
     unsolved = [
         p for p in bank.values() if p.source.track_id == track and not prog.get(p.id, {}).get("solved")
     ]
     # сначала задачи из слабых тем, затем ближайшие по баллам к уровню ученика
     unsolved.sort(key=lambda p: (p.topic not in weak, abs(problem_points(p, stats) - target)))
+    # третья рекомендация — самая сложная из оставшихся: не только подтягивать слабое, но и расти
+    picks = unsolved[:2] + sorted(unsolved[2:], key=lambda p: -problem_points(p, stats))[:1]
     recommended = [
         {
             "id": p.id,
@@ -104,7 +106,7 @@ def me(
             "subject": p.subject,
             "points": problem_points(p, stats),
         }
-        for p in unsolved[:3]
+        for p in picks
     ]
 
     board = db.leaderboard(limit=1000)

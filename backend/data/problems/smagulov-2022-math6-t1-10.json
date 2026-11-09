@@ -24,5 +24,61 @@
     "number": 10,
     "url": "https://matol.kz/olympiads/1007"
   },
+  "template": {
+    "text": "Книги на столе пытались связывать в пачки по {a}, по {b} и по {c} книг, и каждый раз оставалась одна лишняя. Сколько книг было на столе если известно, что их было не больше {hi} и не меньше {lo}?",
+    "params": {
+      "a": {
+        "min": 3.0,
+        "max": 11.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 2.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 2.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "lo": {
+        "min": 5.0,
+        "max": 50.0,
+        "step": 5.0
+      },
+      "hi": {
+        "min": 100.0,
+        "max": 300.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "a": 7.0,
+      "b": 3.0,
+      "c": 5.0,
+      "lo": 10.0,
+      "hi": 150.0
+    },
+    "solver": "def solve(a, b, c, lo, hi):\n    L = lcm(lcm(a, b), c)\n    k = -((-(lo - 1)) // L)\n    return L * k + 1",
+    "constraints": [
+      "a != b",
+      "b != c",
+      "a != c",
+      "answer >= lo",
+      "answer <= hi",
+      "answer + lcm(lcm(a, b), c) > hi",
+      "answer > max(a, b, c)"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

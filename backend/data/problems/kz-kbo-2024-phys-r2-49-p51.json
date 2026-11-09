@@ -19,6 +19,76 @@
     "number": 49,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "К выводам цепи (см. рисунок) подано напряжение U = {U} В. r = {r} Ом. Сопротивления: {k1}r, {k2}r, {k3}r — в верхней ветви; {k4}r, {k5}r, {k6}r — в нижней. Вольтметр подключён между узлами после {k1}r и после {k4}r, амперметр — между узлами после {k2}r и после {k5}r (идеальные приборы).\n\n**Пункт 51.** Найдите показание вольтметра.",
+    "params": {
+      "U": {
+        "min": 12.0,
+        "max": 120.0,
+        "step": 6.0
+      },
+      "r": {
+        "value": 1.0,
+        "step": 1.0
+      },
+      "k1": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "k2": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "k3": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "k4": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "k5": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "k6": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "U": 42.0,
+      "r": 1.0,
+      "k1": 2.0,
+      "k2": 4.0,
+      "k3": 9.0,
+      "k4": 1.0,
+      "k5": 5.0,
+      "k6": 3.0
+    },
+    "solver": "def solve(U, r, k1, k2, k3, k4, k5, k6):\n    p1, p2, p3 = k1, k2, k3\n    q1, q2, q3 = k4, k5, k6\n    S = 1/(p1+p2) + 1/(q1+q2)\n    T = 1/p3 + 1/q3\n    x = U*S/(S+T)\n    a = (U*p2 + x*p1)/(p1+p2)\n    b = (U*q2 + x*q1)/(q1+q2)\n    return abs(a - b)",
+    "constraints": [
+      "answer > 0.01",
+      "answer < U",
+      "k1 + k2 > 0",
+      "k4 + k5 > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Официальное решение в файле не приведено; в ключе ответ — вариант D (4 В).",
   "figures": [
     "kz-kbo-2024-phys-r2-49-fig1.png"

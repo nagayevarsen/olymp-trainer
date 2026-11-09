@@ -5,7 +5,11 @@
   "title": "Наибольшее действительное число",
   "statement": "Найдите наибольшее действительное число $C$ такое, что для любых попарно различных положительных действительных чисел $a_1, a_2, . . . , a_{2019}$ выполнено неравенство $\\frac{a_1}{|a_2 - a_3|} + \\frac{a_2}{|a_3 - a_4|} + . . . + \\frac{a_{2018}}{|a_{2019} - a_1|} + \\frac{a_{2019}}{|a_1 - a_2|} > C$.",
   "answer": {
-    "value": 1010.0
+    "value": 1010.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -13,5 +17,34 @@
     "stage": "international",
     "number": 2,
     "url": "https://izho.kz/wp-content/uploads/2019/01/day_1_sol_rus.pdf"
-  }
+  },
+  "template": {
+    "text": "Найдите наибольшее действительное число $C$ такое, что для любых попарно различных положительных действительных чисел $a_1, a_2, . . . , a_{{n}}$ выполнено неравенство $\\frac{a_1}{|a_2 - a_3|} + \\frac{a_2}{|a_3 - a_4|} + . . . + \\frac{a_{{n}-1}}{|a_{{n}} - a_1|} + \\frac{a_{{n}}}{|a_1 - a_2|} > C$.",
+    "params": {
+      "n": {
+        "min": 3.0,
+        "max": 2019.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "n": 2019.0
+    },
+    "solver": "def solve(n):\n    return (n + 1) // 2",
+    "constraints": [
+      "n % 2 == 1",
+      "n >= 3",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

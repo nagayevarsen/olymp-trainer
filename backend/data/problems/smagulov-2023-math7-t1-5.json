@@ -24,5 +24,38 @@
     "number": 5,
     "url": "https://matol.kz/olympiads/1071"
   },
+  "template": {
+    "text": "Вычислите НОД(число, записанное {m} единицами, число, записанное {n} единицами).",
+    "params": {
+      "m": {
+        "min": 2.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "n": {
+        "min": 2.0,
+        "max": 20.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "m": 12.0,
+      "n": 8.0
+    },
+    "solver": "def solve(m, n):\n    g = gcd(m, n)\n    return int('1' * g)",
+    "constraints": [
+      "m != n",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

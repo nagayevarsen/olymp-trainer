@@ -24,5 +24,46 @@
     "number": 14,
     "url": "https://matol.kz/olympiads/1005"
   },
+  "template": {
+    "text": "Дайвер погружался на дно. Вначале он погрузился на {a} метр и испугался. Потом он набрался храбрости и преодолел еще половину оставшейся глубины. Затем, после небольшой передышки, он погрузился еще на {b} метр. До дна уже оставалось {p}% всей глубины. На какую глубину погружался дайвер?",
+    "params": {
+      "a": {
+        "min": 1.0,
+        "max": 3.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 1.0,
+        "max": 3.0,
+        "step": 1.0
+      },
+      "p": {
+        "min": 10.0,
+        "max": 40.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "a": 1.0,
+      "b": 1.0,
+      "p": 30.0
+    },
+    "solver": "def solve(a, b, p):\n    return 50 * (a + 2 * b) / (50 - p)",
+    "constraints": [
+      "p > 0",
+      "p < 50",
+      "answer > a + b",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

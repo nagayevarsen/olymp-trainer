@@ -20,6 +20,52 @@
     "number": 4,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2022/phys9-1-sol.pdf"
   },
+  "template": {
+    "text": "Рассмотрим систему телеобъектива, показанную ниже. Линза $L_1$ имеет известное фокусное расстояние $f = {f}$ см, а линза $L_2$ имеет неизвестное фокусное расстояние $f_0$. Расстояние $d$ между двумя линзами также неизвестно. Объект, расположенный очень далеко и имеющий угловое отклонение $\\alpha = {alpha}$ радиан, дает реальное изображение размером $h = {c} f$ на расстоянии ${k}f$ от линзы $L_2$.\n\n**Пункт 1.** Определите расстояние $d$ между линзами $L_1$ и $L_2$.",
+    "params": {
+      "f": {
+        "min": 5.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "alpha": {
+        "value": 0.01,
+        "step": 1.0
+      },
+      "c": {
+        "min": 0.05,
+        "max": 0.09,
+        "step": 0.01
+      },
+      "k": {
+        "min": 2.0,
+        "max": 4.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "f": 10.0,
+      "alpha": 0.01,
+      "c": 0.05,
+      "k": 3.0
+    },
+    "solver": "def solve(f, alpha, c, k):\n    m = c / alpha\n    return f * (m - k) / (m - 1)",
+    "constraints": [
+      "answer > 0",
+      "answer < f",
+      "c / alpha > k",
+      "c / alpha > 1"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "Изображение бесконечно далекого объекта после $L_1$ находится в фокусе, $d_{i1} = f$, его высота $h_{i1} = \\alpha f$. Для $L_2$: $d_{i1}' = d - f$, $d_{i2} = 3f - d$. Увеличение $\\Gamma = h/h_{i1} = -d_{i2}/d_{i1}'$, то есть $\\frac{5\\cdot10^{-2}f}{\\alpha f} = \\frac{3f - d}{d - f}$, откуда $d = f/2 = 5$ см.",
   "figures": [
     "kz-rep-region-2022-phys9-r1-4-fig1.png"

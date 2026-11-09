@@ -24,5 +24,53 @@
     "number": 11,
     "url": "https://matol.kz/olympiads/486"
   },
+  "template": {
+    "text": "Количество книг у Петра больше {lo}, но меньше {hi}. Из них {p}% — романы, а 1/{k} — сборники стихов. Сколько книг у Петра?",
+    "params": {
+      "lo": {
+        "min": 50.0,
+        "max": 300.0,
+        "step": 5.0
+      },
+      "hi": {
+        "min": 60.0,
+        "max": 400.0,
+        "step": 5.0
+      },
+      "p": {
+        "min": 5.0,
+        "max": 50.0,
+        "step": 5.0
+      },
+      "k": {
+        "min": 2.0,
+        "max": 12.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "lo": 150.0,
+      "hi": 200.0,
+      "p": 20.0,
+      "k": 7.0
+    },
+    "solver": "def solve(lo, hi, p, k):\n    return min([n for n in range(lo + 1, hi) if n * p % 100 == 0 and n % k == 0])",
+    "constraints": [
+      "hi > lo + 1",
+      "p + 100 / k < 100",
+      "len([n for n in range(lo + 1, hi) if n * p % 100 == 0 and n % k == 0]) == 1",
+      "answer > lo",
+      "answer < hi"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

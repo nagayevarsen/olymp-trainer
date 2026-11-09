@@ -9,7 +9,8 @@
     "variables": {},
     "unit": "м",
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -17,6 +18,38 @@
     "stage": "international",
     "number": 3,
     "url": "https://izho.kz/wp-content/uploads/2018/12/IZhO-2013-Theory_rus_sol_final.pdf"
+  },
+  "template": {
+    "text": "Рассмотрим атом водорода, который состоит из протона, массу которого можно считать практически бесконечной, и электрона массой $m_e={m}\\times10^{-31}$ кг. При этом протон имеет положительный заряд $e={e}\\times10^{-19}$ Кл, а электрон — отрицательный заряд $-e$, так что в целом атом нейтрален.\n\n**Пункт 5.** Рассчитайте численное значение минимального радиуса орбиты электрона $r_1$ в атоме водорода (при $n=1$).",
+    "params": {
+      "m": {
+        "min": 5.0,
+        "max": 15.0,
+        "step": 0.01
+      },
+      "e": {
+        "min": 1.2,
+        "max": 2.0,
+        "step": 0.01
+      }
+    },
+    "original": {
+      "m": 9.11,
+      "e": 1.61
+    },
+    "solver": "def solve(m, e):\n    hbar = 1.05e-34\n    k = 8.99e9\n    mass = m * 1e-31\n    q = e * 1e-19\n    return hbar**2 / (k * mass * q**2)",
+    "constraints": [
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
   },
   "solution": "При $n=1$: $r_1=\\frac{4\\pi\\varepsilon_0\\hbar^2}{m_e e^2}\\approx5{,}19\\times10^{-11}$ м.",
   "figures": []

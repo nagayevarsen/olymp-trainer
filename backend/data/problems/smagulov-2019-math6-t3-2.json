@@ -24,5 +24,33 @@
     "number": 2,
     "url": "https://matol.kz/olympiads/916"
   },
+  "template": {
+    "text": "Вычислите сумму:\n$\\frac{1}{2} + \\frac{1}{3} + \\frac{2}{3} + \\frac{1}{4} + \\frac{2}{4} + \\frac{3}{4} +  \\ldots  + \\frac{1}{{n}} + \\frac{2}{{n}} + \\frac{3}{{n}} +  \\ldots  + \\frac{{n}-1}{{n}}.$",
+    "params": {
+      "n": {
+        "min": 10.0,
+        "max": 2000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 1000.0
+    },
+    "solver": "def solve(n):\n    return n * (n - 1) / 4",
+    "constraints": [
+      "n >= 5",
+      "(n * (n - 1)) % 4 == 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

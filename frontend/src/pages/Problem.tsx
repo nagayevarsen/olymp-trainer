@@ -80,6 +80,8 @@ export function ProblemPage() {
   const [busy, setBusy] = useState<'' | 'check' | 'hint' | 'solution' | 'variant'>('')
   const [confirmSolution, setConfirmSolution] = useState(false)
   const [showOriginal, setShowOriginal] = useState(false)
+  const [variantFailed, setVariantFailed] = useState(false)
+  const [variantTry, setVariantTry] = useState(0)
   const { setPoints } = usePoints()
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -91,6 +93,35 @@ export function ProblemPage() {
       .catch((e) => setError(e.message))
   }, [id, seed])
 
+  // Задача олимпиады открыта без варианта — сразу подбираем аналог (оригинал остаётся для тура на время).
+  useEffect(() => {
+    if (!p || seed !== null || !p.analogue_only || p.id !== id) return
+    // Аналог запоминаем в браузере: повторное открытие не запускает решатель на сервере заново.
+    const key = 'olymp-analogue:' + id
+    let cached: string | null = null
+    try {
+      cached = localStorage.getItem(key)
+    } catch {
+      /* без localStorage подберём заново */
+    }
+    if (cached && Number(cached) > 0) {
+      setParams({ v: cached }, { replace: true })
+      return
+    }
+    setVariantFailed(false)
+    api
+      .variant(id)
+      .then((v) => {
+        try {
+          localStorage.setItem(key, String(v.seed))
+        } catch {
+          /* не страшно */
+        }
+        setParams({ v: String(v.seed) }, { replace: true })
+      })
+      .catch(() => setVariantFailed(true))
+  }, [p, seed, id, setParams, variantTry])
+
   useEffect(() => {
     load()
     setResult(null)
@@ -100,6 +131,19 @@ export function ProblemPage() {
 
   if (error) return <ErrorBox text={error} />
   if (!p) return <div className="card h-80 animate-pulse" />
+  // Условие оригинала не показываем: ждём аналог, а при ошибке просим повторить.
+  if (p.analogue_only && seed === null) {
+    return variantFailed ? (
+      <div className="card p-6">
+        <p>{t('Не удалось подобрать вариант задачи. Попробуй ещё раз.')}</p>
+        <button onClick={() => setVariantTry((n) => n + 1)} className="btn-primary mt-4">
+          {t('Повторить')}
+        </button>
+      </div>
+    ) : (
+      <div className="card h-80 animate-pulse" />
+    )
+  }
 
   const solved = p.progress.solved
 
@@ -157,6 +201,11 @@ export function ProblemPage() {
     setBusy('variant')
     try {
       const v = await api.variant(id)
+      try {
+        localStorage.setItem('olymp-analogue:' + id, String(v.seed))
+      } catch {
+        /* не страшно */
+      }
       setParams({ v: String(v.seed) })
       setTimeout(() => inputRef.current?.focus(), 50)
     } catch (err) {
@@ -388,9 +437,11 @@ function VariantBanner({ p, showOriginal, toggle }: { p: ProblemDetail; showOrig
         {t('решатель воспроизводит официальный ответ')}
         {v?.cross_checked && t(', ответ сверен с независимой ИИ-моделью')}
       </span>
-      <button onClick={toggle} className="ml-auto font-semibold underline-offset-4 hover:underline">
-        {showOriginal ? t('Скрыть оригинал') : t('Показать оригинал')}
-      </button>
+      {p.original_statement && (
+        <button onClick={toggle} className="ml-auto font-semibold underline-offset-4 hover:underline">
+          {showOriginal ? t('Скрыть оригинал') : t('Показать оригинал')}
+        </button>
+      )}
     </div>
   )
 }

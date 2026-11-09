@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import logging
 import random
 import time
@@ -18,7 +19,8 @@ from ..bank import (
     get_problem,
     load_bank,
 )
-from ..common import _hints_for, _spend_ai, current_user, get_db, problem_points
+from ..cloner import CloneError, make_variant
+from ..common import SEED_MAX, _hints_for, _spend_ai, current_user, get_db, problem_points
 from ..config import settings
 from ..db import DB
 from ..llm import LLMError
@@ -42,6 +44,7 @@ class ChatRequest(BaseModel):
     messages: list[ChatMessage] = Field(max_length=100)
     attachments: list[ChatAttachment] = Field(default=[], max_length=chat.MAX_UPLOADS)
     problem_id: str | None = Field(default=None, max_length=200)
+    seed: int | None = Field(default=None, ge=0, le=SEED_MAX)  # какой вариант задачи видит ученик
     mode: Literal["training", "olympiad"] = "training"
     lang: Literal["ru", "kk"] = "ru"
 
@@ -85,7 +88,13 @@ async def chat_reply(
     )
     problem, figures = None, []
     if body.problem_id and (p := get_problem(body.problem_id)):
-        problem = {"source": p.source.label(), "topic": p.topic, "statement": p.statement}
+        statement = p.statement
+        if body.seed is not None and p.can_clone:
+            try:
+                statement = (await asyncio.to_thread(make_variant, p, body.seed)).statement
+            except CloneError:
+                pass  # вариант не собрался: помощник работает с исходным условием
+        problem = {"source": p.source.label(), "topic": p.topic, "statement": statement}
         if db.progress(user["id"], p.id)["solution_viewed"]:  # разбор ученик уже видел — его можно обсуждать
             hints = _hints_for(p, db)
             problem["solution"] = p.solution or (hints.solution if hints else "")

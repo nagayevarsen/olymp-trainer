@@ -20,6 +20,48 @@
     "number": 4,
     "url": "https://cdn.bc-pf.org/olympiads/physics/junior/2023/phys8-sol.pdf"
   },
+  "template": {
+    "text": "Источник света расположен на расстоянии {d} см от тонкой линзы с фокусным расстоянием {f1} см. На некотором расстоянии за этой линзой расположена вторая линза, так что система из двух линз дает действительное обратное изображение источника с увеличением $\\Gamma=-1$ на расстоянии {D} см за первой линзой. Примечание: полное увеличение системы двух линз определяется произведением увеличений каждой из линз $\\Gamma=\\Gamma_1\\cdot\\Gamma_2$.\n\n**Пункт 4.3.** Определите фокусное расстояние второй линзы.",
+    "params": {
+      "d": {
+        "min": 20.0,
+        "max": 60.0,
+        "step": 5.0
+      },
+      "f1": {
+        "min": 4.0,
+        "max": 15.0,
+        "step": 1.0
+      },
+      "D": {
+        "min": 10.0,
+        "max": 40.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "d": 30.0,
+      "f1": 5.0,
+      "D": 18.0
+    },
+    "solver": "def solve(d, f1, D):\n    v = d * f1 / (d - f1)\n    g2 = d / v\n    L = (g2 * v - D) / (g2 - 1)\n    a = L - v\n    b = D - L\n    return 1 / (1 / a + 1 / b)",
+    "constraints": [
+      "d > f1",
+      "d != 2*f1",
+      "D > 0",
+      "abs(d*f1/(d-f1) - D) > 1e-9",
+      "abs(answer) > 1e-9"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "Первая линза: $\\frac{1}{d}+\\frac{1}{f_1}=\\frac{1}{F_1}$ даёт $f_1=6$ см, $\\Gamma_1=-\\frac{f_1}{d}=-\\frac{1}{5}$. Из $\\Gamma=\\Gamma_1\\Gamma_2=-1$ найдено расстояние между линзами $l=3$ см. Для второй линзы $-\\frac{1}{f_1-l}+\\frac{1}{f-l}=\\frac{1}{F_2}$, откуда $F_2=-3{,}75$ см.",
   "figures": []
 }

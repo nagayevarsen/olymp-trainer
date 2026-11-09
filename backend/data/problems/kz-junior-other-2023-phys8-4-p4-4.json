@@ -20,6 +20,56 @@
     "number": 4,
     "url": "https://cdn.bc-pf.org/olympiads/physics/junior/2023/phys8-sol.pdf"
   },
+  "template": {
+    "text": "Источник света расположен на расстоянии {d} см от тонкой линзы с фокусным расстоянием {f} см. На некотором расстоянии за этой линзой расположена вторая линза, так что система из двух линз дает действительное обратное изображение источника с увеличением $\\Gamma={G}$ на расстоянии {D} см за первой линзой. Примечание: полное увеличение системы двух линз определяется произведением увеличений каждой из линз $\\Gamma=\\Gamma_1\\cdot\\Gamma_2$.\n\n**Пункт 4.4.** Определите положение второй линзы, то есть её расстояние $l$ от первой линзы.",
+    "params": {
+      "d": {
+        "min": 10.0,
+        "max": 60.0,
+        "step": 1.0
+      },
+      "f": {
+        "min": 2.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "G": {
+        "min": -3.0,
+        "max": -1.0,
+        "step": 1.0
+      },
+      "D": {
+        "min": 5.0,
+        "max": 40.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "d": 30.0,
+      "f": 5.0,
+      "G": -1.0,
+      "D": 18.0
+    },
+    "solver": "def solve(d, f, D, G):\n    v1 = f*d/(d-f)\n    g1 = -f/(d-f)\n    g2 = G/g1\n    return (g2*v1 - D)/(g2 - 1)",
+    "constraints": [
+      "d > f",
+      "f > 0",
+      "G < 0",
+      "D > 0",
+      "(-G*(d-f)/f) != 1",
+      "answer > 0",
+      "answer < D"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Из условия $\\Gamma=\\Gamma_1\\Gamma_2=-1$ получено $l=\\frac{f_1(d-f)}{d-f_1}=\\frac{6\\cdot 12}{24}=3$ см.",
   "figures": []
 }

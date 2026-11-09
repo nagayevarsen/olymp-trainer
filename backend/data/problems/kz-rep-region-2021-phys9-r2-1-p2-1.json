@@ -19,6 +19,44 @@
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2021/phys9-2-sol.pdf"
   },
+  "template": {
+    "text": "Игральные кости имеют шесть граней, каждая грань пронумерована от 1 до 6. {n} игральных костей бросают {N} раз. Рассчитайте среднее значение результата (суммы значений всех {n} костей), если для двух костей среднее значение результата равно {m2}.",
+    "params": {
+      "n": {
+        "min": 5.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "N": {
+        "min": 1000.0,
+        "max": 100000.0,
+        "step": 1000.0
+      },
+      "m2": {
+        "value": 7.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 5.0,
+      "N": 10000.0,
+      "m2": 7.0
+    },
+    "solver": "def solve(n, N, m2):\n    return n * m2 / 2",
+    "constraints": [
+      "answer > 0",
+      "n >= 5"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "Пропорция два к пяти: среднее значение для пяти костей = 7 · 5/2 = 17.5.",
   "figures": []
 }

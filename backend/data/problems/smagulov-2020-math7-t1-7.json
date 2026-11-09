@@ -24,5 +24,40 @@
     "number": 7,
     "url": "https://matol.kz/olympiads/1006"
   },
+  "template": {
+    "text": "Найдите значение выражения $\\frac{ab+a+b+1}{bc+b+c+1}:\\frac{ed+e+d+1}{cd+c+d+1}$ при $a={a}$ и $e={e}$.",
+    "params": {
+      "a": {
+        "min": 1.0,
+        "max": 9999.0,
+        "step": 1.0
+      },
+      "e": {
+        "min": 1.0,
+        "max": 99.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 2019.0,
+      "e": 1.0
+    },
+    "solver": "def solve(a, e):\n    return (a + 1) / (e + 1)",
+    "constraints": [
+      "e != -1",
+      "a != -1",
+      "(a + 1) % (e + 1) == 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

@@ -24,5 +24,32 @@
     "number": 13,
     "url": "https://matol.kz/olympiads/862"
   },
+  "template": {
+    "text": "Картофель подешевел на ${p}\\%$. На сколько процентов больше картофеля можно купить на ту же сумму денег?",
+    "params": {
+      "p": {
+        "min": 1.0,
+        "max": 90.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "p": 20.0
+    },
+    "solver": "def solve(p):\n    return 100 * p / (100 - p)",
+    "constraints": [
+      "0 < p < 100",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

@@ -24,5 +24,38 @@
     "number": 10,
     "url": "https://matol.kz/olympiads/855"
   },
+  "template": {
+    "text": "Вовочка любит решать математические задачи. Известно, что вчера он решил на {a} задач меньше, чем позавчера и на {b} задачи меньше, чем позавчера и сегодня вместе. Сколько задач решил Вовочка сегодня?",
+    "params": {
+      "a": {
+        "min": 5.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 10.0,
+        "max": 80.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 11.0,
+      "b": 32.0
+    },
+    "solver": "def solve(a, b):\n    return b - a",
+    "constraints": [
+      "answer > 0",
+      "b > a"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

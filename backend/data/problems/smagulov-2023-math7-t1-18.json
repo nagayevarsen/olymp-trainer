@@ -24,5 +24,32 @@
     "number": 18,
     "url": "https://matol.kz/olympiads/1071"
   },
+  "template": {
+    "text": "Найдите число натуральных решений $\\left( x, y, z \\right)$ уравнения $2x+y+z={N}$.",
+    "params": {
+      "N": {
+        "min": 10.0,
+        "max": 300.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "N": 101.0
+    },
+    "solver": "def solve(N):\n    return sum(N - 1 - 2 * x for x in range(1, (N - 2) // 2 + 1))",
+    "constraints": [
+      "N >= 10",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

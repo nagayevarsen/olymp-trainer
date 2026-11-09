@@ -24,5 +24,31 @@
     "number": 15,
     "url": "https://matol.kz/olympiads/1006"
   },
+  "template": {
+    "text": "Под словом АЛМАТА зашифровали некоторое натуральное число, делящиеся на {d}. Также известно, что при шифровке не использовали цифру 0. Найдите наименьшее возможное значение суммы цифр этого зашифрованного числа. (В шифровке одинаковые буквы означает одинаковые цифры, разные буквы — разные цифры.)",
+    "params": {
+      "d": {
+        "min": 2.0,
+        "max": 100.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "d": 45.0
+    },
+    "solver": "def solve(d):\n    best = -1\n    for A in range(1, 10):\n        for L in range(1, 10):\n            if L == A:\n                continue\n            for M in range(1, 10):\n                if M == A or M == L:\n                    continue\n                for T in range(1, 10):\n                    if T == A or T == L or T == M:\n                        continue\n                    N = A*100000 + L*10000 + M*1000 + A*100 + T*10 + A\n                    if N % d == 0:\n                        s = 3*A + L + M + T\n                        if best < 0 or s < best:\n                            best = s\n    return best",
+    "constraints": [
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

@@ -24,5 +24,45 @@
     "number": 17,
     "url": "https://matol.kz/olympiads/1007"
   },
+  "template": {
+    "text": "Сколько натуральных пар $(x,y)$, с суммой $x+y$ меньше {N}, удовлетворяют уравнению ${a}x={b}y$?",
+    "params": {
+      "a": {
+        "min": 2.0,
+        "max": 13.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 2.0,
+        "max": 13.0,
+        "step": 1.0
+      },
+      "N": {
+        "min": 100.0,
+        "max": 500.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "a": 5.0,
+      "b": 7.0,
+      "N": 200.0
+    },
+    "solver": "def solve(a, b, N):\n    g = gcd(a, b)\n    s = (a + b) // g\n    return (N - 1) // s",
+    "constraints": [
+      "a != b",
+      "gcd(a, b) == 1",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

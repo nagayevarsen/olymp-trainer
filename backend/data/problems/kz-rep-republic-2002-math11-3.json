@@ -6,13 +6,15 @@
   "statement": "Дана последовательность целых чисел $A = (a_1, a_2, \\ldots, a_{2001})$ (возможно с равными членами). Обозначим через $m$ количество троек $(a_i, a_j, a_k)$, где $1 \\le i < j < k \\le 2001$, таких что $a_j = a_i + 1$ и $a_k = a_j + 1$. Найдите максимально возможное значение $m$.",
   "answer": {
     "value": 296740963.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 296740963",
       "решение: anthropic:claude-sonnet-5-5 → 296740963",
       "программа (other): anthropic:claude-haiku-5-5 → 296740963",
       "программа (other): anthropic:claude-sonnet-5-5 → 296740963"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,33 @@
     "grade": 11,
     "number": 3,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2002/math11-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Дана последовательность целых чисел $A = (a_1, a_2, \\ldots, a_{{{n}}})$ (возможно с равными членами). Обозначим через $m$ количество троек $(a_i, a_j, a_k)$, где $1 \\le i < j < k \\le {n}$, таких что $a_j = a_i + 1$ и $a_k = a_j + 1$. Найдите максимально возможное значение $m$.",
+    "params": {
+      "n": {
+        "min": 3.0,
+        "max": 5000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 2001.0
+    },
+    "solver": "def solve(n):\n    a = n // 3\n    r = n % 3\n    p1 = a + (1 if r > 0 else 0)\n    p2 = a + (1 if r > 1 else 0)\n    p3 = a\n    return p1 * p2 * p3",
+    "constraints": [
+      "n >= 3",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

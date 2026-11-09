@@ -24,5 +24,55 @@
     "number": 7,
     "url": "https://matol.kz/olympiads/1007"
   },
+  "template": {
+    "text": "Решите уравнение: $1+\\frac{{a}}{2-\\frac{{b}}{1+\\frac{{c}}{1+\\frac{{d}}{x}}}}={e}.$",
+    "params": {
+      "a": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 1.0,
+        "max": 6.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 1.0,
+        "max": 6.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 1.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "e": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 4.0,
+      "b": 2.0,
+      "c": 3.0,
+      "d": 10.0,
+      "e": 5.0
+    },
+    "solver": "def solve(a, b, c, d, e):\n    D = a / (e - 1)\n    E = b / (2 - D)\n    F = c / (E - 1)\n    return d / (F - 1)",
+    "constraints": [
+      "a != 0 and b != 0 and c != 0 and d != 0 and e != 1 and a/(e-1) != 2 and b/(2-a/(e-1)) != 1 and c/(b/(2-a/(e-1)) - 1) != 1 and answer != 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

@@ -24,5 +24,38 @@
     "number": 7,
     "url": "https://matol.kz/olympiads/1008"
   },
+  "template": {
+    "text": "Найдите сумму всех трёхзначных чисел, которые при делении на {m} дают остаток {r}.",
+    "params": {
+      "m": {
+        "min": 2.0,
+        "max": 99.0,
+        "step": 1.0
+      },
+      "r": {
+        "min": 0.0,
+        "max": 98.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "m": 51.0,
+      "r": 10.0
+    },
+    "solver": "def solve(m, r):\n    return sum([x for x in range(100, 1000) if x % m == r])",
+    "constraints": [
+      "r < m",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

@@ -25,5 +25,44 @@
     "number": 1,
     "url": "https://matol.kz/olympiads/486"
   },
+  "template": {
+    "text": "Чему равно {p1} процентов от {p2} процентов числа {n}?",
+    "params": {
+      "p1": {
+        "min": 5.0,
+        "max": 95.0,
+        "step": 5.0
+      },
+      "p2": {
+        "min": 2.0,
+        "max": 98.0,
+        "step": 2.0
+      },
+      "n": {
+        "min": 1000.0,
+        "max": 3000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "p1": 20.0,
+      "p2": 16.0,
+      "n": 2016.0
+    },
+    "solver": "def solve(p1, p2, n):\n    return n * p1 * p2 / 10000",
+    "constraints": [
+      "answer > 0",
+      "p1 != p2"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

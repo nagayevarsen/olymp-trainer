@@ -6,13 +6,15 @@
   "statement": "Обозначим через $S(n)$ сумму цифр в десятичной записи натурального числа $n$. Вычислите значение выражения $S(1) - S(2) + S(3) - S(4) + \\cdots + S(2013) - S(2014)$.",
   "answer": {
     "value": 1000.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 1000",
       "решение: anthropic:claude-sonnet-5-5 → 1000",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 1000",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 1000"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,33 @@
     "grade": 9,
     "number": 2,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2014/math9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Обозначим через $S(n)$ сумму цифр в десятичной записи натурального числа $n$. Вычислите значение выражения $S(1) - S(2) + S(3) - S(4) + \\cdots + S({n}-1) - S({n})$.",
+    "params": {
+      "n": {
+        "min": 10.0,
+        "max": 5000.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "n": 2014.0
+    },
+    "solver": "def solve(n):\n    t = 0\n    for j in range(1, 12):\n        t += n // (10 ** j)\n    return -(n // 2) + 9 * t",
+    "constraints": [
+      "n % 2 == 0",
+      "n >= 10"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

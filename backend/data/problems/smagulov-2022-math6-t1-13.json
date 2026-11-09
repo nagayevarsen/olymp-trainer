@@ -24,5 +24,49 @@
     "number": 13,
     "url": "https://matol.kz/olympiads/1007"
   },
+  "template": {
+    "text": "Асан, Хасан и Жасан решили выяснить, кто из них самый спортивный. Для этого они провели {n} состязаний. Победитель получал 3 балла, занявший второе место — 1 балл, а занявший третье место ничего не получал (в каждом состязании было первое, второе и третье места). В сумме Асан набрал {A} баллов, а Хасан — {H} баллов. Сколько баллов набрал Жасан?",
+    "params": {
+      "n": {
+        "min": 5.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "A": {
+        "min": 0.0,
+        "max": 60.0,
+        "step": 1.0
+      },
+      "H": {
+        "min": 0.0,
+        "max": 60.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 10.0,
+      "A": 22.0,
+      "H": 8.0
+    },
+    "solver": "def solve(n, A, H):\n    total = 4 * n\n    return total - A - H",
+    "constraints": [
+      "A <= 3 * n",
+      "H <= 3 * n",
+      "answer >= 0",
+      "answer <= 3 * n",
+      "A // 3 + A % 3 <= n",
+      "H // 3 + H % 3 <= n",
+      "answer // 3 + answer % 3 <= n"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

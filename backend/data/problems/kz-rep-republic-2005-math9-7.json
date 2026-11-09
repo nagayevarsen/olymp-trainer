@@ -6,13 +6,15 @@
   "statement": "Найдите целую часть числа $\\frac{2^1}{1!} + \\frac{2^2}{2!} + \\frac{2^3}{3!} + \\dots + \\frac{2^{100}}{100!}$.",
   "answer": {
     "value": 6.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 6",
       "решение: anthropic:claude-sonnet-5-5 → 6",
       "программа (other): anthropic:claude-haiku-5-5 → 6",
       "программа (other): anthropic:claude-sonnet-5-5 → 6"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,40 @@
     "grade": 9,
     "number": 7,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2005/math9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Найдите целую часть числа $\\frac{{a}^{1}}{1!} + \\frac{{a}^{2}}{2!} + \\frac{{a}^{3}}{3!} + \\dots + \\frac{{a}^{ {n} }}{{n}!}$.",
+    "params": {
+      "a": {
+        "min": 2.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "n": {
+        "min": 10.0,
+        "max": 100.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "a": 2.0,
+      "n": 100.0
+    },
+    "solver": "def solve(a, n):\n    s = 0\n    f = 1\n    for k in range(1, n + 1):\n        f *= k\n        s += a ** k / f\n    return floor(s)",
+    "constraints": [
+      "a >= 2",
+      "n >= 10",
+      "answer >= 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

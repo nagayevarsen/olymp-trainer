@@ -19,6 +19,40 @@
     "number": 32,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "Молярная масса молекулы воздуха {M} г/моль. Температура {T} К.\n\n**Пункт 32.** Найдите среднюю по модулю скорость молекулы воздуха.",
+    "params": {
+      "M": {
+        "min": 2.0,
+        "max": 100.0,
+        "step": 1.0
+      },
+      "T": {
+        "min": 200.0,
+        "max": 600.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "M": 29.0,
+      "T": 300.0
+    },
+    "solver": "def solve(M, T):\n    R = 8.31\n    return sqrt(8 * R * T / (pi * M * 0.001))",
+    "constraints": [
+      "M > 0",
+      "T > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "В ключе ответ A: ≈ 468 м/с (по $\\sqrt{8RT/(\\pi M)}$).",
   "figures": []
 }

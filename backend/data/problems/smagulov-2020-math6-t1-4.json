@@ -24,5 +24,57 @@
     "number": 4,
     "url": "https://matol.kz/olympiads/1005"
   },
+  "template": {
+    "text": "Сколько натуральных чисел $x$ удовлетворяют неравенствам $$\\frac{{p1}}{{p2}} < \\frac{x}{{N}} < \\frac{{p3}}{{p4}}?$$",
+    "params": {
+      "p1": {
+        "min": 1.0,
+        "max": 8.0,
+        "step": 1.0
+      },
+      "p2": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "p3": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "p4": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "N": {
+        "min": 100.0,
+        "max": 1000.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "p1": 3.0,
+      "p2": 4.0,
+      "p3": 4.0,
+      "p4": 5.0,
+      "N": 400.0
+    },
+    "solver": "def solve(p1, p2, p3, p4, N):\n    lo = (N * p1) // p2\n    hi = -((-N * p3) // p4)\n    return max(0, hi - lo - 1)",
+    "constraints": [
+      "p1 * p4 < p3 * p2",
+      "p1 * p4 * N > 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

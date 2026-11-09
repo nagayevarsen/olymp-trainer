@@ -6,13 +6,15 @@
   "statement": "Какое наименьшее натуральное значение может принимать выражение $$95a^2+80ab+20b^2$$ для целых чисел $a$ и $b$?",
   "answer": {
     "value": 15.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 15",
       "решение: anthropic:claude-sonnet-5-5 → 15",
       "программа (other): anthropic:claude-haiku-5-5 → 15",
       "программа (other): anthropic:claude-sonnet-5-5 → 15"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,45 @@
     "grade": 8,
     "number": 1,
     "url": "https://matol.kz/olympiads/1160"
-  }
+  },
+  "template": {
+    "text": "Какое наименьшее натуральное значение может принимать выражение $${A}a^2+{B}ab+{C}b^2$$ для целых чисел $a$ и $b$?",
+    "params": {
+      "A": {
+        "min": 1.0,
+        "max": 200.0,
+        "step": 1.0
+      },
+      "B": {
+        "min": 0.0,
+        "max": 200.0,
+        "step": 1.0
+      },
+      "C": {
+        "min": 1.0,
+        "max": 200.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "A": 95.0,
+      "B": 80.0,
+      "C": 20.0
+    },
+    "solver": "def solve(A, B, C):\n    N = 200\n    best = None\n    for a in range(-N, N + 1):\n        for b in range(-N, N + 1):\n            v = A * a * a + B * a * b + C * b * b\n            if v > 0 and (best is None or v < best):\n                best = v\n    return best",
+    "constraints": [
+      "B*B - 4*A*C < 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

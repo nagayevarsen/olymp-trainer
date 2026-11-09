@@ -20,6 +20,54 @@
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/final/2020/phys9-2-sol.pdf"
   },
+  "template": {
+    "text": "На заре создания теории электрических цепей считалось, что электрический ток представляет собой некую жидкость, текущую от большего потенциала к меньшему. Рассмотрим электрический ток силой $I$, протекающий через резистор сопротивлением $R$. При этом на резисторе возникает разность потенциалов $U=\\varphi_A-\\varphi_B$, то есть электрический ток протекает от значения большего потенциала $\\varphi_A$ к меньшему потенциалу $\\varphi_B$. Очевидно, что вдоль замкнутой электрической цепи потенциал не может все время падать в направлении протекания электрического тока. Для его повышения используются источники напряжения.\n\n**Пункт 3.1.** В схеме из двух последовательно соединённых резисторов $R_1={R1}$ Ом и $R_2={R2}$ Ом потенциалы точек $A$ и $B$ равны $\\varphi_A={phiA}$ В и $\\varphi_B={phiB}$ В. Найдите потенциал $\\varphi_C$ точки $C$ между резисторами.",
+    "params": {
+      "R1": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "R2": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "phiA": {
+        "min": 2.0,
+        "max": 20.0,
+        "step": 0.5
+      },
+      "phiB": {
+        "min": 0.0,
+        "max": 10.0,
+        "step": 0.5
+      }
+    },
+    "original": {
+      "R1": 1.0,
+      "R2": 2.0,
+      "phiA": 4.5,
+      "phiB": 1.5
+    },
+    "solver": "def solve(R1, R2, phiA, phiB):\n    I = (phiA - phiB) / (R1 + R2)\n    return phiA - I * R1",
+    "constraints": [
+      "phiA > phiB",
+      "R1 > 0",
+      "R2 > 0",
+      "answer > phiB",
+      "answer < phiA"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Закон Ома для резисторов: $\\varphi_A-\\varphi_C=I_1R_1$, $\\varphi_C-\\varphi_B=I_2R_2$. Из стационарности $I_1=I_2$, откуда $\\varphi_C=\\frac{\\varphi_AR_2+\\varphi_BR_1}{R_1+R_2}=3{,}5$ В.",
   "figures": [
     "kz-rep-republic-2020-phys9-r2-1-fig1.png",

@@ -9,7 +9,8 @@
     "variables": {},
     "unit": "км/с",
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -17,6 +18,45 @@
     "stage": "international",
     "number": 2,
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
+  },
+  "template": {
+    "text": "Разведывательный космический корабль развитой цивилизации бороздит просторы Вселенной. В этой задаче Вам предстоит рассмотреть несколько ситуаций этого межзвездного путешествия с физической точки зрения. Во всех численных расчетах считайте гравитационную постоянную известной и равной $G = 6.672 \\times 10^{-11}\\ \\text{м}^3/(\\text{кг}\\cdot\\text{с}^2)$.\n\n**Пункт 2.3.** Капитан включает двигатель, изменяя скорость $v_\\infty$. Найдите и рассчитайте минимальную скорость $v_{\\infty,min}$, при которой корабль минует облако радиуса $R={R}\\times10^{7}$ км, массы $M={M}\\times10^{32}$ кг, прицельное расстояние $b={b}\\times10^{8}$ км.",
+    "params": {
+      "R": {
+        "min": 0.5,
+        "max": 3.0,
+        "step": 0.1
+      },
+      "M": {
+        "min": 2.0,
+        "max": 12.0,
+        "step": 0.1
+      },
+      "b": {
+        "min": 0.8,
+        "max": 3.0,
+        "step": 0.1
+      }
+    },
+    "original": {
+      "R": 1.5,
+      "M": 7.07,
+      "b": 1.5
+    },
+    "solver": "def solve(R, M, b):\n    G = 6.672e-11\n    Rm = R * 1e7 * 1e3\n    bm = b * 1e8 * 1e3\n    Mk = M * 1e32\n    v = sqrt(2 * G * Mk * Rm / (bm**2 - Rm**2))\n    return v / 1e3",
+    "constraints": [
+      "b * 10 > 2 * R",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
   },
   "solution": "Корабль касается облака: $v_r=0$, $u_\\tau R=v_\\infty b$, закон сохранения энергии $mv_{\\infty,min}^2/2=mu_\\tau^2/2-GMm/R$. Отсюда $v_{\\infty,min}=\\sqrt{\\frac{2GM}{R\\,(b^2/R^2-1)}}=252$ км/с.",
   "figures": [

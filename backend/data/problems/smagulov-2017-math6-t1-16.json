@@ -24,5 +24,39 @@
     "number": 16,
     "url": "https://matol.kz/olympiads/486"
   },
+  "template": {
+    "text": "На плоскости даны {h} горизонтальных и {v} вертикальных прямых. Сколько прямоугольников могли образоваться с помощью этих линий?",
+    "params": {
+      "h": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "v": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "h": 4.0,
+      "v": 3.0
+    },
+    "solver": "def solve(h, v):\n    return comb(h, 2) * comb(v, 2)",
+    "constraints": [
+      "h >= 2",
+      "v >= 2",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

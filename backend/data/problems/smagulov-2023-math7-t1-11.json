@@ -24,5 +24,52 @@
     "number": 11,
     "url": "https://matol.kz/olympiads/1071"
   },
+  "template": {
+    "text": "Вид первого сока содержит {p1}\\% нектара, а второго — {p2}\\%. Когда смешали несколько граммов первого сока и несколько граммов второго, получилось {M} граммов сока, содержащий {c}\\% нектара. Сколько граммов второго сока было до смешиваний?",
+    "params": {
+      "p1": {
+        "min": 5.0,
+        "max": 24.0,
+        "step": 1.0
+      },
+      "p2": {
+        "min": 25.0,
+        "max": 60.0,
+        "step": 1.0
+      },
+      "M": {
+        "min": 100.0,
+        "max": 1000.0,
+        "step": 50.0
+      },
+      "c": {
+        "min": 10.0,
+        "max": 50.0,
+        "step": 0.25
+      }
+    },
+    "original": {
+      "p1": 20.0,
+      "p2": 23.0,
+      "M": 400.0,
+      "c": 22.25
+    },
+    "solver": "def solve(p1, p2, M, c):\n    return M * (c - p1) / (p2 - p1)",
+    "constraints": [
+      "p1 < c < p2",
+      "M > 0",
+      "answer > 0",
+      "answer < M"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

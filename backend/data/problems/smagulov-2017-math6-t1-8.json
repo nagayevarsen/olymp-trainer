@@ -24,5 +24,53 @@
     "number": 8,
     "url": "https://matol.kz/olympiads/486"
   },
+  "template": {
+    "text": "Сергей проехал за {t1} часов {d1} километров. За какое время он проедет следующие {d2} километров, если будет ехать в {k} раза быстрее? (Ответ укажите в часах.)",
+    "params": {
+      "d1": {
+        "min": 50.0,
+        "max": 400.0,
+        "step": 10.0
+      },
+      "t1": {
+        "min": 1.0,
+        "max": 8.0,
+        "step": 1.0
+      },
+      "d2": {
+        "min": 50.0,
+        "max": 400.0,
+        "step": 10.0
+      },
+      "k": {
+        "min": 2.0,
+        "max": 4.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "d1": 200.0,
+      "t1": 4.0,
+      "d2": 150.0,
+      "k": 2.0
+    },
+    "solver": "def solve(d1, t1, d2, k):\n    v = d1 / t1\n    return d2 / (k * v)",
+    "constraints": [
+      "d1 > 0",
+      "t1 > 0",
+      "d2 > 0",
+      "k > 1",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

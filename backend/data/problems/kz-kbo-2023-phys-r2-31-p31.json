@@ -19,6 +19,46 @@
     "number": 31,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "{m} кг воздуха совершает цикл Карно в пределах температур {t1} °C и {t2} °C. Найдите КПД цикла.",
+    "params": {
+      "m": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "t1": {
+        "min": 127.0,
+        "max": 927.0,
+        "step": 50.0
+      },
+      "t2": {
+        "min": 7.0,
+        "max": 127.0,
+        "step": 20.0
+      }
+    },
+    "original": {
+      "m": 1.0,
+      "t1": 327.0,
+      "t2": 27.0
+    },
+    "solver": "def solve(m, t1, t2):\n    T1 = t1 + 273\n    T2 = t2 + 273\n    return (1 - T2 / T1) * 100",
+    "constraints": [
+      "t1 > t2",
+      "answer > 0",
+      "answer < 100"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "В ключе ответ C: ≈ 50 %. По формуле $\\eta = 1 - T_2/T_1 = 1 - 300/600$.",
   "figures": []
 }

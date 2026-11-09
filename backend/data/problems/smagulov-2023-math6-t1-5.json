@@ -24,5 +24,47 @@
     "number": 5,
     "url": "https://matol.kz/olympiads/1070"
   },
+  "template": {
+    "text": "На какое число поделили число {N}, если в частном получилось {q}, а в остатке {r}?",
+    "params": {
+      "N": {
+        "min": 100.0,
+        "max": 9999.0,
+        "step": 1.0
+      },
+      "q": {
+        "min": 2.0,
+        "max": 99.0,
+        "step": 1.0
+      },
+      "r": {
+        "min": 0.0,
+        "max": 50.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "N": 2023.0,
+      "q": 43.0,
+      "r": 2.0
+    },
+    "solver": "def solve(N, q, r):\n    return (N - r) / q",
+    "constraints": [
+      "(N - r) % q == 0",
+      "answer > r",
+      "answer > 0",
+      "q > 0",
+      "r >= 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

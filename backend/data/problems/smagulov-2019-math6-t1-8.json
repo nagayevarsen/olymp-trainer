@@ -24,5 +24,33 @@
     "number": 8,
     "url": "https://matol.kz/olympiads/862"
   },
+  "template": {
+    "text": "Сколько существует пар двузначных чисел, разность которых равна {d}?",
+    "params": {
+      "d": {
+        "min": 1.0,
+        "max": 89.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "d": 32.0
+    },
+    "solver": "def solve(d):\n    return 90 - d",
+    "constraints": [
+      "answer > 0",
+      "d >= 1",
+      "d <= 89"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

@@ -6,6 +6,7 @@
   "statement": "Человек рассматривает свое собственное изображение в плоскопараллельной пластине толщиной $h = 15$ см, изготовленной из стекла с показателем преломления $n = 1{,}5$. При этом он наблюдает целый ряд изображений своего лица, отстоящих на одинаковом расстоянии $L$ друг от друга. Найдите $L$.",
   "answer": {
     "value": 20.0,
+    "variables": {},
     "unit": "см",
     "origin": "verified",
     "verified_by": [
@@ -13,7 +14,8 @@
       "решение: anthropic:claude-sonnet-5-5 → 20",
       "программа (other): anthropic:claude-haiku-5-5 → 20",
       "программа (other): anthropic:claude-sonnet-5-5 → 20"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -22,5 +24,40 @@
     "grade": 9,
     "number": 4,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2019/phys9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Человек рассматривает свое собственное изображение в плоскопараллельной пластине толщиной $h = {h}$ см, изготовленной из стекла с показателем преломления $n = {n}$. При этом он наблюдает целый ряд изображений своего лица, отстоящих на одинаковом расстоянии $L$ друг от друга. Найдите $L$.",
+    "params": {
+      "h": {
+        "min": 5.0,
+        "max": 40.0,
+        "step": 1.0
+      },
+      "n": {
+        "min": 1.2,
+        "max": 2.0,
+        "step": 0.1
+      }
+    },
+    "original": {
+      "h": 15.0,
+      "n": 1.5
+    },
+    "solver": "def solve(h, n):\n    return 2 * h / n",
+    "constraints": [
+      "n > 1",
+      "h > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

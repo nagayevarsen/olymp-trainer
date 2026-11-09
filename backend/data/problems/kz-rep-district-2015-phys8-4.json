@@ -6,6 +6,8 @@
   "statement": "Какое сопротивление $R$ должно быть включено последовательно с лампой, чтобы лампа горела нормальным накалом при напряжении 220 В, если лампа рассчитана на напряжение 120 В при мощности 60 Вт?",
   "answer": {
     "value": 200.0,
+    "variables": {},
+    "unit": "Ом",
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 200",
@@ -13,7 +15,7 @@
       "программа (other): anthropic:claude-haiku-5-5 → 200",
       "программа (other): anthropic:claude-sonnet-5-5 → 200"
     ],
-    "unit": "Ом"
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -22,5 +24,47 @@
     "grade": 8,
     "number": 4,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2015/phys8-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Какое сопротивление $R$ должно быть включено последовательно с лампой, чтобы лампа горела нормальным накалом при напряжении {V} В, если лампа рассчитана на напряжение {U} В при мощности {P} Вт?",
+    "params": {
+      "V": {
+        "min": 150.0,
+        "max": 380.0,
+        "step": 10.0
+      },
+      "U": {
+        "min": 12.0,
+        "max": 240.0,
+        "step": 6.0
+      },
+      "P": {
+        "min": 25.0,
+        "max": 150.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "V": 220.0,
+      "U": 120.0,
+      "P": 60.0
+    },
+    "solver": "def solve(V, U, P):\n    I = P / U\n    R_lamp = U**2 / P\n    R_total = V / I\n    return R_total - R_lamp",
+    "constraints": [
+      "V > U",
+      "U > 0",
+      "P > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

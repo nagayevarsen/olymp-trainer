@@ -3,7 +3,7 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from app.bank import get_problem
+from app.bank import get_problem, load_bank
 from app.checker import format_number
 from app.cloner import make_variant
 from app.db import DB
@@ -79,8 +79,17 @@ def test_solution_then_variant_gives_half(client):
 def test_variant_detail_shows_new_statement(client):
     v = client.post("/api/problems/demo-math-tournament/variant", json={"seed": 5}).json()
     d = client.get(f"/api/problems/demo-math-tournament?seed={v['seed']}").json()
-    assert d["statement"] == v["statement"] and d["original_statement"]
+    # задача олимпиады: в тренировке показываем аналог, оригинал не выдаём (он остаётся для тура)
+    assert d["statement"] == v["statement"] and d["analogue_only"] and d["original_statement"] is None
     assert d["verification"]["reproduces_original"]
+
+
+def test_only_olympiad_problems_with_template_are_replaced_by_analogue(client):
+    bank = load_bank().values()
+    book = next(p for p in bank if p.source.stage == "collection")
+    no_template = next(p for p in bank if p.source.stage != "collection" and not p.can_clone)
+    assert client.get(f"/api/problems/{book.id}").json()["analogue_only"] is False
+    assert client.get(f"/api/problems/{no_template.id}").json()["analogue_only"] is False
 
 
 def test_check_requires_user(client):

@@ -6,13 +6,15 @@
   "statement": "Действительные числа $a$ и $b$ таковы, что $a+b=ab=19$. Найдите значение выражения $$(a^2-19a)\\left(b+\\frac{19}{b}\\right).$$",
   "answer": {
     "value": -361.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → -361",
       "решение: anthropic:claude-sonnet-5-5 → -361",
       "программа (other): anthropic:claude-haiku-5-5 → -361",
       "программа (other): anthropic:claude-sonnet-5-5 → -361"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,33 @@
     "grade": 8,
     "number": 1,
     "url": "https://matol.kz/olympiads/1123"
-  }
+  },
+  "template": {
+    "text": "Действительные числа $a$ и $b$ таковы, что $a+b=ab={v}$. Найдите значение выражения $$(a^2-{v}a)\\left(b+\\frac{{v}}{b}\\right).$$",
+    "params": {
+      "v": {
+        "min": 4.0,
+        "max": 50.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "v": 19.0
+    },
+    "solver": "def solve(v):\n    return -v * v",
+    "constraints": [
+      "v >= 4",
+      "answer < 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

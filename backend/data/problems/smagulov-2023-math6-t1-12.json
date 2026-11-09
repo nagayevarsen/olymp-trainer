@@ -24,5 +24,38 @@
     "number": 12,
     "url": "https://matol.kz/olympiads/1070"
   },
+  "template": {
+    "text": "Два малыша делились конфетами. Сначала первый дал половину своих конфет (отдал второму), потом второй дал половину своих первому, потом снова первый дал половину своих. В результате у первого оказалось {m1} конфет, а у второго — {m2}. Сколько конфет было у первого в начале?",
+    "params": {
+      "m1": {
+        "min": 1.0,
+        "max": 100.0,
+        "step": 1.0
+      },
+      "m2": {
+        "min": 1.0,
+        "max": 200.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "m1": 15.0,
+      "m2": 33.0
+    },
+    "solver": "def solve(m1, m2):\n    return 6*m1 - 2*m2",
+    "constraints": [
+      "answer > 0",
+      "3*m2 - 5*m1 > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

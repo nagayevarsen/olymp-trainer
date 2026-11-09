@@ -6,6 +6,7 @@
   "statement": "Вычислите скорость звука в воздухе при давлении $2\\cdot10^5$ Па, плотности $2{,}6$ кг/м³, считая колебания давления воздуха адиабатическими.",
   "answer": {
     "value": 328.0,
+    "variables": {},
     "unit": "м/с",
     "origin": "verified",
     "verified_by": [
@@ -13,7 +14,8 @@
       "решение: anthropic:claude-sonnet-5-5 → 328",
       "программа (other): anthropic:claude-haiku-5-5 → 328.2",
       "программа (other): anthropic:claude-sonnet-5-5 → 328.165"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -22,5 +24,41 @@
     "grade": 10,
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2011/phys10-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Вычислите скорость звука в воздухе при давлении ${p}\\cdot10^5$ Па, плотности {rho} кг/м³, считая колебания давления воздуха адиабатическими.",
+    "params": {
+      "p": {
+        "min": 1.0,
+        "max": 4.0,
+        "step": 0.5
+      },
+      "rho": {
+        "min": 1.0,
+        "max": 4.0,
+        "step": 0.1
+      }
+    },
+    "original": {
+      "p": 2.0,
+      "rho": 2.6
+    },
+    "solver": "def solve(p, rho):\n    gamma = 1.4\n    return sqrt(gamma * p * 1e5 / rho)",
+    "constraints": [
+      "answer > 200",
+      "answer < 500",
+      "p > 0",
+      "rho > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

@@ -6,8 +6,10 @@
   "statement": "Из натуральных чисел от 1 до 25 Даша выбрала шесть таких, что разность любых двух выбранных чисел кратна 4. Какое наибольшее количество простых чисел могла выбрать Даша?",
   "answer": {
     "value": 5.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Леонарда Эйлера",
@@ -16,5 +18,46 @@
     "grade": 8,
     "number": 2,
     "url": "https://www.matol.ru/files/Disttur1_14_sol.pdf"
-  }
+  },
+  "template": {
+    "text": "Из натуральных чисел от 1 до {N} Даша выбрала {k} таких, что разность любых двух выбранных чисел кратна {m}. Какое наибольшее количество простых чисел могла выбрать Даша?",
+    "params": {
+      "N": {
+        "min": 20.0,
+        "max": 40.0,
+        "step": 1.0
+      },
+      "k": {
+        "min": 2.0,
+        "max": 8.0,
+        "step": 1.0
+      },
+      "m": {
+        "min": 2.0,
+        "max": 6.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "N": 25.0,
+      "k": 6.0,
+      "m": 4.0
+    },
+    "solver": "def solve(N, k, m):\n    best = 0\n    for r in range(m):\n        nums = [x for x in range(1, N + 1) if x % m == r]\n        if len(nums) < k:\n            continue\n        P = sum(1 for x in nums if x > 1 and all(x % d for d in range(2, floor(sqrt(x)) + 1)))\n        best = max(best, min(k, P))\n    return best",
+    "constraints": [
+      "k >= 2",
+      "m >= 2",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

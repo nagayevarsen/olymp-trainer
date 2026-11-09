@@ -16,6 +16,7 @@ from .bank import (
     load_bank,
 )
 from .config import settings
+from .contests import build_contests
 
 log = logging.getLogger("olymp")
 app = FastAPI(title=settings.app_name, version="0.1.0")
@@ -60,7 +61,9 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 # ---------- пользователи ----------
 @app.get("/api/health")
 def health() -> dict:
-    return {"ok": True, "problems": len(load_bank()), "app": settings.app_name}
+    bank = load_bank()
+    build_contests(bank)  # прогрев: первый запрос списка олимпиад иначе строит его ~3 с
+    return {"ok": True, "problems": len(bank), "app": settings.app_name}
 
 
 from .common import set_db  # noqa: E402,F401  (нужен тестам)

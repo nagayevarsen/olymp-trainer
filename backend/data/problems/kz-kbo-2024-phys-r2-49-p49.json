@@ -19,6 +19,39 @@
     "number": 49,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "К выводам цепи (см. рисунок) подано напряжение U = {U} В. r = {r} Ом. Сопротивления: 2r, 4r, 9r — в верхней ветви; r, 5r, 3r — в нижней. Вольтметр подключён между узлами после 2r и после r, амперметр — между узлами после 4r и после 5r (идеальные приборы).\n\n**Пункт 49.** Найдите силу тока через амперметр.",
+    "params": {
+      "U": {
+        "min": 21.0,
+        "max": 210.0,
+        "step": 21.0
+      },
+      "r": {
+        "value": 1.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "U": 42.0,
+      "r": 1.0
+    },
+    "solver": "def solve(U, r):\n    # Амперметр идеальный (закорачивает узлы Q и S), вольтметр идеальный (разрыв).\n    # Потенциал узла M (Q=S) при B=0, A=U: V = 3U/7.\n    # Ток через амперметр: I = U/(21 r).\n    return U / (21 * r)",
+    "constraints": [
+      "answer > 0",
+      "r > 0",
+      "U > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Официальное решение в файле не приведено; в ключе ответ — вариант C (2 А).",
   "figures": [
     "kz-kbo-2024-phys-r2-49-fig1.png"

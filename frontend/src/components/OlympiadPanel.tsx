@@ -130,7 +130,6 @@ function Picker() {
     const seeds: Record<string, number> = {}
     const points: Record<string, number> = {}
     for (const p of chosen.problems) {
-      if (p.can_clone) seeds[p.id] = 1 + Math.floor(Math.random() * 1_000_000)
       points[p.id] = p.points
     }
     setRun({
@@ -285,7 +284,7 @@ function Picker() {
             <li>{t('Как на настоящей олимпиаде: к каждой задаче — полное решение с обоснованием и ответ.')}</li>
             <li>{t('Без обоснования, с пробелами или неаккуратным оформлением баллы снимаются.')}</li>
             <li>{t('Подсказок и разборов нет до конца времени. Результаты — после окончания.')}</li>
-            <li>{t('Задачи взяты из архивов олимпиад (источник указан), числа в части задач изменены и проверены кодом.')}</li>
+            <li>{t('Задачи взяты из архивов олимпиад (источник указан), условия без изменений.')}</li>
           </ul>
           <button onClick={start} className="btn-primary w-full text-base">
             {t('▶ Старт')}

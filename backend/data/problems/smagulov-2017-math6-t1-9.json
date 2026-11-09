@@ -24,5 +24,53 @@
     "number": 9,
     "url": "https://matol.kz/olympiads/486"
   },
+  "template": {
+    "text": "Николай решил увеличить свой гараж. Ширина гаража --- {w} метра, а длина --- {l} метров. Он хочет в {kl} раза увеличить длину и в {kw} раза увеличить ширину. Как при этом изменится площадь гаража?",
+    "params": {
+      "w": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "l": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "kl": {
+        "min": 2.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "kw": {
+        "min": 2.0,
+        "max": 5.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "w": 4.0,
+      "l": 5.0,
+      "kl": 3.0,
+      "kw": 2.0
+    },
+    "solver": "def solve(w, l, kl, kw):\n    return kl * kw",
+    "constraints": [
+      "w > 0",
+      "l > 0",
+      "kl >= 2",
+      "kw >= 2",
+      "answer > 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

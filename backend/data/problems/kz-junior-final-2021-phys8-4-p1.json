@@ -20,6 +20,71 @@
     "number": 4,
     "url": "https://cdn.bc-pf.org/olympiads/physics/junior/2021/final/phys8-sol.pdf"
   },
+  "template": {
+    "text": "Пункт 1. Однажды Ходжа Насреддин решил вскипятить подсолнечное масло массой {m} г. Включил кипятильник, нагрел масло от {t0} °C до {t1} °C за {tau1} секунд, но вдруг передумал и выключил. После этого подсолнечное масло остыло на {dT} °C за {tau2} секунд. Величина удельной теплоёмкости подсолнечного масла равна $c_м = {c}$ Дж/(кг·°C). Мощность теплообмена с окружающей средой считать постоянной в пределах указанного диапазона температур.\n\nЧему равна мощность кипятильника? Ответ в Вт.",
+    "params": {
+      "m": {
+        "min": 100.0,
+        "max": 1000.0,
+        "step": 50.0
+      },
+      "c": {
+        "value": 1700.0,
+        "step": 1.0
+      },
+      "t0": {
+        "min": 5.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "t1": {
+        "min": 25.0,
+        "max": 60.0,
+        "step": 1.0
+      },
+      "tau1": {
+        "min": 60.0,
+        "max": 300.0,
+        "step": 10.0
+      },
+      "dT": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "tau2": {
+        "min": 30.0,
+        "max": 200.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "m": 600.0,
+      "c": 1700.0,
+      "t0": 11.0,
+      "t1": 32.0,
+      "tau1": 170.0,
+      "dT": 2.0,
+      "tau2": 100.0
+    },
+    "solver": "def solve(m, c, t0, t1, tau1, dT, tau2):\n    m_kg = m / 1000\n    P_loss = m_kg * c * dT / tau2\n    P_heat = m_kg * c * (t1 - t0) / tau1\n    return P_heat + P_loss",
+    "constraints": [
+      "t1 > t0",
+      "dT > 0",
+      "tau1 > 0",
+      "tau2 > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "При нагреве $(N_1 - N_0)\\tau_1 = mc\\Delta t_1$, при остывании $N_0\\tau_2 = mc\\Delta t_2$ (мощность теплообмена $N_0$ постоянна). Отсюда $N_1 = mc\\left(\\frac{\\Delta t_1}{\\tau_1} + \\frac{\\Delta t_2}{\\tau_2}\\right) = 0{,}6\\cdot1700\\left(\\frac{21}{170}+\\frac{2}{100}\\right) \\approx 146{,}4$ Вт.",
   "figures": []
 }

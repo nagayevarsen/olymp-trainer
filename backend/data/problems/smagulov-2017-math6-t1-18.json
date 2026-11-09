@@ -24,5 +24,31 @@
     "number": 18,
     "url": "https://matol.kz/olympiads/486"
   },
+  "template": {
+    "text": "В ребусе $\\mbox{АЛМА}-\\mbox{АТА}={n}$ одинаковым буквам соответствуют одинаковые цифры, разным буквам — разные. Какое максимальное значение может принимать Т?",
+    "params": {
+      "n": {
+        "min": 1000.0,
+        "max": 1990.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "n": 1230.0
+    },
+    "solver": "def solve(n):\n    best = -1\n    for A in range(1, 10):\n        for L in range(10):\n            for M in range(10):\n                for T in range(10):\n                    if A == L or A == M or A == T or L == M or L == T or M == T:\n                        continue\n                    alma = 1000 * A + 100 * L + 10 * M + A\n                    ata = 100 * A + 10 * T + A\n                    if alma - ata == n:\n                        if T > best:\n                            best = T\n    return best",
+    "constraints": [
+      "answer >= 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

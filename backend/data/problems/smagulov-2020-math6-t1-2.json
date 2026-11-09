@@ -24,5 +24,40 @@
     "number": 2,
     "url": "https://matol.kz/olympiads/1005"
   },
+  "template": {
+    "text": "В международной школе лингвистов {a}\\% учеников знают английский язык, а {b}\\% — испанский (каждый из учеников знает хотя бы один из этих языков). Какая часть учеников наверняка знает оба языка? (Ответ дайте в процентах.)",
+    "params": {
+      "a": {
+        "min": 60.0,
+        "max": 99.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 60.0,
+        "max": 99.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 85.0,
+      "b": 75.0
+    },
+    "solver": "def solve(a, b):\n    return a + b - 100",
+    "constraints": [
+      "a + b > 100",
+      "a < 100",
+      "b < 100",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

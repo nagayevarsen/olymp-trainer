@@ -20,6 +20,51 @@
     "number": 3,
     "url": "https://cdn.bc-pf.org/olympiads/physics/junior/2024/phys7-sol.pdf"
   },
+  "template": {
+    "text": "Два груза одинаковой массы {m} г, соединённые пружиной жёсткости {k} Н/м, стоят на столе (см. рисунок). При расчётах примите ускорение свободного падения равным {g} Н/кг. Пружина колеблется только вертикально. Верхний груз поднимают на {x} см над положением равновесия и отпускают.\n\n**Пункт 3.1.** Каково максимальное сжатие пружины в процессе движения?",
+    "params": {
+      "m": {
+        "min": 20.0,
+        "max": 200.0,
+        "step": 10.0
+      },
+      "k": {
+        "min": 100.0,
+        "max": 500.0,
+        "step": 50.0
+      },
+      "g": {
+        "value": 10.0,
+        "step": 1.0
+      },
+      "x": {
+        "min": 0.1,
+        "max": 1.0,
+        "step": 0.1
+      }
+    },
+    "original": {
+      "m": 80.0,
+      "k": 200.0,
+      "g": 10.0,
+      "x": 0.6
+    },
+    "solver": "def solve(m, k, g, x):\n    d0 = m / 1000 * g / k * 100\n    return d0 + x",
+    "constraints": [
+      "x > 0",
+      "x <= 2 * m / 1000 * g / k * 100",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Начальное сжатие $mg/k=0{,}4$ см. Из закона сохранения энергии с учетом эффективной потенциальной энергии получено $x'=x+mg/k=1$ см.",
   "figures": [
     "kz-junior-other-2024-phys7-3-fig1.png"

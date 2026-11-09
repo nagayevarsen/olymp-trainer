@@ -24,5 +24,38 @@
     "number": 5,
     "url": "https://matol.kz/olympiads/1007"
   },
+  "template": {
+    "text": "Какой угол образуют минутная и часовая стрелки в {h} часов {m} минут? Если в задаче получили два ответа, то необходимо указать меньшее из них.",
+    "params": {
+      "h": {
+        "min": 1.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "m": {
+        "min": 0.0,
+        "max": 58.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "h": 10.0,
+      "m": 22.0
+    },
+    "solver": "def solve(h, m):\n    d = abs(30*(h % 12) + 0.5*m - 6*m)\n    d = d % 360\n    return min(d, 360 - d)",
+    "constraints": [
+      "answer > 0",
+      "answer <= 180"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

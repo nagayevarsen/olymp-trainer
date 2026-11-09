@@ -18,6 +18,56 @@
     "number": 50,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "Сферическая планета радиусом {R} км совершает оборот вокруг себя за {T} земных часов. Вес объекта на широте {phi}° изменится на 1/{n}, если планета внезапно остановится. Принять $\\pi^2 \\approx 10$.\n\n**Пункт 50.** Во сколько раз гравитационное ускорение этой планеты превышает гравитационное ускорение Земли? (Ускорение свободного падения на Земле принять равным {g0} м/с².)",
+    "params": {
+      "R": {
+        "min": 3600.0,
+        "max": 14400.0,
+        "step": 3600.0
+      },
+      "T": {
+        "min": 20.0,
+        "max": 100.0,
+        "step": 10.0
+      },
+      "phi": {
+        "min": 30.0,
+        "max": 60.0,
+        "step": 30.0
+      },
+      "n": {
+        "min": 30.0,
+        "max": 150.0,
+        "step": 10.0
+      },
+      "g0": {
+        "value": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "R": 7200.0,
+      "T": 50.0,
+      "phi": 60.0,
+      "n": 90.0,
+      "g0": 10.0
+    },
+    "solver": "def solve(R, T, phi, n, g0):\n    Rm = R * 1000.0\n    Ts = T * 3600.0\n    c = cos(phi * pi / 180.0)\n    a = 40.0 * Rm / Ts**2 * c**2\n    g = a * n\n    return g / g0",
+    "constraints": [
+      "answer > 0",
+      "answer < 10"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "В ключе ответ B: 0,02.",
   "figures": []
 }

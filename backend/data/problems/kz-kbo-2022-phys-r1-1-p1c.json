@@ -19,6 +19,53 @@
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2022/phys-1-sol.pdf"
   },
+  "template": {
+    "text": "Изображённая на рисунке четырёхугольная фигура шириной $l = {l}$ см и с вертикальными сторонами высотой $H = {H}$ см и $h = {h}$ см, нижняя сторона которой лежит на оптической оси плоской собирающей линзы с фокусным расстоянием $F = {F}$ см, расположена так, что её левый нижний угол находится на отметке $2F$ (рисунок). Кривая сторона BC описывается как часть гиперболы $y_1 = \\frac{k}{x_1 + c}$. Математическая подсказка: $\\int \\frac{dx}{(x+m)^4} = \\frac{1}{-3(x+m)^3}$.\n\n**Пункт 1c.** Определите площадь полученного изображения (изображения фигуры, ограниченной сторонами AB, BC, CD и DA).",
+    "params": {
+      "l": {
+        "min": 10.0,
+        "max": 40.0,
+        "step": 10.0
+      },
+      "H": {
+        "min": 10.0,
+        "max": 60.0,
+        "step": 10.0
+      },
+      "h": {
+        "min": 5.0,
+        "max": 50.0,
+        "step": 5.0
+      },
+      "F": {
+        "min": 30.0,
+        "max": 80.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "l": 20.0,
+      "H": 20.0,
+      "h": 10.0,
+      "F": 40.0
+    },
+    "solver": "def solve(l, H, h, F):\n    k = h * F\n    u1 = F - l\n    u2 = F\n    return F**3 * k / 3.0 * (1.0 / u1**3 - 1.0 / u2**3)",
+    "constraints": [
+      "l < F",
+      "H > h",
+      "H * (F - l) == h * F",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "Площадь $S = \\int y_2\\,dx_2$, где $y_2 = y_1 \\frac{F}{x_1 - F}$, $dx_2 = -\\frac{F^2}{(x_1-F)^2}dx_1$. Получаем $S = \\int_{60}^{80} \\frac{kF^3}{(x_1-40)^4}dx_1 = \\frac{kF^3}{3}\\left(\\frac{1}{20^3} - \\frac{1}{40^3}\\right) \\approx 933{,}3$ см².",
   "figures": [
     "kz-kbo-2022-phys-r1-1-fig1.png"

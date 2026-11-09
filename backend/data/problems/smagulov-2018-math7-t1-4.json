@@ -24,5 +24,63 @@
     "number": 4,
     "url": "https://matol.kz/olympiads/856"
   },
+  "template": {
+    "text": "На олимпиаде ученику было предложено {n} задач; {k} из них оцениваются в {a} балла, остальные в {b} балла.  До появления результатов, ученик думал, что набрал {Sc} баллов, перепутав баллы за задачи: двухбалльные он посчитал как за трехбалльные, а трехбалльные как двухбалльные. Но в итоге у него оказалось {St} баллов. Сколько всего задач он решил на олимпиаде (общее количество двухбалльных и трехбалльных задач)?",
+    "params": {
+      "n": {
+        "value": 20.0,
+        "step": 1.0
+      },
+      "k": {
+        "min": 1.0,
+        "max": 19.0,
+        "step": 1.0
+      },
+      "a": {
+        "value": 2.0,
+        "step": 1.0
+      },
+      "b": {
+        "value": 3.0,
+        "step": 1.0
+      },
+      "Sc": {
+        "min": 20.0,
+        "max": 40.0,
+        "step": 1.0
+      },
+      "St": {
+        "min": 20.0,
+        "max": 40.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 20.0,
+      "k": 10.0,
+      "a": 2.0,
+      "b": 3.0,
+      "Sc": 26.0,
+      "St": 24.0
+    },
+    "solver": "def solve(n, k, a, b, Sc, St):\n    d = (Sc - St) / (b - a)\n    y = (St - a * d) / (a + b)\n    x = y + d\n    return x + y",
+    "constraints": [
+      "(Sc - St) % (b - a) == 0",
+      "(St - a * ((Sc - St) // (b - a))) % (a + b) == 0",
+      "0 <= (St - a * ((Sc - St) // (b - a))) // (a + b) <= n - k",
+      "0 <= (St - a * ((Sc - St) // (b - a))) // (a + b) + (Sc - St) // (b - a) <= k",
+      "answer > 0",
+      "answer <= n"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

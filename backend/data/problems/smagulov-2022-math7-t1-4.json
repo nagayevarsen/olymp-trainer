@@ -24,5 +24,33 @@
     "number": 4,
     "url": "https://matol.kz/olympiads/1008"
   },
+  "template": {
+    "text": "В равнобедренном треугольнике $MLP$ с основанием $LP$ биссектрисы $LN$ и $PK$ пересекаются в точке $Q$. Известно, что $\\angle LMP={a}^\\circ$. Найдите градусную меру разности $|\\angle KQN-\\angle QNM|$.",
+    "params": {
+      "a": {
+        "min": 40.0,
+        "max": 140.0,
+        "step": 4.0
+      }
+    },
+    "original": {
+      "a": 80.0
+    },
+    "solver": "def solve(a):\n    b = (180 - a) / 2\n    kqn = 180 - b\n    qnm = 3 * b / 2\n    return abs(kqn - qnm)",
+    "constraints": [
+      "a > 0",
+      "a < 180",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

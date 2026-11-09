@@ -24,5 +24,57 @@
     "number": 9,
     "url": "https://matol.kz/olympiads/1007"
   },
+  "template": {
+    "text": "Дана операция $m*n = m \\cdot n +m - 2 \\cdot n$. У Армана есть ${a}*{b}$ яблок. Он дал Асану ${c}*{d}$ яблок, а $1/{q}$ часть оставшихся яблок дал Айдане. Сколько яблок остается у Армана после этого?",
+    "params": {
+      "a": {
+        "min": 2.0,
+        "max": 15.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 2.0,
+        "max": 15.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "q": {
+        "min": 2.0,
+        "max": 6.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 8.0,
+      "b": 11.0,
+      "c": 5.0,
+      "d": 3.0,
+      "q": 4.0
+    },
+    "solver": "def solve(a, b, c, d, q):\n    total = a * b + a - 2 * b\n    given = c * d + c - 2 * d\n    rem = total - given\n    return rem - rem / q",
+    "constraints": [
+      "a * b + a - 2 * b - (c * d + c - 2 * d) > 0",
+      "(a * b + a - 2 * b - (c * d + c - 2 * d)) % q == 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

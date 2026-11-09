@@ -6,13 +6,15 @@
   "statement": "В выпуклом четырехугольнике $PQRS$ даны длины сторон: $PQ=40$, $PS=60$ и $RS=20$. Найдите значение $\\angle QRS$, если $\\angle QPS=\\angle RSP=60{}^\\circ$.",
   "answer": {
     "value": 150.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 150",
       "решение: anthropic:claude-sonnet-5-5 → 150",
       "программа (other): anthropic:claude-haiku-5-5 → 150",
       "программа (other): anthropic:claude-sonnet-5-5 → 150"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,47 @@
     "grade": 7,
     "number": 6,
     "url": "https://matol.kz/olympiads/1084"
-  }
+  },
+  "template": {
+    "text": "В выпуклом четырехугольнике $PQRS$ даны длины сторон: $PQ={a}$, $PS={b}$ и $RS={c}$. Найдите значение $\\angle QRS$, если $\\angle QPS=\\angle RSP=60{}^\\circ$.",
+    "params": {
+      "a": {
+        "min": 10.0,
+        "max": 90.0,
+        "step": 5.0
+      },
+      "b": {
+        "min": 20.0,
+        "max": 100.0,
+        "step": 5.0
+      },
+      "c": {
+        "min": 5.0,
+        "max": 95.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "a": 40.0,
+      "b": 60.0,
+      "c": 20.0
+    },
+    "solver": "def solve(a, b, c):\n    num = 2*c - a - b\n    den = sqrt((a + c - 2*b)**2 + 3*(a - c)**2)\n    x = num/den\n    x = min(1, max(-1, x))\n    lo = 0\n    hi = pi\n    for _ in range(200):\n        mid = (lo + hi)/2\n        if cos(mid) > x:\n            lo = mid\n        else:\n            hi = mid\n    return (lo + hi)/2*180/pi",
+    "constraints": [
+      "a < b",
+      "c < b",
+      "answer > 0",
+      "answer < 180"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

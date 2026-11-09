@@ -6,13 +6,15 @@
   "statement": "Для положительных действительных чисел $x$, $y$, $z$ выполнено равенство $2x^2 + 3y^2 + 6z^2 + 12(x + y + z) = 108$. Найдите наибольшее возможное значение выражения $x^3y^2z$.",
   "answer": {
     "value": 108.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 108",
       "решение: anthropic:claude-sonnet-5-5 → 108",
       "программа (other): anthropic:claude-haiku-5-5 → 108",
       "программа (other): anthropic:claude-sonnet-5-5 → 108"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,61 @@
     "grade": 9,
     "number": 3,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2020/math9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Для положительных действительных чисел $x$, $y$, $z$ выполнено равенство ${a}x^2 + {b}y^2 + {c}z^2 + {d}(x + y + z) = {K}$. Найдите наибольшее возможное значение выражения $x^3y^2z$.",
+    "params": {
+      "a": {
+        "min": 1.0,
+        "max": 4.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 1.0,
+        "max": 5.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 1.0,
+        "max": 8.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 6.0,
+        "max": 18.0,
+        "step": 6.0
+      },
+      "K": {
+        "min": 60.0,
+        "max": 200.0,
+        "step": 4.0
+      }
+    },
+    "original": {
+      "a": 2.0,
+      "b": 3.0,
+      "c": 6.0,
+      "d": 12.0,
+      "K": 108.0
+    },
+    "solver": "def solve(a, b, c, d, K):\n    X = (-d + sqrt(d*d + 4*a*K)) / (2*a)\n    Y = (-d + sqrt(d*d + 4*b*K)) / (2*b)\n    def f(x, y):\n        if x <= 0 or y <= 0:\n            return 0\n        rhs = K - a*x*x - b*y*y - d*x - d*y\n        if rhs <= 0:\n            return 0\n        z = (-d + sqrt(d*d + 4*c*rhs)) / (2*c)\n        return x*x*x*y*y*z\n    x0, x1, y0, y1 = 0, X, 0, Y\n    best, bx, by = 0, 0, 0\n    n = 40\n    for it in range(20):\n        for i in range(n+1):\n            x = x0 + (x1-x0)*i/n\n            for j in range(n+1):\n                y = y0 + (y1-y0)*j/n\n                v = f(x, y)\n                if v > best:\n                    best, bx, by = v, x, y\n        hx = 2*(x1-x0)/n\n        hy = 2*(y1-y0)/n\n        x0, x1 = max(0, bx-hx), min(X, bx+hx)\n        y0, y1 = max(0, by-hy), min(Y, by+hy)\n    return best",
+    "constraints": [
+      "a > 0",
+      "b > 0",
+      "c > 0",
+      "d > 0",
+      "K > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

@@ -24,5 +24,38 @@
     "number": 20,
     "url": "https://matol.kz/olympiads/856"
   },
+  "template": {
+    "text": "На одной прямой отметили {n} точек, а на другой прямой также отметили {n} точек, и точку пересечения этих прямых отметили как {k}-ю точку. Сколько имеется треугольников с вершинами в данных точках?",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "k": {
+        "min": 5.0,
+        "max": 41.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "n": 9.0,
+      "k": 19.0
+    },
+    "solver": "def solve(n, k):\n    # Всего точек: 2n+1. На каждой из прямых лежит n+1 точка (n отмеченных и общая точка пересечения).\n    # Треугольники = все тройки минус тройки, лежащие на одной прямой.\n    total = comb(2*n+1, 3)\n    collinear = 2*comb(n+1, 3)\n    return total - collinear",
+    "constraints": [
+      "k == 2*n+1",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

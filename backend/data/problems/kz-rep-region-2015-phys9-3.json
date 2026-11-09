@@ -6,13 +6,15 @@
   "statement": "Прямой цилиндр, изготовленный из дерева плавает в воде так, что в нее погружена $n = 0{,}9$ объема цилиндра. На воду налили слой масла, полностью закрывающий цилиндр. Какая часть цилиндра в этом случае будет погружена в воду? Плотность воды и масла соответственно считать равными $\\rho_в = 1000$ кг/м$^3$ и $\\rho_м = 800$ кг/м$^3$. (7 баллов)",
   "answer": {
     "value": 0.5,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 0.5",
       "решение: anthropic:claude-sonnet-5-5 → 0.5",
       "программа (other): anthropic:claude-haiku-5-5 → 0.5",
       "программа (other): anthropic:claude-sonnet-5-5 → 0.5"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,41 @@
     "grade": 9,
     "number": 3,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2015/phys9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Прямой цилиндр, изготовленный из дерева плавает в воде так, что в нее погружена $n = {n}$ объема цилиндра. На воду налили слой масла, полностью закрывающий цилиндр. Какая часть цилиндра в этом случае будет погружена в воду? Плотность воды и масла соответственно считать равными $\\rho_в = 1000$ кг/м$^3$ и $\\rho_м = {rho_m}$ кг/м$^3$. (7 баллов)",
+    "params": {
+      "n": {
+        "min": 0.5,
+        "max": 0.95,
+        "step": 0.05
+      },
+      "rho_m": {
+        "min": 500.0,
+        "max": 950.0,
+        "step": 50.0
+      }
+    },
+    "original": {
+      "n": 0.9,
+      "rho_m": 800.0
+    },
+    "solver": "def solve(n, rho_m):\n    rho_w = 1000\n    return (n * rho_w - rho_m) / (rho_w - rho_m)",
+    "constraints": [
+      "answer > 0",
+      "answer < 1",
+      "n * 1000 > rho_m",
+      "rho_m < 1000"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

@@ -24,5 +24,38 @@
     "number": 16,
     "url": "https://matol.kz/olympiads/1070"
   },
+  "template": {
+    "text": "Сколько существует натуральных пар $(X,Y)$ таких, что $\\text{НОД}(X,Y)={g}$ и $X \\cdot Y = {p}$?",
+    "params": {
+      "g": {
+        "min": 1.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "p": {
+        "min": 1.0,
+        "max": 1000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "g": 8.0,
+      "p": 384.0
+    },
+    "solver": "def solve(g, p):\n    n = p // (g * g)\n    cnt = 0\n    for d in range(1, n + 1):\n        if n % d == 0 and gcd(d, n // d) == 1:\n            cnt += 1\n    return cnt",
+    "constraints": [
+      "p % (g * g) == 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

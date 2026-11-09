@@ -6,13 +6,15 @@
   "statement": "Эльфы и тролли сидят за круглым столом, всего 60 существ. Тролли всегда лгут, эльфы говорят правду, кроме случаев, когда они «ошибаются». Каждый из сидящих утверждает, что сидит между эльфом и троллем, причем ровно два эльфа «ошиблись». Сколько троллей сидит за столом?",
   "answer": {
     "value": 20.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 20",
       "решение: anthropic:claude-sonnet-5-5 → 20",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 20",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 20"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,34 @@
     "grade": 10,
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2007/math10-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Эльфы и тролли сидят за круглым столом, всего {n} существ. Тролли всегда лгут, эльфы говорят правду, кроме случаев, когда они «ошибаются». Каждый из сидящих утверждает, что сидит между эльфом и троллем, причем ровно два эльфа «ошиблись». Сколько троллей сидит за столом?",
+    "params": {
+      "n": {
+        "min": 10.0,
+        "max": 120.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 60.0
+    },
+    "solver": "def solve(n):\n    e = 2\n    for a in range(0, e + 1):\n        if (n - e + 2 * a) % 3 == 0:\n            return (n - e + 2 * a) // 3\n    return -1",
+    "constraints": [
+      "n >= 4",
+      "answer >= 1",
+      "n - answer >= answer"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

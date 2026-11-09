@@ -24,5 +24,32 @@
     "number": 18,
     "url": "https://matol.kz/olympiads/487"
   },
+  "template": {
+    "text": "Сколькими способами можно разбить на пары числа 1, 2, 3, …, {n} так, чтобы разности большего и меньшего чисел во всех парах были одинаковы?",
+    "params": {
+      "n": {
+        "min": 2.0,
+        "max": 40.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "n": 8.0
+    },
+    "solver": "def solve(n):\n    count = 0\n    for d in range(1, n + 1):\n        ok = True\n        for r in range(1, d + 1):\n            cnt = sum(1 for x in range(1, n + 1) if (x - r) % d == 0)\n            if cnt % 2 != 0:\n                ok = False\n                break\n        if ok:\n            count += 1\n    return count",
+    "constraints": [
+      "n % 2 == 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

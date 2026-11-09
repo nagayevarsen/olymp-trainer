@@ -24,5 +24,33 @@
     "number": 15,
     "url": "https://matol.kz/olympiads/1071"
   },
+  "template": {
+    "text": "Если $A=\\frac{1}{{{2}^{2}}-1}+\\frac{1}{{{3}^{2}}-1}+\\frac{1}{{{4}^{2}}-1}+\\ldots +\\frac{1}{{{{n}}^{2}}-1}$, то чему равно значение выражения ${n}\\cdot({n}+1)\\cdot A$?",
+    "params": {
+      "n": {
+        "min": 5.0,
+        "max": 60.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 29.0
+    },
+    "solver": "def solve(n):\n    A = 3/4 - (1/2)*(1/n + 1/(n+1))\n    return n*(n+1)*A",
+    "constraints": [
+      "n >= 5",
+      "n % 4 in (1, 2)",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

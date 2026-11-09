@@ -6,13 +6,15 @@
   "statement": "Сколько общих членов имеют последовательности чисел видов 2, 5, 8, $\\ldots$, 200 и 1, 5, 9, $\\ldots$, 201?",
   "answer": {
     "value": 17.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 17",
       "решение: anthropic:claude-sonnet-5-5 → 17",
       "программа (other): anthropic:claude-haiku-5-5 → 17",
       "программа (other): anthropic:claude-sonnet-5-5 → 17"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -21,5 +23,40 @@
     "grade": 6,
     "number": 20,
     "url": "https://matol.kz/olympiads/1150"
-  }
+  },
+  "template": {
+    "text": "Сколько общих членов имеют последовательности чисел видов 2, 5, 8, $\\ldots$, {L1} и 1, 5, 9, $\\ldots$, {L2}?",
+    "params": {
+      "L1": {
+        "min": 101.0,
+        "max": 400.0,
+        "step": 3.0
+      },
+      "L2": {
+        "min": 101.0,
+        "max": 401.0,
+        "step": 4.0
+      }
+    },
+    "original": {
+      "L1": 200.0,
+      "L2": 201.0
+    },
+    "solver": "def solve(L1, L2):\n    m = min(L1, L2)\n    if m < 5:\n        return 0\n    return (m - 5) // 12 + 1",
+    "constraints": [
+      "answer > 0",
+      "(L1 - 2) % 3 == 0",
+      "(L2 - 1) % 4 == 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

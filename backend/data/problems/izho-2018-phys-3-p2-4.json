@@ -9,7 +9,8 @@
     "variables": {},
     "unit": "м/с",
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -17,6 +18,46 @@
     "stage": "international",
     "number": 3,
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2018-Theory_rus_sol.pdf"
+  },
+  "template": {
+    "text": "Рассмотрим две инерциальные системы отсчета $S$ и $S'$, из которых вторая движется относительно первой со скоростью $V$ вдоль оси $OX$. Начала $O$ и $O'$ совпадают в начальный момент времени $t=t'=0$ по часам обеих систем. Преобразования Лоренца пространственно-временных координат события имеют вид $x=\\frac{x'+(V/c)ct'}{\\sqrt{1-V^2/c^2}}$, $y=y'$, $z=z'$, $ct=\\frac{ct'+(V/c)x'}{\\sqrt{1-V^2/c^2}}$, где $c={c}$ м/с – скорость света.\n\n**Пункт 2.4.** Наблюдается красное смещение спектра звезды $X$: $(\\Delta\\omega/\\omega)_0={d}$. Из независимого эксперимента скорость удаления звезды от Солнца $v_X=c/{k}$. Считая, что часть сдвига объясняется эффектом Доплера, а остальное – гравитационным красным смещением на поверхности нейтронной звезды, найдите и рассчитайте вторую космическую скорость $v_{II}$ на поверхности звезды $X$.",
+    "params": {
+      "c": {
+        "value": 299790000.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 0.01,
+        "max": 0.03,
+        "step": 0.0001
+      },
+      "k": {
+        "min": 50.0,
+        "max": 200.0,
+        "step": 10.0
+      }
+    },
+    "original": {
+      "c": 299790000.0,
+      "d": 0.0099945,
+      "k": 100.0
+    },
+    "solver": "def solve(c, d, k):\n    b = 1.0 / k\n    D = sqrt((1 - b) / (1 + b))\n    r = (1 - d) / D\n    return c * sqrt(1 - r * r)",
+    "constraints": [
+      "answer > 0",
+      "answer < 3e7",
+      "d < 1",
+      "k > 1"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
   },
   "solution": "Доплеровский сдвиг $\\left(\\frac{\\Delta\\omega}{\\omega}\\right)_D=1-\\sqrt{\\frac{1-v_X/c}{1+v_X/c}}$; гравитационный $\\omega=\\omega_0\\exp(-v_{II}^2/(2c^2))$. Отсюда $v_{II}=\\sqrt{2\\ln\\left(\\frac{\\sqrt{(1-v_X/c)/(1+v_X/c)}}{1-(\\Delta\\omega/\\omega)_0}\\right)}\\,c=2.83\\cdot10^6$ м/с (в тексте решения есть опечатка «21.31 км/с»).",
   "figures": [

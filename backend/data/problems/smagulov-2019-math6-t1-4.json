@@ -24,5 +24,32 @@
     "number": 4,
     "url": "https://matol.kz/olympiads/862"
   },
+  "template": {
+    "text": "Обозначим через $n!$ произведение всех натуральных чисел от 1 до $n.$ (Например, $4!=1\\cdot2 \\cdot3 \\cdot4$.) Какой цифрой оканчивается сумма $1!+2!+\\ldots+{n}!$?",
+    "params": {
+      "n": {
+        "min": 4.0,
+        "max": 30.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 9.0
+    },
+    "solver": "def solve(n):\n    return sum(factorial(i) for i in range(1, n + 1)) % 10",
+    "constraints": [
+      "n >= 4",
+      "0 <= answer <= 9"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

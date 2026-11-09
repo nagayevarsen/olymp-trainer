@@ -6,6 +6,7 @@
   "statement": "Найдите наибольшее натуральное число $n$, обладающее тем свойством, что оно делится на все натуральные числа, не превосходящие $\\sqrt[3]{n}$.",
   "answer": {
     "value": 420.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 420",
@@ -13,7 +14,8 @@
       "решение: anthropic:claude-sonnet-5-5 → 420",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 420",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 420"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -22,5 +24,33 @@
     "grade": 10,
     "number": 6,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2012/math10-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Найдите наибольшее натуральное число $n$, обладающее тем свойством, что оно делится на все натуральные числа, не превосходящие $\\sqrt[{k}]{n}$.",
+    "params": {
+      "k": {
+        "min": 2.0,
+        "max": 6.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "k": 3.0
+    },
+    "solver": "def solve(k):\n    L = 1\n    best = 0\n    for m in range(1, 300):\n        L = lcm(L, m)\n        hi = (m + 1) ** k - 1\n        n = (hi // L) * L\n        if n >= m ** k:\n            best = max(best, n)\n    return best",
+    "constraints": [
+      "answer > 0",
+      "k >= 2"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

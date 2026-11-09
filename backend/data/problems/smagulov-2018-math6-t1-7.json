@@ -24,5 +24,39 @@
     "number": 7,
     "url": "https://matol.kz/olympiads/855"
   },
+  "template": {
+    "text": "В стране «Цифра» есть {n} городов с названиями 1, 2, ..., {n}. Путешественник обнаружил, что два города соединены авиалинией в том и только в том случае, если двузначное число, составленное из цифр — названий этих городов, делится на {d}. Сколько всего авиалиний в стране «Цифра»?",
+    "params": {
+      "n": {
+        "min": 5.0,
+        "max": 9.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 3.0,
+        "max": 9.0,
+        "step": 6.0
+      }
+    },
+    "original": {
+      "n": 9.0,
+      "d": 3.0
+    },
+    "solver": "def solve(n, d):\n    c = 0\n    for a in range(1, n + 1):\n        for b in range(a + 1, n + 1):\n            if (10 * a + b) % d == 0:\n                c += 1\n    return c",
+    "constraints": [
+      "answer > 0",
+      "n >= 5",
+      "n <= 9"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

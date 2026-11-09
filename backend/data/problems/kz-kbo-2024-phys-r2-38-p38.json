@@ -19,6 +19,46 @@
     "number": 38,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "Пруд покрыт слоем льда толщиной {h1} см. Температура воздуха постоянна и равна {t_air} °C. Плотность льда 900 кг/м³, теплота плавления льда 330 кДж/кг, теплопроводность льда 2,1 Вт/(м·К).\n\n**Пункт 38.** Сколько времени пройдет, прежде чем толщина льда достигнет {h2} см?",
+    "params": {
+      "h1": {
+        "min": 1.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "h2": {
+        "min": 2.0,
+        "max": 40.0,
+        "step": 1.0
+      },
+      "t_air": {
+        "min": -40.0,
+        "max": -1.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "h1": 5.0,
+      "h2": 10.0,
+      "t_air": -10.0
+    },
+    "solver": "def solve(h1, h2, t_air):\n    H1 = h1 / 100.0\n    H2 = h2 / 100.0\n    dT = -t_air\n    rho = 900.0\n    L = 330000.0\n    k = 2.1\n    return rho * L * (H2**2 - H1**2) / (2 * k * dT)",
+    "constraints": [
+      "h2 > h1",
+      "t_air < 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Официальное решение в файле не приведено; в ключе ответ — вариант A (≈53·10³ с).",
   "figures": []
 }

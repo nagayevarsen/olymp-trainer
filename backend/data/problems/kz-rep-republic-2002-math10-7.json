@@ -6,13 +6,15 @@
   "statement": "Пусть $a, b, c, a + b - c, a + c - b, b + c - a, a + b + c$ — различные простые числа такие, что сумма двух чисел из $a, b, c$ равна 800. Обозначим через $d$ разность между наибольшим и наименьшим этих семи чисел. Найдите максимально возможное значение $d$.",
   "answer": {
     "value": 1594.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 1594",
       "решение: anthropic:claude-sonnet-5-5 → 1594",
       "программа (other): anthropic:claude-haiku-5-5 → 1594",
       "программа (other): anthropic:claude-sonnet-5-5 → 1594"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,33 @@
     "grade": 10,
     "number": 7,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2002/math10-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Пусть $a, b, c, a + b - c, a + c - b, b + c - a, a + b + c$ — различные простые числа такие, что сумма двух чисел из $a, b, c$ равна {N}. Обозначим через $d$ разность между наибольшим и наименьшим этих семи чисел. Найдите максимально возможное значение $d$.",
+    "params": {
+      "N": {
+        "min": 200.0,
+        "max": 1000.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "N": 800.0
+    },
+    "solver": "def solve(N):\n    M = 2*N + 2\n    s = [True]*(M+1)\n    s[0] = False\n    s[1] = False\n    for i in range(2, M+1):\n        if s[i]:\n            for j in range(i*i, M+1, i):\n                s[j] = False\n    best = 0\n    for a in range(2, N):\n        b = N - a\n        if b >= 2 and s[a] and s[b]:\n            for c in range(2, N):\n                if s[c]:\n                    t = [a, b, c, a+b-c, a+c-b, b+c-a, a+b+c]\n                    if min(t) > 1 and len(set(t)) == 7:\n                        ok = True\n                        for x in t:\n                            if not s[x]:\n                                ok = False\n                                break\n                        if ok:\n                            d = max(t) - min(t)\n                            if d > best:\n                                best = d\n    return best",
+    "constraints": [
+      "answer > 0",
+      "N % 2 == 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

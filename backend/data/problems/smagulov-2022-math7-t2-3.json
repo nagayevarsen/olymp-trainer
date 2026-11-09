@@ -24,5 +24,32 @@
     "number": 3,
     "url": "https://matol.kz/olympiads/1010"
   },
+  "template": {
+    "text": "Сколько натуральных чисел, меньших {N}, записано только цифрами 0 и 1?",
+    "params": {
+      "N": {
+        "min": 10.0,
+        "max": 99999999999.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "N": 11111100111.0
+    },
+    "solver": "def solve(N):\n    total = 0\n    for k in range(12, -1, -1):\n        d = (N // 10**k) % 10\n        if d == 1:\n            total += 2**k\n        elif d >= 2:\n            total += 2**(k+1)\n            break\n    return total - 1",
+    "constraints": [
+      "answer > 0",
+      "N > 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

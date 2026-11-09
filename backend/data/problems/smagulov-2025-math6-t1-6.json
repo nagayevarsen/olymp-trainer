@@ -6,13 +6,15 @@
   "statement": "Учителю 32 года, а в его классе 20 учеников. Если средний возраст всех 21 присутствующих в классе, на момент преподавания, равен 12 лет, то чему равен (в годах) средний возраст 20 учеников?",
   "answer": {
     "value": 11.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 11",
       "решение: anthropic:claude-sonnet-5-5 → 11",
       "программа (other): anthropic:claude-haiku-5-5 → 11",
       "программа (other): anthropic:claude-sonnet-5-5 → 11"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -21,5 +23,47 @@
     "grade": 6,
     "number": 6,
     "url": "https://matol.kz/olympiads/1150"
-  }
+  },
+  "template": {
+    "text": "Учителю {t} года, а в его классе {n} учеников. Если средний возраст всех присутствующих в классе, на момент преподавания, равен {a} лет, то чему равен (в годах) средний возраст {n} учеников?",
+    "params": {
+      "t": {
+        "min": 22.0,
+        "max": 52.0,
+        "step": 10.0
+      },
+      "n": {
+        "min": 10.0,
+        "max": 30.0,
+        "step": 5.0
+      },
+      "a": {
+        "min": 10.0,
+        "max": 16.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "t": 32.0,
+      "n": 20.0,
+      "a": 12.0
+    },
+    "solver": "def solve(t, n, a):\n    return ((n + 1) * a - t) / n",
+    "constraints": [
+      "t > a",
+      "(t - a) % n == 0",
+      "answer >= 5",
+      "answer < a"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

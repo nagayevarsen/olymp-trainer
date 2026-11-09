@@ -6,13 +6,15 @@
   "statement": "Дана последовательность чисел $\\{a_n\\}$, удовлетворяющих условиям $a_{125} \\neq 0$, $a_i \\cdot a_j = a_{i+j} \\cdot (a_i + a_j)$, для любых натуральных $i$, $j$. Чему равно $a_{2000}$, если $a_{2001} = 2000$?",
   "answer": {
     "value": 2001.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 2001",
       "решение: anthropic:claude-sonnet-5-5 → 2001",
       "программа (other): anthropic:claude-haiku-5-5 → 2001",
       "программа (other): anthropic:claude-sonnet-5-5 → 2001"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,54 @@
     "grade": 11,
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2001/math11-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Дана последовательность чисел $a_1, a_2, \\ldots$, удовлетворяющих условиям $a_{{k}} \\neq 0$, $a_i \\cdot a_j = a_{i+j} \\cdot (a_i + a_j)$, для любых натуральных $i$, $j$. Чему равно $a_{{idx}}$, если $a_{{big}} = {val}$?",
+    "params": {
+      "k": {
+        "min": 2.0,
+        "max": 3000.0,
+        "step": 1.0
+      },
+      "big": {
+        "min": 2.0,
+        "max": 3000.0,
+        "step": 1.0
+      },
+      "val": {
+        "min": 1.0,
+        "max": 3000.0,
+        "step": 1.0
+      },
+      "idx": {
+        "min": 1.0,
+        "max": 3000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "k": 125.0,
+      "big": 2001.0,
+      "val": 2000.0,
+      "idx": 2000.0
+    },
+    "solver": "def solve(k, big, val, idx):\n    # Обозначим b_n = 1/a_n. Из условия b_{i+j} = b_i + b_j, значит b_n = n*c.\n    # Тогда a_n = 1/(n*c), и a_big = val даёт c = 1/(big*val), откуда a_idx = big*val/idx.\n    return big * val // idx",
+    "constraints": [
+      "big != 0",
+      "val != 0",
+      "idx >= 1",
+      "(big * val) % idx == 0",
+      "k >= 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

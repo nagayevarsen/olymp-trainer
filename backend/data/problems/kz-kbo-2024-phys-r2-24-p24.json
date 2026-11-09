@@ -19,6 +19,39 @@
     "number": 24,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "Одна спектральная линия в водороде вызвана фотонами с энергией {E} эВ. Та же линия смещена в красную сторону в спектре далёкой галактики на {dl} нм.\n\n**Пункт 24.** Рассчитайте длину волны фотона.",
+    "params": {
+      "E": {
+        "min": 1.5,
+        "max": 4.0,
+        "step": 0.05
+      },
+      "dl": {
+        "min": 1.0,
+        "max": 20.0,
+        "step": 0.1
+      }
+    },
+    "original": {
+      "E": 2.55,
+      "dl": 5.4
+    },
+    "solver": "def solve(E, dl):\n    hc = 1242  # эВ·нм, h = 4.14e-15 эВ·с, c = 3e8 м/с (как в таблице книги)\n    return hc / E",
+    "constraints": [
+      "E > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Официальное решение в файле не приведено; в ключе ответ — вариант A (≈487 нм).",
   "figures": []
 }

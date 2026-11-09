@@ -24,5 +24,37 @@
     "number": 2,
     "url": "https://matol.kz/olympiads/1073"
   },
+  "template": {
+    "text": "Если $a+b+c+d={S}$ и $$\\frac{1}{a+b+c}+\\frac{1}{a+b+d}+\\frac{1}{a+c+d}+\\frac{1}{b+c+d}={T},$$ найдите значение выражения $\\frac{d}{a+b+c}+\\frac{c}{a+b+d}+\\frac{b}{a+c+d}+\\frac{a}{b+c+d}$. (Числа $a,b,c,d$ не обязательно должны быть целыми или положительными.)",
+    "params": {
+      "S": {
+        "min": 2.0,
+        "max": 200.0,
+        "step": 2.0
+      },
+      "T": {
+        "min": 1.0,
+        "max": 50.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "S": 50.0,
+      "T": 10.0
+    },
+    "solver": "def solve(S, T):\n    # Пусть u_x = S - x (сумма трёх чисел без x). Тогда x/(S-x) = S/(S-x) - 1,\n    # поэтому искомая сумма = S*(сумма 1/(S-x)) - 4 = S*T - 4.\n    return S * T - 4",
+    "constraints": [
+      "S != 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

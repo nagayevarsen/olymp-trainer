@@ -25,5 +25,62 @@
     "number": 5,
     "url": "https://matol.kz/olympiads/486"
   },
+  "template": {
+    "text": "Из ряда чисел {a1}, {a2}, {a3}, {a4}, {a5}, {a6} выбрали два числа и перемножили их. Чему равен наименьший возможный результат?",
+    "params": {
+      "a1": {
+        "min": -10.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "a2": {
+        "min": -10.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "a3": {
+        "min": -10.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "a4": {
+        "min": -10.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "a5": {
+        "min": -10.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "a6": {
+        "min": -10.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a1": -9.0,
+      "a2": -8.0,
+      "a3": -7.0,
+      "a4": 2.0,
+      "a5": 4.0,
+      "a6": 6.0
+    },
+    "solver": "def solve(a1, a2, a3, a4, a5, a6):\n    xs = [a1, a2, a3, a4, a5, a6]\n    best = None\n    for i in range(6):\n        for j in range(i + 1, 6):\n            p = xs[i] * xs[j]\n            if best is None or p < best:\n                best = p\n    return best",
+    "constraints": [
+      "len({a1, a2, a3, a4, a5, a6}) == 6",
+      "answer == min(a1*a2, a1*a3, a1*a4, a1*a5, a1*a6, a2*a3, a2*a4, a2*a5, a2*a6, a3*a4, a3*a5, a3*a6, a4*a5, a4*a6, a5*a6)"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

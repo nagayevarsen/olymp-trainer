@@ -6,13 +6,15 @@
   "statement": "На экране высвечено число 48. При нажатии кнопки все цифры числа перемножаются, к результату прибавляется 27, полученное число высвечивается на экране (предыдущее число стирается). Кнопку нажали 2022 раза. Какое число теперь на экране?",
   "answer": {
     "value": 27.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 27",
       "решение: anthropic:claude-sonnet-5-5 → 27",
       "программа (other): anthropic:claude-haiku-5-5 → 27",
       "программа (other): anthropic:claude-sonnet-5-5 → 27"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,48 @@
     "grade": 6,
     "number": 5,
     "url": "https://matol.kz/olympiads/1083"
-  }
+  },
+  "template": {
+    "text": "На экране высвечено число {a}. При нажатии кнопки все цифры числа перемножаются, к результату прибавляется {c}, полученное число высвечивается на экране (предыдущее число стирается). Кнопку нажали {n} раз. Какое число теперь на экране?",
+    "params": {
+      "a": {
+        "min": 10.0,
+        "max": 99.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 1.0,
+        "max": 50.0,
+        "step": 1.0
+      },
+      "n": {
+        "min": 100.0,
+        "max": 3000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 48.0,
+      "c": 27.0,
+      "n": 2022.0
+    },
+    "solver": "def solve(a, c, n):\n    x = a\n    for _ in range(n):\n        p = 1\n        for ch in str(x):\n            p = p * int(ch)\n        x = p + c\n    return x",
+    "constraints": [
+      "a >= 10",
+      "a <= 99",
+      "c >= 1",
+      "n >= 1",
+      "answer >= 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

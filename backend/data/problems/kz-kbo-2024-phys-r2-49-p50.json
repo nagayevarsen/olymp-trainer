@@ -19,6 +19,77 @@
     "number": 49,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "К выводам цепи (см. рисунок) подано напряжение U = {U} В. r = {r} Ом. Сопротивления: {m1}r, {m2}r, {m3}r — в верхней ветви; {m4}r, {m5}r, {m6}r — в нижней. Вольтметр подключён между узлами после {m1}r и после {m4}r, амперметр — между узлами после {m2}r и после {m5}r (идеальные приборы).\n\n**Пункт 50.** Найдите силу тока через резистор сопротивлением {m6}r.",
+    "params": {
+      "U": {
+        "min": 10.0,
+        "max": 100.0,
+        "step": 2.0
+      },
+      "r": {
+        "value": 1.0,
+        "step": 1.0
+      },
+      "m1": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "m2": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "m3": {
+        "min": 1.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "m4": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "m5": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "m6": {
+        "min": 1.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "U": 42.0,
+      "r": 1.0,
+      "m1": 2.0,
+      "m2": 4.0,
+      "m3": 9.0,
+      "m4": 1.0,
+      "m5": 5.0,
+      "m6": 3.0
+    },
+    "solver": "def solve(U, r, m1, m2, m3, m4, m5, m6):\n    R1 = m1*r\n    R2 = m2*r\n    R3 = m3*r\n    R4 = m4*r\n    R5 = m5*r\n    R6 = m6*r\n    S = 1/(R1+R2) + 1/(R4+R5)\n    T = 1/R3 + 1/R6\n    x = U*S/(S+T)\n    return x/R6",
+    "constraints": [
+      "answer > 0",
+      "m1 + m2 > 0",
+      "m4 + m5 > 0",
+      "m3 > 0",
+      "m6 > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Официальное решение в файле не приведено; в ключе ответ — вариант B (6 А).",
   "figures": [
     "kz-kbo-2024-phys-r2-49-fig1.png"

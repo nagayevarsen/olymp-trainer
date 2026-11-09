@@ -24,5 +24,32 @@
     "number": 1,
     "url": "https://matol.kz/olympiads/1008"
   },
+  "template": {
+    "text": "Через $a_n$ обозначим $n$-ое простое число. Например, $a_1=2$, $a_2=3$, $a_3=5$. Найдите наибольшее такое число $n$, что ${k}n$ не меньше числа $a_n$.",
+    "params": {
+      "k": {
+        "min": 2.0,
+        "max": 6.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "k": 3.0
+    },
+    "solver": "def solve(k):\n    N = 200000\n    sieve = [True] * (N + 1)\n    sieve[0] = False\n    sieve[1] = False\n    for i in range(2, int(sqrt(N)) + 1):\n        if sieve[i]:\n            for j in range(i * i, N + 1, i):\n                sieve[j] = False\n    primes = [i for i in range(N + 1) if sieve[i]]\n    best = 0\n    for n in range(1, len(primes) + 1):\n        if k * n >= primes[n - 1]:\n            best = n\n    return best",
+    "constraints": [
+      "k >= 2",
+      "answer >= 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

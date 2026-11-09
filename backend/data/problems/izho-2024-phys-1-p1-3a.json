@@ -8,7 +8,8 @@
     "value": 10.0,
     "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -16,6 +17,40 @@
     "stage": "international",
     "number": 1,
     "url": "https://izho.kz/wp-content/uploads/2024/12/IZhO-2024-PhysTheory_sol.pdf"
+  },
+  "template": {
+    "text": "Электродвигатель, подключённый к аккумуляторной батарее, поднимает груз массы $m$ с постоянной скоростью на высоту $h$ за время $t_1={t1}$ мин; груз привязан к нити, наматываемой на равномерно вращающийся вал двигателя. Подъём двух грузов общей массой $2m$ на ту же высоту занимает на $\\Delta t={dt}$ с больше. Крутящий момент двигателя пропорционален току в обмотке. Найдите максимальное число $n_{max}$ грузов массы $m$, которое может поднять такой двигатель.",
+    "params": {
+      "t1": {
+        "min": 0.5,
+        "max": 2.0,
+        "step": 0.25
+      },
+      "dt": {
+        "min": 3.0,
+        "max": 12.0,
+        "step": 0.5
+      }
+    },
+    "original": {
+      "t1": 1.0,
+      "dt": 7.0
+    },
+    "solver": "def solve(t1, dt):\n    # v_n ∝ (N - n), t ∝ 1/(N - n); (N-1)/(N-2) = (t1+dt)/t1 -> N = 2 + t1/dt\n    N = 2 + t1 * 60.0 / dt\n    return floor(N)",
+    "constraints": [
+      "answer >= 3",
+      "answer <= 40",
+      "abs(t1*60.0/dt - round(t1*60.0/dt)) > 1e-9"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
   },
   "solution": "Уравнения $U=\\alpha\\omega_1+I(r+R)$, $U=\\alpha\\omega_2+2I(r+R)$, $\\omega_n=(n-1)\\omega_2-(n-2)\\omega_1$; $t_n=\\frac{t_1t_2}{t_2-(n-1)\\Delta t}>0$ даёт $n<t_2/\\Delta t+1=(t_1+2\\Delta t)/\\Delta t\\approx10{,}6$, т.е. $n_{max}=10$.",
   "figures": [

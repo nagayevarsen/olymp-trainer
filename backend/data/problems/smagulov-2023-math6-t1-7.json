@@ -24,5 +24,56 @@
     "number": 7,
     "url": "https://matol.kz/olympiads/1070"
   },
+  "template": {
+    "text": "Щенок Армана выпивает {n} чашек молока в день, а {vol} литров молока, как известно, стоит {p} тг. Если  вместимость чашки {v} мл, на сколько тенге Арман должен купить молоко для щенка на {d} дней?",
+    "params": {
+      "n": {
+        "min": 4.0,
+        "max": 8.0,
+        "step": 1.0
+      },
+      "v": {
+        "min": 100.0,
+        "max": 300.0,
+        "step": 50.0
+      },
+      "d": {
+        "min": 5.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "p": {
+        "min": 1000.0,
+        "max": 3000.0,
+        "step": 100.0
+      },
+      "vol": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 6.0,
+      "v": 250.0,
+      "d": 10.0,
+      "p": 1500.0,
+      "vol": 5.0
+    },
+    "solver": "def solve(n, v, d, p, vol):\n    return n * v * d * p / (1000 * vol)",
+    "constraints": [
+      "answer > 0",
+      "(n * v * d * p) % (1000 * vol) == 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

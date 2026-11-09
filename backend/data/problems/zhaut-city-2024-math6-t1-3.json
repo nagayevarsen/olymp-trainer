@@ -6,13 +6,15 @@
   "statement": "Три ученика, Рэй, Руни и Агат, пришли на олимпиаду в РФМШ. Рэй прошел через турникет в 07:30, Руни — в 07:33, Агат — в 07:36. Каждый из учеников, пройдя турникет, направляется в актовый зал. В актовый зал сначала зашел Рэй, через 3 минуты — Агат, а ещё через 3 минуты —  Руни. Найдите скорость передвижения Рэя, если скорость Агата равна 6 км/ч, а скорость Руни — 3 км/ч.",
   "answer": {
     "value": 4.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 4",
       "решение: anthropic:claude-sonnet-5-5 → 4",
       "программа (other): anthropic:claude-haiku-5-5 → 4",
       "программа (other): anthropic:claude-sonnet-5-5 → 4"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,70 @@
     "grade": 6,
     "number": 3,
     "url": "https://matol.kz/olympiads/1121"
-  }
+  },
+  "template": {
+    "text": "Три ученика, Рэй, Руни и Агат, пришли на олимпиаду в РФМШ. Рэй прошел через турникет в 07:{mRay}, Руни — в 07:{mRu}, Агат — в 07:{mAg}. Каждый из учеников, пройдя турникет, направляется в актовый зал. В актовый зал сначала зашел Рэй, через {g1} минуты — Агат, а ещё через {g2} минуты — Руни. Найдите скорость передвижения Рэя, если скорость Агата равна {vA} км/ч, а скорость Руни — {vRu} км/ч.",
+    "params": {
+      "mRay": {
+        "value": 30.0,
+        "step": 1.0
+      },
+      "mRu": {
+        "min": 31.0,
+        "max": 34.0,
+        "step": 1.0
+      },
+      "mAg": {
+        "min": 34.0,
+        "max": 40.0,
+        "step": 1.0
+      },
+      "g1": {
+        "min": 2.0,
+        "max": 4.0,
+        "step": 1.0
+      },
+      "g2": {
+        "min": 2.0,
+        "max": 4.0,
+        "step": 1.0
+      },
+      "vA": {
+        "min": 4.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "vRu": {
+        "min": 2.0,
+        "max": 6.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "mRay": 30.0,
+      "mRu": 33.0,
+      "mAg": 36.0,
+      "g1": 3.0,
+      "g2": 3.0,
+      "vA": 6.0,
+      "vRu": 3.0
+    },
+    "solver": "def solve(vA, vRu, mRay, mRu, mAg, g1, g2):\n    p = mRu - mRay\n    q = mAg - mRay\n    x = (g2 + q - p) / (1/vRu - 1/vA)\n    return x / (q - g1 + x/vA)",
+    "constraints": [
+      "answer > 0",
+      "vA != vRu",
+      "mRu > mRay",
+      "mAg > mRay"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

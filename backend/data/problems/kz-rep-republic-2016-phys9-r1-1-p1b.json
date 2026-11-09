@@ -20,6 +20,47 @@
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/final/2016/phys9-1-sol.pdf"
   },
+  "template": {
+    "text": "Эта задача состоит из трех независимых частей.\n\n**Пункт 1B.** Кубик льда, имеющий температуру $0^\\circ$C бросили в калориметр с горячим чаем. К моменту установления теплового равновесия температура чая понизилась на ${a}^\\circ$C. Когда в калориметр бросили другой такой же кубик льда, температура чая понизилась еще на ${b}^\\circ$C. Найдите массу кубика льда. Первоначальная масса чая {M} г. Теплоемкостью калориметра, теплообменом с окружающей средой и примесями заварки в чае пренебречь.",
+    "params": {
+      "M": {
+        "min": 50.0,
+        "max": 300.0,
+        "step": 10.0
+      },
+      "a": {
+        "min": 6.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 2.0,
+        "max": 20.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "M": 100.0,
+      "a": 12.0,
+      "b": 10.0
+    },
+    "solver": "def solve(M, a, b):\n    return M * (a - b) / (2 * b)",
+    "constraints": [
+      "a > b",
+      "b > 0",
+      "answer > 0",
+      "(M * (a - b)) % (2 * b) == 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Уравнения теплового баланса для двух случаев с массой чая $M$ и кубиком $m$: $(M/m+1)\\Delta t_1=\\lambda/c+t_1$ и $(M/(2m)+1)(\\Delta t_1+\\Delta t_2)=\\lambda/c+t_1$. Отсюда $M/m=2\\Delta t_2/(\\Delta t_1-\\Delta t_2)=2\\cdot10/(12-10)=10$, значит $m=M/10=10$ г.",
   "figures": [
     "kz-rep-republic-2016-phys9-r1-1-fig1.png"

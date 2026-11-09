@@ -24,5 +24,32 @@
     "number": 20,
     "url": "https://matol.kz/olympiads/1007"
   },
+  "template": {
+    "text": "На доске записали первые {n} членов последовательности: 0, 2, 6, 12, ... Ученик, сразу поняв закономерность в последовательности, записал еще два следующих члена. Чему равен модуль разности этих двух записанных членов?",
+    "params": {
+      "n": {
+        "min": 3.0,
+        "max": 12.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 7.0
+    },
+    "solver": "def solve(n):\n    a = n * (n + 1)\n    b = (n + 1) * (n + 2)\n    return abs(b - a)",
+    "constraints": [
+      "n >= 3",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

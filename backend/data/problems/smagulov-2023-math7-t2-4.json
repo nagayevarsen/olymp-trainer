@@ -24,5 +24,31 @@
     "number": 4,
     "url": "https://matol.kz/olympiads/1073"
   },
+  "template": {
+    "text": "В прямоугольнике $ABCD$, где $AB>CB$, биссектриса угла $ABC$ пересекает сторону $CD$ в точке $E$. $AF$ высота в треугольнике $ABE$ ($F$ лежит на $BE$). Оказалось, что $AE = {v}$. Найдите значение выражения $P(AFE)+P(AED)-P(ABE)$. Не забудьте пояснить свой ответ. Здесь через $P(XYZ)$ обозначен периметр треугольника $XYZ$.",
+    "params": {
+      "v": {
+        "min": 1.0,
+        "max": 50.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "v": 5.0
+    },
+    "solver": "def solve(v):\n    return v",
+    "constraints": [
+      "v > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

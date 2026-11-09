@@ -6,13 +6,15 @@
   "statement": "Чему равно наименьшее возможное значение выражения $(x_1 - x_2)^2 + (x_2 - x_3)^2 + \\ldots + (x_{2016} - x_{2017})^2 + (x_{2017} - x_1)^2$, где $x_1, x_2, \\ldots, x_{2017}$ — различные целые числа.",
   "answer": {
     "value": 8062.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 8062",
       "решение: anthropic:claude-sonnet-5-5 → 8062",
       "программа (other): anthropic:claude-haiku-5-5 → 8062",
       "программа (other): anthropic:claude-sonnet-5-5 → 8062"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,34 @@
     "grade": 11,
     "number": 5,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2017/math11-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Чему равно наименьшее возможное значение выражения $(x_1 - x_2)^2 + (x_2 - x_3)^2 + \\ldots + (x_{n-1} - x_n)^2 + (x_n - x_1)^2$, где $n = {n}$, а $x_1, x_2, \\ldots, x_n$ — различные целые числа.",
+    "params": {
+      "n": {
+        "min": 5.0,
+        "max": 2025.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "n": 2017.0
+    },
+    "solver": "def solve(n):\n    return 4*n - 6",
+    "constraints": [
+      "n % 2 == 1",
+      "n >= 5",
+      "answer == 4*n - 6"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

@@ -6,13 +6,15 @@
   "statement": "Параллелепипед размером $3 \\times 4 \\times 4$ нужно разрезать на кубики размером $1 \\times 1 \\times 1$. Если куски, полученные после разрезания, можно накладывать друг на друга, то за какое минимальное число разрезаний можно сделать?",
   "answer": {
     "value": 6.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 6",
       "решение: anthropic:claude-sonnet-5-5 → 6",
       "программа (enumeration): gemini:gemini-3.5-flash → 6",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 6"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,47 @@
     "grade": 9,
     "number": 5,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/final/1999/math9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Параллелепипед размером ${a} \\times {b} \\times {c}$ нужно разрезать на кубики размером $1 \\times 1 \\times 1$. Если куски, полученные после разрезания, можно накладывать друг на друга, то за какое минимальное число разрезаний можно сделать?",
+    "params": {
+      "a": {
+        "min": 2.0,
+        "max": 16.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 2.0,
+        "max": 16.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 2.0,
+        "max": 16.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 3.0,
+      "b": 4.0,
+      "c": 4.0
+    },
+    "solver": "def solve(a, b, c):\n    total = 0\n    for n in (a, b, c):\n        p = 1\n        k = 0\n        for _ in range(30):\n            if p < n:\n                p = p * 2\n                k = k + 1\n        total = total + k\n    return total",
+    "constraints": [
+      "answer > 0",
+      "a >= 2",
+      "b >= 2",
+      "c >= 2"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

@@ -19,6 +19,39 @@
     "number": 2,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2020/phys11-1-sol.pdf"
   },
+  "template": {
+    "text": "На тонкое проволочное кольцо радиуса $R$ натянута мыльная пленка. Масса пленки $M = {M}$ г, а коэффициент поверхностного натяжения $\\sigma = {sigma}$ мН/м. Если в центре мыльной пленки сделать прокол, то спустя некоторое время настает ее схлопывание.\n\nКакая часть энергии пленки при этом перейдет в кинетическую энергию движения жидкости пленки?",
+    "params": {
+      "M": {
+        "min": 0.5,
+        "max": 3.0,
+        "step": 0.5
+      },
+      "sigma": {
+        "min": 20.0,
+        "max": 70.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "M": 1.0,
+      "sigma": 40.0
+    },
+    "solver": "def solve(M, sigma):\n    return 0.5",
+    "constraints": [
+      "answer > 0",
+      "answer < 1"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "Сила натяжения, действующая на элемент массы на расстоянии $x$ от центра, $f=2\\cdot2\\pi\\sigma x$, масса элемента $m=Mx^2/R^2$. Из уравнения движения получено, что скорость $V$ постоянна, $V=\\sqrt{2\\pi R^2\\sigma/M}$. Потенциальная энергия пленки $E_{пот}=2\\pi R^2\\sigma$, кинетическая $E_{кин}=MV^2/2=\\pi R^2\\sigma$, откуда $E_{кин}/E_{пот}=1/2$.",
   "figures": []
 }

@@ -20,6 +20,50 @@
     "number": 3,
     "url": "https://cdn.bc-pf.org/olympiads/physics/junior/2024/phys7-sol.pdf"
   },
+  "template": {
+    "text": "Два груза одинаковой массы $m={m}$ г, соединённые пружиной жёсткости $k={k}$ Н/м, стоят на столе (см. рисунок). При расчётах примите ускорение свободного падения равным $g={g}$ Н/кг. Пружина колеблется только вертикально. Верхний груз поднимают на $x={x}$ см над положением равновесия и отпускают.\n\n**Пункт 3.3.** Чему равна максимальная скорость верхнего груза?",
+    "params": {
+      "m": {
+        "min": 40.0,
+        "max": 160.0,
+        "step": 10.0
+      },
+      "k": {
+        "min": 100.0,
+        "max": 400.0,
+        "step": 50.0
+      },
+      "g": {
+        "value": 10.0,
+        "step": 1.0
+      },
+      "x": {
+        "min": 0.2,
+        "max": 1.0,
+        "step": 0.1
+      }
+    },
+    "original": {
+      "m": 80.0,
+      "k": 200.0,
+      "g": 10.0,
+      "x": 0.6
+    },
+    "solver": "def solve(m, k, g, x):\n    mk = m / 1000\n    xm = x / 100\n    return xm * sqrt(k / mk)",
+    "constraints": [
+      "answer > 0",
+      "x / 100 <= 2 * (m / 1000) * g / k"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "Из $\\frac{k(x-mg/k)^2}{2}+mgx=\\frac{k(mg/k)^2}{2}+\\frac{mv^2}{2}$ получено $v=x\\sqrt{k/m}=0{,}3$ м/с.",
   "figures": [
     "kz-junior-other-2024-phys7-3-fig1.png"

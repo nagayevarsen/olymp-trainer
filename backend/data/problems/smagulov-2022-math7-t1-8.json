@@ -24,5 +24,40 @@
     "number": 8,
     "url": "https://matol.kz/olympiads/1008"
   },
+  "template": {
+    "text": "Пешеход вышел из пункта $N$ в пункт $M$. Через {d} минут из $N$ в $M$ выехал велосипедист. Когда велосипедист прибыл в $M$, пешеходу оставалось {p_pct}\\% всего пути. Сколько времени потратил пешеход на весь путь, если известно, что велосипедист догнал пешехода на середине пути из $N$? Скорости пешехода и велосипедиста постоянны. Укажите ответ в минутах.",
+    "params": {
+      "d": {
+        "min": 20.0,
+        "max": 60.0,
+        "step": 5.0
+      },
+      "p_pct": {
+        "min": 10.0,
+        "max": 50.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "d": 40.0,
+      "p_pct": 20.0
+    },
+    "solver": "def solve(d, p_pct):\n    p = p_pct / 100\n    # Пешеход догоняется на середине: t_c = T/2, велосипедист проходит S/2 за T/2 - d.\n    # Велосипедист приезжает в M в момент d + (T - 2d) = T - d, когда пешеход на расстоянии p*S: (1-p)*T = T - d.\n    # Отсюда p*T = d, T = d / p.\n    return d / p",
+    "constraints": [
+      "answer > 2 * d",
+      "p_pct > 0",
+      "p_pct < 100",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

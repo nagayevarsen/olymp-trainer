@@ -24,5 +24,47 @@
     "number": 10,
     "url": "https://matol.kz/olympiads/1008"
   },
+  "template": {
+    "text": "Цена товара $X$ на ${p}\\%$ ниже, по сравнению с товаром $Y$. Цена товара $Y$ подорожал вначале на ${a}\\%$, а потом ещё на ${b}\\%$. На сколько процентов требуется поднять цену товара $X$, чтобы его новая цена равнялась новой цене товара $Y$?",
+    "params": {
+      "p": {
+        "min": 5.0,
+        "max": 50.0,
+        "step": 5.0
+      },
+      "a": {
+        "min": 5.0,
+        "max": 50.0,
+        "step": 5.0
+      },
+      "b": {
+        "min": 5.0,
+        "max": 50.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "p": 20.0,
+      "a": 20.0,
+      "b": 20.0
+    },
+    "solver": "def solve(p, a, b):\n    return ((1 + a / 100) * (1 + b / 100) / (1 - p / 100) - 1) * 100",
+    "constraints": [
+      "p > 0",
+      "p < 100",
+      "a > 0",
+      "b > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

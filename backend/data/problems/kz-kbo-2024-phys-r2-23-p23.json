@@ -19,6 +19,46 @@
     "number": 23,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "Излучаемая мощность сферического черного тела P связана с радиусом R и абсолютной температурой поверхности T как P ∝ R²T⁴. Закон смещения Вина: λmax обратно пропорциональна T. Сейчас пиковая длина волны Солнца {lam0} нм. Радиус Солнца станет в {kR} раз больше, мощность — в {kP} раз больше.\n\n**Пункт 23.** Какой будет новая пиковая длина волны, когда Солнце станет красным гигантом?",
+    "params": {
+      "lam0": {
+        "min": 300.0,
+        "max": 800.0,
+        "step": 10.0
+      },
+      "kR": {
+        "min": 50.0,
+        "max": 500.0,
+        "step": 10.0
+      },
+      "kP": {
+        "min": 1000.0,
+        "max": 10000.0,
+        "step": 100.0
+      }
+    },
+    "original": {
+      "lam0": 500.0,
+      "kR": 200.0,
+      "kP": 4000.0
+    },
+    "solver": "def solve(lam0, kR, kP):\n    return lam0 * pow(kR * kR / kP, 0.25)",
+    "constraints": [
+      "kR > 0",
+      "kP > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Официальное решение в файле не приведено; в ключе ответ — вариант B (≈889 нм).",
   "figures": []
 }

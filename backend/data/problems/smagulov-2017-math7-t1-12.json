@@ -25,5 +25,37 @@
     "number": 12,
     "url": "https://matol.kz/olympiads/487"
   },
+  "template": {
+    "text": "Есен выбрал {n} натуральных чисел, и сложил два числа всевозможных пар. Асан заметил, что среди полученных сумм {K} из них нечетны. Известно, что среди выбранных {n} чисел нечетных больше чем четных. Сколько из них нечетных?",
+    "params": {
+      "n": {
+        "min": 4.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "K": {
+        "min": 1.0,
+        "max": 100.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 10.0,
+      "K": 21.0
+    },
+    "solver": "def solve(n, K):\n    for a in range(n + 1):\n        if a * (n - a) == K and 2 * a > n:\n            return a\n    return 0",
+    "constraints": [
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

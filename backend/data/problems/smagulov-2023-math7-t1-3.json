@@ -24,5 +24,40 @@
     "number": 3,
     "url": "https://matol.kz/olympiads/1071"
   },
+  "template": {
+    "text": "Пусь $AD$ — биссектриса треугольника $ABC$ и точка $E$ взята на стороне $AB$ так, чтобы $\\angle ACE=\\angle ABC$. Найдите градусную меру угла $ABC$, если $\\angle AEC={c}^\\circ$, $\\angle ADC={d}^\\circ$.",
+    "params": {
+      "c": {
+        "min": 100.0,
+        "max": 150.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 60.0,
+        "max": 85.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "c": 85.0,
+      "d": 70.0
+    },
+    "solver": "def solve(c, d):\n    return 2*d + c - 180",
+    "constraints": [
+      "answer > 0",
+      "answer < c",
+      "d + c < 180",
+      "d < 90"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

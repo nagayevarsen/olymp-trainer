@@ -24,5 +24,60 @@
     "number": 17,
     "url": "https://matol.kz/olympiads/1008"
   },
+  "template": {
+    "text": "Числа $a$, $b$, $c$, $d$, $e$ положительны. Известно, что $ab = {p}$, $bc = {q}$, $bd = {r}$, $cd = {s}$, $de = {t}$. Найдите значение дроби $\\frac{10a+10d}{e}$.",
+    "params": {
+      "p": {
+        "min": 1.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "q": {
+        "min": 1.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "r": {
+        "min": 1.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "s": {
+        "min": 1.0,
+        "max": 30.0,
+        "step": 1.0
+      },
+      "t": {
+        "min": 1.0,
+        "max": 30.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "p": 5.0,
+      "q": 9.0,
+      "r": 7.0,
+      "s": 21.0,
+      "t": 5.0
+    },
+    "solver": "def solve(p, q, r, s, t):\n    return 10 * (p + r) * s / (t * q)",
+    "constraints": [
+      "p > 0",
+      "q > 0",
+      "r > 0",
+      "s > 0",
+      "t > 0",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

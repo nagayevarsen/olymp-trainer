@@ -24,5 +24,40 @@
     "number": 2,
     "url": "https://matol.kz/olympiads/1071"
   },
+  "template": {
+    "text": "Дана бесконечная последовательность дробей, имеющая некоторую закономерность: $\\frac{1}{2},\\frac{1}{4}$, $\\frac{3}{4}$, $\\frac{1}{6}$, $\\frac{3}{6}$, $\\frac{5}{6}$, $\\frac{1}{8}$, $\\ldots$. На каком месте стоит дробь $\\frac{ {p} }{ {q} }$?",
+    "params": {
+      "p": {
+        "min": 1.0,
+        "max": 3999.0,
+        "step": 2.0
+      },
+      "q": {
+        "min": 4.0,
+        "max": 4000.0,
+        "step": 2.0
+      }
+    },
+    "original": {
+      "p": 2023.0,
+      "q": 2024.0
+    },
+    "solver": "def solve(p, q):\n    n = q // 2\n    return n * (n - 1) // 2 + (p + 1) // 2",
+    "constraints": [
+      "q % 2 == 0",
+      "p % 2 == 1",
+      "0 < p < q",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

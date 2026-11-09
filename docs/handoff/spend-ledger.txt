@@ -64,3 +64,5 @@ scan-gelfgat-recheck 0.8597
 scan-zam7-recheck 1.0039
 scan-zam7-final-recheck 3.0028
 scan-gelfgat-final-recheck 1.2732
+templates-claude-zhaut-izho-euler-smagulov-kz 6.0326
+templates-claude-stopped-runs-estimate 0.25

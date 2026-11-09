@@ -6,13 +6,15 @@
   "statement": "В баскетбольном турнире РФМШ участвуют 12 команд. За один учебный год каждая команда играет с каждой другой командой из РФМШ дважды, а также каждая команда также играет 4 игры против команд из других школ. Каково общее количество игр в учебном году с участием команд из РФМШ?",
   "answer": {
     "value": 180.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 180",
       "решение: anthropic:claude-sonnet-5-5 → 180",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 180",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 180"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,40 @@
     "grade": 6,
     "number": 1,
     "url": "https://matol.kz/olympiads/1121"
-  }
+  },
+  "template": {
+    "text": "В баскетбольном турнире РФМШ участвуют {n} команд. За один учебный год каждая команда играет с каждой другой командой из РФМШ дважды, а также количество игр каждой команды против команд из других школ равно {k}. Каково общее количество игр в учебном году с участием команд из РФМШ?",
+    "params": {
+      "n": {
+        "min": 5.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "k": {
+        "min": 0.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 12.0,
+      "k": 4.0
+    },
+    "solver": "def solve(n, k):\n    internal = n * (n - 1)\n    external = n * k\n    return internal + external",
+    "constraints": [
+      "n >= 2",
+      "k >= 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

@@ -24,5 +24,41 @@
     "number": 8,
     "url": "https://matol.kz/olympiads/487"
   },
+  "template": {
+    "text": "В треугольнике $ABC$ угол $A$ в {k} раза больше угла $B$ и в {m} раза меньше угла $C$. Чему равен угол $A$?",
+    "params": {
+      "k": {
+        "min": 2.0,
+        "max": 6.0,
+        "step": 1.0
+      },
+      "m": {
+        "min": 2.0,
+        "max": 5.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "k": 3.0,
+      "m": 2.0
+    },
+    "solver": "def solve(k, m):\n    return 180 / (1 + 1 / k + m)",
+    "constraints": [
+      "k > 0",
+      "m > 0",
+      "answer > 0",
+      "answer < 180",
+      "answer * m < 180"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

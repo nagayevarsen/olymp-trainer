@@ -6,13 +6,15 @@
   "statement": "Пусть $x$ — наименьшее из решений уравнения $x^2-4x+2=0$. Чему равны первые две цифры после запятой в десятичной записи числа $x+x^2+\\dots+x^{20}$?",
   "answer": {
     "value": 41.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 41",
       "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 41",
       "программа (other): anthropic:claude-haiku-5-5 → 41",
       "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 41"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,40 @@
     "grade": 9,
     "number": 4,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2010/math9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Пусть $x$ — наименьшее из решений уравнения $x^2-{a}x+{b}=0$. Чему равны первые две цифры после запятой в десятичной записи числа $x+x^2+\\dots+x^{20}$?",
+    "params": {
+      "a": {
+        "min": 3.0,
+        "max": 8.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 1.0,
+        "max": 6.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 4.0,
+      "b": 2.0
+    },
+    "solver": "def solve(a, b):\n    d = sqrt(a*a - 4*b)\n    x = (a - d) / 2\n    S = 0\n    p = 1\n    for k in range(20):\n        p = p * x\n        S += p\n    frac = S - floor(S)\n    return floor(frac * 100)",
+    "constraints": [
+      "a*a - 4*b > 0",
+      "b > 0",
+      "b < a - 1"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

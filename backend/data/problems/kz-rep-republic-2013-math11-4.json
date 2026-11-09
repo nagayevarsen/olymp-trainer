@@ -6,13 +6,15 @@
   "statement": "Пусть $a$, $b$, $c$ принадлежат отрезку $[-2, 2]$. Найдите наибольшее возможное значение суммы $|a^2 - bc + 1| + |b^2 - ca + 1| + |c^2 - ab + 1|$. (Сатылханов К.)",
   "answer": {
     "value": 19.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 19",
       "решение: openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 19",
       "программа (other): anthropic:claude-haiku-5-5 → 19",
       "программа (other): openrouter:nvidia/nemotron-3-ultra-550b-a55b:free → 19"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,32 @@
     "grade": 11,
     "number": 4,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2013/math11-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Пусть $a$, $b$, $c$ принадлежат отрезку $[-{m}, {m}]$. Найдите наибольшее возможное значение суммы $|a^2 - bc + 1| + |b^2 - ca + 1| + |c^2 - ab + 1|$. (Сатылханов К.)",
+    "params": {
+      "m": {
+        "min": 1.0,
+        "max": 3.0,
+        "step": 0.5
+      }
+    },
+    "original": {
+      "m": 2.0
+    },
+    "solver": "def solve(m):\n    return 4*m*m + 3",
+    "constraints": [
+      "m > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

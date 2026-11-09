@@ -6,13 +6,15 @@
   "statement": "Найдите количество положительных целых чисел $n$, одновременно удовлетворяющих следующим условиям: а) десятичная запись числа $n$ содержит не более 10 цифр; б) $n$ не делится на 10.",
   "answer": {
     "value": 9000000000.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 9000000000",
       "решение: anthropic:claude-sonnet-5-5 → 9000000000",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 9000000000",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 9000000000"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,33 @@
     "grade": 9,
     "number": 5,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2012/math9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Найдите количество положительных целых чисел $n$, одновременно удовлетворяющих следующим условиям: а) десятичная запись числа $n$ содержит не более {d} цифр; б) $n$ не делится на 10.",
+    "params": {
+      "d": {
+        "min": 2.0,
+        "max": 12.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "d": 10.0
+    },
+    "solver": "def solve(d):\n    total = 10**d - 1\n    divisible_by_10 = 10**(d-1) - 1\n    return total - divisible_by_10",
+    "constraints": [
+      "d >= 2",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

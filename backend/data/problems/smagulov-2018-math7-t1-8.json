@@ -24,5 +24,53 @@
     "number": 8,
     "url": "https://matol.kz/olympiads/856"
   },
+  "template": {
+    "text": "Из {N} далматинцев у {L} пятно только на левом ухе, у {R} — только на правом ухе, а у {Z} далматинцев нет пятен на ушах. Сколько далматинцев имеют пятно на правом ухе?",
+    "params": {
+      "N": {
+        "min": 30.0,
+        "max": 200.0,
+        "step": 1.0
+      },
+      "L": {
+        "min": 0.0,
+        "max": 60.0,
+        "step": 1.0
+      },
+      "R": {
+        "min": 0.0,
+        "max": 60.0,
+        "step": 1.0
+      },
+      "Z": {
+        "min": 0.0,
+        "max": 60.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "N": 101.0,
+      "L": 29.0,
+      "R": 17.0,
+      "Z": 22.0
+    },
+    "solver": "def solve(N, L, R, Z):\n    both = N - Z - L - R\n    return R + both",
+    "constraints": [
+      "L + R + Z <= N",
+      "L >= 0",
+      "R >= 0",
+      "Z >= 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

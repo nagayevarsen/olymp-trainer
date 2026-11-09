@@ -19,6 +19,46 @@
     "number": 34,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2024/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "Электрически изолированный медный шар радиусом {R} мм освещается светом с длиной волны {lam} нм. Работа выхода меди {A} эВ.\n\n**Пункт 34.** Определите максимальный электрический потенциал, которого может достичь медный шар.",
+    "params": {
+      "R": {
+        "value": 2.0,
+        "step": 1.0
+      },
+      "lam": {
+        "min": 100.0,
+        "max": 400.0,
+        "step": 10.0
+      },
+      "A": {
+        "min": 2.0,
+        "max": 5.0,
+        "step": 0.1
+      }
+    },
+    "original": {
+      "R": 2.0,
+      "lam": 150.0,
+      "A": 4.5
+    },
+    "solver": "def solve(R, lam, A):\n    # Фотоэффект: eφ_max = hc/λ − A, hc = 1240 эВ·нм (табличное значение)\n    # Радиус шара на максимальный потенциал не влияет\n    return 1240 / lam - A",
+    "constraints": [
+      "lam > 0",
+      "A > 0",
+      "answer > 0",
+      "answer <= 10"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "Официальное решение в файле не приведено; в ключе ответ — вариант A (≈3,8 В).",
   "figures": []
 }

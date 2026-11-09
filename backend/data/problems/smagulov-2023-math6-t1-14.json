@@ -24,5 +24,33 @@
     "number": 14,
     "url": "https://matol.kz/olympiads/1070"
   },
+  "template": {
+    "text": "Среди всех 10-значных чисел, цифры которых не повторяются и делятся на {m}, пусть $A$ — наибольшее, а $B$ — наименьшее. Найдите сумму $A + B$.",
+    "params": {
+      "m": {
+        "min": 9.0,
+        "max": 900.0,
+        "step": 9.0
+      }
+    },
+    "original": {
+      "m": 36.0
+    },
+    "solver": "def solve(m):\n    c = m // 9\n    best_max = -1\n    best_min = -1\n    for a in range(10):\n        for b in range(10):\n            if a == b:\n                continue\n            if (10 * a + b) % c != 0:\n                continue\n            # максимум\n            digs = [d for d in range(9, -1, -1) if d != a and d != b]\n            if digs[0] == 0:\n                continue\n            num = 0\n            for d in digs:\n                num = num * 10 + d\n            num = num * 100 + 10 * a + b\n            if num > best_max:\n                best_max = num\n            # минимум\n            digs = [d for d in range(10) if d != a and d != b]\n            if digs[0] == 0:\n                digs = [digs[1], 0] + digs[2:]\n            num = 0\n            for d in digs:\n                num = num * 10 + d\n            num = num * 100 + 10 * a + b\n            if best_min < 0 or num < best_min:\n                best_min = num\n    return best_max + best_min",
+    "constraints": [
+      "m % 9 == 0",
+      "100 % (m // 9) == 0",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "figures": []
 }

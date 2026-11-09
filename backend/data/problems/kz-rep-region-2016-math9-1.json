@@ -6,13 +6,15 @@
   "statement": "Назовем натуральное число специальным, если в его десятичной записи каждая пара последовательных цифр образует двузначное число, делящееся на 17 или на 43. Например, число 8685 является специальным, а число 8684 — нет. Найдите количество 2016-значных специальных чисел.",
   "answer": {
     "value": 7.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 7",
       "решение: anthropic:claude-sonnet-5-5 → 7",
       "программа (graph_theory): anthropic:claude-haiku-5-5 → 7",
       "программа (graph_theory): anthropic:claude-sonnet-5-5 → 7"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,33 @@
     "grade": 9,
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2016/math9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Назовем натуральное число специальным, если в его десятичной записи каждая пара последовательных цифр образует двузначное число, делящееся на 17 или на 43. Например, число 8685 является специальным, а число 8684 — нет. Найдите количество {n}-значных специальных чисел.",
+    "params": {
+      "n": {
+        "min": 3.0,
+        "max": 3000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 2016.0
+    },
+    "solver": "def solve(n):\n    S = set(x for x in range(10, 100) if x % 17 == 0 or x % 43 == 0)\n    cnt = [1] * 10\n    for _ in range(n - 1):\n        new = [0] * 10\n        for a in range(10):\n            new[a] = sum(cnt[b] for b in range(10) if 10 * a + b in S)\n        cnt = new\n    return sum(cnt[1:10])",
+    "constraints": [
+      "n >= 3",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

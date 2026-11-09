@@ -102,6 +102,21 @@ def test_chat_passes_level_and_problem_without_answer(client, monkeypatch):
     assert "statement" in seen["problem"] and "answer" not in seen["problem"]
 
 
+def test_chat_sees_the_variant_the_student_solves(client, monkeypatch):
+    seen = {}
+
+    async def fake_reply(messages, level, problem, tools, olympiad=False, **kw):
+        seen.update(problem=problem)
+        return "Подумай.", 0, []
+
+    monkeypatch.setattr(chat, "reply", fake_reply)
+    h = auth(register(client).json()["token"])
+    v = client.post("/api/problems/demo-math-tournament/variant", json={"seed": 5}).json()
+    msg = {"messages": [{"role": "user", "content": "?"}], "problem_id": "demo-math-tournament"}
+    assert client.post("/api/chat", json={**msg, "seed": v["seed"]}, headers=h).status_code == 200
+    assert seen["problem"]["statement"] == v["statement"]
+
+
 def test_chat_requires_login_and_daily_limit(client, monkeypatch):
     async def fake_reply(messages, level, problem, tools, olympiad=False, **kw):
         return "ok", 0, []

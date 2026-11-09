@@ -6,13 +6,15 @@
   "statement": "Вычислите значение выражения $$\\left[ \\sqrt{2010^2 + 1} + \\sqrt{2010^2 + 2} + \\cdots + \\sqrt{2010^2 + 4020} \\right],$$ где $[x]$ обозначает целую часть числа $x$, т. е. наибольшее целое число, не превосходящее $x$.",
   "answer": {
     "value": 8082210.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 8082210",
       "решение: anthropic:claude-sonnet-5-5 → 8082210",
       "программа (other): anthropic:claude-haiku-5-5 → 8082210",
       "программа (other): anthropic:claude-sonnet-5-5 → 8082210"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,39 @@
     "grade": 9,
     "number": 5,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2010/math9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Вычислите значение выражения $$\\left[ \\sqrt{{n}^2 + 1} + \\sqrt{{n}^2 + 2} + \\cdots + \\sqrt{{n}^2 + {m}} \\right],$$ где $[x]$ обозначает целую часть числа $x$, т. е. наибольшее целое число, не превосходящее $x$.",
+    "params": {
+      "n": {
+        "min": 100.0,
+        "max": 3000.0,
+        "step": 1.0
+      },
+      "m": {
+        "min": 100.0,
+        "max": 6000.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "n": 2010.0,
+      "m": 4020.0
+    },
+    "solver": "def solve(n, m):\n    s = 0.0\n    for k in range(1, m + 1):\n        s += sqrt(n * n + k)\n    return floor(s)",
+    "constraints": [
+      "n >= 1",
+      "m >= 2"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

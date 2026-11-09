@@ -24,5 +24,54 @@
     "number": 2,
     "url": "https://matol.kz/olympiads/1006"
   },
+  "template": {
+    "text": "АА, ББ, ВВ и ГГ играли между собой в настольный теннис. АА сыграл {a} партий, ББ — {b}, ВВ — {c}, ГГ — {d}. Сколько всего было сыграно партий?",
+    "params": {
+      "a": {
+        "min": 5.0,
+        "max": 50.0,
+        "step": 1.0
+      },
+      "b": {
+        "min": 5.0,
+        "max": 50.0,
+        "step": 1.0
+      },
+      "c": {
+        "min": 5.0,
+        "max": 50.0,
+        "step": 1.0
+      },
+      "d": {
+        "min": 5.0,
+        "max": 50.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "a": 30.0,
+      "b": 20.0,
+      "c": 17.0,
+      "d": 13.0
+    },
+    "solver": "def solve(a, b, c, d):\n    return (a + b + c + d) / 2",
+    "constraints": [
+      "(a + b + c + d) % 2 == 0",
+      "a <= b + c + d",
+      "b <= a + c + d",
+      "c <= a + b + d",
+      "d <= a + b + c",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }

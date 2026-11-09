@@ -6,13 +6,15 @@
   "statement": "Заряженный шарик находится в равновесии в пространстве между горизонтально расположенными пластинами конденсатора. Когда это пространство заполнили жидким диэлектриком с $\\varepsilon = 3$, то равновесие не нарушилось. Найдите отношение плотностей материала шарика и жидкости.",
   "answer": {
     "value": 1.5,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 1.5",
       "решение: anthropic:claude-sonnet-5-5 → 1.5",
       "программа (other): anthropic:claude-haiku-5-5 → 1.5",
       "программа (other): anthropic:claude-sonnet-5-5 → 1.5"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,33 @@
     "grade": 9,
     "number": 2,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2019/phys9-1-tasks.pdf"
-  }
+  },
+  "template": {
+    "text": "Заряженный шарик находится в равновесии в пространстве между горизонтально расположенными пластинами конденсатора. Когда это пространство заполнили жидким диэлектриком с $\\varepsilon = {eps}$, то равновесие не нарушилось. Найдите отношение плотностей материала шарика и жидкости.",
+    "params": {
+      "eps": {
+        "min": 2.0,
+        "max": 6.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "eps": 3.0
+    },
+    "solver": "def solve(eps):\n    return eps / (eps - 1)",
+    "constraints": [
+      "eps > 1",
+      "answer > 1"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
+  "figures": []
 }

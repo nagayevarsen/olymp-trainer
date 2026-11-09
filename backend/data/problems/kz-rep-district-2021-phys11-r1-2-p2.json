@@ -20,6 +20,51 @@
     "number": 2,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2021/phys11-1-sol.pdf"
   },
+  "template": {
+    "text": "В схеме, изображённой на рисунке 2, $C_1={c1}$ мкФ, $C_2={c2}$ мкФ, $C_3={c3}$ мкФ, $E={E}$ В.\n\n**Пункт 2.** Чему равна эквивалентная емкость цепи в схеме, изображённой на рисунке 2, при $C_1={c1}$ мкФ, $C_2={c2}$ мкФ, $C_3={c3}$ мкФ?",
+    "params": {
+      "c1": {
+        "min": 1.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "c2": {
+        "min": 1.0,
+        "max": 12.0,
+        "step": 1.0
+      },
+      "c3": {
+        "min": 1.0,
+        "max": 20.0,
+        "step": 1.0
+      },
+      "E": {
+        "min": 5.0,
+        "max": 30.0,
+        "step": 5.0
+      }
+    },
+    "original": {
+      "c1": 3.0,
+      "c2": 6.0,
+      "c3": 10.0,
+      "E": 10.0
+    },
+    "solver": "def solve(c1, c2, c3, E):\n    return c1 * c2 / (c1 + c2) + c3",
+    "constraints": [
+      "answer > 0",
+      "c1 != c2"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "$C=C_3+\\dfrac{C_1C_2}{C_1+C_2}=10+\\dfrac{3\\cdot6}{3+6}=12$ мкФ.",
   "figures": [
     "kz-rep-district-2021-phys11-r1-2-fig1.png"

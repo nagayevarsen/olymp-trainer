@@ -18,6 +18,33 @@
     "number": 45,
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
   },
+  "template": {
+    "text": "Тонкая линза создает прямое изображение предмета с увеличением $\\Gamma = {G}$.\n\n**Пункт 45.** Во сколько раз расстояние между предметом и изображением больше фокусного расстояния линзы?",
+    "params": {
+      "G": {
+        "min": 0.05,
+        "max": 0.95,
+        "step": 0.05
+      }
+    },
+    "original": {
+      "G": 0.2
+    },
+    "solver": "def solve(G):\n    return (1 - G) ** 2 / G",
+    "constraints": [
+      "0 < G < 1",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "solution": "В ключе ответ A: 16/5 = 3,2.",
   "figures": []
 }

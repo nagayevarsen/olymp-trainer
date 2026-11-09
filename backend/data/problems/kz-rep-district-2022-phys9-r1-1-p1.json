@@ -19,6 +19,41 @@
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2022/phys9-1-sol.pdf"
   },
+  "template": {
+    "text": "Вес тела $C$ в жидкости в {kC} раз(а) меньше, чем в воздухе, вес тела $B$ в жидкости в {kB} раз(а) меньше, чем в воздухе.\n\n**Пункт 1.** Во сколько раз плотность тела $C$ больше плотности тела $B$?",
+    "params": {
+      "kC": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      },
+      "kB": {
+        "min": 2.0,
+        "max": 10.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "kC": 2.0,
+      "kB": 4.0
+    },
+    "solver": "def solve(kC, kB):\n    rhoC = kC / (kC - 1)\n    rhoB = kB / (kB - 1)\n    return rhoC / rhoB",
+    "constraints": [
+      "kC > 1",
+      "kB > 1",
+      "kC != kB",
+      "answer > 0"
+    ],
+    "answer_integer": false,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-sonnet-5-5"
+      ]
+    }
+  },
   "solution": "Вес в жидкости: $P=\\rho V g-\\rho_{ж} V g$. Для тела C: $\\rho_c V g=2(\\rho_c V g-\\rho_{ж} V g)$, откуда $\\rho_c=2\\rho_{ж}$. Для тела B: $\\rho_b V g=4(\\rho_b V g-\\rho_{ж} V g)$, откуда $\\rho_b=\\frac{4\\rho_{ж}}{3}$. Отношение $\\rho_c/\\rho_b=\\frac{2\\rho_{ж}}{4\\rho_{ж}/3}=\\frac{3}{2}$.",
   "figures": []
 }

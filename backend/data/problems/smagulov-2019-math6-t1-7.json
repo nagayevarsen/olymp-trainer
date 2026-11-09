@@ -24,5 +24,32 @@
     "number": 7,
     "url": "https://matol.kz/olympiads/862"
   },
+  "template": {
+    "text": "Найдите наименьшее натуральное число, кратное 100, сумма цифр которого равна {s}.",
+    "params": {
+      "s": {
+        "min": 2.0,
+        "max": 150.0,
+        "step": 1.0
+      }
+    },
+    "original": {
+      "s": 100.0
+    },
+    "solver": "def solve(s):\n    d = s % 9\n    first = 9 if d == 0 else d\n    count = (s - first) // 9\n    n = first * 10**count + (10**count - 1)\n    return 100 * n",
+    "constraints": [
+      "s >= 1",
+      "answer > 0"
+    ],
+    "answer_integer": true,
+    "answer_max_decimals": 2,
+    "verification": {
+      "reproduces_original": true,
+      "cross_checked": false,
+      "checked_by": [
+        "anthropic:claude-haiku-5-5"
+      ]
+    }
+  },
   "figures": []
 }
