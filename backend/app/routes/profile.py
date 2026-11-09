@@ -13,7 +13,7 @@ from ..bank import (
     get_problem,
     load_bank,
 )
-from ..common import _streak_info, _today, _todays_daily, current_user, get_db, problem_points
+from ..common import _streak_info, _today, _todays_daily, current_user, get_db, optional_user, problem_points
 from ..db import DB
 from .problems import _tracks
 
@@ -141,8 +141,21 @@ def _main_track(bank: dict[str, Problem], prog: dict[str, dict]) -> str | None:
 
 
 @router.get("/api/leaderboard")
-def leaderboard(db: DB = Depends(get_db)) -> list[dict]:
-    return [
-        {"name": r["name"], "grade": r["grade"], "points": r["points"], "solved": r["solved"]}
-        for r in db.leaderboard()
-    ]
+def leaderboard(user: dict | None = Depends(optional_user), db: DB = Depends(get_db)) -> list[dict]:
+    """Рейтинг без чужих ников и классов: верхние 3 места и свой ряд (ник виден только его владельцу)."""
+    board = db.leaderboard(limit=1000)
+    out = []
+    for place, r in enumerate(board, 1):
+        mine = bool(user) and r["id"] == user["id"]
+        if place <= 3 or mine:
+            out.append(
+                {
+                    "place": place,
+                    "me": mine,
+                    "name": r["name"] if mine else None,
+                    "grade": r["grade"] if mine else None,
+                    "points": r["points"],
+                    "solved": r["solved"],
+                }
+            )
+    return out

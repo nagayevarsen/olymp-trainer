@@ -105,4 +105,7 @@ def test_leaderboard(client):
     h1, _ = new_user(client, "А"), new_user(client, "Б")
     client.post("/api/problems/demo-math-tournament/check", json={"answer": "66"}, headers=h1)
     board = client.get("/api/leaderboard").json()
-    assert board[0]["name"] == "А" and board[0]["points"] > 0
+    assert board[0]["place"] == 1 and board[0]["points"] > 0
+    assert all(r["name"] is None and r["grade"] is None for r in board)  # чужих ников и классов нет
+    mine = client.get("/api/leaderboard", headers=h1).json()
+    assert [r["name"] for r in mine if r["me"]] == ["А"]

@@ -57,7 +57,30 @@ def _close(a: float, b: float, key: AnswerKey) -> bool:
     return math.isclose(a, b, rel_tol=key.rel_tol, abs_tol=key.abs_tol)
 
 
+_NUM = r"(\d+(?:[.,]\d+)?)"
+_COMPOUND_TIME = re.compile(
+    rf"^\s*(?:{_NUM}\s*(?:часов|часа|час|ч|h)\.?)?\s*(?:и\s*)?(?:{_NUM}\s*(?:минуты|минуту|минут|мин|min)\.?)?"
+    rf"\s*(?:и\s*)?(?:{_NUM}\s*(?:секунды|секунду|секунд|сек|с)\.?)?\s*$",
+    re.IGNORECASE,
+)
+_CLOCK = re.compile(r"^\s*\d{1,3}\s*:\s*\d{1,2}(\s*:\s*\d{1,2})?\s*$")
+
+
+def _compound_time_seconds(raw: str) -> float | None:
+    """«10 часов 40 минут», «1 ч 5 мин 30 с» -> секунды; None, если это не составное время."""
+    m = _COMPOUND_TIME.match(raw)
+    if not m or sum(g is not None for g in m.groups()) < 2:
+        return None
+    h, mi, s = (float(g.replace(",", ".")) if g else 0.0 for g in m.groups())
+    return h * 3600 + mi * 60 + s
+
+
 def check_answer(key: AnswerKey, raw: str) -> CheckResult:
+    if key.unit and parse_unit(key.unit).dim == parse_unit("с").dim:
+        if _CLOCK.match(raw):
+            return CheckResult("unparsable", "Время пиши с единицами, например «10 ч 40 мин», а не «10:40».")
+        if (secs := _compound_time_seconds(raw)) is not None:
+            raw = f"{secs:.10g} с"
     try:
         num_str, unit_str = split_answer(raw)
         value = parse_number(num_str)

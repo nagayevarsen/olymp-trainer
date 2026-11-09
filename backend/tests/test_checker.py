@@ -142,3 +142,12 @@ def test_format_number():
     assert format_number(12.0) == "12"
     assert format_number(0.125) == "0,125"
     assert format_number(2.5) == "2,5"
+
+
+def test_compound_time_is_accepted_and_clock_notation_is_not():
+    key = AnswerKey(640, "мин")
+    for good in ("10 часов 40 минут", "10 ч 40 мин", "10ч40мин", "640 мин", "10,6667 ч"):
+        assert check_answer(key, good).correct, good
+    assert check_answer(key, "10:40").status == "unparsable"
+    assert not check_answer(key, "10 ч").correct
+    assert check_answer(AnswerKey(4, "м"), "4 м").correct  # не время — как раньше

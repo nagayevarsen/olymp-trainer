@@ -215,7 +215,9 @@ export interface ContestDetail extends ContestRow {
 type Account = { id: string; name: string; grade: number | null; token: string }
 
 export interface LeaderRow {
-  name: string
+  place: number
+  me: boolean
+  name: string | null // ник виден только владельцу строки
   grade: number | null
   points: number
   solved: number
