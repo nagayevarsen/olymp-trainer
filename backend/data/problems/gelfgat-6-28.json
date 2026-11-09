@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
   },
   "solution": "mg = 4πR²·p_A, откуда m = 4πR²p_A/g. При R = 6400 км и p_A = 10⁵ Па получаем m ≈ 5·10¹⁸ кг.",
+  "statement_kk": "Жер атмосферасының массасын бағалаңыз (Жер радиусы $R = 6400$ км).",
+  "solution_kk": "mg = 4πR²·p_A, осыдан m = 4πR²p_A/g. $R = 6400$ км және $p_A = 10⁵$ Па болғанда $m ≈ 5·10¹⁸$ кг.",
   "figures": []
 }

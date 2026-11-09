@@ -5,7 +5,11 @@
   "title": "Шестизначные числа с разностью цифр",
   "statement": "Сколько существует шестизначных чисел, у которых любые две соседние цифры отличаются на $2$ или на $8$?",
   "answer": {
-    "value": 288.0
+    "value": 288.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 1,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/kurchatov-2023-math-Round1-prob-var-ans-sol_(2).pdf"
-  }
+  },
+  "statement_kk": "Әрбір екі көрші цифрының айырмасы $2$ немесе $8$-ге тең болатын алты таңбалы сандар неше?",
+  "figures": []
 }

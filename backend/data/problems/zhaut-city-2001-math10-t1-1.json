@@ -1,0 +1,27 @@
+{
+  "id": "zhaut-city-2001-math10-t1-1",
+  "subject": "math",
+  "topic": "геометрия треугольника",
+  "title": "Равенство AB+AD=BC",
+  "statement": "В треугольнике $ABC$  $\\angle A=3\\angle C$. Точка $D$  на стороне $BC$ обладает  тем  свойством,  что  $\\angle ADC=2\\angle C$.  Докажите,  что $AB+AD=BC$.",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2001,
+    "stage": "city",
+    "grade": 10,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/311"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Пусть $\\angle C=\\gamma$. Тогда $\\angle A=3\\gamma$, $\\angle B=180^\\circ-4\\gamma$.\n\nТочка $D$ лежит на стороне $BC$, поэтому луч $AD$ проходит внутри угла $A$ и $BC=BD+DC$.\n\n**Углы.** В треугольнике $ADC$: $\\angle ADC=2\\gamma$, $\\angle C=\\gamma$, значит $\\angle DAC=180^\\circ-3\\gamma$. Отсюда\n$$\\angle BAD=\\angle A-\\angle DAC=3\\gamma-(180^\\circ-3\\gamma)=6\\gamma-180^\\circ.$$\nЭтот угол положителен, так как $D$ лежит внутри $BC$. Далее $\\angle ADB=180^\\circ-2\\gamma$ (смежный с $\\angle ADC$). Проверка суммы углов треугольника $ABD$: $(6\\gamma-180^\\circ)+(180^\\circ-2\\gamma)+(180^\\circ-4\\gamma)=180^\\circ$.\n\n**Теорема синусов в $ABD$.** Пусть $k$ — диаметр описанной окружности этого треугольника. Тогda\n$$AB=k\\sin\\angle ADB=k\\sin 2\\gamma,\\qquad AD=k\\sin\\angle B=k\\sin 4\\gamma,$$\n$$BD=k\\sin(6\\gamma-180^\\circ)=-k\\sin 6\\gamma.$$\n\n**Теорема синусов в $ADC$.** \n$$\\frac{DC}{\\sin\\angle DAC}=\\frac{AD}{\\sin\\gamma}\\ \\Rightarrow\\ DC=AD\\cdot\\frac{\\sin(180^\\circ-3\\gamma)}{\\sin\\gamma}=k\\sin4\\gamma\\cdot\\frac{\\sin3\\gamma}{\\sin\\gamma}.$$\nПо формуле тройного угла $\\frac{\\sin 3\\gamma}{\\sin\\gamma}=3-4\\sin^2\\gamma=1+2\\cos2\\gamma$. Поэтому\n$$DC=k\\sin4\\gamma\\,(1+2\\cos2\\gamma).$$\n\n**Сравнение.** Нужно доказать $AB+AD=BD+DC$. Подставим найденные выражения и сократим на $k$:\n$$\\sin2\\gamma+\\sin4\\gamma\\ \\overset{?}{=}\\ -\\sin6\\gamma+\\sin4\\gamma+2\\sin4\\gamma\\cos2\\gamma.$$\nПосле сокращения $\\sin4\\gamma$ это равносильно равенству\n$$\\sin2\\gamma+\\sin6\\gamma=2\\sin4\\gamma\\cos2\\gamma,$$\nкоторое верно по формуле суммы синусов: $\\sin2\\gamma+\\sin6\\gamma=2\\sin4\\gamma\\cos2\\gamma$.\n\nЗначит, $AB+AD=BD+DC=BC$. $\\blacksquare$",
+  "statement_kk": "$ABC$ үшбұрышында $\\angle A=3\\angle C$. $BC$ қабырғасындағы $D$ нүктесі $\\angle ADC=2\\angle C$ қасиетіне ие. $AB+AD=BC$ екенін дәлелдеңдер.",
+  "solution_kk": "Шешім AI көмегімен құрастырылған және ресми емес. $\\angle C=\\gamma$ болсын. Сонда $\\angle A=3\\gamma$, $\\angle B=180^\\circ-4\\gamma$.\n\n$D$ нүктесі $BC$ қабырғасында жатқандықтан, $AD$ сәулесі $A$ бұрышының ішінен өтеді және $BC=BD+DC$.\n\n**Бұрыштар.** $ADC$ үшбұрышында: $\\angle ADC=2\\gamma$, $\\angle C=\\gamma$, демек $\\angle DAC=180^\\circ-3\\gamma$. Осыдан\n$$\\angle BAD=\\angle A-\\angle DAC=3\\gamma-(180^\\circ-3\\gamma)=6\\gamma-180^\\circ.$$\nБұл бұрыш оң, себебі $D$ нүктесі $BC$ ішінде жатыр. Одан әрі $\\angle ADB=180^\\circ-2\\gamma$ ($\\angle ADC$-мен көрші). Үшбұрыш $ABD$ бұрыштарының қосындысын тексеру: $(6\\gamma-180^\\circ)+(180^\\circ-2\\gamma)+(180^\\circ-4\\gamma)=180^\\circ$.\n\n**$ABD$ үшбұрышындағы синустар теоремасы.** $k$ осы үшбұрыштың сырттай сызылған шеңберінің диаметрі болсын. Сонда\n$$AB=k\\sin\\angle ADB=k\\sin 2\\gamma,\\qquad AD=k\\sin\\angle B=k\\sin 4\\gamma,$$\n$$BD=k\\sin(6\\gamma-180^\\circ)=-k\\sin 6\\gamma.$$\n\n**$ADC$ үшбұрышындағы синустар теоремасы.**\n$$\\frac{DC}{\\sin\\angle DAC}=\\frac{AD}{\\sin\\gamma}\\ \\Rightarrow\\ DC=AD\\cdot\\frac{\\sin(180^\\circ-3\\gamma)}{\\sin\\gamma}=k\\sin4\\gamma\\cdot\\frac{\\sin3\\gamma}{\\sin\\gamma}.$$\nҮштік бұрыш формуласы бойынша $\\frac{\\sin 3\\gamma}{\\sin\\gamma}=3-4\\sin^2\\gamma=1+2\\cos2\\gamma$. Сондықтан\n$$DC=k\\sin4\\gamma\\,(1+2\\cos2\\gamma).$$\n\n**Салыстыру.** $AB+AD=BD+DC$ екенін дәлелдеу керек. Табылған өрнектерді қойып, $k$-ға қысқартамыз:\n$$\\sin2\\gamma+\\sin4\\gamma\\ \\overset{?}{=}\\ -\\sin6\\gamma+\\sin4\\gamma+2\\sin4\\gamma\\cos2\\gamma.$$\n$\\sin4\\gamma$ қысқартқаннан кейін бұл теңдікке тең:\n$$\\sin2\\gamma+\\sin6\\gamma=2\\sin4\\gamma\\cos2\\gamma,$$\nбұл синустар қосындысының формуласы бойынша дұрыс: $\\sin2\\gamma+\\sin6\\gamma=2\\sin4\\gamma\\cos2\\gamma$.\n\nДемек, $AB+AD=BD+DC=BC$. $\\blacksquare$",
+  "figures": []
+}

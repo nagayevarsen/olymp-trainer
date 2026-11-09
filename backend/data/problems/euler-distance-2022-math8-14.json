@@ -19,5 +19,7 @@
     "url": "https://www.matol.ru/files/Disttur3_21_sol.pdf"
   },
   "solution": "Решение. Пусть $\\angle ABC = 2\\beta$, а прямая $m$ пересекает сторону $BC$ в точке $D$. По свойству серединного перпендикуляра $DA = DB$, откуда $\\angle DAB = \\angle ABD = 2\\beta$. Значит, по теореме о внешнем угле треугольника $\\angle ADC = \\angle DAB+\\angle ABD = 4\\beta$. Кроме того, поскольку $BE = EC$, $\\angle C = \\angle DBE = \\beta$. Из треугольника $ADC$ имеем $180^\\circ = \\angle DAC+\\angle ADC+\\angle C = \\angle DAC+4\\beta+\\beta$, откуда $\\angle C = \\beta = \\frac{180^\\circ-\\angle DAC}{5} < 36^\\circ$.",
+  "statement_kk": "Үшбұрыш $ABC$-да $BE$ биссектрисасы және $AB$ қабырғасына жүргізілген орта перпендикуляр $m$ салынды. Белгілі болғаны: $BE = EC$, ал $m$ түзуі $BC$ қабырғасын қияды. Дәлелдеңдер: $C$ бұрышы 36 градустан кіші.",
+  "solution_kk": "Шешімі. $\\angle ABC = 2\\beta$ деп, ал $m$ түзуі $BC$ қабырғасын $D$ нүктесінде қисын делік. Орта перпендикуляр қасиеті бойынша $DA = DB$, осыдан $\\angle DAB = \\angle ABD = 2\\beta$. Демек, үшбұрыштың сыртқы бұрышы туралы теорема бойынша $\\angle ADC = \\angle DAB+\\angle ABD = 4\\beta$. Сонымен қатар, $BE = EC$ болғандықтан, $\\angle C = \\angle DBE = \\beta$. $ADC$ үшбұрышынан $180^\\circ = \\angle DAC+\\angle ADC+\\angle C = \\angle DAC+4\\beta+\\beta$, осыдан $\\angle C = \\beta = \\frac{180^\\circ-\\angle DAC}{5} < 36^\\circ$.",
   "figures": []
 }

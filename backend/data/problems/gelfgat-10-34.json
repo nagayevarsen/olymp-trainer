@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=71"
   },
   "solution": "Условие равновесия $F_A = mg + F_{пн}$, где $F_{пн} = 4\\sigma a$ и $F_A = \\rho_в g a^2 h$. Отсюда $h = \\frac{mg + 4\\sigma a}{\\rho_в g a^2} \\approx 0{,}023$ м.",
+  "statement_kk": "Суды дымқылдайтын массасы $m = 20$ г текше су бетінде жүзеді. Текшенің қабырғасының ұзындығы $a = 3{,}0$ см. Текшенің төменгі жағы су бетінен қандай $h$ қашықтықта орналасқан?",
+  "solution_kk": "Тепе-теңдік шарты $F_A = mg + F_{пн}$, мұнда $F_{пн} = 4\\sigma a$ және $F_A = \\rho_в g a^2 h$. Осыдан $h = \\frac{mg + 4\\sigma a}{\\rho_в g a^2} \\approx 0{,}023$ м.",
   "figures": []
 }

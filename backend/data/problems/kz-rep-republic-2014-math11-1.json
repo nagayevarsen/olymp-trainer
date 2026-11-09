@@ -6,13 +6,15 @@
   "statement": "Пусть $a_1, a_2, \\ldots, a_{2014}$ — перестановка чисел $1, 2, \\ldots, 2014$. Какое наибольшее количество чисел среди чисел $a_1^2 + a_2, a_2^2 + a_3, \\ldots, a_{2013}^2 + a_{2014}, a_{2014}^2 + a_1$ могут быть точными квадратами? (Сатылханов К.)",
   "answer": {
     "value": 1006.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 1006",
       "решение: anthropic:claude-sonnet-5-5 → 1006",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 1006",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 1006"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,7 @@
     "grade": 11,
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2014/math11-1-tasks.pdf"
-  }
+  },
+  "statement_kk": "Пусть $a_1, a_2, \\ldots, a_{2014}$ — $1, 2, \\ldots, 2014$ сандарының орын ауыстыруы. $a_1^2 + a_2, a_2^2 + a_3, \\ldots, a_{2013}^2 + a_{2014}, a_{2014}^2 + a_1$ сандарының ішінде дәл квадрат бола алатындарының ең көп саны қанша? (Сатылханов К.)",
+  "figures": []
 }

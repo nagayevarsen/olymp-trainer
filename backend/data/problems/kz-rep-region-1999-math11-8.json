@@ -6,13 +6,15 @@
   "statement": "Число 2211 представлено в виде суммы двадцати трех целых положительных чисел. Какое наименьшее возможное значение наименьшего общего кратного этих двадцати трех чисел?",
   "answer": {
     "value": 99.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 99",
       "решение: anthropic:claude-sonnet-5-5 → 99",
       "программа (other): anthropic:claude-haiku-5-5 → 99",
       "программа (other): anthropic:claude-sonnet-5-5 → 99"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,7 @@
     "grade": 11,
     "number": 8,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/1999/math11-1-tasks.pdf"
-  }
+  },
+  "statement_kk": "2211 саны жиырма үш бүтін оң санның қосындысы түрінде берілген. Осы жиырма үш санның ең кіші ортақ еселігінің ең кіші мүмкін мәні қандай?",
+  "figures": []
 }

@@ -5,7 +5,11 @@
   "title": "Сумма нечётных чисел",
   "statement": "Сумма двадцати пяти последовательных натуральных нечётных чисел, меньшее из которых больше единицы, равна $N^2$. Укажите минимальное возможное значение числа $N$.",
   "answer": {
-    "value": 35.0
+    "value": 35.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 4,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Olimpiada_Kurchatov_2026_Math_11_10_Online_Solutions.pdf"
-  }
+  },
+  "statement_kk": "Ең кішісі бірден үлкен болатын жиырма бес қатарлас натурал тақ сандардың қосындысы $N^2$-қа тең. $N$ санының ең кіші мүмкін мәнін көрсетіңіз.",
+  "figures": []
 }

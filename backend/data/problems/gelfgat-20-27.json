@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=156"
   },
   "solution": "Из $d\\sin\\varphi_3 = 3\\lambda$ получаем $\\tan\\varphi_3 = \\frac{3\\lambda}{\\sqrt{d^2-9\\lambda^2}}$, расстояние $s = F\\tan\\varphi_3 = \\frac{3\\lambda F}{\\sqrt{d^2-9\\lambda^2}} \\approx 0{,}57$ м.",
+  "statement_kk": "Периоды $d = 2{,}0$ мкм дифракциялық торға толқын ұзындығы $\\lambda = 500$ нм жарық нормаль түседі. Торның артында фокус аралығы $F = 50$ см жинаушы линза орналасқан. Дифракциялық спектрді анық алу үшін экранды қай жерге орналастыру керек? Экрандағы үшінші реттік спектр мен орталық максимум арасындағы $s$ қашықтық қандай?",
+  "solution_kk": "$d\\sin\\varphi_3 = 3\\lambda$ теңдігінен $\\tan\\varphi_3 = \\frac{3\\lambda}{\\sqrt{d^2-9\\lambda^2}}$ шығады, қашықтық $s = F\\tan\\varphi_3 = \\frac{3\\lambda F}{\\sqrt{d^2-9\\lambda^2}} \\approx 0{,}57$ м.",
   "figures": []
 }

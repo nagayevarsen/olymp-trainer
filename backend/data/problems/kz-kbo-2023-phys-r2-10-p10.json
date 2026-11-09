@@ -22,5 +22,7 @@
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
   },
   "solution": "В ключе ответ B: $W = LI^2/2$.",
+  "statement_kk": "Контурдың индуктивтігі $L$, ондағы ток күші $I$.\n\n**10-тармақ.** Контурдың магнит энергиясын табыңыз.",
+  "solution_kk": "Кілттегі жауап B: $W = LI^2/2$.",
   "figures": []
 }

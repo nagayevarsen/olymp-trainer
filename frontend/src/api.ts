@@ -236,11 +236,19 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
   if (user) headers['Authorization'] = `Bearer ${user.token}`
   let res: Response
-  try {
-    res = await fetch(BASE + path, { ...init, headers: { ...headers, ...(init.headers ?? {}) } })
-  } catch {
-    window.dispatchEvent(new Event('olymp:network-error')) // покажет экран «Нет интернета», если сети нет
-    throw new ApiError(0, t('Нет связи с сервером. Проверь интернет.'))
+  // Чтение (GET) повторяем при коротких сбоях сервера или прокси (502–504, 520–526): после выкладки или
+  // перезапуска он отвечает так секунд 20–60. Запись (POST и др.) не повторяем, чтобы не продублировать действие.
+  const retryable = !init.method || init.method === 'GET'
+  for (let attempt = 0; ; attempt++) {
+    try {
+      res = await fetch(BASE + path, { ...init, headers: { ...headers, ...(init.headers ?? {}) } })
+    } catch {
+      window.dispatchEvent(new Event('olymp:network-error')) // покажет экран «Нет интернета», если сети нет
+      throw new ApiError(0, t('Нет связи с сервером. Проверь интернет.'))
+    }
+    const transient = [502, 503, 504, 520, 521, 522, 523, 524, 525, 526].includes(res.status)
+    if (!(retryable && transient && attempt < 3)) break
+    await new Promise((r) => setTimeout(r, 1500 * (attempt + 1)))
   }
   if (res.status === 401 && user) {
     // Сессия истекла или отозвана (выход на другом устройстве) — вернуться к экрану входа.
@@ -271,7 +279,7 @@ export const api = {
   tracks: () => request<Track[]>('/api/tracks'),
   problems: (track?: string | null) => request<ProblemListItem[]>(`/api/problems${track ? `?track=${track}` : ''}`),
   problem: (id: string, seed?: number | null) =>
-    request<ProblemDetail>(`/api/problems/${id}${seed != null ? `?seed=${seed}` : ''}`),
+    request<ProblemDetail>(`/api/problems/${id}?lang=${getLang()}${seed != null ? `&seed=${seed}` : ''}`),
   variant: (id: string) =>
     post<{ seed: number; statement: string; verification: Verification | null }>(`/api/problems/${id}/variant`),
   check: (id: string, answer: string, seed?: number | null) =>

@@ -1,0 +1,27 @@
+{
+  "id": "zhaut-city-2026-math7-t1-7",
+  "subject": "math",
+  "topic": "планиметрия",
+  "title": "Углы треугольника по биссектрисам",
+  "statement": "Биссектриса $BD$ треугольника $ABC$ отсекает от него равнобедренный треугольник $BCD$, а биссектриса $CE$ отсекает от $ABC$ тупоугольный равнобедренный треугольник $ACE$. Найдите углы треугольника $ABC$.",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2026,
+    "stage": "city",
+    "grade": 7,
+    "number": 7,
+    "url": "https://matol.kz/olympiads/1221"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Обозначим $\\angle A=\\alpha$, $\\angle B=2\\beta$, $\\angle C=2\\gamma$, так что $\\alpha+2\\beta+2\\gamma=180^\\circ$. Точка $D$ лежит на $AC$, точка $E$ лежит на $AB$.\n\n**Треугольник $ACE$.** Его углы: при $A$ — $\\alpha$, при $C$ — $\\gamma$ (так как $CE$ — биссектриса), при $E$ — $180^\\circ-\\alpha-\\gamma$. Он тупоугольный равнобедренный, поэтому тупой угол лежит при вершине, а два других угла равны. Угол $\\gamma$ острый, так как $2\\gamma<180^\\circ$. Остаются два случая.\n\n1) Тупой угол при $A$. Тогда $\\gamma=180^\\circ-\\alpha-\\gamma$, то есть $\\alpha+2\\gamma=180^\\circ$. Отсюда $2\\beta=0$, что невозможно.\n\n2) Тупой угол при $E$. Тогда $\\alpha=\\gamma$ и $180^\\circ-2\\alpha>90^\\circ$, то есть $\\alpha<45^\\circ$. Имеем $\\angle C=2\\alpha$, $\\angle B=180^\\circ-3\\alpha$, $\\beta=90^\\circ-\\tfrac32\\alpha$.\n\n**Треугольник $BCD$.** Его углы: при $B$ — $\\beta=90^\\circ-\\tfrac32\\alpha$, при $C$ — $2\\alpha$, при $D$ — $180^\\circ-\\beta-2\\alpha=90^\\circ-\\tfrac{\\alpha}{2}$. Он равнобедренный, значит, какие-то два угла равны. Рассмотрим три возможности.\n\n- $\\beta=\\angle D$: $90^\\circ-\\tfrac32\\alpha=90^\\circ-\\tfrac12\\alpha$, откуда $\\alpha=0$. Невозможно.\n- $\\beta=2\\alpha$: $90^\\circ-\\tfrac32\\alpha=2\\alpha$, откуда $\\alpha=\\tfrac{360^\\circ}{7}>45^\\circ$. Это противоречит тупости угла $E$ (тогда $\\angle E=180^\\circ-2\\alpha=\\tfrac{540^\\circ}{7}<90^\\circ$).\n- $2\\alpha=\\angle D$: $2\\alpha=90^\\circ-\\tfrac{\\alpha}{2}$, откуда $\\alpha=36^\\circ<45^\\circ$. Подходит.\n\nИтак, $\\angle A=36^\\circ$, $\\angle C=72^\\circ$, $\\angle B=180^\\circ-108^\\circ=72^\\circ$.\n\n**Проверка.** В $BCD$: $\\angle B=36^\\circ$, $\\angle C=72^\\circ$, $\\angle D=72^\\circ$, значит, он равнобедренный. В $ACE$: $\\angle A=36^\\circ$, $\\angle C=36^\\circ$, $\\angle E=108^\\circ$, значит, он тупоугольный равнобедренный. Условия выполнены.\n\nОтвет: $\\angle A=36^\\circ$, $\\angle B=\\angle C=72^\\circ$.",
+  "statement_kk": "$ABC$ үшбұрышының $BD$ биссектрисасы одан $BCD$ теңбүйірлі үшбұрышын бөліп алады, ал $CE$ биссектрисасы $ABC$-дан доғал бұрышты теңбүйірлі $ACE$ үшбұрышын бөліп алады. $ABC$ үшбұрышының бұрыштарын табыңыз.",
+  "solution_kk": "Шешім ЖИ көмегімен құрастырылған және ресми емес. $\\angle A=\\alpha$, $\\angle B=2\\beta$, $\\angle C=2\\gamma$ деп белгілейміз, сонда $\\alpha+2\\beta+2\\gamma=180^\\circ$. $D$ нүктесі $AC$ бойында, ал $E$ нүктесі $AB$ бойында жатыр.\n\n**$ACE$ үшбұрышы.** Оның бұрыштары: $A$ төбесінде — $\\alpha$, $C$ төбесінде — $\\gamma$ ($CE$ — биссектриса), $E$ төбесінде — $180^\\circ-\\alpha-\\gamma$. Ол доғал бұрышты теңбүйірлі, сондықтан доғал бұрыш төбеде жатыр, ал қалған екі бұрыш тең. $\\gamma$ бұрышы сүйір, себебі $2\\gamma<180^\\circ$. Екі жағдай қалады.\n\n1) Доғал бұрыш $A$ төбесінде. Онда $\\gamma=180^\\circ-\\alpha-\\gamma$, яғни $\\alpha+2\\gamma=180^\\circ$. Бұдан $2\\beta=0$ шығады, бұл мүмкін емес.\n\n2) Доғал бұрыш $E$ төбесінде. Онда $\\alpha=\\gamma$ және $180^\\circ-2\\alpha>90^\\circ$, яғни $\\alpha<45^\\circ$. Бізде $\\angle C=2\\alpha$, $\\angle B=180^\\circ-3\\alpha$, $\\beta=90^\\circ-\\tfrac32\\alpha$.\n\n**$BCD$ үшбұрышы.** Оның бұрыштары: $B$ төбесінде — $\\beta=90^\\circ-\\tfrac32\\alpha$, $C$ төбесінде — $2\\alpha$, $D$ төбесінде — $180^\\circ-\\beta-2\\alpha=90^\\circ-\\tfrac{\\alpha}{2}$. Ол теңбүйірлі, демек кейбір екі бұрыш тең. Үш мүмкіндікті қараймыз.\n\n- $\\beta=\\angle D$: $90^\\circ-\\tfrac32\\alpha=90^\\circ-\\tfrac12\\alpha$, бұдан $\\alpha=0$. Мүмкін емес.\n- $\\beta=2\\alpha$: $90^\\circ-\\tfrac32\\alpha=2\\alpha$, бұдан $\\alpha=\\tfrac{360^\\circ}{7}>45^\\circ$. Бұл $E$ бұрышының доғал болуына қайшы келеді (онда $\\angle E=180^\\circ-2\\alpha=\\tfrac{540^\\circ}{7}<90^\\circ$).\n- $2\\alpha=\\angle D$: $2\\alpha=90^\\circ-\\tfrac{\\alpha}{2}$, бұдан $\\alpha=36^\\circ<45^\\circ$. Жарайды.\n\nСонда $\\angle A=36^\\circ$, $\\angle C=72^\\circ$, $\\angle B=180^\\circ-108^\\circ=72^\\circ$.\n\n**Тексеру.** $BCD$ үшбұрышында: $\\angle B=36^\\circ$, $\\angle C=72^\\circ$, $\\angle D=72^\\circ$, демек ол теңбүйірлі. $ACE$ үшбұрышында: $\\angle A=36^\\circ$, $\\angle C=36^\\circ$, $\\angle E=108^\\circ$, демек ол доғал бұрышты теңбүйірлі. Шарттар орындалады.\n\nЖауап: $\\angle A=36^\\circ$, $\\angle B=\\angle C=72^\\circ$.",
+  "figures": []
+}

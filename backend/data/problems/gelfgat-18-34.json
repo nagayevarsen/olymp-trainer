@@ -21,5 +21,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
   },
   "solution": "Из рисунка $a=AB\\cos\\alpha=2h\\cos\\alpha\\,\\mathrm{tg}\\beta$, $\\sin\\beta=\\sin\\alpha/n$, откуда $h=\\dfrac{a\\sqrt{n^2-\\sin^2\\alpha}}{\\sin2\\alpha}$. Численно $h=3{,}1$ см.",
+  "statement_kk": "Жазық-параллель шыны пластинаның төменгі беті күмістелген. Пластинаның үстіне жарық сәулесі түседі; нәтижесінде одан екі параллель сәуле шағылысады, олар бір-бірінен $a = 20$ мм қашықтықта жүреді. Түсу бұрышы $\\alpha = 60^\\circ$ болған кезде пластинаның қалыңдығы $h$-ты анықтаңыз.",
+  "solution_kk": "Суреттен $a=AB\\cos\\alpha=2h\\cos\\alpha\\,\\mathrm{tg}\\beta$, $\\sin\\beta=\\sin\\alpha/n$, осыдан $h=\\dfrac{a\\sqrt{n^2-\\sin^2\\alpha}}{\\sin2\\alpha}$. Сандық мәні $h=3{,}1$ см.",
   "figures": []
 }

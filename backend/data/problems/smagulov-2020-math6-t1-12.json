@@ -24,5 +24,6 @@
     "number": 12,
     "url": "https://matol.kz/olympiads/1005"
   },
+  "statement_kk": "$a,b,c,d$ сандары берілген. Белгілі, $a\\ne b$, $c\\ne d$ және $\\frac{a}{b}=\\frac{c}{d}$. Төрт тұжырымның қайсысы әрқашан дұрыс емес:\n1) $\\frac{a+b}{b}=\\frac{c+d}{d}$;\n2) $\\frac{a-b}{b}=\\frac{c-d}{d}$;\n3) $\\frac{a-c}{b}=\\frac{b-d}{d}$;\n4) $\\frac{a+b}{a-b}=\\frac{c+d}{c-d}$.",
   "figures": []
 }

@@ -5,7 +5,11 @@
   "title": "Наименьшее число со свойствами",
   "statement": "Найдите наименьшее натуральное число, которое обладает следующими тремя свойствами:\n• делится на 584;\n• заканчивается на 584;\n• больше 584.",
   "answer": {
-    "value": 73584.0
+    "value": 73584.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 7,
     "number": 3,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2021_Online_Math.pdf"
-  }
+  },
+  "statement_kk": "Үш қасиеті бар ең кіші натурал санды табыңыз:\n• 584-ке бөлінеді;\n• 584-пен аяқталады;\n• 584-тен үлкен.",
+  "figures": []
 }

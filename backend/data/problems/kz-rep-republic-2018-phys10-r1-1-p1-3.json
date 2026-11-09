@@ -55,6 +55,8 @@
     }
   },
   "solution": "Закон преломления $\\sin\\alpha=n\\sin\\beta$; $BD=2H\\tan\\beta$, $L=CD=BD\\cot\\alpha$. При малых углах $\\tan\\alpha\\approx\\sin\\alpha\\approx\\alpha$, откуда $L=2H/n=20$ см.",
+  "statement_kk": "Бұл есеп үш тәуелсіз бөліктен тұрады.\n\n**1.3 тармақ.** Адам қалыңдығы h = 15 см, сыну көрсеткіші n = 1.5 шыныдан жасалған жазықтық-параллель пластинада өзінің бетінің бейнесін қарайды. Бұл кезде ол бір-бірінен бірдей L қашықтықта орналасқан бет бейнелерінің бірқатарын байқайды. L-ді табыңыз.",
+  "solution_kk": "Сыну заңы $\\sin\\alpha=n\\sin\\beta$; $BD=2H\\tan\\beta$, $L=CD=BD\\cot\\alpha$. Кіші бұрыштарда $\\tan\\alpha\\approx\\sin\\alpha\\approx\\alpha$, бұдан $L=2H/n=20$ см.",
   "figures": [
     "kz-rep-republic-2018-phys10-r1-1-fig1.png",
     "kz-rep-republic-2018-phys10-r1-1-fig2.png"

@@ -6,9 +6,11 @@
   "statement": "В треугольнике $ABC$ провели биссектрису $BD$, а в треугольниках $ABD$ и $CBD$ — биссектрисы $DE$ и $DF$ соответственно. Оказалось, что $EF \\parallel AC$. Найдите угол $DEF$. (И. Рубанов)",
   "answer": {
     "value": 45.0,
+    "variables": {},
     "unit": "°",
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Леонарда Эйлера",
@@ -17,5 +19,7 @@
     "grade": 8,
     "number": 2,
     "url": "https://www.matol.ru/files/Disttur1_17_sol.pdf"
-  }
+  },
+  "statement_kk": "$ABC$ үшбұрышында $BD$ биссектрисасы жүргізілген, ал $ABD$ және $CBD$ үшбұрыштарында сәйкесінше $DE$ және $DF$ биссектрисалары жүргізілген. Белгілі болды, $EF \\parallel AC$. $DEF$ бұрышын табыңдар. (И. Рубанов)",
+  "figures": []
 }

@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=31"
   },
   "solution": "Из второго закона Ньютона в проекциях: $F\\cos\\alpha - F_{тр} = 0$, $N + F\\sin\\alpha - mg = 0$, $F_{тр} = \\mu N$. Отсюда $F = \\frac{\\mu mg}{\\cos\\alpha + \\mu\\sin\\alpha}$.",
+  "statement_kk": "Массасы m = 40 кг жәшікті горизонталь бетте бірқалыпты қозғалту үшін, горизонтпен α = 30° бұрыш жасайтын арқанды қандай F күшпен тарту керек? Жәшік пен алаң арасындағы үйкеліс коэффициенті μ = 0,27.",
+  "solution_kk": "Ньютонның екінші заңынан проекцияларда: $F\\cos\\alpha - F_{тр} = 0$, $N + F\\sin\\alpha - mg = 0$, $F_{тр} = \\mu N$. Бұдан $F = \\frac{\\mu mg}{\\cos\\alpha + \\mu\\sin\\alpha}$.",
   "figures": []
 }

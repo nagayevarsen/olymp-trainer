@@ -23,6 +23,8 @@
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2021/phys10-1-sol.pdf"
   },
   "solution": "Законы Кирхгофа для контуров: $\\mathcal{E} = I_1 r + IR$, $2\\mathcal{E} = 2I_2 r + IR$; для узла $I_1 + I_2 = I$. Решение: $I = \\frac{4\\mathcal{E}}{2r+3R}$, с учётом малости $r$: $I = \\frac{4\\mathcal{E}}{3R}$.",
+  "statement_kk": "Бірдей үш батарея ЭҚК $\\mathcal{E}$ сұлбада көрсетілгендей бір-бірімен жалғанған және $R$ кедергісімен жүктелген. Батареялардың ішкі кедергісі $R$-ден әлдеқайда аз.\n\n**a тармақ.** Жүктеме кедергісі $R$ арқылы қандай ток өтеді?",
+  "solution_kk": "Контурлар үшін Кирхгоф заңдары: $\\mathcal{E} = I_1 r + IR$, $2\\mathcal{E} = 2I_2 r + IR$; түйін үшін $I_1 + I_2 = I$. Шешімі: $I = \\frac{4\\mathcal{E}}{2r+3R}$, $r$ аз екенін ескерсек: $I = \\frac{4\\mathcal{E}}{3R}$.",
   "figures": [
     "kz-rep-region-2021-phys10-r1-3-fig1.png",
     "kz-rep-region-2021-phys10-r1-3-fig2.png"

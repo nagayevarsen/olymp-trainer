@@ -12,7 +12,8 @@
       "k": "показатель степени"
     },
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -22,6 +23,8 @@
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
   },
   "solution": "Так как $\\lambda^{-1}=2-\\sqrt3$, то $\\lambda^{-k}=(2-\\sqrt3)^k=p_k-q_k\\sqrt3$.",
+  "statement_kk": "Есеп математикалық кіріспеден (рекуренттік қатынастар, $\\lambda=2+\\sqrt{3}$ санының дәрежелері) және әрбір қырының кедергісі $R_0$-ге тең призма пішініндегі сым қаңқаны зерттеуден тұрады.\n\n**1.4-тармақ.** $\\lambda^{-k}=(2+\\sqrt3)^{-k}$ санын табылған $p_k,q_k$ шамалары арқылы өрнектеңіз.",
+  "solution_kk": "Себебі $\\lambda^{-1}=2-\\sqrt3$, сондықтан $\\lambda^{-k}=(2-\\sqrt3)^k=p_k-q_k\\sqrt3$.",
   "figures": [
     "izho-2017-phys-3-fig1.png",
     "izho-2017-phys-3-fig2.png"

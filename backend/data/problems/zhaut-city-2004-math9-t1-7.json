@@ -1,0 +1,27 @@
+{
+  "id": "zhaut-city-2004-math9-t1-7",
+  "subject": "math",
+  "topic": "неравенства",
+  "title": "Неравенство с корнем",
+  "statement": "Докажите неравенство: $\\left( a+b \\right)\\left( a+c \\right)\\ge 2\\sqrt{abc\\left( a+b+c \\right)}$, $\\forall a,b,c > 0$.",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2004,
+    "stage": "city",
+    "grade": 9,
+    "number": 7,
+    "url": "https://matol.kz/olympiads/321"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Раскроем скобки: $(a+b)(a+c)=a^2+ab+ac+bc=a(a+b+c)+bc$.\n\nПоложим $x=a(a+b+c)$ и $y=bc$. Так как $a,b,c>0$, имеем $x>0$ и $y>0$.\n\nДля положительных $x,y$ верно неравенство о среднем арифметическом и среднем геометрическом: $x+y\\ge 2\\sqrt{xy}$. Оно равносильно неравенству $(\\sqrt{x}-\\sqrt{y})^2\\ge 0$.\n\nТогда\n$$(a+b)(a+c)=x+y\\ge 2\\sqrt{xy}=2\\sqrt{a(a+b+c)\\cdot bc}=2\\sqrt{abc(a+b+c)}.$$\n\nНеравенство доказано. Равенство достигается тогда и только тогда, когда $x=y$, то есть $a(a+b+c)=bc$.",
+  "statement_kk": "Теңсіздікті дәлелдеңдер: $\\left( a+b \\right)\\left( a+c \\right)\\ge 2\\sqrt{abc\\left( a+b+c \\right)}$, $\\forall a,b,c > 0$.",
+  "solution_kk": "Шешім ЖИ арқылы құрастырылған және ресми емес. Жақшаларды ашайық: $(a+b)(a+c)=a^2+ab+ac+bc=a(a+b+c)+bc$.\n\n$x=a(a+b+c)$ және $y=bc$ деп белгілейік. $a,b,c>0$ болғандықтан, $x>0$ және $y>0$.\n\nОң $x,y$ үшін орта арифметикалық пен орта геометриялық туралы теңсіздік орындалады: $x+y\\ge 2\\sqrt{xy}$. Бұл теңсіздік $(\\sqrt{x}-\\sqrt{y})^2\\ge 0$ теңсіздігіне эквивалентті.\n\nОнда\n$$(a+b)(a+c)=x+y\\ge 2\\sqrt{xy}=2\\sqrt{a(a+b+c)\\cdot bc}=2\\sqrt{abc(a+b+c)}.$$\n\nТеңсіздік дәлелденді. Теңдік $x=y$ болғанда, яғни $a(a+b+c)=bc$ болғанда ғана орындалады.",
+  "figures": []
+}

@@ -5,7 +5,11 @@
   "title": "Работа по растаскиванию",
   "statement": "Найдите работу $A$, необходимую для того, чтобы растащить все пылевое облако на бесконечные расстояния.",
   "answer": {
-    "value": 1.33
+    "value": 1.33,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -13,5 +17,7 @@
     "stage": "international",
     "number": 4,
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
-  }
+  },
+  "statement_kk": "Шаң бұлтының барлығын шексіз қашықтыққа ажырату үшін қажетті $A$ жұмысын табыңыз.",
+  "figures": []
 }

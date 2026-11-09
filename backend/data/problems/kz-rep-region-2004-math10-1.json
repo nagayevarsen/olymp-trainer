@@ -6,13 +6,15 @@
   "statement": "Найдите целую часть числа $\\frac{1}{\\sqrt{1}+\\sqrt{2}}+\\frac{1}{\\sqrt{3}+\\sqrt{4}}+\\frac{1}{\\sqrt{5}+\\sqrt{6}}+\\cdots+\\frac{1}{\\sqrt{2003}+\\sqrt{2004}}$.",
   "answer": {
     "value": 22.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 22",
       "решение: anthropic:claude-sonnet-5-5 → 22",
       "программа (other): anthropic:claude-haiku-5-5 → 22",
       "программа (other): anthropic:claude-sonnet-5-5 → 22"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,7 @@
     "grade": 10,
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2004/math10-1-tasks.pdf"
-  }
+  },
+  "statement_kk": "$\\frac{1}{\\sqrt{1}+\\sqrt{2}}+\\frac{1}{\\sqrt{3}+\\sqrt{4}}+\\frac{1}{\\sqrt{5}+\\sqrt{6}}+\\cdots+\\frac{1}{\\sqrt{2003}+\\sqrt{2004}}$ санының бүтін бөлігін табыңыз.",
+  "figures": []
 }

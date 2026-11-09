@@ -5,7 +5,11 @@
   "title": "Квадрат целого числа",
   "statement": "Для некоторых натуральных чисел $n$: $n^2 - 5n - 23$ – квадрат целого числа. Найдите сумму всех таких чисел $n$.",
   "answer": {
-    "value": 53.0
+    "value": 53.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 9,
     "number": 1,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Kurchatov_2026_Math_9_Solutions.pdf"
-  }
+  },
+  "statement_kk": "Кейбір натурал $n$ сандары үшін $n^2 - 5n - 23$ – бүтін санның квадраты. Осындай барлық $n$ сандарының қосындысын табыңыз.",
+  "figures": []
 }

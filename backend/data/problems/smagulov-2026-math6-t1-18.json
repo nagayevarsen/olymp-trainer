@@ -6,13 +6,15 @@
   "statement": "Пусть $n$ — наименьшее 5 значное число, которое делится на все свои пять цифр, причём все цифры числа различны. Найдите сумму цифр числа $n$.",
   "answer": {
     "value": 18.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 18",
       "решение: anthropic:claude-sonnet-5-5 → 18",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 18",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 18"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -49,5 +51,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "$n$ — өзінің барлық бес цифрына бөлінетін, ал барлық цифрлары әртүрлі болатын ең кіші 5 таңбалы сан. $n$ санының цифрларының қосындысын табыңыз.",
+  "figures": []
 }

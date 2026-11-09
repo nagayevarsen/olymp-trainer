@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=11"
   },
   "solution": "Условие $|v_y|=v_x\\,\\mathrm{tg}\\beta$, где $v_y=v_0\\sin\\alpha-gt$, $v_x=v_0\\cos\\alpha$. Отсюда $t=\\frac{v_0}{g}(\\sin\\alpha\\pm\\mathrm{tg}\\beta\\cos\\alpha)$. Моментов времени два.",
+  "statement_kk": "Горизонтқа $\\alpha = 60°$ бұрыш жасап, бастапқы жылдамдығы $v_0 = 20$ м/с дене лақтырылды. Қанша уақыттан кейін ол горизонтқа $\\beta = 45°$ бұрыш жасап қозғалады?\n\n**t1 бөлігі.** Тек осы бөлікке ғана жауап беріңіз.",
+  "solution_kk": "Шарт: $|v_y|=v_x\\,\\mathrm{tg}\\beta$, мұнда $v_y=v_0\\sin\\alpha-gt$, $v_x=v_0\\cos\\alpha$. Осыдан $t=\\frac{v_0}{g}(\\sin\\alpha\\pm\\mathrm{tg}\\beta\\cos\\alpha)$. Уақыт мезеттері екеу.",
   "figures": []
 }

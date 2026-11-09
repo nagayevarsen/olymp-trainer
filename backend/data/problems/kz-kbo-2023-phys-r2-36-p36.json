@@ -23,5 +23,7 @@
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
   },
   "solution": "В ключе ответ C: $V = \\sqrt{kP_0/(\\varepsilon(k+2))}$.",
+  "statement_kk": "Адиабата көрсеткіші $k$ болатын идеал газ $P = P_0 - \\varepsilon V^2$ заңы бойынша процесс жасайды, мұнда $P_0$ және $\\varepsilon$ — оң тұрақтылар, $V$ — көлем.\n\n**36-тармақ.** Қандай көлем мәнінде газдың энтропиясы максималды болады?",
+  "solution_kk": "Кілтте жауап C: $V = \\sqrt{kP_0/(\\varepsilon(k+2))}$.",
   "figures": []
 }

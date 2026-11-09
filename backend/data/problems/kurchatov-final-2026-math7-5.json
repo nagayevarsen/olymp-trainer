@@ -5,7 +5,11 @@
   "title": "Значение дроби при x = 2",
   "statement": "Найдите значение выражения при $x = 2$:\n\n$$\\frac{x^{2026} + x^{2024} + x^{2023} + x^5 + 3x^3 + x^2 + 2x + 2}{x^{2025} + x^{2023} + x^4 + 3x^2 + 2}.$$",
   "answer": {
-    "value": 2.2
+    "value": 2.2,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 7,
     "number": 5,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Kurchatov_2026_Math_7_Solutions.pdf"
-  }
+  },
+  "statement_kk": "$x = 2$ мәнінде өрнектің мәнін табыңыз:\n\n$$\\frac{x^{2026} + x^{2024} + x^{2023} + x^5 + 3x^3 + x^2 + 2x + 2}{x^{2025} + x^{2023} + x^4 + 3x^2 + 2}.$$",
+  "figures": []
 }

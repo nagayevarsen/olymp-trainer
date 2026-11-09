@@ -6,8 +6,10 @@
   "statement": "Для произвольного числа $x$ рассмотрим сумму $Q(x) = \\lfloor x \\rfloor + \\left\\lfloor \\frac{x}{2} \\right\\rfloor + \\left\\lfloor \\frac{x}{3} \\right\\rfloor + \\left\\lfloor \\frac{x}{4} \\right\\rfloor + \\dots + \\left\\lfloor \\frac{x}{10000} \\right\\rfloor$. Найдите разность $Q(2023) - Q(2022)$. (Здесь $\\lfloor x \\rfloor$ обозначает целую часть числа $x$, то есть наибольшее целое число, не превосходящее $x$.)",
   "answer": {
     "value": 6.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Турнир городов, весенний тур",
@@ -15,5 +17,7 @@
     "stage": "other",
     "number": 4,
     "url": "https://turgor.ru/problems/44/vs-44-baz-sol.pdf"
-  }
+  },
+  "statement_kk": "Кез келген $x$ саны үшін қосындыны қарастырайық: $Q(x) = \\lfloor x \\rfloor + \\left\\lfloor \\frac{x}{2} \\right\\rfloor + \\left\\lfloor \\frac{x}{3} \\right\\rfloor + \\left\\lfloor \\frac{x}{4} \\right\\rfloor + \\dots + \\left\\lfloor \\frac{x}{10000} \\right\\rfloor$. $Q(2023) - Q(2022)$ айырмасын табыңыз. (Мұндағы $\\lfloor x \\rfloor$ — $x$ санының бүтін бөлігі, яғни $x$-тен аспайтын ең үлкен бүтін сан.)",
+  "figures": []
 }

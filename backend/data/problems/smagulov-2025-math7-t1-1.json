@@ -6,13 +6,15 @@
   "statement": "В лесу в $\\frac{1}{4}$ части обрезку прошли $40\\%$ деревьев, а в оставшейся части — $20\\%$. Какой процент всех деревьев в лесу прошли обрезку?",
   "answer": {
     "value": 25.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 25",
       "решение: anthropic:claude-sonnet-5-5 → 25",
       "программа (other): anthropic:claude-haiku-5-5 → 25",
       "программа (other): anthropic:claude-sonnet-5-5 → 25"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -68,5 +70,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Орманның $\\frac{1}{4}$ бөлігінде ағаштардың $40\\%$-ы қиылды, ал қалған бөлігінде — $20\\%$-ы. Ормандағы барлық ағаштардың қанша пайызы қиылды?",
+  "figures": []
 }

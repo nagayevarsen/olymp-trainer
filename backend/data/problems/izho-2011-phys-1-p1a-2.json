@@ -8,7 +8,8 @@
     "value": 2.0,
     "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -18,6 +19,8 @@
     "url": "https://izho.kz/wp-content/uploads/2018/12/IZhO-2011-Theory_rus_sol_f.pdf"
   },
   "solution": "Дифференцирование выражения $v=\\sqrt{gR}\\sqrt{5+M/m+4m/M}$ по $M/m$ дает $M/m=2$.",
+  "statement_kk": "Бұл есеп бір-бірімен байланыссыз үш бөліктен тұрады.\n\n**1A.2-тармақ.** 1A.1-тармақтағы шайбаның ең кіші жылдамдығына кубтың және шайбаның массаларының қай M/m қатынасында қол жеткізіледі?",
+  "solution_kk": "$v=\\sqrt{gR}\\sqrt{5+M/m+4m/M}$ өрнегін $M/m$ бойынша дифференциалдау $M/m=2$ береді.",
   "figures": [
     "izho-2011-phys-1-fig1.png",
     "izho-2011-phys-1-fig2.png",

@@ -1,0 +1,27 @@
+{
+  "id": "zhaut-city-2006-math9-t1-9",
+  "subject": "math",
+  "topic": "неравенства",
+  "title": "Неравенство с корнями",
+  "statement": "Докажите, что для любых неотрицательных чисел $a$ и $b$  справедливо неравенство $\\dfrac{{{(a+b)}^{2}}}{2}+\\dfrac{a+b}{4}\\ge a\\sqrt{b}+b\\sqrt{a}$.",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2006,
+    "stage": "city",
+    "grade": 9,
+    "number": 9,
+    "url": "https://matol.kz/olympiads/329"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Для любого $x\\ge 0$ верно $x+\\dfrac14-\\sqrt{x}=\\left(\\sqrt{x}-\\dfrac12\\right)^2\\ge 0$, то есть $\\sqrt{x}\\le x+\\dfrac14$.\n\nУмножим это неравенство при $x=b$ на $a\\ge0$, а при $x=a$ на $b\\ge0$:\n$$a\\sqrt b\\le ab+\\frac a4,\\qquad b\\sqrt a\\le ab+\\frac b4.$$\nСложим их:\n$$a\\sqrt b+b\\sqrt a\\le 2ab+\\frac{a+b}{4}.$$\n\nДалее $(a+b)^2\\ge 4ab$, так как $(a-b)^2\\ge0$. Поэтому $\\dfrac{(a+b)^2}{2}\\ge 2ab$.\n\nПолучаем\n$$\\frac{(a+b)^2}{2}+\\frac{a+b}{4}\\ge 2ab+\\frac{a+b}{4}\\ge a\\sqrt b+b\\sqrt a,$$\nчто и требовалось доказать. Равенство достигается при $a=b=\\dfrac14$.",
+  "statement_kk": "Кез келген теріс емес $a$ және $b$ сандары үшін $\\dfrac{{{(a+b)}^{2}}}{2}+\\dfrac{a+b}{4}\\ge a\\sqrt{b}+b\\sqrt{a}$ теңсіздігі орындалатынын дәлелдеңдер.",
+  "solution_kk": "Шешімді ЖИ дайындаған, ол ресми емес. Кез келген $x\\ge 0$ үшін $x+\\dfrac14-\\sqrt{x}=\\left(\\sqrt{x}-\\dfrac12\\right)^2\\ge 0$ орындалады, яғни $\\sqrt{x}\\le x+\\dfrac14$.\n\nБұл теңсіздікті $x=b$ үшін $a\\ge0$ санына, ал $x=a$ үшін $b\\ge0$ санына көбейтейік:\n$$a\\sqrt b\\le ab+\\frac a4,\\qquad b\\sqrt a\\le ab+\\frac b4.$$\nОлардың екеуін қоссақ:\n$$a\\sqrt b+b\\sqrt a\\le 2ab+\\frac{a+b}{4}.$$\n\nОдан әрі $(a-b)^2\\ge0$ болғандықтан $(a+b)^2\\ge 4ab$. Сондықтан $\\dfrac{(a+b)^2}{2}\\ge 2ab$.\n\nНәтижесінде\n$$\\frac{(a+b)^2}{2}+\\frac{a+b}{4}\\ge 2ab+\\frac{a+b}{4}\\ge a\\sqrt b+b\\sqrt a,$$\nбұл дәлелдеуді талап етті. Теңдік $a=b=\\dfrac14$ кезінде орындалады.",
+  "figures": []
+}

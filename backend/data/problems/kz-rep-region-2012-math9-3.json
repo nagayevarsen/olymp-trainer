@@ -6,13 +6,15 @@
   "statement": "Вычислите значение выражения: $(1 + \\tg 1^\\circ)(1 + \\tg 2^\\circ) \\dots (1 + \\tg 44^\\circ)$.",
   "answer": {
     "value": 4194304.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 4194304",
       "решение: anthropic:claude-sonnet-5-5 → 4194304",
       "программа (other): anthropic:claude-haiku-5-5 → 4194304",
       "программа (other): anthropic:claude-sonnet-5-5 → 4194304"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,7 @@
     "grade": 9,
     "number": 3,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2012/math9-1-tasks.pdf"
-  }
+  },
+  "statement_kk": "Өрнектің мәнін есептеңіз: $(1 + \\tg 1^\\circ)(1 + \\tg 2^\\circ) \\dots (1 + \\tg 44^\\circ)$.",
+  "figures": []
 }

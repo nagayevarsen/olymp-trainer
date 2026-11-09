@@ -6,13 +6,15 @@
   "statement": "Сколькими способами можно записать в ряд числа 1, 2, 3, 4, 5, 6 так, чтобы сумма любых трёх подряд идущих чисел делилась на 3?",
   "answer": {
     "value": 48.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 48",
       "решение: anthropic:claude-sonnet-5-5 → 48",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 48",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 48"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -49,5 +51,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Кез келген үш қатар тұрған санның қосындысы 3-ке бөлінетіндей етіп, 1, 2, 3, 4, 5, 6 сандарын қатарға қанша тәсілмен жазуға болады?",
+  "figures": []
 }

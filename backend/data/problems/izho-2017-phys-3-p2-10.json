@@ -10,7 +10,8 @@
       "R0": "сопротивление каждого ребра"
     },
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -20,6 +21,8 @@
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
   },
   "solution": "Выражая $p_N=\\frac12(\\lambda^N-\\lambda^{-N})$, $q_N=\\frac{1}{2\\sqrt3}(\\lambda^N+\\lambda^{-N})$, при $N\\to\\infty$ получаем $R_\\infty=\\frac{R_0}{\\sqrt3}\\approx0.577R_0$.",
+  "statement_kk": "Есеп математикалық кіріспеден (рекуренттік қатынастар, $\\lambda=2+\\sqrt{3}$ санының дәрежелері) және әрбір қырының кедергісі $R_0$-ге тең призма пішініндегі сым қаңқаны зерттеуден тұрады.\n\n**2.10-тармақ.** $N\\to\\infty$ кезіндегі қаңқаның $R_\\infty$ кедергісінің мәнін табыңыз.",
+  "solution_kk": "$p_N=\\frac12(\\lambda^N-\\lambda^{-N})$, $q_N=\\frac{1}{2\\sqrt3}(\\lambda^N+\\lambda^{-N})$ өрнектерін пайдаланып, $N\\to\\infty$ кезінде $R_\\infty=\\frac{R_0}{\\sqrt3}\\approx0.577R_0$ аламыз.",
   "figures": [
     "izho-2017-phys-3-fig1.png",
     "izho-2017-phys-3-fig2.png"

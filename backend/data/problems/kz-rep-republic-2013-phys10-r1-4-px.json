@@ -25,5 +25,7 @@
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/final/2013/phys10-1-sol.pdf"
   },
   "solution": "Ток $I=4\\pi r^2 j=(q_0-q(t))/(\\rho\\varepsilon_0)$ и $I=dq/dt$ дают $dq/dt=(q_0-q)/(\\rho\\varepsilon_0)$, откуда $q(t)=q_0\\left[1-\\exp\\left(-\\dfrac{t}{\\rho\\varepsilon_0}\\right)\\right]$.",
+  "statement_kk": "Ішкі радиусы $a$ және сыртқы радиусы $b$ болатын сфералық қабық меншікті кедергісі $\\rho$ материалдан жасалған. Нүктелік заряд $q_0$ қабықтың центрінде орналасқан. Бастапқы уақыт $t = 0$ кезінде қабық материалының барлығы, соның ішінде ішкі және сыртқы беттері, электр бейтарап. Магниттік әсерлер мен сәулеленуді елемеуге болады.\n\n**г тармағы.** Қабықтың сыртқы бетіндегі толық зарядты $t$ уақытының функциясы ретінде $q(t)$ табыңыз.",
+  "solution_kk": "Ток $I=4\\pi r^2 j=(q_0-q(t))/(\\rho\\varepsilon_0)$ және $I=dq/dt$ теңдеулері $dq/dt=(q_0-q)/(\\rho\\varepsilon_0)$ береді, бұдан $q(t)=q_0\\left[1-\\exp\\left(-\\dfrac{t}{\\rho\\varepsilon_0}\\right)\\right]$.",
   "figures": []
 }

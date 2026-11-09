@@ -1,0 +1,27 @@
+{
+  "id": "zhaut-city-2003-math9-t1-2",
+  "subject": "math",
+  "topic": "геометрия треугольника",
+  "title": "Параллельность KT и MN",
+  "statement": "Пусть  $AM$   и  $BN$  являются  высотами  остроугольного треугольника  $ABC$ ($\\angle ACB\\ne 45{}^\\circ $). На лучах $MA$  и $NB$ отмечены соответственно точки $K$ и $T$ так, что $MK=MB$ и $NT=NA$. Докажите, что $KT \\parallel MN$.",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2003,
+    "stage": "city",
+    "grade": 9,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/317"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Решение в координатах.\n\nПусть $M$ — начало координат, прямая $BC$ — ось абсцисс. Так как углы $B$ и $C$ острые, основание высоты $M$ лежит между $B$ и $C$. Положим $A=(0,a)$, $B=(-b,0)$, $C=(c,0)$, где $a,b,c>0$. Тогда $\\operatorname{tg}C=a/c$, и условие $\\angle C\\ne45^\\circ$ означает $a\\ne c$.\n\nУгол $A$ острый, поэтому $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=(-b,-a)\\cdot(c,-a)=a^2-bc>0$.\n\nТочка $K$ лежит на луче $MA$ и $MK=MB=b$, значит $K=(0,b)$.\n\nПусть $D=a^2+c^2$. Прямая $AC$ задаётся уравнением $ax+cy=ac$, её вектор нормали $n=(a,c)$, $|n|=\\sqrt D$.\n\nОснование $N$ высоты из $B$ имеет вид $N=B+tn$. Подставляем в уравнение прямой: $a(-b+ta)+c\\cdot tc=ac$, откуда $t=\\dfrac{a(b+c)}{D}>0$. Следовательно,\n$$N=\\frac cD\\bigl(a^2-bc,\\ a(b+c)\\bigr).$$\nЗначит, вектор $\\overrightarrow{MN}$ сонаправлен с $v=(a^2-bc,\\ a(b+c))$. Этот вектор ненулевой, так как $a(b+c)>0$.\n\nНайдём $NA$. Имеем\n$$A-N=\\Bigl(-\\frac{c(a^2-bc)}D,\\ \\frac{a(D-c(b+c))}{D}\\Bigr)=\\frac{a^2-bc}{D}\\,(-c,\\ a),$$\nпоэтому $NA=\\dfrac{a^2-bc}{D}\\sqrt D=\\dfrac{a^2-bc}{\\sqrt D}$.\n\nВектор $\\overrightarrow{NB}=-tn$ направлен противоположно $n$. Единичный вектор луча $NB$ равен $-n/\\sqrt D$. Так как $NT=NA$, получаем\n$$T=N-\\frac{a^2-bc}{D}\\,(a,c).$$\nКоординаты $T$:\n$$T_x=\\frac{c(a^2-bc)-a(a^2-bc)}{D}=\\frac{(a^2-bc)(c-a)}{D},$$\n$$T_y=\\frac{ac(b+c)-c(a^2-bc)}{D}=\\frac{c(ab+ac-a^2+bc)}{D}.$$\n\nТеперь $\\overrightarrow{KT}=T-K$. Первая координата равна $\\dfrac{(a^2-bc)(c-a)}{D}$. Вторая координата:\n$$T_y-b=\\frac{c(ab+ac-a^2+bc)-b(a^2+c^2)}{D}=\\frac{abc+ac^2-a^2c-a^2b}{D}=\\frac{(b+c)\\,a\\,(c-a)}{D}.$$\nИтак,\n$$\\overrightarrow{KT}=\\frac{c-a}{D}\\bigl(a^2-bc,\\ a(b+c)\\bigr)=\\frac{c-a}{D}\\,v.$$\n\nПри $a\\ne c$ (то есть при $\\angle ACB\\ne45^\\circ$) вектор $\\overrightarrow{KT}$ ненулевой и коллинеарен $v$, то есть коллинеарен $\\overrightarrow{MN}$. Значит, $KT\\parallel MN$, что и требовалось.\n\nЗамечание. При $a=c$ (то есть $\\angle C=45^\\circ$) получается $K=T$, и утверждение теряет смысл. Это объясняет условие задачи.",
+  "statement_kk": "$AM$ және $BN$ сүйірбұрышты $ABC$ үшбұрышының биіктіктері болып табылады ($\\angle ACB\\ne 45{}^\\circ $). $MA$ және $NB$ сәулелерінде сәйкес $K$ және $T$ нүктелері белгіленген, мұнда $MK=MB$ және $NT=NA$. Дәлелдеңіз: $KT \\parallel MN$.",
+  "solution_kk": "Шешімді ЖИ дайындаған, ресми емес. Координаттардағы шешім.\n\n$M$ — координат бас нүктесі, $BC$ түзуі — абсцисса осі. $B$ және $C$ бұрыштары сүйір болғандықтан, $M$ биіктігінің негізі $B$ мен $C$ арасында жатады. $A=(0,a)$, $B=(-b,0)$, $C=(c,0)$ деп алайық, мұнда $a,b,c>0$. Онда $\\operatorname{tg}C=a/c$, ал $\\angle C\\ne45^\\circ$ шарты $a\\ne c$ дегенді білдіреді.\n\n$A$ бұрышы сүйір, сондықтан $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=(-b,-a)\\cdot(c,-a)=a^2-bc>0$.\n\n$K$ нүктесі $MA$ сәулесінде жатыр және $MK=MB=b$, демек $K=(0,b)$.\n\n$D=a^2+c^2$ деп алайық. $AC$ түзуі $ax+cy=ac$ теңдеуімен беріледі, оның нормаль векторы $n=(a,c)$, $|n|=\\sqrt D$.\n\n$B$-дан түсірілген биіктіктің негізі $N=B+tn$ түрінде. Түзу теңдеуіне қойсақ: $a(-b+ta)+c\\cdot tc=ac$, мұнан $t=\\dfrac{a(b+c)}{D}>0$. Демек,\n$$N=\\frac cD\\bigl(a^2-bc,\\ a(b+c)\\bigr).$$\nСонымен, $\\overrightarrow{MN}$ векторы $v=(a^2-bc,\\ a(b+c))$ векторымен бағыттас. Бұл вектор нөлдік емес, себебі $a(b+c)>0$.\n\n$NA$-ны табайық. Бізде\n$$A-N=\\Bigl(-\\frac{c(a^2-bc)}D,\\ \\frac{a(D-c(b+c))}{D}\\Bigr)=\\frac{a^2-bc}{D}\\,(-c,\\ a),$$\nсондықтан $NA=\\dfrac{a^2-bc}{D}\\sqrt D=\\dfrac{a^2-bc}{\\sqrt D}$.\n\n$\\overrightarrow{NB}=-tn$ векторы $n$-ге қарама-қарсы бағытталған. $NB$ сәулесінің бірлік векторы $-n/\\sqrt D$-ге тең. $NT=NA$ болғандықтан,\n$$T=N-\\frac{a^2-bc}{D}\\,(a,c).$$\n$T$ координаттары:\n$$T_x=\\frac{c(a^2-bc)-a(a^2-bc)}{D}=\\frac{(a^2-bc)(c-a)}{D},$$\n$$T_y=\\frac{ac(b+c)-c(a^2-bc)}{D}=\\frac{c(ab+ac-a^2+bc)}{D}.$$\n\nЕнді $\\overrightarrow{KT}=T-K$. Бірінші координатасы $\\dfrac{(a^2-bc)(c-a)}{D}$-ге тең. Екінші координатасы:\n$$T_y-b=\\frac{c(ab+ac-a^2+bc)-b(a^2+c^2)}{D}=\\frac{abc+ac^2-a^2c-a^2b}{D}=\\frac{(b+c)\\,a\\,(c-a)}{D}.$$\nСонымен,\n$$\\overrightarrow{KT}=\\frac{c-a}{D}\\bigl(a^2-bc,\\ a(b+c)\\bigr)=\\frac{c-a}{D}\\,v.$$\n\n$a\\ne c$ (яғни $\\angle ACB\\ne45^\\circ$) болғанда $\\overrightarrow{KT}$ вектор нөлдік емес және $v$-ға, яғни $\\overrightarrow{MN}$-ге коллинеар. Демек, $KT\\parallel MN$, талап етілгенін дәлелдедік.\n\nЕскерту. $a=c$ болғанда ($\\angle C=45^\\circ$) $K=T$ шығады, және тұжырым мағынасын жоғалтады. Бұл есеп шартын түсіндіреді.",
+  "figures": []
+}

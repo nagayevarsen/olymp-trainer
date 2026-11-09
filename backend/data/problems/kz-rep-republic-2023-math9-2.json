@@ -19,5 +19,7 @@
     "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2023/math-2-sol.pdf"
   },
   "solution": "Предположим, что хотя бы одно из чисел $a, b, c$ меньше 1. БОО $a < 1$. По условию имеем, что $(a^2-1)(b^2-1) = (ab-c)^2 \\ge 0$, откуда $b \\le 1$. Аналогично $c \\le 1$. Тогда $a+b+c < 3$, что противоречит условию. Значит $a, b, c \\ge 1$.\nНам достаточно показать, что $a+b+c-1 \\le 2\\sqrt{abc} \\Leftrightarrow (a+b+c-1)^2 \\le 4abc \\Leftrightarrow a^2+b^2+c^2+2ab+2bc+2ca-2a-2b-2c+1 \\le 2abc+(a^2+b^2+c^2-1) \\Leftrightarrow ab+bc+ac+1 \\le abc+a+b+c \\Leftrightarrow 0 \\le (a-1)(b-1)(c-1)$,\nчто верно, ч.т.д.",
+  "statement_kk": "$a, b, c$ — оң нақты сандар, олар үшін $a+b+c \\ge 3$ және $a^2+b^2+c^2 = 2abc+1$ орындалсын. Теңсіздікті дәлелдеңдер: $a+b+c \\le 2\\sqrt{abc}+1$.",
+  "solution_kk": "$a, b, c$ сандарының кем дегенде біреуі 1-ден кіші деп есептейік. Жалпылығын шектемей $a < 1$ делік. Шарт бойынша $(a^2-1)(b^2-1) = (ab-c)^2 \\ge 0$, бұдан $b \\le 1$ шығады. Дәл солай $c \\le 1$. Онда $a+b+c < 3$, бұл шартқа қайшы. Демек, $a, b, c \\ge 1$.\nБіз $a+b+c-1 \\le 2\\sqrt{abc}$ екенін көрсетуіміз жеткілікті. $\\Leftrightarrow (a+b+c-1)^2 \\le 4abc \\Leftrightarrow a^2+b^2+c^2+2ab+2bc+2ca-2a-2b-2c+1 \\le 2abc+(a^2+b^2+c^2-1) \\Leftrightarrow ab+bc+ac+1 \\le abc+a+b+c \\Leftrightarrow 0 \\le (a-1)(b-1)(c-1)$,\nбұл орындалады, дәлелдеу аяқталды.",
   "figures": []
 }

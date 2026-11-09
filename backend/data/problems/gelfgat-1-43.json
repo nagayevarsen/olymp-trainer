@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=6"
   },
   "solution": "Из $L = \\frac{2v_0^2\\sin\\alpha\\cos\\alpha}{g}$ и $H = \\frac{v_0^2\\sin^2\\alpha}{2g}$ при $L = 4H$ получаем $\\operatorname{tg}\\alpha = 4$, $\\alpha = \\operatorname{arctg}4 \\approx 76^\\circ$.",
+  "statement_kk": "Судың ағынын горизонтқа қандай $\\alpha$ бұрышпен бағыттау керек, оның көтерілу биіктігі ұшу қашықтығына тең болуы үшін?",
+  "solution_kk": "$L = \\frac{2v_0^2\\sin\\alpha\\cos\\alpha}{g}$ және $H = \\frac{v_0^2\\sin^2\\alpha}{2g}$ формулаларынан $L = 4H$ кезінде $\\operatorname{tg}\\alpha = 4$, $\\alpha = \\operatorname{arctg}4 \\approx 76^\\circ$ шығады.",
   "figures": []
 }

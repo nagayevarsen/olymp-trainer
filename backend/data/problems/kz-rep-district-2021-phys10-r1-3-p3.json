@@ -23,5 +23,7 @@
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/region/2021/phys10-1-sol.pdf"
   },
   "solution": "Шарики получают заряды $\\pm q$, потенциалы $\\varphi_{1,2} = \\pm q/(4\\pi\\varepsilon_0 r)$, разность $U = q/(2\\pi\\varepsilon_0 r)$. Ток с шарика $I = j\\cdot4\\pi r^2 = q/(\\rho\\varepsilon_0)$ (через $E = q/(4\\pi\\varepsilon_0 r^2)$, $j = E/\\rho$). По закону Ома $R = U/I = \\rho/(2\\pi r)$.",
+  "statement_kk": "Радиустары бірдей $r$ екі металл шарик удельдік кедергісі $\\rho$ болатын біртекті әлсіз өткізгіш ортада орналасқан.\n\n**3-тармақ.** Шариктер арасындағы қашықтық $r$-ден едәуір үлкен болған жағдайда, шариктер арасындағы ортаның кедергісі $R$ табыңыз.",
+  "solution_kk": "Шариктерге $\\pm q$ зарядтар беріледі, потенциалдар $\\varphi_{1,2} = \\pm q/(4\\pi\\varepsilon_0 r)$, потенциалдар айырымы $U = q/(2\\pi\\varepsilon_0 r)$. Шариктен ағатын ток $I = j\\cdot4\\pi r^2 = q/(\\rho\\varepsilon_0)$ ($E = q/(4\\pi\\varepsilon_0 r^2)$ арқылы, $j = E/\\rho$). Омның заңы бойынша $R = U/I = \\rho/(2\\pi r)$.",
   "figures": []
 }

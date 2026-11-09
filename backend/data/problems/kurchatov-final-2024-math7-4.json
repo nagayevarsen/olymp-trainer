@@ -6,7 +6,11 @@
   "statement": "В треугольнике $ABC$ взяли точку $M$ так, что $CM = AB$. Оказалось, что углы $ACM$ и $CAM$ соответственно равны $10^\\circ$ и $50^\\circ$, а угол $BCM$ равен $40^\\circ$. Найдите угол $BAM$ (в градусах).",
   "answer": {
     "value": 20.0,
+    "variables": {},
     "unit": "°",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false,
     "rel_tol": 0.001
   },
   "source": {
@@ -57,5 +61,7 @@
         "gemini:gemini-3.5-flash-lite"
       ]
     }
-  }
+  },
+  "statement_kk": "$ABC$ үшбұрышында $M$ нүктесін $CM = AB$ болатындай алды. Белгілі болды, $ACM$ және $CAM$ бұрыштары сәйкесінше $10^\\circ$ және $50^\\circ$-қа тең, ал $BCM$ бұрышы $40^\\circ$-қа тең. $BAM$ бұрышын (градуспен) табыңыз.",
+  "figures": []
 }

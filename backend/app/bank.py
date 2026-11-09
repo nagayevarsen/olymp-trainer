@@ -264,6 +264,8 @@ class Problem(BaseModel):
     template: Template | None = None
     hints: Hints | None = None
     solution: str | None = Field(default=None, description="Официальное или своё решение")
+    statement_kk: str | None = Field(default=None, description="Перевод условия на казахский (ИИ)")
+    solution_kk: str | None = Field(default=None, description="Перевод решения на казахский (ИИ)")
     figures: list[str] = Field(default=[], description="Рисунки к условию: имена файлов в data/figures")
 
     @field_validator("figures")

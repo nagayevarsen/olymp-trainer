@@ -5,7 +5,11 @@
   "title": "Корни уравнения",
   "statement": "Найдите корни уравнения $\\sqrt{-\\sin^2 x + \\sin x + 8} - \\sqrt{\\cos^2 x - \\cos x + 8} = 2\\sin x + 2\\cos x - 2$, по модулю не превосходящие $7\\pi$. В качестве ответа укажите их сумму, делённую на $\\pi$.",
   "answer": {
-    "value": 3.5
+    "value": 3.5,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 3,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Olimpiada_Kurchatov_2026_Math_11_10_Online_Solutions.pdf"
-  }
+  },
+  "statement_kk": "$\\sqrt{-\\sin^2 x + \\sin x + 8} - \\sqrt{\\cos^2 x - \\cos x + 8} = 2\\sin x + 2\\cos x - 2$ теңдеуінің модулі бойынша $7\\pi$-ден аспайтын түбірлерін табыңыз. Жауап ретінде олардың қосындысын $\\pi$-ге бөлген мәнін көрсетіңіз.",
+  "figures": []
 }

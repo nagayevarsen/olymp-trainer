@@ -23,5 +23,7 @@
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
   },
   "solution": "В ключе ответ B: $\\mathcal E = Bvl$.",
+  "statement_kk": "Ұзындығы $l$ сымды Жердің магнит өрісінің индукциясы $B$ болатын магнит өрісіне тік бұрыш жасай $v$ жылдамдықпен жылжытады.\n\n**8-тармақ.** Өткізгіште қандай ЭДС пайда болады?",
+  "solution_kk": "Кілт бойынша жауабы B: $\\mathcal E = Bvl$.",
   "figures": []
 }

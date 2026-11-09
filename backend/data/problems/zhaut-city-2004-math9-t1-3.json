@@ -1,0 +1,27 @@
+{
+  "id": "zhaut-city-2004-math9-t1-3",
+  "subject": "math",
+  "topic": "геометрия треугольника",
+  "title": "Медианы и высоты",
+  "statement": "Докажите неравенство: $$\\left( m_{a}^{2}+m_{b}^{2}+m_{c}^{2} \\right)\\left( h_{a}^{2}+h_{b}^{2}+h_{c}^{2} \\right)\\ge 27\\cdot {{S}^{2}},$$ где  $S$   — площадь, ${{m}_{a}},{{m}_{b}},{{m}_{c}}$ — медианы,  ${{h}_{a}},{{h}_{b}},{{h}_{c}}$ —  высоты треугольника.",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2004,
+    "stage": "city",
+    "grade": 9,
+    "number": 3,
+    "url": "https://matol.kz/olympiads/321"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Пусть $a,b,c$ — стороны треугольника. Выразим обе суммы через стороны и площадь.\n\n**1. Медианы.** Пусть $M$ — середина $BC$. Тогда $\\overrightarrow{AM}=\\frac12(\\overrightarrow{AB}+\\overrightarrow{AC})$, поэтому\n$$m_a^2=\\frac{c^2+b^2+2\\,\\overrightarrow{AB}\\cdot\\overrightarrow{AC}}{4}=\\frac{b^2+c^2+2bc\\cos A}{4}.$$\nПо теореме косинусов $2bc\\cos A=b^2+c^2-a^2$, значит $m_a^2=\\frac{2b^2+2c^2-a^2}{4}$. Аналогично $m_b^2=\\frac{2a^2+2c^2-b^2}{4}$ и $m_c^2=\\frac{2a^2+2b^2-c^2}{4}$. Складывая, получаем\n$$m_a^2+m_b^2+m_c^2=\\frac34\\,(a^2+b^2+c^2).$$\n\n**2. Высоты.** Из $S=\\frac12 a h_a$ получаем $h_a=\\frac{2S}{a}$, и аналогично $h_b=\\frac{2S}{b}$, $h_c=\\frac{2S}{c}$. Поэтому\n$$h_a^2+h_b^2+h_c^2=4S^2\\left(\\frac1{a^2}+\\frac1{b^2}+\\frac1{c^2}\\right).$$\n\n**3. Произведение.**\n$$\\left(m_a^2+m_b^2+m_c^2\\right)\\left(h_a^2+h_b^2+h_c^2\\right)=3S^2\\,(a^2+b^2+c^2)\\left(\\frac1{a^2}+\\frac1{b^2}+\\frac1{c^2}\\right).$$\nПо неравенству Коши–Буняковского, взяв наборы $(a,b,c)$ и $\\left(\\frac1a,\\frac1b,\\frac1c\\right)$,\n$$(a^2+b^2+c^2)\\left(\\frac1{a^2}+\\frac1{b^2}+\\frac1{c^2}\\right)\\ge\\left(a\\cdot\\frac1a+b\\cdot\\frac1b+c\\cdot\\frac1c\\right)^2=9.$$\nСледовательно,\n$$\\left(m_a^2+m_b^2+m_c^2\\right)\\left(h_a^2+h_b^2+h_c^2\\right)\\ge 3S^2\\cdot 9=27S^2.$$\n\nРавенство достигается при $a=b=c$, то есть для равностороннего треугольника. Неравенство доказано. $\\blacksquare$",
+  "statement_kk": "Теңсіздікті дәлелдеңдер: $$\\left( m_{a}^{2}+m_{b}^{2}+m_{c}^{2} \\right)\\left( h_{a}^{2}+h_{b}^{2}+h_{c}^{2} \\right)\\ge 27\\cdot {{S}^{2}},$$ мұндағы $S$ — аудан, ${{m}_{a}},{{m}_{b}},{{m}_{c}}$ — медианалар, ${{h}_{a}},{{h}_{b}},{{h}_{c}}$ — үшбұрыштың биіктіктері.",
+  "solution_kk": "Шешім ЖИ арқылы құрастырылған және ресми емес. Пусть $a,b,c$ — үшбұрыштың қабырғалары. Екі қосындыны да қабырғалар мен ауданы арқылы өрнектейміз.\n\n**1. Медианалар.** $M$ — $BC$ кесіндісінің ортасы. Сонда $\\overrightarrow{AM}=\\frac12(\\overrightarrow{AB}+\\overrightarrow{AC})$, демек\n$$m_a^2=\\frac{c^2+b^2+2\\,\\overrightarrow{AB}\\cdot\\overrightarrow{AC}}{4}=\\frac{b^2+c^2+2bc\\cos A}{4}.$$\nКосинустар теоремасы бойынша $2bc\\cos A=b^2+c^2-a^2$, демек $m_a^2=\\frac{2b^2+2c^2-a^2}{4}$. Сол сияқты $m_b^2=\\frac{2a^2+2c^2-b^2}{4}$ және $m_c^2=\\frac{2a^2+2b^2-c^2}{4}$. Қосып, аламыз:\n$$m_a^2+m_b^2+m_c^2=\\frac34\\,(a^2+b^2+c^2).$$\n\n**2. Биіктіктер.** $S=\\frac12 a h_a$ теңдігінен $h_a=\\frac{2S}{a}$ аламыз, сол сияқты $h_b=\\frac{2S}{b}$, $h_c=\\frac{2S}{c}$. Демек\n$$h_a^2+h_b^2+h_c^2=4S^2\\left(\\frac1{a^2}+\\frac1{b^2}+\\frac1{c^2}\\right).$$\n\n**3. Көбейтінді.**\n$$\\left(m_a^2+m_b^2+m_c^2\\right)\\left(h_a^2+h_b^2+h_c^2\\right)=3S^2\\,(a^2+b^2+c^2)\\left(\\frac1{a^2}+\\frac1{b^2}+\\frac1{c^2}\\right).$$\nКоши–Буняковский теңсіздігі бойынша $(a,b,c)$ және $\\left(\\frac1a,\\frac1b,\\frac1c\\right)$ жиындарын алсақ,\n$$(a^2+b^2+c^2)\\left(\\frac1{a^2}+\\frac1{b^2}+\\frac1{c^2}\\right)\\ge\\left(a\\cdot\\frac1a+b\\cdot\\frac1b+c\\cdot\\frac1c\\right)^2=9.$$\nСондықтан\n$$\\left(m_a^2+m_b^2+m_c^2\\right)\\left(h_a^2+h_b^2+h_c^2\\right)\\ge 3S^2\\cdot 9=27S^2.$$\n\nТеңдік $a=b=c$ болғанда, яғни теңқабырғалы үшбұрышта орындалады. Теңсіздік дәлелденді. $\\blacksquare$",
+  "figures": []
+}

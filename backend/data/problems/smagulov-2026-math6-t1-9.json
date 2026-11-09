@@ -6,13 +6,15 @@
   "statement": "Дана операция $a \\ominus b=a:(b+1)$. Найдите наименьшее целое решение неравенства $(x-10) \\ominus 10 < (x-11) \\ominus 9$.",
   "answer": {
     "value": 22.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 22",
       "решение: anthropic:claude-sonnet-5-5 → 22",
       "программа (other): anthropic:claude-haiku-5-5 → 22",
       "программа (other): anthropic:claude-sonnet-5-5 → 22"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -68,5 +70,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "$a \\ominus b=a:(b+1)$ амалы берілген. $(x-10) \\ominus 10 < (x-11) \\ominus 9$ теңсіздігінің ең кіші бүтін шешімін табыңыз.",
+  "figures": []
 }

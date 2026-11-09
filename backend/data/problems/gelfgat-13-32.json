@@ -21,6 +21,8 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=101"
   },
   "solution": "Ток через гальванометр отсутствует, поэтому $\\varphi_A = \\varphi_B$, откуда $U_x/U_3 = R_x/R_3 = R_1/R_2$ и $R_x = R_1R_3/R_2$.",
+  "statement_kk": "Суретте көрсетілген тізбекте гальванометр токтың жоқтығын көрсетеді. $R_x$ кедергісін $R_1$, $R_2$, $R_3$ арқылы өрнектеңіз.",
+  "solution_kk": "Гальванометрден ток өтпейтіндіктен, $\\varphi_A = \\varphi_B$, осыдан $U_x/U_3 = R_x/R_3 = R_1/R_2$ және $R_x = R_1R_3/R_2$.",
   "figures": [
     "gelfgat-13-32-fig1.png"
   ]

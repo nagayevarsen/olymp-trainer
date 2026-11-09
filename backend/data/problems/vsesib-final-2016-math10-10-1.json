@@ -5,7 +5,11 @@
   "title": "Натуральные n с простыми p и q",
   "statement": "Найти все натуральные числа $n$, такие, что $\\frac{1}{n}=\\frac{1}{p}+\\frac{1}{q}+\\frac{1}{pq}$ для некоторых простых $p$ и $q$.",
   "answer": {
-    "value": 1.0
+    "value": 1.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/0db/2015_3_math_s.pdf"
-  }
+  },
+  "statement_kk": "$\\frac{1}{n}=\\frac{1}{p}+\\frac{1}{q}+\\frac{1}{pq}$ теңдігі кейбір $p$ және $q$ жай сандары үшін орындалатындай барлық натурал $n$ сандарын табыңдар.",
+  "figures": []
 }

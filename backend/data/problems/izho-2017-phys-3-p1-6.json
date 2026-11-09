@@ -14,7 +14,8 @@
       "qN": "коэффициент q_N"
     },
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -24,6 +25,8 @@
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
   },
   "solution": "$\\lambda_1^k-\\lambda_2^k=2q_k\\sqrt3$, поэтому $x_k=\\frac{Aq_{N-k}+Bq_k}{q_N}$.",
+  "statement_kk": "Есеп математикалық кіріспеден (рекуренттік қатынастар, $\\lambda=2+\\sqrt{3}$ санының дәрежелері) және әрбір қырының кедергісі $R_0$-ге тең призма пішініндегі сым қаңқаны зерттеуден тұрады.\n\n**1.6-тармақ.** 1.5-тармақтағы $x_k$ дәйектілігінің кез келген мүшесін 1.2–1.3 тармақтарында табылған $p_k,q_k$ коэффициенттері арқылы өрнектеңіз.",
+  "solution_kk": "$\\lambda_1^k-\\lambda_2^k=2q_k\\sqrt3$, сондықтан $x_k=\\frac{Aq_{N-k}+Bq_k}{q_N}$.",
   "figures": [
     "izho-2017-phys-3-fig1.png",
     "izho-2017-phys-3-fig2.png"

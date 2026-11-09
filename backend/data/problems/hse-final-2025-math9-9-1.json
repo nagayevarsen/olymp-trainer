@@ -5,7 +5,11 @@
   "title": "Новое умножение",
   "statement": "Саша придумал новое умножение: $a \\diamond b = \\frac{1}{b} + \\frac{1}{a}$. Вычислите\n$(\\ldots((1 \\diamond 2) \\diamond 3)\\ldots) \\diamond 2025$.",
   "answer": {
-    "value": 1.0
+    "value": 1.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Высшая проба»",
@@ -14,5 +18,7 @@
     "grade": 9,
     "number": 1,
     "url": "https://olymp.hse.ru/mirror/pubs/share/1026095557.pdf"
-  }
+  },
+  "statement_kk": "Саша жаңа көбейту амалын ойлап тапты: $a \\diamond b = \\frac{1}{b} + \\frac{1}{a}$. Есептеңіз\n$(\\ldots((1 \\diamond 2) \\diamond 3)\\ldots) \\diamond 2025$.",
+  "figures": []
 }

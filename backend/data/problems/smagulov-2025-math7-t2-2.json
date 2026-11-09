@@ -1,0 +1,27 @@
+{
+  "id": "smagulov-2025-math7-t2-2",
+  "subject": "math",
+  "topic": "геометрия",
+  "title": "Равенство углов при K",
+  "statement": "Дан четырёхугольник $ABCD$ с углами $\\angle A=\\angle D=60^\\circ$. На стороне $AD$ отмечена точка $K$. Оказалось, что $\\angle ABK+2\\angle KBC=\\angle DCK+2\\angle KCB=180^\\circ$. Докажите, что $\\angle DKC=\\angle ABK$.",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Олимпиада им. Шалтая Смагулова",
+    "year": 2025,
+    "stage": "city",
+    "grade": 7,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/1162"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Считаем четырёхугольник $ABCD$ выпуклым (как обычно подразумевается) и точку $K$ внутренней точкой стороны $AD$.\n\nОбозначим $\\alpha=\\angle ABK$, $\\beta=\\angle KBC$, $\\gamma=\\angle DCK$, $\\delta=\\angle KCB$. По условию $\\alpha+2\\beta=180^\\circ$ и $\\gamma+2\\delta=180^\\circ$. Отсюда\n$$\\beta=90^\\circ-\\tfrac{\\alpha}{2},\\qquad \\delta=90^\\circ-\\tfrac{\\gamma}{2},\\qquad \\beta+\\delta=180^\\circ-\\tfrac{\\alpha+\\gamma}{2}.\\quad (1)$$\n\nВ треугольнике $ABK$ угол $A=60^\\circ$, поэтому $\\angle AKB=180^\\circ-60^\\circ-\\alpha=120^\\circ-\\alpha$.\nВ треугольнике $DKC$ угол $D=60^\\circ$, поэтому $\\angle DKC=120^\\circ-\\gamma$.\n\nТак как четырёхугольник выпуклый и $K$ лежит на его стороне $AD$, лучи $KA,KB,KC,KD$ идут в этом порядке, а точки $B$, $C$ лежат по одну сторону от $AD$. Значит, развёрнутый угол при $K$ складывается из трёх углов:\n$$\\angle AKB+\\angle BKC+\\angle CKD=180^\\circ,$$\nоткуда\n$$\\angle BKC=180^\\circ-(120^\\circ-\\alpha)-(120^\\circ-\\gamma)=\\alpha+\\gamma-60^\\circ.$$\n\nСумма углов треугольника $BKC$ равна $180^\\circ$:\n$$\\beta+\\delta+\\angle BKC=180^\\circ.$$\nПодставим (1) и найденное значение $\\angle BKC$. Положим $s=\\alpha+\\gamma$:\n$$180^\\circ-\\tfrac{s}{2}+s-60^\\circ=180^\\circ \\;\\Longrightarrow\\; \\tfrac{s}{2}=60^\\circ \\;\\Longrightarrow\\; \\alpha+\\gamma=120^\\circ.$$\n\nСледовательно, $\\angle DKC=120^\\circ-\\gamma=\\alpha=\\angle ABK$, что и требовалось доказать.",
+  "statement_kk": "$ABCD$ төртбұрышы берілген, оның бұрыштары $\\angle A=\\angle D=60^\\circ$. $AD$ қабырғасында $K$ нүктесі белгіленген. Мынадай шарт орындалды: $\\angle ABK+2\\angle KBC=\\angle DCK+2\\angle KCB=180^\\circ$. Дәлелдеңіз: $\\angle DKC=\\angle ABK$.",
+  "solution_kk": "Шешімді ЖИ дайындаған және ол ресми емес. Төртбұрыш $ABCD$ дөңес деп есептейміз (әдетте солай түсініледі), ал $K$ нүктесі $AD$ қабырғасының ішкі нүктесі.\n\n$\\alpha=\\angle ABK$, $\\beta=\\angle KBC$, $\\gamma=\\angle DCK$, $\\delta=\\angle KCB$ деп белгілейік. Шарт бойынша $\\alpha+2\\beta=180^\\circ$ және $\\gamma+2\\delta=180^\\circ$. Бұдан\n$$\\beta=90^\\circ-\\tfrac{\\alpha}{2},\\qquad \\delta=90^\\circ-\\tfrac{\\gamma}{2},\\qquad \\beta+\\delta=180^\\circ-\\tfrac{\\alpha+\\gamma}{2}.\\quad (1)$$\n\n$ABK$ үшбұрышында $A$ бұрышы $60^\\circ$, сондықтан $\\angle AKB=180^\\circ-60^\\circ-\\alpha=120^\\circ-\\alpha$.\n$DKC$ үшбұрышында $D$ бұрышы $60^\\circ$, сондықтан $\\angle DKC=120^\\circ-\\gamma$.\n\nТөртбұрыш дөңес және $K$ нүктесі оның $AD$ қабырғасында жатқандықтан, $KA,KB,KC,KD$ сәулелері осы ретпен орналасады, ал $B$, $C$ нүктелері $AD$-ның бір жағында жатады. Демек $K$ нүктесіндегі жазыңқы бұрыш үш бұрыштан құралады:\n$$\\angle AKB+\\angle BKC+\\angle CKD=180^\\circ,$$\nбұдан\n$$\\angle BKC=180^\\circ-(120^\\circ-\\alpha)-(120^\\circ-\\gamma)=\\alpha+\\gamma-60^\\circ.$$\n\n$BKC$ үшбұрышының бұрыштарының қосындысы $180^\\circ$:\n$$\\beta+\\delta+\\angle BKC=180^\\circ.$$\n(1)-ді және табылған $\\angle BKC$ мәнін қойайық. $s=\\alpha+\\gamma$ деп белгілейік:\n$$180^\\circ-\\tfrac{s}{2}+s-60^\\circ=180^\\circ \\;\\Longrightarrow\\; \\tfrac{s}{2}=60^\\circ \\;\\Longrightarrow\\; \\alpha+\\gamma=120^\\circ.$$\n\nСондықтан $\\angle DKC=120^\\circ-\\gamma=\\alpha=\\angle ABK$, бұл дәлелдеу керек еді.",
+  "figures": []
+}

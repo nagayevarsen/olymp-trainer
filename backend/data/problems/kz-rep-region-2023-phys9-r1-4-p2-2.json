@@ -23,6 +23,8 @@
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2023/phys9-1-sol.pdf"
   },
   "solution": "Из $\\delta=\\alpha_1-\\beta_1+\\alpha_2-\\beta_2$ при $\\alpha_1=\\alpha_2=\\alpha_{min}$ и $\\beta_1=\\beta_2=\\omega/2$ получаем $\\delta_{min}=2\\alpha_{min}-\\omega=2\\arcsin(n\\sin(\\omega/2))-\\omega$.",
+  "statement_kk": "Ұшы бұрышы $\\omega$ және сыну көрсеткіші $n$ болатын призманы қарастырайық. Жарық сәулесі оған $\\alpha_1$ бұрышпен түседі және одан $\\alpha_2$ бұрышпен шығады. Атмосферадағы су дұрыс алты қырлы призма пішініндегі кішкентай мұз кристалдарын түзеді. Осы кристалдар арқылы күн сәулесі өткенде гало деп аталатын оптикалық құбылыс пайда болады: Күн айналасында екі жарық сақина көрінеді. Мұздың сыну көрсеткіші $n_л=1{,}31$.\n\n**2.2-тармақ.** Минимал ауытқу $\\delta_{min}$ мәнін $\\omega$ және $n$ арқылы өрнектеңіз.",
+  "solution_kk": "$\\delta=\\alpha_1-\\beta_1+\\alpha_2-\\beta_2$ теңдігінен $\\alpha_1=\\alpha_2=\\alpha_{min}$ және $\\beta_1=\\beta_2=\\omega/2$ кезінде $\\delta_{min}=2\\alpha_{min}-\\omega=2\\arcsin(n\\sin(\\omega/2))-\\omega$ шығады.",
   "figures": [
     "kz-rep-region-2023-phys9-r1-4-fig1.png",
     "kz-rep-region-2023-phys9-r1-4-fig2.png",

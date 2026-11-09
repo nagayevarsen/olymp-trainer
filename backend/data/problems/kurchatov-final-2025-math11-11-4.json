@@ -5,7 +5,11 @@
   "title": "Последовательность простых чисел",
   "statement": "Пусть $a_n = [\\sqrt{1}] + [\\sqrt{2}] + \\dots + [\\sqrt{n}]$. Докажите, что среди элементов последовательности $a_1, a_2, \\dots$ есть лишь конечное количество простых чисел, и найдите наибольшее из них.",
   "answer": {
-    "value": 197.0
+    "value": 197.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 11,
     "number": 4,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/2025/final_tasks/Kurchatov_Math_2025.pdf"
-  }
+  },
+  "statement_kk": "$a_n = [\\sqrt{1}] + [\\sqrt{2}] + \\dots + [\\sqrt{n}]$ болсын. $a_1, a_2, \\dots$ тізбегінің мүшелерінің арасында жай сандардың шектеулі саны ғана бар екенін дәлелдеңіз және олардың ең үлкенін табыңыз.",
+  "figures": []
 }

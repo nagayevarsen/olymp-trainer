@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
   },
   "solution": "Из $\\frac{m_ec^2}{\\sqrt{1-v^2/c^2}}=m_pc^2$ получаем $v=c\\sqrt{1-(m_e/m_p)^2}$. Так как $m_e/m_p\\ll1$, $c-v\\approx\\frac{c}{2}(m_e/m_p)^2=44{,}5$ м/с.",
+  "statement_kk": "Электронның жылдамдығы жарық жылдамдығынан қанша кем болуы керек, сонда оның энергиясы протонның тыныштық энергиясына тең болады?",
+  "solution_kk": "$\\frac{m_ec^2}{\\sqrt{1-v^2/c^2}}=m_pc^2$ теңдеуінен $v=c\\sqrt{1-(m_e/m_p)^2}$ аламыз. $m_e/m_p\\ll1$ болғандықтан, $c-v\\approx\\frac{c}{2}(m_e/m_p)^2=44{,}5$ м/с.",
   "figures": []
 }

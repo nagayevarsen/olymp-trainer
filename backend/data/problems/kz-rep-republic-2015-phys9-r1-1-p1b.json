@@ -27,6 +27,8 @@
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/final/2015/phys9-1-sol.pdf"
   },
   "solution": "Сопротивление $R=\\frac{1}{\\sigma}\\frac{l}{S}(1+\\alpha T)$, поэтому $\\Delta R=\\frac{l}{\\sigma S}\\alpha\\Delta T$. Внутренняя энергия $\\Delta U=c m \\Delta T$, где $m=\\rho l S$. Исключая $l$ и $\\Delta T$, получаем $\\Delta U=\\frac{c\\rho S^2\\sigma\\Delta R}{\\alpha}\\approx 114$ Дж (при подстановке σ в Ом$^{-1}$·м$^{-1}$, $S$ в м$^2$).",
+  "statement_kk": "Бұл есеп үш тәуелсіз бөліктен тұрады.\n\n**1B-тармақ.** Қимасы $S = 3{,}00\\cdot10^{-2}$ мм$^2$ мыс өткізгішті қыздырғанда, оның кедергісі $\\Delta R = 2{,}50$ Ом-ға артты. Мыстың тығыздығы $\\rho = 8{,}90\\cdot10^3$ кг/м$^3$, меншікті жылусыйымдылығы $c = 390$ Дж/(кг·К), кедергінің температуралық коэффициенті $\\alpha = 3{,}90\\cdot10^{-3}$ К$^{-1}$, меншікті өткізгіштігі $\\sigma = 5{,}70\\cdot10^5$ Ом$^{-1}$·см$^{-1}$. Өткізгішті қыздырғандағы ішкі энергияның өзгерісін табыңыз.",
+  "solution_kk": "Кедергі $R=\\frac{1}{\\sigma}\\frac{l}{S}(1+\\alpha T)$, сондықтан $\\Delta R=\\frac{l}{\\sigma S}\\alpha\\Delta T$. Ішкі энергия $\\Delta U=c m \\Delta T$, мұндағы $m=\\rho l S$. $l$ мен $\\Delta T$-ны жою арқылы $\\Delta U=\\frac{c\\rho S^2\\sigma\\Delta R}{\\alpha}\\approx 114$ Дж аламыз (σ-ны Ом$^{-1}$·м$^{-1}$, $S$-ті м$^2$ түрінде қойғанда).",
   "figures": [
     "kz-rep-republic-2015-phys9-r1-1-fig1.png"
   ]

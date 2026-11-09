@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
   },
   "solution": "$W_k=W-mc^2$ и $W=\\frac{mc^2}{\\sqrt{1-v^2/c^2}}$. При $W_k=mc^2$ имеем $\\sqrt{1-v^2/c^2}=\\frac{1}{2}$, откуда $v=\\frac{c\\sqrt3}{2}$.",
+  "statement_kk": "Бөлшектің кинетикалық энергиясы тыныштық энергиясына тең болатын қозғалыс жылдамдығы $v$ қандай?",
+  "solution_kk": "$W_k=W-mc^2$ және $W=\\frac{mc^2}{\\sqrt{1-v^2/c^2}}$. $W_k=mc^2$ болғанда $\\sqrt{1-v^2/c^2}=\\frac{1}{2}$, осыдан $v=\\frac{c\\sqrt3}{2}$.",
   "figures": []
 }

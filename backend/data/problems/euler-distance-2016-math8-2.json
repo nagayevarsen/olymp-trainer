@@ -19,5 +19,7 @@
     "url": "https://www.matol.ru/files/Disttur1_15_sol.pdf"
   },
   "solution": "Ответ. $\\frac{AM}{AB}=\\frac{3}{2\\sqrt{5}}$. Решение. Положим $\\angle ABM = \\alpha$. Тогда $\\angle BMC = 2\\alpha$, $\\angle BMA = 180^\\circ-2\\alpha$, $\\angle BAM = 180^\\circ-\\angle ABM-\\angle AMB = \\alpha = \\angle ABM$, откуда $BM = AM = MC$. Получается, что медиана $BM$ треугольника $ABC$ равна половине стороны $AC$, откуда $\\angle ABC = 90^\\circ$. Положим $BC = 4m$. Тогда $AC = 6m$, $AM = 3m$, $AB = \\sqrt{36m^2 - 16m^2} = 2m\\sqrt{5}$, и, деля $AM$ на $AB$, получаем ответ.",
+  "statement_kk": "$ABC$ үшбұрышында $M$ нүктесі — $AC$ кесіндісінің ортасы, сонымен қатар $BC = \\frac{2AC}{3}$ және $\\angle BMC= 2\\angle ABM$. $\\frac{AM}{AB}$ қатынасын табыңыз.",
+  "solution_kk": "Жауабы. $\\frac{AM}{AB}=\\frac{3}{2\\sqrt{5}}$. Шешуі. $\\angle ABM = \\alpha$ деп белгілейік. Онда $\\angle BMC = 2\\alpha$, $\\angle BMA = 180^\\circ-2\\alpha$, $\\angle BAM = 180^\\circ-\\angle ABM-\\angle AMB = \\alpha = \\angle ABM$, осыдан $BM = AM = MC$. Демек, $ABC$ үшбұрышының $BM$ медианасы $AC$ қабырғасының жартысына тең, осыдан $\\angle ABC = 90^\\circ$. $BC = 4m$ деп алайық. Онда $AC = 6m$, $AM = 3m$, $AB = \\sqrt{36m^2 - 16m^2} = 2m\\sqrt{5}$, ал $AM$-ды $AB$-ға бөліп, жауабын аламыз.",
   "figures": []
 }

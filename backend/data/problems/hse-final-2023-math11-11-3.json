@@ -5,7 +5,11 @@
   "title": "Наибольшая сумма НОД",
   "statement": "Натуральные числа $a$, $b$, $c$ таковы, что $1 \\leqslant a < b < c \\leqslant 3000$. Найдите наибольшее возможное значение величины $\\text{НОД}(a, b) + \\text{НОД}(b, c) + \\text{НОД}(c, a)$.",
   "answer": {
-    "value": 3000.0
+    "value": 3000.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Высшая проба»",
@@ -14,5 +18,7 @@
     "grade": 11,
     "number": 3,
     "url": "https://olymp.hse.ru/mirror/pubs/share/821374482.pdf"
-  }
+  },
+  "statement_kk": "Натурал $a$, $b$, $c$ сандары $1 \\leqslant a < b < c \\leqslant 3000$ шартын қанағаттандырады. $\\text{ЕҮОБ}(a, b) + \\text{ЕҮОБ}(b, c) + \\text{ЕҮОБ}(c, a)$ шамасының ең үлкен мүмкін мәнін табыңыз.",
+  "figures": []
 }

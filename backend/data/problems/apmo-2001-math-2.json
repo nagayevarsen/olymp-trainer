@@ -18,5 +18,6 @@
     "number": 2,
     "url": "https://www.apmo-official.org/static/solutions/apmo2001_sol.pdf"
   },
+  "statement_kk": "$\\left\\lfloor \\frac{N}{3} \\right\\rfloor + \\left\\lfloor \\frac{N}{35} \\right\\rfloor = \\left\\lfloor \\frac{N}{5} \\right\\rfloor + \\left\\lfloor \\frac{N}{7} \\right\\rfloor$ теңдігі орындалатын ең үлкен натурал $N$ санын табыңыз.",
   "figures": []
 }

@@ -1,0 +1,27 @@
+{
+  "id": "zhaut-city-2022-math8-t1-1",
+  "subject": "math",
+  "topic": "геометрия четырёхугольника",
+  "title": "Перпендикулярность диагоналей четырёхугольника",
+  "statement": "В выпуклом четырёхугольнике $ABCD$ точки $M$, $N$, $P$ и $Q$ являются серединами сторон $AB$, $BC$, $CD$ и $DA$ соответственно. Известно, что $MP=NQ$. Докажите, что диагонали $AC$ и $BD$ перпендикулярны.",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2022,
+    "stage": "city",
+    "grade": 8,
+    "number": 1,
+    "url": "https://matol.kz/olympiads/1085"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Воспользуемся векторами. Пусть $\\vec a=\\overrightarrow{AC}$, $\\vec b=\\overrightarrow{BD}$. Это ненулевые векторы, так как $A\\ne C$ и $B\\ne D$.\n\n1) $MN$ — средняя линия треугольника $ABC$, поэтому $\\overrightarrow{MN}=\\tfrac12\\vec a$. Аналогично $NP$ — средняя линия треугольника $BCD$, поэтому $\\overrightarrow{NP}=\\tfrac12\\vec b$. Наконец, $PQ$ — средняя линия треугольника $CDA$, поэтому $\\overrightarrow{PQ}=\\tfrac12\\overrightarrow{CA}=-\\tfrac12\\vec a$.\n\n2) Выразим векторы $\\overrightarrow{MP}$ и $\\overrightarrow{NQ}$:\n$\\overrightarrow{MP}=\\overrightarrow{MN}+\\overrightarrow{NP}=\\tfrac12(\\vec a+\\vec b)$,\n$\\overrightarrow{NQ}=\\overrightarrow{NP}+\\overrightarrow{PQ}=\\tfrac12(\\vec b-\\vec a)$.\n\n3) Условие $MP=NQ$ означает $|\\vec a+\\vec b|^2=|\\vec b-\\vec a|^2$. Раскрывая скалярные квадраты, получаем $|\\vec a|^2+2\\vec a\\cdot\\vec b+|\\vec b|^2=|\\vec a|^2-2\\vec a\\cdot\\vec b+|\\vec b|^2$. Отсюда $4\\,\\vec a\\cdot\\vec b=0$, то есть $\\vec a\\cdot\\vec b=0$.\n\n4) Скалярное произведение ненулевых векторов $\\overrightarrow{AC}$ и $\\overrightarrow{BD}$ равно нулю, значит, прямые $AC$ и $BD$ перпендикулярны. Что и требовалось доказать.\n\n(Геометрически: $MNPQ$ — параллелограмм Вариньона, его диагонали $MP$ и $NQ$ равны, поэтому он прямоугольник, а его стороны параллельны диагоналям $AC$ и $BD$.)",
+  "statement_kk": "Дөңес $ABCD$ төртбұрышында $M$, $N$, $P$ және $Q$ нүктелері сәйкесінше $AB$, $BC$, $CD$ және $DA$ қабырғаларының ортасы. Белгілі, $MP=NQ$. Дәлелдеңіз: $AC$ және $BD$ диагональдары перпендикуляр.",
+  "solution_kk": "Шешімі ЖИ жасаған және ресми емес. Векторларды пайдаланайық. $\\vec a=\\overrightarrow{AC}$, $\\vec b=\\overrightarrow{BD}$ болсын. Бұлар нөлдік емес векторлар, өйткені $A\\ne C$ және $B\\ne D$.\n\n1) $MN$ — $ABC$ үшбұрышының орта сызығы, сондықтан $\\overrightarrow{MN}=\\tfrac12\\vec a$. Ұқсас, $NP$ — $BCD$ үшбұрышының орта сызығы, сондықтан $\\overrightarrow{NP}=\\tfrac12\\vec b$. Ақырында, $PQ$ — $CDA$ үшбұрышының орта сызығы, сондықтан $\\overrightarrow{PQ}=\\tfrac12\\overrightarrow{CA}=-\\tfrac12\\vec a$.\n\n2) $\\overrightarrow{MP}$ және $\\overrightarrow{NQ}$ векторларын өрнектейік:\n$\\overrightarrow{MP}=\\overrightarrow{MN}+\\overrightarrow{NP}=\\tfrac12(\\vec a+\\vec b)$,\n$\\overrightarrow{NQ}=\\overrightarrow{NP}+\\overrightarrow{PQ}=\\tfrac12(\\vec b-\\vec a)$.\n\n3) $MP=NQ$ шарты $|\\vec a+\\vec b|^2=|\\vec b-\\vec a|^2$ дегенді білдіреді. Скаляр квадраттарды ашсақ: $|\\vec a|^2+2\\vec a\\cdot\\vec b+|\\vec b|^2=|\\vec a|^2-2\\vec a\\cdot\\vec b+|\\vec b|^2$. Бұдан $4\\,\\vec a\\cdot\\vec b=0$, яғни $\\vec a\\cdot\\vec b=0$.\n\n4) Нөлдік емес $\\overrightarrow{AC}$ және $\\overrightarrow{BD}$ векторларының скаляр көбейтіндісі нөлге тең, демек $AC$ және $BD$ түзулері перпендикуляр. Дәлелдеу талап етілді.\n\n(Геометриялық тұрғыдан: $MNPQ$ — Вариньон параллелограммы, оның диагональдары $MP$ және $NQ$ тең, сондықтан ол тікбұрышты, ал оның қабырғалары $AC$ және $BD$ диагональдарына параллель.)",
+  "figures": []
+}

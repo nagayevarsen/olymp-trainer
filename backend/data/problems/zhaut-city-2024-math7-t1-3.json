@@ -6,13 +6,15 @@
   "statement": "Действительные числа $x$, $y$ и $z$ удовлетворяют условиям $${{x}^{2}}+y={{z}^{2}}, \\quad {{y}^{2}}+z={{x}^{2}}, \\quad {{z}^{2}}+x={{y}^{2}}.$$ Найдите значение произведения $xyz$.",
   "answer": {
     "value": 0.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 0",
       "решение: anthropic:claude-sonnet-5-5 → 0",
       "программа (other): anthropic:claude-haiku-5-5 → 0",
       "программа (other): anthropic:claude-sonnet-5-5 → 0"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,7 @@
     "grade": 7,
     "number": 3,
     "url": "https://matol.kz/olympiads/1122"
-  }
+  },
+  "statement_kk": "Нақты $x$, $y$ және $z$ сандары төмендегі шарттарды қанағаттандырады $${{x}^{2}}+y={{z}^{2}}, \\quad {{y}^{2}}+z={{x}^{2}}, \\quad {{z}^{2}}+x={{y}^{2}}.$$ $xyz$ көбейтіндісінің мәнін табыңыз.",
+  "figures": []
 }

@@ -5,7 +5,11 @@
   "title": "Сумма косинусов",
   "statement": "Пусть $S_n = \\cos 1^\\circ + \\cos 2^\\circ + \\cos 3^\\circ + \\dots + \\cos n^\\circ$. Найдите наименьшее натуральное число $n > 37$, для которого $S_n < S_{37}$.",
   "answer": {
-    "value": 143.0
+    "value": 143.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 1,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2022_1_Math_11.pdf"
-  }
+  },
+  "statement_kk": "$S_n = \\cos 1^\\circ + \\cos 2^\\circ + \\cos 3^\\circ + \\dots + \\cos n^\\circ$ болсын. $S_n < S_{37}$ теңсizdігін қанағаттандыратын ең кіші $n > 37$ натурал санын табыңыз.",
+  "figures": []
 }

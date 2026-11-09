@@ -6,8 +6,10 @@
   "statement": "Найдите все натуральные числа $n$, для которых число $n^7+n^6+n^5+1$ имеет ровно три натуральных делителя. (О. Нечаева, И. Рубанов)",
   "answer": {
     "value": 1.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Леонарда Эйлера",
@@ -16,5 +18,7 @@
     "grade": 8,
     "number": 4,
     "url": "https://www.matol.ru/files/Disttur2_18_sol.pdf"
-  }
+  },
+  "statement_kk": "Барлық $n$ натурал сандарын табыңыз, олар үшін $n^7+n^6+n^5+1$ саны дәл үш натурал бөлгіші бар. (О. Нечаева, И. Рубанов)",
+  "figures": []
 }

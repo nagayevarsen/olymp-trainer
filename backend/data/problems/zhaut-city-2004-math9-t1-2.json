@@ -1,0 +1,27 @@
+{
+  "id": "zhaut-city-2004-math9-t1-2",
+  "subject": "math",
+  "topic": "тригонометрия",
+  "title": "Сумма произведений косинусов",
+  "statement": "Докажите тождество: $$\\cos \\dfrac{\\pi }{20}\\cdot \\cos \\dfrac{3\\pi }{20}\\cdot \\cos \\dfrac{7\\pi }{20}\\cdot \\cos \\dfrac{9\\pi }{20}+\\cos \\dfrac{\\pi }{15}\\cdot \\cos \\dfrac{2\\pi }{15}\\cdot \\cos \\dfrac{4\\pi }{15}\\cdot \\cos \\dfrac{8\\pi }{15}=0.$$",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2004,
+    "stage": "city",
+    "grade": 9,
+    "number": 2,
+    "url": "https://matol.kz/olympiads/321"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Переведём углы в градусы: $\\frac{\\pi}{20}=9^\\circ$, $\\frac{3\\pi}{20}=27^\\circ$, $\\frac{7\\pi}{20}=63^\\circ$, $\\frac{9\\pi}{20}=81^\\circ$; $\\frac{\\pi}{15}=12^\\circ$, $\\frac{2\\pi}{15}=24^\\circ$, $\\frac{4\\pi}{15}=48^\\circ$, $\\frac{8\\pi}{15}=96^\\circ$.\n\n**Первое слагаемое.** Обозначим его $P_1=\\cos9^\\circ\\cos27^\\circ\\cos63^\\circ\\cos81^\\circ$. Так как $\\cos81^\\circ=\\sin9^\\circ$ и $\\cos63^\\circ=\\sin27^\\circ$, то\n$$P_1=(\\sin9^\\circ\\cos9^\\circ)(\\sin27^\\circ\\cos27^\\circ)=\\tfrac12\\sin18^\\circ\\cdot\\tfrac12\\sin54^\\circ=\\tfrac14\\sin18^\\circ\\cos36^\\circ,$$\nпоскольку $\\sin54^\\circ=\\cos36^\\circ$.\n\nНайдём $\\sin18^\\circ\\cos36^\\circ$. Умножим на $\\cos18^\\circ\\neq0$ и дважды применим формулу синуса двойного угла:\n$$\\sin18^\\circ\\cos18^\\circ\\cos36^\\circ=\\tfrac12\\sin36^\\circ\\cos36^\\circ=\\tfrac14\\sin72^\\circ=\\tfrac14\\cos18^\\circ.$$\nСокращая на $\\cos18^\\circ$, получаем $\\sin18^\\circ\\cos36^\\circ=\\frac14$. Значит, $P_1=\\frac1{16}$.\n\n**Второе слагаемое.** Обозначим его $P_2=\\cos12^\\circ\\cos24^\\circ\\cos48^\\circ\\cos96^\\circ$. Умножим на $\\sin12^\\circ\\ne0$ и применим формулу синуса двойного угла четыре раза:\n$$\\sin12^\\circ\\cos12^\\circ=\\tfrac12\\sin24^\\circ,$$\n$$\\tfrac12\\sin24^\\circ\\cos24^\\circ=\\tfrac14\\sin48^\\circ,$$\n$$\\tfrac14\\sin48^\\circ\\cos48^\\circ=\\tfrac18\\sin96^\\circ,$$\n$$\\tfrac18\\sin96^\\circ\\cos96^\\circ=\\tfrac1{16}\\sin192^\\circ.$$\nИтак, $\\sin12^\\circ\\cdot P_2=\\frac1{16}\\sin192^\\circ$. Так как $\\sin192^\\circ=\\sin(180^\\circ+12^\\circ)=-\\sin12^\\circ$, получаем $P_2=-\\frac1{16}$.\n\n**Итог.** $P_1+P_2=\\frac1{16}-\\frac1{16}=0$, что и требовалось доказать.",
+  "statement_kk": "Тепе-теңдікті дәлелдеңіз: $$\\cos \\dfrac{\\pi }{20}\\cdot \\cos \\dfrac{3\\pi }{20}\\cdot \\cos \\dfrac{7\\pi }{20}\\cdot \\cos \\dfrac{9\\pi }{20}+\\cos \\dfrac{\\pi }{15}\\cdot \\cos \\dfrac{2\\pi }{15}\\cdot \\cos \\dfrac{4\\pi }{15}\\cdot \\cos \\dfrac{8\\pi }{15}=0.$$",
+  "solution_kk": "Шешім ЖИ арқылы құрастырылған және ресми емес. Бұрыштарды градуспен жазайық: $\\frac{\\pi}{20}=9^\\circ$, $\\frac{3\\pi}{20}=27^\\circ$, $\\frac{7\\pi}{20}=63^\\circ$, $\\frac{9\\pi}{20}=81^\\circ$; $\\frac{\\pi}{15}=12^\\circ$, $\\frac{2\\pi}{15}=24^\\circ$, $\\frac{4\\pi}{15}=48^\\circ$, $\\frac{8\\pi}{15}=96^\\circ$.\n\n**Бірінші қосылғыш.** Оны $P_1=\\cos9^\\circ\\cos27^\\circ\\cos63^\\circ\\cos81^\\circ$ деп белгілейік. $\\cos81^\\circ=\\sin9^\\circ$ және $\\cos63^\\circ=\\sin27^\\circ$ болғандықтан,\n$$P_1=(\\sin9^\\circ\\cos9^\\circ)(\\sin27^\\circ\\cos27^\\circ)=\\tfrac12\\sin18^\\circ\\cdot\\tfrac12\\sin54^\\circ=\\tfrac14\\sin18^\\circ\\cos36^\\circ,$$\nмұнда $\\sin54^\\circ=\\cos36^\\circ$.\n\n$\\sin18^\\circ\\cos36^\\circ$ мәнін табайық. $\\cos18^\\circ\\neq0$ санына көбейтіп, қос бұрыш синусының формуласын екі рет қолданамыз:\n$$\\sin18^\\circ\\cos18^\\circ\\cos36^\\circ=\\tfrac12\\sin36^\\circ\\cos36^\\circ=\\tfrac14\\sin72^\\circ=\\tfrac14\\cos18^\\circ.$$\n$\\cos18^\\circ$ санына қысқартсақ, $\\sin18^\\circ\\cos36^\\circ=\\frac14$. Демек, $P_1=\\frac1{16}$.\n\n**Екінші қосылғыш.** Оны $P_2=\\cos12^\\circ\\cos24^\\circ\\cos48^\\circ\\cos96^\\circ$ деп белгілейік. $\\sin12^\\circ\\ne0$ санына көбейтіп, қос бұрыш синусының формуласын төрт рет қолданамыз:\n$$\\sin12^\\circ\\cos12^\\circ=\\tfrac12\\sin24^\\circ,$$\n$$\\tfrac12\\sin24^\\circ\\cos24^\\circ=\\tfrac14\\sin48^\\circ,$$\n$$\\tfrac14\\sin48^\\circ\\cos48^\\circ=\\tfrac18\\sin96^\\circ,$$\n$$\\tfrac18\\sin96^\\circ\\cos96^\\circ=\\tfrac1{16}\\sin192^\\circ.$$\nСонымен, $\\sin12^\\circ\\cdot P_2=\\frac1{16}\\sin192^\\circ$. $\\sin192^\\circ=\\sin(180^\\circ+12^\\circ)=-\\sin12^\\circ$ болғандықтан, $P_2=-\\frac1{16}$.\n\n**Қорытынды.** $P_1+P_2=\\frac1{16}-\\frac1{16}=0$, яғни талап етілгенді дәлелдедік.",
+  "figures": []
+}

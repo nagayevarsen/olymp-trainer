@@ -6,13 +6,15 @@
   "statement": "Арману и его папе вместе 58 лет, а его папе и его дедушке – 115 лет. Сколько лет было дедушке, когда родился Арман?",
   "answer": {
     "value": 57.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 57",
       "решение: anthropic:claude-sonnet-5-5 → 57",
       "программа (other): anthropic:claude-haiku-5-5 → 57",
       "программа (other): anthropic:claude-sonnet-5-5 → 57"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -55,5 +57,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Арманға және оның әкесіне бірге 58 жас, ал оның әкесі мен атасына 115 жас. Арман туылған кезде атасы қанша жаста болған?",
+  "figures": []
 }

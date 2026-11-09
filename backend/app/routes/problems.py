@@ -161,13 +161,15 @@ def problem_detail(
     problem_id: str,
     request: Request,
     seed: int | None = Query(default=None, ge=0, le=SEED_MAX),
+    lang: str = Query(default="ru", pattern="^(ru|kk)$"),
     user: dict | None = Depends(optional_user),
     db: DB = Depends(get_db),
 ) -> dict:
     p = require_problem(problem_id)
     stats = db.problem_stats()
     pr = db.progress(_uid(user), p.id)
-    statement = p.statement
+    kk = lang == "kk"  # перевод ИИ, если он есть; варианты с другими числами остаются на русском
+    statement = (p.statement_kk if kk else None) or p.statement
     if seed is not None:
         _variant_guard(request)
         try:
@@ -198,7 +200,9 @@ def problem_detail(
         "verification": p.template.verification.model_dump() if p.template else None,
         "hints_total": len(hints.steps) if hints else 3,
         "hints_opened": hints.steps[:opened] if hints else [],
-        "solution": (p.solution or (hints.solution if hints else None)) if pr["solution_viewed"] else None,
+        "solution": ((p.solution_kk if kk else None) or p.solution or (hints.solution if hints else None))
+        if pr["solution_viewed"]
+        else None,
         "progress": {
             "attempts": pr["attempts"],
             "hints_used": pr["hints_used"],

@@ -57,9 +57,9 @@ OFFICIAL_SETS: list[OfficialSet] = [
     OfficialSet(
         "Городская Жаутыковская",
         "city",
-        20,
+        None,  # число задач — со страницы источника (data/official_counts.json): на matol.kz их по 8, не 20
         equal_weight=True,
-        source="по данным команды: 20 задач, все равноценны",
+        source="городская Жаутыковская: все задачи равноценны, число задач у каждого варианта своё",
     ),
     OfficialSet(
         "APMO",

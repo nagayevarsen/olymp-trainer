@@ -6,13 +6,15 @@
   "statement": "Найдите $x$ из уравнения: $1 + 9 : (1 - 8 : (1 + 4 : (1 - 6 : (1 + 5 : (1 - 4 : x))))) = 34.$",
   "answer": {
     "value": 9.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 9",
       "решение: anthropic:claude-sonnet-5-5 → 9",
       "программа (other): anthropic:claude-haiku-5-5 → 9",
       "программа (other): anthropic:claude-sonnet-5-5 → 9"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -94,5 +96,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Теңдеуден $x$ табыңыз: $1 + 9 : (1 - 8 : (1 + 4 : (1 - 6 : (1 + 5 : (1 - 4 : x))))) = 34.$",
+  "figures": []
 }

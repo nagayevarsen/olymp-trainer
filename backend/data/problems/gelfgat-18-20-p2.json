@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
   },
   "solution": "Длина тени на воде $l_1 = h_1\\,\\mathrm{ctg}\\,\\alpha$; длина тени на дне $l_2 = l_1 + h_2\\,\\mathrm{tg}\\,\\beta$, где $\\sin\\beta = \\sin(90^\\circ-\\alpha)/n$, $\\mathrm{tg}\\,\\beta = \\cos\\alpha/\\sqrt{n^2-\\cos^2\\alpha}$.",
+  "statement_kk": "Қазық өзен түбіне қағылған және судан $h_1 = 1{,}0$ м биіктікте шығып тұр. Өзеннің тереңдігі $h_2 = 2{,}0$ м. Күннің горизонттан биіктігі $\\alpha = 30^\\circ$ болғанда, қазықтың су бетіндегі және өзен түбіндегі көлеңкесінің ұзындығын анықтаңыз.\n\n**l2 бөлігі.** Тек осы бөлікке жауап беріңіз.",
+  "solution_kk": "Судағы көлеңкенің ұзындығы $l_1 = h_1\\,\\mathrm{ctg}\\,\\alpha$; түбіндегі көлеңкенің ұзындығы $l_2 = l_1 + h_2\\,\\mathrm{tg}\\,\\beta$, мұнда $\\sin\\beta = \\sin(90^\\circ-\\alpha)/n$, $\\mathrm{tg}\\,\\beta = \\cos\\alpha/\\sqrt{n^2-\\cos^2\\alpha}$.",
   "figures": []
 }

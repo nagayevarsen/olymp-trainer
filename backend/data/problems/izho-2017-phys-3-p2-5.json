@@ -13,7 +13,8 @@
       "qN": "коэффициент q_N"
     },
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -23,6 +24,8 @@
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
   },
   "solution": "По формуле п.1.6 при $A=B=\\varphi_0$: $x_k=\\varphi_0\\frac{q_{N-k}+q_k}{q_N}$, и $y_k=-x_k$.",
+  "statement_kk": "Есеп математикалық кіріспеден (рекуррент қатыстар, $\\lambda=2+\\sqrt{3}$ санының дәрежелері) және әр қыры кедергісі $R_0$-ге тең призма пішініндегі сым каркасты зерттеуден тұрады.\n\n**2.5-тармақ.** $N$ бүйір жағы бар призма үшін, егер $x_0=\\varphi_0$, $y_0=-\\varphi_0$ болса, барлық $k=0,1,2,\\dots,N-1$ мәндері үшін $x_k$ және $y_k$ потенциалдарының анық өрнектерін табыңыз.",
+  "solution_kk": "1.6-тармақтағы формула бойынша $A=B=\\varphi_0$ кезінде: $x_k=\\varphi_0\\frac{q_{N-k}+q_k}{q_N}$, әрі $y_k=-x_k$.",
   "figures": [
     "izho-2017-phys-3-fig1.png",
     "izho-2017-phys-3-fig2.png"

@@ -5,7 +5,11 @@
   "title": "Минимум выражения с логарифмами",
   "statement": "Положительные числа $a, b, c, d$ больше 1. Найдите наименьшее возможное значение выражения $\\log_a(ab^2) + \\log_b(b^2c^3) + \\log_c(c^5d^6) + \\log_d(d^{35}a^{36})$.",
   "answer": {
-    "value": 67.0
+    "value": 67.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 11,
     "number": 4,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/Final_Kurchatov_2022_Math_11_6.pdf"
-  }
+  },
+  "statement_kk": "Оң сандар $a, b, c, d$ 1-ден үлкен. $\\log_a(ab^2) + \\log_b(b^2c^3) + \\log_c(c^5d^6) + \\log_d(d^{35}a^{36})$ өрнегінің ең кіші мүмкін мәнін табыңдар.",
+  "figures": []
 }

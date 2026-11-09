@@ -18,5 +18,6 @@
     "number": 4,
     "url": "https://www.apmo-official.org/static/solutions/apmo1993_sol.pdf"
   },
+  "statement_kk": "Барлық натурал $n$ сандарын анықтаңыз, олар үшін $$x^n + (2 + x)^n + (2 - x)^n = 0$$ теңдеуінің бүтін шешімі бар.",
   "figures": []
 }

@@ -26,6 +26,8 @@
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2023/phys9-1-sol.pdf"
   },
   "solution": "Из второго правила Кирхгофа $\\mathcal{E}_1-\\mathcal{E}_2=IR_1$. Подставляя $\\mathcal{E}_2$, получаем $I=\\frac{\\mathcal{E}_1R_3-\\mathcal{E}_3(R_2+R_3)}{R_1R_3}$.",
+  "statement_kk": "$R_1$, $R_2$, $R_3$ кедергілері гальванометр $G$ арқылы өтетін ток нөлге тең болатындай таңдалған. $\\mathcal{E}_1$, $\\mathcal{E}_3$ электрқозғаушы күштері белгілі. $R_1$, $R_2$, $R_3$ кедергілерін белгілі деп санаңыз, батареялардың ішкі кедергілерін елемеңіз.\n\n**2-тармақ.** $\\mathcal{E}_1$ батареясы арқылы өтетін $I$ токты табыңыз.",
+  "solution_kk": "Кирхгофтың екінші ережесінен $\\mathcal{E}_1-\\mathcal{E}_2=IR_1$. $\\mathcal{E}_2$-ні қойсақ, $I=\\frac{\\mathcal{E}_1R_3-\\mathcal{E}_3(R_2+R_3)}{R_1R_3}$ аламыз.",
   "figures": [
     "kz-rep-region-2023-phys9-r1-2-fig1.png"
   ]

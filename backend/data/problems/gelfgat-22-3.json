@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
   },
   "solution": "Энергия фотона не может превышать $W_k=eU$, поэтому $\\frac{hc}{\\lambda_{min}}=eU$, откуда $U=\\frac{hc}{e\\lambda_{min}}=41$ кВ.",
+  "statement_kk": "Рентген түтігі қандай $U$ кернеуінде жұмыс істейді, егер осы түтіктің спектріндегі ең «қатты» сәулеленудің толқын ұзындығы $\\lambda_{min} = 3{,}0\\cdot10^{-11}$ м болса?",
+  "solution_kk": "Фотон энергиясы $W_k=eU$ мәнінен аспауы тиіс, сондықтан $\\frac{hc}{\\lambda_{min}}=eU$, бұдан $U=\\frac{hc}{e\\lambda_{min}}=41$ кВ.",
   "figures": []
 }

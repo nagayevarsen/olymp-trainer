@@ -5,7 +5,11 @@
   "title": "Минимальное n в произведении",
   "statement": "При каком минимальном натуральном $n$ найдутся $n$ различных натуральных чисел $s_1,s_2,\\dots,s_n$ таких, что $\\left(1-\\frac{1}{s_1}\\right)\\left(1-\\frac{1}{s_2}\\right)\\dots\\left(1-\\frac{1}{s_n}\\right)=\\frac{7}{66}$?",
   "answer": {
-    "value": 9.0
+    "value": 9.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +18,7 @@
     "grade": 11,
     "number": 5,
     "url": "https://sesc.nsu.ru/upload/iblock/fc8/2017_2_math_s.pdf"
-  }
+  },
+  "statement_kk": "Қандай ең кіші натурал $n$ үшін $\\left(1-\\frac{1}{s_1}\\right)\\left(1-\\frac{1}{s_2}\\right)\\dots\\left(1-\\frac{1}{s_n}\\right)=\\frac{7}{66}$ теңдігін қанағаттандыратын өзара әртүрлі натурал $s_1,s_2,\\dots,s_n$ сандары табылады?",
+  "figures": []
 }

@@ -18,5 +18,6 @@
     "number": 2,
     "url": "https://www.apmo-official.org/static/solutions/apmo2023_sol.pdf"
   },
+  "statement_kk": "$n \\geq 2$ және $\\frac{\\sigma(n)}{p(n)-1} = n$ шарттарын қанағаттандыратын барлық бүтін $n$ сандарын табыңыз, мұнда $\\sigma(n)$ — $n$ санының барлық оң бөлгіштерінің қосындысы, ал $p(n)$ — $n$ санының ең үлкен жай бөлгіші.",
   "figures": []
 }

@@ -5,7 +5,11 @@
   "title": "Энергия взаимодействия и тепловая энергия",
   "statement": "Электростатическая энергия взаимодействия двух ядер, находящихся на расстоянии $a$ друг от друга равна $W_p = \\frac{e^2}{4\\pi\\varepsilon_0 a}$, а их тепловая энергия находится по формуле $E_T = k_B T$. Найдите отношение $\\Gamma = \\frac{W_p}{E_T}$.",
   "answer": {
-    "value": 111.0
+    "value": 111.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -13,5 +17,7 @@
     "stage": "international",
     "number": 2,
     "url": "https://izho.kz/wp-content/uploads/2021/01/IZhO-2021-Theory_rus_sol.pdf"
-  }
+  },
+  "statement_kk": "Бір-бірінен $a$ қашықтықта орналасқан екі ядроның электростатикалық өзара әрекеттесу энергиясы $W_p = \\frac{e^2}{4\\pi\\varepsilon_0 a}$ тең, ал олардың жылулық энергиясы $E_T = k_B T$ формуласымен табылады. Қатынасты $\\Gamma = \\frac{W_p}{E_T}$ табыңыз.",
+  "figures": []
 }

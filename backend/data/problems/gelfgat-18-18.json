@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=136"
   },
   "solution": "Из закона преломления sin α / sin β = n и равенства α + β = 90° следует tg α = n, откуда α = arctg n = 40°.",
+  "statement_kk": "Жарық сәулесі шыныдан суға өтеді және шыны-су жазық шекарасында сынады. Түсу бұрышы $\\alpha$ қандай болғанда шағылған және сынған сәулелер бір-біріне перпендикуляр болады?",
+  "solution_kk": "Сыну заңынан $\\sin \\alpha / \\sin \\beta = n$ және $\\alpha + \\beta = 90^\\circ$ теңдігі шығады, осыдан $\\mathrm{tg}\\,\\alpha = n$, демек $\\alpha = \\mathrm{arctg}\\,n = 40^\\circ$.",
   "figures": []
 }

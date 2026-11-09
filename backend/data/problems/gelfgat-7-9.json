@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
   },
   "solution": "Из условия $mg = k\\Delta l$ следует $\\frac{m}{k} = \\frac{\\Delta l}{g}$, поэтому $T = 2\\pi\\sqrt{\\frac{\\Delta l}{g}}$, что дает 0,80 с. Период определяется удлинением пружины.",
+  "statement_kk": "Ілінген жүк жеңіл серіппені $\\Delta l = 16$ см-ге созады. Осы серіппедегі жүктің тербеліс периоды неге тең?",
+  "solution_kk": "$mg = k\\Delta l$ шартынан $\\frac{m}{k} = \\frac{\\Delta l}{g}$ шығады, сондықтан $T = 2\\pi\\sqrt{\\frac{\\Delta l}{g}}$, бұдан 0,80 с шығады. Период серіппенің ұзаруымен анықталады.",
   "figures": []
 }

@@ -5,7 +5,11 @@
   "title": "Наименьшее значение выражения",
   "statement": "Даны действительные числа $a, b, c$, причём $b > a$. Функция $f(x) = ax^2 + bx + c$ принимает неотрицательные значения при всех действительных $x$. Найдите наименьшее возможное значение выражения $\\frac{5a + b + c}{b - a}$.",
   "answer": {
-    "value": 4.0
+    "value": 4.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 3,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2022_1_Math_11.pdf"
-  }
+  },
+  "statement_kk": "Нақты $a, b, c$ сандары берілген, мұнда $b > a$. $f(x) = ax^2 + bx + c$ функциясы барлық нақты $x$ үшін теріс емес мәндер қабылдайды. $\\frac{5a + b + c}{b - a}$ өрнегінің ең кіші мүмкін мәнін табыңыз.",
+  "figures": []
 }

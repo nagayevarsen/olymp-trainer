@@ -6,8 +6,10 @@
   "statement": "$ABCD$ — выпуклый четырёхугольник, где $AB = 7$, $BC = 4$, $AD = DC$, $\\angle ABD = \\angle DBC$. Точка $E$ на отрезке $AB$ такова, что $\\angle DEB = 90^\\circ$. Найдите длину отрезка $AE$.",
   "answer": {
     "value": 1.5,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Леонарда Эйлера",
@@ -51,5 +53,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "$ABCD$ — дөңес төртбұрыш, мұнда $AB = 7$, $BC = 4$, $AD = DC$, $\\angle ABD = \\angle DBC$. $AB$ кесіндісіндегі $E$ нүктесі үшін $\\angle DEB = 90^\\circ$. Кесінді $AE$-нің ұзындығын табыңыз.",
+  "figures": []
 }

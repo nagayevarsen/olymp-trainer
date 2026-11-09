@@ -18,5 +18,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
   },
   "solution": "Кажущаяся глубина $h=H/n$ для лучей, близких к вертикальному, так как $\\sin\\alpha\\approx\\mathrm{tg}\\alpha$ и $\\sin\\beta\\approx\\mathrm{tg}\\beta$. Глубина уменьшается в $n=1{,}33$ раза.",
+  "statement_kk": "Таза суы бар таяз су қоймасына жоғарыдан қарасаңыз, түбі жақсы көрінеді, бірақ су қоймасының тереңдігі шын мәнінде болғанға қарағанда кіші болып көрінеді. Неше есе?",
+  "solution_kk": "Тік бағытқа жақын сәулелер үшін көрінетін тереңдік $h=H/n$, себебі $\\sin\\alpha\\approx\\mathrm{tg}\\alpha$ және $\\sin\\beta\\approx\\mathrm{tg}\\beta$. Тереңдік $n=1{,}33$ есе кемиді.",
   "figures": []
 }

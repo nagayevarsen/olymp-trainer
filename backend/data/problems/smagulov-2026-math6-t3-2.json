@@ -6,13 +6,15 @@
   "statement": "Сколькими способами можно выбрать тройку цифр $(a,b,c)$ (не обязательно различных) так, чтобы для суммы трёх трёхзначных чисел выполнялись неравенства $$400 < \\overline{a23}+\\overline{1b3}+\\overline{12c} < 900 \\, ?$$",
   "answer": {
     "value": 499.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 499",
       "решение: anthropic:claude-sonnet-5-5 → 499",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 499",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 499"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -54,5 +56,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Үш таңбалы сандардың қосындысы үшін $$400 < \\overline{a23}+\\overline{1b3}+\\overline{12c} < 900 \\, $$ теңсіздіктері орындалатындай, цифрлардың $(a,b,c)$ үштігін (міндетті түрде әртүрлі емес) қанша тәсілмен таңдауға болады?",
+  "figures": []
 }

@@ -6,8 +6,10 @@
   "statement": "Решите уравнение в действительных числах $6^x + 30^x + 33^x = 45^x$, где $x \\geqslant 1$.",
   "answer": {
     "value": 2.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Юниорская олимпиада (Казахстан)",
@@ -16,5 +18,7 @@
     "grade": 8,
     "number": 3,
     "url": "https://cdn.bc-pf.org/olympiads/math/junior/2022/oblast/math8-junior-oblast-sol.pdf"
-  }
+  },
+  "statement_kk": "Нақты сандар жиынында $6^x + 30^x + 33^x = 45^x$ теңдеуін шешіңдер, мұндағы $x \\geqslant 1$.",
+  "figures": []
 }

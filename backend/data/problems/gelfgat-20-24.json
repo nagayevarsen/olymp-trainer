@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=156"
   },
   "solution": "Из $d\\sin\\varphi = k\\lambda$ и малости углов $s = L(\\sin\\varphi_3 - \\sin\\varphi_2) = \\frac{L\\lambda}{d}$, откуда $\\lambda = \\frac{sd}{L} = 6{,}1 \\cdot 10^{-7}$ м.",
+  "statement_kk": "Периоды $d = 14$ мкм дифракциялық торға нормаль бағытта монохроматты жарық толқыны түседі. Торадан $L = 2{,}0$ м қашықтықтағы экранда екінші және үшінші реттердің спектрлері арасындағы қашықтық $s = 8{,}7$ см. Түсетін жарықтың толқын ұзындығы $\\lambda$ қандай?",
+  "solution_kk": "$d\\sin\\varphi = k\\lambda$ теңдеуінен және бұрыштардың кішілігінен $s = L(\\sin\\varphi_3 - \\sin\\varphi_2) = \\frac{L\\lambda}{d}$, осыдан $\\lambda = \\frac{sd}{L} = 6{,}1 \\cdot 10^{-7}$ м.",
   "figures": []
 }

@@ -18,5 +18,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=26"
   },
   "solution": "Из $mgH=\\mu mg\\cos\\alpha\\cdot L+\\mu mg\\cdot s$ и $L\\cos\\alpha=a$ получаем $mgH=\\mu mg(a+s)$, откуда $\\mu=\\frac{H}{a+s}$ и $\\mu=0{,}05$.",
+  "statement_kk": "Шана табанының ұзындығы $a = 5$ м, биіктігі $H = 2$ м таудан сырғанайды. Одан кейін ол көлденең алаңда тоқтағанға дейін тағы $s = 35$ м жүреді. Үйкеліс коэффициенті $\\mu$ мәнін анықтаңдар, оны бүкіл жол бойы бірдей деп есептеңдер. Тау беткейінен көлденең бетке өту жеткілікті тегіс деп есептелсін.",
+  "solution_kk": "$mgH=\\mu mg\\cos\\alpha\\cdot L+\\mu mg\\cdot s$ және $L\\cos\\alpha=a$ теңдеулерінен $mgH=\\mu mg(a+s)$ шығады, бұдан $\\mu=\\frac{H}{a+s}$ және $\\mu=0{,}05$.",
   "figures": []
 }

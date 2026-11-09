@@ -19,5 +19,7 @@
     "url": "https://www.matol.ru/files/Disttur1_14_sol.pdf"
   },
   "solution": "Решение. Не умаляя общности, положим $a < b$. Тогда $c^2+ab < ac+bc \\Leftrightarrow (c-b)(c-a) < 0 \\Leftrightarrow a < c < b$. Докажем последнее неравенство от противного. Допустим, $c \\le a$. Тогда $c^2+ab \\le a^2+ab < a^2+b^2$ — противоречие. Допустим, $c \\ge b$. Тогда $c^2+ab \\ge b^2+ab > b^2+a^2$ — снова противоречие.",
+  "statement_kk": "Әртүрлі теріс емес a, b, c сандары үшін $a^2+b^2 = c^2+ab$. Дәлелдеңіз: $c^2+ab < ac+bc$.",
+  "solution_kk": "Шешуі. Жалпылығын шектемей, $a < b$ деп алайық. Онда $c^2+ab < ac+bc \\Leftrightarrow (c-b)(c-a) < 0 \\Leftrightarrow a < c < b$. Соңғы теңсіздікті қарама-қайшысынан дәлелдейміз. Айталық, $c \\le a$. Онда $c^2+ab \\le a^2+ab < a^2+b^2$ — қайшылық. Айталық, $c \\ge b$. Онда $c^2+ab \\ge b^2+ab > b^2+a^2$ — тағы да қайшылық.",
   "figures": []
 }

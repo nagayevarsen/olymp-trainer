@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=46"
   },
   "solution": "Для $\\sin\\alpha=\\frac{v}{u}=0{,}5$ расстояние $AB=\\frac{h}{\\sin\\alpha}=2h=10$ км.",
+  "statement_kk": "Реактивті ұшақ дыбыс жылдамдығынан екі есе артық жылдамдықпен, бақылаушының үстінен $h = 5$ км биіктікте ұшып өтті. Адам дыбысты естіген кезде ұшақ бақылаушыдан қандай қашықтықта болды?",
+  "solution_kk": "$\\sin\\alpha=\\frac{v}{u}=0{,}5$ үшін қашықтық $AB=\\frac{h}{\\sin\\alpha}=2h=10$ км.",
   "figures": []
 }

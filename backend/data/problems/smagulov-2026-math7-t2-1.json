@@ -6,13 +6,15 @@
   "statement": "Для натуральных чисел $a$ и $b$ выполнено равенство: $$\\frac{1}{a}+\\frac{1}{2a}+\\frac{1}{3a}=\\frac{1}{4b}+\\frac{1}{5b}+\\frac{1}{6b}.$$ Какое наименьшее значение может принимать сумма $a+b$?",
   "answer": {
     "value": 147.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 147",
       "решение: anthropic:claude-sonnet-5-5 → 147",
       "программа (other): anthropic:claude-haiku-5-5 → 147",
       "программа (other): anthropic:claude-sonnet-5-5 → 147"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -71,5 +73,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Натурал $a$ және $b$ сандары үшін мынадай теңдік орындалады: $$\\frac{1}{a}+\\frac{1}{2a}+\\frac{1}{3a}=\\frac{1}{4b}+\\frac{1}{5b}+\\frac{1}{6b}.$$ Қосындының $a+b$ ең кіші мәні қандай болуы мүмкін?",
+  "figures": []
 }

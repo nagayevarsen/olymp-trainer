@@ -6,8 +6,10 @@
   "statement": "Пусть $A = \\underbrace{88\\ldots88}_{100}$ – натуральное число, записанное 100 восьмёрками, и $B = \\underbrace{55\\ldots55}_{100}$ – натуральное число, записанное 100 пятёрками. Найти сумму цифр числа $N = 9 \\cdot A \\cdot B$.",
   "answer": {
     "value": 900.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -44,5 +46,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Айталық, $A = \\underbrace{88\\ldots88}_{100}$ – 100 сегіздіктен жазылған натурал сан, ал $B = \\underbrace{55\\ldots55}_{100}$ – 100 бестіктен жазылған натурал сан. $N = 9 \\cdot A \\cdot B$ санының цифрларының қосындысын табыңдар.",
+  "figures": []
 }

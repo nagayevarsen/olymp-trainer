@@ -50,5 +50,6 @@
       ]
     }
   },
+  "statement_kk": "Егер $c\\ne 0$, $a+b+d=m\\cdot n$, $n\\cdot c=a$ және $b\\cdot c+d\\cdot c+4c=m\\cdot a$ болса, $a$-ның мәнін табыңдар.",
   "figures": []
 }

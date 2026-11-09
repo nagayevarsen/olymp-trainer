@@ -6,13 +6,15 @@
   "statement": "Высоты $AK$ и $BL$ остроугольного треугольника $ABC$ пересекаются в точке $H$. Биссектриса угла $ACB$ пересекает прямую $BL$ в точке $E$. Скольким градусам равен угол $CEB$, если $\\angle AHB=130^\\circ$?",
   "answer": {
     "value": 115.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 115",
       "решение: anthropic:claude-sonnet-5-5 → 115",
       "программа (other): anthropic:claude-haiku-5-5 → 115",
       "программа (other): anthropic:claude-sonnet-5-5 → 115"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -50,5 +52,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Сүйірбұрышты $ABC$ үшбұрышының $AK$ және $BL$ биіктіктері $H$ нүктесінде қиылысады. $ACB$ бұрышының биссектрисасы $BL$ түзуін $E$ нүктесінде қияды. $\\angle AHB=130^\\circ$ болса, $CEB$ бұрышы неше градусқа тең?",
+  "figures": []
 }

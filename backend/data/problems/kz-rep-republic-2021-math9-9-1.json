@@ -6,8 +6,10 @@
   "statement": "Пусть $a, b, c$ — положительные действительные числа такие, что $a + b + c + \\frac{1}{abc} = \\frac{19}{2}$. Найдите наибольшее возможное значение $a$.",
   "answer": {
     "value": 8.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -16,5 +18,7 @@
     "grade": 9,
     "number": 1,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/final/2021/math9-1-sol.pdf"
-  }
+  },
+  "statement_kk": "$a, b, c$ — оң нақты сандар, олар $a + b + c + \\frac{1}{abc} = \\frac{19}{2}$ теңдігін қанағаттандырсын. $a$-ның ең үлкен мүмкін мәнін табыңдар.",
+  "figures": []
 }

@@ -22,5 +22,7 @@
     "url": "https://cdn.bc-pf.org/olympiads/physics/kbo/2023/phys-2-sol.pdf"
   },
   "solution": "В ключе ответ A: $\\Phi = LI$.",
+  "statement_kk": "Контурдың индуктивтігі $L$, ондағы ток күші $I$.\n\n**9-тармақ.** Контур арқылы өтетін магнит ағынын табыңыз.",
+  "solution_kk": "Кілт бойынша жауабы A: $\\Phi = LI$.",
   "figures": []
 }

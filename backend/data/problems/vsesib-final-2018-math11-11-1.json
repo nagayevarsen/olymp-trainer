@@ -5,7 +5,11 @@
   "title": "Значения выражения ab+cd",
   "statement": "Пусть $a^2+b^2=c^2+d^2=1$ и $ac+bd=0$ для некоторых действительных чисел $a$, $b$, $c$, $d$. Найти все возможные значения выражения $ab+cd$.",
   "answer": {
-    "value": 0.0
+    "value": 0.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +18,7 @@
     "grade": 11,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/536/2017_3_math_s.pdf"
-  }
+  },
+  "statement_kk": "$a$, $b$, $c$, $d$ нақты сандары үшін $a^2+b^2=c^2+d^2=1$ және $ac+bd=0$ орындалады. $ab+cd$ өрнегінің барлық мүмкін мәндерін табыңдар.",
+  "figures": []
 }

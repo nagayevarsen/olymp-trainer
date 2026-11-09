@@ -18,5 +18,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=66"
   },
   "solution": "Число молекул $N=\\frac{pV}{kT}$, поэтому $N_1-N_2=\\frac{pV}{k}\\left(\\frac{1}{T_1}-\\frac{1}{T_2}\\right)=8{,}05\\cdot10^{25}$.",
+  "statement_kk": "Көлемі $V = 80$ м$^3$ бөлмеден температура $t_1 = 15$°C-тан $t_2 = 27$°C-қа көтерілгенде қанша ауа молекуласы шығады? Атмосфералық қысым $p_A = 10^5$ Па.",
+  "solution_kk": "Молекулалар саны $N=\\frac{pV}{kT}$, сондықтан $N_1-N_2=\\frac{pV}{k}\\left(\\frac{1}{T_1}-\\frac{1}{T_2}\\right)=8{,}05\\cdot10^{25}$.",
   "figures": []
 }

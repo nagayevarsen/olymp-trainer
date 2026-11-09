@@ -6,8 +6,10 @@
   "statement": "Найти величину выражения $\\frac{x}{y+z}+\\frac{y}{x+z}+\\frac{z}{x+y}$, если известно, что $\\frac{1}{y+z}+\\frac{1}{x+z}+\\frac{1}{x+y}=5$ и $x+y+z=2$.",
   "answer": {
     "value": 7.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -51,5 +53,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Егер $\\frac{1}{y+z}+\\frac{1}{x+z}+\\frac{1}{x+y}=5$ және $x+y+z=2$ екені белгілі болса, $\\frac{x}{y+z}+\\frac{y}{x+z}+\\frac{z}{x+y}$ өрнегінің мәнін табыңыз.",
+  "figures": []
 }

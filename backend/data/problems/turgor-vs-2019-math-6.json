@@ -6,9 +6,11 @@
   "statement": "Внутри равнобедренного треугольника $ABC$ отмечена точка $K$ так, что $CK = AB = BC$ и $\\angle KAC = 30^\\circ$. Найдите угол $AKB$.",
   "answer": {
     "value": 150.0,
+    "variables": {},
     "unit": "°",
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Турнир городов, весенний тур",
@@ -16,5 +18,7 @@
     "stage": "other",
     "number": 6,
     "url": "https://turgor.ru/problems/40/vs-40-sol-fin.pdf"
-  }
+  },
+  "statement_kk": "Teңбүйірлі $ABC$ үшбұрышының ішінде $K$ нүктесі белгіленген, мұнда $CK = AB = BC$ және $\\angle KAC = 30^\\circ$. $\\angle AKB$ бұрышын табыңыз.",
+  "figures": []
 }

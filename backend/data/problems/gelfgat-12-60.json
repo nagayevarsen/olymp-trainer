@@ -22,6 +22,8 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=91"
   },
   "solution": "Батарея конденсаторов $C_1$ и $C_2$ заряжается напряжением $\\mathcal{E}_1+\\mathcal{E}_2$. Напряжение на $C_1$ равно $U_1=\\frac{C_2}{C_1+C_2}(\\mathcal{E}_1+\\mathcal{E}_2)$. Так как тока нет, $\\varphi_D-\\varphi_B=\\mathcal{E}_1$, и $\\varphi_A-\\varphi_B=\\frac{C_1\\mathcal{E}_1-C_2\\mathcal{E}_2}{C_1+C_2}$.",
+  "statement_kk": "Суретте көрсетілген сұлбадағы $A$ және $B$ нүктелері арасындағы потенциалдар айырымын анықтаңыз.",
+  "solution_kk": "$C_1$ және $C_2$ конденсаторлар батареясы $\\mathcal{E}_1+\\mathcal{E}_2$ кернеумен зарядталады. $C_1$-дегі кернеу $U_1=\\frac{C_2}{C_1+C_2}(\\mathcal{E}_1+\\mathcal{E}_2)$-ге тең. Ток жоқ болғандықтан, $\\varphi_D-\\varphi_B=\\mathcal{E}_1$, және $\\varphi_A-\\varphi_B=\\frac{C_1\\mathcal{E}_1-C_2\\mathcal{E}_2}{C_1+C_2}$.",
   "figures": [
     "gelfgat-12-60-fig1.png"
   ]

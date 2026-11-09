@@ -5,7 +5,11 @@
   "title": "Уравнение с дробной частью",
   "statement": "Сколько решений в вещественных числах имеет уравнение $(x - 1)^3 = \\{(x + 1)^3\\}$ (здесь $\\{t\\}$ обозначает дробную часть числа $t$)?",
   "answer": {
-    "value": 18.0
+    "value": 18.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 2,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/kurchatov_2024_math_sol_10.pdf"
-  }
+  },
+  "statement_kk": "Нақты сандар жиынында $(x - 1)^3 = \\{(x + 1)^3\\}$ теңдеуінің неше шешімі бар? (Мұнда $\\{t\\}$ — $t$ санының бөлшек бөлігі.)",
+  "figures": []
 }

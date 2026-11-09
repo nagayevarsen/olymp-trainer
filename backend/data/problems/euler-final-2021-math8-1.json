@@ -6,8 +6,10 @@
   "statement": "Прямые $y = ax+b$, $y = bx+c$, $y = cx+d$, $y = dx+a$ ограничивают квадрат. Чему может равняться площадь этого квадрата (укажите все возможности)?",
   "answer": {
     "value": 2.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Леонарда Эйлера",
@@ -16,5 +18,7 @@
     "grade": 8,
     "number": 1,
     "url": "https://www.matol.ru/files/3etap2021sol.pdf"
-  }
+  },
+  "statement_kk": "$y = ax+b$, $y = bx+c$, $y = cx+d$, $y = dx+a$ түзулері квадратты шектейді. Осы квадраттың ауданы неге тең бола алады (барлық мүмкіндіктерін көрсетіңіз)?",
+  "figures": []
 }

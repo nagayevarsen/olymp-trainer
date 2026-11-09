@@ -5,7 +5,11 @@
   "title": "Равенства с корнями",
   "statement": "Для неотрицательных чисел $a,b,c,d$ выполнены равенства: $\\sqrt{a+b}+\\sqrt{c+d}=\\sqrt{a+c}+\\sqrt{b+d}=\\sqrt{a+d}+\\sqrt{b+c}$. Какое максимальное количество различных может быть среди чисел $a,b,c,d$?",
   "answer": {
-    "value": 2.0
+    "value": 2.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +18,7 @@
     "grade": 9,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/fad/2019_3_math_s.pdf"
-  }
+  },
+  "statement_kk": "Теріс емес $a,b,c,d$ сандары үшін мынадай теңдіктер орындалады: $\\sqrt{a+b}+\\sqrt{c+d}=\\sqrt{a+c}+\\sqrt{b+d}=\\sqrt{a+d}+\\sqrt{b+c}$. $a,b,c,d$ сандарының арасында ең көп дегенде нешеу өзара әртүрлі болуы мүмкін?",
+  "figures": []
 }

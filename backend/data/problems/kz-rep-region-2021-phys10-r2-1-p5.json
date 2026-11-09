@@ -20,6 +20,8 @@
     "url": "https://cdn.bc-pf.org/olympiads/physics/national/oblast/2021/phys10-2-sol.pdf"
   },
   "solution": "$\\Delta\\varepsilon_m=\\left|\\frac{\\partial\\varepsilon_m}{\\partial\\gamma}\\right|\\Delta\\gamma=\\frac{108}{(29-15\\gamma)^2}\\Delta\\gamma\\approx 0.03$.",
+  "statement_kk": "Белгілі бір тәжірибеде молярлық массасы 4 г/моль бір атомды газ гелий мен су буының ($H_2O$, молярлық массасы 18 г/моль) қоспасы графикте көрсетілген адиабаталық процеске қатысады. Тәжірибе деректеріне сүйеніп, бу барлық уақытта қанықпаған күйде қалса, қоспадағы су буының массалық мөлшерін анықтаңыз. Есептеу әдісін ұсыныңыз, нәтижені беріңіз және оның қателігін анықтаңыз.\n\n**5-тармақ.** Адиабата көрсеткішінің қателігі $\\Delta\\gamma=0.01$ болғандағы су буының массалық үлесінің абсолютті қателігін $\\Delta\\varepsilon_m$ анықтаңыз.",
+  "solution_kk": "$\\Delta\\varepsilon_m=\\left|\\frac{\\partial\\varepsilon_m}{\\partial\\gamma}\\right|\\Delta\\gamma=\\frac{108}{(29-15\\gamma)^2}\\Delta\\gamma\\approx 0.03$.",
   "figures": [
     "kz-rep-region-2021-phys10-r2-1-fig1.png"
   ]

@@ -1,0 +1,27 @@
+{
+  "id": "zhaut-city-2023-math7-t1-4",
+  "subject": "math",
+  "topic": "геометрия треугольника",
+  "title": "Неравенство в треугольнике",
+  "statement": "В треугольнике $BCD$ на стороне $BD$ отметили точку $A$. Оказалось, что $AC=BD$ и $\\angle DBC=2\\angle ACB$. Докажите, что $AB+BC>CD$.",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2023,
+    "stage": "city",
+    "grade": 7,
+    "number": 4,
+    "url": "https://matol.kz/olympiads/1087"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Обозначим $\\angle ACB=\\alpha$, тогда $\\angle DBC=\\angle ABC=2\\alpha$ (так как $A$ лежит на стороне $BD$). Угол $BAC=180^\\circ-3\\alpha>0$, поэтому $0<\\alpha<60^\\circ$ и $c=\\cos\\alpha>\\tfrac12$. Пусть $AC=BD=1$ (масштаб не влияет на неравенство).\n\n1) Из теоремы синусов в треугольнике $ABC$ (учитываем $\\sin(180^\\circ-3\\alpha)=\\sin3\\alpha$):\n$AB=\\dfrac{\\sin\\alpha}{\\sin2\\alpha}=\\dfrac1{2c}$, $BC=\\dfrac{\\sin3\\alpha}{\\sin2\\alpha}$.\nТак как $\\sin3\\alpha=\\sin\\alpha(4c^2-1)$ и $\\sin2\\alpha=2\\sin\\alpha\\cdot c$, получаем $BC=a=\\dfrac{4c^2-1}{2c}=2c-\\dfrac1{2c}$.\nСледовательно, $AB+BC=\\dfrac1{2c}+2c-\\dfrac1{2c}=2c$.\n\n2) По теореме косинусов в треугольнике $BCD$ (здесь $BD=1$, $\\angle CBD=2\\alpha$, $\\cos2\\alpha=2c^2-1$):\n$CD^2=a^2+1-2a(2c^2-1)$.\nВычислим: $a^2=4c^2-2+\\dfrac1{4c^2}$, \n$2a(2c^2-1)=2\\left(2c-\\dfrac1{2c}\\right)(2c^2-1)=8c^3-6c+\\dfrac1c$.\nЗначит, $CD^2=4c^2-1+\\dfrac1{4c^2}-8c^3+6c-\\dfrac1c$.\n\n3) Тогда\n$(AB+BC)^2-CD^2=4c^2-CD^2=1-\\dfrac1{4c^2}+8c^3-6c+\\dfrac1c=\\dfrac{32c^5-24c^3+4c^2+4c-1}{4c^2}$.\nРазложим числитель: $32c^5-24c^3+4c^2+4c-1=(2c-1)\\,q(c)$, где $q(c)=16c^4+8c^3-8c^2-2c+1$ (проверяется раскрытием скобок).\nПоскольку $c>\\tfrac12$, имеем $2c-1>0$ и $16c^4>8c^3$. Поэтому\n$q(c)>16c^3-8c^2-2c+1=8c^2(2c-1)-(2c-1)=(2c-1)(8c^2-1)>0$,\nтак как $8c^2>2>1$.\nИтак, $(AB+BC)^2-CD^2>0$.\n\n4) Обе величины $AB+BC$ и $CD$ положительны, значит $AB+BC>CD$. Что и требовалось доказать.",
+  "statement_kk": "$BCD$ үшбұрышының $BD$ қабырғасында $A$ нүктесі белгіленген. Белгілі болғаны: $AC=BD$ және $\\angle DBC=2\\angle ACB$. $AB+BC>CD$ екенін дәлелдеңіз.",
+  "solution_kk": "Шешімді ЖИ құрастырған және ресми емес. $\\angle ACB=\\alpha$ деп белгілейік, онда $\\angle DBC=\\angle ABC=2\\alpha$ (себебі $A$ нүктесі $BD$ қабырғасында жатыр). $\\angle BAC=180^\\circ-3\\alpha>0$, сондықтан $0<\\alpha<60^\\circ$ және $c=\\cos\\alpha>\\tfrac12$. $AC=BD=1$ деп алайық (масштаб теңсіздікке әсер етпейді).\n\n1) $ABC$ үшбұрышындағы синустар теоремасынан (мұнда $\\sin(180^\\circ-3\\alpha)=\\sin3\\alpha$ екенін ескереміз):\n$AB=\\dfrac{\\sin\\alpha}{\\sin2\\alpha}=\\dfrac1{2c}$, $BC=\\dfrac{\\sin3\\alpha}{\\sin2\\alpha}$.\nӨйткені $\\sin3\\alpha=\\sin\\alpha(4c^2-1)$ және $\\sin2\\alpha=2\\sin\\alpha\\cdot c$, онда $BC=a=\\dfrac{4c^2-1}{2c}=2c-\\dfrac1{2c}$.\nСондықтан $AB+BC=\\dfrac1{2c}+2c-\\dfrac1{2c}=2c$.\n\n2) $BCD$ үшбұрышындағы косинустар теоремасынан (мұнда $BD=1$, $\\angle CBD=2\\alpha$, $\\cos2\\alpha=2c^2-1$):\n$CD^2=a^2+1-2a(2c^2-1)$.\nЕсептейміз: $a^2=4c^2-2+\\dfrac1{4c^2}$,\n$2a(2c^2-1)=2\\left(2c-\\dfrac1{2c}\\right)(2c^2-1)=8c^3-6c+\\dfrac1c$.\nДемек, $CD^2=4c^2-1+\\dfrac1{4c^2}-8c^3+6c-\\dfrac1c$.\n\n3) Сонда\n$(AB+BC)^2-CD^2=4c^2-CD^2=1-\\dfrac1{4c^2}+8c^3-6c+\\dfrac1c=\\dfrac{32c^5-24c^3+4c^2+4c-1}{4c^2}$.\nСанды жіктейміз: $32c^5-24c^3+4c^2+4c-1=(2c-1)\\,q(c)$, мұнда $q(c)=16c^4+8c^3-8c^2-2c+1$ (жақшаларды ашу арқылы тексеріледі).\nӨйткені $c>\\tfrac12$, $2c-1>0$ және $16c^4>8c^3$. Сондықтан\n$q(c)>16c^3-8c^2-2c+1=8c^2(2c-1)-(2c-1)=(2c-1)(8c^2-1)>0$,\nсебебі $8c^2>2>1$.\nСонымен, $(AB+BC)^2-CD^2>0$.\n\n4) $AB+BC$ және $CD$ шамалары екеуі де оң, демек $AB+BC>CD$. Не дәлелдеу керек еді.",
+  "figures": []
+}

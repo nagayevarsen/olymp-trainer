@@ -6,13 +6,15 @@
   "statement": "Натуральное число $2a$ имеет 8 делителей (включая 1 и само число), а натуральное число $3a$ имеет менее 6 делителей. Какой цифрой может оканчиваться число $2023a$?",
   "answer": {
     "value": 1.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 1",
       "решение: anthropic:claude-sonnet-5-5 → 1",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 1",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 1"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,7 @@
     "grade": 7,
     "number": 3,
     "url": "https://matol.kz/olympiads/1087"
-  }
+  },
+  "statement_kk": "$2a$ натурал саны 8 бөлгішке ие (1 және санның өзі қоса алғанда), ал $3a$ натурал санының 6-дан аз бөлгіші бар. $2023a$ санының соңғы цифры қандай болуы мүмкін?",
+  "figures": []
 }

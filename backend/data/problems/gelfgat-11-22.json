@@ -16,5 +16,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=76"
   },
   "solution": "Ответ из книги: $C_p - C_V = R$\n\nИз определения молярной теплоёмкости $C = \\frac{Q}{\\nu\\Delta T}$. При изохорном нагревании $Q_V = \\Delta U$, при изобарном $Q_p = \\Delta U + A'$, где $A' = p\\Delta V = \\nu R\\Delta T$. Отсюда $C_p = \\frac{\\Delta U}{\\nu\\Delta T} + R$, и $C_p - C_V = R$.",
+  "statement_kk": "Идеал газдың тұрақты қысымдағы молярлық жылu сыйымдылығы $C_p$ мен тұрақты көлемдегі $C_V$ арасында $C_p - C_V = R$ байланысы бар екенін дәлелдеңіз, мұндағы $R$ — әмбебап газ тұрақтысы.",
+  "solution_kk": "Кітаптағы жауап: $C_p - C_V = R$\n\nМолярлық жылу сыйымдылығының анықтамасынан $C = \\frac{Q}{\\nu\\Delta T}$. Изохорлық қыздыруда $Q_V = \\Delta U$, изобарлықта $Q_p = \\Delta U + A'$, мұндағы $A' = p\\Delta V = \\nu R\\Delta T$. Осыдан $C_p = \\frac{\\Delta U}{\\nu\\Delta T} + R$, және $C_p - C_V = R$.",
   "figures": []
 }

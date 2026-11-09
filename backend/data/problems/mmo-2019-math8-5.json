@@ -6,7 +6,11 @@
   "statement": "Внутри равнобедренного треугольника ABC отмечена точка K так, что AB=BC=CK и ∠KAC=30°. Найдите угол AKB.",
   "answer": {
     "value": 150.0,
-    "unit": "°"
+    "variables": {},
+    "unit": "°",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Московская математическая олимпиада (ММО)",
@@ -15,5 +19,7 @@
     "grade": 8,
     "number": 5,
     "url": "https://mmo.mccme.ru/2019/82mmo.pdf"
-  }
+  },
+  "statement_kk": "Teңбүйірлі ABC үшбұрышының ішінен K нүктесі белгіленген, сонда AB=BC=CK және ∠KAC=30°. AKB бұрышын табыңдар.",
+  "figures": []
 }

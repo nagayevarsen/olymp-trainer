@@ -14,7 +14,7 @@ def test_official_sets_come_from_documents():
     )  # число задач не подтверждено, но все равноценны
     assert other_tour.problems is None and other_tour.equal_weight
     zhaut = olympiad_rules.official_set("Городская Жаутыковская олимпиада (Алматы)", "city")
-    assert zhaut.problems == 20 and zhaut.equal_weight
+    assert zhaut.problems is None and zhaut.equal_weight  # число задач берётся со страницы источника
     assert olympiad_rules.official_set("Международная Жаутыковская олимпиада (IZhO)", "international") is None
 
 

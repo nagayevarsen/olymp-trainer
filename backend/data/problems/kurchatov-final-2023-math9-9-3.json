@@ -5,7 +5,11 @@
   "title": "Делители числа n",
   "statement": "Пусть $a, b, c$ и $d$ — наименьшие различные натуральные делители натурального числа $n$. Оказалось, что $a^2 + b^2 + c^2 + d^2 + 100 = n$. Какие значения может принимать $n$?",
   "answer": {
-    "value": 230.0
+    "value": 230.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 9,
     "number": 3,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_Math_2023.pdf"
-  }
+  },
+  "statement_kk": "$a, b, c$ және $d$ — натурал $n$ санының ең кіші әр түрлі натурал бөлгіштері болсын. Белгілі болғандай, $a^2 + b^2 + c^2 + d^2 + 100 = n$. $n$ саны қандай мәндер қабылдай алады?",
+  "figures": []
 }

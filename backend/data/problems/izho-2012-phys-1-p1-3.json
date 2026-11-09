@@ -12,7 +12,8 @@
       "h": "толщина пластинки"
     },
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -22,6 +23,8 @@
     "url": "https://izho.kz/wp-content/uploads/2018/12/IZhO-2012-Theory_rus_sol_final.pdf"
   },
   "solution": "Сравнивая $\\frac{1}{a}+\\frac{1}{b}=2n_0\\beta h$ с формулой тонкой линзы $\\frac{1}{a}+\\frac{1}{b}=\\frac{1}{F}$, получаем $F=\\frac{1}{2n_0\\beta h}$.",
+  "statement_kk": "Бұл есеп бір-бірімен байланысы жоқ үш бөліктен тұрады.\n\n**1.С.3-тармақ.** 1.С есебіндегі пластинка ($n(r)=n_0(1-\\beta r^2)$ заңы, қалыңдығы $h$) құрайтын линзаның фокус қашықтығы неге тең?",
+  "solution_kk": "$\\frac{1}{a}+\\frac{1}{b}=2n_0\\beta h$ теңдігін жұқа линзаның $\\frac{1}{a}+\\frac{1}{b}=\\frac{1}{F}$ формуласымен салыстырып, $F=\\frac{1}{2n_0\\beta h}$ аламыз.",
   "figures": [
     "izho-2012-phys-1-fig1.png",
     "izho-2012-phys-1-fig2.png",

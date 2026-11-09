@@ -5,7 +5,11 @@
   "title": "Наименьшее число со свойствами",
   "statement": "Найдите наименьшее натуральное число, которое обладает следующими тремя свойствами:\n• делится на 568;\n• заканчивается на 568;\n• больше 568.",
   "answer": {
-    "value": 71568.0
+    "value": 71568.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 7,
     "number": 2,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2021_Online_Math.pdf"
-  }
+  },
+  "statement_kk": "Үш қасиеті бар ең кіші натурал санды табыңыз:\n• 568-ге бөлінеді;\n• 568-мен аяқталады;\n• 568-ден үлкен.",
+  "figures": []
 }

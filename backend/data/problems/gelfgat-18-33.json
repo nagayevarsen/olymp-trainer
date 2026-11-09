@@ -20,5 +20,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
   },
   "solution": "Углы малы: $\\beta_1=\\alpha/n$, $\\beta=\\alpha n$. Отклонения при входе и выходе: $\\delta=\\delta_1+\\delta_2=\\varphi(n-1)$, не зависит от $\\alpha$.",
+  "statement_kk": "Призманың бүйір жағына түсетін сәуленің түсу бұрышы $\\alpha$. Призманың сындыру бұрышы $\\varphi$, призма материалының сыну көрсеткіші $n$. Бұрыштар $\\alpha$ және $\\varphi$ кіші болғанда, сәуленің бастапқы бағыттан ауытқу бұрышы $\\delta$-ны анықтаңыз.",
+  "solution_kk": "Бұрыштар кіші: $\\beta_1=\\alpha/n$, $\\beta=\\alpha n$. Кіру және шығу кезіндегі ауытқулар: $\\delta=\\delta_1+\\delta_2=\\varphi(n-1)$, $\\alpha$-ға тәуелсіз.",
   "figures": []
 }

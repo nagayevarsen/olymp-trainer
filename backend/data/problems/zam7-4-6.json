@@ -20,6 +20,8 @@
     "url": "https://fizmat.space/library/files/%D0%97%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BD_7_%D0%BA%D0%BB%D0%B0%D1%81%D1%81.pdf#page=126"
   },
   "solution": "F = 2kΔx/5",
+  "statement_kk": "Әрқайсысының қатаңдығы $k = 10$ Н/м болатын серіппелер суретте көрсетілгендей жалғанған. Күш қолданылатын нүкте $\\Delta x = 10$ см төмендеуі үшін жүйені қандай $F$ күшпен созу керек?",
+  "solution_kk": "F = 2kΔx/5",
   "figures": [
     "zam7-4-6-fig1.png"
   ]

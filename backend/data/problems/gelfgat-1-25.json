@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=6"
   },
   "solution": "Из $H=\\frac{gt^2}{2}$ и $H-s=\\frac{g(t-\\tau)^2}{2}$ находим $t=\\frac{s}{g\\tau}+\\frac{\\tau}{2}$, откуда $H=\\frac{g}{2}\\left(\\frac{s}{g\\tau}+\\frac{\\tau}{2}\\right)^2$.",
+  "statement_kk": "Еркін құлаған дене соңғы $s = 30$ м жолды $\\tau = 0{,}5$ с уақытта жүріп өтті. Дене қандай $H$ биіктігінен құлаған?",
+  "solution_kk": "$H=\\frac{gt^2}{2}$ және $H-s=\\frac{g(t-\\tau)^2}{2}$ теңдеулерінен $t=\\frac{s}{g\\tau}+\\frac{\\tau}{2}$ табамыз, осыдан $H=\\frac{g}{2}\\left(\\frac{s}{g\\tau}+\\frac{\\tau}{2}\\right)^2$.",
   "figures": []
 }

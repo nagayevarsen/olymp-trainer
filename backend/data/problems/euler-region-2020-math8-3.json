@@ -19,5 +19,7 @@
     "url": "https://www.matol.ru/files/8klass2020_2etap_sol.pdf"
   },
   "solution": "Пусть точка $D'$ симметрична $D$ относительно прямой $AK$. Тогда $BC = DK = D'K$ и $KC = AD-AB = AD'-AB = BD'$, откуда следует равенство треугольников $BD'K$ и $BCK$ по трём сторонам. Тогда $\\angle BCK = \\angle BD'K = \\angle AD'K = \\angle ADK = \\angle ADC$.",
+  "statement_kk": "Дөңес $ABCD$ төртбұрышының $A$ бұрышының биссектрисасы $CD$ қабырғасын $K$ нүктесінде қияды. Мынадай екені анықталды: $DK = BC$ және $KC+AB = AD$. Дәлелдеңдер: $\\angle BCD = \\angle ADC$. (С. Берлов)",
+  "solution_kk": "$D'$ нүктесі $D$ нүктесінің $AK$ түзуіне қатысты симметриялысы болсын. Онда $BC = DK = D'K$ және $KC = AD-AB = AD'-AB = BD'$. Осыдан үш қабырғасы бойынша $BD'K$ және $BCK$ үшбұрыштарының теңдігі шығады. Сонда $\\angle BCK = \\angle BD'K = \\angle AD'K = \\angle ADK = \\angle ADC$.",
   "figures": []
 }

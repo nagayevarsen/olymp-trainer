@@ -6,13 +6,15 @@
   "statement": "В выпуклом четырехугольнике $ABCD$ выполнено $AB^2 + CD^2 = AC^2 + BD^2$. Найдите угол между сторонами $BC$ и $AD$.",
   "answer": {
     "value": 90.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 90",
       "решение: anthropic:claude-sonnet-5-5 → 90",
       "программа (other): anthropic:claude-haiku-5-5 → 90",
       "программа (other): anthropic:claude-sonnet-5-5 → 90"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,7 @@
     "grade": 11,
     "number": 3,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2005/math11-1-tasks.pdf"
-  }
+  },
+  "statement_kk": "Дөңес $ABCD$ төртбұрышында $AB^2 + CD^2 = AC^2 + BD^2$ орындалады. $BC$ және $AD$ қабырғаларының арасындағы бұрышты табыңыз.",
+  "figures": []
 }

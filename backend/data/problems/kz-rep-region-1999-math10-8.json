@@ -6,13 +6,15 @@
   "statement": "Число 2401 представлено в виде суммы двадцати пяти целых положительных чисел. Какое наименьшее значение может иметь наименьшее общее кратное этих двадцати пяти чисел?",
   "answer": {
     "value": 98.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 98",
       "решение: anthropic:claude-sonnet-5-5 → 98",
       "программа (other): anthropic:claude-haiku-5-5 → 98",
       "программа (other): anthropic:claude-sonnet-5-5 → 98"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,7 @@
     "grade": 10,
     "number": 8,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/1999/math10-1-tasks.pdf"
-  }
+  },
+  "statement_kk": "2401 саны жиырма бес бүтін оң санның қосындысы түрінде берілген. Осы жиырма бес санның ең кіші ортақ еселігінің ең кіші мәні қандай болуы мүмкін?",
+  "figures": []
 }

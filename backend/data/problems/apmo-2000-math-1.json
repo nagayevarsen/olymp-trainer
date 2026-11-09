@@ -6,8 +6,10 @@
   "statement": "Compute the sum $S = \\sum_{i=0}^{101} \\frac{x_i^3}{1-3x_i+3x_i^2}$ for $x_i = \\frac{i}{101}$.",
   "answer": {
     "value": 51.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Азиатско-Тихоокеанская математическая олимпиада (APMO)",
@@ -15,5 +17,7 @@
     "stage": "international",
     "number": 1,
     "url": "https://www.apmo-official.org/static/solutions/apmo2000_sol.pdf"
-  }
+  },
+  "statement_kk": "$x_i = \\frac{i}{101}$ болғанда $S = \\sum_{i=0}^{101} \\frac{x_i^3}{1-3x_i+3x_i^2}$ қосындысын есептеңдер.",
+  "figures": []
 }

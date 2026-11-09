@@ -16,5 +16,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=61"
   },
   "solution": "Ответ из книги: нагревается\n\nЧтобы найти связь между V и T, нужно выразить p через V и T из уравнения Клапейрона: $p=\\text{const}\\cdot T/V$. Получаем: а) $TV=\\text{const}$; б) $T/V=\\text{const}$; в) $T/V^2=\\text{const}$.",
+  "statement_kk": "Келесі заң бойынша кеңейетін газ қызып жатыр ма, әлде суып жатыр ма: а) $pV^2 = \\text{const}$; б) $p = \\text{const}$; в) $p/V = \\text{const}$?\n\n**в бөлімі.** Тек осы бөлімге ғана жауап беріңіз.",
+  "solution_kk": "Кітаптағы жауап: қызады\n\nV мен T арасындағы байланысты табу үшін Клапейрон теңдеуінен p-ны V және T арқылы өрнектеу керек: $p=\\text{const}\\cdot T/V$. Аламыз: а) $TV=\\text{const}$; б) $T/V=\\text{const}$; в) $T/V^2=\\text{const}$.",
   "figures": []
 }

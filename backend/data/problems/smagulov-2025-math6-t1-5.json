@@ -6,13 +6,15 @@
   "statement": "Вычислите: $6,\\!563\\cdot 5,\\!573+4,\\!427\\cdot 5,\\!437+6,\\!563\\cdot 4,\\!427+5,\\!437 \\cdot5,\\!573$.",
   "answer": {
     "value": 120000000.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 120000000",
       "решение: anthropic:claude-sonnet-5-5 → 120000000",
       "программа (other): anthropic:claude-haiku-5-5 → 120000000",
       "программа (other): anthropic:claude-sonnet-5-5 → 120000000"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -69,5 +71,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Есептеңіз: $6,\\!563\\cdot 5,\\!573+4,\\!427\\cdot 5,\\!437+6,\\!563\\cdot 4,\\!427+5,\\!437 \\cdot5,\\!573$.",
+  "figures": []
 }

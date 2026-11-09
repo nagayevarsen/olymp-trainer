@@ -18,5 +18,6 @@
     "number": 5,
     "url": "https://www.apmo-official.org/static/solutions/apmo2001_sol.pdf"
   },
+  "statement_kk": "$ABCD$ — төртбұрыш, $AB \\neq CD$ болсын. Жазықтықтағы $X$ нүктелерінің ең үлкен мүмкін болатын $n$ санын табыңыз, олар үшін $ABX$ және $CDX$ үшбұрыштары тең (конгруэнт) болады.",
   "figures": []
 }

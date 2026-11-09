@@ -19,5 +19,7 @@
     "url": "https://www.matol.ru/files/8 klass2021_2 etap_day2_sol.pdf"
   },
   "solution": "Ответ. $60^\\circ$. Решение. Пусть отрезки $AR$ и $BM$ пересекаются в точке $Q$. Так как треугольники $ABP$ и $BAR$ равны по первому признаку, $\\angle BAR = \\angle ABP = \\alpha$. Тогда $\\angle ARM + \\angle BMR = 180^\\circ - \\angle AQB = 2\\alpha + \\angle PBM$ (здесь первое равенство — теорема о внешнем угле для треугольника $MQR$, а второе — теорема о сумме углов для треугольника $AQB$), откуда $\\angle ARM + \\angle BMR + \\angle PBM = 2(\\alpha + \\angle PBM) = 2\\angle ABM = 60^\\circ$.",
+  "statement_kk": "$ABC$ теңқабырғалы үшбұрышының $AC$ қабырғасының ортасы — $M$ нүктесі. $AM$ және $BC$ кесінділерінде сәйкесінше $P$ және $R$ нүктелері $AP = BR$ болатындай алынған. $ARM$, $PBM$ және $BMR$ бұрыштарының қосындысын табыңыз.",
+  "solution_kk": "Жауабы. $60^\\circ$. Шешуі. $AR$ және $BM$ кесінділері $Q$ нүктесінде қиылысады делік. $ABP$ және $BAR$ үшбұрыштары бірінші белгі бойынша тең болғандықтан, $\\angle BAR = \\angle ABP = \\alpha$. Сонда $\\angle ARM + \\angle BMR = 180^\\circ - \\angle AQB = 2\\alpha + \\angle PBM$ (мұндағы бірінші теңдік — $MQR$ үшбұрышы үшін сыртқы бұрыш туралы теорема, ал екінші — $AQB$ үшбұрышы үшін бұрыштар қосындысы туралы теорема), осыдан $\\angle ARM + \\angle BMR + \\angle PBM = 2(\\alpha + \\angle PBM) = 2\\angle ABM = 60^\\circ$.",
   "figures": []
 }

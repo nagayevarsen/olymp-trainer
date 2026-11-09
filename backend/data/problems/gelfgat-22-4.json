@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=161"
   },
   "solution": "Работа выхода $A=\\frac{hc}{\\lambda_{max}}$. По уравнению Эйнштейна $h\\nu=A+\\frac{mv^2}{2}$ получаем $v=\\sqrt{\\frac{2hc(\\lambda_{max}-\\lambda)}{m\\lambda\\lambda_{max}}}=5{,}8\\cdot10^5$ м/с.",
+  "statement_kk": "Калий үшін фотоэффектінің қызыл шекарасы $\\lambda_{max} = 0{,}62$ мкм. Калийге ұзындығы $\\lambda = 0{,}42$ мкм күлгін жарық түсірілгенде ұшып шығатын фотоэлектрондардың ең үлкен жылдамдығы $v$ қандай болуы мүмкін?",
+  "solution_kk": "Шығу жұмысы $A=\\frac{hc}{\\lambda_{max}}$. Эйнштейн теңдеуі $h\\nu=A+\\frac{mv^2}{2}$ бойынша $v=\\sqrt{\\frac{2hc(\\lambda_{max}-\\lambda)}{m\\lambda\\lambda_{max}}}=5{,}8\\cdot10^5$ м/с.",
   "figures": []
 }

@@ -19,5 +19,7 @@
     "url": "https://www.matol.ru/files/Disttur3_13_sol.pdf"
   },
   "solution": "Ответ. 2. Решение. Положим $\\angle CAB=\\alpha$, $\\angle ACB=\\beta$. Так как AD = AB и CE = CB, имеем $\\angle DBE=\\angle DBA+\\angle EBC-\\angle ABC=\\frac{180^\\circ-\\alpha}{2}+\\frac{180^\\circ-\\beta}{2}-120^\\circ=60^\\circ-\\frac{\\alpha+\\beta}{2}=30^\\circ$. Таким образом, в прямоугольном треугольнике BFD угол при вершине B равен $30^\\circ$, откуда $\\frac{BD}{DF}=2$.",
+  "statement_kk": "ABC үшбұрышындағы B төбесіндегі бұрыш 120 градус. AC қабырғасында D және E нүктелері белгіленген, мұнда AD = AB және CE = CB. D нүктесінен BE түзуіне DF перпендикуляры түсірілген. $\\frac{BD}{DF}$ қатынасын табыңдар.",
+  "solution_kk": "Жауабы. 2. Шешуі. $\\angle CAB=\\alpha$, $\\angle ACB=\\beta$ деп белгілейік. AD = AB және CE = CB болғандықтан, $\\angle DBE=\\angle DBA+\\angle EBC-\\angle ABC=\\frac{180^\\circ-\\alpha}{2}+\\frac{180^\\circ-\\beta}{2}-120^\\circ=60^\\circ-\\frac{\\alpha+\\beta}{2}=30^\\circ$. Осылайша, тікбұрышты BFD үшбұрышында B төбесіндегі бұрыш $30^\\circ$-қа тең, осыдан $\\frac{BD}{DF}=2$.",
   "figures": []
 }

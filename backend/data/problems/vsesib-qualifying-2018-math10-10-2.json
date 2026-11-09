@@ -6,8 +6,10 @@
   "statement": "Найти количество всех пятизначных чисел $\\overline{abcde}$, все цифры которых различны и $a<b<c>d>e$.",
   "answer": {
     "value": 1134.0,
+    "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -43,5 +45,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "$\\overline{abcde}$ түріндегі барлық бес таңбалы сандардың санын табыңыз, олардың барлық цифрлары әртүрлі және $a<b<c>d>e$.",
+  "figures": []
 }

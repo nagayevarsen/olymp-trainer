@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
+import json
 import logging
+from functools import lru_cache
+from pathlib import Path
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from pydantic import BaseModel, Field
@@ -25,6 +28,7 @@ from ..common import (
     optional_user,
     require_problem,
 )
+from ..config import settings
 from ..db import DB
 from ..llm import LLMError
 from .problems import _take_proof_check
@@ -111,10 +115,22 @@ def contest_points(c: contests.Contest) -> list[int]:
     return scoring.scale_for_contest(difficulty)
 
 
+@lru_cache(maxsize=1)
+def _official_counts() -> dict[str, int]:
+    """Адрес страницы источника → сколько задач в официальном варианте (пишет tools/matol_fill.py)."""
+    try:
+        return json.loads((Path(settings.data_dir) / "official_counts.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
 def _completeness(c: contests.Contest) -> dict:
     """Сколько задач в официальном варианте и все ли они есть в банке (задачи одного номера — пункты одной задачи)."""
     official = olympiad_rules.official_set(c.olympiad, c.stage, c.tour)
-    need = official.problems if official else None
+    # Число задач на странице источника точнее общей записи об олимпиаде: у каждой страницы оно своё.
+    urls = {p.source.url for p in c.problems}
+    page_total = _official_counts().get(next(iter(urls)), 0) if len(urls) == 1 else 0
+    need = page_total or (official.problems if official else None)
     have = len({p.source.number or p.id for p in c.problems})
     return {
         "official_count": need,

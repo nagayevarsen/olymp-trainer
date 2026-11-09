@@ -5,7 +5,11 @@
   "title": "Значение суммы косинусов",
   "statement": "Числа $x$, $y$ и $z$ таковы, что $\\frac{\\sin x + \\sin y + \\sin z}{\\sin(x + y + z)} = \\frac{\\cos x + \\cos y + \\cos z}{\\cos(x + y + z)} = 2$. Вычислите $\\cos(x + y) + \\cos(y + z) + \\cos(z + x)$.",
   "answer": {
-    "value": 2.0
+    "value": 2.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 11,
     "number": 2,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Kurchatov_2026_Math_11_Solutions.pdf"
-  }
+  },
+  "statement_kk": "$x$, $y$ және $z$ сандары мына теңдіктерді қанағаттандырады: $\\frac{\\sin x + \\sin y + \\sin z}{\\sin(x + y + z)} = \\frac{\\cos x + \\cos y + \\cos z}{\\cos(x + y + z)} = 2$. $\\cos(x + y) + \\cos(y + z) + \\cos(z + x)$ өрнегінің мәнін есептеңіз.",
+  "figures": []
 }

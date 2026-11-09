@@ -78,7 +78,7 @@ export function ProfilePage({ onLogout }: { onLogout: () => void }) {
         </section>
       )}
 
-      <section className="grid gap-6 md:grid-cols-2">
+      <section className="grid items-start gap-6 md:grid-cols-2">
         {bySubject.map(({ subject, topics }) => (
           <SkillMap key={subject} subject={subject} topics={topics} weak={me.weak_topics} />
         ))}

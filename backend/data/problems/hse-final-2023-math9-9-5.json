@@ -5,7 +5,11 @@
   "title": "Наименьшее значение суммы квадратов",
   "statement": "Действительные числа $a$, $b$, $c$, $d$ таковы, что $a + b = \\frac{9}{c - d}$ и $c + d = \\frac{25}{a - b}$. Какое наименьшее значение может принимать величина $a^2 + b^2 + c^2 + d^2$?",
   "answer": {
-    "value": 34.0
+    "value": 34.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Высшая проба»",
@@ -14,5 +18,7 @@
     "grade": 9,
     "number": 5,
     "url": "https://olymp.hse.ru/mirror/pubs/share/821374453.pdf"
-  }
+  },
+  "statement_kk": "Нақты $a$, $b$, $c$, $d$ сандары үшін $a + b = \\frac{9}{c - d}$ және $c + d = \\frac{25}{a - b}$. Онда $a^2 + b^2 + c^2 + d^2$ шамасы ең кіші қандай мән қабылдай алады?",
+  "figures": []
 }

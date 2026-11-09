@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=141"
   },
   "solution": "Смещение луча $a = AB\\sin(\\alpha-\\beta)$, толщина пластинки $h = a\\sqrt{n^2-\\sin^2\\alpha}/(\\sin\\alpha(\\sqrt{n^2-\\sin^2\\alpha}-\\cos\\alpha))$ с учётом закона преломления $\\sin\\beta=\\sin\\alpha/n$.",
+  "statement_kk": "Шыны жазық параллель пластинкаға жарық сәулесінің түсу бұрышы $\\alpha = 60^\\circ$. Пластинкадан шыққан сәуле $a = 15$ мм-ге ығысты. Пластинканың қалыңдығы $h$ қандай?",
+  "solution_kk": "Сәуленің ығысуы $a = AB\\sin(\\alpha-\\beta)$, пластинка қалыңдығы $h = a\\sqrt{n^2-\\sin^2\\alpha}/(\\sin\\alpha(\\sqrt{n^2-\\sin^2\\alpha}-\\cos\\alpha))$, мұнда сыну заңы $\\sin\\beta=\\sin\\alpha/n$ ескеріледі.",
   "figures": []
 }

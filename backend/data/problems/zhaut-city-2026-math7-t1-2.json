@@ -6,13 +6,15 @@
   "statement": "В выпуклом четырехугольнике $ABCD$, $E$ — середина $AB$, $F$ — пересечение отрезков $BD$ и $CE$. Оказалось, что $\\angle BAD =60^\\circ, \\angle CEB=70^\\circ, \\angle DFC=80^\\circ, \\angle ECB = 55^\\circ.$ Чему может быть равен $\\angle BDC$?\n(\nБейганов Б.,\nХакимгали А.\n)",
   "answer": {
     "value": 35.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 35",
       "решение: anthropic:claude-sonnet-5-5 → 35",
       "программа (other): anthropic:claude-haiku-5-5 → 35",
       "программа (other): anthropic:claude-sonnet-5-5 → 35"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,7 @@
     "grade": 7,
     "number": 2,
     "url": "https://matol.kz/olympiads/1221"
-  }
+  },
+  "statement_kk": "$ABCD$ дөңес төртбұрышында $E$ — $AB$ кесіндісінің ортасы, $F$ — $BD$ және $CE$ кесінділерінің қиылысу нүктесі. Мынадай болды: $\\angle BAD =60^\\circ, \\angle CEB=70^\\circ, \\angle DFC=80^\\circ, \\angle ECB = 55^\\circ.$ $\\angle BDC$ неге тең болуы мүмкін?\n(\nБейганов Б.,\nХакимгали А.\n)",
+  "figures": []
 }

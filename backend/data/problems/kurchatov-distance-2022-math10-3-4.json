@@ -5,7 +5,11 @@
   "title": "Углы многоугольника",
   "statement": "У некоторого $k$-угольника (не обязательно выпуклого) ровно 14 углов больше $90^\\circ$. Найдите наибольшее возможное значение $k$.",
   "answer": {
-    "value": 45.0
+    "value": 45.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 4,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2022_1_Math_11.pdf"
-  }
+  },
+  "statement_kk": "Кейбір $k$-бұрыштың (міндетті түрде дөңес емес) дәл 14 бұрышы $90^\\circ$-тан үлкен. $k$-ның ең үлкен мүмкін мәнін табыңыз.",
+  "figures": []
 }

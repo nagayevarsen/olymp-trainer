@@ -5,7 +5,11 @@
   "title": "Количество пар чисел",
   "statement": "Найдите количество пар неотрицательных чисел $(x, y)$, каждое из которых не превосходит $6\\pi$, удовлетворяющих равенству $(\\operatorname{tg} x + \\operatorname{ctg} y)^2 = (\\operatorname{tg} x + 1)(\\operatorname{ctg} y - 1)$.",
   "answer": {
-    "value": 36.0
+    "value": 36.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 3,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2021_Online_Math.pdf"
-  }
+  },
+  "statement_kk": "Теріс емес $(x, y)$ сандар жұптарының санын табыңыз, олардың әрқайсысы $6\\pi$-ден аспайды және $(\\operatorname{tg} x + \\operatorname{ctg} y)^2 = (\\operatorname{tg} x + 1)(\\operatorname{ctg} y - 1)$ теңдігін қанағаттандырады.",
+  "figures": []
 }

@@ -5,7 +5,11 @@
   "title": "Сумма нечётных чисел",
   "statement": "Сумма восьми последовательных натуральных нечётных чисел, меньшее из которых больше единицы, равна $N^2$. Укажите минимальное возможное значение числа $N$.",
   "answer": {
-    "value": 12.0
+    "value": 12.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 1,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Olimpiada_Kurchatov_2026_Math_11_10_Online_Solutions.pdf"
-  }
+  },
+  "statement_kk": "Ең кішісі бірден үлкен болатын сегіз қатарлас натурал тақ сандардың қосындысы $N^2$-қа тең. $N$ санының ең кіші мүмкін мәнін көрсетіңіз.",
+  "figures": []
 }

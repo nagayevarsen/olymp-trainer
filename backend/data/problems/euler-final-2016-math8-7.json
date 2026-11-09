@@ -19,5 +19,7 @@
     "url": "https://www.matol.ru/files/3etap2016sol.pdf"
   },
   "solution": "Решение. $\\sqrt{(ab+cd)(ac+bd)} \\le \\dfrac{ab+cd+ac+bd}{2} = \\dfrac{(a+d)(b+c)}{2} \\le \\dfrac{1}{2}\\left(\\dfrac{a+b+c+d}{2}\\right)^2 = 2$. Аналогично, $\\sqrt{(ab+cd)(ad+bc)} \\le 2$ и $\\sqrt{(ac+bd)(ad+bc)} \\le 2$. Перемножая три полученных неравенства, получаем искомое.",
+  "statement_kk": "Теріс емес $a, b, c$ және $d$ сандарының қосындысы 4-ке тең. Дәлелдеңіз: $(ab+cd)(ac+bd)(ad+bc) \\le 8$. (А. Храбров)",
+  "solution_kk": "Шешімі. $\\sqrt{(ab+cd)(ac+bd)} \\le \\dfrac{ab+cd+ac+bd}{2} = \\dfrac{(a+d)(b+c)}{2} \\le \\dfrac{1}{2}\\left(\\dfrac{a+b+c+d}{2}\\right)^2 = 2$. Ұқсас, $\\sqrt{(ab+cd)(ad+bc)} \\le 2$ және $\\sqrt{(ac+bd)(ad+bc)} \\le 2$. Алынған үш теңсіздікті көбейтсек, қажетті нәтиже шығады.",
   "figures": []
 }

@@ -6,7 +6,11 @@
   "statement": "Запишем теорему Гаусса $\\oint_S \\mathbf{E}\\cdot d\\mathbf{S} = \\frac{Q}{\\varepsilon_0}$ для сферы радиуса $r$ с центром в месте расположения ядра. Найдите искомую разность потенциалов $\\varphi(a/4) - \\varphi(a/2)$.",
   "answer": {
     "value": 211.0,
-    "unit": "В"
+    "variables": {},
+    "unit": "В",
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -14,5 +18,7 @@
     "stage": "international",
     "number": 4,
     "url": "https://izho.kz/wp-content/uploads/2021/01/IZhO-2021-Theory_rus_sol.pdf"
-  }
+  },
+  "statement_kk": "Ядро орналасқан жерде центрі бар $r$ радиусты сфера үшін Гаусс теоремасын жазамыз $\\oint_S \\mathbf{E}\\cdot d\\mathbf{S} = \\frac{Q}{\\varepsilon_0}$. Іздеп отырған потенциалдар айырмасын $\\varphi(a/4) - \\varphi(a/2)$ табыңыз.",
+  "figures": []
 }

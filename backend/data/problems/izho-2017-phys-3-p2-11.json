@@ -8,7 +8,8 @@
     "value": 4.0,
     "variables": {},
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -18,6 +19,8 @@
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
   },
   "solution": "Относительная погрешность $\\varepsilon=\\frac{R_\\infty-R_N}{R_N}$: для $N=3$ $\\varepsilon\\approx-3.8\\%$, для $N=4$ $\\varepsilon\\approx-1\\%$. Следовательно, $N=4$.",
+  "statement_kk": "Есеп математикалық кіріспеден (рекуррент қатыстар, $\\lambda=2+\\sqrt{3}$ санының дәрежелері) және әр қыры кедергісі $R_0$-ге тең призма пішініндегі сым каркасты зерттеуден тұрады.\n\n**2.11-тармақ.** Призманың кедергісі $R_\\infty$-дан 2%-дан артық емес айырылатындай минималды $N$ мәнін табыңыз.",
+  "solution_kk": "Салыстырмалы қате $\\varepsilon=\\frac{R_\\infty-R_N}{R_N}$: $N=3$ үшін $\\varepsilon\\approx-3.8\\%$, $N=4$ үшін $\\varepsilon\\approx-1\\%$. Демек, $N=4$.",
   "figures": [
     "izho-2017-phys-3-fig1.png",
     "izho-2017-phys-3-fig2.png"

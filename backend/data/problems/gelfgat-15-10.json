@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=116"
   },
   "solution": "Из условия равновесия $\\tan\\alpha = F_A/(mg) = IBl/(mg)$, откуда $\\alpha = \\operatorname{arctg}(IBl/(mg))$.",
+  "statement_kk": "Тік бағытталған біртекті магнит өрісінде, индукциясы $B = 0{,}50$ Тл, екі жұқа сымға көлденең өткізгіш ілінген, массасы $m = 30$ г, ұзындығы $l = 49$ см. Өткізгіш арқылы күші $I = 1{,}2$ А ток жіберіледі. Сымдар вертикальдан қандай $\\alpha$ бұрышқа ауытқиды?",
+  "solution_kk": "Тепе-теңдік шартынан $\\tan\\alpha = F_A/(mg) = IBl/(mg)$, бұдан $\\alpha = \\operatorname{arctg}(IBl/(mg))$.",
   "figures": []
 }

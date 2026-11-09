@@ -6,13 +6,15 @@
   "statement": "Пусть $n$ — натуральное число, $n < 11$. Простые числа $p_1, p_2, p_3, p$ таковы, что $p_1 + p_3^n$ — простое, $p_1 + p_2 = 3p$, $p_2 + p_3 = p_1^n(p_1 + p_3)$ и $p_2 > 9$. Найдите значение выражения $p_1(p_2p_3^n + p_1^{p_1} + n)$.",
   "answer": {
     "value": 2012.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 2012",
       "решение: anthropic:claude-sonnet-5-5 → 2012",
       "программа (other): anthropic:claude-haiku-5-5 → 2012",
       "программа (other): anthropic:claude-sonnet-5-5 → 2012"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Республиканская олимпиада школьников (Казахстан)",
@@ -21,5 +23,7 @@
     "grade": 11,
     "number": 6,
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2012/math11-1-tasks.pdf"
-  }
+  },
+  "statement_kk": "$n$ — натурал сан, $n < 11$. $p_1, p_2, p_3, p$ — жай сандар, мұнда $p_1 + p_3^n$ — жай сан, $p_1 + p_2 = 3p$, $p_2 + p_3 = p_1^n(p_1 + p_3)$ және $p_2 > 9$. $p_1(p_2p_3^n + p_1^{p_1} + n)$ өрнегінің мәнін табыңыз.",
+  "figures": []
 }

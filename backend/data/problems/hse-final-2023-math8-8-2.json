@@ -5,7 +5,11 @@
   "title": "Наименьшая сумма четырёх чисел",
   "statement": "Действительные числа $x_1$, $x_2$, $x_3$, $x_4$ таковы, что $x_1 + x_2 \\geqslant 12$, $x_1 + x_3 \\geqslant 13$, $x_1 + x_4 \\geqslant 14$, $x_3 + x_4 \\geqslant 22$, $x_2 + x_3 \\geqslant 23$, $x_2 + x_4 \\geqslant 24$. Какое наименьшее значение может принимать сумма $x_1 + x_2 + x_3 + x_4$?",
   "answer": {
-    "value": 37.0
+    "value": 37.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Высшая проба»",
@@ -14,5 +18,7 @@
     "grade": 8,
     "number": 2,
     "url": "https://olymp.hse.ru/mirror/pubs/share/821374446.pdf"
-  }
+  },
+  "statement_kk": "Нақты сандар $x_1$, $x_2$, $x_3$, $x_4$ мынадай шарттарды қанағаттандырады: $x_1 + x_2 \\geqslant 12$, $x_1 + x_3 \\geqslant 13$, $x_1 + x_4 \\geqslant 14$, $x_3 + x_4 \\geqslant 22$, $x_2 + x_3 \\geqslant 23$, $x_2 + x_4 \\geqslant 24$. $x_1 + x_2 + x_3 + x_4$ қосындысы қабылдай алатын ең кіші мән қандай?",
+  "figures": []
 }

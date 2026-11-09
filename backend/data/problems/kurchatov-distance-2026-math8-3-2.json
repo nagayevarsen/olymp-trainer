@@ -5,7 +5,11 @@
   "title": "Трапеция",
   "statement": "В трапеции $ABCD$ с основаниями $CD = 38$ и $AB = 6$ и острыми углами при большем основании отметили середину $M$ стороны $AB$ и такую точку $N$ на стороне $CD$, что $\\angle ADN = \\frac{1}{2} \\angle MNC$ и $\\angle BCN = \\frac{1}{2} \\angle MND$. Найдите длину отрезка $MN$.",
   "answer": {
-    "value": 16.0
+    "value": 16.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 8,
     "number": 2,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Olimpiada_Kurchatov_2026_Math_9_8_Online_Solutions.pdf"
-  }
+  },
+  "statement_kk": "Үлкен табанындағы бұрыштары сүйір болатын $ABCD$ трапециясында табандары $CD = 38$ және $AB = 6$. $AB$ қабырғасының ortаңғы нүктесі $M$ және $CD$ қабырғасында $\\angle ADN = \\frac{1}{2} \\angle MNC$ және $\\angle BCN = \\frac{1}{2} \\angle MND$ шарттарын қанағаттандыратын $N$ нүктесі белгіленген. $MN$ кесіндісінің ұзындығын табыңыз.",
+  "figures": []
 }

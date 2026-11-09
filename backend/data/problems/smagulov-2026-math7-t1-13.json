@@ -6,13 +6,15 @@
   "statement": "Дана последовательность $a_1, a_2, \\ldots$, для которой при любом натуральном $n$ выполняется равенство $a_{n+1}=a_n+13$. Найдите сумму $a_1+a_3+a_5+\\ldots+a_{15}$, если $a_1=2$.",
   "answer": {
     "value": 744.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 744",
       "решение: anthropic:claude-sonnet-5-5 → 744",
       "программа (other): anthropic:claude-haiku-5-5 → 744",
       "программа (other): anthropic:claude-sonnet-5-5 → 744"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -51,5 +53,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Кез келген натурал $n$ үшін $a_{n+1}=a_n+13$ теңдігі орындалатын $a_1, a_2, \\ldots$ тізбегі берілген. $a_1=2$ болса, $a_1+a_3+a_5+\\ldots+a_{15}$ қосындысын табыңыз.",
+  "figures": []
 }

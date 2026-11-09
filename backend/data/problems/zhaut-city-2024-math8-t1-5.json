@@ -1,0 +1,27 @@
+{
+  "id": "zhaut-city-2024-math8-t1-5",
+  "subject": "math",
+  "topic": "геометрия",
+  "title": "Перпендикулярность BK и MN",
+  "statement": "Дан параллелограмм $ABCD$. Точка $K$ внутри него такова, что $AB=AK$. Пусть $M$ и $N$ — середины отрезков $CK$ и $AD$ соответственно. Докажите, что прямые $BK$ и $MN$ перпендикулярны.",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2024,
+    "stage": "city",
+    "grade": 8,
+    "number": 5,
+    "url": "https://matol.kz/olympiads/1123"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Воспользуемся векторами с началом в точке $A$. Обозначим $\\vec{b}=\\overrightarrow{AB}$, $\\vec{d}=\\overrightarrow{AD}$, $\\vec{k}=\\overrightarrow{AK}$. Условие $AB=AK$ означает, что $|\\vec{k}|=|\\vec{b}|$.\n\nТак как $ABCD$ — параллелограмм, $\\overrightarrow{AC}=\\vec b+\\vec d$.\n\nТочка $M$ — середина $CK$, поэтому $\\overrightarrow{AM}=\\dfrac{\\overrightarrow{AC}+\\overrightarrow{AK}}2=\\dfrac{\\vec b+\\vec d+\\vec k}{2}$.\n\nТочка $N$ — середина $AD$, поэтому $\\overrightarrow{AN}=\\dfrac{\\vec d}{2}$.\n\nТогда\n$$\\overrightarrow{NM}=\\overrightarrow{AM}-\\overrightarrow{AN}=\\frac{\\vec b+\\vec k}{2},\\qquad \\overrightarrow{BK}=\\vec k-\\vec b.$$\n\nВычислим скалярное произведение:\n$$\\overrightarrow{NM}\\cdot\\overrightarrow{BK}=\\frac{(\\vec b+\\vec k)\\cdot(\\vec k-\\vec b)}{2}=\\frac{|\\vec k|^2-|\\vec b|^2}{2}=0.$$\n\nОсталось проверить, что оба вектора ненулевые, то есть прямые $BK$ и $MN$ определены. Точка $K$ лежит внутри параллелограмма, значит $K\\ne B$ и $\\overrightarrow{BK}\\ne\\vec 0$. Если бы $\\overrightarrow{NM}=\\vec 0$, то $\\vec k=-\\vec b$. Тогда $K$ лежала бы на прямой $AB$, а это невозможно для внутренней точки. Значит, $\\overrightarrow{NM}\\neq\\vec 0$.\n\nДва ненулевых вектора имеют нулевое скалярное произведение, следовательно, они перпендикулярны. Значит, прямые $BK$ и $MN$ перпендикулярны. Что и требовалось доказать.",
+  "statement_kk": "$ABCD$ параллелограмы берілген. $K$ нүктесі оның ішінде және $AB=AK$. $M$ және $N$ — сәйкесінше $CK$ және $AD$ кесінділерінің орталары. Дәлелдеңдер: $BK$ және $MN$ түзулері перпендикуляр.",
+  "solution_kk": "Шешімді ЖИ құрастырған және ресми емес. Бас нүктесі $A$ болатын векторларды пайдаланайық. Белгілейік: $\\vec{b}=\\overrightarrow{AB}$, $\\vec{d}=\\overrightarrow{AD}$, $\\vec{k}=\\overrightarrow{AK}$. $AB=AK$ шарты $|\\vec{k}|=|\\vec{b}|$ дегенді білдіреді.\n\nӨйткені $ABCD$ — параллелограмм, $\\overrightarrow{AC}=\\vec b+\\vec d$.\n\n$M$ нүктесі — $CK$ кесіндісінің ортасы, сондықтан $\\overrightarrow{AM}=\\dfrac{\\overrightarrow{AC}+\\overrightarrow{AK}}2=\\dfrac{\\vec b+\\vec d+\\vec k}{2}$.\n\n$N$ нүктесі — $AD$ кесіндісінің ортасы, сондықтан $\\overrightarrow{AN}=\\dfrac{\\vec d}{2}$.\n\nОнда\n$$\\overrightarrow{NM}=\\overrightarrow{AM}-\\overrightarrow{AN}=\\frac{\\vec b+\\vec k}{2},\\qquad \\overrightarrow{BK}=\\vec k-\\vec b.$$\n\nСкаляр көбейтіндіні есептейік:\n$$\\overrightarrow{NM}\\cdot\\overrightarrow{BK}=\\frac{(\\vec b+\\vec k)\\cdot(\\vec k-\\vec b)}{2}=\\frac{|\\vec k|^2-|\\vec b|^2}{2}=0.$$\n\nЕкі вектордың да нөлдік емес екенін тексеру қалды, яғни $BK$ және $MN$ түзулері анықталған. $K$ нүктесі параллелограмның ішінде жатыр, демек $K\\ne B$ және $\\overrightarrow{BK}\\ne\\vec 0$. Егер $\\overrightarrow{NM}=\\vec 0$ болса, онда $\\vec k=-\\vec b$ болар еді. Сонда $K$ нүктесі $AB$ түзуінде жатар еді, ал ішкі нүкте үшін бұл мүмкін емес. Демек, $\\overrightarrow{NM}\\neq\\vec 0$.\n\nНөлдік емес екі вектордың скаляр көбейтіндісі нөлге тең, демек олар перпендикуляр. Сондықтан $BK$ және $MN$ түзулері перпендикуляр. Дәлелдеу талап етілген.",
+  "figures": []
+}

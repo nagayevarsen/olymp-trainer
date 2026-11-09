@@ -19,5 +19,7 @@
     "url": "https://www.matol.ru/files/Disttur2_20_sol.pdf"
   },
   "solution": "Ответ. $a-b = 1$. Решение. $a^3+ab-b^3 = (a+b)^2 \\Leftrightarrow (a-b)(a^2+ab+b^2)+ab = a^2+2ab+b^2 \\Leftrightarrow (a-b-1)(a^2+ab+b^2) = 0$. Так как $a^2+ab+b^2 > 0$, то $a-b-1 = 0$, откуда и получаем ответ.",
+  "statement_kk": "Оң сандар $a$ және $b$ берілген, олар $a^3+ab-b^3 = (a+b)^2$ шартын қанағаттандырады. $a-b$ айырмасы неге тең болуы мүмкін?",
+  "solution_kk": "Жауабы. $a-b = 1$. Шешуі. $a^3+ab-b^3 = (a+b)^2 \\Leftrightarrow (a-b)(a^2+ab+b^2)+ab = a^2+2ab+b^2 \\Leftrightarrow (a-b-1)(a^2+ab+b^2) = 0$. $a^2+ab+b^2 > 0$ болғандықтан, $a-b-1 = 0$, осыдан жауап шығады.",
   "figures": []
 }

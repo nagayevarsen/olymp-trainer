@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=41"
   },
   "solution": "По формуле $x=\\sum \\rho\\Delta l\\,x_i/\\sum\\rho\\Delta l$ и подобию треугольников $x=\\dfrac{\\sum\\Delta l\\,r}{\\sum\\Delta l}\\cdot\\dfrac{r\\sum\\Delta l}{\\sum\\Delta l}$; $\\sum\\Delta l=\\pi r$ (длина полуокружности), $\\sum\\Delta l_i=2r$ (диаметр), откуда $x=\\dfrac{2r}{\\pi}\\approx0{,}64r$.",
+  "statement_kk": "Радиусы $r$ жарты шеңber түрінде иілген жұқа біртекті сымның ауырлық центрін табыңыз.",
+  "solution_kk": "$x=\\sum \\rho\\Delta l\\,x_i/\\sum\\rho\\Delta l$ формуласы мен ұқсас үшбұрыштар бойынша $x=\\dfrac{\\sum\\Delta l\\,r}{\\sum\\Delta l}\\cdot\\dfrac{r\\sum\\Delta l}{\\sum\\Delta l}$; $\\sum\\Delta l=\\pi r$ (жарты шеңбердің ұзындығы), $\\sum\\Delta l_i=2r$ (диаметр), бұдан $x=\\dfrac{2r}{\\pi}\\approx0{,}64r$.",
   "figures": []
 }

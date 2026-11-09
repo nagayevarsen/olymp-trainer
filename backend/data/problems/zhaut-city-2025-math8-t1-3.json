@@ -6,13 +6,15 @@
   "statement": "Дан треугольник $ABC$ с прямым углом $B$. На сторонах $AC$ и $AB$ нашлись точки $P$ и $Q$ соответственно такие, что $AP=PC$ и $\\angle BQC=\\angle AQP$. Найдите $AQ/QB$.",
   "answer": {
     "value": 2.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 2",
       "решение: anthropic:claude-sonnet-5-5 → 2",
       "программа (other): anthropic:claude-haiku-5-5 → 2",
       "программа (other): anthropic:claude-sonnet-5-5 → 2"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,7 @@
     "grade": 8,
     "number": 3,
     "url": "https://matol.kz/olympiads/1160"
-  }
+  },
+  "statement_kk": "$ABC$ үшбұрышының $B$ бұрышы түзу бұрыш. $AC$ және $AB$ қабырғаларында сәйкесінше $P$ және $Q$ нүктелері табылды, олар үшін $AP=PC$ және $\\angle BQC=\\angle AQP$. $AQ/QB$ табыңыз.",
+  "figures": []
 }

@@ -20,5 +20,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=111"
   },
   "solution": "За время $\\Delta t$ выделяется $Q = I^2R\\Delta t$. Используя $q = Q/(V\\Delta t)$, $V = Sl$, $I = jS$, $R = \\rho l/S$, получаем $q = \\rho j^2$.",
+  "statement_kk": "Өткізгіштегі ток тығыздығы $j$ болғанда, өткізгіш көлемінің бірлігінде бірлік уақытта қандай жылу мөлшері $q$ бөлінеді? Өткізгіштің меншікті кедергісі $\\rho$ -ға тең.",
+  "solution_kk": "$\\Delta t$ уақыт ішінде $Q = I^2R\\Delta t$ бөлінеді. $q = Q/(V\\Delta t)$, $V = Sl$, $I = jS$, $R = \\rho l/S$ теңдіктерін пайдаланып, $q = \\rho j^2$ аламыз.",
   "figures": []
 }

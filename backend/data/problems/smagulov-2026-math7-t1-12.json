@@ -6,13 +6,15 @@
   "statement": "Найдите наименьшее натуральное значение $n$, при котором число $n^2+n+11$ является составным.",
   "answer": {
     "value": 10.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 10",
       "решение: anthropic:claude-sonnet-5-5 → 10",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 10",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 10"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -21,5 +23,7 @@
     "grade": 7,
     "number": 12,
     "url": "https://matol.kz/olympiads/1227"
-  }
+  },
+  "statement_kk": "$n^2+n+11$ саны құрама сан болатын ең кіші натурал $n$ мәнін табыңыз.",
+  "figures": []
 }

@@ -13,7 +13,8 @@
       "qN": "коэффициент q_N"
     },
     "origin": "official",
-    "verified_by": []
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Международная Жаутыковская олимпиада (IZhO)",
@@ -23,6 +24,8 @@
     "url": "https://izho.kz/wp-content/uploads/2018/01/IZhO-2017-Theory_rus_sol-ilovepdf-compressed.pdf"
   },
   "solution": "$I_0=\\frac{x_0-x_1}{R_0}+\\frac{x_0-x_{N-1}}{R_0}+\\frac{x_0-y_0}{R_0}=\\frac{4x_0-2x_1}{R_0}$; подставляя $x_1$ и используя $q_{N-1}=2q_N-p_N$, получаем $I_0=\\frac{2\\varphi_0(p_N-1)}{R_0q_N}$.",
+  "statement_kk": "Есеп математикалық кіріспеден (рекуррент қатыстар, $\\lambda=2+\\sqrt{3}$ санының дәрежелері) және әр қыры кедергісі $R_0$-ге тең призма пішініндегі сым каркасты зерттеуден тұрады.\n\n**2.6-тармақ.** Көзден өтетін $I_0$ ток күшін $\\varphi_0$, $R_0$, $N$ және $p_N,q_N$ коэффициенттері арқылы өрнектеңіз.",
+  "solution_kk": "$I_0=\\frac{x_0-x_1}{R_0}+\\frac{x_0-x_{N-1}}{R_0}+\\frac{x_0-y_0}{R_0}=\\frac{4x_0-2x_1}{R_0}$; $x_1$ мәнін қойып, $q_{N-1}=2q_N-p_N$ екенін пайдалансақ, $I_0=\\frac{2\\varphi_0(p_N-1)}{R_0q_N}$ аламыз.",
   "figures": [
     "izho-2017-phys-3-fig1.png",
     "izho-2017-phys-3-fig2.png"

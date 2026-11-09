@@ -5,7 +5,11 @@
   "title": "Наименьшее число с наибольшей суммой цифр",
   "statement": "Найти наименьшее натуральное число $n$, большее $1000$, такое, что среди чисел $n - 1000, n - 999, n - 998, \\dots, n - 1, n, n + 1, \\dots, n + 998, n + 999, n + 1000$ наибольшую сумму цифр имеет число $n$.",
   "answer": {
-    "value": 9999.0
+    "value": 9999.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 1,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Kurchatov_2026_Math_10_Solutions.pdf"
-  }
+  },
+  "statement_kk": "$n - 1000, n - 999, n - 998, \\dots, n - 1, n, n + 1, \\dots, n + 998, n + 999, n + 1000$ сандарының ішінде цифрларының қосындысы ең үлкен болатын сан $n$ болатындай, $1000$-нан үлкен ең кіші $n$ натурал санын табыңыз.",
+  "figures": []
 }

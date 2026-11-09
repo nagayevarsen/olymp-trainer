@@ -5,7 +5,11 @@
   "title": "Наименьшее число со свойствами",
   "statement": "Найдите наименьшее натуральное число, которое обладает следующими тремя свойствами:\n• делится на 632;\n• заканчивается на 632;\n• больше 632.",
   "answer": {
-    "value": 79632.0
+    "value": 79632.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 7,
     "number": 1,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2021_Online_Math.pdf"
-  }
+  },
+  "statement_kk": "Үш қасиеті бар ең кіші натурал санды табыңыз:\n• 632-ге бөлінеді;\n• 632-мен аяқталады;\n• 632-ден үлкен.",
+  "figures": []
 }

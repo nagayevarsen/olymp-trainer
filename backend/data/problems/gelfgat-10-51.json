@@ -19,5 +19,7 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=71"
   },
   "solution": "Удлинение без опор $\\Delta l=\\alpha l(t_2-t_1)$. Сила $F$ создаёт такое же сжатие: $\\varepsilon=\\Delta l/l$, $\\sigma=E\\varepsilon$, $F=ES\\alpha(t_2-t_1)$.",
+  "statement_kk": "Болаттан жасалған стерженнің көлденең қимасы $S = 2{,}0$ см², ұштары $t_1 = 15$°C температурада берік бекітілген. Стерженді $t_2 = 150$°C-қа дейін қыздырғанда ол тіреуішке қандай $F$ күшпен әсер етеді?",
+  "solution_kk": "Тіреуіштерсіз ұзару $\\Delta l=\\alpha l(t_2-t_1)$. $F$ күші дәл осындай қысқаруды тудырады: $\\varepsilon=\\Delta l/l$, $\\sigma=E\\varepsilon$, $F=ES\\alpha(t_2-t_1)$.",
   "figures": []
 }

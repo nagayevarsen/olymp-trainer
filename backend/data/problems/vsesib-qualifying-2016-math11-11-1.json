@@ -5,7 +5,11 @@
   "title": "Число и сумма цифр",
   "statement": "Найти все ненулевые числа, в пять раз меньшие суммы всех своих цифр.",
   "answer": {
-    "value": 1.8
+    "value": 1.8,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +18,7 @@
     "grade": 11,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/ec6/2015_2_math_s.pdf"
-  }
+  },
+  "statement_kk": "Барлық цифрларының қосындысынан бес есе кіші болатын барлық нөлден өзгеше сандарды табыңыз.",
+  "figures": []
 }

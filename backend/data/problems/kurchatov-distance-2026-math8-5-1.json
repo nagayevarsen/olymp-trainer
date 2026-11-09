@@ -5,7 +5,11 @@
   "title": "Делители числа",
   "statement": "Про число $X$ известно, что оно делится на 48 и имеет ровно 2026 делителей. Найдите остаток при делении на 9 максимального из всех $X$, удовлетворяющих условиям.",
   "answer": {
-    "value": 3.0
+    "value": 3.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 8,
     "number": 1,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/2026/tasks/Olimpiada_Kurchatov_2026_Math_9_8_Online_Solutions.pdf"
-  }
+  },
+  "statement_kk": "$X$ санының 48-ге бөлінетіні және дәл 2026 бөлгіші бар екені белгілі. Шарттарды қанағаттандыратын барлық $X$ сандарының ішіндегі ең үлкенінің 9-ға бөлгендегі қалдығын табыңыз.",
+  "figures": []
 }

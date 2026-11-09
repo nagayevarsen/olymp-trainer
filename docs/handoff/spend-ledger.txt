@@ -67,3 +67,8 @@ scan-gelfgat-final-recheck 1.2732
 templates-claude-zhaut-izho-euler-smagulov-kz 6.0326
 templates-claude-stopped-runs-estimate 0.25
 templates-claude-last-batch 3.0304
+kk-translation-haiku 1.9
+matol-fill-1 1.9
+matol-fill-2 2.6234
+matol-fill-3 2.5636
+kk-translation-rest 0.23

@@ -19,5 +19,7 @@
     "url": "https://cdn.bc-pf.org/olympiads/math/national/oblast/2023/math9-1-sol.pdf"
   },
   "solution": "По неравенству Коши $$\\frac{1}{a}+\\frac{2}{b}+\\frac{3}{c}+\\frac{4}{d}=\\frac{1^2}{a}+\\frac{2^2}{2b}+\\frac{3^2}{3c}+\\frac{4^2}{4d}\\ge\\frac{(1+2+3+4)^2}{a+2b+3c+4d}=\\frac{100}{a+2b+3c+4d}.$$ Аналогично получим $$\\frac{1}{b}+\\frac{2}{c}+\\frac{3}{d}+\\frac{4}{a}\\ge\\frac{100}{b+2c+3d+4a},$$ $$\\frac{1}{c}+\\frac{2}{d}+\\frac{3}{a}+\\frac{4}{b}\\ge\\frac{100}{c+2d+3a+4b},$$ $$\\frac{1}{d}+\\frac{2}{a}+\\frac{3}{b}+\\frac{4}{c}\\ge\\frac{100}{d+2a+3b+4c}.$$ Сложив полученные неравенства, получим требуемое.",
+  "statement_kk": "Кез келген оң $a,b,c,d$ үшін $$\\frac{1}{a+2b+3c+4d}+\\frac{1}{b+2c+3d+4a}+\\frac{1}{c+2d+3a+4b}+\\frac{1}{d+2a+3b+4c}\\le\\frac{1}{10a}+\\frac{1}{10b}+\\frac{1}{10c}+\\frac{1}{10d}$$ теңсіздігінің орындалатынын дәлелдеңдер.",
+  "solution_kk": "Кошы теңсіздігі бойынша $$\\frac{1}{a}+\\frac{2}{b}+\\frac{3}{c}+\\frac{4}{d}=\\frac{1^2}{a}+\\frac{2^2}{2b}+\\frac{3^2}{3c}+\\frac{4^2}{4d}\\ge\\frac{(1+2+3+4)^2}{a+2b+3c+4d}=\\frac{100}{a+2b+3c+4d}.$$ Ұқсас түрде алamыз: $$\\frac{1}{b}+\\frac{2}{c}+\\frac{3}{d}+\\frac{4}{a}\\ge\\frac{100}{b+2c+3d+4a},$$ $$\\frac{1}{c}+\\frac{2}{d}+\\frac{3}{a}+\\frac{4}{b}\\ge\\frac{100}{c+2d+3a+4b},$$ $$\\frac{1}{d}+\\frac{2}{a}+\\frac{3}{b}+\\frac{4}{c}\\ge\\frac{100}{d+2a+3b+4c}.$$ Алынған теңсіздіктерді қоссақ, талап етілген теңсіздікті аламыз.",
   "figures": []
 }

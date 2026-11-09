@@ -5,7 +5,11 @@
   "title": "Количество пар чисел",
   "statement": "Найдите количество пар неотрицательных чисел $(x, y)$, каждое из которых не превосходит $5\\pi$, удовлетворяющих равенству $(\\operatorname{tg} x + \\operatorname{ctg} y)^2 = (\\operatorname{tg} x + 1)(\\operatorname{ctg} y - 1)$.",
   "answer": {
-    "value": 25.0
+    "value": 25.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада «Курчатов»",
@@ -14,5 +18,7 @@
     "grade": 10,
     "number": 2,
     "url": "https://old.olimpiadakurchatov.ru/upload/files/Kurchatov_2021_Online_Math.pdf"
-  }
+  },
+  "statement_kk": "Әрқайсысы $5\\pi$-ден аспайтын, теріс емес $(x, y)$ сандар жұбынының санын табыңыз, олар $(\\operatorname{tg} x + \\operatorname{ctg} y)^2 = (\\operatorname{tg} x + 1)(\\operatorname{ctg} y - 1)$ теңдігін қанағаттандырсын.",
+  "figures": []
 }

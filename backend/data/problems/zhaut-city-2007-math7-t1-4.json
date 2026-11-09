@@ -1,0 +1,27 @@
+{
+  "id": "zhaut-city-2007-math7-t1-4",
+  "subject": "math",
+  "topic": "геометрия треугольника",
+  "title": "Равенство углов в треугольнике",
+  "statement": "В  прямоугольном  треугольнике  $ABC$   отмечена  точка $K$  — середина гипотенузы $AB$. На катете $BC$ выбрана точка $M$, так, что $BM=2MC$. Докажите, что $\\angle MAB=\\angle MKC$.",
+  "answer": {
+    "variables": {},
+    "origin": "verified",
+    "verified_by": [
+      "решение составлено Sonnet, проверено Haiku"
+    ],
+    "proof": true
+  },
+  "source": {
+    "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
+    "year": 2007,
+    "stage": "city",
+    "grade": 7,
+    "number": 4,
+    "url": "https://matol.kz/olympiads/330"
+  },
+  "solution": "Решение составлено ИИ и не является официальным. Так как $AB$ — гипотенуза, прямой угол находится при вершине $C$. Введём координаты: $C=(0,0)$, $B=(3,0)$, $A=(0,a)$, где $a>0$. Масштаб выбран так, что $BC=3$. Из условия $BM=2MC$ получаем $MC=1$, то есть $M=(1,0)$. Точка $K$ — середина $AB$, поэтому $K=\\left(\\tfrac32,\\tfrac a2\\right)$.\n\nДля векторов $\\vec u,\\vec v$ обозначим скалярное произведение $\\vec u\\cdot\\vec v$ и «косое» произведение $[\\vec u,\\vec v]=u_xv_y-u_yv_x$. Угол $\\varphi\\in[0,\\pi]$ между ними удовлетворяет равенствам $\\cos\\varphi\\sim\\vec u\\cdot\\vec v$ и $\\sin\\varphi\\sim|[\\vec u,\\vec v]|$ (с одним и тем же положительным множителем $|\\vec u||\\vec v|$). Поэтому если $\\vec u\\cdot\\vec v>0$, то угол острый и $\\tan\\varphi=\\dfrac{|[\\vec u,\\vec v]|}{\\vec u\\cdot\\vec v}$.\n\n1) Угол $MAB$. Здесь $\\vec{AM}=(1,-a)$, $\\vec{AB}=(3,-a)$. Тогда\n$\\vec{AM}\\cdot\\vec{AB}=3+a^2>0$,\n$[\\vec{AM},\\vec{AB}]=1\\cdot(-a)-(-a)\\cdot3=2a$.\nЗначит, угол $MAB$ острый и $\\tan\\angle MAB=\\dfrac{2a}{3+a^2}$.\n\n2) Угол $MKC$. Здесь $\\vec{KM}=\\left(-\\tfrac12,-\\tfrac a2\\right)$, $\\vec{KC}=\\left(-\\tfrac32,-\\tfrac a2\\right)$. Тогда\n$\\vec{KM}\\cdot\\vec{KC}=\\tfrac34+\\tfrac{a^2}4=\\tfrac{3+a^2}{4}>0$,\n$[\\vec{KM},\\vec{KC}]=\\left(-\\tfrac12\\right)\\left(-\\tfrac a2\\right)-\\left(-\\tfrac a2\\right)\\left(-\\tfrac32\\right)=\\tfrac a4-\\tfrac{3a}{4}=-\\tfrac a2$.\nЗначит, угол $MKC$ острый и $\\tan\\angle MKC=\\dfrac{a/2}{(3+a^2)/4}=\\dfrac{2a}{3+a^2}$.\n\nОба угла острые и имеют равные тангенсы. Тангенс строго возрастает на $(0,\\pi/2)$, поэтому $\\angle MAB=\\angle MKC$. Что и требовалось доказать.",
+  "statement_kk": "Тік бұрышты $ABC$ үшбұрышында $AB$ гипотенузасының ортасы $K$ нүктесі белгіленген. $BC$ катетінде $BM=2MC$ болатындай $M$ нүктесі алынған. $\\angle MAB=\\angle MKC$ екенін дәлелдеңдер.",
+  "solution_kk": "Шешімді ЖИ дайындаған, ол ресми емес. $AB$ — гипотенуза болғандықтан, тік бұрыш $C$ төбесінде орналасқан. Координаталарды енгізейік: $C=(0,0)$, $B=(3,0)$, $A=(0,a)$, мұнда $a>0$. Масштаб $BC=3$ болатындай таңдалған. $BM=2MC$ шартынан $MC=1$, яғни $M=(1,0)$ шығады. $K$ нүктесі $AB$ ортасы болғандықтан, $K=\\left(\\tfrac32,\\tfrac a2\\right)$.\n\nКез келген $\\vec u,\\vec v$ векторлары үшін скалярлық көбейтіндіні $\\vec u\\cdot\\vec v$, ал «қиғаш» көбейтіндіні $[\\vec u,\\vec v]=u_xv_y-u_yv_x$ деп белгілейік. Олардың арасындағы $\\varphi\\in[0,\\pi]$ бұрышы үшін $\\cos\\varphi\\sim\\vec u\\cdot\\vec v$ және $\\sin\\varphi\\sim|[\\vec u,\\vec v]|$ теңдіктері орындалады (бірдей оң көбейтіндімен, $|\\vec u||\\vec v|$). Сондықтан $\\vec u\\cdot\\vec v>0$ болса, бұрыш сүйір және $\\tan\\varphi=\\dfrac{|[\\vec u,\\vec v]|}{\\vec u\\cdot\\vec v}$.\n\n1) $MAB$ бұрышы. Мұнда $\\vec{AM}=(1,-a)$, $\\vec{AB}=(3,-a)$. Онда\n$\\vec{AM}\\cdot\\vec{AB}=3+a^2>0$,\n$[\\vec{AM},\\vec{AB}]=1\\cdot(-a)-(-a)\\cdot3=2a$.\nДемек, $MAB$ бұрышы сүйір және $\\tan\\angle MAB=\\dfrac{2a}{3+a^2}$.\n\n2) $MKC$ бұрышы. Мұнда $\\vec{KM}=\\left(-\\tfrac12,-\\tfrac a2\\right)$, $\\vec{KC}=\\left(-\\tfrac32,-\\tfrac a2\\right)$. Онда\n$\\vec{KM}\\cdot\\vec{KC}=\\tfrac34+\\tfrac{a^2}4=\\tfrac{3+a^2}{4}>0$,\n$[\\vec{KM},\\vec{KC}]=\\left(-\\tfrac12\\right)\\left(-\\tfrac a2\\right)-\\left(-\\tfrac a2\\right)\\left(-\\tfrac32\\right)=\\tfrac a4-\\tfrac{3a}{4}=-\\tfrac a2$.\nДемек, $MKC$ бұрышы сүйір және $\\tan\\angle MKC=\\dfrac{a/2}{(3+a^2)/4}=\\dfrac{2a}{3+a^2}$.\n\nЕкі бұрыш та сүйір және тангенстері тең. Тангенс $(0,\\pi/2)$ аралығында қатаң өсетіндіктен, $\\angle MAB=\\angle MKC$. Бұл дәлелдеуді талап етті.",
+  "figures": []
+}

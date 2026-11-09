@@ -6,13 +6,15 @@
   "statement": "Дана последовательность чисел: $\\frac{1}{3}$, $\\frac{7}{9}$, $\\frac{17}{19}$, $\\frac{31}{33}$, $\\frac{49}{51}$, $\\frac{71}{73}$, $\\frac{m}{n}$. Определив закономерность в последовательности, найдите произведение $m\\cdot n$. Здесь $m$ и $n$ такие натуральные числа, что НОД$(m,n)=1$.",
   "answer": {
     "value": 9603.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 9603",
       "решение: anthropic:claude-sonnet-5-5 → 9603",
       "программа (other): anthropic:claude-haiku-5-5 → 9603",
       "программа (other): anthropic:claude-sonnet-5-5 → 9603"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -21,5 +23,7 @@
     "grade": 6,
     "number": 12,
     "url": "https://matol.kz/olympiads/1150"
-  }
+  },
+  "statement_kk": "Берілген сандар тізбегі: $\\frac{1}{3}$, $\\frac{7}{9}$, $\\frac{17}{19}$, $\\frac{31}{33}$, $\\frac{49}{51}$, $\\frac{71}{73}$, $\\frac{m}{n}$. Тізбектегі заңдылықты анықтап, $m\\cdot n$ көбейтіндісін табыңыз. Мұнда $m$ және $n$ натурал сандар, НОД$(m,n)=1$.",
+  "figures": []
 }

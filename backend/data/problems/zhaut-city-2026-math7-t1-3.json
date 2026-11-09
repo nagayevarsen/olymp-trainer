@@ -6,13 +6,15 @@
   "statement": "Целые числа $a$, $b$ и $c$ удовлетворяют условиям: $$ab + c = 20, \\quad bc + a=26, \\quad ca + b =526.$$ Найдите значение выражения $ab + bc + ca$.",
   "answer": {
     "value": 620.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 620",
       "решение: anthropic:claude-sonnet-5-5 → 620",
       "программа (enumeration): anthropic:claude-haiku-5-5 → 620",
       "программа (enumeration): anthropic:claude-sonnet-5-5 → 620"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Городская Жаутыковская олимпиада (Алматы)",
@@ -21,5 +23,7 @@
     "grade": 7,
     "number": 3,
     "url": "https://matol.kz/olympiads/1221"
-  }
+  },
+  "statement_kk": "Бүтін $a$, $b$ және $c$ сандары мына шарттарды қанағаттандырады: $$ab + c = 20, \\quad bc + a=26, \\quad ca + b =526.$$ $ab + bc + ca$ өрнегінің мәнін табыңдар.",
+  "figures": []
 }

@@ -19,6 +19,8 @@
     "url": "https://fizmat.space/library/files/Gelfgat1001.pdf#page=36"
   },
   "solution": "Момент сил относительно точки A: $T l\\sin\\alpha - mg\\frac{l}{2}\\cos\\alpha = 0$, откуда $T = \\frac{1}{2} mg\\,\\mathrm{ctg}\\alpha$. Из равновесия трёх сил проекции $N_x = T$, $N_y = mg$, поэтому $N = \\frac{mg}{2}\\sqrt{4 + \\mathrm{ctg}^2\\alpha}$ и $\\mathrm{tg}\\beta = \\frac{N_x}{N_y} = \\frac{\\mathrm{ctg}\\alpha}{2}$.",
+  "statement_kk": "Жіңішке біртекті стержень A нүктесінде шарнирмен бекітілген және көлденең жіппен тепе-теңдік күйде ұсталады (суретті қараңыз). Стерженьнің массасы $m = 1$ кг, оның көлденеңге көлбеу бұрышы $\\alpha = 45°$. Шарнирдің N реакция күшінің шамасы мен бағытын табыңыз.\n\n**N бөлігі.** Тек осы бөлікке ғана жауап беріңіз.",
+  "solution_kk": "A нүктесіне қатысты күш моменті: $T l\\sin\\alpha - mg\\frac{l}{2}\\cos\\alpha = 0$, бұдан $T = \\frac{1}{2} mg\\,\\mathrm{ctg}\\alpha$. Үш күштің тепе-теңдігінен проекциялар: $N_x = T$, $N_y = mg$, сондықтан $N = \\frac{mg}{2}\\sqrt{4 + \\mathrm{ctg}^2\\alpha}$ және $\\mathrm{tg}\\beta = \\frac{N_x}{N_y} = \\frac{\\mathrm{ctg}\\alpha}{2}$.",
   "figures": [
     "gelfgat-5-25-p1-fig1.png"
   ]

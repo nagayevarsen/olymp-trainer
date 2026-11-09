@@ -6,13 +6,15 @@
   "statement": "Натуральное число $A$ имеет ровно 24 различных делителя (включая $1$ и само число $A$). Произведение всех этих делителей равно числу $A^{n}$. Найдите $n$.",
   "answer": {
     "value": 12.0,
+    "variables": {},
     "origin": "verified",
     "verified_by": [
       "решение: anthropic:claude-haiku-5-5 → 12",
       "решение: anthropic:claude-sonnet-5-5 → 12",
       "программа (other): anthropic:claude-haiku-5-5 → 12",
       "программа (other): anthropic:claude-sonnet-5-5 → 12"
-    ]
+    ],
+    "proof": false
   },
   "source": {
     "olympiad": "Олимпиада им. Шалтая Смагулова",
@@ -50,5 +52,7 @@
         "anthropic:claude-haiku-5-5"
       ]
     }
-  }
+  },
+  "statement_kk": "Натурал $A$ санының дәл 24 әртүрлі бөлгіші бар (1 және $A$ санының өзі де кіреді). Осы бөлгіштердің барлық көбейтіндісі $A^{n}$ санына тең. $n$ санын табыңыз.",
+  "figures": []
 }

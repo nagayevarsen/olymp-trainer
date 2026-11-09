@@ -5,7 +5,11 @@
   "title": "Уравнение с факториалами",
   "statement": "Найти все целые положительные решения уравнения $(n+2)!-(n+1)!-n!=n^2+n^4$.",
   "answer": {
-    "value": 3.0
+    "value": 3.0,
+    "variables": {},
+    "origin": "official",
+    "verified_by": [],
+    "proof": false
   },
   "source": {
     "olympiad": "Всесибирская открытая олимпиада школьников",
@@ -14,5 +18,7 @@
     "grade": 11,
     "number": 1,
     "url": "https://sesc.nsu.ru/upload/iblock/a76/2016_2_math_s.pdf"
-  }
+  },
+  "statement_kk": "$(n+2)!-(n+1)!-n!=n^2+n^4$ теңдеуінің барлық бүтін оң шешімдерін табыңыз.",
+  "figures": []
 }
