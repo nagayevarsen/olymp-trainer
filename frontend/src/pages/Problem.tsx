@@ -411,7 +411,7 @@ export function ProblemPage() {
               {t('Та же идея, другие числа. Каждый вариант проверен: решатель воспроизводит официальный ответ.')}
             </p>
             <button onClick={newVariant} disabled={busy === 'variant'} className="btn-ghost mt-3 w-full">
-              {busy === 'variant' ? t('Подбираю и проверяю…') : t('∞ Сделать новый вариант')}
+              {busy === 'variant' ? t('Подбираю и проверяю…') : t('↻ Сделать новый вариант')}
             </button>
             {seed !== null && (
               <button

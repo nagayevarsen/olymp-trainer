@@ -209,7 +209,7 @@ function ProblemCard({ p }: { p: ProblemListItem }) {
       </h3>
       <p className="mt-1 line-clamp-2 text-sm text-slate-500">{p.source}</p>
       <div className="mt-auto flex flex-wrap gap-2 pt-4 text-xs font-medium text-slate-500">
-        {p.can_clone && <span className="chip bg-slate-100 dark:bg-slate-800">{t('∞ варианты')}</span>}
+        {p.can_clone && <span className="chip bg-slate-100 dark:bg-slate-800">{t('↻ варианты')}</span>}
         {p.started && !p.solved && <span className="chip bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300">{t('в процессе')}</span>}
         {p.solve_rate !== null && <span className="chip bg-slate-100 dark:bg-slate-800">{t('решили {n}%', { n: p.solve_rate })}</span>}
       </div>
